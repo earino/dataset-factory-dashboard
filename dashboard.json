@@ -1,6 +1,7 @@
 {
  "alarms": [
-  "3 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report",
+  "scout-worker-watch missed its window (2026-10-20T20:29:22.385923+00:00); last status ok",
+  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -18,13 +19,13 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-20T19:50:03.123848+00:00",
+   "moment": "2026-10-20T20:50:02.769081+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.0,
-   "research_tokens_last_7_days": 3113922,
-   "runs_last_7_days": 18,
-   "runs_weighted_last_7_days": 18,
+   "research_tokens_last_7_days": 3274843,
+   "runs_last_7_days": 19,
+   "runs_weighted_last_7_days": 19,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 0,
    "usage": {
@@ -48,23 +49,23 @@
      "output_tokens": 1452974
     },
     "research": {
-     "calls": 1021,
+     "calls": 1091,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": 0.0,
-     "input_tokens": 3040513,
-     "output_tokens": 1034136
+     "input_tokens": 3124664,
+     "output_tokens": 1110906
     },
     "scheduled-other": {
-     "calls": 842,
+     "calls": 980,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": 0.000514,
-     "input_tokens": 1583125,
-     "output_tokens": 635156
+     "input_tokens": 1719886,
+     "output_tokens": 727612
     }
    },
    "weekly_token_budget": 40000000
@@ -82,8 +83,9 @@
    "dropped": 8,
    "investigating": 7,
    "packaged": 1,
-   "parked": 9,
-   "published": 4
+   "parked": 11,
+   "published": 4,
+   "ready": 1
   },
   "errors": [],
   "live": [
@@ -223,11 +225,11 @@
     "status": "published"
    },
    {
-    "age_hours": 2.5,
+    "age_hours": 3.5,
     "awaiting_operator": false,
     "country": "US",
     "id": "chicago-food-inspections",
-    "next_action": "PACKAGED (awaiting nothing but its own release steps) - destination staging steps 1-2 are complete (private repo earino/chicago-food-inspections with the packag",
+    "next_action": "PACKAGED (awaiting nothing but its own release steps) - destination staging steps 1-3 are COMPLETE: private repo earino/chicago-food-inspections carries the pac",
     "packaged_at": "2026-10-20T17:20:56.111144+00:00",
     "path": "candidates/chicago-food-inspections/record.json",
     "publisher": "City of Chicago, Illinois",
@@ -478,6 +480,28 @@
    },
    {
     "awaiting_operator": false,
+    "country": "CH",
+    "id": "unhcr-refugee-data-finder",
+    "next_action": "Unpark question (exact): can the RDF population CSV be fetched by a non-interactive client - a documented export URL, an API, or a fetch pattern that passes the",
+    "packaged_at": null,
+    "path": "candidates/unhcr-refugee-data-finder/record.json",
+    "publisher": "United Nations High Commissioner for Refugees (UNHCR), headquartered in Geneva, Switzerland",
+    "region": "International organisations",
+    "status": "parked"
+   },
+   {
+    "awaiting_operator": false,
+    "country": "US",
+    "id": "unicef-sdmx-refugee-origin-growth",
+    "next_action": "Unpark condition (exact): a machine-fetchable richer grain of the same phenomenon - UNHCR RDF's monthly asylum applications or host-country x origin population ",
+    "packaged_at": null,
+    "path": "candidates/unicef-sdmx-refugee-origin-growth/record.json",
+    "publisher": "United Nations Children's Fund (UNICEF) - Data and Analytics, headquartered in New York, United States",
+    "region": "International organisations",
+    "status": "parked"
+   },
+   {
+    "awaiting_operator": false,
     "country": "VN",
     "id": "vietnam-nso-publications",
     "next_action": "Unpark path: (1) identify the current machine-readable channel, if any - probe from a worker for Vietnamese-language data sections (XLSX monthly releases), and ",
@@ -486,17 +510,28 @@
     "publisher": "National Statistics Office of Vietnam (NSO, formerly GSO, under the Ministry of Finance)",
     "region": "South & South-East Asia",
     "status": "parked"
+   },
+   {
+    "awaiting_operator": false,
+    "country": "CH",
+    "id": "who-flunet-activity-exceedance",
+    "next_action": "Construction (worker job, no local bulk work): (1) download the single publisher CSV (30.8 MiB, one request); (2) build country-week rows at one-grain-per-week ",
+    "packaged_at": null,
+    "path": "candidates/who-flunet-activity-exceedance/record.json",
+    "publisher": "World Health Organization (WHO) - Global Influenza Programme / FluNet, headquartered in Geneva, Switzerland",
+    "region": "International organisations",
+    "status": "ready"
    }
   ],
   "release": {
    "awaiting": [],
    "packaged": [
     {
-     "age_hours": 2.5,
+     "age_hours": 3.5,
      "awaiting_operator": false,
      "country": "US",
      "id": "chicago-food-inspections",
-     "next_action": "PACKAGED (awaiting nothing but its own release steps) - destination staging steps 1-2 are complete (private repo earino/chicago-food-inspections with the packag",
+     "next_action": "PACKAGED (awaiting nothing but its own release steps) - destination staging steps 1-3 are COMPLETE: private repo earino/chicago-food-inspections carries the pac",
      "packaged_at": "2026-10-20T17:20:56.111144+00:00",
      "path": "candidates/chicago-food-inspections/record.json",
      "publisher": "City of Chicago, Illinois",
@@ -506,11 +541,11 @@
    ],
    "pending": [
     {
-     "age_hours": 2.5,
+     "age_hours": 3.5,
      "awaiting_operator": false,
      "country": "US",
      "id": "chicago-food-inspections",
-     "next_action": "PACKAGED (awaiting nothing but its own release steps) - destination staging steps 1-2 are complete (private repo earino/chicago-food-inspections with the packag",
+     "next_action": "PACKAGED (awaiting nothing but its own release steps) - destination staging steps 1-3 are COMPLETE: private repo earino/chicago-food-inspections carries the pac",
      "packaged_at": "2026-10-20T17:20:56.111144+00:00",
      "path": "candidates/chicago-food-inspections/record.json",
      "publisher": "City of Chicago, Illinois",
@@ -524,6 +559,7 @@
   "by_country": {
    "AU": 1,
    "CA": 4,
+   "CH": 2,
    "GB": 3,
    "ID": 2,
    "IN": 3,
@@ -532,12 +568,13 @@
    "PH": 1,
    "SG": 1,
    "TH": 1,
-   "US": 10,
+   "US": 11,
    "VN": 1
   },
   "by_region": {
    "East Asia": 1,
    "Europe": 3,
+   "International organisations": 3,
    "North America": 14,
    "Oceania": 1,
    "South & South-East Asia": 10
@@ -546,13 +583,14 @@
    "dropped": 8,
    "investigating": 7,
    "packaged": 1,
-   "parked": 9,
-   "published": 4
+   "parked": 11,
+   "published": 4,
+   "ready": 1
   },
-  "candidates": 29,
-  "live": 12,
-  "live_non_us": 6,
-  "live_non_us_share": 0.5,
+  "candidates": 32,
+  "live": 13,
+  "live_non_us": 7,
+  "live_non_us_share": 0.538,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -574,10 +612,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-20T19:50:02.660728+00:00",
+    "last_run_at": "2026-10-20T20:50:01.761276+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-20T20:00:00+00:00",
+    "next_run_at": "2026-10-20T21:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -622,10 +660,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-20T19:33:42.127314+00:00",
+    "last_run_at": "2026-10-20T20:19:20.032531+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-20T19:43:44.100613+00:00",
+    "next_run_at": "2026-10-20T20:29:22.385923+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -634,10 +672,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-20T16:00:04.292121+00:00",
+    "last_run_at": "2026-10-20T20:26:46.841933+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-20T20:00:00+00:00",
+    "next_run_at": "2026-10-21T00:00:00+00:00",
     "no_agent": true,
     "schedule": "0 */4 * * *"
    },
@@ -658,10 +696,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-20T18:50:19.774471+00:00",
+    "last_run_at": "2026-10-20T19:50:20.105206+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-20T20:50:00+00:00",
+    "next_run_at": "2026-10-20T21:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -670,10 +708,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-20T18:55:01.129868+00:00",
+    "last_run_at": "2026-10-20T19:55:00.910859+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-20T19:55:00+00:00",
+    "next_run_at": "2026-10-20T20:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -714,29 +752,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-20T19:50:02.661753+00:00"
+  "updated_at": "2026-10-20T20:50:01.762364+00:00"
  },
- "generated_at": "2026-10-20T19:50:01+00:00",
+ "generated_at": "2026-10-20T20:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 29
+   "passing": 32
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-20T19:29:27Z",
-   "head_sha": "800e4be",
+   "created_at": "2026-10-20T20:23:22Z",
+   "head_sha": "b0eb518",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39483895112"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39491545947"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 6/12 (50%)"
+   "summary": "live non-US: 7/13 (54%)"
   },
   "head": {
-   "at": "2026-10-20T19:29:24Z",
-   "sha": "800e4be",
-   "subject": "Record food-publish-002 (201/201 on the private release, verified) and food-consumer-001 (failed at step 5: the package "
+   "at": "2026-10-20T20:23:19Z",
+   "sha": "b0eb518",
+   "subject": "discovery 2026-10-20 intl-orgs tick: 3 verdicts (WHO FluNet go; UNHCR RDF park; UNICEF SDMX park) + coverage note. STATE"
   },
   "tests": {
    "count": "383",
@@ -831,13 +869,21 @@
    "qualified": 0,
    "sessions_7d": 18,
    "tokens_7d": 3113922
+  },
+  {
+   "at": "2026-10-20T20:50:01+00:00",
+   "live": 7,
+   "published": 5,
+   "qualified": 0,
+   "sessions_7d": 19,
+   "tokens_7d": 3274843
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T19:50:01+00:00",
+   "as_of": "2026-10-20T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -847,7 +893,7 @@
   },
   "candidates": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T19:50:01+00:00",
+   "as_of": "2026-10-20T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -857,7 +903,7 @@
   },
   "releases": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T19:50:01+00:00",
+   "as_of": "2026-10-20T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -907,9 +953,12 @@
     "publication_note": "Prepared for human review. Nothing here has been published.",
     "release_tag": "v2026.10",
     "rows": 226417,
-    "verified": {},
+    "verified": {
+     "github": true,
+     "huggingface": false
+    },
     "verified_all": false,
-    "verified_at": null
+    "verified_at": "2026-10-20T19:29:24Z"
    },
    {
     "assets": 226,
@@ -1339,6 +1388,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-10-20T20:06:05.289301+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "food-hf-001",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "collected"
+   },
+   {
     "created_at": "2026-10-20T18:42:44.200166+00:00",
     "deleted_at": "2026-10-20T19:02:08.962896+00:00",
     "eur": 0.0224,
@@ -1700,15 +1761,15 @@
    }
   ],
   "jobs_this_month": 17,
-  "jobs_total": 58,
+  "jobs_total": 59,
   "lifetime_eur": 3.0,
   "live": {
-   "checked_at": "2026-10-20T19:50:17+00:00",
+   "checked_at": "2026-10-20T20:50:16+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
   "month_hours": 6.8,
   "month_to_date": 0.55,
@@ -1730,17 +1791,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 3,
+  "failed_last_three": 2,
   "recent": [
-   {
-    "elapsed_seconds": 2680.8,
-    "event": "session",
-    "max_turns": 60,
-    "outcome": "exit 1",
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 2400,
-    "ts": "2026-10-20T11:44:43.289463+00:00"
-   },
    {
     "elapsed_seconds": 2700.1,
     "event": "session",
@@ -1785,8 +1837,17 @@
     "prompt_file": "research-session-prompt.md",
     "run_budget": 5400,
     "ts": "2026-10-20T19:15:23.907556+00:00"
+   },
+   {
+    "elapsed_seconds": 1604.0,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "ts": "2026-10-20T20:26:46.691577+00:00"
    }
   ],
-  "total": 25
+  "total": 26
  }
 }
