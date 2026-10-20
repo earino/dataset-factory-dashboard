@@ -1,8 +1,6 @@
 {
  "alarms": [
-  "scout-worker-watch missed its window (2026-10-20T20:29:22.385923+00:00); last status ok",
-  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report",
-  "1 release(s) not fully verified"
+  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
  ],
  "budget": {
   "config": {
@@ -19,7 +17,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-20T20:50:02.769081+00:00",
+   "moment": "2026-10-20T21:50:02.600751+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.0,
@@ -39,14 +37,14 @@
      "output_tokens": 624078
     },
     "interactive": {
-     "calls": 2601,
+     "calls": 2612,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 1.098332,
-     "input_tokens": 9878368,
-     "output_tokens": 1452974
+     "cost_usd": 1.134078,
+     "input_tokens": 9899205,
+     "output_tokens": 1457587
     },
     "research": {
      "calls": 1091,
@@ -58,14 +56,14 @@
      "output_tokens": 1110906
     },
     "scheduled-other": {
-     "calls": 980,
+     "calls": 1081,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": 0.000514,
-     "input_tokens": 1719886,
-     "output_tokens": 727612
+     "input_tokens": 1864576,
+     "output_tokens": 784511
     }
    },
    "weekly_token_budget": 40000000
@@ -225,11 +223,11 @@
     "status": "published"
    },
    {
-    "age_hours": 3.5,
-    "awaiting_operator": false,
+    "age_hours": 4.5,
+    "awaiting_operator": true,
     "country": "US",
     "id": "chicago-food-inspections",
-    "next_action": "PACKAGED (awaiting nothing but its own release steps) - destination staging steps 1-3 are COMPLETE: private repo earino/chicago-food-inspections carries the pac",
+    "next_action": "PACKAGED - ALL FOUR DESTINATION-STAGING STEPS COMPLETE; the sole remaining step is the operator's private-to-public flip (awaiting_operator: true; scout-release",
     "packaged_at": "2026-10-20T17:20:56.111144+00:00",
     "path": "candidates/chicago-food-inspections/record.json",
     "publisher": "City of Chicago, Illinois",
@@ -524,14 +522,13 @@
    }
   ],
   "release": {
-   "awaiting": [],
-   "packaged": [
+   "awaiting": [
     {
-     "age_hours": 3.5,
-     "awaiting_operator": false,
+     "age_hours": 4.5,
+     "awaiting_operator": true,
      "country": "US",
      "id": "chicago-food-inspections",
-     "next_action": "PACKAGED (awaiting nothing but its own release steps) - destination staging steps 1-3 are COMPLETE: private repo earino/chicago-food-inspections carries the pac",
+     "next_action": "PACKAGED - ALL FOUR DESTINATION-STAGING STEPS COMPLETE; the sole remaining step is the operator's private-to-public flip (awaiting_operator: true; scout-release",
      "packaged_at": "2026-10-20T17:20:56.111144+00:00",
      "path": "candidates/chicago-food-inspections/record.json",
      "publisher": "City of Chicago, Illinois",
@@ -539,20 +536,21 @@
      "status": "packaged"
     }
    ],
-   "pending": [
+   "packaged": [
     {
-     "age_hours": 3.5,
-     "awaiting_operator": false,
+     "age_hours": 4.5,
+     "awaiting_operator": true,
      "country": "US",
      "id": "chicago-food-inspections",
-     "next_action": "PACKAGED (awaiting nothing but its own release steps) - destination staging steps 1-3 are COMPLETE: private repo earino/chicago-food-inspections carries the pac",
+     "next_action": "PACKAGED - ALL FOUR DESTINATION-STAGING STEPS COMPLETE; the sole remaining step is the operator's private-to-public flip (awaiting_operator: true; scout-release",
      "packaged_at": "2026-10-20T17:20:56.111144+00:00",
      "path": "candidates/chicago-food-inspections/record.json",
      "publisher": "City of Chicago, Illinois",
      "region": "North America",
      "status": "packaged"
     }
-   ]
+   ],
+   "pending": []
   }
  },
  "coverage": {
@@ -612,10 +610,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-20T20:50:01.761276+00:00",
+    "last_run_at": "2026-10-20T21:50:01.679427+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-20T21:00:00+00:00",
+    "next_run_at": "2026-10-20T22:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -663,7 +661,7 @@
     "last_run_at": "2026-10-20T20:19:20.032531+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-20T20:29:22.385923+00:00",
+    "next_run_at": "2026-10-20T21:44:30.617738+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -696,10 +694,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-20T19:50:20.105206+00:00",
+    "last_run_at": "2026-10-20T20:50:19.750057+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-20T21:50:00+00:00",
+    "next_run_at": "2026-10-20T22:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -708,10 +706,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-20T19:55:00.910859+00:00",
+    "last_run_at": "2026-10-20T20:55:00.914089+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-20T20:55:00+00:00",
+    "next_run_at": "2026-10-20T21:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -752,9 +750,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-20T20:50:01.762364+00:00"
+  "updated_at": "2026-10-20T21:50:01.680482+00:00"
  },
- "generated_at": "2026-10-20T20:50:01+00:00",
+ "generated_at": "2026-10-20T21:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -762,22 +760,22 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-20T20:23:22Z",
-   "head_sha": "b0eb518",
+   "created_at": "2026-10-20T21:47:20Z",
+   "head_sha": "a9eead9",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39491545947"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39503170784"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 7/13 (54%)"
   },
   "head": {
-   "at": "2026-10-20T20:23:19Z",
-   "sha": "b0eb518",
-   "subject": "discovery 2026-10-20 intl-orgs tick: 3 verdicts (WHO FluNet go; UNHCR RDF park; UNICEF SDMX park) + coverage note. STATE"
+   "at": "2026-10-20T21:47:17Z",
+   "sha": "a9eead9",
+   "subject": "food-hf-002: worker 171445940 destroyed 21:45:28Z (ledger deleted_at + record entry)"
   },
   "tests": {
-   "count": "383",
+   "count": "386",
    "ok": true
   }
  },
@@ -877,13 +875,21 @@
    "qualified": 0,
    "sessions_7d": 19,
    "tokens_7d": 3274843
+  },
+  {
+   "at": "2026-10-20T21:43:59+00:00",
+   "live": 7,
+   "published": 5,
+   "qualified": 0,
+   "sessions_7d": 19,
+   "tokens_7d": 3274843
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T20:50:01+00:00",
+   "as_of": "2026-10-20T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -893,7 +899,7 @@
   },
   "candidates": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T20:50:01+00:00",
+   "as_of": "2026-10-20T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -903,7 +909,7 @@
   },
   "releases": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T20:50:01+00:00",
+   "as_of": "2026-10-20T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -955,10 +961,10 @@
     "rows": 226417,
     "verified": {
      "github": true,
-     "huggingface": false
+     "huggingface": true
     },
-    "verified_all": false,
-    "verified_at": "2026-10-20T19:29:24Z"
+    "verified_all": true,
+    "verified_at": "2026-10-20T21:41:09+00:00"
    },
    {
     "assets": 226,
@@ -999,7 +1005,7 @@
  "resources": {
   "ceiling_eur": 20.0,
   "errors": [],
-  "eur_per_release": 0.6,
+  "eur_per_release": 0.62,
   "histogram": {
    "bins": [
     {
@@ -1023,7 +1029,7 @@
      "lo": 0.02
     },
     {
-     "count": 6,
+     "count": 8,
      "hi": 0.1,
      "lo": 0.05
     },
@@ -1044,11 +1050,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0183,
-   "n": 58,
+   "median": 0.019,
+   "n": 60,
    "p90": 0.0679,
    "ref_rate": 0.06924,
-   "total": 2.81
+   "total": 2.93
   },
   "jobs": [
    {
@@ -1389,15 +1395,27 @@
    },
    {
     "created_at": "2026-10-20T20:06:05.289301+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-10-20T20:59:01.620730+00:00",
+    "eur": 0.0611,
+    "hours": 0.882,
     "id": "food-hf-001",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0611,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
-    "status": "collected"
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-20T20:59:52.041284+00:00",
+    "deleted_at": "2026-10-20T21:45:28.545046+00:00",
+    "eur": 0.0526,
+    "hours": 0.76,
+    "id": "food-hf-002",
+    "location": "hel1",
+    "normalised_eur": 0.0526,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
    },
    {
     "created_at": "2026-10-20T18:42:44.200166+00:00",
@@ -1760,19 +1778,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 17,
-  "jobs_total": 59,
-  "lifetime_eur": 3.0,
+  "jobs_this_month": 19,
+  "jobs_total": 60,
+  "lifetime_eur": 3.11,
   "live": {
-   "checked_at": "2026-10-20T20:50:16+00:00",
+   "checked_at": "2026-10-20T21:50:16+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 6.8,
-  "month_to_date": 0.55,
+  "month_hours": 8.4,
+  "month_to_date": 0.67,
   "months": [
    {
     "eur": 2.4452,
@@ -1781,13 +1799,13 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.5537,
-    "hours": 6.79,
-    "jobs": 17,
+    "eur": 0.6674,
+    "hours": 8.43,
+    "jobs": 19,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 0.86
+  "projected_month_eur": 1.03
  },
  "schema": 1,
  "sessions": {
