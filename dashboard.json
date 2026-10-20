@@ -1,7 +1,7 @@
 {
  "alarms": [
   "scout-discovery-session last status error (streak 1)",
-  "2 of the last 3 scheduled sessions were killed at the wall clock and produced no report"
+  "3 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
  ],
  "budget": {
   "config": {
@@ -18,15 +18,15 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-20T14:50:02.703594+00:00",
+   "moment": "2026-10-20T15:02:49.602711+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [
-    "lock held for 2630s by scout-research"
+    "lock held for 80s by scout-research"
    ],
    "research_cost_usd": 0.0,
-   "research_tokens_last_7_days": 2310556,
-   "runs_last_7_days": 15,
-   "runs_weighted_last_7_days": 15,
+   "research_tokens_last_7_days": 2339881,
+   "runs_last_7_days": 16,
+   "runs_weighted_last_7_days": 16,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 0,
    "usage": {
@@ -40,23 +40,23 @@
      "output_tokens": 624078
     },
     "interactive": {
-     "calls": 2536,
+     "calls": 2540,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 0.894628,
-     "input_tokens": 9750611,
-     "output_tokens": 1419074
+     "cost_usd": 0.907299,
+     "input_tokens": 9768838,
+     "output_tokens": 1421736
     },
     "research": {
-     "calls": 688,
+     "calls": 691,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": 0.0,
-     "input_tokens": 2402800,
-     "output_tokens": 868483
+     "input_tokens": 2429993,
+     "output_tokens": 870615
     },
     "scheduled-other": {
      "calls": 572,
@@ -559,10 +559,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-20T14:50:01.697407+00:00",
+    "last_run_at": "2026-10-20T15:00:02.429048+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-20T15:00:00+00:00",
+    "next_run_at": "2026-10-20T15:10:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -583,7 +583,7 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-19T08:16:44.110393+00:00",
+    "last_run_at": "2026-10-20T15:00:45.988363+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
     "next_run_at": "2026-10-20T18:00:00+00:00",
@@ -607,10 +607,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-20T14:46:30.076329+00:00",
+    "last_run_at": "2026-10-20T15:01:34.114831+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-20T14:51:30.076329+00:00",
+    "next_run_at": "2026-10-20T15:06:34.114831+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -643,7 +643,7 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-20T13:50:19.973794+00:00",
+    "last_run_at": "2026-10-20T14:50:20.056532+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
     "next_run_at": "2026-10-20T15:50:00+00:00",
@@ -655,10 +655,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-20T13:55:01.343459+00:00",
+    "last_run_at": "2026-10-20T14:55:01.229093+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-20T14:55:00+00:00",
+    "next_run_at": "2026-10-20T15:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -675,21 +675,21 @@
     "schedule": "once in 10m"
    },
    {
-    "enabled": true,
+    "enabled": false,
     "failure_streak": 0,
     "id": "a9a3c0535165",
     "last_error": "",
-    "last_run_at": null,
-    "last_status": null,
+    "last_run_at": "2026-10-20T15:00:02.544816+00:00",
+    "last_status": "ok",
     "name": "scout-resume-chicago",
-    "next_run_at": "2026-10-20T15:00:00+00:00",
+    "next_run_at": null,
     "no_agent": true,
     "schedule": "once at 2026-10-20 15:00"
    }
   ],
-  "updated_at": "2026-10-20T14:50:01.698680+00:00"
+  "updated_at": "2026-10-20T15:02:29.328838+00:00"
  },
- "generated_at": "2026-10-20T14:50:01+00:00",
+ "generated_at": "2026-10-20T15:02:48+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -767,12 +767,12 @@
   }
  ],
  "notices": [
-  "A research session is running: lock held for 2630s by scout-research"
+  "A research session is running: lock held for 80s by scout-research"
  ],
  "panels": {
   "budget": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-20T14:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-20T15:02:48+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -781,8 +781,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-20T14:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-20T15:02:48+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -791,8 +791,8 @@
    "value": 8
   },
   "releases": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-20T14:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-20T15:02:48+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -1542,7 +1542,7 @@
   "jobs_total": 51,
   "lifetime_eur": 2.83,
   "live": {
-   "checked_at": "2026-10-20T14:50:17+00:00",
+   "checked_at": "2026-10-20T15:03:03+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -1569,17 +1569,8 @@
  },
  "schema": 1,
  "sessions": {
-  "killed_last_three": 2,
+  "failed_last_three": 3,
   "recent": [
-   {
-    "elapsed_seconds": 2687.7,
-    "event": "session",
-    "max_turns": 60,
-    "outcome": "exit 1",
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 2400,
-    "ts": "2026-10-20T08:44:50.920089+00:00"
-   },
    {
     "elapsed_seconds": 859.8,
     "event": "session",
@@ -1624,8 +1615,17 @@
     "prompt_file": "discovery-session-prompt.md",
     "run_budget": 2400,
     "ts": "2026-10-20T13:45:02.913558+00:00"
+   },
+   {
+    "elapsed_seconds": 3272.9,
+    "event": "session",
+    "max_turns": 80,
+    "outcome": "exit 1",
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 3000,
+    "ts": "2026-10-20T15:00:45.947825+00:00"
    }
   ],
-  "total": 22
+  "total": 23
  }
 }
