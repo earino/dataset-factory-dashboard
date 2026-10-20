@@ -1,6 +1,7 @@
 {
  "alarms": [
   "scout-research-session last status error (streak 1)",
+  "Test suite is failing",
   "3 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report",
   "1 release(s) not fully verified"
  ],
@@ -18,14 +19,16 @@
   },
   "decision": {
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-10-20T17:50:02.715624+00:00",
+   "allowed": false,
+   "moment": "2026-10-20T18:50:03.186299+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
-   "reasons": [],
+   "reasons": [
+    "lock held for 2999s by scout-research"
+   ],
    "research_cost_usd": 0.0,
-   "research_tokens_last_7_days": 2853396,
-   "runs_last_7_days": 17,
-   "runs_weighted_last_7_days": 17,
+   "research_tokens_last_7_days": 3083296,
+   "runs_last_7_days": 18,
+   "runs_weighted_last_7_days": 18,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 0,
    "usage": {
@@ -49,23 +52,23 @@
      "output_tokens": 1445964
     },
     "research": {
-     "calls": 900,
+     "calls": 985,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": 0.0,
-     "input_tokens": 2837645,
-     "output_tokens": 976478
+     "input_tokens": 3022765,
+     "output_tokens": 1021258
     },
     "scheduled-other": {
-     "calls": 690,
+     "calls": 693,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": 0.000514,
-     "input_tokens": 1141975,
-     "output_tokens": 533226
+     "input_tokens": 1151278,
+     "output_tokens": 535202
     }
    },
    "weekly_token_budget": 40000000
@@ -224,7 +227,7 @@
     "status": "published"
    },
    {
-    "age_hours": 0.5,
+    "age_hours": 1.5,
     "awaiting_operator": false,
     "country": "US",
     "id": "chicago-food-inspections",
@@ -493,7 +496,7 @@
    "awaiting": [],
    "packaged": [
     {
-     "age_hours": 0.5,
+     "age_hours": 1.5,
      "awaiting_operator": false,
      "country": "US",
      "id": "chicago-food-inspections",
@@ -507,7 +510,7 @@
    ],
    "pending": [
     {
-     "age_hours": 0.5,
+     "age_hours": 1.5,
      "awaiting_operator": false,
      "country": "US",
      "id": "chicago-food-inspections",
@@ -575,10 +578,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-20T17:40:01.936087+00:00",
+    "last_run_at": "2026-10-20T18:50:01.615152+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-20T18:00:00+00:00",
+    "next_run_at": "2026-10-20T19:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -602,7 +605,7 @@
     "last_run_at": "2026-10-20T16:01:29.431460+00:00",
     "last_status": "error",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-20T18:00:00+00:00",
+    "next_run_at": "2026-10-20T22:00:00+00:00",
     "no_agent": true,
     "schedule": "0 2-22/4 * * *"
    },
@@ -623,10 +626,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-20T17:47:00.595023+00:00",
+    "last_run_at": "2026-10-20T18:47:41.871696+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-20T17:52:00.595023+00:00",
+    "next_run_at": "2026-10-20T18:52:41.871696+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -659,10 +662,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-20T16:50:20.340156+00:00",
+    "last_run_at": "2026-10-20T17:50:19.327058+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-20T18:50:00+00:00",
+    "next_run_at": "2026-10-20T19:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -671,10 +674,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-20T16:55:00.997790+00:00",
+    "last_run_at": "2026-10-20T17:55:00.835788+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-20T17:55:00+00:00",
+    "next_run_at": "2026-10-20T18:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -715,9 +718,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-20T17:50:02.055772+00:00"
+  "updated_at": "2026-10-20T18:50:01.616341+00:00"
  },
- "generated_at": "2026-10-20T17:50:01+00:00",
+ "generated_at": "2026-10-20T18:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -725,23 +728,23 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-20T17:28:16Z",
-   "head_sha": "edc90b6",
+   "created_at": "2026-10-20T18:31:28Z",
+   "head_sha": "ecddc78",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39466348068"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39475489328"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 6/12 (50%)"
   },
   "head": {
-   "at": "2026-10-20T17:28:12Z",
-   "sha": "edc90b6",
-   "subject": "Record food-baseline-003: all-40 runner-contract baselines measured (eval AUC 0.5187-0.8292, code_38 reproduces 0.6326);"
+   "at": "2026-10-20T18:26:51Z",
+   "sha": "ecddc78",
+   "subject": "Commit the chicago-food-inspections package and its evidence (the sessions that built them were killed before committing"
   },
   "tests": {
-   "count": "383",
-   "ok": true
+   "count": "376",
+   "ok": false
   }
  },
  "history": [
@@ -816,13 +819,23 @@
    "qualified": 0,
    "sessions_7d": 17,
    "tokens_7d": 2853396
+  },
+  {
+   "at": "2026-10-20T18:50:01+00:00",
+   "live": 7,
+   "published": 5,
+   "qualified": 0,
+   "sessions_7d": 18,
+   "tokens_7d": 3083296
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 2999s by scout-research"
+ ],
  "panels": {
   "budget": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-20T17:50:01+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-20T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -831,8 +844,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-20T17:50:01+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-20T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -841,8 +854,8 @@
    "value": 7
   },
   "releases": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-20T17:50:01+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-20T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -1300,6 +1313,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-10-20T18:42:44.200166+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "food-publish-001",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "running"
+   },
+   {
     "created_at": "2026-09-18T14:55:31.720044+00:00",
     "deleted_at": "2026-09-18T14:59:41.433608+00:00",
     "eur": 0.0048,
@@ -1637,15 +1662,15 @@
    }
   ],
   "jobs_this_month": 13,
-  "jobs_total": 54,
+  "jobs_total": 55,
   "lifetime_eur": 2.93,
   "live": {
-   "checked_at": "2026-10-20T17:50:16+00:00",
+   "checked_at": "2026-10-20T18:50:16+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
   "month_hours": 5.8,
   "month_to_date": 0.49,
