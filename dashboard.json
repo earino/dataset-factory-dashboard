@@ -1,5 +1,6 @@
 {
  "alarms": [
+  "scout-worker-watch missed its window (2026-10-20T15:26:40.637702+00:00); last status ok",
   "scout-discovery-session last status error (streak 1)",
   "3 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
  ],
@@ -18,13 +19,13 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-20T15:02:49.602711+00:00",
+   "moment": "2026-10-20T15:50:03.964294+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [
-    "lock held for 80s by scout-research"
+    "lock held for 2914s by scout-research"
    ],
    "research_cost_usd": 0.0,
-   "research_tokens_last_7_days": 2339881,
+   "research_tokens_last_7_days": 2513587,
    "runs_last_7_days": 16,
    "runs_weighted_last_7_days": 16,
    "session_cap_per_week": 200,
@@ -40,32 +41,32 @@
      "output_tokens": 624078
     },
     "interactive": {
-     "calls": 2540,
+     "calls": 2567,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 0.907299,
-     "input_tokens": 9768838,
-     "output_tokens": 1421736
+     "cost_usd": 0.988055,
+     "input_tokens": 9804848,
+     "output_tokens": 1433782
     },
     "research": {
-     "calls": 691,
+     "calls": 770,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": 0.0,
-     "input_tokens": 2429993,
-     "output_tokens": 870615
+     "input_tokens": 2570770,
+     "output_tokens": 903544
     },
     "scheduled-other": {
-     "calls": 572,
+     "calls": 605,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": 0.0,
-     "input_tokens": 872003,
-     "output_tokens": 424596
+     "input_tokens": 910306,
+     "output_tokens": 461274
     }
    },
    "weekly_token_budget": 40000000
@@ -559,10 +560,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-20T15:00:02.429048+00:00",
+    "last_run_at": "2026-10-20T15:50:03.523067+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-20T15:10:00+00:00",
+    "next_run_at": "2026-10-20T16:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -607,10 +608,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-20T15:01:34.114831+00:00",
+    "last_run_at": "2026-10-20T15:16:39.925488+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-20T15:06:34.114831+00:00",
+    "next_run_at": "2026-10-20T15:26:40.637702+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -646,7 +647,7 @@
     "last_run_at": "2026-10-20T14:50:20.056532+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-20T15:50:00+00:00",
+    "next_run_at": "2026-10-20T16:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -687,9 +688,9 @@
     "schedule": "once at 2026-10-20 15:00"
    }
   ],
-  "updated_at": "2026-10-20T15:02:29.328838+00:00"
+  "updated_at": "2026-10-20T15:50:03.524217+00:00"
  },
- "generated_at": "2026-10-20T15:02:48+00:00",
+ "generated_at": "2026-10-20T15:50:02+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -697,19 +698,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-20T14:28:16Z",
-   "head_sha": "395fa70",
+   "created_at": "2026-10-20T15:03:09Z",
+   "head_sha": "792d837",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39439499718"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39444853245"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 6/12 (50%)"
   },
   "head": {
-   "at": "2026-10-20T14:28:13Z",
-   "sha": "395fa70",
-   "subject": "Double the session window and alternate 2-hour slots so runs can finish"
+   "at": "2026-10-20T15:49:56Z",
+   "sha": "c9e4d2d",
+   "subject": "Record food-baseline-001: failed before scoring (launch skipped assembly); corrected retry food-baseline-002 already run"
   },
   "tests": {
    "count": "383",
@@ -764,15 +765,23 @@
    "qualified": 1,
    "sessions_7d": 15,
    "tokens_7d": 2310556
+  },
+  {
+   "at": "2026-10-20T15:50:02+00:00",
+   "live": 8,
+   "published": 4,
+   "qualified": 1,
+   "sessions_7d": 16,
+   "tokens_7d": 2513587
   }
  ],
  "notices": [
-  "A research session is running: lock held for 80s by scout-research"
+  "A research session is running: lock held for 2914s by scout-research"
  ],
  "panels": {
   "budget": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-20T15:02:48+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-20T15:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -781,8 +790,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-20T15:02:48+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-20T15:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -791,8 +800,8 @@
    "value": 8
   },
   "releases": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-20T15:02:48+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-20T15:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -887,7 +896,7 @@
      "lo": 0.005
     },
     {
-     "count": 13,
+     "count": 14,
      "hi": 0.02,
      "lo": 0.01
     },
@@ -918,11 +927,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0181,
-   "n": 51,
+   "median": 0.0179,
+   "n": 52,
    "p90": 0.0679,
    "ref_rate": 0.06924,
-   "total": 2.64
+   "total": 2.66
   },
   "jobs": [
    {
@@ -1200,6 +1209,30 @@
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-20T15:16:02.641792+00:00",
+    "deleted_at": "2026-10-20T15:31:03.583472+00:00",
+    "eur": 0.0173,
+    "hours": 0.25,
+    "id": "food-baseline-001",
+    "location": "hel1",
+    "normalised_eur": 0.0173,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-20T15:26:01.791640+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "food-baseline-002",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "running"
    },
    {
     "created_at": "2026-09-18T14:55:31.720044+00:00",
@@ -1538,19 +1571,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 10,
-  "jobs_total": 51,
-  "lifetime_eur": 2.83,
+  "jobs_this_month": 11,
+  "jobs_total": 53,
+  "lifetime_eur": 2.84,
   "live": {
-   "checked_at": "2026-10-20T15:03:03+00:00",
+   "checked_at": "2026-10-20T15:50:18+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
-  "month_hours": 4.3,
-  "month_to_date": 0.38,
+  "month_hours": 4.5,
+  "month_to_date": 0.4,
   "months": [
    {
     "eur": 2.4452,
@@ -1559,13 +1592,13 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.3809,
-    "hours": 4.29,
-    "jobs": 10,
+    "eur": 0.3982,
+    "hours": 4.54,
+    "jobs": 11,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 0.59
+  "projected_month_eur": 0.62
  },
  "schema": 1,
  "sessions": {
