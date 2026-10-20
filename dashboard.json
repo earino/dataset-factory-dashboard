@@ -14,14 +14,12 @@
   },
   "decision": {
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-10-20T13:11:04.130064+00:00",
+   "allowed": true,
+   "moment": "2026-10-20T13:50:02.849190+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
-   "reasons": [
-    "lock held for 661s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": 0.0,
-   "research_tokens_last_7_days": 2085477,
+   "research_tokens_last_7_days": 2152730,
    "runs_last_7_days": 13,
    "runs_weighted_last_7_days": 13,
    "session_cap_per_week": 200,
@@ -37,23 +35,23 @@
      "output_tokens": 624078
     },
     "interactive": {
-     "calls": 2435,
+     "calls": 2478,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 0.498168,
-     "input_tokens": 7708291,
-     "output_tokens": 1364046
+     "cost_usd": 0.60806,
+     "input_tokens": 7756556,
+     "output_tokens": 1382664
     },
     "research": {
-     "calls": 635,
+     "calls": 643,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": 0.0,
-     "input_tokens": 2257769,
-     "output_tokens": 788435
+     "input_tokens": 2281764,
+     "output_tokens": 831693
     },
     "scheduled-other": {
      "calls": 572,
@@ -556,10 +554,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-20T13:10:01.826802+00:00",
+    "last_run_at": "2026-10-20T13:50:02.443188+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-20T13:20:00+00:00",
+    "next_run_at": "2026-10-20T14:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -583,9 +581,9 @@
     "last_run_at": "2026-10-19T08:16:44.110393+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-21T08:00:00+00:00",
+    "next_run_at": "2026-10-20T14:25:00+00:00",
     "no_agent": true,
-    "schedule": "0 8 * * *"
+    "schedule": "25 */2 * * *"
    },
    {
     "enabled": false,
@@ -604,10 +602,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-20T13:10:59.516227+00:00",
+    "last_run_at": "2026-10-20T13:46:11.839087+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-20T13:15:59.516227+00:00",
+    "next_run_at": "2026-10-20T13:51:11.839087+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -616,7 +614,7 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-20T12:45:05.097781+00:00",
+    "last_run_at": "2026-10-20T13:45:03.137802+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
     "next_run_at": "2026-10-20T14:00:00+00:00",
@@ -643,14 +641,38 @@
     "last_run_at": "2026-10-20T12:50:21.145319+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-20T13:50:00+00:00",
+    "next_run_at": "2026-10-20T14:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
+   },
+   {
+    "enabled": true,
+    "failure_streak": 0,
+    "id": "ba4c8610edf8",
+    "last_error": "",
+    "last_run_at": null,
+    "last_status": null,
+    "name": "scout-release-notify",
+    "next_run_at": "2026-10-20T13:55:00+00:00",
+    "no_agent": true,
+    "schedule": "55 * * * *"
+   },
+   {
+    "enabled": false,
+    "failure_streak": 0,
+    "id": "41b1f1d044e9",
+    "last_error": "",
+    "last_run_at": "2026-10-20T13:41:27.331052+00:00",
+    "last_status": "ok",
+    "name": "scout-advance-now",
+    "next_run_at": null,
+    "no_agent": true,
+    "schedule": "once in 10m"
    }
   ],
-  "updated_at": "2026-10-20T13:11:02.243152+00:00"
+  "updated_at": "2026-10-20T13:50:02.444254+00:00"
  },
- "generated_at": "2026-10-20T13:11:02+00:00",
+ "generated_at": "2026-10-20T13:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -658,22 +680,22 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-20T12:50:23Z",
-   "head_sha": "70e072f",
+   "created_at": "2026-10-20T13:38:58Z",
+   "head_sha": "b8598f1",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39425406917"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39432220620"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 6/12 (50%)"
   },
   "head": {
-   "at": "2026-10-20T12:50:20Z",
-   "sha": "70e072f",
-   "subject": "Add a normalised job-cost histogram to the resources page"
+   "at": "2026-10-20T13:31:40Z",
+   "sha": "b8598f1",
+   "subject": "Guard the idle gate: tests for actionable-work selection"
   },
   "tests": {
-   "count": "380",
+   "count": "383",
    "ok": true
   }
  },
@@ -709,15 +731,21 @@
    "qualified": 1,
    "sessions_7d": 13,
    "tokens_7d": 2085477
+  },
+  {
+   "at": "2026-10-20T13:50:01+00:00",
+   "live": 8,
+   "published": 4,
+   "qualified": 1,
+   "sessions_7d": 13,
+   "tokens_7d": 2152730
   }
  ],
- "notices": [
-  "A research session is running: lock held for 661s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T13:11:02+00:00",
+   "as_of": "2026-10-20T13:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -727,7 +755,7 @@
   },
   "candidates": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T13:11:02+00:00",
+   "as_of": "2026-10-20T13:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -737,7 +765,7 @@
   },
   "releases": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T13:11:02+00:00",
+   "as_of": "2026-10-20T13:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -1487,7 +1515,7 @@
   "jobs_total": 51,
   "lifetime_eur": 2.83,
   "live": {
-   "checked_at": "2026-10-20T13:11:17+00:00",
+   "checked_at": "2026-10-20T13:50:17+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
