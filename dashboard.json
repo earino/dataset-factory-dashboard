@@ -15,10 +15,10 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-20T13:10:30.859678+00:00",
+   "moment": "2026-10-20T13:11:04.130064+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [
-    "lock held for 628s by scout-research"
+    "lock held for 661s by scout-research"
    ],
    "research_cost_usd": 0.0,
    "research_tokens_last_7_days": 2085477,
@@ -37,14 +37,14 @@
      "output_tokens": 624078
     },
     "interactive": {
-     "calls": 2434,
+     "calls": 2435,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 0.496004,
-     "input_tokens": 7708147,
-     "output_tokens": 1363967
+     "cost_usd": 0.498168,
+     "input_tokens": 7708291,
+     "output_tokens": 1364046
     },
     "research": {
      "calls": 635,
@@ -604,10 +604,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-20T13:05:57.063859+00:00",
+    "last_run_at": "2026-10-20T13:10:59.516227+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-20T13:10:57.063859+00:00",
+    "next_run_at": "2026-10-20T13:15:59.516227+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -648,9 +648,9 @@
     "schedule": "50 * * * *"
    }
   ],
-  "updated_at": "2026-10-20T13:10:02.238042+00:00"
+  "updated_at": "2026-10-20T13:11:02.243152+00:00"
  },
- "generated_at": "2026-10-20T13:10:29+00:00",
+ "generated_at": "2026-10-20T13:11:02+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -712,12 +712,12 @@
   }
  ],
  "notices": [
-  "A research session is running: lock held for 628s by scout-research"
+  "A research session is running: lock held for 661s by scout-research"
  ],
  "panels": {
   "budget": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-20T13:10:29+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-20T13:11:02+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -726,8 +726,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-20T13:10:29+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-20T13:11:02+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -736,8 +736,8 @@
    "value": 8
   },
   "releases": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-20T13:10:29+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-20T13:11:02+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -1487,7 +1487,7 @@
   "jobs_total": 51,
   "lifetime_eur": 2.83,
   "live": {
-   "checked_at": "2026-10-20T13:10:44+00:00",
+   "checked_at": "2026-10-20T13:11:17+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
