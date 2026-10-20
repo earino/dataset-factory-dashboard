@@ -34,6 +34,7 @@ a{color:inherit}
 /* ---------- hero ---------- */
 .hero{padding:22px 0 8px}
 .eyebrow{color:var(--faint);font-size:var(--fs-micro);letter-spacing:.14em;text-transform:uppercase}
+.hero.compact h1{font-size:clamp(21px,5vw,27px);letter-spacing:-.02em}
 .hero h1{margin:8px 0 8px;font-size:clamp(25px,5.6vw,34px);line-height:1.1;letter-spacing:-.025em;font-weight:600}
 .hero p{margin:0;color:var(--dim);max-width:46ch;font-size:14.5px}
 .statusline{display:flex;align-items:center;gap:9px;margin-top:16px;padding:11px 13px;
@@ -128,6 +129,9 @@ a{color:inherit}
 .alarm.warn .ic{background:rgba(245,181,68,.12);color:var(--amber)}
 .alarm.ok .ic{background:rgba(98,230,168,.12);color:var(--mint)}
 .alarm .t{line-height:1.45}
+.only-mobile{display:block}
+.only-wide{display:none}
+@media(min-width:640px){.only-mobile{display:none}.only-wide{display:block}}
 /* tables */
 .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -4px}
 table{width:100%;border-collapse:collapse;font-size:13px;min-width:440px}
@@ -143,7 +147,9 @@ footer{color:var(--faint);font-size:var(--fs-micro);padding:34px 0 10px;line-hei
   padding-bottom:env(safe-area-inset-bottom)}
 .bottomnav a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:11px 0 12px;
   color:var(--faint);text-decoration:none;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase}
-.bottomnav a.on{color:var(--text)}
+.bottomnav a.on{color:var(--text);position:relative}
+.bottomnav a.on::before{content:"";position:absolute;top:0;width:24px;height:2px;
+  border-radius:0 0 2px 2px;background:var(--mint)}
 .bottomnav .ico{width:18px;height:18px;opacity:.85}
 @media(min-width:900px){.bottomnav{display:none}body{padding-bottom:0}}
 @media(prefers-reduced-motion:no-preference){
