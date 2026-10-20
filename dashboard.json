@@ -15,7 +15,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-20T12:49:55.269328+00:00",
+   "moment": "2026-10-20T12:50:02.915048+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.0,
@@ -475,10 +475,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-20T12:40:02.224649+00:00",
+    "last_run_at": "2026-10-20T12:50:02.248302+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-20T12:50:00+00:00",
+    "next_run_at": "2026-10-20T13:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -562,14 +562,14 @@
     "last_run_at": "2026-10-20T11:56:09.644293+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-20T12:50:00+00:00",
+    "next_run_at": "2026-10-20T13:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    }
   ],
-  "updated_at": "2026-10-20T12:45:51.850339+00:00"
+  "updated_at": "2026-10-20T12:50:02.249588+00:00"
  },
- "generated_at": "2026-10-20T12:49:53+00:00",
+ "generated_at": "2026-10-20T12:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -626,7 +626,7 @@
  "panels": {
   "budget": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T12:49:53+00:00",
+   "as_of": "2026-10-20T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -636,7 +636,7 @@
   },
   "candidates": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T12:49:53+00:00",
+   "as_of": "2026-10-20T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -646,7 +646,7 @@
   },
   "releases": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T12:49:53+00:00",
+   "as_of": "2026-10-20T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -1396,7 +1396,7 @@
   "jobs_total": 51,
   "lifetime_eur": 2.83,
   "live": {
-   "checked_at": "2026-10-20T12:50:09+00:00",
+   "checked_at": "2026-10-20T12:50:19+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
