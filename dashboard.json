@@ -1,7 +1,5 @@
 {
  "alarms": [
-  "scout-research-session last status error (streak 1)",
-  "Test suite is failing",
   "3 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report",
   "1 release(s) not fully verified"
  ],
@@ -19,14 +17,12 @@
   },
   "decision": {
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-10-20T18:50:03.186299+00:00",
+   "allowed": true,
+   "moment": "2026-10-20T19:50:03.123848+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
-   "reasons": [
-    "lock held for 2999s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": 0.0,
-   "research_tokens_last_7_days": 3083296,
+   "research_tokens_last_7_days": 3113922,
    "runs_last_7_days": 18,
    "runs_weighted_last_7_days": 18,
    "session_cap_per_week": 200,
@@ -42,33 +38,33 @@
      "output_tokens": 624078
     },
     "interactive": {
-     "calls": 2589,
+     "calls": 2601,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 1.059775,
-     "input_tokens": 9869647,
-     "output_tokens": 1445964
+     "cost_usd": 1.098332,
+     "input_tokens": 9878368,
+     "output_tokens": 1452974
     },
     "research": {
-     "calls": 985,
+     "calls": 1021,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": 0.0,
-     "input_tokens": 3022765,
-     "output_tokens": 1021258
+     "input_tokens": 3040513,
+     "output_tokens": 1034136
     },
     "scheduled-other": {
-     "calls": 693,
+     "calls": 842,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": 0.000514,
-     "input_tokens": 1151278,
-     "output_tokens": 535202
+     "input_tokens": 1583125,
+     "output_tokens": 635156
     }
    },
    "weekly_token_budget": 40000000
@@ -227,11 +223,11 @@
     "status": "published"
    },
    {
-    "age_hours": 1.5,
+    "age_hours": 2.5,
     "awaiting_operator": false,
     "country": "US",
     "id": "chicago-food-inspections",
-    "next_action": "PACKAGED 2026-10-20T17:20:56.111144+00:00 - the package at release/chicago-food-inspections/ is complete and check-package.py reports OK, and the all-40 baselin",
+    "next_action": "PACKAGED (awaiting nothing but its own release steps) - destination staging steps 1-2 are complete (private repo earino/chicago-food-inspections with the packag",
     "packaged_at": "2026-10-20T17:20:56.111144+00:00",
     "path": "candidates/chicago-food-inspections/record.json",
     "publisher": "City of Chicago, Illinois",
@@ -496,11 +492,11 @@
    "awaiting": [],
    "packaged": [
     {
-     "age_hours": 1.5,
+     "age_hours": 2.5,
      "awaiting_operator": false,
      "country": "US",
      "id": "chicago-food-inspections",
-     "next_action": "PACKAGED 2026-10-20T17:20:56.111144+00:00 - the package at release/chicago-food-inspections/ is complete and check-package.py reports OK, and the all-40 baselin",
+     "next_action": "PACKAGED (awaiting nothing but its own release steps) - destination staging steps 1-2 are complete (private repo earino/chicago-food-inspections with the packag",
      "packaged_at": "2026-10-20T17:20:56.111144+00:00",
      "path": "candidates/chicago-food-inspections/record.json",
      "publisher": "City of Chicago, Illinois",
@@ -510,11 +506,11 @@
    ],
    "pending": [
     {
-     "age_hours": 1.5,
+     "age_hours": 2.5,
      "awaiting_operator": false,
      "country": "US",
      "id": "chicago-food-inspections",
-     "next_action": "PACKAGED 2026-10-20T17:20:56.111144+00:00 - the package at release/chicago-food-inspections/ is complete and check-package.py reports OK, and the all-40 baselin",
+     "next_action": "PACKAGED (awaiting nothing but its own release steps) - destination staging steps 1-2 are complete (private repo earino/chicago-food-inspections with the packag",
      "packaged_at": "2026-10-20T17:20:56.111144+00:00",
      "path": "candidates/chicago-food-inspections/record.json",
      "publisher": "City of Chicago, Illinois",
@@ -578,10 +574,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-20T18:50:01.615152+00:00",
+    "last_run_at": "2026-10-20T19:50:02.660728+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-20T19:00:00+00:00",
+    "next_run_at": "2026-10-20T20:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -599,11 +595,11 @@
    },
    {
     "enabled": true,
-    "failure_streak": 1,
+    "failure_streak": 0,
     "id": "69a5bc676d10",
-    "last_error": "Script timed out after 3600s: /opt/data/scripts/scout_advancement.py",
-    "last_run_at": "2026-10-20T16:01:29.431460+00:00",
-    "last_status": "error",
+    "last_error": "",
+    "last_run_at": "2026-10-20T19:15:23.947175+00:00",
+    "last_status": "ok",
     "name": "scout-research-session",
     "next_run_at": "2026-10-20T22:00:00+00:00",
     "no_agent": true,
@@ -626,10 +622,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-20T18:47:41.871696+00:00",
+    "last_run_at": "2026-10-20T19:33:42.127314+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-20T18:52:41.871696+00:00",
+    "next_run_at": "2026-10-20T19:43:44.100613+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -662,10 +658,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-20T17:50:19.327058+00:00",
+    "last_run_at": "2026-10-20T18:50:19.774471+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-20T19:50:00+00:00",
+    "next_run_at": "2026-10-20T20:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -674,10 +670,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-20T17:55:00.835788+00:00",
+    "last_run_at": "2026-10-20T18:55:01.129868+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-20T18:55:00+00:00",
+    "next_run_at": "2026-10-20T19:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -718,9 +714,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-20T18:50:01.616341+00:00"
+  "updated_at": "2026-10-20T19:50:02.661753+00:00"
  },
- "generated_at": "2026-10-20T18:50:01+00:00",
+ "generated_at": "2026-10-20T19:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -728,23 +724,23 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-20T18:31:28Z",
-   "head_sha": "ecddc78",
+   "created_at": "2026-10-20T19:29:27Z",
+   "head_sha": "800e4be",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39475489328"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39483895112"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 6/12 (50%)"
   },
   "head": {
-   "at": "2026-10-20T18:26:51Z",
-   "sha": "ecddc78",
-   "subject": "Commit the chicago-food-inspections package and its evidence (the sessions that built them were killed before committing"
+   "at": "2026-10-20T19:29:24Z",
+   "sha": "800e4be",
+   "subject": "Record food-publish-002 (201/201 on the private release, verified) and food-consumer-001 (failed at step 5: the package "
   },
   "tests": {
-   "count": "376",
-   "ok": false
+   "count": "383",
+   "ok": true
   }
  },
  "history": [
@@ -827,15 +823,21 @@
    "qualified": 0,
    "sessions_7d": 18,
    "tokens_7d": 3083296
+  },
+  {
+   "at": "2026-10-20T19:50:01+00:00",
+   "live": 7,
+   "published": 5,
+   "qualified": 0,
+   "sessions_7d": 18,
+   "tokens_7d": 3113922
   }
  ],
- "notices": [
-  "A research session is running: lock held for 2999s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T18:50:01+00:00",
+   "as_of": "2026-10-20T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -845,7 +847,7 @@
   },
   "candidates": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T18:50:01+00:00",
+   "as_of": "2026-10-20T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -855,7 +857,7 @@
   },
   "releases": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T18:50:01+00:00",
+   "as_of": "2026-10-20T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -948,7 +950,7 @@
  "resources": {
   "ceiling_eur": 20.0,
   "errors": [],
-  "eur_per_release": 0.59,
+  "eur_per_release": 0.6,
   "histogram": {
    "bins": [
     {
@@ -957,17 +959,17 @@
      "lo": 0.003
     },
     {
-     "count": 10,
+     "count": 11,
      "hi": 0.01,
      "lo": 0.005
     },
     {
-     "count": 14,
+     "count": 16,
      "hi": 0.02,
      "lo": 0.01
     },
     {
-     "count": 15,
+     "count": 16,
      "hi": 0.05,
      "lo": 0.02
     },
@@ -993,11 +995,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0188,
-   "n": 54,
+   "median": 0.0183,
+   "n": 58,
    "p90": 0.0679,
    "ref_rate": 0.06924,
-   "total": 2.75
+   "total": 2.81
   },
   "jobs": [
    {
@@ -1313,16 +1315,52 @@
     "status": "deleted"
    },
    {
-    "created_at": "2026-10-20T18:42:44.200166+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
-    "id": "food-publish-001",
+    "created_at": "2026-10-20T19:09:04.329732+00:00",
+    "deleted_at": "2026-10-20T19:25:09.825246+00:00",
+    "eur": 0.0186,
+    "hours": 0.268,
+    "id": "food-consumer-001",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0186,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
-    "status": "running"
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-20T19:25:37.296038+00:00",
+    "deleted_at": "2026-10-20T19:41:11.130257+00:00",
+    "eur": 0.0179,
+    "hours": 0.259,
+    "id": "food-consumer-002",
+    "location": "hel1",
+    "normalised_eur": 0.0179,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-20T18:42:44.200166+00:00",
+    "deleted_at": "2026-10-20T19:02:08.962896+00:00",
+    "eur": 0.0224,
+    "hours": 0.324,
+    "id": "food-publish-001",
+    "location": "hel1",
+    "normalised_eur": 0.0224,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-20T19:02:28.606807+00:00",
+    "deleted_at": "2026-10-20T19:09:36.503298+00:00",
+    "eur": 0.0082,
+    "hours": 0.119,
+    "id": "food-publish-002",
+    "location": "hel1",
+    "normalised_eur": 0.0082,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
    },
    {
     "created_at": "2026-09-18T14:55:31.720044+00:00",
@@ -1661,19 +1699,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 13,
-  "jobs_total": 55,
-  "lifetime_eur": 2.93,
+  "jobs_this_month": 17,
+  "jobs_total": 58,
+  "lifetime_eur": 3.0,
   "live": {
-   "checked_at": "2026-10-20T18:50:16+00:00",
+   "checked_at": "2026-10-20T19:50:17+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 5.8,
-  "month_to_date": 0.49,
+  "month_hours": 6.8,
+  "month_to_date": 0.55,
   "months": [
    {
     "eur": 2.4452,
@@ -1682,27 +1720,18 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.4866,
-    "hours": 5.82,
-    "jobs": 13,
+    "eur": 0.5537,
+    "hours": 6.79,
+    "jobs": 17,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 0.75
+  "projected_month_eur": 0.86
  },
  "schema": 1,
  "sessions": {
   "failed_last_three": 3,
   "recent": [
-   {
-    "elapsed_seconds": 2405.1,
-    "event": "session",
-    "max_turns": 60,
-    "outcome": "completed",
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 2400,
-    "ts": "2026-10-20T10:40:07.690666+00:00"
-   },
    {
     "elapsed_seconds": 2680.8,
     "event": "session",
@@ -1747,8 +1776,17 @@
     "prompt_file": "research-session-prompt.md",
     "run_budget": 5400,
     "ts": "2026-10-20T17:23:07.833547+00:00"
+   },
+   {
+    "elapsed_seconds": 4519.8,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "exit 1",
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "ts": "2026-10-20T19:15:23.907556+00:00"
    }
   ],
-  "total": 24
+  "total": 25
  }
 }
