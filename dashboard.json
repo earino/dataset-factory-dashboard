@@ -1,7 +1,6 @@
 {
  "alarms": [
-  "scout-worker-watch missed its window (2026-10-20T15:26:40.637702+00:00); last status ok",
-  "scout-discovery-session last status error (streak 1)",
+  "scout-research-session last status error (streak 1)",
   "3 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
  ],
  "budget": {
@@ -19,15 +18,15 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-20T15:50:03.964294+00:00",
+   "moment": "2026-10-20T16:50:03.117973+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [
-    "lock held for 2914s by scout-research"
+    "lock held for 601s by scout-research"
    ],
    "research_cost_usd": 0.0,
-   "research_tokens_last_7_days": 2513587,
-   "runs_last_7_days": 16,
-   "runs_weighted_last_7_days": 16,
+   "research_tokens_last_7_days": 2770279,
+   "runs_last_7_days": 17,
+   "runs_weighted_last_7_days": 17,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 0,
    "usage": {
@@ -41,32 +40,32 @@
      "output_tokens": 624078
     },
     "interactive": {
-     "calls": 2567,
+     "calls": 2589,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 0.988055,
-     "input_tokens": 9804848,
-     "output_tokens": 1433782
+     "cost_usd": 1.059775,
+     "input_tokens": 9869647,
+     "output_tokens": 1445964
     },
     "research": {
-     "calls": 770,
+     "calls": 824,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": 0.0,
-     "input_tokens": 2570770,
-     "output_tokens": 903544
+     "input_tokens": 2794073,
+     "output_tokens": 936933
     },
     "scheduled-other": {
-     "calls": 605,
+     "calls": 642,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": 0.0,
-     "input_tokens": 910306,
-     "output_tokens": 461274
+     "input_tokens": 1047993,
+     "output_tokens": 486318
     }
    },
    "weekly_token_budget": 40000000
@@ -93,7 +92,7 @@
     "awaiting_operator": false,
     "country": "US",
     "id": "chicago-food-inspections",
-    "next_action": "The extract is built and gated. (1) Package the release (scripts/release-manifest.py + the dataset-release skill) from the staging assets of job food-001 - deci",
+    "next_action": "The code_38 sanity baseline passed end-to-end (job food-baseline-002: gate re-accept, then the runner's train.py and validate.sh both clean, eval AUC 0.6326 on ",
     "packaged_at": null,
     "path": "candidates/chicago-food-inspections/record.json",
     "publisher": "City of Chicago, Illinois",
@@ -239,7 +238,7 @@
     "awaiting_operator": false,
     "country": "US",
     "id": "chicago-food-inspections",
-    "next_action": "The extract is built and gated. (1) Package the release (scripts/release-manifest.py + the dataset-release skill) from the staging assets of job food-001 - deci",
+    "next_action": "The code_38 sanity baseline passed end-to-end (job food-baseline-002: gate re-accept, then the runner's train.py and validate.sh both clean, eval AUC 0.6326 on ",
     "packaged_at": null,
     "path": "candidates/chicago-food-inspections/record.json",
     "publisher": "City of Chicago, Illinois",
@@ -560,10 +559,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-20T15:50:03.523067+00:00",
+    "last_run_at": "2026-10-20T16:50:01.778410+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-20T16:00:00+00:00",
+    "next_run_at": "2026-10-20T17:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -581,11 +580,11 @@
    },
    {
     "enabled": true,
-    "failure_streak": 0,
+    "failure_streak": 1,
     "id": "69a5bc676d10",
-    "last_error": "",
-    "last_run_at": "2026-10-20T15:00:45.988363+00:00",
-    "last_status": "ok",
+    "last_error": "Script timed out after 3600s: /opt/data/scripts/scout_advancement.py",
+    "last_run_at": "2026-10-20T16:01:29.431460+00:00",
+    "last_status": "error",
     "name": "scout-research-session",
     "next_run_at": "2026-10-20T18:00:00+00:00",
     "no_agent": true,
@@ -608,22 +607,22 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-20T15:16:39.925488+00:00",
+    "last_run_at": "2026-10-20T16:45:08.148547+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-20T15:26:40.637702+00:00",
+    "next_run_at": "2026-10-20T16:50:08.148547+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
    {
     "enabled": true,
-    "failure_streak": 1,
+    "failure_streak": 0,
     "id": "86fe52e55ef9",
-    "last_error": "Script exited with code -15",
-    "last_run_at": "2026-10-20T14:05:49.637352+00:00",
-    "last_status": "error",
+    "last_error": "",
+    "last_run_at": "2026-10-20T16:00:04.292121+00:00",
+    "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-20T16:00:00+00:00",
+    "next_run_at": "2026-10-20T20:00:00+00:00",
     "no_agent": true,
     "schedule": "0 */4 * * *"
    },
@@ -644,10 +643,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-20T14:50:20.056532+00:00",
+    "last_run_at": "2026-10-20T15:50:21.469241+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-20T16:50:00+00:00",
+    "next_run_at": "2026-10-20T17:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -656,10 +655,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-20T14:55:01.229093+00:00",
+    "last_run_at": "2026-10-20T15:55:01.343564+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-20T15:55:00+00:00",
+    "next_run_at": "2026-10-20T16:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -686,11 +685,23 @@
     "next_run_at": null,
     "no_agent": true,
     "schedule": "once at 2026-10-20 15:00"
+   },
+   {
+    "enabled": true,
+    "failure_streak": 0,
+    "id": "72a7caf292a4",
+    "last_error": "",
+    "last_run_at": null,
+    "last_status": null,
+    "name": "scout-finish-chicago",
+    "next_run_at": "2026-10-20T16:40:00+00:00",
+    "no_agent": true,
+    "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-20T15:50:03.524217+00:00"
+  "updated_at": "2026-10-20T16:50:01.779474+00:00"
  },
- "generated_at": "2026-10-20T15:50:02+00:00",
+ "generated_at": "2026-10-20T16:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -698,19 +709,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-20T15:03:09Z",
-   "head_sha": "792d837",
+   "created_at": "2026-10-20T16:13:56Z",
+   "head_sha": "80b56f5",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39444853245"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39455597590"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 6/12 (50%)"
   },
   "head": {
-   "at": "2026-10-20T15:49:56Z",
-   "sha": "c9e4d2d",
-   "subject": "Record food-baseline-001: failed before scoring (launch skipped assembly); corrected retry food-baseline-002 already run"
+   "at": "2026-10-20T16:13:53Z",
+   "sha": "80b56f5",
+   "subject": "Record food-baseline-002: code_38 baseline succeeded through the runner's contract (eval AUC 0.6326)"
   },
   "tests": {
    "count": "383",
@@ -773,15 +784,23 @@
    "qualified": 1,
    "sessions_7d": 16,
    "tokens_7d": 2513587
+  },
+  {
+   "at": "2026-10-20T16:50:01+00:00",
+   "live": 8,
+   "published": 4,
+   "qualified": 1,
+   "sessions_7d": 17,
+   "tokens_7d": 2770279
   }
  ],
  "notices": [
-  "A research session is running: lock held for 2914s by scout-research"
+  "A research session is running: lock held for 601s by scout-research"
  ],
  "panels": {
   "budget": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T15:50:02+00:00",
+   "as_of": "2026-10-20T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -791,7 +810,7 @@
   },
   "candidates": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T15:50:02+00:00",
+   "as_of": "2026-10-20T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -801,7 +820,7 @@
   },
   "releases": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-20T15:50:02+00:00",
+   "as_of": "2026-10-20T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -882,7 +901,7 @@
  "resources": {
   "ceiling_eur": 20.0,
   "errors": [],
-  "eur_per_release": 0.71,
+  "eur_per_release": 0.72,
   "histogram": {
    "bins": [
     {
@@ -906,7 +925,7 @@
      "lo": 0.02
     },
     {
-     "count": 5,
+     "count": 6,
      "hi": 0.1,
      "lo": 0.05
     },
@@ -927,11 +946,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0179,
-   "n": 52,
+   "median": 0.0181,
+   "n": 53,
    "p90": 0.0679,
    "ref_rate": 0.06924,
-   "total": 2.66
+   "total": 2.71
   },
   "jobs": [
    {
@@ -1224,15 +1243,27 @@
    },
    {
     "created_at": "2026-10-20T15:26:01.791640+00:00",
+    "deleted_at": "2026-10-20T16:10:32.739305+00:00",
+    "eur": 0.0514,
+    "hours": 0.742,
+    "id": "food-baseline-002",
+    "location": "hel1",
+    "normalised_eur": 0.0514,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-20T16:50:10.700039+00:00",
     "deleted_at": null,
     "eur": null,
     "hours": null,
-    "id": "food-baseline-002",
+    "id": "food-baseline-003",
     "location": "hel1",
     "normalised_eur": null,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
-    "status": "running"
+    "status": "provisioning"
    },
    {
     "created_at": "2026-09-18T14:55:31.720044+00:00",
@@ -1571,19 +1602,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 11,
-  "jobs_total": 53,
-  "lifetime_eur": 2.84,
+  "jobs_this_month": 12,
+  "jobs_total": 54,
+  "lifetime_eur": 2.89,
   "live": {
-   "checked_at": "2026-10-20T15:50:18+00:00",
+   "checked_at": "2026-10-20T16:50:17+00:00",
    "error": null,
    "primary_ips": 1,
    "primary_ips_total": 1,
    "servers": 1,
    "servers_total": 1
   },
-  "month_hours": 4.5,
-  "month_to_date": 0.4,
+  "month_hours": 5.3,
+  "month_to_date": 0.45,
   "months": [
    {
     "eur": 2.4452,
@@ -1592,13 +1623,13 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.3982,
-    "hours": 4.54,
-    "jobs": 11,
+    "eur": 0.4496,
+    "hours": 5.29,
+    "jobs": 12,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 0.62
+  "projected_month_eur": 0.7
  },
  "schema": 1,
  "sessions": {
