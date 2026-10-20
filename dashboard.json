@@ -36,7 +36,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-20T11:52:37.846247+00:00",
+   "moment": "2026-10-20T11:55:21.739890+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.0,
@@ -56,13 +56,14 @@
      "output_tokens": 623678
     },
     "interactive": {
-     "calls": 2197,
+     "calls": 2203,
      "cost_status": [
+      "estimated",
       "unknown"
      ],
-     "cost_usd": 0.0,
-     "input_tokens": 6081389,
-     "output_tokens": 1182758
+     "cost_usd": 0.009234,
+     "input_tokens": 6164940,
+     "output_tokens": 1184469
     },
     "research": {
      "calls": 615,
@@ -566,7 +567,7 @@
   ],
   "updated_at": "2026-10-20T11:50:35.223442+00:00"
  },
- "generated_at": "2026-10-20T11:52:37+00:00",
+ "generated_at": "2026-10-20T11:55:21+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -596,7 +597,7 @@
  "panels": {
   "budget": {
    "age_minutes": 0.1,
-   "as_of": "2026-10-20T11:52:37+00:00",
+   "as_of": "2026-10-20T11:55:21+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -606,7 +607,7 @@
   },
   "candidates": {
    "age_minutes": 0.1,
-   "as_of": "2026-10-20T11:52:37+00:00",
+   "as_of": "2026-10-20T11:55:21+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -616,7 +617,7 @@
   },
   "releases": {
    "age_minutes": 0.1,
-   "as_of": "2026-10-20T11:52:37+00:00",
+   "as_of": "2026-10-20T11:55:21+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
