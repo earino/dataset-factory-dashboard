@@ -1,5 +1,7 @@
 {
- "alarms": [],
+ "alarms": [
+  "2 of the last 3 scheduled sessions were killed at the wall clock and produced no report"
+ ],
  "budget": {
   "config": {
    "allowance_usd": 30.0,
@@ -14,14 +16,16 @@
   },
   "decision": {
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-10-20T13:50:02.849190+00:00",
+   "allowed": false,
+   "moment": "2026-10-20T14:02:45.819108+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
-   "reasons": [],
+   "reasons": [
+    "lock held for 163s by scout-research"
+   ],
    "research_cost_usd": 0.0,
-   "research_tokens_last_7_days": 2152730,
-   "runs_last_7_days": 13,
-   "runs_weighted_last_7_days": 13,
+   "research_tokens_last_7_days": 2181718,
+   "runs_last_7_days": 14,
+   "runs_weighted_last_7_days": 14,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 0,
    "usage": {
@@ -35,23 +39,23 @@
      "output_tokens": 624078
     },
     "interactive": {
-     "calls": 2478,
+     "calls": 2488,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 0.60806,
-     "input_tokens": 7756556,
-     "output_tokens": 1382664
+     "cost_usd": 0.688359,
+     "input_tokens": 8626921,
+     "output_tokens": 1388774
     },
     "research": {
-     "calls": 643,
+     "calls": 645,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": 0.0,
-     "input_tokens": 2281764,
-     "output_tokens": 831693
+     "input_tokens": 2310355,
+     "output_tokens": 832090
     },
     "scheduled-other": {
      "calls": 572,
@@ -554,10 +558,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-20T13:50:02.443188+00:00",
+    "last_run_at": "2026-10-20T14:00:03.145868+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-20T14:00:00+00:00",
+    "next_run_at": "2026-10-20T14:10:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -581,9 +585,9 @@
     "last_run_at": "2026-10-19T08:16:44.110393+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-20T14:25:00+00:00",
+    "next_run_at": "2026-10-20T15:05:00+00:00",
     "no_agent": true,
-    "schedule": "25 */2 * * *"
+    "schedule": "5 1-23/2 * * *"
    },
    {
     "enabled": false,
@@ -602,10 +606,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-20T13:46:11.839087+00:00",
+    "last_run_at": "2026-10-20T14:01:16.143102+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-20T13:51:11.839087+00:00",
+    "next_run_at": "2026-10-20T14:06:16.143102+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -617,9 +621,9 @@
     "last_run_at": "2026-10-20T13:45:03.137802+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-20T14:00:00+00:00",
+    "next_run_at": "2026-10-20T16:00:00+00:00",
     "no_agent": true,
-    "schedule": "0 * * * *"
+    "schedule": "0 */2 * * *"
    },
    {
     "enabled": true,
@@ -638,7 +642,7 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-20T12:50:21.145319+00:00",
+    "last_run_at": "2026-10-20T13:50:19.973794+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
     "next_run_at": "2026-10-20T14:50:00+00:00",
@@ -650,10 +654,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": null,
-    "last_status": null,
+    "last_run_at": "2026-10-20T13:55:01.343459+00:00",
+    "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-20T13:55:00+00:00",
+    "next_run_at": "2026-10-20T14:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -668,11 +672,23 @@
     "next_run_at": null,
     "no_agent": true,
     "schedule": "once in 10m"
+   },
+   {
+    "enabled": true,
+    "failure_streak": 0,
+    "id": "e38d1a83c8aa",
+    "last_error": "",
+    "last_run_at": null,
+    "last_status": null,
+    "name": "scout-advance-chicago",
+    "next_run_at": "2026-10-20T14:42:12.126612+00:00",
+    "no_agent": true,
+    "schedule": "once in 40m"
    }
   ],
-  "updated_at": "2026-10-20T13:50:02.444254+00:00"
+  "updated_at": "2026-10-20T14:02:12.131317+00:00"
  },
- "generated_at": "2026-10-20T13:50:01+00:00",
+ "generated_at": "2026-10-20T14:02:44+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -741,11 +757,13 @@
    "tokens_7d": 2152730
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 163s by scout-research"
+ ],
  "panels": {
   "budget": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-20T13:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-20T14:02:44+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -754,8 +772,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-20T13:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-20T14:02:44+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -764,8 +782,8 @@
    "value": 8
   },
   "releases": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-20T13:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-20T14:02:44+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -1515,7 +1533,7 @@
   "jobs_total": 51,
   "lifetime_eur": 2.83,
   "live": {
-   "checked_at": "2026-10-20T13:50:17+00:00",
+   "checked_at": "2026-10-20T14:02:59+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -1540,5 +1558,65 @@
   ],
   "projected_month_eur": 0.59
  },
- "schema": 1
+ "schema": 1,
+ "sessions": {
+  "killed_last_three": 2,
+  "recent": [
+   {
+    "elapsed_seconds": 2687.7,
+    "event": "session",
+    "max_turns": 60,
+    "outcome": "exit 1",
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 2400,
+    "ts": "2026-10-20T08:44:50.920089+00:00"
+   },
+   {
+    "elapsed_seconds": 859.8,
+    "event": "session",
+    "max_turns": 60,
+    "outcome": "completed",
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 2400,
+    "ts": "2026-10-20T09:14:21.267847+00:00"
+   },
+   {
+    "elapsed_seconds": 2405.1,
+    "event": "session",
+    "max_turns": 60,
+    "outcome": "completed",
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 2400,
+    "ts": "2026-10-20T10:40:07.690666+00:00"
+   },
+   {
+    "elapsed_seconds": 2680.8,
+    "event": "session",
+    "max_turns": 60,
+    "outcome": "exit 1",
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 2400,
+    "ts": "2026-10-20T11:44:43.289463+00:00"
+   },
+   {
+    "elapsed_seconds": 2700.1,
+    "event": "session",
+    "max_turns": 60,
+    "outcome": "killed by the wrapper after the run budget elapsed",
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 2400,
+    "ts": "2026-10-20T12:45:04.592547+00:00"
+   },
+   {
+    "elapsed_seconds": 2700.1,
+    "event": "session",
+    "max_turns": 60,
+    "outcome": "killed by the wrapper after the run budget elapsed",
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 2400,
+    "ts": "2026-10-20T13:45:02.913558+00:00"
+   }
+  ],
+  "total": 22
+ }
 }
