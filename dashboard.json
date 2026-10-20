@@ -14,7 +14,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-20T11:56:22.912170+00:00",
+   "moment": "2026-10-20T11:59:00.753071+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.0,
@@ -25,23 +25,23 @@
    "sessions_over_token_cap": 0,
    "usage": {
     "auxiliary": {
-     "calls": 614,
+     "calls": 616,
      "cost_status": [
       "unknown"
      ],
-     "cost_usd": 0.0,
-     "input_tokens": 1113643,
-     "output_tokens": 623678
+     "cost_usd": 0.000175,
+     "input_tokens": 1114524,
+     "output_tokens": 623905
     },
     "interactive": {
-     "calls": 2212,
+     "calls": 2221,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 0.023036,
-     "input_tokens": 6258649,
-     "output_tokens": 1187534
+     "cost_usd": 0.033041,
+     "input_tokens": 6274235,
+     "output_tokens": 1190940
     },
     "research": {
      "calls": 615,
@@ -557,27 +557,27 @@
   ],
   "updated_at": "2026-10-20T11:56:09.645465+00:00"
  },
- "generated_at": "2026-10-20T11:56:22+00:00",
+ "generated_at": "2026-10-20T11:59:00+00:00",
  "health": {
   "checks": {
    "ok": true,
    "passing": 28
   },
   "ci": {
-   "conclusion": "success",
-   "created_at": "2026-10-20T11:55:55Z",
-   "head_sha": "cbb70f0",
-   "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39418489918"
+   "conclusion": null,
+   "created_at": "2026-10-20T11:58:56Z",
+   "head_sha": "908b527",
+   "status": "in_progress",
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39418839584"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 6/12 (50%)"
   },
   "head": {
-   "at": "2026-10-20T11:55:52Z",
-   "sha": "cbb70f0",
-   "subject": "Ship P0 of the dashboard: exec, cost, reliability on their own Pages repo"
+   "at": "2026-10-20T11:58:54Z",
+   "sha": "908b527",
+   "subject": "Dashboard verification waits for the Pages deploy instead of failing early"
   },
   "tests": {
    "count": "363",
@@ -587,7 +587,7 @@
  "panels": {
   "budget": {
    "age_minutes": 0.1,
-   "as_of": "2026-10-20T11:56:22+00:00",
+   "as_of": "2026-10-20T11:59:00+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -597,7 +597,7 @@
   },
   "candidates": {
    "age_minutes": 0.1,
-   "as_of": "2026-10-20T11:56:22+00:00",
+   "as_of": "2026-10-20T11:59:00+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -607,7 +607,7 @@
   },
   "releases": {
    "age_minutes": 0.1,
-   "as_of": "2026-10-20T11:56:22+00:00",
+   "as_of": "2026-10-20T11:59:00+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
