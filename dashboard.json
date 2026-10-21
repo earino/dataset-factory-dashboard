@@ -18,7 +18,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-21T15:28:14.164441+00:00",
+   "moment": "2026-10-21T15:50:02.768653+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
@@ -38,14 +38,14 @@
      "output_tokens": 643747
     },
     "interactive": {
-     "calls": 2937,
+     "calls": 2939,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 1.52265,
-     "input_tokens": 11527421,
-     "output_tokens": 1650277
+     "cost_usd": 1.523459,
+     "input_tokens": 11529113,
+     "output_tokens": 1651230
     },
     "research": {
      "calls": 2026,
@@ -4427,10 +4427,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-21T15:20:02.071343+00:00",
+    "last_run_at": "2026-10-21T15:50:02.166575+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-21T15:30:00+00:00",
+    "next_run_at": "2026-10-21T16:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -4475,10 +4475,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-21T15:25:16.893886+00:00",
+    "last_run_at": "2026-10-21T15:45:23.163496+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-21T15:30:16.893886+00:00",
+    "next_run_at": "2026-10-21T15:50:23.163496+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -4514,7 +4514,7 @@
     "last_run_at": "2026-10-21T14:50:23.452583+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-21T15:50:00+00:00",
+    "next_run_at": "2026-10-21T16:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -4567,9 +4567,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-21T15:25:16.894579+00:00"
+  "updated_at": "2026-10-21T15:50:02.167595+00:00"
  },
- "generated_at": "2026-10-21T15:28:13+00:00",
+ "generated_at": "2026-10-21T15:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -4868,13 +4868,21 @@
    "qualified": 1,
    "sessions_7d": 27,
    "tokens_7d": 5842086
+  },
+  {
+   "at": "2026-10-21T15:50:01+00:00",
+   "live": 9,
+   "published": 7,
+   "qualified": 1,
+   "sessions_7d": 27,
+   "tokens_7d": 5842086
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-21T15:28:13+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-21T15:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -4883,8 +4891,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-21T15:28:13+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-21T15:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -4893,8 +4901,8 @@
    "value": 9
   },
   "releases": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-21T15:28:13+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-21T15:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -5954,7 +5962,7 @@
   "jobs_total": 73,
   "lifetime_eur": 3.13,
   "live": {
-   "checked_at": "2026-10-21T15:28:27+00:00",
+   "checked_at": "2026-10-21T15:50:17+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
