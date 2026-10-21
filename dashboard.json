@@ -18,7 +18,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-21T18:50:02.524996+00:00",
+   "moment": "2026-10-21T19:50:02.445470+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
@@ -4593,10 +4593,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-21T18:50:01.846974+00:00",
+    "last_run_at": "2026-10-21T19:50:01.933547+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-21T19:00:00+00:00",
+    "next_run_at": "2026-10-21T20:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -4641,10 +4641,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-21T18:46:25.543048+00:00",
+    "last_run_at": "2026-10-21T19:46:44.826044+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-21T18:51:25.543048+00:00",
+    "next_run_at": "2026-10-21T19:51:44.826044+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -4677,10 +4677,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-21T17:50:23.840744+00:00",
+    "last_run_at": "2026-10-21T18:50:23.655922+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-21T19:50:00+00:00",
+    "next_run_at": "2026-10-21T20:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -4689,10 +4689,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-21T17:55:00.799954+00:00",
+    "last_run_at": "2026-10-21T18:55:01.014556+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-21T18:55:00+00:00",
+    "next_run_at": "2026-10-21T19:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -4733,9 +4733,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-21T18:50:01.848011+00:00"
+  "updated_at": "2026-10-21T19:50:01.934981+00:00"
  },
- "generated_at": "2026-10-21T18:50:01+00:00",
+ "generated_at": "2026-10-21T19:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -5066,13 +5066,21 @@
    "qualified": 1,
    "sessions_7d": 29,
    "tokens_7d": 6195629
+  },
+  {
+   "at": "2026-10-21T19:50:01+00:00",
+   "live": 9,
+   "published": 7,
+   "qualified": 1,
+   "sessions_7d": 29,
+   "tokens_7d": 6195629
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-21T18:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-21T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -5081,8 +5089,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-21T18:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-21T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -5091,8 +5099,8 @@
    "value": 9
   },
   "releases": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-21T18:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-21T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -6152,7 +6160,7 @@
   "jobs_total": 73,
   "lifetime_eur": 3.13,
   "live": {
-   "checked_at": "2026-10-21T18:50:16+00:00",
+   "checked_at": "2026-10-21T19:50:16+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
