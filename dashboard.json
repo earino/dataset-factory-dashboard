@@ -1,5 +1,9 @@
 {
- "alarms": [],
+ "alarms": [
+  "scout-worker-watch missed its window (2026-10-21T02:35:12.609396+00:00); last status ok",
+  "Test suite is failing",
+  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
+ ],
  "budget": {
   "config": {
    "allowance_usd": 30.0,
@@ -15,15 +19,15 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-21T01:50:02.554531+00:00",
+   "moment": "2026-10-21T02:50:02.987970+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
-   "research_cost_usd": 0.0,
-   "research_tokens_last_7_days": 3675863,
-   "runs_last_7_days": 21,
-   "runs_weighted_last_7_days": 21,
+   "research_cost_usd": 0.233495,
+   "research_tokens_last_7_days": 4829298,
+   "runs_last_7_days": 22,
+   "runs_weighted_last_7_days": 23,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 0,
+   "sessions_over_token_cap": 1,
    "usage": {
     "auxiliary": {
      "calls": 617,
@@ -45,23 +49,24 @@
      "output_tokens": 1473797
     },
     "research": {
-     "calls": 1290,
+     "calls": 1411,
      "cost_status": [
+      "estimated",
       "unknown"
      ],
-     "cost_usd": 0.0,
-     "input_tokens": 3348563,
-     "output_tokens": 1288027
+     "cost_usd": 0.233495,
+     "input_tokens": 4454747,
+     "output_tokens": 1335278
     },
     "scheduled-other": {
-     "calls": 1131,
+     "calls": 1211,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": 0.000514,
-     "input_tokens": 1909682,
-     "output_tokens": 812055
+     "input_tokens": 1975663,
+     "output_tokens": 871993
     }
    },
    "weekly_token_budget": 40000000
@@ -71,7 +76,6 @@
   "countries": {
    "AU": 1,
    "CA": 2,
-   "CH": 1,
    "DE": 1,
    "GB": 2,
    "IN": 1,
@@ -80,9 +84,9 @@
   "counts": {
    "dropped": 9,
    "investigating": 8,
+   "packaged": 1,
    "parked": 11,
    "published": 5,
-   "qualified": 1,
    "ready": 1
   },
   "errors": [],
@@ -174,20 +178,9 @@
     "publisher": "US National Weather Service / Iowa Environmental Mesonet",
     "region": "North America",
     "status": "investigating"
-   },
-   {
-    "awaiting_operator": false,
-    "country": "CH",
-    "id": "who-flunet-activity-exceedance",
-    "next_action": "Packaging (dataset-release skill): assemble release/who-flunet-activity-exceedance from the qualified artifact b1323a27fa02eb79 - extract assets are in staging ",
-    "packaged_at": null,
-    "path": "candidates/who-flunet-activity-exceedance/record.json",
-    "publisher": "World Health Organization (WHO) - Global Influenza Programme / FluNet, headquartered in Geneva, Switzerland",
-    "region": "International organisations",
-    "status": "qualified"
    }
   ],
-  "non_us_share": 88.9,
+  "non_us_share": 87.5,
   "records": [
    {
     "awaiting_operator": false,
@@ -564,20 +557,47 @@
     "status": "parked"
    },
    {
-    "awaiting_operator": false,
+    "age_hours": 0.3,
+    "awaiting_operator": true,
     "country": "CH",
     "id": "who-flunet-activity-exceedance",
-    "next_action": "Packaging (dataset-release skill): assemble release/who-flunet-activity-exceedance from the qualified artifact b1323a27fa02eb79 - extract assets are in staging ",
-    "packaged_at": null,
+    "next_action": "AWAITING THE OPERATOR'S PRIVATE-TO-PUBLIC FLIP - staging is complete on both destinations. GitHub earino/who-flunet-activity-exceedance is private with release ",
+    "packaged_at": "2026-10-21T02:29:20Z",
     "path": "candidates/who-flunet-activity-exceedance/record.json",
     "publisher": "World Health Organization (WHO) - Global Influenza Programme / FluNet, headquartered in Geneva, Switzerland",
     "region": "International organisations",
-    "status": "qualified"
+    "status": "packaged"
    }
   ],
   "release": {
-   "awaiting": [],
-   "packaged": [],
+   "awaiting": [
+    {
+     "age_hours": 0.3,
+     "awaiting_operator": true,
+     "country": "CH",
+     "id": "who-flunet-activity-exceedance",
+     "next_action": "AWAITING THE OPERATOR'S PRIVATE-TO-PUBLIC FLIP - staging is complete on both destinations. GitHub earino/who-flunet-activity-exceedance is private with release ",
+     "packaged_at": "2026-10-21T02:29:20Z",
+     "path": "candidates/who-flunet-activity-exceedance/record.json",
+     "publisher": "World Health Organization (WHO) - Global Influenza Programme / FluNet, headquartered in Geneva, Switzerland",
+     "region": "International organisations",
+     "status": "packaged"
+    }
+   ],
+   "packaged": [
+    {
+     "age_hours": 0.3,
+     "awaiting_operator": true,
+     "country": "CH",
+     "id": "who-flunet-activity-exceedance",
+     "next_action": "AWAITING THE OPERATOR'S PRIVATE-TO-PUBLIC FLIP - staging is complete on both destinations. GitHub earino/who-flunet-activity-exceedance is private with release ",
+     "packaged_at": "2026-10-21T02:29:20Z",
+     "path": "candidates/who-flunet-activity-exceedance/record.json",
+     "publisher": "World Health Organization (WHO) - Global Influenza Programme / FluNet, headquartered in Geneva, Switzerland",
+     "region": "International organisations",
+     "status": "packaged"
+    }
+   ],
    "pending": []
   }
  },
@@ -610,9 +630,9 @@
   "by_status": {
    "dropped": 9,
    "investigating": 8,
+   "packaged": 1,
    "parked": 11,
    "published": 5,
-   "qualified": 1,
    "ready": 1
   },
   "candidates": 35,
@@ -640,10 +660,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-21T01:50:01.522523+00:00",
+    "last_run_at": "2026-10-21T02:50:02.583610+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-21T02:00:00+00:00",
+    "next_run_at": "2026-10-21T03:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -664,10 +684,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-20T22:29:40.499529+00:00",
+    "last_run_at": "2026-10-21T02:37:09.722386+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-21T02:00:00+00:00",
+    "next_run_at": "2026-10-21T06:00:00+00:00",
     "no_agent": true,
     "schedule": "0 2-22/4 * * *"
    },
@@ -688,10 +708,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-21T01:45:01.804761+00:00",
+    "last_run_at": "2026-10-21T02:25:11.607271+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-21T01:55:02.565008+00:00",
+    "next_run_at": "2026-10-21T02:35:12.609396+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -724,10 +744,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-21T00:50:19.410660+00:00",
+    "last_run_at": "2026-10-21T01:50:18.907603+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-21T02:50:00+00:00",
+    "next_run_at": "2026-10-21T03:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -736,10 +756,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-21T00:55:01.414727+00:00",
+    "last_run_at": "2026-10-21T01:55:00.909298+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-21T01:55:00+00:00",
+    "next_run_at": "2026-10-21T02:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -780,9 +800,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-21T01:50:02.567268+00:00"
+  "updated_at": "2026-10-21T02:50:02.584704+00:00"
  },
- "generated_at": "2026-10-21T01:50:01+00:00",
+ "generated_at": "2026-10-21T02:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -806,7 +826,7 @@
   },
   "tests": {
    "count": "386",
-   "ok": true
+   "ok": false
   }
  },
  "history": [
@@ -945,13 +965,21 @@
    "qualified": 1,
    "sessions_7d": 21,
    "tokens_7d": 3675863
+  },
+  {
+   "at": "2026-10-21T02:50:02+00:00",
+   "live": 8,
+   "published": 6,
+   "qualified": 0,
+   "sessions_7d": 22,
+   "tokens_7d": 4829298
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-21T01:50:01+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-21T02:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -960,24 +988,24 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-21T01:50:01+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-21T02:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 9
+   "value": 8
   },
   "releases": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-21T01:50:01+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-21T02:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
    "stale": false,
    "status": "ok",
-   "value": 5
+   "value": 6
   }
  },
  "releases": {
@@ -1059,6 +1087,21 @@
     },
     "verified_all": true,
     "verified_at": "2026-09-26T21:02:37+00:00"
+   },
+   {
+    "assets": 5,
+    "baseline_eval_auc": null,
+    "dataset": "who-flunet-activity-exceedance",
+    "persistence_auc": null,
+    "publication_note": "Prepared for human review. Nothing here has been published.",
+    "release_tag": "v2026.10",
+    "rows": 26093,
+    "verified": {
+     "github": true,
+     "huggingface": true
+    },
+    "verified_all": true,
+    "verified_at": "2026-10-21T02:48:39+00:00"
    }
   ]
  },
@@ -1068,7 +1111,7 @@
  "resources": {
   "ceiling_eur": 20.0,
   "errors": [],
-  "eur_per_release": 0.62,
+  "eur_per_release": 0.52,
   "histogram": {
    "bins": [
     {
@@ -1077,7 +1120,7 @@
      "lo": 0.003
     },
     {
-     "count": 13,
+     "count": 15,
      "hi": 0.01,
      "lo": 0.005
     },
@@ -1113,11 +1156,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0183,
-   "n": 62,
+   "median": 0.018,
+   "n": 64,
    "p90": 0.0611,
    "ref_rate": 0.06924,
-   "total": 2.94
+   "total": 2.96
   },
   "jobs": [
    {
@@ -1404,6 +1447,30 @@
     "id": "flunet-002",
     "location": "hel1",
     "normalised_eur": 0.0062,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-21T02:24:57.335166+00:00",
+    "deleted_at": "2026-10-21T02:32:29.541124+00:00",
+    "eur": 0.0015,
+    "hours": 0.126,
+    "id": "flunet-baseline-001",
+    "location": "hel1",
+    "normalised_eur": 0.0087,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-21T02:32:25.773340+00:00",
+    "deleted_at": "2026-10-21T02:37:12.734898+00:00",
+    "eur": 0.0009,
+    "hours": 0.08,
+    "id": "flunet-hf-001",
+    "location": "hel1",
+    "normalised_eur": 0.0055,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -1865,18 +1932,18 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 21,
-  "jobs_total": 62,
+  "jobs_this_month": 23,
+  "jobs_total": 64,
   "lifetime_eur": 3.12,
   "live": {
-   "checked_at": "2026-10-21T01:50:16+00:00",
+   "checked_at": "2026-10-21T02:50:16+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 8.7,
+  "month_hours": 8.9,
   "month_to_date": 0.67,
   "months": [
    {
@@ -1886,9 +1953,9 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.67,
-    "hours": 8.66,
-    "jobs": 21,
+    "eur": 0.6724,
+    "hours": 8.87,
+    "jobs": 23,
     "month": "2026-10"
    }
   ],
@@ -1896,17 +1963,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 1,
+  "failed_last_three": 2,
   "recent": [
-   {
-    "elapsed_seconds": 3272.9,
-    "event": "session",
-    "max_turns": 80,
-    "outcome": "exit 1",
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 3000,
-    "ts": "2026-10-20T15:00:45.947825+00:00"
-   },
    {
     "elapsed_seconds": 2585.9,
     "event": "session",
@@ -1951,8 +2009,17 @@
     "prompt_file": "discovery-session-prompt.md",
     "run_budget": 5400,
     "ts": "2026-10-21T00:35:34.721367+00:00"
+   },
+   {
+    "elapsed_seconds": 2228.3,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "exit 1",
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "ts": "2026-10-21T02:37:09.683371+00:00"
    }
   ],
-  "total": 28
+  "total": 29
  }
 }
