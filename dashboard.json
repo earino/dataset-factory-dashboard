@@ -1,6 +1,5 @@
 {
  "alarms": [
-  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -18,13 +17,13 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-21T15:50:02.768653+00:00",
+   "moment": "2026-10-21T16:50:02.490756+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
-   "research_tokens_last_7_days": 5842086,
-   "runs_last_7_days": 27,
-   "runs_weighted_last_7_days": 28,
+   "research_tokens_last_7_days": 6013193,
+   "runs_last_7_days": 28,
+   "runs_weighted_last_7_days": 29,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 1,
    "usage": {
@@ -48,14 +47,14 @@
      "output_tokens": 1651230
     },
     "research": {
-     "calls": 2026,
+     "calls": 2107,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": 0.233495,
-     "input_tokens": 5265208,
-     "output_tokens": 1825594
+     "input_tokens": 5356683,
+     "output_tokens": 1905226
     },
     "scheduled-other": {
      "calls": 1499,
@@ -83,10 +82,10 @@
   "counts": {
    "dropped": 10,
    "investigating": 8,
-   "parked": 17,
+   "parked": 19,
    "published": 6,
    "qualified": 1,
-   "ready": 4
+   "ready": 5
   },
   "errors": [],
   "live": [
@@ -2543,6 +2542,63 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "KE",
+    "domain": "national open-data infrastructure / statistical publishing (country portal record, Kenya)",
+    "id": "kenya-opendata-knbs",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "cost_note_2026_10_21": "Six probe requests total, all cheap; the finding is about absence of a channel, not about cost.",
+     "knbs_probe_2026_10_21": "https://www.knbs.or.ke/: 200 (294,945 B) with TLS verification disabled; strict TLS fails 'unable to get local issuer certificate'. /data-portals/: 200 (149,772 B); /data-portal/ redirects there; /download-centre/: 404. Zero data-file links (.pdf/.xlsx/.csv/.zip) on the data-portals page (grep measured). Footer: 'Copyright 2026 (c) Kenya National Bureau of Statistics | All Rights Reserved'.",
+     "portal_probe_2026_10_21": "open.data.go.ke: NXDOMAIN ('Name or service not known'), both https attempts. Same failure class as data.gov.za (ZA) this session.",
+     "third_party_probe_2026_10_21": "kenya.opendataforafrica.org: HTTP 403 Cloudflare challenge page (5,620 B, 'Just a moment...'). kenya-sdg.github.io: 200 (22,502 B static dashboard HTML)."
+    },
+    "next_action": "Unpark question (exact): does any KNBS-published channel offer anonymous bulk/API access with stated licence terms? Concretely, probe in this order: (a) a KNBS ",
+    "packaged_at": null,
+    "path": "candidates/kenya-opendata-knbs/record.json",
+    "prediction_time": "n/a while parked. KNBS does publish on a monthly/quarterly release calendar (statistical releases are announced on knbs.or.ke), so a publication-instant formulation would be stateable IF an anonymous machine-readable channel existed.",
+    "publisher": "Kenya National Bureau of Statistics (KNBS); defunct national portal open.data.go.ke",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "No task carried to formulation this session: this is a country-infrastructure record for the Africa tick. Kenya's statistical publishing currently offers no measured anonymous bulk/API channel whose licence and timing could carry a prediction task, so no concrete prediction question was opened. Candidate task shapes that would have been probed with a live channel: KNBS monthly/quarterly economic indicator series (CPI components, trade, tourism arrivals) at national or county level.",
+    "region": "Africa",
+    "release_baseline": {
+     "auc": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "unreadable - the portal is gone from DNS, so no licence statement can be read; historically CKAN-based with per-dataset licences",
+      "name": "Kenya Open Data (national portal) - open.data.go.ke",
+      "url": "https://open.data.go.ke"
+     },
+     {
+      "licence": "'Copyright 2026 (c) Kenya National Bureau of Statistics | All Rights Reserved' - measured in the site footer; all-rights-reserved with no open-data licence found",
+      "name": "Kenya National Bureau of Statistics (KNBS) - knbs.or.ke",
+      "url": "https://www.knbs.or.ke/ (WordPress site), https://www.knbs.or.ke/data-portals/ (portal link page)"
+     },
+     {
+      "licence": "Both are third parties: a Knoema-hosted aggregator (platform terms, not the publisher's licence, and the schema is the aggregator's guess) and a GitHub Pages SDG dashboard. Neither gives a publisher licence for derived-row redistribution.",
+      "name": "Third-party channels KNBS points to: kenya.opendataforafrica.org (Knoema) and kenya-sdg.github.io",
+      "url": "https://kenya.opendataforafrica.org/, https://kenya-sdg.github.io/"
+     }
+    ],
+    "split_strategy": "n/a - no data channel to build on (measured, not assumed).",
+    "status": "parked",
+    "target": "n/a while parked. No machine-readable label source was measurable this session (see measurements)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "MY",
     "domain": "hydrology / flood early-warning prediction",
     "id": "malaysia-river-danger-exceedance",
@@ -3824,6 +3880,53 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "ZA",
+    "domain": "public safety / recorded crime statistics",
+    "id": "saps-station-crime-quarter",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "access_probes_2026_10_21": "www.saps.gov.za: HTTP 200 with verification disabled; strict TLS fails with 'unable to get local issuer certificate' (incomplete chain). Deep link https://www.saps.gov.za/downloads/2025/... 404s; the correct base is /services/downloads/ (relative hrefs on /services/crimestats.php).",
+     "cost_note_2026_10_21": "One quarter workbook = 11.55 MB; the full quarterly series (~28 quarters) is roughly 300 MB across ~28 requests - cheap, but irrelevant until the licence question is settled.",
+     "series_coverage_2026_10_21": "Quarterly per-station workbooks observed on the two SAPS pages cover FY2019/20 through FY2026-27 Q1; annual workbooks for FY2023-24 and earlier annual report PDFs also present. The pre-2019/20 station-level series (2005/06 onwards) was historically distributed via the national open-data portal data.gov.za, which currently does not resolve (see za-municipal-audit-opinion notes).",
+     "workbook_2026_10_21": "downloads/2025/2025-2026_-_2nd_Quarter_WEB.xlsx: 11,554,369 B, PK-magic verified, 36 zip entries, 8 worksheets, 162,533 shared strings. Header row measured: Station, District, Province, Crime_Category, Code, 'National contribution placement', 'National count diff placement', 'Provincial contribution placement', 'Provincial count diff placement'. Categories observed in sharedStrings: Murder, Attempted murder, Culpable homicide, Robbery with aggravating circumstances, Common robbery, Public violence, Rape, Crimen injuria, Neglect and ill-treatment of children, Kidnapping, Abduction, Assault GBH, Common assault, Burglary at non-residential/residential premises, Theft of motor vehicle and motorcycle, Theft out of motor vehicle, All theft not mentioned elsewhere, Robbery of cash in transit."
+    },
+    "next_action": "Unpark question (exact): written licence confirmation from SAPS (via the saps.gov.za contact/feedback channel) permitting redistribution of derived station x qu",
+    "packaged_at": null,
+    "path": "candidates/saps-station-crime-quarter/record.json",
+    "prediction_time": "Would be the quarterly crime-statistics release (SAPS publishes per financial-year quarter with a pre-release calendar; 'Pre-Release-Crime-Statistics-Release-Calendar-For-2023-2024.pdf' and a 'Postponement-of-crime-statistics-release-for-the-first-quarter-letter.pdf' are on the downloads page - a release calendar exists but exact per-quarter dates were not pinned because the licence veto came first).",
+    "publisher": "South African Police Service (SAPS), Republic of South Africa",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "Hypothetical task this source would support (not taken forward this session, licence-blocked): for a SAPS police station, predict a change-shaped outcome on its recorded-crime counts for the next quarter - e.g. whether a station-category count crosses a threshold for the first time - rather than the next quarter's level, because station-level counts are strongly persistent.",
+    "region": "Africa",
+    "release_baseline": {
+     "auc": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "https://www.saps.gov.za/copyright.php: 'All material on this site is subject to copyright.' - affirmative copyright, no reuse/redistribution grant anywhere on the site; disclaimer.php adds the site's 'sole purpose ... is to provide information', with no data-use terms",
+      "name": "South African Police Service (SAPS) - crime statistics downloads",
+      "url": "https://www.saps.gov.za/services/crimestats.php (current releases), https://www.saps.gov.za/services/older_crimestats.php (2019/20 onwards)"
+     }
+    ],
+    "split_strategy": "Not built. Measured shape that a construction would use: quarterly workbooks from 2019/20 to 2026/27 Q1 (older_crimestats.php lists 2019/20 through 2024/25; crimestats.php lists 2023-24 Q1 onwards plus 2025-26 Q1-Q4 and 2026-27 Q1), ~1,140 stations x ~17 crime categories per quarter (2025-26 Q2 workbook: 8 sheets, 162,533 shared strings, headers Station/District/Province/Crime_Category/Code/National+Provincial contribution and count-diff placement).",
+    "status": "parked",
+    "target": "Would be mechanical: the station x crime-category count for quarter Q from SAPS's own quarterly workbook (columns Station, District, Province, Crime_Category, Code, plus national/provincial contribution and count-diff placement columns), with the next quarter's counts excluded from shipped features. Not built."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "SG",
     "domain": "national open-data catalog - access excellent, task families duplicate the bench",
     "id": "singapore-datagov-catalog",
@@ -4356,6 +4459,65 @@
     "split_strategy": "Temporal, one row per country-week: train ISO years <=2019, eval 2020-2022, holdout 2023 onward. Measured on the full table (country-week grain, origin streams summed, denominator >= 50): train window 2005-2019 has 14,870 usable country-weeks; eval window 2020-2022 has 8,559 usable country-weeks of which 29.0% are positives (2,485) - the COVID-era base-rate break is a property of the phenomenon and is documented, not smoothed away; holdout window 2023 has 4,677 country-weeks (42.4% positive, 1,984), extending through 2024-2026 (12,707 country-weeks, 48.3% positive, 6,135). Positives cluster by country-season: 278 clustered country-years in the eval window, 400 in 2024-2026. Construction must restrict to country-weeks where negatives are systematically reported (see measurements: pre-2015 rows are ~uniform-positive where negatives are missing, so those rows cannot carry the rate frame), and the clustered count, not the row count, is the effective sample-size figure.",
     "status": "published",
     "target": "Binary, computed from the source row of week W+4: influenza positivity = INF_ALL / (INF_ALL + INF_NEGATIVE) exceeds 0.10, with a minimum denominator of 50 specimens in the week. Unit: proportion of specimens testing positive for influenza. Reference frame: country x ISO week, SENTINEL and NONSENTINEL origin streams summed (the table's grain is country x ISO week x ORIGIN_SOURCE). Label source columns INF_ALL and INF_NEGATIVE are recorded in label_source_columns and must be absent from the shipped feature columns; the threshold and lead are to be pinned at construction against a named known-event fixture before any number is quoted."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "ZA",
+    "domain": "public-sector accountability / municipal audit outcome prediction",
+    "id": "za-municipal-audit-opinion",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "binary_rates_2026_10_21": "Qualified-or-worse rate per year (outstanding excluded, same command): 2011 53.09%, 2012 54.86%, 2013 56.47%, 2014 46.40%, 2015 40.43%, 2016 34.98%, 2017 42.35%, 2018 51.38%, 2019 51.53%, 2020 50.00%, 2021 39.91%, 2022 43.92%, 2023 41.70%, 2024 43.32%.",
+     "extraction_cost_measured_2026_10_21": "Coordinator probes: 8 S3/portal GETs totalling ~82 MB (audit_opinions 0.73 MB; incexp 2025 76.7 MB; cflow 2025+2026 4.87 MB; portal/docs/terms HTML 0.2 MB), wall clock ~90 s of the probe script. Construction estimate (labelled estimate): all needed cubes are per-year bulk files listed in each cube's index.json with checksums; ~20-30 requests, 0.3-1.0 GB total, minutes on a worker - incexp 'All' (834 MB) is the largest single file and can be replaced by per-year fetches.",
+     "feature_cube_2026_10_21": "incexp_facts_v2 year_end 2025 file: 76,734,977 B, 396,080 rows, 257 municipalities, 17 columns (demarcation, name, function code/label, category, subcategory, mSCOA item code/label, position, return form structure, composition, year end, length, period, amount type code/label, amount); amount types AUDA/PAUD/ORGB/TABB/IBY1/IBY2/ITY1/ITY2 as counted above; all rows length='year'. Function dimension sample: 1110 Mayor and Council (Municipal governance and administration / Executive and council); item sample: 1600 Operational Revenue, 3100 Employee related costs. incexp_facts_v2 'All' file = 834,044,751 B (would be a worker-side fetch); per-year files 2018: 12,134,397 B ... 2025: 76,734,977 B; cflow_facts_v2 'All' = 25,119,450 B.",
+     "label_panel_2026_10_21": "audit_opinion_facts_2026-07-30_11-42-36.csv: 733,716 B, 3,688 data rows, 292 demarcation codes (incl. disestablished), 14 label years 2011-2024. Rows per year: 2011:277 2012:278 2013:278 2014:278 2015:278 2016:243 2017:257 2018:257 2019:257 2020:257 2021:257 2022:257 2023:257 2024:257. Opinion vocabulary and counts (all years): unqualified_emphasis_of_matter 1472, qualified 1066, disclaimer 522, unqualified 442, outstanding 105, adverse 81. FY2024 mix: qualified 90, uEoM 99, unqualified 41, disclaimer 11, outstanding 10, adverse 6.",
+     "persistence_2026_10_21": "Last-opinion persistence accuracy on eval years 2018-2020: 619/738 = 83.88%; transitions prev->next: clean->bad 69, bad->clean 50. Onset (clean-prev) base rate in eval window: 69/381 = 18.1%.",
+     "release_dates_2026_10_21": "AGSA general-report tabling (observed): FY2022-23 -> media release 27 Aug 2024 (14 months after the 30 June 2023 year end); FY2024-25 -> tabled 24 June 2026 (12 months after 30 June 2025); FY2023-24 -> inclusion cut-off 31 Jan 2025, exact tabling date still to pin at construction. The cube regenerated 2026-07-30 does not yet carry year_end 2025 opinions (measured: max year_end in file = 2024) even though the FY2024-25 report was tabled 24 June 2026 - Treasury ingestion lags tabling; construction must snapshot which label years the pinned artifact carries."
+    },
+    "next_action": "Construction (worker): (1) verify the exact MFMA statutory AFS-submission deadline wording (s127 area) and pin observed AGSA release dates per label year, inclu",
+    "packaged_at": null,
+    "path": "candidates/za-municipal-audit-opinion/record.json",
+    "prediction_time": "31 August of year k: the statutory deadline for a municipality to submit its FY k annual financial statements to the Auditor-General (AFS due three months after the 30 June year end; exact MFMA section wording to be verified at construction). At that instant the FY k audit has not been performed, so the label cannot exist. Knowable features: FY k's as-submitted (pre-audit) figures, budget phases already tabled (original/tabled budgets for FY k and FY k+1), audited actuals and audit opinions for strictly earlier years (observed general-report tabling dates: 27 Aug 2024 for FY2022-23 and 24 Jun 2026 for FY2024-25, i.e. 12-14 months after year end, so opinions are conservatively treated as known only through year_end k-2), plus static municipality demographics. Everything post-instant (FY k audit results, later tabled budgets, IBY/ITY forecast vintages) is excluded.",
+    "publisher": "National Treasury of South Africa (Municipal Finance Data / Municipal Money); label origin: Auditor-General of South Africa (AGSA)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "Primary (onset) formulation: for a South African municipality whose most recently RELEASED audit opinion (financial year ending 30 June, year_end <= k-1) was clean-ish (unqualified, with or without emphasis of matter), will its financial year k audit outcome be qualified-or-worse? Secondary (level) formulation, only reported beside the persistence baseline: will any municipality receive a qualified-or-worse opinion for FY k? Both are stated at the statutory annual-financial-statements submission instant.",
+    "region": "Africa",
+    "release_baseline": {
+     "auc": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "Terms of use at https://municipaldata.treasury.gov.za/terms: free download, copy, publish, distribute, transmit, adapt and extract, commercial and non-commercial, at no cost; obligation to acknowledge the source and date of publication; no endorsement/trademark grant",
+      "name": "Municipal Finance Data - National Treasury of South Africa (cubes + bulk downloads)",
+      "url": "https://municipaldata.treasury.gov.za/ (portal), https://municipaldata.treasury.gov.za/docs (cube documentation + bulk list)"
+     },
+     {
+      "licence": "Same National Treasury terms family as municipaldata (read at construction before shipping any derived demographic fields)",
+      "name": "Municipal Money - National Treasury (per-municipality profiles and demographics API)",
+      "url": "https://municipalmoney.gov.za/"
+     },
+     {
+      "licence": "AGSA report PDFs are not redistributed by us; only National Treasury cube data ships. AGSA site content referenced for release-date evidence only",
+      "name": "Auditor-General of South Africa (AGSA) - origin of the label and its release dates",
+      "url": "https://www.agsa.co.za/reports/mfma-reports; general reports at mfma-2023.agsa.co.za (FY2022-23), mfma-2024.agsareports.co.za (FY2023-24), mfma-2025.agsa.co.za (FY2024-25)"
+     }
+    ],
+    "split_strategy": "Temporal, by label year (year_end), computed from the actual audit_opinion_facts CSV (command: python3 candidates/za-municipal-audit-opinion/probe_label_stats.py <audit_opinions.csv>, scratch kept this session): train 2011-2017 = 1,863 rows / 878 positives (47.13%); eval 2018-2020 = 738 rows / 376 positives (50.95%); holdout 2021-2024 = 982 rows / 415 positives (42.26%). Both classes present in every one of the 14 label years (measured per-year rates 35.0%-56.5%). Clustered positives: audit outcomes correlate within an audit cycle/year, so the independence scale is ~14 label years, not 3,689 rows - confidence intervals must be clustered by year and the onset-conditioned variant recomputed at construction. Municipalities are repeated entities across years: features may include each municipality's own history, and the runner's id_columns handle the municipality code; no cross-split entity leakage arises because splits are by time, but the descriptor must declare expected duplicate ids.",
+    "status": "ready",
+    "target": "Binary label from the audit_opinions cube ('Code' column, bulk CSV audit_opinion_facts on munimoney-media S3): 1 = qualified, disclaimer or adverse; 0 = unqualified or unqualified_emphasis_of_matter; 'outstanding' rows (audit not completed) are excluded, not imputed. Label source column is never shipped as a feature: the label CSV is used only to build y; features come from the separate incexp/cflow/capital/bsheet/grants/uifwexp/repmaint/aged-debtor/aged-creditor cubes and the demographics API. Measured per-year positive rates (qualified-or-worse, outstanding excluded): 35.0%-56.5% across all 14 label years, never degenerate. Measured persistence: 83.88% year-over-year agreement (2018-2020), so the level label is persistence-shaped and the primary task is the deterioration-onset conditioning; onset base rate measured 69/381 = 18.1% of clean-prev municipality-years in 2018-2020."
    }
   ],
   "release": {
@@ -4377,15 +4539,18 @@
    "ID": 2,
    "IN": 3,
    "JP": 1,
+   "KE": 1,
    "MX": 1,
    "MY": 1,
    "PH": 1,
    "SG": 1,
    "TH": 1,
    "US": 11,
-   "VN": 1
+   "VN": 1,
+   "ZA": 2
   },
   "by_region": {
+   "Africa": 3,
    "East Asia": 1,
    "Europe": 9,
    "International organisations": 3,
@@ -4397,15 +4562,15 @@
   "by_status": {
    "dropped": 10,
    "investigating": 8,
-   "parked": 17,
+   "parked": 19,
    "published": 6,
    "qualified": 1,
-   "ready": 4
+   "ready": 5
   },
-  "candidates": 46,
-  "live": 19,
-  "live_non_us": 13,
-  "live_non_us_share": 0.684,
+  "candidates": 49,
+  "live": 20,
+  "live_non_us": 14,
+  "live_non_us_share": 0.7,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -4427,10 +4592,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-21T15:50:02.166575+00:00",
+    "last_run_at": "2026-10-21T16:50:01.550353+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-21T16:00:00+00:00",
+    "next_run_at": "2026-10-21T17:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -4475,10 +4640,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-21T15:45:23.163496+00:00",
+    "last_run_at": "2026-10-21T16:45:41.847870+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-21T15:50:23.163496+00:00",
+    "next_run_at": "2026-10-21T16:50:41.847870+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -4487,10 +4652,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-21T12:27:32.956521+00:00",
+    "last_run_at": "2026-10-21T16:29:17.202562+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-21T16:00:00+00:00",
+    "next_run_at": "2026-10-21T20:00:00+00:00",
     "no_agent": true,
     "schedule": "0 */4 * * *"
    },
@@ -4511,10 +4676,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-21T14:50:23.452583+00:00",
+    "last_run_at": "2026-10-21T15:50:23.603387+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-21T16:50:00+00:00",
+    "next_run_at": "2026-10-21T17:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -4523,10 +4688,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-21T14:55:01.139685+00:00",
+    "last_run_at": "2026-10-21T15:55:00.691128+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-21T15:55:00+00:00",
+    "next_run_at": "2026-10-21T16:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -4567,29 +4732,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-21T15:50:02.167595+00:00"
+  "updated_at": "2026-10-21T16:50:01.551365+00:00"
  },
- "generated_at": "2026-10-21T15:50:01+00:00",
+ "generated_at": "2026-10-21T16:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 46
+   "passing": 49
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-21T15:27:56Z",
-   "head_sha": "68cd081",
+   "created_at": "2026-10-21T16:28:21Z",
+   "head_sha": "9114a1e",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39625929953"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39635064368"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 13/19 (68%)"
+   "summary": "live non-US: 14/20 (70%)"
   },
   "head": {
-   "at": "2026-10-21T15:27:52Z",
-   "sha": "68cd081",
-   "subject": "nhs-ae v2026.12: decide eligibility at M only, use the maximum publication lag"
+   "at": "2026-10-21T16:28:08Z",
+   "sha": "9114a1e",
+   "subject": "Africa discovery tick: 3 verdicts (ZA municipal audit opinions go; SAPS park licence-blocked; Kenya park, dead portal)"
   },
   "tests": {
    "count": "398",
@@ -4876,13 +5041,21 @@
    "qualified": 1,
    "sessions_7d": 27,
    "tokens_7d": 5842086
+  },
+  {
+   "at": "2026-10-21T16:50:01+00:00",
+   "live": 9,
+   "published": 7,
+   "qualified": 1,
+   "sessions_7d": 28,
+   "tokens_7d": 6013193
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-21T15:50:01+00:00",
+   "as_of": "2026-10-21T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -4892,7 +5065,7 @@
   },
   "candidates": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-21T15:50:01+00:00",
+   "as_of": "2026-10-21T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -4902,7 +5075,7 @@
   },
   "releases": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-21T15:50:01+00:00",
+   "as_of": "2026-10-21T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -5962,7 +6135,7 @@
   "jobs_total": 73,
   "lifetime_eur": 3.13,
   "live": {
-   "checked_at": "2026-10-21T15:50:17+00:00",
+   "checked_at": "2026-10-21T16:50:16+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -5989,17 +6162,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 2,
+  "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 3335.1,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "ts": "2026-10-21T04:55:44.645532+00:00"
-   },
    {
     "elapsed_seconds": 1967.2,
     "event": "session",
@@ -6044,6 +6208,15 @@
     "prompt_file": "research-session-prompt.md",
     "run_budget": 5400,
     "ts": "2026-10-21T14:41:33.937058+00:00"
+   },
+   {
+    "elapsed_seconds": 1755.6,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "ts": "2026-10-21T16:29:17.164540+00:00"
    }
   ],
   "total": 33
