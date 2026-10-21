@@ -1,7 +1,7 @@
 {
  "alarms": [
-  "scout-worker-watch missed its window (2026-10-21T14:27:14.563589+00:00); last status ok",
-  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
+  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report",
+  "1 release(s) not fully verified"
  ],
  "budget": {
   "config": {
@@ -18,7 +18,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-21T14:50:02.792547+00:00",
+   "moment": "2026-10-21T15:28:14.164441+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
@@ -29,23 +29,23 @@
    "sessions_over_token_cap": 1,
    "usage": {
     "auxiliary": {
-     "calls": 624,
+     "calls": 625,
      "cost_status": [
       "unknown"
      ],
-     "cost_usd": 0.010937,
-     "input_tokens": 1178501,
-     "output_tokens": 643743
+     "cost_usd": 0.010965,
+     "input_tokens": 1179046,
+     "output_tokens": 643747
     },
     "interactive": {
-     "calls": 2914,
+     "calls": 2937,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 1.500103,
-     "input_tokens": 11257527,
-     "output_tokens": 1635093
+     "cost_usd": 1.52265,
+     "input_tokens": 11527421,
+     "output_tokens": 1650277
     },
     "research": {
      "calls": 2026,
@@ -58,14 +58,14 @@
      "output_tokens": 1825594
     },
     "scheduled-other": {
-     "calls": 1465,
+     "calls": 1499,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": 0.000514,
-     "input_tokens": 2210355,
-     "output_tokens": 1083445
+     "input_tokens": 2226299,
+     "output_tokens": 1107587
     }
    },
    "weekly_token_budget": 40000000
@@ -491,11 +491,6 @@
     "jobs": [
      {
       "at": null,
-      "id": "nhsae-001",
-      "status": "failed"
-     },
-     {
-      "at": null,
       "id": "nhsae-002",
       "status": "succeeded"
      },
@@ -518,6 +513,21 @@
       "at": null,
       "id": "nhsae-hf-002",
       "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": "nhsae-hf-003",
+      "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": "nhsae-hf-004",
+      "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": "nhsae-hf-005",
+      "status": "succeeded"
      }
     ],
     "licence_summary": {
@@ -537,14 +547,14 @@
      "revision_policy_measured": "Re-measured 2026-10-21 at construction: across the 102 monthly CSVs there are NO duplicate (org, month) keys - each calendar month is published in exactly one file (originals are replaced on the year page by their '...revised...' successor, e.g. April-2020-revised-260421), so the recorded 'keep max Type 1 attendances' dedup never operated on anything. The build still implements prefer-latest-upload (ordered by the revision datestamp in the filename, then revised flag) and reports the dedup count, which measured 0.",
      "schema_evolution_2026_10_21": "Measured at construction across all 102 files: 16 data columns 2018-04..2020-07 (the 2018-04..2020-03 files prefix counts with 'Number of'); booked-appointment columns appear from 2020-08 (22 columns); files from 2024-09 carry 28 header fields of which the last six are unnamed/zero padding. Booked-appointment columns are parsed but NOT shipped: they are absent for train feature months 2018-12..2020-07, so their availability would be split-dependent - a prediction-timing defect wearing a feature-list costume. The 12 core columns are published across the whole window and are the only shipped source columns."
     },
-    "next_action": "Stage v2026.11 to both destinations (private), then commission an independent re-audit of the rebuilt artifact before any flip. The audit must check the selecti",
-    "packaged_at": null,
+    "next_action": "Stage v2026.12 privately on both destinations, then commission a third audit pass focused on the counterfactual the re-audit used: change only a target month an",
+    "packaged_at": "2026-10-21T14:53Z",
     "path": "candidates/nhs-ae-four-hour-decline/record.json",
     "prediction_time": "End of month M, when month M's monthly CSV is published (measured: the September 2026 monthly CSV was already downloadable on 2026-10-21, i.e. a ~3 week publication lag). Every feature is derived from provider months <= M; the label is month M+1's within-4-hour rate versus month M's, and month M+1's row is published about a month after the prediction is made.",
     "publisher": "NHS England (United Kingdom)",
     "qualification": {
-     "artifact_version": "0990af0f90fbe304cb94bd53754a337f7704e1005d92f8d9d250b2e8e157b3b5",
-     "result": "PASSED - gate 1.4.0 on the rebuilt full artifact (9,549 rows), including the five new timing checks",
+     "artifact_version": "f4cb7fde0af5c21105e4e41bf17d8535801f305c694ba901b110280ad2b2e302",
+     "result": "PASSED - gate 1.4.0 on the v2026.12 artifact (13-day maximum publication lag; eligibility at M only)",
      "splits": {
       "eval": {
        "distinct_events": 124,
@@ -3135,11 +3145,6 @@
     "jobs": [
      {
       "at": null,
-      "id": "nhsae-001",
-      "status": "failed"
-     },
-     {
-      "at": null,
       "id": "nhsae-002",
       "status": "succeeded"
      },
@@ -3162,6 +3167,21 @@
       "at": null,
       "id": "nhsae-hf-002",
       "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": "nhsae-hf-003",
+      "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": "nhsae-hf-004",
+      "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": "nhsae-hf-005",
+      "status": "succeeded"
      }
     ],
     "licence_summary": {
@@ -3181,14 +3201,14 @@
      "revision_policy_measured": "Re-measured 2026-10-21 at construction: across the 102 monthly CSVs there are NO duplicate (org, month) keys - each calendar month is published in exactly one file (originals are replaced on the year page by their '...revised...' successor, e.g. April-2020-revised-260421), so the recorded 'keep max Type 1 attendances' dedup never operated on anything. The build still implements prefer-latest-upload (ordered by the revision datestamp in the filename, then revised flag) and reports the dedup count, which measured 0.",
      "schema_evolution_2026_10_21": "Measured at construction across all 102 files: 16 data columns 2018-04..2020-07 (the 2018-04..2020-03 files prefix counts with 'Number of'); booked-appointment columns appear from 2020-08 (22 columns); files from 2024-09 carry 28 header fields of which the last six are unnamed/zero padding. Booked-appointment columns are parsed but NOT shipped: they are absent for train feature months 2018-12..2020-07, so their availability would be split-dependent - a prediction-timing defect wearing a feature-list costume. The 12 core columns are published across the whole window and are the only shipped source columns."
     },
-    "next_action": "Stage v2026.11 to both destinations (private), then commission an independent re-audit of the rebuilt artifact before any flip. The audit must check the selecti",
-    "packaged_at": null,
+    "next_action": "Stage v2026.12 privately on both destinations, then commission a third audit pass focused on the counterfactual the re-audit used: change only a target month an",
+    "packaged_at": "2026-10-21T14:53Z",
     "path": "candidates/nhs-ae-four-hour-decline/record.json",
     "prediction_time": "End of month M, when month M's monthly CSV is published (measured: the September 2026 monthly CSV was already downloadable on 2026-10-21, i.e. a ~3 week publication lag). Every feature is derived from provider months <= M; the label is month M+1's within-4-hour rate versus month M's, and month M+1's row is published about a month after the prediction is made.",
     "publisher": "NHS England (United Kingdom)",
     "qualification": {
-     "artifact_version": "0990af0f90fbe304cb94bd53754a337f7704e1005d92f8d9d250b2e8e157b3b5",
-     "result": "PASSED - gate 1.4.0 on the rebuilt full artifact (9,549 rows), including the five new timing checks",
+     "artifact_version": "f4cb7fde0af5c21105e4e41bf17d8535801f305c694ba901b110280ad2b2e302",
+     "result": "PASSED - gate 1.4.0 on the v2026.12 artifact (13-day maximum publication lag; eligibility at M only)",
      "splits": {
       "eval": {
        "distinct_events": 124,
@@ -4407,10 +4427,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-21T14:50:02.172080+00:00",
+    "last_run_at": "2026-10-21T15:20:02.071343+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-21T15:00:00+00:00",
+    "next_run_at": "2026-10-21T15:30:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -4455,10 +4475,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-21T14:17:12.713160+00:00",
+    "last_run_at": "2026-10-21T15:25:16.893886+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-21T14:27:14.563589+00:00",
+    "next_run_at": "2026-10-21T15:30:16.893886+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -4491,7 +4511,7 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-21T13:50:25.004094+00:00",
+    "last_run_at": "2026-10-21T14:50:23.452583+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
     "next_run_at": "2026-10-21T15:50:00+00:00",
@@ -4503,10 +4523,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-21T13:55:01.015248+00:00",
+    "last_run_at": "2026-10-21T14:55:01.139685+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-21T14:55:00+00:00",
+    "next_run_at": "2026-10-21T15:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -4547,9 +4567,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-21T14:50:02.173266+00:00"
+  "updated_at": "2026-10-21T15:25:16.894579+00:00"
  },
- "generated_at": "2026-10-21T14:50:01+00:00",
+ "generated_at": "2026-10-21T15:28:13+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -4557,19 +4577,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-21T13:54:59Z",
-   "head_sha": "5f3fe45",
+   "created_at": "2026-10-21T15:27:56Z",
+   "head_sha": "68cd081",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39612182534"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39625929953"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 13/19 (68%)"
   },
   "head": {
-   "at": "2026-10-21T12:43:09Z",
-   "sha": "5f3fe45",
-   "subject": "Rebuild nhs-ae: publication-date prediction instant, history-only selection, honest references"
+   "at": "2026-10-21T15:27:52Z",
+   "sha": "68cd081",
+   "subject": "nhs-ae v2026.12: decide eligibility at M only, use the maximum publication lag"
   },
   "tests": {
    "count": "398",
@@ -4840,13 +4860,21 @@
    "qualified": 1,
    "sessions_7d": 27,
    "tokens_7d": 5842086
+  },
+  {
+   "at": "2026-10-21T15:28:13+00:00",
+   "live": 9,
+   "published": 7,
+   "qualified": 1,
+   "sessions_7d": 27,
+   "tokens_7d": 5842086
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-21T14:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-21T15:28:13+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -4855,8 +4883,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-21T14:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-21T15:28:13+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -4865,8 +4893,8 @@
    "value": 9
   },
   "releases": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-21T14:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-21T15:28:13+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -4946,14 +4974,14 @@
     "dataset": "nhs-ae-four-hour-decline",
     "persistence_auc": null,
     "publication_note": "Prepared for human review. Nothing here has been published.",
-    "release_tag": "v2026.11",
+    "release_tag": "v2026.12",
     "rows": 9549,
     "verified": {
-     "github": true,
-     "huggingface": true
+     "github": false,
+     "huggingface": false
     },
-    "verified_all": true,
-    "verified_at": "2026-10-21T14:44:42+00:00"
+    "verified_all": false,
+    "verified_at": null
    },
    {
     "assets": 10,
@@ -5002,7 +5030,7 @@
      "lo": 0.003
     },
     {
-     "count": 17,
+     "count": 18,
      "hi": 0.01,
      "lo": 0.005
     },
@@ -5038,8 +5066,8 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0175,
-   "n": 72,
+   "median": 0.0173,
+   "n": 73,
    "p90": 0.0561,
    "ref_rate": 0.06924,
    "total": 3.05
@@ -5719,15 +5747,15 @@
    },
    {
     "created_at": "2026-10-21T14:46:49.208214+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-10-21T14:51:44.455137+00:00",
+    "eur": 0.0009,
+    "hours": 0.082,
     "id": "nhsae-hf-005",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0057,
     "rate_eur": 0.01152,
     "server_type": "cx23",
-    "status": "running"
+    "status": "deleted"
    },
    {
     "created_at": "2026-10-21T10:07:19.141723+00:00",
@@ -5922,18 +5950,18 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 31,
+  "jobs_this_month": 32,
   "jobs_total": 73,
   "lifetime_eur": 3.13,
   "live": {
-   "checked_at": "2026-10-21T14:50:17+00:00",
+   "checked_at": "2026-10-21T15:28:27+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 10.2,
+  "month_hours": 10.3,
   "month_to_date": 0.69,
   "months": [
    {
@@ -5943,13 +5971,13 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.6874,
-    "hours": 10.18,
-    "jobs": 31,
+    "eur": 0.6883,
+    "hours": 10.26,
+    "jobs": 32,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 1.01
+  "projected_month_eur": 1.02
  },
  "schema": 1,
  "sessions": {
