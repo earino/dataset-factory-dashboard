@@ -15,7 +15,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-21T09:28:56.281815+00:00",
+   "moment": "2026-10-21T09:50:03.032599+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
@@ -35,14 +35,14 @@
      "output_tokens": 624082
     },
     "interactive": {
-     "calls": 2721,
+     "calls": 2735,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 1.34121,
-     "input_tokens": 10433553,
-     "output_tokens": 1518578
+     "cost_usd": 1.354175,
+     "input_tokens": 10464178,
+     "output_tokens": 1527887
     },
     "research": {
      "calls": 1696,
@@ -3846,7 +3846,7 @@
     "target": "Not stated - no task was selected."
    },
    {
-    "age_hours": 7.0,
+    "age_hours": 7.3,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "b1323a27fa02eb79",
@@ -4064,7 +4064,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 7.0,
+     "age_hours": 7.3,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "b1323a27fa02eb79",
@@ -4281,7 +4281,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 7.0,
+     "age_hours": 7.3,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "b1323a27fa02eb79",
@@ -4559,10 +4559,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-21T09:20:01.688772+00:00",
+    "last_run_at": "2026-10-21T09:50:02.637138+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-21T09:30:00+00:00",
+    "next_run_at": "2026-10-21T10:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -4607,10 +4607,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-21T09:26:40.881245+00:00",
+    "last_run_at": "2026-10-21T09:46:48.471320+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-21T09:31:40.881245+00:00",
+    "next_run_at": "2026-10-21T09:51:48.471320+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -4646,7 +4646,7 @@
     "last_run_at": "2026-10-21T08:50:20.386431+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-21T09:50:00+00:00",
+    "next_run_at": "2026-10-21T10:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -4699,9 +4699,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-21T09:26:40.882018+00:00"
+  "updated_at": "2026-10-21T09:50:02.638120+00:00"
  },
- "generated_at": "2026-10-21T09:28:55+00:00",
+ "generated_at": "2026-10-21T09:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -4928,13 +4928,21 @@
    "qualified": 1,
    "sessions_7d": 24,
    "tokens_7d": 5251871
+  },
+  {
+   "at": "2026-10-21T09:50:01+00:00",
+   "live": 9,
+   "published": 6,
+   "qualified": 1,
+   "sessions_7d": 24,
+   "tokens_7d": 5251871
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-21T09:28:55+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-21T09:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -4943,8 +4951,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-21T09:28:55+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-21T09:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -4953,8 +4961,8 @@
    "value": 9
   },
   "releases": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-21T09:28:55+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-21T09:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -5927,7 +5935,7 @@
   "jobs_total": 67,
   "lifetime_eur": 3.12,
   "live": {
-   "checked_at": "2026-10-21T09:29:09+00:00",
+   "checked_at": "2026-10-21T09:50:17+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
