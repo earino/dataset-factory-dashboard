@@ -15,7 +15,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-21T08:50:02.810662+00:00",
+   "moment": "2026-10-21T08:51:37.913142+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
@@ -35,14 +35,14 @@
      "output_tokens": 624078
     },
     "interactive": {
-     "calls": 2672,
+     "calls": 2680,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 1.281575,
-     "input_tokens": 9952787,
-     "output_tokens": 1489676
+     "cost_usd": 1.286856,
+     "input_tokens": 9960563,
+     "output_tokens": 1491886
     },
     "research": {
      "calls": 1696,
@@ -3846,7 +3846,7 @@
     "target": "Not stated - no task was selected."
    },
    {
-    "age_hours": 6.3,
+    "age_hours": 6.4,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "b1323a27fa02eb79",
@@ -3990,7 +3990,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 6.3,
+     "age_hours": 6.4,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "b1323a27fa02eb79",
@@ -4133,7 +4133,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 6.3,
+     "age_hours": 6.4,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "b1323a27fa02eb79",
@@ -4385,10 +4385,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-21T08:46:25.232310+00:00",
+    "last_run_at": "2026-10-21T08:51:27.260843+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-21T08:51:25.232310+00:00",
+    "next_run_at": "2026-10-21T08:56:27.260843+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -4421,7 +4421,7 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-21T07:50:19.835105+00:00",
+    "last_run_at": "2026-10-21T08:50:20.386431+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
     "next_run_at": "2026-10-21T09:50:00+00:00",
@@ -4477,9 +4477,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-21T08:50:01.629459+00:00"
+  "updated_at": "2026-10-21T08:51:27.261521+00:00"
  },
- "generated_at": "2026-10-21T08:50:01+00:00",
+ "generated_at": "2026-10-21T08:51:36+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -4502,7 +4502,7 @@
    "subject": "Canada discovery tick: 5 verdicts (1 go, 3 parks, 1 mirror reject)"
   },
   "tests": {
-   "count": "386",
+   "count": "390",
    "ok": true
   }
  },
@@ -4703,8 +4703,8 @@
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-21T08:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-21T08:51:36+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -4713,8 +4713,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-21T08:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-21T08:51:36+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -4723,8 +4723,8 @@
    "value": 9
   },
   "releases": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-21T08:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-21T08:51:36+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -5697,7 +5697,7 @@
   "jobs_total": 67,
   "lifetime_eur": 3.12,
   "live": {
-   "checked_at": "2026-10-21T08:50:17+00:00",
+   "checked_at": "2026-10-21T08:51:51+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
