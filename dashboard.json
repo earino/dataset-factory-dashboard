@@ -15,7 +15,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-21T10:50:02.422089+00:00",
+   "moment": "2026-10-21T11:50:02.521090+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
@@ -35,14 +35,14 @@
      "output_tokens": 624090
     },
     "interactive": {
-     "calls": 2801,
+     "calls": 2802,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 1.434034,
-     "input_tokens": 11092218,
-     "output_tokens": 1568587
+     "cost_usd": 1.435981,
+     "input_tokens": 11108247,
+     "output_tokens": 1570110
     },
     "research": {
      "calls": 1817,
@@ -2751,7 +2751,7 @@
     "target": "The set of 30 CFR sections cited at one inspection (EVENT_NO), i.e. the distinct PART_SECTION values of its violation rows - multi-label, mean 5.79 sections per inspection, median 2. The raw label space is 5,934 sections; construction declares a floor (104 sections at >= 1% of inspections, 183 at >= 0.5%). PART_SECTION itself and every violation-level attribute of the cited rows are excluded from the shipped features."
    },
    {
-    "age_hours": 0.5,
+    "age_hours": 1.5,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "9903df974f233dfa",
@@ -3985,7 +3985,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 0.5,
+     "age_hours": 1.5,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "9903df974f233dfa",
@@ -4134,7 +4134,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 0.5,
+     "age_hours": 1.5,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "9903df974f233dfa",
@@ -4343,10 +4343,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-21T10:50:02.002720+00:00",
+    "last_run_at": "2026-10-21T11:50:02.110545+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-21T11:00:00+00:00",
+    "next_run_at": "2026-10-21T12:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -4391,10 +4391,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-21T10:45:27.160413+00:00",
+    "last_run_at": "2026-10-21T11:45:48.989360+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-21T10:50:27.160413+00:00",
+    "next_run_at": "2026-10-21T11:50:48.989360+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -4427,10 +4427,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-21T09:50:23.273770+00:00",
+    "last_run_at": "2026-10-21T10:50:22.657673+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-21T11:50:00+00:00",
+    "next_run_at": "2026-10-21T12:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -4439,10 +4439,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-21T09:55:00.730073+00:00",
+    "last_run_at": "2026-10-21T10:55:01.294569+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-21T10:55:00+00:00",
+    "next_run_at": "2026-10-21T11:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -4483,9 +4483,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-21T10:50:02.003738+00:00"
+  "updated_at": "2026-10-21T11:50:02.111650+00:00"
  },
- "generated_at": "2026-10-21T10:50:01+00:00",
+ "generated_at": "2026-10-21T11:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -4736,13 +4736,21 @@
    "qualified": 0,
    "sessions_7d": 25,
    "tokens_7d": 5449396
+  },
+  {
+   "at": "2026-10-21T11:50:01+00:00",
+   "live": 8,
+   "published": 7,
+   "qualified": 0,
+   "sessions_7d": 25,
+   "tokens_7d": 5449396
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-21T10:50:01+00:00",
+   "as_of": "2026-10-21T11:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -4752,7 +4760,7 @@
   },
   "candidates": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-21T10:50:01+00:00",
+   "as_of": "2026-10-21T11:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -4762,7 +4770,7 @@
   },
   "releases": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-21T10:50:01+00:00",
+   "as_of": "2026-10-21T11:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -5786,7 +5794,7 @@
   "jobs_total": 70,
   "lifetime_eur": 3.13,
   "live": {
-   "checked_at": "2026-10-21T10:50:17+00:00",
+   "checked_at": "2026-10-21T11:50:16+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
