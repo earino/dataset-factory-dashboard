@@ -1,5 +1,7 @@
 {
- "alarms": [],
+ "alarms": [
+  "Test suite is failing"
+ ],
  "budget": {
   "config": {
    "allowance_usd": 30.0,
@@ -13,12 +15,14 @@
    "weekly_token_budget": 40000000
   },
   "decision": {
+   "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-22T19:50:01.718493+00:00",
+   "moment": "2026-10-22T20:00:54.256672+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
+   "pricing_available": false,
    "reasons": [],
-   "research_cost_usd": 0.233495,
+   "research_cost_usd": null,
    "research_tokens_last_7_days": 8718221,
    "runs_last_7_days": 41,
    "runs_weighted_last_7_days": 42,
@@ -26,23 +30,25 @@
    "sessions_over_token_cap": 1,
    "usage": {
     "auxiliary": {
-     "calls": 646,
+     "calls": 648,
      "cost_status": [
       "unknown"
      ],
-     "cost_usd": 0.023909,
-     "input_tokens": 1260551,
-     "output_tokens": 658219
+     "cost_usd": null,
+     "input_tokens": 1262520,
+     "output_tokens": 658227,
+     "pricing_available": false
     },
     "interactive": {
-     "calls": 3804,
+     "calls": 3842,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 3.979431,
-     "input_tokens": 18732704,
-     "output_tokens": 2095205
+     "cost_usd": null,
+     "input_tokens": 19387641,
+     "output_tokens": 2117512,
+     "pricing_available": false
     },
     "research": {
      "calls": 3283,
@@ -50,9 +56,10 @@
       "estimated",
       "unknown"
      ],
-     "cost_usd": 0.233495,
+     "cost_usd": null,
      "input_tokens": 7059920,
-     "output_tokens": 2907017
+     "output_tokens": 2907017,
+     "pricing_available": false
     },
     "scheduled-other": {
      "calls": 1961,
@@ -60,11 +67,15 @@
       "estimated",
       "unknown"
      ],
-     "cost_usd": 0.000514,
+     "cost_usd": null,
      "input_tokens": 2713365,
-     "output_tokens": 1529914
+     "output_tokens": 1529914,
+     "pricing_available": false
     }
    },
+   "warnings": [
+    "Research dollar spend and remaining allowance are unknown; admission uses the configured measured token ceiling"
+   ],
    "weekly_token_budget": 40000000
   }
  },
@@ -121,6 +132,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -174,6 +186,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -236,6 +249,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -299,6 +313,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -450,6 +465,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -516,6 +532,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -570,6 +587,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -640,6 +658,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -696,6 +715,7 @@
     "region": "East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -782,28 +802,20 @@
     "question": "For a given country of residence, will short-term visitor arrivals to Australia in the first month not yet published (the month after the latest OAD release) fall short of the same calendar month one year earlier?",
     "region": "Oceania",
     "release_baseline": {
-     "auc": null,
+     "auc": 0.6219,
+     "display": "0.6219",
      "reference": null
     },
     "release_splits": {
      "eval": {
-      "distinct_event_months": 60,
-      "flat_label_zero_rows": 44,
-      "positive_rate": 0.290821,
       "positives": 1204,
       "rows": 4140
      },
      "holdout": {
-      "distinct_event_months": 45,
-      "flat_label_zero_rows": 72,
-      "positive_rate": 0.195918,
       "positives": 768,
       "rows": 3920
      },
      "train": {
-      "distinct_event_months": 275,
-      "flat_label_zero_rows": 310,
-      "positive_rate": 0.349641,
       "positives": 6668,
       "rows": 19071
      }
@@ -850,6 +862,7 @@
     "region": "South & South-East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -897,6 +910,7 @@
     "region": "Oceania",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -1018,22 +1032,20 @@
     "question": "For a dispatched Austin police 911 call, will a patrol unit reach the caller more than a fixed minutes threshold after the call is dispatched?",
     "region": "North America",
     "release_baseline": {
-     "auc": null,
+     "auc": 0.7691,
+     "display": "0.7691",
      "reference": null
     },
     "release_splits": {
      "eval": {
-      "positive_rate": 0.384576,
       "positives": 109860,
       "rows": 285665
      },
      "holdout": {
-      "positive_rate": 0.377755,
       "positives": 72450,
       "rows": 191791
      },
      "train": {
-      "positive_rate": 0.403763,
       "positives": 231025,
       "rows": 572180
      }
@@ -1085,6 +1097,7 @@
     "region": "South & South-East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -1131,6 +1144,7 @@
     "region": "Oceania",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -1185,6 +1199,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -1237,6 +1252,7 @@
     "region": "Latin America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -1294,6 +1310,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -1345,6 +1362,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -1472,22 +1490,20 @@
     "question": "For a building-code violation case docketed with the Chicago Department of Administrative Hearings, will the hearing officer ultimately find the respondent liable?",
     "region": "North America",
     "release_baseline": {
-     "auc": null,
+     "auc": 0.6915,
+     "display": "0.6915",
      "reference": null
     },
     "release_splits": {
      "eval": {
-      "positive_rate": 0.895518,
       "positives": 3077,
       "rows": 3436
      },
      "holdout": {
-      "positive_rate": 0.932029,
       "positives": 2715,
       "rows": 2913
      },
      "train": {
-      "positive_rate": 0.63186,
       "positives": 29959,
       "rows": 47414
      }
@@ -1683,24 +1699,19 @@
     "question": "Given everything documented about an establishment and its own prior inspections before an inspection begins, which of the 61 violation codes will the inspector record for this visit?",
     "region": "North America",
     "release_baseline": {
-     "auc": 0.6326,
+     "auc": 0.7208,
+     "display": "0.7208 (median of 40 configs)",
      "reference": null
     },
     "release_splits": {
      "eval": {
-      "end": "2024-01-01",
-      "rows": 35358,
-      "start": "2021-01-01"
+      "rows": 35358
      },
      "holdout": {
-      "end": "2026-10-01",
-      "rows": 34218,
-      "start": "2024-01-01"
+      "rows": 34218
      },
      "train": {
-      "end": "2021-01-01",
-      "rows": 156841,
-      "start": "2010-01-01"
+      "rows": 156841
      }
     },
     "review": "",
@@ -1753,6 +1764,7 @@
     "region": "Latin America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -1822,6 +1834,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -1879,6 +1892,7 @@
     "region": "South & South-East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -1937,6 +1951,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -1993,6 +2008,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2042,6 +2058,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2094,6 +2111,7 @@
     "region": "Latin America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2156,6 +2174,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2219,6 +2238,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2370,6 +2390,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2431,6 +2452,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2476,6 +2498,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2522,6 +2545,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2578,6 +2602,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2628,6 +2653,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2644,7 +2670,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 1.1,
+    "age_hours": 1.3,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
@@ -2765,28 +2791,20 @@
     "question": "For a stationary installation covered by the EU Emissions Trading System, will its verified emissions for compliance year t exceed the free allocation it holds for year t (a net-short year: the operator must buy allowances at auction/secondary market to surrender, or face the excess-emissions penalty), given its verified-emissions, free-allocation and surrender history through year t-1, its already-published year-t free allocation, its registry (country) and its name/identifier?",
     "region": "Europe",
     "release_baseline": {
-     "auc": null,
+     "auc": 0.9199,
+     "display": "0.9199",
      "reference": null
     },
     "release_splits": {
      "eval": {
-      "distinct_events": 7802,
-      "distinct_installations_positive": 7810,
-      "positive_rate": 0.740153,
       "positives": 18002,
       "rows": 24322
      },
      "holdout": {
-      "distinct_events": 6278,
-      "distinct_installations_positive": 6283,
-      "positive_rate": 0.721999,
       "positives": 15993,
       "rows": 22151
      },
      "train": {
-      "distinct_events": 11347,
-      "distinct_installations_positive": 11357,
-      "positive_rate": 0.455282,
       "positives": 64528,
       "rows": 141732
      }
@@ -2847,6 +2865,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2917,6 +2936,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -2967,6 +2987,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3018,6 +3039,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3064,6 +3086,7 @@
     "region": "East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3109,6 +3132,7 @@
     "region": "South & South-East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3154,6 +3178,7 @@
     "region": "South & South-East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3205,6 +3230,7 @@
     "region": "South & South-East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3256,6 +3282,7 @@
     "region": "South & South-East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3308,6 +3335,7 @@
     "region": "International organisations",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3359,6 +3387,7 @@
     "region": "East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3416,6 +3445,7 @@
     "region": "Africa",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3472,6 +3502,7 @@
     "region": "East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3523,6 +3554,7 @@
     "region": "South & South-East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3718,6 +3750,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -3804,6 +3837,7 @@
     "region": "Oceania",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -4015,23 +4049,18 @@
     "region": "North America",
     "release_baseline": {
      "auc": 0.8036,
+     "display": "0.8036 (config sec_56_12004)",
      "reference": 0.583102
     },
     "release_splits": {
      "eval": {
-      "end": "2024-01-01",
-      "rows": 49233,
-      "start": "2021-01-01"
+      "rows": 49233
      },
      "holdout": {
-      "end": "2026-01-01",
-      "rows": 33576,
-      "start": "2024-01-01"
+      "rows": 33576
      },
      "train": {
-      "end": "2021-01-01",
-      "rows": 415088,
-      "start": "2001-01-01"
+      "rows": 415088
      }
     },
     "review": "",
@@ -4128,33 +4157,22 @@
     "question": "For an item-premise pair in Malaysia's official daily price-monitoring panel that was actively quoted in week W (at least 3 observations that week), will the pair's weekly modal price be HIGHER in week W+1 than in week W? The panel is the KPDN/DOSM PriceCatcher programme (2,158 premises, 343 items measured in the 2026-08/09 sample), so this is a week-ahead retail price-increase prediction at item x premise grain.",
     "region": "South & South-East Asia",
     "release_baseline": {
-     "auc": null,
+     "auc": 0.752,
+     "display": "0.7520",
      "reference": null
     },
     "release_splits": {
      "eval": {
-      "distinct_events": 135,
-      "positive_rate": 0.174672,
       "positives": 48990,
-      "rows": 280468,
-      "target_from": "2025-01-13",
-      "target_to": "2025-12-29"
+      "rows": 280468
      },
      "holdout": {
-      "distinct_events": 121,
-      "positive_rate": 0.204299,
       "positives": 31519,
-      "rows": 154279,
-      "target_from": "2026-01-05",
-      "target_to": "2026-10-19"
+      "rows": 154279
      },
      "train": {
-      "distinct_events": 111,
-      "positive_rate": 0.149376,
       "positives": 59449,
-      "rows": 397982,
-      "target_from": "2023-11-06",
-      "target_to": "2024-12-23"
+      "rows": 397982
      }
     },
     "review": "",
@@ -4304,24 +4322,19 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": "0.5511 (historical artifact; not this release)",
      "reference": null
     },
     "release_splits": {
      "eval": {
-      "distinct_events": 124,
-      "positive_rate": 0.503235,
       "positives": 1478,
       "rows": 2937
      },
      "holdout": {
-      "distinct_events": 121,
-      "positive_rate": 0.485816,
       "positives": 1233,
       "rows": 2538
      },
      "train": {
-      "distinct_events": 114,
-      "positive_rate": 0.554737,
       "positives": 2260,
       "rows": 4074
      }
@@ -4489,37 +4502,28 @@
     "question": "For a chosen NOAA water-level station, will the daily maximum observed water level exceed its published minor flood threshold tomorrow?",
     "region": "North America",
     "release_baseline": {
-     "auc": 0.8633,
+     "auc": null,
+     "display": "station_disjoint: 0.8690; temporal: 0.8633",
      "reference": null
     },
     "release_splits": {
-     "station_disjoint": {
-      "eval": {
-       "positive_rate": 0.026328,
-       "rows": 29930
-      },
-      "holdout": {
-       "positive_rate": 0.036418,
-       "rows": 29930
-      },
-      "train": {
-       "positive_rate": 0.016277,
-       "rows": 461580
-      }
+     "station_disjoint-eval": {
+      "rows": 29930
      },
-     "temporal": {
-      "eval": {
-       "positive_rate": 0.020385,
-       "rows": 89038
-      },
-      "holdout": {
-       "positive_rate": 0.03208,
-       "rows": 88841
-      },
-      "train": {
-       "positive_rate": 0.016883,
-       "rows": 697373
-      }
+     "station_disjoint-holdout": {
+      "rows": 29930
+     },
+     "station_disjoint-train": {
+      "rows": 461580
+     },
+     "temporal-eval": {
+      "rows": 89038
+     },
+     "temporal-holdout": {
+      "rows": 88841
+     },
+     "temporal-train": {
+      "rows": 697373
      }
     },
     "review": "Published since 2026-09-25, when the operator authorised public visibility. Release v2026.09 of earino/noaa-tide-flooding carries ten assets across both levels (temporal and station_disjoint), the Hugging Face mirror is public and ungated, and the site page is live; the GitHub repository, a ranged GET of a release asset, the Hub files and the site were all read from an anonymous client and verified. Baselines on the shipped bytes: 0.8633 temporal / 0.8690 station_disjoint (noaa-consumer-003 against release 396698120). Contracts settled at construction: redistribution read from the CO-OPS portal itself (public domain, attribution requested, derived-not-official), observations-only feature list, datum=STND, frozen 122-station panel with eval 1,828 positives over 332 flood days and holdout 2,850 over 427. The persistence floor is stated in the Hub card (single-feature 0.8265 temporal / 0.8454 station_disjoint). CORRECTED 2026-09-26: the previous text was the 2026-09-19 pre-construction review and no longer described state.",
@@ -4599,6 +4603,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -4653,6 +4658,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -4699,6 +4705,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -4759,6 +4766,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -4819,6 +4827,7 @@
     "region": "Oceania",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -4871,6 +4880,7 @@
     "region": "International organisations",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -4924,6 +4934,7 @@
     "region": "Europe",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -4977,6 +4988,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5022,6 +5034,7 @@
     "region": "South & South-East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5069,6 +5082,7 @@
     "region": "South & South-East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5121,6 +5135,7 @@
     "region": "Africa",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5168,6 +5183,7 @@
     "region": "South & South-East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5223,6 +5239,7 @@
     "region": "North America",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5334,25 +5351,20 @@
     "question": "A railway occurrence begins at a known place, time and operating context on the Canadian network (crossing accident, derailment, trespasser event, fire, collision, movement exceeding limits of authority, ...). At that instant, given only pre-occurrence context - where (subdivision, nearest location, province, region, lat/long), which railway, when (date, time of day, season), and what the train was doing (activity type) - will the occurrence result in at least one casualty (fatality or any injury)?",
     "region": "North America",
     "release_baseline": {
-     "auc": null,
+     "auc": 0.8126,
+     "display": "0.8126",
      "reference": null
     },
     "release_splits": {
      "eval": {
-      "distinct_events": 463,
-      "positive_rate": 0.120856,
       "positives": 463,
       "rows": 3831
      },
      "holdout": {
-      "distinct_events": 278,
-      "positive_rate": 0.140688,
       "positives": 278,
       "rows": 1976
      },
      "train": {
-      "distinct_events": 883,
-      "positive_rate": 0.11142,
       "positives": 883,
       "rows": 7925
      }
@@ -5416,6 +5428,7 @@
     "region": "East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5472,6 +5485,7 @@
     "region": "East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5536,6 +5550,7 @@
     "region": "International organisations",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5587,6 +5602,7 @@
     "region": "International organisations",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5632,6 +5648,7 @@
     "region": "International organisations",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5683,6 +5700,7 @@
     "region": "South & South-East Asia",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5740,6 +5758,7 @@
     "region": "International organisations",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -5934,25 +5953,20 @@
     "question": "For a WHO FluNet reporting country with a history of systematic weekly specimen reporting, will influenza test positivity in ISO week W+4 exceed a fixed activity threshold (proposed: 10% positive of specimens processed), given that country's weekly FluNet laboratory series (specimens processed, influenza A/B detections by subtype, non-influenza respiratory-virus detections) through ISO week W?",
     "region": "International organisations",
     "release_baseline": {
-     "auc": null,
-     "reference": 0.8929
+     "auc": 0.87,
+     "display": "0.8700",
+     "reference": null
     },
     "release_splits": {
      "eval": {
-      "distinct_events": 257,
-      "positive_rate": 0.239496,
       "positives": 1636,
       "rows": 6831
      },
      "holdout": {
-      "distinct_events": 422,
-      "positive_rate": 0.406586,
       "positives": 5482,
       "rows": 13483
      },
      "train": {
-      "distinct_events": 235,
-      "positive_rate": 0.591798,
       "positives": 3420,
       "rows": 5779
      }
@@ -6008,6 +6022,7 @@
     "region": "Africa",
     "release_baseline": {
      "auc": null,
+     "display": null,
      "reference": null
     },
     "release_splits": {},
@@ -6037,7 +6052,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 1.1,
+     "age_hours": 1.3,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6158,28 +6173,20 @@
      "question": "For a stationary installation covered by the EU Emissions Trading System, will its verified emissions for compliance year t exceed the free allocation it holds for year t (a net-short year: the operator must buy allowances at auction/secondary market to surrender, or face the excess-emissions penalty), given its verified-emissions, free-allocation and surrender history through year t-1, its already-published year-t free allocation, its registry (country) and its name/identifier?",
      "region": "Europe",
      "release_baseline": {
-      "auc": null,
+      "auc": 0.9199,
+      "display": "0.9199",
       "reference": null
      },
      "release_splits": {
       "eval": {
-       "distinct_events": 7802,
-       "distinct_installations_positive": 7810,
-       "positive_rate": 0.740153,
        "positives": 18002,
        "rows": 24322
       },
       "holdout": {
-       "distinct_events": 6278,
-       "distinct_installations_positive": 6283,
-       "positive_rate": 0.721999,
        "positives": 15993,
        "rows": 22151
       },
       "train": {
-       "distinct_events": 11347,
-       "distinct_installations_positive": 11357,
-       "positive_rate": 0.455282,
        "positives": 64528,
        "rows": 141732
       }
@@ -6204,7 +6211,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 1.1,
+     "age_hours": 1.3,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6325,28 +6332,20 @@
      "question": "For a stationary installation covered by the EU Emissions Trading System, will its verified emissions for compliance year t exceed the free allocation it holds for year t (a net-short year: the operator must buy allowances at auction/secondary market to surrender, or face the excess-emissions penalty), given its verified-emissions, free-allocation and surrender history through year t-1, its already-published year-t free allocation, its registry (country) and its name/identifier?",
      "region": "Europe",
      "release_baseline": {
-      "auc": null,
+      "auc": 0.9199,
+      "display": "0.9199",
       "reference": null
      },
      "release_splits": {
       "eval": {
-       "distinct_events": 7802,
-       "distinct_installations_positive": 7810,
-       "positive_rate": 0.740153,
        "positives": 18002,
        "rows": 24322
       },
       "holdout": {
-       "distinct_events": 6278,
-       "distinct_installations_positive": 6283,
-       "positive_rate": 0.721999,
        "positives": 15993,
        "rows": 22151
       },
       "train": {
-       "distinct_events": 11347,
-       "distinct_installations_positive": 11357,
-       "positive_rate": 0.455282,
        "positives": 64528,
        "rows": 141732
       }
@@ -6444,10 +6443,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-22T19:50:01.555032+00:00",
+    "last_run_at": "2026-10-22T20:00:02.298832+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-22T20:00:00+00:00",
+    "next_run_at": "2026-10-22T20:10:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -6464,7 +6463,7 @@
     "schedule": "every monday 8am"
    },
    {
-    "enabled": true,
+    "enabled": false,
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
@@ -6492,15 +6491,15 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-22T19:45:46.666738+00:00",
+    "last_run_at": "2026-10-22T20:00:51.384217+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-22T19:50:46.666738+00:00",
+    "next_run_at": "2026-10-22T20:05:51.384217+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
    {
-    "enabled": true,
+    "enabled": false,
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
@@ -6528,7 +6527,7 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-22T18:50:19.134775+00:00",
+    "last_run_at": "2026-10-22T19:50:18.232469+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
     "next_run_at": "2026-10-22T20:50:00+00:00",
@@ -6540,10 +6539,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-22T18:55:01.100945+00:00",
+    "last_run_at": "2026-10-22T19:55:00.502448+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-22T19:55:00+00:00",
+    "next_run_at": "2026-10-22T20:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -6584,9 +6583,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-22T19:50:01.556011+00:00"
+  "updated_at": "2026-10-22T20:00:51.385267+00:00"
  },
- "generated_at": "2026-10-22T19:50:01+00:00",
+ "generated_at": "2026-10-22T20:00:53+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -6594,23 +6593,23 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-22T19:46:39Z",
-   "head_sha": "ef232df",
+   "created_at": "2026-10-22T19:57:29Z",
+   "head_sha": "50135b2",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39843040037"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39844619533"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 17/24 (71%)"
   },
   "head": {
-   "at": "2026-10-22T18:54:49Z",
-   "sha": "0f853fa",
-   "subject": "austin: keep the site destination's refreshed verified_at (18:51:05Z)"
+   "at": "2026-10-22T21:57:26+02:00",
+   "sha": "50135b2",
+   "subject": "Merge PR #8: enforce host-job time and disk limits"
   },
   "tests": {
-   "count": "423",
-   "ok": true
+   "count": "572",
+   "ok": false
   }
  },
  "history": [
@@ -7147,7 +7146,7 @@
  "panels": {
   "budget": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T19:50:01+00:00",
+   "as_of": "2026-10-22T20:00:53+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -7157,7 +7156,7 @@
   },
   "candidates": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T19:50:01+00:00",
+   "as_of": "2026-10-22T20:00:53+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -7167,7 +7166,7 @@
   },
   "releases": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T19:50:01+00:00",
+   "as_of": "2026-10-22T20:00:53+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -7181,13 +7180,34 @@
   "releases": [
    {
     "assets": 5,
+    "baseline_current": true,
+    "baseline_display": "0.6219",
     "baseline_eval_auc": 0.6219,
+    "baseline_evidence": "/opt/data/dataset-factory/release/abs-visitor-arrivals-direction/MANIFEST.json:baseline.result.train_py_eval_auc",
+    "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "abs-visitor-arrivals-direction",
+    "disposition": "published",
+    "errors": [],
     "persistence_auc": null,
-    "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-22T15:51:21Z. Data files, tag and artifact version are unchanged by publication.",
+    "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-22T13:49:39Z. Data files, tag and artifact version are unchanged by publication.",
+    "published": true,
     "release_tag": "v2026.10",
     "rows": 27131,
+    "splits": {
+     "eval": {
+      "positives": 1204,
+      "rows": 4140
+     },
+     "holdout": {
+      "positives": 768,
+      "rows": 3920
+     },
+     "train": {
+      "positives": 6668,
+      "rows": 19071
+     }
+    },
     "verified": {
      "github": true,
      "huggingface": true,
@@ -7198,13 +7218,34 @@
    },
    {
     "assets": 5,
+    "baseline_current": true,
+    "baseline_display": "0.7691",
     "baseline_eval_auc": 0.7691,
+    "baseline_evidence": "/opt/data/dataset-factory/release/austin-911-response/MANIFEST.json:baseline.contract.eval_auc_from_train_py",
+    "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "austin-911-response",
+    "disposition": "published",
+    "errors": [],
     "persistence_auc": null,
     "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-09-19T15:00:00+00:00. Data files, tag and artifact version are unchanged by publication.",
+    "published": true,
     "release_tag": "v2026.09",
     "rows": 1049636,
+    "splits": {
+     "eval": {
+      "positives": 109860,
+      "rows": 285665
+     },
+     "holdout": {
+      "positives": 72450,
+      "rows": 191791
+     },
+     "train": {
+      "positives": 231025,
+      "rows": 572180
+     }
+    },
     "verified": {
      "github": true,
      "huggingface": true,
@@ -7215,13 +7256,34 @@
    },
    {
     "assets": 5,
+    "baseline_current": true,
+    "baseline_display": "0.6915",
     "baseline_eval_auc": 0.6915,
+    "baseline_evidence": "/opt/data/dataset-factory/release/chicago-doah-adjudication/MANIFEST.json:baseline.contract.eval_auc_from_train_py",
+    "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "chicago-doah-adjudication",
+    "disposition": "published",
+    "errors": [],
     "persistence_auc": null,
     "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-09-26T20:20:33+00:00. Data files, tag and artifact version are unchanged by publication.",
+    "published": true,
     "release_tag": "v2026.09",
     "rows": 53763,
+    "splits": {
+     "eval": {
+      "positives": 3077,
+      "rows": 3436
+     },
+     "holdout": {
+      "positives": 2715,
+      "rows": 2913
+     },
+     "train": {
+      "positives": 29959,
+      "rows": 47414
+     }
+    },
     "verified": {
      "github": true,
      "huggingface": true,
@@ -7232,13 +7294,31 @@
    },
    {
     "assets": 201,
+    "baseline_current": true,
+    "baseline_display": "0.7208 (median of 40 configs)",
     "baseline_eval_auc": 0.7208,
+    "baseline_evidence": "/opt/data/dataset-factory/release/chicago-food-inspections/MANIFEST.json:baseline.summary",
+    "baseline_per_config": {},
     "baseline_scope": "median of 40 configs",
     "dataset": "chicago-food-inspections",
+    "disposition": "published",
+    "errors": [],
     "persistence_auc": null,
     "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-20T21:55:26Z. Data files, tag and artifact version are unchanged by publication.",
+    "published": true,
     "release_tag": "v2026.10",
     "rows": 226417,
+    "splits": {
+     "eval": {
+      "rows": 35358
+     },
+     "holdout": {
+      "rows": 34218
+     },
+     "train": {
+      "rows": 156841
+     }
+    },
     "verified": {
      "github": true,
      "huggingface": true,
@@ -7249,13 +7329,34 @@
    },
    {
     "assets": 5,
+    "baseline_current": true,
+    "baseline_display": "0.9199",
     "baseline_eval_auc": 0.9199,
+    "baseline_evidence": "/opt/data/dataset-factory/release/eutl-installation-net-short/MANIFEST.json:baseline.contract.eval_auc_from_train_py",
+    "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "eutl-installation-net-short",
+    "disposition": "packaged",
+    "errors": [],
     "persistence_auc": null,
     "publication_note": "Prepared for human review. Nothing here has been published.",
+    "published": false,
     "release_tag": "v2026.10",
     "rows": 188205,
+    "splits": {
+     "eval": {
+      "positives": 18002,
+      "rows": 24322
+     },
+     "holdout": {
+      "positives": 15993,
+      "rows": 22151
+     },
+     "train": {
+      "positives": 64528,
+      "rows": 141732
+     }
+    },
     "verified": {
      "github": true,
      "huggingface": true
@@ -7265,13 +7366,33 @@
    },
    {
     "assets": 226,
+    "baseline_current": true,
+    "baseline_display": "0.8036 (config sec_56_12004)",
     "baseline_eval_auc": 0.8036,
-    "baseline_scope": null,
+    "baseline_evidence": "/opt/data/dataset-factory/release/msha-enforcement-citations/MANIFEST.json:baseline.artifact.levels.sec_56_12004",
+    "baseline_per_config": {
+     "sec_56_12004": 0.8036
+    },
+    "baseline_scope": "config sec_56_12004",
     "dataset": "msha-enforcement-citations",
+    "disposition": "published",
+    "errors": [],
     "persistence_auc": 0.583102,
     "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-19T11:05:00Z. Data files, tag and artifact version are unchanged by publication.",
+    "published": true,
     "release_tag": "v2026.10",
     "rows": 497897,
+    "splits": {
+     "eval": {
+      "rows": 49233
+     },
+     "holdout": {
+      "rows": 33576
+     },
+     "train": {
+      "rows": 415088
+     }
+    },
     "verified": {
      "github": true,
      "huggingface": true,
@@ -7282,13 +7403,34 @@
    },
    {
     "assets": 5,
+    "baseline_current": true,
+    "baseline_display": "0.7520",
     "baseline_eval_auc": 0.752,
+    "baseline_evidence": "/opt/data/dataset-factory/release/my-pricecatcher-weekly-increase/MANIFEST.json:baseline.result.train_py_eval_auc",
+    "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "my-pricecatcher-weekly-increase",
+    "disposition": "published",
+    "errors": [],
     "persistence_auc": null,
-    "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-22T15:51:21Z. Data files, tag and artifact version are unchanged by publication.",
+    "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-22T09:46:46Z. Data files, tag and artifact version are unchanged by publication.",
+    "published": true,
     "release_tag": "v2026.10",
     "rows": 832729,
+    "splits": {
+     "eval": {
+      "positives": 48990,
+      "rows": 280468
+     },
+     "holdout": {
+      "positives": 31519,
+      "rows": 154279
+     },
+     "train": {
+      "positives": 59449,
+      "rows": 397982
+     }
+    },
     "verified": {
      "github": true,
      "huggingface": true,
@@ -7299,13 +7441,34 @@
    },
    {
     "assets": 5,
-    "baseline_eval_auc": 0.5511,
+    "baseline_current": false,
+    "baseline_display": "0.5511 (historical artifact; not this release)",
+    "baseline_eval_auc": null,
+    "baseline_evidence": "/opt/data/dataset-factory/release/nhs-ae-four-hour-decline/MANIFEST.json:baseline.result.train_py_eval_auc",
+    "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "nhs-ae-four-hour-decline",
+    "disposition": "dropped",
+    "errors": [],
     "persistence_auc": null,
     "publication_note": "Prepared for human review. Nothing here has been published.",
+    "published": false,
     "release_tag": "v2026.13",
     "rows": 9549,
+    "splits": {
+     "eval": {
+      "positives": 1478,
+      "rows": 2937
+     },
+     "holdout": {
+      "positives": 1233,
+      "rows": 2538
+     },
+     "train": {
+      "positives": 2260,
+      "rows": 4074
+     }
+    },
     "verified": {
      "github": true,
      "huggingface": true
@@ -7315,13 +7478,43 @@
    },
    {
     "assets": 10,
-    "baseline_eval_auc": 0.869,
-    "baseline_scope": null,
+    "baseline_current": true,
+    "baseline_display": "station_disjoint: 0.8690; temporal: 0.8633",
+    "baseline_eval_auc": null,
+    "baseline_evidence": "/opt/data/dataset-factory/release/noaa-tide-flooding/MANIFEST.json:baseline.artifact.levels",
+    "baseline_per_config": {
+     "station_disjoint": 0.869,
+     "temporal": 0.8633
+    },
+    "baseline_scope": "per-config results",
     "dataset": "noaa-tide-flooding",
+    "disposition": "published",
+    "errors": [],
     "persistence_auc": null,
     "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-09-26T21:02:37+00:00. Data files, tag and artifact version are unchanged by publication.",
+    "published": true,
     "release_tag": "v2026.09",
     "rows": 1396692,
+    "splits": {
+     "station_disjoint-eval": {
+      "rows": 29930
+     },
+     "station_disjoint-holdout": {
+      "rows": 29930
+     },
+     "station_disjoint-train": {
+      "rows": 461580
+     },
+     "temporal-eval": {
+      "rows": 89038
+     },
+     "temporal-holdout": {
+      "rows": 88841
+     },
+     "temporal-train": {
+      "rows": 697373
+     }
+    },
     "verified": {
      "github": true,
      "huggingface": true,
@@ -7332,13 +7525,34 @@
    },
    {
     "assets": 5,
+    "baseline_current": true,
+    "baseline_display": "0.8126",
     "baseline_eval_auc": 0.8126,
+    "baseline_evidence": "/opt/data/dataset-factory/release/tsb-railway-occurrence-casualty/MANIFEST.json:baseline.contract.eval_auc_from_train_py",
+    "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "tsb-railway-occurrence-casualty",
+    "disposition": "published",
+    "errors": [],
     "persistence_auc": null,
-    "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-22T15:51:21Z. Data files, tag and artifact version are unchanged by publication.",
+    "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-22T09:05:57Z. Data files, tag and artifact version are unchanged by publication.",
+    "published": true,
     "release_tag": "v2026.10",
     "rows": 13732,
+    "splits": {
+     "eval": {
+      "positives": 463,
+      "rows": 3831
+     },
+     "holdout": {
+      "positives": 278,
+      "rows": 1976
+     },
+     "train": {
+      "positives": 883,
+      "rows": 7925
+     }
+    },
     "verified": {
      "github": true,
      "huggingface": true,
@@ -7349,13 +7563,34 @@
    },
    {
     "assets": 5,
+    "baseline_current": true,
+    "baseline_display": "0.8700",
     "baseline_eval_auc": 0.87,
+    "baseline_evidence": "/opt/data/dataset-factory/release/who-flunet-activity-exceedance/MANIFEST.json:baseline.contract.eval_auc_from_train_py",
+    "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "who-flunet-activity-exceedance",
+    "disposition": "published",
+    "errors": [],
     "persistence_auc": null,
     "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-21T10:19:36Z. Data files, tag and artifact version are unchanged by publication.",
+    "published": true,
     "release_tag": "v2026.10",
     "rows": 26093,
+    "splits": {
+     "eval": {
+      "positives": 1636,
+      "rows": 6831
+     },
+     "holdout": {
+      "positives": 5482,
+      "rows": 13483
+     },
+     "train": {
+      "positives": 3420,
+      "rows": 5779
+     }
+    },
     "verified": {
      "github": true,
      "huggingface": true,
@@ -7372,7 +7607,7 @@
  "resources": {
   "ceiling_eur": 20.0,
   "errors": [],
-  "eur_per_release": 0.29,
+  "eur_per_release": 0.35,
   "histogram": {
    "bins": [
     {
@@ -8485,7 +8720,7 @@
   "jobs_total": 88,
   "lifetime_eur": 3.16,
   "live": {
-   "checked_at": "2026-10-22T19:50:10+00:00",
+   "checked_at": "2026-10-22T20:01:08+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
