@@ -1,5 +1,7 @@
 {
- "alarms": [],
+ "alarms": [
+  "Test suite is failing"
+ ],
  "budget": {
   "config": {
    "allowance_usd": 30.0,
@@ -15,7 +17,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-22T12:50:02.261052+00:00",
+   "moment": "2026-10-22T13:50:01.416312+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
@@ -26,23 +28,23 @@
    "sessions_over_token_cap": 1,
    "usage": {
     "auxiliary": {
-     "calls": 634,
+     "calls": 637,
      "cost_status": [
       "unknown"
      ],
-     "cost_usd": 0.011357,
-     "input_tokens": 1184351,
-     "output_tokens": 643783
+     "cost_usd": 0.0115,
+     "input_tokens": 1186314,
+     "output_tokens": 643795
     },
     "interactive": {
-     "calls": 3191,
+     "calls": 3211,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 1.95496,
-     "input_tokens": 12592056,
-     "output_tokens": 1770123
+     "cost_usd": 2.0323,
+     "input_tokens": 12914497,
+     "output_tokens": 1781342
     },
     "research": {
      "calls": 2976,
@@ -70,7 +72,6 @@
  },
  "candidates": {
   "countries": {
-   "AU": 1,
    "CA": 2,
    "DE": 1,
    "EU": 1,
@@ -82,81 +83,11 @@
    "dropped": 19,
    "investigating": 8,
    "parked": 25,
-   "published": 8,
-   "qualified": 1,
+   "published": 9,
    "ready": 6
   },
   "errors": [],
   "live": [
-   {
-    "awaiting_operator": false,
-    "baseline": {},
-    "country": "AU",
-    "domain": "international travel / monthly migration panel",
-    "id": "abs-visitor-arrivals-direction",
-    "jobs": [
-     {
-      "at": null,
-      "id": "abs-001",
-      "status": null
-     },
-     {
-      "at": null,
-      "id": "abs-baseline-001",
-      "status": null
-     }
-    ],
-    "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
-    },
-    "measurements": {
-     "clustering_note": "Positives cluster by era/year (pandemic collapse 2020, reopening surge 2022) rather than per-country; year-level cluster counts recorded above",
-     "column_documentation": "codelists parsed from the SDMX structure: CL_OAD_CAT_TRAVEL 05='Short-term (less than one year) Residents returning', 06='Short-term (less than one year) Visitors arriving'; CL_OAD_ARRIVALS_COUNTRY 78 codes; CL_TSEST 10='Original'; DSD dimensions CAT_TRAVELLER, COUNTRY_RESID, TSEST, FREQ",
-     "construction_2026_10_22": "Worker job abs-001 (cx23, 19.3 s job elapsed, EUR 0.04 reservation): one anonymous panel GET of 3,308,454 bytes (sha256 b9674976aa381693..., 3.8 s) plus the 100,939-byte structure; panel 59,452 rows, 428 months 1991-01..2026-08, 77 countries over both traveller categories (70 with a 06 visitor series), TSEST=10 only, FREQ=M only, OBS_STATUS empty on every row, UNIT_MEASURE=NUM only, 0 missing OBS_VALUE, 0 non-integer values. Shipped visitor-series panel: train 19,071 rows / 6,668 positives (34.96%) / 310 flat / 275 distinct positive months (target months 1992-02..2014-12); eval 4,140 / 1,204 (29.08%) / 44 flat / 60 months (2015-01..2019-12); holdout 3,920 / 768 (19.59%) / 72 flat / 45 months (2022-01..2026-08). Eligibility accounted: 224 insufficient_history, 10 unobserved_target, 1,662 pandemic-excluded target months 2020-01..2021-12 (up 494 / down 1,085 / flat 83; 2020 alone: down 766 / up 59 / flat 3), 70 live-month rows scorable the day the next release lands. Known-event fixtures asserted in-build on the shipped series: 2020 border closure down-share 0.9251 (>= 0.75), 2022 reopening up-share 0.9774 (>= 0.75). Reference baselines measured on the written rows (train-estimated tables): persistence (YoY sign observed at M) eval AUC 0.3647 / holdout 0.2256 - persistence is ANTI-correlated with the label in both windows, so the task is a mean-reversion + seasonality problem, not a persistence problem (the nhs-ae defect does not apply here); identity-only (country) 0.5720 / 0.5317; calendar-only (country x calendar month) 0.5501 / 0.5364. Prevalence drift across splits (34.96% -> 29.08% -> 19.59% positives) is the documented phenomenon property (post-2022 recovery boom). Full-model leg of the triad: the runner-contract baseline job on the accepted artifact, not yet run.",
-     "direction_base_rates_measured": "MoM direction pairs 58,082 (up 30,466 / down 30,048 overall - near-balanced); YoY direction pairs 56,843; per-year YoY up/down varies from 1,218/424 (2004) to 159/1,492 (2020 pandemic) and 1,645/9 (2022 reopening)",
-     "fetch_cost_measured": "1 request, 3,308,454 bytes, 3.47 s for the full panel (https data.api.abs.gov.au, 2026-10-22); dataflow+structure metadata 100,939 bytes in 2.72 s",
-     "known_event_fixtures": "Australia's international border closure (March 2020) -> measured 2020 YoY up=159/down=1,492 (collapse); reopening (from Nov 2021) -> measured 2022 YoY up=1,645/down=9 (surge). Expected verdicts verified directly in the fetched panel.",
-     "measured_on": "2026-10-22 via scripts in .factory/ (abs_oad_probe.py, abs_structure_dump.py), commands and outputs in notes.md",
-     "panel_shape_measured": "59,452 observations, 428 months 1991-01..2026-08, 77 COUNTRY_RESID codes x 2 CAT_TRAVELLER codes (05 residents returning, 06 visitors arriving), TSEST=10 (Original) only, 0 missing OBS_VALUE",
-     "release_lag_observations": "Aug 2026 released 13/10/2026 (43 days); Jul 2026 released 11/09/2026 (42 days); Apr 2026 released 12/06/2026 (43 days); max observed lag 43 days => prediction instant = M release, target M+1",
-     "revision_note": "ABS documents post-release revision: 'March 2026 data revised' in the April 2026 issue once linked Medicare data became available (methodology History of changes) - only the current vintage is downloadable, so feature values are stated as current-vintage, with the cutoff as a documented assumption",
-     "split_window_counts_yoy_label": {
-      "eval 2015-2019": "up=5588 down=2630 flat=61 (all 5 years carry both classes)",
-      "holdout 2022-2026": "up=6167 down=1533 flat=140 (all 5 years carry both classes)",
-      "train 1991-2014": "up=24166 down=13575 flat=520 (23 of 24 years carry both classes)"
-     }
-    },
-    "next_action": "Qualified AND baselined (abs-001 gate 1.4.0 38/38, artifact afb46c6b29e6c4aa..., --accept re-verified; abs-baseline-001 runner-contract eval AUC 0.6219 vs calen",
-    "packaged_at": null,
-    "path": "candidates/abs-visitor-arrivals-direction/record.json",
-    "prediction_time": "The publication instant of the ABS Overseas Arrivals and Departures (OAD) release for reference month M, which lands about six weeks after month end (max observed lag 43 days; releases observed 13/10/2026 for Aug 2026, 11/09/2026 for Jul 2026, 12/06/2026 for Apr 2026, all 11:30am local). Features are the published series values for months <= M only; the target month M+1 is unpublished at that instant (it is released ~43 days after its own month end).",
-    "publisher": "Australian Bureau of Statistics (Commonwealth of Australia)",
-    "qualification": {
-     "artifact_version": "afb46c6b29e6c4aa7668afcbd8f14c3f02ad56066bb7fbd5af263802740ad442",
-     "result": "passed; 0 failed checks of 38 (leakage, timing, units, splits, runner)",
-     "splits": null
-    },
-    "question": "For a given country of residence, will short-term visitor arrivals to Australia in the first month not yet published (the month after the latest OAD release) fall short of the same calendar month one year earlier?",
-    "region": "Oceania",
-    "release_baseline": {
-     "auc": null,
-     "reference": null
-    },
-    "release_splits": {},
-    "review": "The MoM label is near-balanced across three decades (58,082 pairs) and the YoY label carries both classes in every candidate window, so persistence cannot win by construction on direction signs. Timing is a documented publication instant with three observed release dates. Licence is the publisher's own CC BY 4.0 statement (class A). All four discovery contracts satisfied with measured evidence.",
-    "sources": [
-     {
-      "licence": "ABS website material is CC BY 4.0 International (see license_evidence); microdata and third-party content excepted, which this dataset is not",
-      "name": "ABS Data API (SDMX 2.1), dataflow ABS,OAD_COUNTRY,1.0.0 - Visitor arrivals and resident returns, Selected Countries of Residence/Destinations",
-      "url": "https://www.abs.gov.au/statistics/industry/tourism-and-transport/overseas-arrivals-and-departures-australia/latest-release"
-     }
-    ],
-    "split_strategy": "Temporal thirds on the monthly panel of 77 countries x 2 traveller categories: candidate partition train 1991-2014 / eval 2015-2019 / holdout 2022-2026 (2020-2021 excluded as pandemic extremes or optionally folded into train; construction decides and documents). Direction labels are computed per country-series; thresholds are not needed (label is a sign, not a level).",
-    "status": "qualified",
-    "target": "Binary YoY direction: OBS_VALUE for (CAT_TRAVELLER=06 visitors arriving, COUNTRY_RESID=C, month M+1) < OBS_VALUE for (same series, month M-11). Label source columns: the target month's OBS_VALUE and the year-earlier OBS_VALUE; both excluded from shipped features."
-   },
    {
     "awaiting_operator": false,
     "baseline": {},
@@ -641,7 +572,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 88.9,
+  "non_us_share": 87.5,
   "records": [
    {
     "awaiting_operator": false,
@@ -662,9 +593,9 @@
      }
     ],
     "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
+     "compilation_spdx": "CC0-1.0",
+     "source_spdx": "CC-BY-4.0",
+     "status": "CC BY 4.0 per the ABS site-wide copyright statement (read 2026-10-22)."
     },
     "measurements": {
      "clustering_note": "Positives cluster by era/year (pandemic collapse 2020, reopening surge 2022) rather than per-country; year-level cluster counts recorded above",
@@ -683,7 +614,7 @@
       "train 1991-2014": "up=24166 down=13575 flat=520 (23 of 24 years carry both classes)"
      }
     },
-    "next_action": "Qualified AND baselined (abs-001 gate 1.4.0 38/38, artifact afb46c6b29e6c4aa..., --accept re-verified; abs-baseline-001 runner-contract eval AUC 0.6219 vs calen",
+    "next_action": "PUBLISHED 2026-10-22T13:49:39Z on GitHub and Hugging Face, verified anonymously. Website page to follow.",
     "packaged_at": null,
     "path": "candidates/abs-visitor-arrivals-direction/record.json",
     "prediction_time": "The publication instant of the ABS Overseas Arrivals and Departures (OAD) release for reference month M, which lands about six weeks after month end (max observed lag 43 days; releases observed 13/10/2026 for Aug 2026, 11/09/2026 for Jul 2026, 12/06/2026 for Apr 2026, all 11:30am local). Features are the published series values for months <= M only; the target month M+1 is unpublished at that instant (it is released ~43 days after its own month end).",
@@ -709,7 +640,7 @@
      }
     ],
     "split_strategy": "Temporal thirds on the monthly panel of 77 countries x 2 traveller categories: candidate partition train 1991-2014 / eval 2015-2019 / holdout 2022-2026 (2020-2021 excluded as pandemic extremes or optionally folded into train; construction decides and documents). Direction labels are computed per country-series; thresholds are not needed (label is a sign, not a level).",
-    "status": "qualified",
+    "status": "published",
     "target": "Binary YoY direction: OBS_VALUE for (CAT_TRAVELLER=06 visitors arriving, COUNTRY_RESID=C, month M+1) < OBS_VALUE for (same series, month M-11). Label source columns: the target month's OBS_VALUE and the year-earlier OBS_VALUE; both excluded from shipped features."
    },
    {
@@ -5542,8 +5473,7 @@
    "dropped": 19,
    "investigating": 8,
    "parked": 25,
-   "published": 8,
-   "qualified": 1,
+   "published": 9,
    "ready": 6
   },
   "candidates": 67,
@@ -5571,10 +5501,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-22T12:50:01.181005+00:00",
+    "last_run_at": "2026-10-22T13:40:02.316150+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-22T13:00:00+00:00",
+    "next_run_at": "2026-10-22T14:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -5619,10 +5549,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-22T12:49:35.673079+00:00",
+    "last_run_at": "2026-10-22T13:49:53.011488+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-22T12:54:35.673079+00:00",
+    "next_run_at": "2026-10-22T13:54:53.011488+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -5655,10 +5585,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-22T11:50:17.533615+00:00",
+    "last_run_at": "2026-10-22T12:51:04.556029+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-22T13:50:00+00:00",
+    "next_run_at": "2026-10-22T14:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -5667,10 +5597,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-22T11:55:00.872276+00:00",
+    "last_run_at": "2026-10-22T12:55:00.955075+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-22T12:55:00+00:00",
+    "next_run_at": "2026-10-22T13:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -5711,9 +5641,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-22T12:50:01.352913+00:00"
+  "updated_at": "2026-10-22T13:50:01.122561+00:00"
  },
- "generated_at": "2026-10-22T12:50:01+00:00",
+ "generated_at": "2026-10-22T13:50:00+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -5737,7 +5667,7 @@
   },
   "tests": {
    "count": "408",
-   "ok": true
+   "ok": false
   }
  },
  "history": [
@@ -6204,13 +6134,21 @@
    "qualified": 1,
    "sessions_7d": 38,
    "tokens_7d": 8133744
+  },
+  {
+   "at": "2026-10-22T13:50:00+00:00",
+   "live": 8,
+   "published": 10,
+   "qualified": 0,
+   "sessions_7d": 38,
+   "tokens_7d": 8133744
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T12:50:01+00:00",
+   "as_of": "2026-10-22T13:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -6220,28 +6158,43 @@
   },
   "candidates": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T12:50:01+00:00",
+   "as_of": "2026-10-22T13:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 9
+   "value": 8
   },
   "releases": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T12:50:01+00:00",
+   "as_of": "2026-10-22T13:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
    "stale": false,
    "status": "ok",
-   "value": 9
+   "value": 10
   }
  },
  "releases": {
   "errors": [],
   "releases": [
+   {
+    "assets": 5,
+    "baseline_eval_auc": null,
+    "dataset": "abs-visitor-arrivals-direction",
+    "persistence_auc": null,
+    "publication_note": "Prepared for human review. Nothing here has been published.",
+    "release_tag": "v2026.10",
+    "rows": null,
+    "verified": {
+     "github": true,
+     "huggingface": true
+    },
+    "verified_all": true,
+    "verified_at": "2026-10-22T13:49:39Z"
+   },
    {
     "assets": 5,
     "baseline_eval_auc": null,
@@ -6387,7 +6340,7 @@
  "resources": {
   "ceiling_eur": 20.0,
   "errors": [],
-  "eur_per_release": 0.35,
+  "eur_per_release": 0.32,
   "histogram": {
    "bins": [
     {
@@ -7428,7 +7381,7 @@
   "jobs_total": 82,
   "lifetime_eur": 3.15,
   "live": {
-   "checked_at": "2026-10-22T12:50:11+00:00",
+   "checked_at": "2026-10-22T13:50:11+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
