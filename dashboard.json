@@ -15,10 +15,10 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-22T14:09:41.331385+00:00",
+   "moment": "2026-10-22T14:10:56.602446+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [
-    "lock held for 579s by scout-research"
+    "lock held for 654s by scout-research"
    ],
    "research_cost_usd": 0.233495,
    "research_tokens_last_7_days": 8271837,
@@ -37,14 +37,14 @@
      "output_tokens": 643807
     },
     "interactive": {
-     "calls": 3282,
+     "calls": 3284,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 2.26757,
-     "input_tokens": 13308499,
-     "output_tokens": 1808116
+     "cost_usd": 2.273589,
+     "input_tokens": 13309262,
+     "output_tokens": 1808607
     },
     "research": {
      "calls": 3003,
@@ -5523,10 +5523,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-22T14:00:01.412942+00:00",
+    "last_run_at": "2026-10-22T14:10:01.431276+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-22T14:10:00+00:00",
+    "next_run_at": "2026-10-22T14:20:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -5571,10 +5571,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-22T14:04:57.927174+00:00",
+    "last_run_at": "2026-10-22T14:09:59.097401+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-22T14:09:57.927174+00:00",
+    "next_run_at": "2026-10-22T14:14:59.097401+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -5663,9 +5663,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-22T14:09:01.999424+00:00"
+  "updated_at": "2026-10-22T14:10:02.005760+00:00"
  },
- "generated_at": "2026-10-22T14:09:40+00:00",
+ "generated_at": "2026-10-22T14:10:55+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -6164,15 +6164,23 @@
    "qualified": 0,
    "sessions_7d": 38,
    "tokens_7d": 8133744
+  },
+  {
+   "at": "2026-10-22T14:10:55+00:00",
+   "live": 8,
+   "published": 10,
+   "qualified": 0,
+   "sessions_7d": 39,
+   "tokens_7d": 8271837
   }
  ],
  "notices": [
-  "A research session is running: lock held for 579s by scout-research"
+  "A research session is running: lock held for 654s by scout-research"
  ],
  "panels": {
   "budget": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T14:09:40+00:00",
+   "as_of": "2026-10-22T14:10:55+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -6182,7 +6190,7 @@
   },
   "candidates": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T14:09:40+00:00",
+   "as_of": "2026-10-22T14:10:55+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -6192,7 +6200,7 @@
   },
   "releases": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T14:09:40+00:00",
+   "as_of": "2026-10-22T14:10:55+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -7415,7 +7423,7 @@
   "jobs_total": 82,
   "lifetime_eur": 3.15,
   "live": {
-   "checked_at": "2026-10-22T14:09:49+00:00",
+   "checked_at": "2026-10-22T14:11:05+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
