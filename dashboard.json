@@ -15,7 +15,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-22T15:50:01.974022+00:00",
+   "moment": "2026-10-22T15:52:03.357126+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
@@ -35,14 +35,14 @@
      "output_tokens": 643807
     },
     "interactive": {
-     "calls": 3297,
+     "calls": 3306,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 2.31618,
-     "input_tokens": 13328739,
-     "output_tokens": 1814968
+     "cost_usd": 2.366966,
+     "input_tokens": 13691481,
+     "output_tokens": 1819038
     },
     "research": {
      "calls": 3083,
@@ -5688,7 +5688,7 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-22T14:50:19.097933+00:00",
+    "last_run_at": "2026-10-22T15:50:19.626393+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
     "next_run_at": "2026-10-22T16:50:00+00:00",
@@ -5744,32 +5744,32 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-22T15:50:01.267851+00:00"
+  "updated_at": "2026-10-22T15:50:19.627635+00:00"
  },
- "generated_at": "2026-10-22T15:50:01+00:00",
+ "generated_at": "2026-10-22T15:52:02+00:00",
  "health": {
   "checks": {
    "ok": true,
    "passing": 67
   },
   "ci": {
-   "conclusion": "success",
-   "created_at": "2026-10-22T14:28:02Z",
-   "head_sha": "1e9c118",
-   "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39795900296"
+   "conclusion": null,
+   "created_at": "2026-10-22T15:52:02Z",
+   "head_sha": "f657cd9",
+   "status": "in_progress",
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39808824243"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 16/23 (70%)"
   },
   "head": {
-   "at": "2026-10-22T14:27:54Z",
-   "sha": "1e9c118",
-   "subject": "eutl-installation-net-short: constructed, gated 38/38, baselined 0.9199 eval AUC"
+   "at": "2026-10-22T15:51:58Z",
+   "sha": "f657cd9",
+   "subject": "Record the website as a destination when the publisher finishes; backfill the nine live sites"
   },
   "tests": {
-   "count": "416",
+   "count": "419",
    "ok": true
   }
  },
@@ -6275,7 +6275,7 @@
  "panels": {
   "budget": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T15:50:01+00:00",
+   "as_of": "2026-10-22T15:52:02+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -6285,7 +6285,7 @@
   },
   "candidates": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T15:50:01+00:00",
+   "as_of": "2026-10-22T15:52:02+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -6295,7 +6295,7 @@
   },
   "releases": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T15:50:01+00:00",
+   "as_of": "2026-10-22T15:52:02+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -6318,10 +6318,11 @@
     "rows": 27131,
     "verified": {
      "github": true,
-     "huggingface": true
+     "huggingface": true,
+     "site": true
     },
     "verified_all": true,
-    "verified_at": "2026-10-22T13:49:39Z"
+    "verified_at": "2026-10-22T15:51:21Z"
    },
    {
     "assets": 5,
@@ -6334,10 +6335,11 @@
     "rows": 1049636,
     "verified": {
      "github": true,
-     "huggingface": true
+     "huggingface": true,
+     "site": true
     },
     "verified_all": true,
-    "verified_at": "2026-09-19T15:00:00+00:00"
+    "verified_at": "2026-10-22T15:51:57+00:00"
    },
    {
     "assets": 5,
@@ -6350,10 +6352,11 @@
     "rows": 53763,
     "verified": {
      "github": true,
-     "huggingface": true
+     "huggingface": true,
+     "site": true
     },
     "verified_all": true,
-    "verified_at": "2026-09-27T07:50:52+00:00"
+    "verified_at": "2026-10-22T15:51:21Z"
    },
    {
     "assets": 201,
@@ -6400,10 +6403,11 @@
     "rows": 832729,
     "verified": {
      "github": true,
-     "huggingface": true
+     "huggingface": true,
+     "site": true
     },
     "verified_all": true,
-    "verified_at": "2026-10-22T09:46:46Z"
+    "verified_at": "2026-10-22T15:51:21Z"
    },
    {
     "assets": 5,
@@ -6432,10 +6436,11 @@
     "rows": 1396692,
     "verified": {
      "github": true,
-     "huggingface": true
+     "huggingface": true,
+     "site": true
     },
     "verified_all": true,
-    "verified_at": "2026-09-26T21:02:37+00:00"
+    "verified_at": "2026-10-22T15:51:21Z"
    },
    {
     "assets": 5,
@@ -6448,10 +6453,11 @@
     "rows": 13732,
     "verified": {
      "github": true,
-     "huggingface": true
+     "huggingface": true,
+     "site": true
     },
     "verified_all": true,
-    "verified_at": "2026-10-22T09:05:57Z"
+    "verified_at": "2026-10-22T15:51:21Z"
    },
    {
     "assets": 5,
@@ -6464,10 +6470,11 @@
     "rows": 26093,
     "verified": {
      "github": true,
-     "huggingface": true
+     "huggingface": true,
+     "site": true
     },
     "verified_all": true,
-    "verified_at": "2026-10-21T10:20:21+00:00"
+    "verified_at": "2026-10-22T15:51:21Z"
    }
   ]
  },
@@ -7542,7 +7549,7 @@
   "jobs_total": 84,
   "lifetime_eur": 3.15,
   "live": {
-   "checked_at": "2026-10-22T15:50:12+00:00",
+   "checked_at": "2026-10-22T15:52:12+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
