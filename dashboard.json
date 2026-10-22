@@ -15,44 +15,44 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-22T15:52:03.357126+00:00",
+   "moment": "2026-10-22T16:50:02.071240+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
-   "research_tokens_last_7_days": 8361536,
-   "runs_last_7_days": 39,
-   "runs_weighted_last_7_days": 40,
+   "research_tokens_last_7_days": 8530175,
+   "runs_last_7_days": 40,
+   "runs_weighted_last_7_days": 41,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 1,
    "usage": {
     "auxiliary": {
-     "calls": 640,
+     "calls": 641,
      "cost_status": [
       "unknown"
      ],
-     "cost_usd": 0.011634,
-     "input_tokens": 1188134,
-     "output_tokens": 643807
+     "cost_usd": 0.011665,
+     "input_tokens": 1188560,
+     "output_tokens": 643811
     },
     "interactive": {
-     "calls": 3306,
+     "calls": 3329,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 2.366966,
-     "input_tokens": 13691481,
-     "output_tokens": 1819038
+     "cost_usd": 2.495596,
+     "input_tokens": 14465640,
+     "output_tokens": 1837941
     },
     "research": {
-     "calls": 3083,
+     "calls": 3162,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": 0.233495,
-     "input_tokens": 6849542,
-     "output_tokens": 2760710
+     "input_tokens": 6931082,
+     "output_tokens": 2847809
     },
     "scheduled-other": {
      "calls": 1789,
@@ -73,13 +73,13 @@
    "CA": 2,
    "DE": 1,
    "EU": 2,
-   "GB": 2,
+   "GB": 3,
    "TW": 1,
    "US": 1
   },
   "counts": {
-   "dropped": 19,
-   "investigating": 8,
+   "dropped": 22,
+   "investigating": 9,
    "parked": 25,
    "published": 9,
    "qualified": 1,
@@ -323,6 +323,162 @@
     "split_strategy": "Temporal by classification season: train 2015-2021 (7 seasons, ~2,930 rows), eval 2022-2023 (2 seasons, ~845 rows), holdout 2024-2025 (2 seasons, ~902 rows). Measured per-season assessments and below-Good (Sufficient+Poor+Closed) counts: 2015: 415 / 42; 2016: 415 / 30; 2018: 422 / 34; 2022: 421 / 32; 2023: 424 / 44; 2024: 451 / 67; 2025: 451 / 59. Both classes present in every measured season (eval ~76 positives, holdout ~126 at the measured 7.6%/10.4% and 14.9%/12.9% rates). The 2020 slice does not exist (monitoring year suspended - consistent with the slice list 2004-2025 minus 2020). Entities repeat across seasons by design: row id = (bwspid, season); the water id ships as a declared high-cardinality feature, never as the runner id column.",
     "status": "investigating",
     "target": "Binary from the publisher's own annual classification observation (compliance-rBWD year slice, result.primaryTopic.observation[].complianceClassification): positive if the season-Y classification is 'Sufficient' or 'Poor' (below Good); negative if 'Excellent' or 'Good'; 'Closed' waters (1-2 per season, measured) excluded. The classification is produced by the Environment Agency under the Bathing Water Regulations 2013 / revised Bathing Water Directive 2006/7/EC percentile methodology - a documented publisher process, not a human judgement applied after the fact."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "GB",
+    "domain": "flood warning operations / agency hazard-warning escalation",
+    "id": "ea-flood-alert-escalation",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "base_rates": {
+      "window_D1_to_D7": {
+       "positives": 7606,
+       "rate_pct": 14.34
+      },
+      "window_D_to_D7": {
+       "positives": 11173,
+       "rate_pct": 21.06
+      }
+     },
+     "breadth": {
+      "alert_areas_ever_escalating": 566,
+      "of_eligible": 694
+     },
+     "clustering_D1_D7": {
+      "distinct_positive_year_weeks": 458,
+      "note": "storm clustering is real (top weeks: 2020-W7, 2024-W1, 2012-W47, 2020-W6, 2023-W52, 2014-W1); cluster-robust intervals required at qualification"
+     },
+     "code_coverage": {
+      "alert_msgs_in_alert_register_pct": 89.0,
+      "note": "unmatched codes are retired/renamed historic target areas; the register is a current-vintage snapshot and the EA does not publish historical register vintages, so historic parent linkage is unverifiable - a recorded assumption, not a reconstruction",
+      "warning_msgs_in_warning_register_pct": 84.5
+     },
+     "eligible_alert_events": 53048,
+     "extraction_cost": {
+      "note": "the whole panel fits on the coordinator; construction needs no bulk worker download",
+      "parse_and_measure": "in-memory parse of 85,993-row ODS plus full parent-linked label measurement: seconds on the coordinator",
+      "registers_wfs": "9 requests, 1,320,726 bytes, 3.8 s wall clock (coordinator-class machine, properties-only)",
+      "zip_get": "1 request, 3,628,573 bytes"
+     },
+     "per_year_positives_D1_D7": {
+      "2006": 12,
+      "2007": 44,
+      "2008": 65,
+      "2009": 60,
+      "2010": 37,
+      "2011": 61,
+      "2012": 613,
+      "2013": 408,
+      "2014": 568,
+      "2015": 416,
+      "2016": 315,
+      "2017": 185,
+      "2018": 228,
+      "2019": 626,
+      "2020": 876,
+      "2021": 373,
+      "2022": 311,
+      "2023": 752,
+      "2024": 1045,
+      "2025": 389,
+      "2026": 222
+     },
+     "persistence_probe": {
+      "definition": "single-rule baseline: a child warning occurred in the previous 7 days before D",
+      "note": "persistence is a weak single rule, not a dominant level - unlike nhs-ae-four-hour-decline; the full persistence/calendar/model triad is measured at qualification",
+      "p_escalate_given_no_prev": 0.1891,
+      "p_escalate_given_prev": 0.4511,
+      "rule_coverage_pct": 8.2,
+      "two_by_two_auc": 0.559
+     },
+     "registers": {
+      "alert_areas": 782,
+      "children_per_parent_max": 47,
+      "children_per_parent_median": 3,
+      "distinct_parents": 694,
+      "orphan_parents_not_in_alert_register": 2,
+      "warning_areas": 3426,
+      "with_parent_set": 3424
+     },
+     "same_day_share_of_D0_D7_positives_pct": 46.9,
+     "source_rows": "85,982 dated message rows (85,993 data rows incl. 11 repeated header rows in the ODS), 2006-01-26 to 2026-06-25",
+     "splits_D1_D7": {
+      "eval_2020_2022": {
+       "events": 9623,
+       "positives": 1560,
+       "rate_pct": 16.21
+      },
+      "holdout_2023_2026H1": {
+       "events": 14561,
+       "positives": 2408,
+       "rate_pct": 16.54
+      },
+      "train_2006_2019": {
+       "events": 28864,
+       "positives": 3638,
+       "rate_pct": 12.6
+      }
+     },
+     "type_mix_case_normalised": {
+      "flood alert": 46335,
+      "flood warning": 20516,
+      "flood watch": 11027,
+      "severe flood warning": 488,
+      "update flood alert": 5535,
+      "update flood warning": 2070,
+      "update severe flood warning": 11
+     }
+    },
+    "next_action": "Construction (worker build, class A): write candidates/ea-flood-alert-escalation/build_panel.py - (1) fetch Historic_Flood_Warnings.zip (3.6 MB, 1 GET) and both",
+    "packaged_at": null,
+    "path": "candidates/ea-flood-alert-escalation/record.json",
+    "prediction_time": "Day-grain: the day D on which the alert message was issued. The dataset's DATE column carries no time-of-day (measured: 0 of 85,982 dated rows), so the prediction instant is the alert's issue day and the label window starts at D+1 because a same-day child warning cannot be ordered against the alert (46.9% of [D,D+7]-window positives were same-day). Features must be knowable by end of day D: message history through D (inclusive), register attributes (current-vintage snapshot, measured static in practice), and calendar.",
+    "publisher": "Environment Agency (England), an executive agency of Defra",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a Flood Alert (or pre-2010 Flood Watch) issued by the Environment Agency for a target alert area P on day D, will any of the Flood Warning Areas whose register 'parent' is P receive a Flood Warning or Severe Flood Warning message during days D+1 through D+7, given only the warning-message history for P and its child areas through day D, the register attributes of P and its children, and the calendar?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "Open Government Licence v3.0 (stated on the dataset's own data.gov.uk page and in the CKAN record extras)",
+      "name": "Historic Flood Warnings (AfA435), Environment Agency for England",
+      "url": "https://environment.data.gov.uk/api/file/download?fileDataSetId=766cb094-b392-4bd6-a02e-f60e143f3213&fileName=Historic_Flood_Warnings.zip"
+     },
+     {
+      "licence": "Open Government Licence (CKAN record extras: licence [\"Open Government Licence\"])",
+      "name": "Flood Warning Areas register (AfA054), Environment Agency",
+      "url": "https://environment.data.gov.uk/spatialdata/flood-warning-areas/wfs"
+     },
+     {
+      "licence": "Open Government Licence (CKAN record extras: licence [\"Open Government Licence\"])",
+      "name": "Flood Alert Areas register, Environment Agency",
+      "url": "https://environment.data.gov.uk/spatialdata/flood-alert-areas/wfs"
+     },
+     {
+      "licence": "Open Government Licence v3.0 (API meta license URL, read 2026-10-22)",
+      "name": "EA Hydrology API (optional feature extension, not required for the base task)",
+      "url": "https://environment.data.gov.uk/hydrology/id/stations"
+     }
+    ],
+    "split_strategy": "Temporal, one row per eligible alert event: train 2006-2019, eval 2020-2022, holdout 2023-2026 Q2 (file ends 2026-06-30). Measured at label window [D+1,D+7]: train 28,864 events / 3,638 positives (12.60%); eval 9,623 / 1,560 (16.21%); holdout 14,561 / 2,408 (16.54%). Positives occur in every year 2006-2026. Positives cluster by storm: 458 distinct year-weeks carry at least one positive (top week 2020-W7, Storms Ciara/Dennis, 324 same-window positives at the [D,D+7] definition). Report per-year metrics: a reporting-system migration in April 2017 (Floodline Warnings Direct -> Flood Warning System, per the EA's dataset description) is a candidate structural break.",
+    "status": "investigating",
+    "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
    },
    {
     "awaiting_operator": false,
@@ -639,7 +795,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 88.9,
+  "non_us_share": 90.0,
   "records": [
    {
     "awaiting_operator": false,
@@ -1878,6 +2034,52 @@
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
+    "domain": "ambient air quality monitoring / day-ahead pollutant exceedance",
+    "id": "defra-aurn-pm25-exceedance",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "note": "the outage is an infrastructure condition, not a property of the dataset; it is recorded because it blocked reading the licence, not as the reason for the verdict",
+     "openaq_probe": "OpenAQ v2 API retired (HTTP 410) and v3 requires an API key (HTTP 401), so third-party redistribution of UK AURN data could not be verified anonymously this session and is not claimed",
+     "site_outage_2026_10_22": "uk-air.defra.gov.uk returns a 2,038-byte WSP 'Website Temporarily Unavailable' page on every path probed (/data/open-data, /data/automated-monitoring, /data/site-info?site_id=ABD, /), identical for plain and browser user agents; reason given on the page: PHP CVE-2026-109618/109619 security updates"
+    },
+    "next_action": "None. Re-opened only by a genuinely different task formulation on AURN data (not day-ahead concentration or exceedance forecasting), with the site back online a",
+    "packaged_at": null,
+    "path": "candidates/defra-aurn-pm25-exceedance/record.json",
+    "prediction_time": "Would be end of day D (station-day grain). Not evidenced further: the task is rejected on shape, which is independent of the instant.",
+    "publisher": "Department for Environment, Food and Rural Affairs (Defra), UK AIR / AURN",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "Hypothetical task this source would support (rejected before construction): for an Automatic Urban and Rural Network (AURN) monitoring station, will the next-day (D+1) 24-hour mean PM2.5 concentration exceed the relevant UK air-quality objective threshold, given only that station's own hourly history through the end of day D?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "unreadable this session - the entire publisher site is in a measured maintenance outage; UK Crown-copyright OGL v3.0 is the standard Defra posture but is NOT asserted without reading it",
+      "name": "UK AIR / AURN open data, Department for Environment, Food and Rural Affairs",
+      "url": "https://uk-air.defra.gov.uk/data/open-data"
+     }
+    ],
+    "split_strategy": "",
+    "status": "dropped",
+    "target": "Station-day exceedance of a UK air-quality objective for a pollutant carried by the AURN (PM2.5 annual/daily objectives, ozone, NO2). Not built."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "GB",
     "domain": "waste and resource policy - local authority household recycling performance prediction (annual LA panel)",
     "id": "defra-la-household-recycling-rate",
     "jobs": [],
@@ -2109,6 +2311,162 @@
     "split_strategy": "Temporal by classification season: train 2015-2021 (7 seasons, ~2,930 rows), eval 2022-2023 (2 seasons, ~845 rows), holdout 2024-2025 (2 seasons, ~902 rows). Measured per-season assessments and below-Good (Sufficient+Poor+Closed) counts: 2015: 415 / 42; 2016: 415 / 30; 2018: 422 / 34; 2022: 421 / 32; 2023: 424 / 44; 2024: 451 / 67; 2025: 451 / 59. Both classes present in every measured season (eval ~76 positives, holdout ~126 at the measured 7.6%/10.4% and 14.9%/12.9% rates). The 2020 slice does not exist (monitoring year suspended - consistent with the slice list 2004-2025 minus 2020). Entities repeat across seasons by design: row id = (bwspid, season); the water id ships as a declared high-cardinality feature, never as the runner id column.",
     "status": "investigating",
     "target": "Binary from the publisher's own annual classification observation (compliance-rBWD year slice, result.primaryTopic.observation[].complianceClassification): positive if the season-Y classification is 'Sufficient' or 'Poor' (below Good); negative if 'Excellent' or 'Good'; 'Closed' waters (1-2 per season, measured) excluded. The classification is produced by the Environment Agency under the Bathing Water Regulations 2013 / revised Bathing Water Directive 2006/7/EC percentile methodology - a documented publisher process, not a human judgement applied after the fact."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "GB",
+    "domain": "flood warning operations / agency hazard-warning escalation",
+    "id": "ea-flood-alert-escalation",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "base_rates": {
+      "window_D1_to_D7": {
+       "positives": 7606,
+       "rate_pct": 14.34
+      },
+      "window_D_to_D7": {
+       "positives": 11173,
+       "rate_pct": 21.06
+      }
+     },
+     "breadth": {
+      "alert_areas_ever_escalating": 566,
+      "of_eligible": 694
+     },
+     "clustering_D1_D7": {
+      "distinct_positive_year_weeks": 458,
+      "note": "storm clustering is real (top weeks: 2020-W7, 2024-W1, 2012-W47, 2020-W6, 2023-W52, 2014-W1); cluster-robust intervals required at qualification"
+     },
+     "code_coverage": {
+      "alert_msgs_in_alert_register_pct": 89.0,
+      "note": "unmatched codes are retired/renamed historic target areas; the register is a current-vintage snapshot and the EA does not publish historical register vintages, so historic parent linkage is unverifiable - a recorded assumption, not a reconstruction",
+      "warning_msgs_in_warning_register_pct": 84.5
+     },
+     "eligible_alert_events": 53048,
+     "extraction_cost": {
+      "note": "the whole panel fits on the coordinator; construction needs no bulk worker download",
+      "parse_and_measure": "in-memory parse of 85,993-row ODS plus full parent-linked label measurement: seconds on the coordinator",
+      "registers_wfs": "9 requests, 1,320,726 bytes, 3.8 s wall clock (coordinator-class machine, properties-only)",
+      "zip_get": "1 request, 3,628,573 bytes"
+     },
+     "per_year_positives_D1_D7": {
+      "2006": 12,
+      "2007": 44,
+      "2008": 65,
+      "2009": 60,
+      "2010": 37,
+      "2011": 61,
+      "2012": 613,
+      "2013": 408,
+      "2014": 568,
+      "2015": 416,
+      "2016": 315,
+      "2017": 185,
+      "2018": 228,
+      "2019": 626,
+      "2020": 876,
+      "2021": 373,
+      "2022": 311,
+      "2023": 752,
+      "2024": 1045,
+      "2025": 389,
+      "2026": 222
+     },
+     "persistence_probe": {
+      "definition": "single-rule baseline: a child warning occurred in the previous 7 days before D",
+      "note": "persistence is a weak single rule, not a dominant level - unlike nhs-ae-four-hour-decline; the full persistence/calendar/model triad is measured at qualification",
+      "p_escalate_given_no_prev": 0.1891,
+      "p_escalate_given_prev": 0.4511,
+      "rule_coverage_pct": 8.2,
+      "two_by_two_auc": 0.559
+     },
+     "registers": {
+      "alert_areas": 782,
+      "children_per_parent_max": 47,
+      "children_per_parent_median": 3,
+      "distinct_parents": 694,
+      "orphan_parents_not_in_alert_register": 2,
+      "warning_areas": 3426,
+      "with_parent_set": 3424
+     },
+     "same_day_share_of_D0_D7_positives_pct": 46.9,
+     "source_rows": "85,982 dated message rows (85,993 data rows incl. 11 repeated header rows in the ODS), 2006-01-26 to 2026-06-25",
+     "splits_D1_D7": {
+      "eval_2020_2022": {
+       "events": 9623,
+       "positives": 1560,
+       "rate_pct": 16.21
+      },
+      "holdout_2023_2026H1": {
+       "events": 14561,
+       "positives": 2408,
+       "rate_pct": 16.54
+      },
+      "train_2006_2019": {
+       "events": 28864,
+       "positives": 3638,
+       "rate_pct": 12.6
+      }
+     },
+     "type_mix_case_normalised": {
+      "flood alert": 46335,
+      "flood warning": 20516,
+      "flood watch": 11027,
+      "severe flood warning": 488,
+      "update flood alert": 5535,
+      "update flood warning": 2070,
+      "update severe flood warning": 11
+     }
+    },
+    "next_action": "Construction (worker build, class A): write candidates/ea-flood-alert-escalation/build_panel.py - (1) fetch Historic_Flood_Warnings.zip (3.6 MB, 1 GET) and both",
+    "packaged_at": null,
+    "path": "candidates/ea-flood-alert-escalation/record.json",
+    "prediction_time": "Day-grain: the day D on which the alert message was issued. The dataset's DATE column carries no time-of-day (measured: 0 of 85,982 dated rows), so the prediction instant is the alert's issue day and the label window starts at D+1 because a same-day child warning cannot be ordered against the alert (46.9% of [D,D+7]-window positives were same-day). Features must be knowable by end of day D: message history through D (inclusive), register attributes (current-vintage snapshot, measured static in practice), and calendar.",
+    "publisher": "Environment Agency (England), an executive agency of Defra",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a Flood Alert (or pre-2010 Flood Watch) issued by the Environment Agency for a target alert area P on day D, will any of the Flood Warning Areas whose register 'parent' is P receive a Flood Warning or Severe Flood Warning message during days D+1 through D+7, given only the warning-message history for P and its child areas through day D, the register attributes of P and its children, and the calendar?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "Open Government Licence v3.0 (stated on the dataset's own data.gov.uk page and in the CKAN record extras)",
+      "name": "Historic Flood Warnings (AfA435), Environment Agency for England",
+      "url": "https://environment.data.gov.uk/api/file/download?fileDataSetId=766cb094-b392-4bd6-a02e-f60e143f3213&fileName=Historic_Flood_Warnings.zip"
+     },
+     {
+      "licence": "Open Government Licence (CKAN record extras: licence [\"Open Government Licence\"])",
+      "name": "Flood Warning Areas register (AfA054), Environment Agency",
+      "url": "https://environment.data.gov.uk/spatialdata/flood-warning-areas/wfs"
+     },
+     {
+      "licence": "Open Government Licence (CKAN record extras: licence [\"Open Government Licence\"])",
+      "name": "Flood Alert Areas register, Environment Agency",
+      "url": "https://environment.data.gov.uk/spatialdata/flood-alert-areas/wfs"
+     },
+     {
+      "licence": "Open Government Licence v3.0 (API meta license URL, read 2026-10-22)",
+      "name": "EA Hydrology API (optional feature extension, not required for the base task)",
+      "url": "https://environment.data.gov.uk/hydrology/id/stations"
+     }
+    ],
+    "split_strategy": "Temporal, one row per eligible alert event: train 2006-2019, eval 2020-2022, holdout 2023-2026 Q2 (file ends 2026-06-30). Measured at label window [D+1,D+7]: train 28,864 events / 3,638 positives (12.60%); eval 9,623 / 1,560 (16.21%); holdout 14,561 / 2,408 (16.54%). Positives occur in every year 2006-2026. Positives cluster by storm: 458 distinct year-weeks carry at least one positive (top week 2020-W7, Storms Ciara/Dennis, 324 same-window positives at the [D,D+7] definition). Report per-year metrics: a reporting-system migration in April 2017 (Floodline Warnings Direct -> Flood Warning System, per the EA's dataset description) is a candidate structural break.",
+    "status": "investigating",
+    "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
    },
    {
     "awaiting_operator": false,
@@ -2474,6 +2832,81 @@
     "split_strategy": "",
     "status": "dropped",
     "target": "Binary: aircraft damage (damage level in {M, M?, S, D} on the published scale, or any damage flag) recorded in the strike report."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "GB",
+    "domain": "food business hygiene inspection ratings / recurrent inspection outcomes",
+    "id": "fsa-fhrs-next-rating",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "api_authorities_total": 363,
+     "establishment_schema_keys": [
+      "FHRSID",
+      "LocalAuthorityBusinessID",
+      "BusinessName",
+      "BusinessType",
+      "BusinessTypeID",
+      "AddressLine1-4",
+      "PostCode",
+      "RatingValue",
+      "RatingKey",
+      "RatingDate",
+      "NewRatingPending",
+      "RightToReply",
+      "SchemeType",
+      "geocode",
+      "scores",
+      "LocalAuthority*",
+      "ChangesByServerID",
+      "Distance",
+      "Phone"
+     ],
+     "history_elements_in_xml_sample": 0,
+     "history_fields_in_api_schema": 0,
+     "note": "API schema and XML extract both carry exactly ONE rating per establishment; no dated historical vintages of the extracts are published anywhere on the publisher's instruments probed",
+     "open_data_xml_files_listed": 385,
+     "xml_sample": "FHRS760en-GB.xml (Aberdeen City, FHIS): 2,062,982 bytes, ExtractDate 2026-10-21, ItemCount 2,222"
+    },
+    "next_action": "None. Re-open only if the FSA begins publishing per-establishment rating history or dated snapshot vintages of the FHRS/FHIS extracts (check ratings.food.gov.uk",
+    "packaged_at": null,
+    "path": "candidates/fsa-fhrs-next-rating/record.json",
+    "prediction_time": "The task would need the establishment's prior ratings knowable at a stated instant before the next inspection. The publisher exposes no prior ratings at all (measured), so no such instant can be evidenced from publisher data.",
+    "publisher": "Food Standards Agency (FSA), a UK non-ministerial government department",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "Hypothetical task this source would support (rejected before construction): for a food business establishment in the Food Hygiene Rating Scheme (England/Wales/NI; Scotland runs the parallel FHIS), will its next inspection change its rating band, given its prior rating history, scores and establishment attributes?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "Open Government Licence v3.0 via ratings.food.gov.uk terms page",
+      "name": "Food Hygiene Rating Scheme API v2, Food Standards Agency",
+      "url": "https://api.ratings.food.gov.uk/Establishments?name=cafe&pageSize=5"
+     },
+     {
+      "licence": "Open Government Licence v3.0 via ratings.food.gov.uk terms page",
+      "name": "FHRS open data XML extracts (per local authority)",
+      "url": "https://ratings.food.gov.uk/OpenDataFiles/FHRS760en-GB.xml"
+     }
+    ],
+    "split_strategy": "",
+    "status": "dropped",
+    "target": "Binary: the establishment's next inspection produces a different rating band than its last recorded one. Not derivable from the publisher's data (see rejection_reason)."
    },
    {
     "awaiting_operator": false,
@@ -4209,6 +4642,52 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "GB",
+    "domain": "flood warning operations / agency hazard-warning escalation (Wales)",
+    "id": "nrw-historic-flood-warnings",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "coverage_per_publisher": "all Welsh river/sea flood messages since 2006; quarterly updates; single resource (Data Map Wales document 2644)",
+     "record_level_only": "probed at the CKAN record level only (one package_show); the message file itself was not downloaded this session because the task was rejected as a duplicate before any data spend",
+     "unverified_for_wales": "whether NRW publishes an equivalent of the EA Flood Warning Areas register 'parent' attribute (the linkage that makes the England escalation join a dict lookup) - a second-instance build must verify this first"
+    },
+    "next_action": "None now. If a second instance of the escalation task is wanted after ea-flood-alert-escalation ships: (1) verify NRW publishes a warning-area -> alert-area lin",
+    "packaged_at": null,
+    "path": "candidates/nrw-historic-flood-warnings/record.json",
+    "prediction_time": "Same day-grain instant as the England task on this stream. Not probed further: rejected as a task-shape duplicate of the open ea-flood-alert-escalation candidate.",
+    "publisher": "Natural Resources Wales (NRW / Llywodraeth Cymru agency)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "Hypothetical task this source would support (rejected as a duplicate, not probed): the Welsh instance of the flood alert escalation task - for a Flood Alert issued by Natural Resources Wales for a Welsh target area on day D, will a Flood Warning follow within K days for a warning area inside it, given history and register features through D?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "Open Government Licence with attribution of source and NRW copyright, per the record's access_constraints",
+      "name": "Historic Flood Warnings and Flood Alerts, Natural Resources Wales",
+      "url": "https://datamap.gov.wales/documents/2644"
+     }
+    ],
+    "split_strategy": "",
+    "status": "dropped",
+    "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "US",
     "domain": "severe weather forecasting / NWS warning verification",
     "id": "nws-tornado-warning-verification",
@@ -5543,7 +6022,7 @@
    "DE": 1,
    "EU": 5,
    "FR": 1,
-   "GB": 6,
+   "GB": 10,
    "HK": 1,
    "ID": 3,
    "IN": 3,
@@ -5564,7 +6043,7 @@
   "by_region": {
    "Africa": 3,
    "East Asia": 5,
-   "Europe": 12,
+   "Europe": 16,
    "International organisations": 7,
    "Latin America": 3,
    "North America": 19,
@@ -5572,17 +6051,17 @@
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 19,
-   "investigating": 8,
+   "dropped": 22,
+   "investigating": 9,
    "parked": 25,
    "published": 9,
    "qualified": 1,
    "ready": 5
   },
-  "candidates": 67,
-  "live": 23,
-  "live_non_us": 16,
-  "live_non_us_share": 0.696,
+  "candidates": 71,
+  "live": 24,
+  "live_non_us": 17,
+  "live_non_us_share": 0.708,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -5604,10 +6083,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-22T15:50:01.266637+00:00",
+    "last_run_at": "2026-10-22T16:50:00.923540+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-22T16:00:00+00:00",
+    "next_run_at": "2026-10-22T17:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -5652,10 +6131,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-22T15:48:14.018819+00:00",
+    "last_run_at": "2026-10-22T16:48:30.932966+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-22T15:53:14.018819+00:00",
+    "next_run_at": "2026-10-22T16:53:30.932966+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -5664,10 +6143,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-22T12:27:57.580128+00:00",
+    "last_run_at": "2026-10-22T16:21:41.897969+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-22T16:00:00+00:00",
+    "next_run_at": "2026-10-22T20:00:00+00:00",
     "no_agent": true,
     "schedule": "0 */4 * * *"
    },
@@ -5691,7 +6170,7 @@
     "last_run_at": "2026-10-22T15:50:19.626393+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-22T16:50:00+00:00",
+    "next_run_at": "2026-10-22T17:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -5700,10 +6179,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-22T14:55:00.718443+00:00",
+    "last_run_at": "2026-10-22T15:55:00.479009+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-22T15:55:00+00:00",
+    "next_run_at": "2026-10-22T16:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -5744,29 +6223,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-22T15:50:19.627635+00:00"
+  "updated_at": "2026-10-22T16:50:01.138882+00:00"
  },
- "generated_at": "2026-10-22T15:52:02+00:00",
+ "generated_at": "2026-10-22T16:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 67
+   "passing": 71
   },
   "ci": {
-   "conclusion": null,
-   "created_at": "2026-10-22T15:52:02Z",
-   "head_sha": "f657cd9",
-   "status": "in_progress",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39808824243"
+   "conclusion": "success",
+   "created_at": "2026-10-22T16:20:01Z",
+   "head_sha": "beab726",
+   "status": "completed",
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39813125400"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 16/23 (70%)"
+   "summary": "live non-US: 17/24 (71%)"
   },
   "head": {
-   "at": "2026-10-22T15:51:58Z",
-   "sha": "f657cd9",
-   "subject": "Record the website as a destination when the publisher finishes; backfill the nine live sites"
+   "at": "2026-10-22T16:19:57Z",
+   "sha": "beab726",
+   "subject": "Discovery tick 2026-10-22 (UK): 4 verdicts - ea-flood-alert-escalation go, FSA FHRS / Defra AURN / NRW twins rejected"
   },
   "tests": {
    "count": "419",
@@ -6269,13 +6748,21 @@
    "qualified": 1,
    "sessions_7d": 39,
    "tokens_7d": 8361536
+  },
+  {
+   "at": "2026-10-22T16:50:01+00:00",
+   "live": 10,
+   "published": 10,
+   "qualified": 1,
+   "sessions_7d": 40,
+   "tokens_7d": 8530175
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T15:52:02+00:00",
+   "as_of": "2026-10-22T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -6285,17 +6772,17 @@
   },
   "candidates": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T15:52:02+00:00",
+   "as_of": "2026-10-22T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 9
+   "value": 10
   },
   "releases": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T15:52:02+00:00",
+   "as_of": "2026-10-22T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -6339,7 +6826,7 @@
      "site": true
     },
     "verified_all": true,
-    "verified_at": "2026-10-22T15:51:57+00:00"
+    "verified_at": "2026-10-22T16:18:41+00:00"
    },
    {
     "assets": 5,
@@ -7549,7 +8036,7 @@
   "jobs_total": 84,
   "lifetime_eur": 3.15,
   "live": {
-   "checked_at": "2026-10-22T15:52:12+00:00",
+   "checked_at": "2026-10-22T16:50:11+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -7576,17 +8063,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 1,
+  "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 2070.6,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "ts": "2026-10-22T04:34:31.698170+00:00"
-   },
    {
     "elapsed_seconds": 1882.9,
     "event": "session",
@@ -7631,6 +8109,15 @@
     "prompt_file": "research-session-prompt.md",
     "run_budget": 5400,
     "ts": "2026-10-22T14:36:42.284720+00:00"
+   },
+   {
+    "elapsed_seconds": 1299.9,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "ts": "2026-10-22T16:21:41.856884+00:00"
    }
   ],
   "total": 37
