@@ -1,7 +1,5 @@
 {
- "alarms": [
-  "CI on 91b989e concluded failure"
- ],
+ "alarms": [],
  "budget": {
   "config": {
    "allowance_usd": 30.0,
@@ -17,7 +15,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-22T13:57:02.025293+00:00",
+   "moment": "2026-10-22T13:59:04.757153+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
@@ -37,14 +35,14 @@
      "output_tokens": 643807
     },
     "interactive": {
-     "calls": 3244,
+     "calls": 3252,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 2.149603,
-     "input_tokens": 13273072,
-     "output_tokens": 1792884
+     "cost_usd": 2.172963,
+     "input_tokens": 13275700,
+     "output_tokens": 1795103
     },
     "research": {
      "calls": 2976,
@@ -5665,27 +5663,27 @@
   ],
   "updated_at": "2026-10-22T13:55:01.251228+00:00"
  },
- "generated_at": "2026-10-22T13:57:01+00:00",
+ "generated_at": "2026-10-22T13:59:04+00:00",
  "health": {
   "checks": {
    "ok": true,
    "passing": 67
   },
   "ci": {
-   "conclusion": "failure",
-   "created_at": "2026-10-22T13:55:37Z",
-   "head_sha": "91b989e",
-   "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39791231004"
+   "conclusion": null,
+   "created_at": "2026-10-22T13:59:05Z",
+   "head_sha": "eb127cd",
+   "status": "queued",
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39791752131"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 16/23 (70%)"
   },
   "head": {
-   "at": "2026-10-22T13:55:33Z",
-   "sha": "91b989e",
-   "subject": "Dashboard: sum split rows through nested and path-only manifest shapes"
+   "at": "2026-10-22T13:59:02Z",
+   "sha": "eb127cd",
+   "subject": "Dashboard: read row counts and flat baseline AUCs from every manifest shape"
   },
   "tests": {
    "count": "412",
@@ -6170,7 +6168,7 @@
  "panels": {
   "budget": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T13:57:01+00:00",
+   "as_of": "2026-10-22T13:59:04+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -6180,7 +6178,7 @@
   },
   "candidates": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T13:57:01+00:00",
+   "as_of": "2026-10-22T13:59:04+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -6190,7 +6188,7 @@
   },
   "releases": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T13:57:01+00:00",
+   "as_of": "2026-10-22T13:59:04+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -6204,7 +6202,7 @@
   "releases": [
    {
     "assets": 5,
-    "baseline_eval_auc": null,
+    "baseline_eval_auc": 0.6219,
     "dataset": "abs-visitor-arrivals-direction",
     "persistence_auc": null,
     "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-22T13:49:39Z. Data files, tag and artifact version are unchanged by publication.",
@@ -6281,7 +6279,7 @@
    },
    {
     "assets": 5,
-    "baseline_eval_auc": null,
+    "baseline_eval_auc": 0.752,
     "dataset": "my-pricecatcher-weekly-increase",
     "persistence_auc": null,
     "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-22T09:46:46Z. Data files, tag and artifact version are unchanged by publication.",
@@ -6296,7 +6294,7 @@
    },
    {
     "assets": 5,
-    "baseline_eval_auc": null,
+    "baseline_eval_auc": 0.5511,
     "dataset": "nhs-ae-four-hour-decline",
     "persistence_auc": null,
     "publication_note": "Prepared for human review. Nothing here has been published.",
@@ -7403,7 +7401,7 @@
   "jobs_total": 82,
   "lifetime_eur": 3.15,
   "live": {
-   "checked_at": "2026-10-22T13:57:10+00:00",
+   "checked_at": "2026-10-22T13:59:13+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
