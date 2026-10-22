@@ -1,7 +1,5 @@
 {
- "alarms": [
-  "Test suite is failing"
- ],
+ "alarms": [],
  "budget": {
   "config": {
    "allowance_usd": 30.0,
@@ -17,48 +15,50 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-10-22T20:00:54.256672+00:00",
+   "allowed": false,
+   "moment": "2026-10-22T20:12:35.906835+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 582s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 8718221,
-   "runs_last_7_days": 41,
-   "runs_weighted_last_7_days": 42,
+   "research_tokens_last_7_days": 8808258,
+   "runs_last_7_days": 42,
+   "runs_weighted_last_7_days": 43,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 1,
    "usage": {
     "auxiliary": {
-     "calls": 648,
+     "calls": 653,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 1262520,
-     "output_tokens": 658227,
+     "input_tokens": 1264761,
+     "output_tokens": 658247,
      "pricing_available": false
     },
     "interactive": {
-     "calls": 3842,
+     "calls": 3883,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 19387641,
-     "output_tokens": 2117512,
+     "input_tokens": 19408390,
+     "output_tokens": 2138814,
      "pricing_available": false
     },
     "research": {
-     "calls": 3283,
+     "calls": 3289,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 7059920,
-     "output_tokens": 2907017,
+     "input_tokens": 7119375,
+     "output_tokens": 2937599,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -2670,7 +2670,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 1.3,
+    "age_hours": 1.5,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6052,7 +6052,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 1.3,
+     "age_hours": 1.5,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6211,7 +6211,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 1.3,
+     "age_hours": 1.5,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6443,10 +6443,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-22T20:00:02.298832+00:00",
+    "last_run_at": "2026-10-22T20:10:03.555084+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-22T20:10:00+00:00",
+    "next_run_at": "2026-10-22T20:20:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -6463,7 +6463,7 @@
     "schedule": "every monday 8am"
    },
    {
-    "enabled": false,
+    "enabled": true,
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
@@ -6491,22 +6491,22 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-22T20:00:51.384217+00:00",
+    "last_run_at": "2026-10-22T20:10:53.944430+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-22T20:05:51.384217+00:00",
+    "next_run_at": "2026-10-22T20:15:53.944430+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
    {
-    "enabled": false,
+    "enabled": true,
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
     "last_run_at": "2026-10-22T16:21:41.897969+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-22T20:00:00+00:00",
+    "next_run_at": "2026-10-23T00:00:00+00:00",
     "no_agent": true,
     "schedule": "0 */4 * * *"
    },
@@ -6583,9 +6583,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-22T20:00:51.385267+00:00"
+  "updated_at": "2026-10-22T20:11:53.491902+00:00"
  },
- "generated_at": "2026-10-22T20:00:53+00:00",
+ "generated_at": "2026-10-22T20:12:35+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -6593,23 +6593,23 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-22T19:57:29Z",
-   "head_sha": "50135b2",
+   "created_at": "2026-10-22T20:11:31Z",
+   "head_sha": "8046b1b",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39844619533"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39846677244"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 17/24 (71%)"
   },
   "head": {
-   "at": "2026-10-22T21:57:26+02:00",
-   "sha": "50135b2",
-   "subject": "Merge PR #8: enforce host-job time and disk limits"
+   "at": "2026-10-22T22:11:27+02:00",
+   "sha": "8046b1b",
+   "subject": "Merge PR #9: isolate worker qualification test fixtures"
   },
   "tests": {
    "count": "572",
-   "ok": false
+   "ok": true
   }
  },
  "history": [
@@ -7140,13 +7140,23 @@
    "qualified": 0,
    "sessions_7d": 41,
    "tokens_7d": 8718221
+  },
+  {
+   "at": "2026-10-22T20:12:35+00:00",
+   "live": 9,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 42,
+   "tokens_7d": 8808258
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 582s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T20:00:53+00:00",
+   "as_of": "2026-10-22T20:12:35+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -7156,7 +7166,7 @@
   },
   "candidates": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T20:00:53+00:00",
+   "as_of": "2026-10-22T20:12:35+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -7166,7 +7176,7 @@
   },
   "releases": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T20:00:53+00:00",
+   "as_of": "2026-10-22T20:12:35+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -8720,7 +8730,7 @@
   "jobs_total": 88,
   "lifetime_eur": 3.16,
   "live": {
-   "checked_at": "2026-10-22T20:01:08+00:00",
+   "checked_at": "2026-10-22T20:12:50+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
