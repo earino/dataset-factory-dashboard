@@ -398,5 +398,21 @@
   "tokens_7d": 7297093,
   "sessions_7d": 34,
   "qualified": 1
+ },
+ {
+  "at": "2026-10-22T06:28:45+00:00",
+  "published": 8,
+  "live": 7,
+  "tokens_7d": 7536807,
+  "sessions_7d": 35,
+  "qualified": 0
+ },
+ {
+  "at": "2026-10-22T07:03:35+00:00",
+  "published": 8,
+  "live": 7,
+  "tokens_7d": 7549350,
+  "sessions_7d": 35,
+  "qualified": 0
  }
 ]
