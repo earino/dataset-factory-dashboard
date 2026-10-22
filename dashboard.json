@@ -15,15 +15,13 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-10-22T20:12:35.906835+00:00",
+   "allowed": true,
+   "moment": "2026-10-22T20:50:02.078970+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 582s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 8808258,
+   "research_tokens_last_7_days": 8932464,
    "runs_last_7_days": 42,
    "runs_weighted_last_7_days": 43,
    "session_cap_per_week": 200,
@@ -40,25 +38,25 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 3883,
+     "calls": 3929,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 19408390,
-     "output_tokens": 2138814,
+     "input_tokens": 19429827,
+     "output_tokens": 2166210,
      "pricing_available": false
     },
     "research": {
-     "calls": 3289,
+     "calls": 3343,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 7119375,
-     "output_tokens": 2937599,
+     "input_tokens": 7181589,
+     "output_tokens": 2999591,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -89,7 +87,7 @@
    "US": 1
   },
   "counts": {
-   "dropped": 22,
+   "dropped": 25,
    "investigating": 9,
    "packaged": 1,
    "parked": 25,
@@ -2670,7 +2668,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 1.5,
+    "age_hours": 2.1,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
@@ -3012,6 +3010,113 @@
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
+    "domain": "regulatory inspections of cannabis licence holders (Cannabis Act compliance program)",
+    "id": "hc-cannabis-inspection-rating",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "file_hygiene_note": "Measured inconsistency across vintages: the 2025-04/09 file uses lowercase headers and is not valid UTF-8 (a Latin-1 fallback is needed), the other three use capitalized headers with a UTF-8 BOM - a construction would need per-file header/encoding normalization. Recorded as a cost note, not the rejection reason.",
+     "holder_grain": "821 distinct licence holders; 278 with >=2 inspections (815 rows); maximum 15 inspections for a single holder.",
+     "inspection_type_mix": "Regular 916, Targeted 209, CV 128, Compliance Verification 88, Compliance Monitoring Projects 17 (130 rows in the first pass were blank-liners, resolved in the second pass).",
+     "probes_2026_10_22": "See notes.md for exact commands. All four English CSVs fetched anonymously (302 -> 200 via redirect, sizes 30,716-51,318 bytes), parsed locally.",
+     "rating_mix": "Compliant 1,291; Non-compliant 66 (4.9%); 'Rating not assigned' 1.",
+     "shape": "8 columns: Licence holder name, Province or territory, Inspection start date, Inspection type, Sampling Conducted, Observations, Inspection rating, Measures initiated by Health Canada. 1,358 data rows across the 4 vintages.",
+     "start_year_mix": "2023: 6, 2024: 498, 2025: 728, 2026: 126 (through September)."
+    },
+    "next_action": "None - dropped. Do not reopen for next-inspection-rating or current-inspection-outcome formulations while fsa-fhrs-next-rating is live; a genuinely different ta",
+    "packaged_at": null,
+    "path": "candidates/hc-cannabis-inspection-rating/record.json",
+    "prediction_time": "Would be the next inspection's start date (the rows carry 'Inspection start date'), with prior-inspection history as features - a clean event-time formulation in principle.",
+    "publisher": "Health Canada - Cannabis Regulatory Operations (compliance and enforcement inspections)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "Hypothetical task this source supports (rejected on family and capacity): for a cannabis licence holder with at least one completed Health Canada inspection, will its NEXT inspection be rated Non-compliant rather than Compliant, given only what is knowable before the next inspection starts (holder identity, province, prior inspection types, time since last inspection)?",
+    "region": "North America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "Open Government Licence - Canada (CKAN license_title, measured 2026-10-22)",
+      "name": "Cannabis Inspection Data (Health Canada) - CKAN package e04d55cd-74dd-4167-a9ea-c6eb9e9ab287",
+      "url": "https://open.canada.ca/data/en/dataset/e04d55cd-74dd-4167-a9ea-c6eb9e9ab287"
+     },
+     {
+      "licence": "Open Government Licence - Canada",
+      "name": "Glossary (companion resource, DOCX) defining inspection types and ratings",
+      "url": "https://open.canada.ca/data/dataset/e04d55cd-74dd-4167-a9ea-c6eb9e9ab287/resource/83a8dfe4-2c37-44b3-9194-683245ee2204/download/glossary-en.docx"
+     }
+    ],
+    "split_strategy": "Measured, and it fails twice over. (1) Depth: the package publishes per-inspection CSVs semi-annually and its oldest resource was created 2025-01-22; the published universe is 4 half-year vintages covering inspection start years 2023(6 rows)/2024(498)/2025(728)/2026(126 through September) = 1,358 inspection rows. Three disjoint train/eval/holdout windows with both classes cannot be drawn from 4 periods of a 2.5-year register. (2) Positives and panel grain: 66 Non-compliant rows in total (base rate 4.9% of 1,358; 1,291 Compliant, 1 'Rating not assigned'), and a next-outcome panel needs repeat inspections - 278 holders have >=2 inspections (815 rows, max 15 for one holder), so the transition panel carries at most a few hundred rows and at most 66 positives, clustered in time.",
+    "status": "dropped",
+    "target": "'Inspection rating' column (measured values: Compliant / Non-compliant / Rating not assigned), assigned by Health Canada inspectors under the Cannabis Act compliance and enforcement program - a documented process. The label is fine; the panel is not (see split_strategy)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "CA",
+    "domain": "drug supply: shortage onset for marketed drugs (Health Canada mandatory shortage and discontinuation reporting)",
+    "id": "hc-health-product-shortage-onset",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "prior_art_note_unprobed": "Drug-shortage PREDICTION literature exists (mostly US multi-source studies); it was not evaluated because the source closed at licence/access triage - the standing order is licence first, and this door was closed there.",
+     "probes_2026_10_22": "See notes.md for exact commands. curl https://drugshortagescanada.ca/ -> 403, 5,277 bytes; curl https://drugshortagescanada.ca/api -> 403, 5,286 bytes. Real-browser load of drugshortagescanada.ca: redirect to healthproductshortages.ca, Cloudflare 'Performing security verification' / 'Just a moment...' page (title captured; Ray ID a4eb304a9dcd2fef). CKAN package_search q='drug shortage' -> HTTP 200, 29 packages, all HTML resources, zero machine-readable. No request was made to the gated API (we hold no account; the vault holds none for this publisher)."
+    },
+    "next_action": "None - dropped, closed at triage. Reopen evidence: Health Canada publishing an anonymous bulk/extract channel for shortage and discontinuation reports (their ow",
+    "packaged_at": null,
+    "path": "candidates/hc-health-product-shortage-onset/record.json",
+    "prediction_time": "Would be the report-publication instant per DIN; never probed beyond access and licence, which closed the source at triage.",
+    "publisher": "Health Canada - Drug Shortages Canada / healthproductshortages.ca (mandatory shortage and discontinuation reporting portal)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "Hypothetical task this source would support (closed at triage before any task probing): for a DIN marketed in Canada, will it enter an actual-shortage state within the following N months - an onset/transition task, a type currently unrepresented on the bench. Reports under the Food and Drug Regulations mandate date back to 2017-03-10 (per the PMPRB/HC analytical study citing the database).",
+    "region": "North America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "No licence instrument on any anonymously readable channel (measured; see license_evidence) - licence_class C",
+      "name": "Drug Shortages Canada (Health Canada mandatory reporting portal; relaunched as healthproductshortages.ca)",
+      "url": "https://drugshortagescanada.ca/ (redirects to https://healthproductshortages.ca/)"
+     },
+     {
+      "licence": "n/a (no data resource to license)",
+      "name": "open.canada.ca portal search for an anonymous extract of the shortage database",
+      "url": "https://open.canada.ca/data/en/api/3/action/package_search?q=drug+shortage"
+     }
+    ],
+    "split_strategy": "",
+    "status": "dropped",
+    "target": "Would be a shortage-status transition per DIN (reported actual-shortage states, e.g. resolved -> actual shortage), from the portal's report database. Not derivable here: the only machine-readable channel is registration-gated."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "CA",
     "domain": "consumer/food/health-product recall triage",
     "id": "hc-recalls-classification",
     "jobs": [],
@@ -3302,6 +3407,67 @@
     "split_strategy": "",
     "status": "dropped",
     "target": "Not applicable - no task exists for this source."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "CA",
+    "domain": "public-health infrastructure: duration-to-resolution of long-term drinking water advisories on First Nations public water systems",
+    "id": "isc-ltdwa-advisory-lift-timing",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "advisory_types": "Boil water advisory 182, Do not consume advisory 15 (197 total).",
+     "aggregate_sibling_note": "StatCan/Infrastructure Canada tables 34-10-0204 through 34-10-0209 (drinking water advisories by public-owner type, from the Infrastructure Canada survey) are aggregate counts - the direction-forecast family already parked as a class (statcan-wds-aggregate-series, ons-la-claimant-count-direction).",
+     "cost": "One page GET + one 2.7 MB data GET, both anonymous, sub-second - negligible; cost was never in question.",
+     "date_set_years_all_197_events": "1995:1, 1997:7, 1999:5, 2001:5, 2002:3, 2003:4, 2004:14, 2005:6, 2006:6, 2007:2, 2008:15, 2009:5, 2010:1, 2011:7, 2012:5, 2013:8, 2014:9, 2015:11, 2016:13, 2017:10, 2018:6, 2019:13, 2020:7, 2021:6, 2022:3, 2023:6, 2024:11, 2025:8",
+     "probes_2026_10_22": "See notes.md for exact commands. Results: map page HTTP 200, 118,470 bytes; data export HTTP 200, 2,715,200 bytes (GenerateDate 2026-10-20), read and counted locally: 755 community records, 158 lifted + 39 current advisory records = 197 events.",
+     "record_shape": "Per-advisory fields (lifted and current identical): AdvisoryID, AdvisoryType, CategoryID, CommunityName, CommunityNum, WaterSystemName, DateSet, DateLTDWASet, DateExpected, PopulatioEstimated, CorrectiveMeasure, LongPhase/LongPhaseCode, RecommendedEPHO, RecommendedEPHODate, RecommendedEPHOIND, Region/RegionAcronym, Latitude/Longitude. NO lift/end date in lifted records - the label source is absent from the machine-readable product.",
+     "regions": "ONTARIO 110, SASKATCHEWAN 30, MANITOBA 22, BRITISH COLUMBIA 20, ATLANTIC 8, ALBERTA 4, QUEBEC 3."
+    },
+    "next_action": "None - dropped. Do not reopen on ISC's own products: the event universe is bounded by the program (197 advisories since 2015) and the export omits lift dates. I",
+    "packaged_at": null,
+    "path": "candidates/isc-ltdwa-advisory-lift-timing/record.json",
+    "prediction_time": "Stateable in principle - a monthly status instant during each advisory. ISC republishes the advisory register continuously: the map page's own 'Download map data' button exports a machine-readable file with GenerateDate 2026-10-20. Not taken further: capacity and label-source availability failed first (see rejection_reason).",
+    "publisher": "Indigenous Services Canada (ISC), Ottawa - Ending long-term drinking water advisories program",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a long-term drinking water advisory (LTDWA, in place >12 months) on a First Nations public water system in effect at month M, will the advisory be lifted within the following N months, given only advisory and system attributes knowable at M (advisory type, region, population band, corrective-measure category, months already in effect)?",
+    "region": "North America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "Canada.ca/ISC page family, published under the Government of Canada terms (Open Government Licence - Canada; see license_evidence)",
+      "name": "Map of lifted and active drinking water advisories (Indigenous Services Canada) - the page and the machine-readable export its 'Download map data' button serves",
+      "url": "https://www.isc-sac.gc.ca/eng/1620925418298/1620925434679"
+     },
+     {
+      "licence": "same Canada.ca terms",
+      "name": "Active long-term drinking water advisories (site narrative: per-community status, projected lift dates)",
+      "url": "https://www.sac-isc.gc.ca/eng/1614387410146/1614387435325"
+     },
+     {
+      "licence": "Open Government Licence - Canada",
+      "name": "Long-term drinking water advisories affecting First Nations water systems - Progress (ECCC Canadian Environmental Sustainability Indicators republish of the ISC series)",
+      "url": "https://open.canada.ca/data/en/dataset/?q=number-lt-dwa-first-nations"
+     }
+    ],
+    "split_strategy": "Measured, and it fails. The entire event universe under the November 2015 commitment baseline is 197 advisory records: 158 lifted + 39 currently in effect (the site narrative of 2026-09-10 counts 38 active in 36 communities; the export on 2026-10-20 lists 39). DateSet years span 1995-2025, so lift events are bounded by the ~11-year program window: about 14 lift events per year, all decided by one federal program's capital-project pipeline, clustered by region (ON 110/197 events, SK 30, MB 22, BC 20, ATL 8, AB 4, QC 3) and by federal funding waves; 39 advisories are right-censored still-active. Three disjoint train/eval/holdout windows with both classes cannot be drawn from ~158 clustered positives over 11 years. Bench precedent this is measured against: npri-facility-spill-year was DROPPED on split capacity with 110-149 positives per year; this source offers ~14 per year.",
+    "status": "dropped",
+    "target": "Advisory lifted (lift date). The lift decision is made by a First Nations environmental public health officer after water-quality verification - a documented process, so the label semantics are sound. Measured blocker: the machine-readable export carries NO lift date. The 158 lifted-advisory records carry AdvisoryID, AdvisoryType, CategoryID, CommunityName, CommunityNum, WaterSystemName, DateSet, DateLTDWASet, DateExpected (a projected lift date), CorrectiveMeasure, LongPhase, PopulatioEstimated, RecommendedEPHO/RecommendedEPHODate/RecommendedEPHOIND, Region, coordinates - and no DateLifted. The export's own resource labels include 'AdvisoryLiftedDate' -> 'Date Advisory Lifted', so the display table intends the column, but the published data omits the value. Lift dates exist only in narrative HTML: the per-advisory tables for systems NOT financially supported by ISC (isc.gc.ca/eng/1516134315897) carry 'Date revoked (YYYY/MM/DD)', and lifts of ISC-funded advisories appear in news releases and the 'Recently lifted' list - reconstructable only by scraping prose, not from a machine-readable product."
    },
    {
     "awaiting_operator": false,
@@ -6052,7 +6218,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 1.5,
+     "age_hours": 2.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6211,7 +6377,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 1.5,
+     "age_hours": 2.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6376,7 +6542,7 @@
    "AT": 1,
    "AU": 4,
    "BR": 1,
-   "CA": 9,
+   "CA": 12,
    "CH": 3,
    "CL": 1,
    "DE": 1,
@@ -6406,19 +6572,19 @@
    "Europe": 16,
    "International organisations": 7,
    "Latin America": 3,
-   "North America": 19,
+   "North America": 22,
    "Oceania": 5,
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 22,
+   "dropped": 25,
    "investigating": 9,
    "packaged": 1,
    "parked": 25,
    "published": 9,
    "ready": 5
   },
-  "candidates": 71,
+  "candidates": 74,
   "live": 24,
   "live_non_us": 17,
   "live_non_us_share": 0.708,
@@ -6443,10 +6609,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-22T20:10:03.555084+00:00",
+    "last_run_at": "2026-10-22T20:50:01.084754+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-22T20:20:00+00:00",
+    "next_run_at": "2026-10-22T21:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -6491,10 +6657,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-22T20:10:53.944430+00:00",
+    "last_run_at": "2026-10-22T20:46:05.087287+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-22T20:15:53.944430+00:00",
+    "next_run_at": "2026-10-22T20:51:05.087287+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -6503,7 +6669,7 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-22T16:21:41.897969+00:00",
+    "last_run_at": "2026-10-22T20:34:58.597409+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
     "next_run_at": "2026-10-23T00:00:00+00:00",
@@ -6530,7 +6696,7 @@
     "last_run_at": "2026-10-22T19:50:18.232469+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-22T20:50:00+00:00",
+    "next_run_at": "2026-10-22T21:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -6583,29 +6749,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-22T20:11:53.491902+00:00"
+  "updated_at": "2026-10-22T20:50:01.208687+00:00"
  },
- "generated_at": "2026-10-22T20:12:35+00:00",
+ "generated_at": "2026-10-22T20:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 71
+   "passing": 74
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-22T20:11:31Z",
-   "head_sha": "8046b1b",
+   "created_at": "2026-10-22T20:31:04Z",
+   "head_sha": "1cc921b",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39846677244"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39849538041"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 17/24 (71%)"
   },
   "head": {
-   "at": "2026-10-22T22:11:27+02:00",
-   "sha": "8046b1b",
-   "subject": "Merge PR #9: isolate worker qualification test fixtures"
+   "at": "2026-10-22T20:30:45Z",
+   "sha": "1cc921b",
+   "subject": "Canada discovery tick: vet ISC LTDWA lift timing, HC drug shortages, HC cannabis inspections - three new sources, all re"
   },
   "tests": {
    "count": "572",
@@ -7148,15 +7314,21 @@
    "qualified": 0,
    "sessions_7d": 42,
    "tokens_7d": 8808258
+  },
+  {
+   "at": "2026-10-22T20:50:01+00:00",
+   "live": 9,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 42,
+   "tokens_7d": 8932464
   }
  ],
- "notices": [
-  "A research session is running: lock held for 582s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-22T20:12:35+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-22T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -7165,8 +7337,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-22T20:12:35+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-22T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -7175,8 +7347,8 @@
    "value": 9
   },
   "releases": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-22T20:12:35+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-22T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -8730,7 +8902,7 @@
   "jobs_total": 88,
   "lifetime_eur": 3.16,
   "live": {
-   "checked_at": "2026-10-22T20:12:50+00:00",
+   "checked_at": "2026-10-22T20:50:16+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -8759,15 +8931,6 @@
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 1220.6,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "ts": "2026-10-22T08:20:27.400645+00:00"
-   },
    {
     "elapsed_seconds": 2391.0,
     "event": "session",
@@ -8812,6 +8975,15 @@
     "prompt_file": "research-session-prompt.md",
     "run_budget": 5400,
     "ts": "2026-10-22T18:37:55.796767+00:00"
+   },
+   {
+    "elapsed_seconds": 1924.9,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "ts": "2026-10-22T20:34:58.536198+00:00"
    }
   ],
   "total": 37
