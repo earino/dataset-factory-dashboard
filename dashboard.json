@@ -1,8 +1,5 @@
 {
- "alarms": [
-  "Test suite is failing",
-  "check-candidate --all is failing"
- ],
+ "alarms": [],
  "budget": {
   "config": {
    "allowance_usd": 30.0,
@@ -18,7 +15,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-22T09:51:44.742332+00:00",
+   "moment": "2026-10-22T09:53:20.596173+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
@@ -38,14 +35,14 @@
      "output_tokens": 643783
     },
     "interactive": {
-     "calls": 3170,
+     "calls": 3188,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 1.899533,
-     "input_tokens": 12582330,
-     "output_tokens": 1764710
+     "cost_usd": 1.947027,
+     "input_tokens": 12589630,
+     "output_tokens": 1769640
     },
     "research": {
      "calls": 2746,
@@ -3326,9 +3323,25 @@
     "prediction_time": "End of week W (Sunday 23:59:59 MYT = UTC+8, i.e. 15:59:59 UTC). Features may use only price observations with date <= end of week W, from files whose data_as_of is within week W or earlier. The publisher's storage channel is measured to carry rows dated the same day (2026-10-21 rows present in the 2026-10 file, file last-modified 2026-10-21 12:10 UTC), so no publication lag is incurred for the feature instant; the label (week W+1 modal price) is computable from files available by day 2 of week W+2 at the latest (current-month file refreshes daily; a completed month's file was last modified 12 days after month end, 2026-09 file -> 2026-10-12, so construction snapshots and hashes monthly files at freeze time - see construction notes).",
     "publisher": "Ministry of Domestic Trade and Cost of Living (KPDN) with Department of Statistics Malaysia (DOSM), via the national open data portal data.gov.my / OpenDOSM (Malaysia)",
     "qualification": {
-     "artifact_version": null,
-     "result": null,
-     "splits": null
+     "artifact_version": "06c5cd6f8a74aef9d1fab048ab88f86e311385e68c0d25416b7ac5c0281a23cf",
+     "result": "PASSED - gate 1.4.0 on the full artifact",
+     "splits": {
+      "eval": {
+       "positive_rate": 0.174672,
+       "positives": 48990,
+       "rows": 280468
+      },
+      "holdout": {
+       "positive_rate": 0.204299,
+       "positives": 31519,
+       "rows": 154279
+      },
+      "train": {
+       "positive_rate": 0.149376,
+       "positives": 59449,
+       "rows": 397982
+      }
+     }
     },
     "question": "For an item-premise pair in Malaysia's official daily price-monitoring panel that was actively quoted in week W (at least 3 observations that week), will the pair's weekly modal price be HIGHER in week W+1 than in week W? The panel is the KPDN/DOSM PriceCatcher programme (2,158 premises, 343 items measured in the 2026-08/09 sample), so this is a week-ahead retail price-increase prediction at item x premise grain.",
     "region": "South & South-East Asia",
@@ -5318,10 +5331,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-22T09:47:17.700123+00:00",
+    "last_run_at": "2026-10-22T09:52:18.587619+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-22T09:52:17.700123+00:00",
+    "next_run_at": "2026-10-22T09:57:18.587619+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -5410,33 +5423,33 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-22T09:50:19.686474+00:00"
+  "updated_at": "2026-10-22T09:52:18.588321+00:00"
  },
- "generated_at": "2026-10-22T09:51:44+00:00",
+ "generated_at": "2026-10-22T09:53:20+00:00",
  "health": {
   "checks": {
-   "ok": false,
-   "passing": 63
+   "ok": true,
+   "passing": 64
   },
   "ci": {
    "conclusion": null,
-   "created_at": "2026-10-22T09:51:45Z",
-   "head_sha": "1bbd61d",
+   "created_at": "2026-10-22T09:53:21Z",
+   "head_sha": "01905d5",
    "status": "in_progress",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39758678354"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39758884160"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 15/22 (68%)"
   },
   "head": {
-   "at": "2026-10-22T09:51:42Z",
-   "sha": "1bbd61d",
-   "subject": "PriceCatcher: website live; fix manifest splits and Hub tag reconciliation"
+   "at": "2026-10-22T09:53:18Z",
+   "sha": "01905d5",
+   "subject": "Gate: name unscorable columns instead of crashing; card and record fixes for PriceCatcher"
   },
   "tests": {
-   "count": "406",
-   "ok": false
+   "count": "408",
+   "ok": true
   }
  },
  "history": [
@@ -5885,7 +5898,7 @@
  "panels": {
   "budget": {
    "age_minutes": 0.1,
-   "as_of": "2026-10-22T09:51:44+00:00",
+   "as_of": "2026-10-22T09:53:20+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -5895,7 +5908,7 @@
   },
   "candidates": {
    "age_minutes": 0.1,
-   "as_of": "2026-10-22T09:51:44+00:00",
+   "as_of": "2026-10-22T09:53:20+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -5905,7 +5918,7 @@
   },
   "releases": {
    "age_minutes": 0.1,
-   "as_of": "2026-10-22T09:51:44+00:00",
+   "as_of": "2026-10-22T09:53:20+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -7079,7 +7092,7 @@
   "jobs_total": 80,
   "lifetime_eur": 3.14,
   "live": {
-   "checked_at": "2026-10-22T09:51:53+00:00",
+   "checked_at": "2026-10-22T09:53:28+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
