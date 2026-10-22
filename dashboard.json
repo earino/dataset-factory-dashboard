@@ -1,7 +1,5 @@
 {
- "alarms": [
-  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
- ],
+ "alarms": [],
  "budget": {
   "config": {
    "allowance_usd": 30.0,
@@ -17,13 +15,13 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-22T03:50:01.279532+00:00",
+   "moment": "2026-10-22T04:50:01.772202+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
-   "research_tokens_last_7_days": 7079379,
-   "runs_last_7_days": 33,
-   "runs_weighted_last_7_days": 34,
+   "research_tokens_last_7_days": 7297093,
+   "runs_last_7_days": 34,
+   "runs_weighted_last_7_days": 35,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 1,
    "usage": {
@@ -47,14 +45,14 @@
      "output_tokens": 1725023
     },
     "research": {
-     "calls": 2534,
+     "calls": 2579,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": 0.233495,
-     "input_tokens": 6081930,
-     "output_tokens": 2246165
+     "input_tokens": 6202477,
+     "output_tokens": 2343332
     },
     "scheduled-other": {
      "calls": 1618,
@@ -79,12 +77,12 @@
    "US": 1
   },
   "counts": {
-   "dropped": 13,
+   "dropped": 15,
    "investigating": 7,
    "parked": 24,
    "published": 6,
    "qualified": 1,
-   "ready": 5
+   "ready": 7
   },
   "errors": [],
   "live": [
@@ -609,6 +607,63 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "AU",
+    "domain": "international travel / monthly migration panel",
+    "id": "abs-visitor-arrivals-direction",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "clustering_note": "Positives cluster by era/year (pandemic collapse 2020, reopening surge 2022) rather than per-country; year-level cluster counts recorded above",
+     "column_documentation": "codelists parsed from the SDMX structure: CL_OAD_CAT_TRAVEL 05='Short-term (less than one year) Residents returning', 06='Short-term (less than one year) Visitors arriving'; CL_OAD_ARRIVALS_COUNTRY 78 codes; CL_TSEST 10='Original'; DSD dimensions CAT_TRAVELLER, COUNTRY_RESID, TSEST, FREQ",
+     "direction_base_rates_measured": "MoM direction pairs 58,082 (up 30,466 / down 30,048 overall - near-balanced); YoY direction pairs 56,843; per-year YoY up/down varies from 1,218/424 (2004) to 159/1,492 (2020 pandemic) and 1,645/9 (2022 reopening)",
+     "fetch_cost_measured": "1 request, 3,308,454 bytes, 3.47 s for the full panel (https data.api.abs.gov.au, 2026-10-22); dataflow+structure metadata 100,939 bytes in 2.72 s",
+     "known_event_fixtures": "Australia's international border closure (March 2020) -> measured 2020 YoY up=159/down=1,492 (collapse); reopening (from Nov 2021) -> measured 2022 YoY up=1,645/down=9 (surge). Expected verdicts verified directly in the fetched panel.",
+     "measured_on": "2026-10-22 via scripts in .factory/ (abs_oad_probe.py, abs_structure_dump.py), commands and outputs in notes.md",
+     "panel_shape_measured": "59,452 observations, 428 months 1991-01..2026-08, 77 COUNTRY_RESID codes x 2 CAT_TRAVELLER codes (05 residents returning, 06 visitors arriving), TSEST=10 (Original) only, 0 missing OBS_VALUE",
+     "release_lag_observations": "Aug 2026 released 13/10/2026 (43 days); Jul 2026 released 11/09/2026 (42 days); Apr 2026 released 12/06/2026 (43 days); max observed lag 43 days => prediction instant = M release, target M+1",
+     "revision_note": "ABS documents post-release revision: 'March 2026 data revised' in the April 2026 issue once linked Medicare data became available (methodology History of changes) - only the current vintage is downloadable, so feature values are stated as current-vintage, with the cutoff as a documented assumption",
+     "split_window_counts_yoy_label": {
+      "eval 2015-2019": "up=5588 down=2630 flat=61 (all 5 years carry both classes)",
+      "holdout 2022-2026": "up=6167 down=1533 flat=140 (all 5 years carry both classes)",
+      "train 1991-2014": "up=24166 down=13575 flat=520 (23 of 24 years carry both classes)"
+     }
+    },
+    "next_action": "Construction on the worker: (1) fetch the full OAD_COUNTRY panel via the SDMX API; (2) build the (CAT_TRAVELLER=06, country) x month panel with published-lag-ga",
+    "packaged_at": null,
+    "path": "candidates/abs-visitor-arrivals-direction/record.json",
+    "prediction_time": "The publication instant of the ABS Overseas Arrivals and Departures (OAD) release for reference month M, which lands about six weeks after month end (max observed lag 43 days; releases observed 13/10/2026 for Aug 2026, 11/09/2026 for Jul 2026, 12/06/2026 for Apr 2026, all 11:30am local). Features are the published series values for months <= M only; the target month M+1 is unpublished at that instant (it is released ~43 days after its own month end).",
+    "publisher": "Australian Bureau of Statistics (Commonwealth of Australia)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a given country of residence, will short-term visitor arrivals to Australia in the first month not yet published (the month after the latest OAD release) fall short of the same calendar month one year earlier?",
+    "region": "Oceania",
+    "release_baseline": {
+     "auc": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "The MoM label is near-balanced across three decades (58,082 pairs) and the YoY label carries both classes in every candidate window, so persistence cannot win by construction on direction signs. Timing is a documented publication instant with three observed release dates. Licence is the publisher's own CC BY 4.0 statement (class A). All four discovery contracts satisfied with measured evidence.",
+    "sources": [
+     {
+      "licence": "ABS website material is CC BY 4.0 International (see license_evidence); microdata and third-party content excepted, which this dataset is not",
+      "name": "ABS Data API (SDMX 2.1), dataflow ABS,OAD_COUNTRY,1.0.0 - Visitor arrivals and resident returns, Selected Countries of Residence/Destinations",
+      "url": "https://www.abs.gov.au/statistics/industry/tourism-and-transport/overseas-arrivals-and-departures-australia/latest-release"
+     }
+    ],
+    "split_strategy": "Temporal thirds on the monthly panel of 77 countries x 2 traveller categories: candidate partition train 1991-2014 / eval 2015-2019 / holdout 2022-2026 (2020-2021 excluded as pandemic extremes or optionally folded into train; construction decides and documents). Direction labels are computed per country-series; thresholds are not needed (label is a sign, not a level).",
+    "status": "ready",
+    "target": "Binary YoY direction: OBS_VALUE for (CAT_TRAVELLER=06 visitors arriving, COUNTRY_RESID=C, month M+1) < OBS_VALUE for (same series, month M-11). Label source columns: the target month's OBS_VALUE and the year-earlier OBS_VALUE; both excluded from shipped features."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "TH",
     "domain": "air quality / environmental prediction",
     "id": "air4thai-pm25-exceedance",
@@ -650,6 +705,53 @@
     "split_strategy": "",
     "status": "parked",
     "target": "Would be mechanical: mean of the station's D+1 hourly PM2.5 values above the Thai 24-hour PM2.5 standard (a published regulatory threshold), the D+1 series excluded from shipped columns."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "AU",
+    "domain": "transport safety / aviation occurrence triage",
+    "id": "atsb-aviation-occurrence-triage",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "bulk_access": "refused by publisher - no whole-database export channel exists; dashboard exports capped at 200 rows per export (read 2026-10-22)",
+     "coverage_claimed_by_publisher": "occurrences reported to the ATSB since 1 July 2003",
+     "measured_on": "2026-10-22 via publisher page reads",
+     "schema_probe": "not performed - blocked at access triage"
+    },
+    "next_action": "None - closed. Reopens only if the ATSB publishes a bulk occurrence extract under an open licence (e.g. on data.gov.au with CC BY), which would re-vet as a new ",
+    "packaged_at": null,
+    "path": "candidates/atsb-aviation-occurrence-triage/record.json",
+    "prediction_time": "At occurrence notification to the ATSB, using only fields documented as recorded at or before notification. Investigation findings and post-hoc classifications would have been excluded as label sources.",
+    "publisher": "Australian Transport Safety Bureau (Commonwealth)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For an aviation occurrence reported to the ATSB, given what was known at notification (occurrence date/time, occurrence type, aircraft category/make, operation type, location), will the ATSB classify it as an accident or serious incident rather than an incident?",
+    "region": "Oceania",
+    "release_baseline": {
+     "auc": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Triage-first order worked: two page reads (search snippets, then first-hand page fetch) closed the lead with no schema or volume probing spent. The ATSB's own limitation notes ('data may be missing, incomplete', weeks of ingestion lag) would also have complicated any timing claim.",
+    "sources": [
+     {
+      "licence": "no open licence read; ATSB states the database is made available for general statistical purposes only and does not endorse commercial use of its occurrence data",
+      "name": "ATSB National Aviation Occurrence Database (searchable dashboard)",
+      "url": "https://www.atsb.gov.au/national-aviation-occurrence-database"
+     }
+    ],
+    "split_strategy": "Not designed - source failed access/terms triage. (Would have needed temporal splits with occurrence-class mix measured per year; aviation occurrences cluster by year and reporting regime, e.g. the Oct-2014 taxonomy change the ATSB documents.)",
+    "status": "dropped",
+    "target": "Binary severity class (accident/serious incident vs incident) from the ATSB occurrence category taxonomy. Label source column: the occurrence severity/classification field, excluded from features."
    },
    {
     "awaiting_operator": false,
@@ -838,6 +940,57 @@
     "split_strategy": "",
     "status": "parked",
     "target": "Binary felt / not-felt for a detected event: positive iff the event appears in BMKG's felt-earthquake product, negative iff it appears in the instrumental catalogue without a felt entry. The label source is BMKG's felt-report product (a documented public-report collection process), which is a later product than the features and never ships as a feature."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "AU",
+    "domain": "severe weather / tropical cyclone track climatology",
+    "id": "bom-cyclone-best-track",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "anon_ftp_channel": "exists per the block notice and http://www.bom.gov.au/catalogue/anon-ftp.shtml; subject to the same default copyright terms (no redistribution).",
+     "csv_http_access": "HTTP 403 anti-scraping block on ranged GET and HEAD of the linked CSV, measured 2026-10-22 04:07 UTC from this host; no file bytes retrieved via HTTP.",
+     "measured_on": "2026-10-22 via HTTP from the coordinator"
+    },
+    "next_action": "None - closed. Reopens only if (a) BoM puts a CC BY (or other redistribution-permitting) statement on the cyclone database's own page, or (b) a redistributor wi",
+    "packaged_at": null,
+    "path": "candidates/bom-cyclone-best-track/record.json",
+    "prediction_time": "Each 6-hourly best-track fix; features would be the storm's own track history up to time t only. (Never reached: the source failed licence triage before task probing.)",
+    "publisher": "Bureau of Meteorology, Commonwealth of Australia",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a tropical cyclone in the Australian region, given its best-track position, intensity and motion at time t, will it make a defined coastal crossing (landfall) or intensify above a category threshold within 48 hours?",
+    "region": "Oceania",
+    "release_baseline": {
+     "auc": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Triage-first order worked as intended: the licence veto cost two page reads and one blocked HTTP request, and no schema or volume probing was spent on an unshippable source.",
+    "sources": [
+     {
+      "licence": "none stated on the dataset page; BoM site default applies (no redistribution)",
+      "name": "Bureau of Meteorology - Australian Tropical Cyclone Database (best tracks)",
+      "url": "https://www.bom.gov.au/cyclone/tropical-cyclone-knowledge-centre/databases/"
+     },
+     {
+      "licence": "",
+      "name": "TC Database specification (column documentation)",
+      "url": "https://www.bom.gov.au/cyclone/history/database/TC_Database_Structure_Oct2011.pdf"
+     }
+    ],
+    "split_strategy": "Not designed - source failed licence triage. (Would have required storm-clustered splits: train/eval/holdout over disjoint cyclone seasons with both classes present.)",
+    "status": "dropped",
+    "target": "Binary landfall within 48h of a track fix, defined by the track intersecting the Australian coastline. Label source column: lat/lon track positions after time t."
    },
    {
     "awaiting_operator": false,
@@ -3781,6 +3934,61 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "NZ",
+    "domain": "energy markets / wholesale electricity spot prices",
+    "id": "nz-ea-wholesale-price-exceedance",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "era_and_event_samples_measured": "market daily-mean $/MWh (mean over POCs x periods): 1997-01 min 26 / median 42 / max 50, 0 days >$100; 2008-07 median 135 / max 306, 13 days >$150, 9 >$200; 2020-06 median 145 / max 287, 12 days >$150 (mid-month event); 2024-08 median 436 / max 884, 27 days >$150, 25 >$200, 22 >$300; recent era (12 sampled days 2025-10..2026-10) median 32 / max 165, 1 day >$100",
+     "extraction_cost_measured": "probe: 19 requests, 45,112,531 bytes, 75.1 s (4 whole monthly files + 12 daily files + mapping + listings) on this coordinator; full construction estimated (not measured) at 728 files / 3,714.3 MB / ~1-2 h sequential on a worker - labelled an estimate from the measured per-file sizes",
+     "inventory_measured": "container listing (1 request, 2.80 s, 460,102 bytes): 728 files, 360 monthly (199610..202609, size min 8,245,783 / median 10,012,278 / max 10,894,850 bytes; total 3,594.6 MB) + 368 daily (20251021..20261021, ~312,808-348,002 bytes; total 119.7 MB); monthly naming has no gaps",
+     "known_event_fixtures": "August 2024 dry-year price episode: measured daily means 2024-08-05..08-08 of 815-884 $/MWh - must exceed any training-frozen threshold; 2008 winter dry-year: 2008-07-01 mean 306 - must exceed $200; quiet-era control: 1997-01 max 50 - must not exceed $100. Fixtures to be pinned from the publisher's own market commentary at construction.",
+     "measured_on": "2026-10-22 via .factory/nz_ea_probe.py (v1, listing crashed on the monthly-file name shape, diagnosed), .factory/nz_listing_stats.py, .factory/nz_ea_probe2.py; commands and outputs in notes.md",
+     "publication_lag_measured": "daily files: Last-Modified minus trade date over all 368 files: min 0.75 d, p50 1.80 d, p90 3.80 d, max 5.80 d; documented instrument says final by 2pm the following business day",
+     "schema_measured": "FinalEnergyPrices CSV columns: TradingDate, TradingPeriod, PointOfConnection, DollarsPerMegawattHour; 48 trading periods per day; per-file rows 346,392-370,512 (monthly) and POCs 238 (1997) / 249 (2008) / 241 (2020, 2024) - node set evolves, the NSP table carries POC start/end dates"
+    },
+    "next_action": "Construction on the worker: (1) enumerate the 728 files via the container listing, download all monthly+daily price files (or stream and aggregate), join POC->I",
+    "packaged_at": null,
+    "path": "candidates/nz-ea-wholesale-price-exceedance/record.json",
+    "prediction_time": "The publication instant of final prices: the Electricity Authority states interim prices 'will be declared to be final prices by 2pm the following business day' (Real-time dispatch and pricing page + Code Part 13); measured on the actual files, Last-Modified minus trade date is p50 1.80 days, max 5.80 days (368 daily files, measured 2026-10-22). Features are final prices for trading dates already published at the instant; the label day is not.",
+    "publisher": "Electricity Authority Te Mana Hiko (New Zealand)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a New Zealand pricing region (island-level aggregate of published nodal final prices), will the daily mean final wholesale energy price on a trading day about a week ahead exceed a threshold fixed from the training window?",
+    "region": "Oceania",
+    "release_baseline": {
+     "auc": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Class A licence read first-hand on both the current platform and its announced successor; 30 years of daily-grain labels; a documented publication instant with measured file lags; publisher-published regional mapping; strong clustered event structure (dry-year episodes) and quiet eras giving both classes in every candidate window. Prior art is level-regression forecasting (EPF benchmark, an AUT study, a single-node GitHub project) - no published exceedance task with splits and a scored contract.",
+    "sources": [
+     {
+      "licence": "CC BY 4.0 per EMI LegalInformation and the successor hub's copyright statement (see license_evidence)",
+      "name": "Electricity Authority (Te Mana Hiko) - EMI dataset 'Final energy prices' (Real-time dispatch and pricing)",
+      "url": "https://www.ea.govt.nz/data-and-insights/datasets/wholesale/dispatch-and-pricing/final-energy-prices/"
+     },
+     {
+      "licence": "",
+      "name": "NetworkSupplyPointsTable (POC -> Island / Network reporting region mapping, with POC start/end dates)",
+      "url": "https://www.ea.govt.nz/data-and-insights/datasets/wholesale/mapping-and-geospatial/"
+     }
+    ],
+    "split_strategy": "Temporal windows on the 1996-10..2026-10 daily panel, e.g. train 1996-10..2015-12 / eval 2016-01..2020-12 / holdout 2021-01..2026-10; each window contains at least one measured high-price episode (train: 2008-07 measured 9/31 days >$200; eval: 2020-06 measured 5/30 days >$200 with mid-month means to $287; holdout: 2024-08 measured 25/31 days >$200). Positives cluster into multi-day weather/storage episodes, so split capacity is counted per episode-week, not per day; sampled episode weeks measured, exact counts computed at construction over the full files. The 2022-11-01 real-time-pricing regime change (ex-post -> real-time pricing, documented by the publisher) is a structural break: either bound all windows inside one regime or ship a regime indicator; decided and documented at construction.",
+    "status": "ready",
+    "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "GB",
     "domain": "labour-market statistics - local authority monthly claimant count direction prediction (aggregate macro panel)",
     "id": "ons-la-claimant-count-direction",
@@ -4769,7 +4977,7 @@
  },
  "coverage": {
   "by_country": {
-   "AU": 1,
+   "AU": 4,
    "BR": 1,
    "CA": 9,
    "CH": 2,
@@ -4785,6 +4993,7 @@
    "KR": 1,
    "MX": 1,
    "MY": 2,
+   "NZ": 1,
    "PH": 2,
    "SG": 1,
    "TH": 1,
@@ -4800,21 +5009,21 @@
    "International organisations": 3,
    "Latin America": 3,
    "North America": 19,
-   "Oceania": 1,
+   "Oceania": 5,
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 13,
+   "dropped": 15,
    "investigating": 7,
    "parked": 24,
    "published": 6,
    "qualified": 1,
-   "ready": 5
+   "ready": 7
   },
-  "candidates": 56,
-  "live": 19,
-  "live_non_us": 13,
-  "live_non_us_share": 0.684,
+  "candidates": 60,
+  "live": 21,
+  "live_non_us": 15,
+  "live_non_us_share": 0.714,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -4836,10 +5045,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-22T03:40:01.344832+00:00",
+    "last_run_at": "2026-10-22T04:50:01.485287+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-22T03:50:00+00:00",
+    "next_run_at": "2026-10-22T05:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -4884,10 +5093,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-22T03:48:56.382277+00:00",
+    "last_run_at": "2026-10-22T04:49:15.099711+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-22T03:53:56.382277+00:00",
+    "next_run_at": "2026-10-22T04:54:15.099711+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -4896,10 +5105,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-22T00:31:57.004704+00:00",
+    "last_run_at": "2026-10-22T04:34:31.735094+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-22T04:00:00+00:00",
+    "next_run_at": "2026-10-22T08:00:00+00:00",
     "no_agent": true,
     "schedule": "0 */4 * * *"
    },
@@ -4920,10 +5129,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-22T02:50:15.736866+00:00",
+    "last_run_at": "2026-10-22T03:50:16.103569+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-22T04:50:00+00:00",
+    "next_run_at": "2026-10-22T05:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -4932,10 +5141,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-22T02:55:01.063221+00:00",
+    "last_run_at": "2026-10-22T03:55:01.304991+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-22T03:55:00+00:00",
+    "next_run_at": "2026-10-22T04:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -4976,29 +5185,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-22T03:50:00.522969+00:00"
+  "updated_at": "2026-10-22T04:50:01.486346+00:00"
  },
- "generated_at": "2026-10-22T03:50:00+00:00",
+ "generated_at": "2026-10-22T04:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 56
+   "passing": 60
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-22T02:36:59Z",
-   "head_sha": "296db53",
+   "created_at": "2026-10-22T04:32:36Z",
+   "head_sha": "23e28e6",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39712361269"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39722957357"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 13/19 (68%)"
+   "summary": "live non-US: 15/21 (71%)"
   },
   "head": {
-   "at": "2026-10-22T02:36:56Z",
-   "sha": "296db53",
-   "subject": "tsb-004 close-out: gate 1.4.0 green on the full artifact (37/37 checks), tsb-railway-occurrence-casualty qualified; tsb-"
+   "at": "2026-10-22T04:32:30Z",
+   "sha": "23e28e6",
+   "subject": "discovery(Oceania): 4 verdicts - 2 go, 2 reject; all non-US"
   },
   "tests": {
    "count": "406",
@@ -5389,13 +5598,21 @@
    "qualified": 1,
    "sessions_7d": 33,
    "tokens_7d": 7079379
+  },
+  {
+   "at": "2026-10-22T04:50:01+00:00",
+   "live": 8,
+   "published": 7,
+   "qualified": 1,
+   "sessions_7d": 34,
+   "tokens_7d": 7297093
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T03:50:00+00:00",
+   "as_of": "2026-10-22T04:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -5405,7 +5622,7 @@
   },
   "candidates": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T03:50:00+00:00",
+   "as_of": "2026-10-22T04:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -5415,7 +5632,7 @@
   },
   "releases": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T03:50:00+00:00",
+   "as_of": "2026-10-22T04:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -6523,7 +6740,7 @@
   "jobs_total": 77,
   "lifetime_eur": 3.14,
   "live": {
-   "checked_at": "2026-10-22T03:50:09+00:00",
+   "checked_at": "2026-10-22T04:50:10+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -6550,17 +6767,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 2,
+  "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 1755.6,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "ts": "2026-10-21T16:29:17.164540+00:00"
-   },
    {
     "elapsed_seconds": 966.0,
     "event": "session",
@@ -6605,6 +6813,15 @@
     "prompt_file": "research-session-prompt.md",
     "run_budget": 5400,
     "ts": "2026-10-22T02:30:28.585898+00:00"
+   },
+   {
+    "elapsed_seconds": 2070.6,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "ts": "2026-10-22T04:34:31.698170+00:00"
    }
   ],
   "total": 35
