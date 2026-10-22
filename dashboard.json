@@ -1,5 +1,6 @@
 {
  "alarms": [
+  "CI on 8ea28ca concluded failure",
   "Test suite is failing",
   "check-candidate --all is failing"
  ],
@@ -18,7 +19,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-22T09:47:46.814430+00:00",
+   "moment": "2026-10-22T09:50:01.700375+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
@@ -29,23 +30,23 @@
    "sessions_over_token_cap": 1,
    "usage": {
     "auxiliary": {
-     "calls": 633,
+     "calls": 634,
      "cost_status": [
       "unknown"
      ],
-     "cost_usd": 0.011319,
-     "input_tokens": 1183841,
-     "output_tokens": 643779
+     "cost_usd": 0.011357,
+     "input_tokens": 1184351,
+     "output_tokens": 643783
     },
     "interactive": {
-     "calls": 3148,
+     "calls": 3169,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 1.843157,
-     "input_tokens": 12567573,
-     "output_tokens": 1758998
+     "cost_usd": 1.896883,
+     "input_tokens": 12582220,
+     "output_tokens": 1764285
     },
     "research": {
      "calls": 2746,
@@ -5357,7 +5358,7 @@
     "last_run_at": "2026-10-22T08:51:02.936213+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-22T09:50:00+00:00",
+    "next_run_at": "2026-10-22T10:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -5410,19 +5411,19 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-22T09:47:17.700845+00:00"
+  "updated_at": "2026-10-22T09:50:00.774067+00:00"
  },
- "generated_at": "2026-10-22T09:47:46+00:00",
+ "generated_at": "2026-10-22T09:50:00+00:00",
  "health": {
   "checks": {
    "ok": false,
    "passing": 63
   },
   "ci": {
-   "conclusion": null,
+   "conclusion": "failure",
    "created_at": "2026-10-22T09:47:47Z",
    "head_sha": "8ea28ca",
-   "status": "in_progress",
+   "status": "completed",
    "url": "https://github.com/earino/dataset-factory/actions/runs/39758169802"
   },
   "coverage": {
@@ -5884,8 +5885,8 @@
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.1,
-   "as_of": "2026-10-22T09:47:46+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-22T09:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -5894,8 +5895,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.1,
-   "as_of": "2026-10-22T09:47:46+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-22T09:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -5904,8 +5905,8 @@
    "value": 7
   },
   "releases": {
-   "age_minutes": 0.1,
-   "as_of": "2026-10-22T09:47:46+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-22T09:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -7079,7 +7080,7 @@
   "jobs_total": 80,
   "lifetime_eur": 3.14,
   "live": {
-   "checked_at": "2026-10-22T09:47:55+00:00",
+   "checked_at": "2026-10-22T09:50:10+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
