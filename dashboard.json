@@ -15,7 +15,7 @@
   "decision": {
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-22T18:50:01.668879+00:00",
+   "moment": "2026-10-22T19:50:01.718493+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "reasons": [],
    "research_cost_usd": 0.233495,
@@ -26,23 +26,23 @@
    "sessions_over_token_cap": 1,
    "usage": {
     "auxiliary": {
-     "calls": 645,
+     "calls": 646,
      "cost_status": [
       "unknown"
      ],
-     "cost_usd": 0.023879,
-     "input_tokens": 1260153,
-     "output_tokens": 658215
+     "cost_usd": 0.023909,
+     "input_tokens": 1260551,
+     "output_tokens": 658219
     },
     "interactive": {
-     "calls": 3649,
+     "calls": 3804,
      "cost_status": [
       "estimated",
       "unknown"
      ],
-     "cost_usd": 3.626211,
-     "input_tokens": 17805303,
-     "output_tokens": 2008102
+     "cost_usd": 3.979431,
+     "input_tokens": 18732704,
+     "output_tokens": 2095205
     },
     "research": {
      "calls": 3283,
@@ -55,14 +55,14 @@
      "output_tokens": 2907017
     },
     "scheduled-other": {
-     "calls": 1926,
+     "calls": 1961,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": 0.000514,
-     "input_tokens": 2702775,
-     "output_tokens": 1499364
+     "input_tokens": 2713365,
+     "output_tokens": 1529914
     }
    },
    "weekly_token_budget": 40000000
@@ -2644,7 +2644,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 0.1,
+    "age_hours": 1.1,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6037,7 +6037,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 0.1,
+     "age_hours": 1.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6204,7 +6204,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 0.1,
+     "age_hours": 1.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6444,10 +6444,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-22T18:50:01.209144+00:00",
+    "last_run_at": "2026-10-22T19:50:01.555032+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-22T19:00:00+00:00",
+    "next_run_at": "2026-10-22T20:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -6492,10 +6492,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-22T18:30:56.317486+00:00",
+    "last_run_at": "2026-10-22T19:45:46.666738+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-22T18:40:57.738759+00:00",
+    "next_run_at": "2026-10-22T19:50:46.666738+00:00",
     "no_agent": false,
     "schedule": "every 5m"
    },
@@ -6528,10 +6528,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-22T17:50:21.296395+00:00",
+    "last_run_at": "2026-10-22T18:50:19.134775+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-22T19:50:00+00:00",
+    "next_run_at": "2026-10-22T20:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -6540,10 +6540,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-22T17:55:00.492363+00:00",
+    "last_run_at": "2026-10-22T18:55:01.100945+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-22T18:55:00+00:00",
+    "next_run_at": "2026-10-22T19:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -6584,9 +6584,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-22T18:50:01.210124+00:00"
+  "updated_at": "2026-10-22T19:50:01.556011+00:00"
  },
- "generated_at": "2026-10-22T18:50:01+00:00",
+ "generated_at": "2026-10-22T19:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -6594,19 +6594,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-22T18:49:15Z",
-   "head_sha": "0ea6a0f",
+   "created_at": "2026-10-22T19:46:39Z",
+   "head_sha": "ef232df",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39834710451"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39843040037"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 17/24 (71%)"
   },
   "head": {
-   "at": "2026-10-22T18:49:09Z",
-   "sha": "0ea6a0f",
-   "subject": "Regenerate abs/my-pricecatcher/nhs-ae manifests without the bulk CSVs"
+   "at": "2026-10-22T18:54:49Z",
+   "sha": "0f853fa",
+   "subject": "austin: keep the site destination's refreshed verified_at (18:51:05Z)"
   },
   "tests": {
    "count": "423",
@@ -7133,13 +7133,21 @@
    "qualified": 0,
    "sessions_7d": 41,
    "tokens_7d": 8718221
+  },
+  {
+   "at": "2026-10-22T19:50:01+00:00",
+   "live": 9,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 41,
+   "tokens_7d": 8718221
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T18:50:01+00:00",
+   "as_of": "2026-10-22T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -7149,7 +7157,7 @@
   },
   "candidates": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T18:50:01+00:00",
+   "as_of": "2026-10-22T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -7159,7 +7167,7 @@
   },
   "releases": {
    "age_minutes": 0.2,
-   "as_of": "2026-10-22T18:50:01+00:00",
+   "as_of": "2026-10-22T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -7203,7 +7211,7 @@
      "site": true
     },
     "verified_all": true,
-    "verified_at": "2026-10-22T18:49:01+00:00"
+    "verified_at": "2026-10-22T18:51:05+00:00"
    },
    {
     "assets": 5,
@@ -7328,7 +7336,7 @@
     "baseline_scope": null,
     "dataset": "tsb-railway-occurrence-casualty",
     "persistence_auc": null,
-    "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-22T09:05:57Z. Data files, tag and artifact version are unchanged by publication.",
+    "publication_note": "Published after explicit operator authorisation, both destinations verified 2026-10-22T15:51:21Z. Data files, tag and artifact version are unchanged by publication.",
     "release_tag": "v2026.10",
     "rows": 13732,
     "verified": {
@@ -8477,7 +8485,7 @@
   "jobs_total": 88,
   "lifetime_eur": 3.16,
   "live": {
-   "checked_at": "2026-10-22T18:50:10+00:00",
+   "checked_at": "2026-10-22T19:50:10+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
