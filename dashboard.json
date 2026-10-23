@@ -1,5 +1,6 @@
 {
  "alarms": [
+  "eutl-installation-net-short is verified and waiting on the operator for the public flip (24.1h)",
   "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
  ],
  "budget": {
@@ -18,14 +19,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-23T17:50:02.551442+00:00",
+   "moment": "2026-10-23T18:50:03.176122+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 15562718,
-   "runs_last_7_days": 187,
-   "runs_weighted_last_7_days": 189,
+   "research_tokens_last_7_days": 15689232,
+   "runs_last_7_days": 188,
+   "runs_weighted_last_7_days": 190,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 2,
    "usage": {
@@ -40,25 +41,25 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 4832,
+     "calls": 4848,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 24268578,
-     "output_tokens": 2580215,
+     "input_tokens": 24565633,
+     "output_tokens": 2586145,
      "pricing_available": false
     },
     "research": {
-     "calls": 4782,
+     "calls": 4853,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 12145798,
-     "output_tokens": 4665636,
+     "input_tokens": 12226553,
+     "output_tokens": 4711395,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -3127,7 +3128,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 23.1,
+    "age_hours": 24.1,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
@@ -5797,6 +5798,11 @@
       "at": null,
       "id": "nz-ea-001",
       "status": "failed"
+     },
+     {
+      "at": null,
+      "id": "nz-ea-002",
+      "status": "running"
      }
     ],
     "licence_summary": {
@@ -5825,7 +5831,7 @@
      "publication_lag_measured": "daily files: Last-Modified minus trade date over all 368 files: min 0.75 d, p50 1.80 d, p90 3.80 d, max 5.80 d; documented instrument says final by 2pm the following business day",
      "schema_measured": "FinalEnergyPrices CSV columns: TradingDate, TradingPeriod, PointOfConnection, DollarsPerMegawattHour; 48 trading periods per day; per-file rows 346,392-370,512 (monthly) and POCs 238 (1997) / 249 (2008) / 241 (2020, 2024) - node set evolves, the NSP table carries POC start/end dates"
     },
-    "next_action": "Handed to advancement: nz-ea-001 failed on a one-line construction defect before qualification (build.py:663 - lags.append given four args instead of one 4-tupl",
+    "next_action": "nz-ea-002 launched 2026-10-23T18:11:32Z (server 172091812, repair commit a126652): the nz-ea-001 one-line lag-assembly defect is fixed (list.append given four a",
     "packaged_at": null,
     "path": "candidates/nz-ea-wholesale-price-exceedance/record.json",
     "prediction_time": "The publication instant of final prices: the Electricity Authority states interim prices 'will be declared to be final prices by 2pm the following business day' (Real-time dispatch and pricing page + Code Part 13); measured on the actual files, Last-Modified minus trade date is p50 1.80 days, max 5.80 days (368 daily files, measured 2026-10-22). Features are final prices for trading dates already published at the instant; the label day is not.",
@@ -7211,7 +7217,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 23.1,
+     "age_hours": 24.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7370,7 +7376,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 23.1,
+     "age_hours": 24.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7607,10 +7613,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-23T17:50:02.075840+00:00",
+    "last_run_at": "2026-10-23T18:50:02.586033+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-23T18:00:00+00:00",
+    "next_run_at": "2026-10-23T19:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7631,10 +7637,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-23T17:50:00.801451+00:00",
+    "last_run_at": "2026-10-23T18:50:01.811351+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-23T17:55:00+00:00",
+    "next_run_at": "2026-10-23T18:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7655,10 +7661,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-23T17:47:00.818801+00:00",
+    "last_run_at": "2026-10-23T18:47:28.401354+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-23T17:52:00.818801+00:00",
+    "next_run_at": "2026-10-23T18:52:28.401354+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7667,10 +7673,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-23T17:50:00.755619+00:00",
+    "last_run_at": "2026-10-23T18:50:01.617623+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-23T17:55:00+00:00",
+    "next_run_at": "2026-10-23T18:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7691,10 +7697,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-23T16:50:35.117204+00:00",
+    "last_run_at": "2026-10-23T17:50:34.467301+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-23T18:50:00+00:00",
+    "next_run_at": "2026-10-23T19:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7703,10 +7709,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-23T16:55:00.882461+00:00",
+    "last_run_at": "2026-10-23T17:55:01.222815+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-23T17:55:00+00:00",
+    "next_run_at": "2026-10-23T18:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7747,9 +7753,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-23T17:50:02.076828+00:00"
+  "updated_at": "2026-10-23T18:50:02.587004+00:00"
  },
- "generated_at": "2026-10-23T17:50:01+00:00",
+ "generated_at": "2026-10-23T18:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -7757,22 +7763,22 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-23T17:11:43Z",
-   "head_sha": "77ff65c",
+   "created_at": "2026-10-23T18:27:36Z",
+   "head_sha": "f801310",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39993060496"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40003447889"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 19/25 (76%)"
   },
   "head": {
-   "at": "2026-10-23T17:11:36Z",
-   "sha": "77ff65c",
-   "subject": "Launch research sessions with an enum-safe --source tag"
+   "at": "2026-10-23T18:14:16Z",
+   "sha": "f801310",
+   "subject": "nz-ea-002 launched; record job entry, acceptance check and STATE handoff"
   },
   "tests": {
-   "count": "601",
+   "count": "611",
    "ok": true
   }
  },
@@ -8488,13 +8494,21 @@
    "qualified": 0,
    "sessions_7d": 187,
    "tokens_7d": 15562718
+  },
+  {
+   "at": "2026-10-23T18:50:01+00:00",
+   "live": 13,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 188,
+   "tokens_7d": 15689232
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.4,
-   "as_of": "2026-10-23T17:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-23T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -8503,8 +8517,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.4,
-   "as_of": "2026-10-23T17:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-23T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -8513,8 +8527,8 @@
    "value": 13
   },
   "releases": {
-   "age_minutes": 0.4,
-   "as_of": "2026-10-23T17:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-23T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -10052,6 +10066,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-10-23T18:11:32.185863+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "nz-ea-002",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "running"
+   },
+   {
     "created_at": "2026-10-22T02:08:44.533980+00:00",
     "deleted_at": "2026-10-22T02:14:17.171323+00:00",
     "eur": 0.0011,
@@ -10173,15 +10199,15 @@
    }
   ],
   "jobs_this_month": 56,
-  "jobs_total": 97,
+  "jobs_total": 98,
   "lifetime_eur": 3.2,
   "live": {
-   "checked_at": "2026-10-23T17:50:26+00:00",
+   "checked_at": "2026-10-23T18:50:29+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
   "month_hours": 16.4,
   "month_to_date": 0.76,
@@ -10205,20 +10231,6 @@
  "sessions": {
   "failed_last_three": 2,
   "recent": [
-   {
-    "elapsed_seconds": 509.7,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "596ff5076e999fb6b96592d290e85c7f5d6898ba84b1d8d03231df7c40b6c8e6",
-    "ts": "2026-10-23T13:21:03.560748+00:00"
-   },
    {
     "elapsed_seconds": 1043.0,
     "event": "session",
@@ -10286,6 +10298,20 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "601956f712fe4ad1db72ea92e923db4c341eef17331228b3ab537739d034934c",
     "ts": "2026-10-23T16:25:06.529441+00:00"
+   },
+   {
+    "elapsed_seconds": 1406.9,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "28774e8861fc24dd9d8242d1602968e0c9485e2b1295a6570e99f08ad0120ac9",
+    "ts": "2026-10-23T18:23:31.328204+00:00"
    }
   ],
   "total": 35
