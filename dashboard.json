@@ -15,15 +15,13 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-10-23T02:50:01.434729+00:00",
+   "allowed": true,
+   "moment": "2026-10-23T03:50:01.564944+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 2218s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 11852007,
+   "research_tokens_last_7_days": 11862455,
    "runs_last_7_days": 167,
    "runs_weighted_last_7_days": 168,
    "session_cap_per_week": 200,
@@ -40,25 +38,25 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 4494,
+     "calls": 4499,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 22059904,
-     "output_tokens": 2419285,
+     "input_tokens": 22061597,
+     "output_tokens": 2421425,
      "pricing_available": false
     },
     "research": {
-     "calls": 3952,
+     "calls": 3965,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 9274306,
-     "output_tokens": 3826417,
+     "input_tokens": 9278994,
+     "output_tokens": 3832177,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -2858,7 +2856,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 8.1,
+    "age_hours": 9.1,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6630,7 +6628,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 8.1,
+     "age_hours": 9.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6789,7 +6787,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 8.1,
+     "age_hours": 9.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7023,10 +7021,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-23T02:50:01.115796+00:00",
+    "last_run_at": "2026-10-23T03:50:01.495954+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-23T03:00:00+00:00",
+    "next_run_at": "2026-10-23T04:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7071,10 +7069,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-23T02:47:32.689454+00:00",
+    "last_run_at": "2026-10-23T03:47:50.154887+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-23T02:52:32.689454+00:00",
+    "next_run_at": "2026-10-23T03:52:50.154887+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7107,10 +7105,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-23T01:51:08.775398+00:00",
+    "last_run_at": "2026-10-23T02:50:23.047851+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-23T03:50:00+00:00",
+    "next_run_at": "2026-10-23T04:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7119,10 +7117,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-23T01:55:00.720626+00:00",
+    "last_run_at": "2026-10-23T02:55:00.921927+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-23T02:55:00+00:00",
+    "next_run_at": "2026-10-23T03:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7163,9 +7161,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-23T02:50:01.116816+00:00"
+  "updated_at": "2026-10-23T03:50:01.497301+00:00"
  },
- "generated_at": "2026-10-23T02:50:00+00:00",
+ "generated_at": "2026-10-23T03:50:00+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -7173,19 +7171,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-23T02:29:41Z",
-   "head_sha": "39fce5b",
+   "created_at": "2026-10-23T02:52:11Z",
+   "head_sha": "606efe6",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39889862934"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39891916328"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 19/25 (76%)"
   },
   "head": {
-   "at": "2026-10-23T04:07:24+02:00",
-   "sha": "ad607ca",
-   "subject": "Merge pull request #12 from earino/evaluate/prompt-rollout"
+   "at": "2026-10-23T02:52:08Z",
+   "sha": "606efe6",
+   "subject": "LatAm discovery tick: IDEAM cotas found (threshold blocker resolved, measured); ar-ecobici opened+dropped at novelty gat"
   },
   "tests": {
    "count": "588",
@@ -7784,15 +7782,21 @@
    "qualified": 0,
    "sessions_7d": 167,
    "tokens_7d": 11852007
+  },
+  {
+   "at": "2026-10-23T03:50:00+00:00",
+   "live": 11,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 167,
+   "tokens_7d": 11862455
   }
  ],
- "notices": [
-  "A research session is running: lock held for 2218s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-23T02:50:00+00:00",
+   "as_of": "2026-10-23T03:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -7802,7 +7806,7 @@
   },
   "candidates": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-23T02:50:00+00:00",
+   "as_of": "2026-10-23T03:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -7812,7 +7816,7 @@
   },
   "releases": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-23T02:50:00+00:00",
+   "as_of": "2026-10-23T03:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -9402,7 +9406,7 @@
   "jobs_total": 91,
   "lifetime_eur": 3.16,
   "live": {
-   "checked_at": "2026-10-23T02:50:16+00:00",
+   "checked_at": "2026-10-23T03:50:16+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -9431,15 +9435,6 @@
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 2272.0,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "exit 1",
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "ts": "2026-10-22T18:37:55.796767+00:00"
-   },
    {
     "elapsed_seconds": 1924.9,
     "event": "session",
@@ -9498,6 +9493,19 @@
     "run_budget": 900,
     "submitted_brief_sha256": "49eee489d9d47632bb36810e71885e2e86f9f0a24d010bf97b3e283e85529d11",
     "ts": "2026-10-23T02:12:24.687259+00:00"
+   },
+   {
+    "elapsed_seconds": 2381.4,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "86316d979b81c17c6f277dbdc5e6cecc6f637908620737deb0e860fa7262edcf",
+    "ts": "2026-10-23T02:52:44.748119+00:00"
    }
   ],
   "total": 35
