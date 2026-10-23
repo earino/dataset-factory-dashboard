@@ -15,15 +15,17 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-10-23T09:50:01.837086+00:00",
+   "allowed": false,
+   "moment": "2026-10-23T10:50:01.622210+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 3000s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 14280254,
-   "runs_last_7_days": 180,
-   "runs_weighted_last_7_days": 182,
+   "research_tokens_last_7_days": 14461647,
+   "runs_last_7_days": 181,
+   "runs_weighted_last_7_days": 183,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 2,
    "usage": {
@@ -49,14 +51,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 4374,
+     "calls": 4429,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 11303953,
-     "output_tokens": 4225017,
+     "input_tokens": 11383621,
+     "output_tokens": 4326742,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -3208,7 +3210,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 15.1,
+    "age_hours": 16.1,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
@@ -5802,13 +5804,31 @@
     "country": "NZ",
     "domain": "energy markets / wholesale electricity spot prices",
     "id": "nz-ea-wholesale-price-exceedance",
-    "jobs": [],
+    "jobs": [
+     {
+      "at": null,
+      "id": "nz-ea-001",
+      "status": "running"
+     }
+    ],
     "licence_summary": {
      "compilation_spdx": null,
      "source_spdx": null,
      "status": null
     },
     "measurements": {
+     "construction_decisions_2026_10_23": {
+      "channel_ownership": "monthly ByMonth files own trading dates <= 2025-10-31; daily files own dates > 2025-10-31 (interim _I and _incomplete variants excluded and counted); the 10 overlap days 2025-10-22..31 are cross-checked between channels (max |diff| asserted <= 0.01).",
+      "decided_by": "advancement session 2026-10-23, before the nz-ea-001 worker launch",
+      "event_key": "target_week = ISO week of the target day, market-wide (both islands share a week). Weeks within one long storage crisis are not fully independent; the count is a capacity floor per the gate's rule, not an independence proof.",
+      "fixture_smoke": "synthetic fixture (fabricated data, nothing quotable): build.py ran clean and gate 1.4.0 passed 38/38 including capacity minimums; one defect found and fixed (duplicate 'island' header - the exact one-column-list failure mode the qualification skill documents). Gate --selftest passed with the shipped broken fixtures still rejected.",
+      "grain": "one row per (island, anchor trading day D); row_id = {island}-{anchor_date}",
+      "known_events": "Aug 2024 dry-year episode (EA Review of winter 2024: 'in early August the average daily price reached $820/MWh') must exceed; 2008-07-01 (record-measured market mean 306) must exceed; Jan 1997 quiet-era control (record-measured monthly max 50) must not. Asserted by the build from the constructed panel.",
+      "mapping": "POC -> island from the current-vintage NetworkSupplyPointsTable (894 POCs, 0 island conflicts measured); POCs absent from it are excluded and counted per year (199610 first-day sample: 213/225 mapped, 12 retired POCs unmapped).",
+      "splits": "anchor-day windows train (first anchor .. 2015-12-31), eval (2016-01-01 .. 2022-10-31), holdout (2022-11-01 .. last anchor). The eval->holdout boundary coincides with the documented 2022-11-01 real-time pricing regime change, so no window straddles the structural break; the holdout is a different market regime by design and per-year reporting is mandatory.",
+      "threshold": "NZD 100/MWh fixed (external, frozen from the training-window design). Basis: candidate levels 100/150/200/300 measured on era samples (2020-06: 28/12/5/0 days above each); the Authority's own wholesale review records 2019 average spot $127/MWh and 2020 $105/MWh, so NZD 100 keeps clustered positive target-weeks measurable in every split while staying ~2x the long-run median. Never tuned on a held-out score.",
+      "timing": "prediction instant = publication of day D's final prices, conservatively placed at D+6 calendar days: the documented rule is final by 2pm the following business day, and the daily-file channel measured Last-Modified minus trade date = 0-5 calendar days over 365 files (fresh listing 2026-10-23: distribution 1d:249, 2d:52, 3d:52, 4d:9, 5d:5, 0d:1). Features read published prices for trading days <= D only; the target trading day D+7 has not finished trading at the instant, so the label cannot exist there under any publication scheme."
+     },
      "era_and_event_samples_measured": "market daily-mean $/MWh (mean over POCs x periods): 1997-01 min 26 / median 42 / max 50, 0 days >$100; 2008-07 median 135 / max 306, 13 days >$150, 9 >$200; 2020-06 median 145 / max 287, 12 days >$150 (mid-month event); 2024-08 median 436 / max 884, 27 days >$150, 25 >$200, 22 >$300; recent era (12 sampled days 2025-10..2026-10) median 32 / max 165, 1 day >$100",
      "extraction_cost_measured": "probe: 19 requests, 45,112,531 bytes, 75.1 s (4 whole monthly files + 12 daily files + mapping + listings) on this coordinator; full construction estimated (not measured) at 728 files / 3,714.3 MB / ~1-2 h sequential on a worker - labelled an estimate from the measured per-file sizes",
      "inventory_measured": "container listing (1 request, 2.80 s, 460,102 bytes): 728 files, 360 monthly (199610..202609, size min 8,245,783 / median 10,012,278 / max 10,894,850 bytes; total 3,594.6 MB) + 368 daily (20251021..20261021, ~312,808-348,002 bytes; total 119.7 MB); monthly naming has no gaps",
@@ -5817,7 +5837,7 @@
      "publication_lag_measured": "daily files: Last-Modified minus trade date over all 368 files: min 0.75 d, p50 1.80 d, p90 3.80 d, max 5.80 d; documented instrument says final by 2pm the following business day",
      "schema_measured": "FinalEnergyPrices CSV columns: TradingDate, TradingPeriod, PointOfConnection, DollarsPerMegawattHour; 48 trading periods per day; per-file rows 346,392-370,512 (monthly) and POCs 238 (1997) / 249 (2008) / 241 (2020, 2024) - node set evolves, the NSP table carries POC start/end dates"
     },
-    "next_action": "Construction on the worker: (1) enumerate the 728 files via the container listing, download all monthly+daily price files (or stream and aggregate), join POC->I",
+    "next_action": "nz-ea-001 worker job launched 2026-10-23T10:14:37Z (server 172021455). When it finishes: collect the compact reports, verify the gate passed 38/38 on the full a",
     "packaged_at": null,
     "path": "candidates/nz-ea-wholesale-price-exceedance/record.json",
     "prediction_time": "The publication instant of final prices: the Electricity Authority states interim prices 'will be declared to be final prices by 2pm the following business day' (Real-time dispatch and pricing page + Code Part 13); measured on the actual files, Last-Modified minus trade date is p50 1.80 days, max 5.80 days (368 daily files, measured 2026-10-22). Features are final prices for trading dates already published at the instant; the label day is not.",
@@ -5843,7 +5863,7 @@
       "url": "https://www.ea.govt.nz/data-and-insights/datasets/wholesale/dispatch-and-pricing/final-energy-prices/"
      },
      {
-      "licence": "",
+      "licence": "CC BY 4.0 - the NetworkSupplyPointsTable is Authority content published on the same EMI platform, covered by the same EMI LegalInformation CC BY 4.0 statement recorded in license_evidence",
       "name": "NetworkSupplyPointsTable (POC -> Island / Network reporting region mapping, with POC start/end dates)",
       "url": "https://www.ea.govt.nz/data-and-insights/datasets/wholesale/mapping-and-geospatial/"
      }
@@ -7203,7 +7223,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 15.1,
+     "age_hours": 16.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7362,7 +7382,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 15.1,
+     "age_hours": 16.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7599,10 +7619,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-23T09:40:01.137541+00:00",
+    "last_run_at": "2026-10-23T10:50:01.585248+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-23T10:00:00+00:00",
+    "next_run_at": "2026-10-23T11:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7626,7 +7646,7 @@
     "last_run_at": "2026-10-23T06:52:22.414130+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-23T10:00:00+00:00",
+    "next_run_at": "2026-10-23T14:00:00+00:00",
     "no_agent": true,
     "schedule": "0 2-22/4 * * *"
    },
@@ -7647,10 +7667,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-23T09:48:45.391904+00:00",
+    "last_run_at": "2026-10-23T10:49:00.323297+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-23T09:53:45.391904+00:00",
+    "next_run_at": "2026-10-23T10:54:00.323297+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7683,10 +7703,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-23T08:50:23.856519+00:00",
+    "last_run_at": "2026-10-23T09:50:24.436734+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-23T10:50:00+00:00",
+    "next_run_at": "2026-10-23T11:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7695,10 +7715,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-23T08:55:00.533272+00:00",
+    "last_run_at": "2026-10-23T09:55:00.973716+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-23T09:55:00+00:00",
+    "next_run_at": "2026-10-23T10:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7739,9 +7759,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-23T09:50:01.886352+00:00"
+  "updated_at": "2026-10-23T10:50:01.586419+00:00"
  },
- "generated_at": "2026-10-23T09:50:01+00:00",
+ "generated_at": "2026-10-23T10:50:00+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -7749,19 +7769,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-23T09:41:40Z",
-   "head_sha": "f7e6748",
+   "created_at": "2026-10-23T10:23:42Z",
+   "head_sha": "a5e02c2",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39933711526"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39938784204"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 20/26 (77%)"
   },
   "head": {
-   "at": "2026-10-23T09:41:37Z",
-   "sha": "f7e6748",
-   "subject": "cl-tender-002 worker follow-up tick: close-out verified, cleanup re-confirmed"
+   "at": "2026-10-23T10:23:39Z",
+   "sha": "a5e02c2",
+   "subject": "nz-ea-wholesale-price-exceedance: authored construction, fixture-passed gate, launched nz-ea-001"
   },
   "tests": {
    "count": "588",
@@ -8416,13 +8436,23 @@
    "qualified": 0,
    "sessions_7d": 180,
    "tokens_7d": 14280254
+  },
+  {
+   "at": "2026-10-23T10:50:00+00:00",
+   "live": 14,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 181,
+   "tokens_7d": 14461647
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 3000s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-23T09:50:01+00:00",
+   "as_of": "2026-10-23T10:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -8432,7 +8462,7 @@
   },
   "candidates": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-23T09:50:01+00:00",
+   "as_of": "2026-10-23T10:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -8442,7 +8472,7 @@
   },
   "releases": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-23T09:50:01+00:00",
+   "as_of": "2026-10-23T10:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -9944,6 +9974,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-10-23T10:14:37.485318+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "nz-ea-001",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "running"
+   },
+   {
     "created_at": "2026-10-22T02:08:44.533980+00:00",
     "deleted_at": "2026-10-22T02:14:17.171323+00:00",
     "eur": 0.0011,
@@ -10065,15 +10107,15 @@
    }
   ],
   "jobs_this_month": 53,
-  "jobs_total": 94,
+  "jobs_total": 95,
   "lifetime_eur": 3.18,
   "live": {
-   "checked_at": "2026-10-23T09:50:16+00:00",
+   "checked_at": "2026-10-23T10:50:16+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
   "month_hours": 14.0,
   "month_to_date": 0.73,
