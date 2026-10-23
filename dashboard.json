@@ -15,17 +15,15 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-10-23T12:50:02.210750+00:00",
+   "allowed": true,
+   "moment": "2026-10-23T13:50:02.064627+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 3126s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 14740910,
-   "runs_last_7_days": 183,
-   "runs_weighted_last_7_days": 185,
+   "research_tokens_last_7_days": 14895592,
+   "runs_last_7_days": 184,
+   "runs_weighted_last_7_days": 186,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 2,
    "usage": {
@@ -40,25 +38,25 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 4643,
+     "calls": 4649,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 22571619,
-     "output_tokens": 2481808,
+     "input_tokens": 22574565,
+     "output_tokens": 2484486,
      "pricing_available": false
     },
     "research": {
-     "calls": 4553,
+     "calls": 4599,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 11522554,
-     "output_tokens": 4467072,
+     "input_tokens": 11631369,
+     "output_tokens": 4512939,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -94,10 +92,11 @@
   },
   "counts": {
    "dropped": 29,
-   "investigating": 14,
+   "investigating": 13,
    "packaged": 1,
    "parked": 27,
    "published": 9,
+   "qualified": 1,
    "ready": 2
   },
   "errors": [],
@@ -256,7 +255,7 @@
      {
       "at": null,
       "id": "cl-tender-003",
-      "status": "running"
+      "status": "succeeded"
      },
      {
       "at": null,
@@ -277,36 +276,37 @@
      "horizon_decision_2026_10_23": "HORIZON_DAYS=180 frozen before the rebuild and before any scoring; recorded in build.py, quality.json (row_selection.horizon_days + horizon_basis) and meta.json label_rule. Evidence: probe_horizon.py lag distribution + zip vintages in selection_review_2026_10_23. Not tuned on any held-out score.",
      "monthly_totals_2026_10_21": "listaOCDSAgnoMes pagination.total (licitaciones stream): 2010-01: 33,366; 2014-01: 22,218; 2018-01: 13,049; 2020-01: 11,661; 2023-01: 11,382; 2025-01: 7,785. Declining volumes over time - window sizing must use per-month counts, not a single year's.",
      "prevalence_shift_2026_10_23": "Positive rate by split: train 0.1770 (2019-05/06), eval 0.1668 (2020-05/06), holdout 0.2512 (2021-05/06). The holdout is an out-of-distribution window as well as a temporal one; any model comparison must be read per split, not pooled.",
+     "rebuild_cl_tender_003_2026_10_23": "cl-tender-003 verified outcome (gate report + references report, staging release 421857839, collected sha256-verified): gate 1.4.0 38/38 checks 0 failed on the full artifact; --accept ACCEPTED 27e610ba65e13805 on the exact bytes on the worker. Splits train 23,188/4,089 (17.63%), eval 11,791/1,959 (16.61%), holdout 17,236/4,333 (25.14%). References on eval, fitted on train: procedure_only 0.5183, region_only 0.5330, unspsc_only 0.5707, calendar_only 0.5295, value_procedure 0.5443; majority-class accuracy 0.8339. previous_eval_comparison vs cl-tender-002: identical_rows 11,791, old_only 152, new_only 0, label_disagreements_on_identical_rows 0; the previous 0.5673 UNSPSC bar (11,943 rows, pooled any-active labels) re-measures at 0.5707 on the 11,791 rows both artifacts score under the new labels. Outcome conditioning per split: scored_share 0.9262/0.8990/0.9105, censored_rate 0.0453/0.0566/0.0512, revoked_rate 0.0286/0.0444/0.0383 (train/eval/holdout). Stage order verified in container.log: build -> qualification -> acceptance -> references; no figure computed before acceptance.",
      "references_2026_10_23": "Simple references on the accepted eval rows (all fitted on train only): procedure_only 0.5164, region_only 0.5309, unspsc_only 0.5673, calendar_only (buyer_region x pub_month) 0.5270, value_procedure 0.5410. Constant train rate 0.176962 has no ranking information (AUC unmeasured). Majority-class accuracy 0.8332 on 11,943 eval rows. These are single-feature conditional-rate references, not a model: no full-model baseline has run yet, so no headroom claim exists.",
      "release_history_vintage_2026_10_23": "Measured from the bytes before choosing cohorts: the 2016 bulk zips were rebuilt at migration (blob Last-Modified 2020-03) and carry a SINGLE release stamped 2018-12-31 with tender.status='complete' and the final text - i.e. the compiled state, not a publication snapshot. The 2019/2020/2021 zips carry a genuine progressive history (sampled 201906 n=12, 202101 n=18: first release equals tenderPeriod.startDate within 0-1 days, status 'active', 3-7 tenderUpdate releases, status moving active->complete at closing). Construction therefore requires the first release's tender.status == 'active' and buckets anything else as publication_state_not_evidenced (2/12/14 rows). No 2016-cohort task was built.",
      "selection_review_2026_10_23": "Operator-directed selection review, answered from the publisher's records (probe_horizon.py 241 req + probe_horizon2.py 99 req, anonymous, 2026-10-23; n=119+45 processes across the three cohort months). Q1 publication-time field for every tender: YES - every sampled process (119/119 with urlAward+urlTender) has a first tender release dated at the publication instant with status 'active' and the full publication-time feature set; the full cl-tender-002 build measured publication_state_not_evidenced at only 2/12/14 rows per split cohort-pair (~0.05%), a publication-time-knowable bucket. Q2 award status/date or contract signature date: award status YES (active/unsuccessful/cancelled/pending) with release dates on 100% of award releases and per-entry awards[].date on 110/119 sampled entries; contract signature date NO - urlContract documents exist only for 2021+ list items and every sampled contract carries signatureDate: null and date: null (period.startDate is the delivery period, not signature), so the terminal state must be defined on award status + award release date. Q3 eligibility from publication-time fields only: YES for membership (first tender release month + publication state 'active' + ocid); the scored-row restriction to observed terminal outcomes is outcome-dependent and is now declared as such in quality.json with per-split measured rates (outcome_conditioning), never presented as a publication-time rule. Q4 one terminal award state and horizon: YES - terminal vocabulary {active->adjudicated, unsuccessful->deserted, cancelled->revoked}, pending non-terminal; horizon H=180 days after publication, frozen from measured lags (first award release lag p50 33-41 days, p90 49-102 days per cohort sample) and capped by the zip vintages: every cohort zip covers pub+180d for every row (train vintage 2021-01-13, eval 2021-01-14, holdout latest release 2021-12-30 >= 2021-06-30+180d=2021-12-27), and 180d is the MAXIMUM uniform horizon the source supports (a longer one would not be covered for holdout rows published end-June 2021). Sampled terminal-within-180d fraction: 40/40 (2019-06), 36/39 (2020-06), 40/40 (2021-06). Additional finding: award status sequences are single-release in every sampled process and pooled-any-active vs last-terminal-within-180d agreed on all 119; awardUpdate-tagged releases exist in the publisher's tag vocabulary and the PREVIOUS build's exact-tag filter silently ignored them - fixed in the rebuild."
     },
-    "next_action": "Collect cl-tender-003 (running, server 172043826, launched 2026-10-23T12:20:41Z). Acceptance requires exit 0 + a passing current-version gate report on the full",
+    "next_action": "cl-tender-003 is verified green and the worker is destroyed (provider-confirmed). Advancement owns the next decisions: (1) scientific sign-off that the terminal",
     "packaged_at": null,
     "path": "candidates/chilecompra-tender-outcome/record.json",
     "prediction_time": "The instant the tender is published on Mercado P\u00fablico (tender publication date; OCDS release date). Everything decided or observed after publication is excluded from shipped features: the closing act, bids received and their counts, the evaluation, the adjudication/revocation decision and award documents, and contract fields. The OCDS award-stage status fields are the label source and are excluded from shipped columns. Construction note: a tender document fetched for a closed month carries the tender's final status/statusDetails (e.g. '5-Publicada' vs closed states) - construction must reconstruct publication-time state from publication-stage fields only.",
     "publisher": "Direcci\u00f3n de Compras y Contrataci\u00f3n P\u00fablica (ChileCompra) - Mercado P\u00fablico platform",
     "qualification": {
-     "artifact_version": "6f8cef93850f1211",
-     "result": "PASSED - gate 1.4.0, 38/38 checks, 0 failed, on the FULL artifact on the worker; hand-off --accept ACCEPTED on the coordinator (2026-10-23)",
+     "artifact_version": "27e610ba65e13805c8066e0bdb7932324cd39e30096f4e51b13136120e1ca3a7",
+     "result": "PASSED - gate 1.4.0, 38/38 checks, 0 failed, on the FULL artifact on the worker; --accept ACCEPTED on the worker against the exact bytes (2026-10-23). Supersedes the review-unaccepted cl-tender-002 artifact 6f8cef93850f1211 (evidence preserved).",
      "splits": {
       "eval": {
        "distinct_events": 50,
-       "positive_rate": 0.166792,
-       "positives": 1992,
-       "rows": 11943
+       "positive_rate": 0.166144,
+       "positives": 1959,
+       "rows": 11791
       },
       "holdout": {
        "distinct_events": 51,
-       "positive_rate": 0.251227,
-       "positives": 4351,
-       "rows": 17319
+       "positive_rate": 0.251392,
+       "positives": 4333,
+       "rows": 17236
       },
       "train": {
-       "distinct_events": 53,
-       "positive_rate": 0.176962,
-       "positives": 4151,
-       "rows": 23457
+       "distinct_events": 52,
+       "positive_rate": 0.176341,
+       "positives": 4089,
+       "rows": 23188
       }
      }
     },
@@ -330,6 +330,7 @@
      "preserved": "Source, qualification report, acceptance evidence and measured references are retained unchanged; this block records an assisted audit finding, not spontaneous model improvement.",
      "recorded_at": "2026-10-23",
      "reopen_condition": "Repair selection to publication-time information, define a terminal award state/horizon for label aggregation, then rebuild and re-qualify/accept; or record the negative finding and drop.",
+     "resolution": "2026-10-23: the reopen condition (publication-time-declared selection + terminal state/horizon label aggregation, then rebuild and re-qualify/accept) was executed as the operator-directed rebuild cl-tender-003; gate 1.4.0 38/38 and --accept PASSED on the new artifact 27e610ba65e13805. The prior artifact 6f8cef93850f1211 stays unaccepted and its evidence preserved. Scientific closure sign-off of this review belongs to advancement.",
      "reviewers": "Codex with Scout (Hermes)"
     },
     "sources": [
@@ -360,7 +361,7 @@
      }
     ],
     "split_strategy": "temporal by tender publication month, same calendar months one year apart: train 2019-05..2019-06, eval 2020-05..2020-06, holdout 2021-05..2021-06. Membership = the month of the FIRST tender release; the award release is read afterwards only to compute the label.",
-    "status": "investigating",
+    "status": "qualified",
     "target": "Binary: the process's OCDS award status is 'unsuccessful' with statusDetails vocabulary '7-Desierta (o art. 3 \u00f3 9 Ley 19.886)' (positive) vs 'active' / '8-Adjudicada' (negative). Measured on the first-100 samples of closed months: 17/98 = 17.3% desertion (2019-06), 14/98 = 14.3% (2023-06); cancelled/revoked ('15-Revocada', ~2-3%) are excluded from the scored population at construction with the exclusion recorded. Label source columns: award release status/statusDetails (+ tender final status as cross-check); excluded from shipped feature columns."
    },
    {
@@ -2231,7 +2232,7 @@
      {
       "at": null,
       "id": "cl-tender-003",
-      "status": "running"
+      "status": "succeeded"
      },
      {
       "at": null,
@@ -2252,36 +2253,37 @@
      "horizon_decision_2026_10_23": "HORIZON_DAYS=180 frozen before the rebuild and before any scoring; recorded in build.py, quality.json (row_selection.horizon_days + horizon_basis) and meta.json label_rule. Evidence: probe_horizon.py lag distribution + zip vintages in selection_review_2026_10_23. Not tuned on any held-out score.",
      "monthly_totals_2026_10_21": "listaOCDSAgnoMes pagination.total (licitaciones stream): 2010-01: 33,366; 2014-01: 22,218; 2018-01: 13,049; 2020-01: 11,661; 2023-01: 11,382; 2025-01: 7,785. Declining volumes over time - window sizing must use per-month counts, not a single year's.",
      "prevalence_shift_2026_10_23": "Positive rate by split: train 0.1770 (2019-05/06), eval 0.1668 (2020-05/06), holdout 0.2512 (2021-05/06). The holdout is an out-of-distribution window as well as a temporal one; any model comparison must be read per split, not pooled.",
+     "rebuild_cl_tender_003_2026_10_23": "cl-tender-003 verified outcome (gate report + references report, staging release 421857839, collected sha256-verified): gate 1.4.0 38/38 checks 0 failed on the full artifact; --accept ACCEPTED 27e610ba65e13805 on the exact bytes on the worker. Splits train 23,188/4,089 (17.63%), eval 11,791/1,959 (16.61%), holdout 17,236/4,333 (25.14%). References on eval, fitted on train: procedure_only 0.5183, region_only 0.5330, unspsc_only 0.5707, calendar_only 0.5295, value_procedure 0.5443; majority-class accuracy 0.8339. previous_eval_comparison vs cl-tender-002: identical_rows 11,791, old_only 152, new_only 0, label_disagreements_on_identical_rows 0; the previous 0.5673 UNSPSC bar (11,943 rows, pooled any-active labels) re-measures at 0.5707 on the 11,791 rows both artifacts score under the new labels. Outcome conditioning per split: scored_share 0.9262/0.8990/0.9105, censored_rate 0.0453/0.0566/0.0512, revoked_rate 0.0286/0.0444/0.0383 (train/eval/holdout). Stage order verified in container.log: build -> qualification -> acceptance -> references; no figure computed before acceptance.",
      "references_2026_10_23": "Simple references on the accepted eval rows (all fitted on train only): procedure_only 0.5164, region_only 0.5309, unspsc_only 0.5673, calendar_only (buyer_region x pub_month) 0.5270, value_procedure 0.5410. Constant train rate 0.176962 has no ranking information (AUC unmeasured). Majority-class accuracy 0.8332 on 11,943 eval rows. These are single-feature conditional-rate references, not a model: no full-model baseline has run yet, so no headroom claim exists.",
      "release_history_vintage_2026_10_23": "Measured from the bytes before choosing cohorts: the 2016 bulk zips were rebuilt at migration (blob Last-Modified 2020-03) and carry a SINGLE release stamped 2018-12-31 with tender.status='complete' and the final text - i.e. the compiled state, not a publication snapshot. The 2019/2020/2021 zips carry a genuine progressive history (sampled 201906 n=12, 202101 n=18: first release equals tenderPeriod.startDate within 0-1 days, status 'active', 3-7 tenderUpdate releases, status moving active->complete at closing). Construction therefore requires the first release's tender.status == 'active' and buckets anything else as publication_state_not_evidenced (2/12/14 rows). No 2016-cohort task was built.",
      "selection_review_2026_10_23": "Operator-directed selection review, answered from the publisher's records (probe_horizon.py 241 req + probe_horizon2.py 99 req, anonymous, 2026-10-23; n=119+45 processes across the three cohort months). Q1 publication-time field for every tender: YES - every sampled process (119/119 with urlAward+urlTender) has a first tender release dated at the publication instant with status 'active' and the full publication-time feature set; the full cl-tender-002 build measured publication_state_not_evidenced at only 2/12/14 rows per split cohort-pair (~0.05%), a publication-time-knowable bucket. Q2 award status/date or contract signature date: award status YES (active/unsuccessful/cancelled/pending) with release dates on 100% of award releases and per-entry awards[].date on 110/119 sampled entries; contract signature date NO - urlContract documents exist only for 2021+ list items and every sampled contract carries signatureDate: null and date: null (period.startDate is the delivery period, not signature), so the terminal state must be defined on award status + award release date. Q3 eligibility from publication-time fields only: YES for membership (first tender release month + publication state 'active' + ocid); the scored-row restriction to observed terminal outcomes is outcome-dependent and is now declared as such in quality.json with per-split measured rates (outcome_conditioning), never presented as a publication-time rule. Q4 one terminal award state and horizon: YES - terminal vocabulary {active->adjudicated, unsuccessful->deserted, cancelled->revoked}, pending non-terminal; horizon H=180 days after publication, frozen from measured lags (first award release lag p50 33-41 days, p90 49-102 days per cohort sample) and capped by the zip vintages: every cohort zip covers pub+180d for every row (train vintage 2021-01-13, eval 2021-01-14, holdout latest release 2021-12-30 >= 2021-06-30+180d=2021-12-27), and 180d is the MAXIMUM uniform horizon the source supports (a longer one would not be covered for holdout rows published end-June 2021). Sampled terminal-within-180d fraction: 40/40 (2019-06), 36/39 (2020-06), 40/40 (2021-06). Additional finding: award status sequences are single-release in every sampled process and pooled-any-active vs last-terminal-within-180d agreed on all 119; awardUpdate-tagged releases exist in the publisher's tag vocabulary and the PREVIOUS build's exact-tag filter silently ignored them - fixed in the rebuild."
     },
-    "next_action": "Collect cl-tender-003 (running, server 172043826, launched 2026-10-23T12:20:41Z). Acceptance requires exit 0 + a passing current-version gate report on the full",
+    "next_action": "cl-tender-003 is verified green and the worker is destroyed (provider-confirmed). Advancement owns the next decisions: (1) scientific sign-off that the terminal",
     "packaged_at": null,
     "path": "candidates/chilecompra-tender-outcome/record.json",
     "prediction_time": "The instant the tender is published on Mercado P\u00fablico (tender publication date; OCDS release date). Everything decided or observed after publication is excluded from shipped features: the closing act, bids received and their counts, the evaluation, the adjudication/revocation decision and award documents, and contract fields. The OCDS award-stage status fields are the label source and are excluded from shipped columns. Construction note: a tender document fetched for a closed month carries the tender's final status/statusDetails (e.g. '5-Publicada' vs closed states) - construction must reconstruct publication-time state from publication-stage fields only.",
     "publisher": "Direcci\u00f3n de Compras y Contrataci\u00f3n P\u00fablica (ChileCompra) - Mercado P\u00fablico platform",
     "qualification": {
-     "artifact_version": "6f8cef93850f1211",
-     "result": "PASSED - gate 1.4.0, 38/38 checks, 0 failed, on the FULL artifact on the worker; hand-off --accept ACCEPTED on the coordinator (2026-10-23)",
+     "artifact_version": "27e610ba65e13805c8066e0bdb7932324cd39e30096f4e51b13136120e1ca3a7",
+     "result": "PASSED - gate 1.4.0, 38/38 checks, 0 failed, on the FULL artifact on the worker; --accept ACCEPTED on the worker against the exact bytes (2026-10-23). Supersedes the review-unaccepted cl-tender-002 artifact 6f8cef93850f1211 (evidence preserved).",
      "splits": {
       "eval": {
        "distinct_events": 50,
-       "positive_rate": 0.166792,
-       "positives": 1992,
-       "rows": 11943
+       "positive_rate": 0.166144,
+       "positives": 1959,
+       "rows": 11791
       },
       "holdout": {
        "distinct_events": 51,
-       "positive_rate": 0.251227,
-       "positives": 4351,
-       "rows": 17319
+       "positive_rate": 0.251392,
+       "positives": 4333,
+       "rows": 17236
       },
       "train": {
-       "distinct_events": 53,
-       "positive_rate": 0.176962,
-       "positives": 4151,
-       "rows": 23457
+       "distinct_events": 52,
+       "positive_rate": 0.176341,
+       "positives": 4089,
+       "rows": 23188
       }
      }
     },
@@ -2305,6 +2307,7 @@
      "preserved": "Source, qualification report, acceptance evidence and measured references are retained unchanged; this block records an assisted audit finding, not spontaneous model improvement.",
      "recorded_at": "2026-10-23",
      "reopen_condition": "Repair selection to publication-time information, define a terminal award state/horizon for label aggregation, then rebuild and re-qualify/accept; or record the negative finding and drop.",
+     "resolution": "2026-10-23: the reopen condition (publication-time-declared selection + terminal state/horizon label aggregation, then rebuild and re-qualify/accept) was executed as the operator-directed rebuild cl-tender-003; gate 1.4.0 38/38 and --accept PASSED on the new artifact 27e610ba65e13805. The prior artifact 6f8cef93850f1211 stays unaccepted and its evidence preserved. Scientific closure sign-off of this review belongs to advancement.",
      "reviewers": "Codex with Scout (Hermes)"
     },
     "sources": [
@@ -2335,7 +2338,7 @@
      }
     ],
     "split_strategy": "temporal by tender publication month, same calendar months one year apart: train 2019-05..2019-06, eval 2020-05..2020-06, holdout 2021-05..2021-06. Membership = the month of the FIRST tender release; the award release is read afterwards only to compute the label.",
-    "status": "investigating",
+    "status": "qualified",
     "target": "Binary: the process's OCDS award status is 'unsuccessful' with statusDetails vocabulary '7-Desierta (o art. 3 \u00f3 9 Ley 19.886)' (positive) vs 'active' / '8-Adjudicada' (negative). Measured on the first-100 samples of closed months: 17/98 = 17.3% desertion (2019-06), 14/98 = 14.3% (2023-06); cancelled/revoked ('15-Revocada', ~2-3%) are excluded from the scored population at construction with the exclusion recorded. Label source columns: award release status/statusDetails (+ tender final status as cross-check); excluded from shipped feature columns."
    },
    {
@@ -3224,7 +3227,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 18.1,
+    "age_hours": 19.1,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7237,7 +7240,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 18.1,
+     "age_hours": 19.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7396,7 +7399,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 18.1,
+     "age_hours": 19.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7602,10 +7605,11 @@
   },
   "by_status": {
    "dropped": 29,
-   "investigating": 14,
+   "investigating": 13,
    "packaged": 1,
    "parked": 27,
    "published": 9,
+   "qualified": 1,
    "ready": 2
   },
   "candidates": 82,
@@ -7633,10 +7637,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-23T12:50:01.498174+00:00",
+    "last_run_at": "2026-10-23T13:50:01.629179+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-23T13:00:00+00:00",
+    "next_run_at": "2026-10-23T14:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7681,10 +7685,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-23T12:47:25.839004+00:00",
+    "last_run_at": "2026-10-23T13:46:10.970526+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-23T12:52:25.839004+00:00",
+    "next_run_at": "2026-10-23T13:51:10.970526+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7717,10 +7721,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-23T11:50:25.016164+00:00",
+    "last_run_at": "2026-10-23T12:50:26.257077+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-23T13:50:00+00:00",
+    "next_run_at": "2026-10-23T14:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7729,10 +7733,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-23T11:55:00.744343+00:00",
+    "last_run_at": "2026-10-23T12:55:00.780584+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-23T12:55:00+00:00",
+    "next_run_at": "2026-10-23T13:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7773,9 +7777,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-23T12:50:01.499527+00:00"
+  "updated_at": "2026-10-23T13:50:01.630260+00:00"
  },
- "generated_at": "2026-10-23T12:50:01+00:00",
+ "generated_at": "2026-10-23T13:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -7783,19 +7787,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-23T11:40:30Z",
-   "head_sha": "4c4a34c",
+   "created_at": "2026-10-23T13:33:55Z",
+   "head_sha": "6f97f34",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39947734157"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39962263214"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 20/26 (77%)"
   },
   "head": {
-   "at": "2026-10-23T11:40:26Z",
-   "sha": "4c4a34c",
-   "subject": "nz-ea-001 follow-up: build.py code defect failed the build pre-gate; evidence preserved, worker destroyed, handoff to ad"
+   "at": "2026-10-23T13:18:31Z",
+   "sha": "6f97f34",
+   "subject": "cl-tender-003 follow-up: rebuild green (gate 38/38, accept 27e610ba), worker destroyed provider-confirmed"
   },
   "tests": {
    "count": "588",
@@ -8474,15 +8478,21 @@
    "qualified": 0,
    "sessions_7d": 183,
    "tokens_7d": 14740910
+  },
+  {
+   "at": "2026-10-23T13:50:01+00:00",
+   "live": 14,
+   "published": 9,
+   "qualified": 1,
+   "sessions_7d": 184,
+   "tokens_7d": 14895592
   }
  ],
- "notices": [
-  "A research session is running: lock held for 3126s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-23T12:50:01+00:00",
+   "as_of": "2026-10-23T13:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -8492,7 +8502,7 @@
   },
   "candidates": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-23T12:50:01+00:00",
+   "as_of": "2026-10-23T13:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -8502,7 +8512,7 @@
   },
   "releases": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-23T12:50:01+00:00",
+   "as_of": "2026-10-23T13:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -8943,7 +8953,7 @@
  "resources": {
   "ceiling_eur": 20.0,
   "errors": [],
-  "eur_per_release": 0.35,
+  "eur_per_release": 0.36,
   "histogram": {
    "bins": [
     {
@@ -8967,7 +8977,7 @@
      "lo": 0.02
     },
     {
-     "count": 9,
+     "count": 10,
      "hi": 0.1,
      "lo": 0.05
     },
@@ -8989,10 +8999,10 @@
    ],
    "max": 0.6296,
    "median": 0.014,
-   "n": 95,
-   "p90": 0.0542,
+   "n": 96,
+   "p90": 0.0561,
    "ref_rate": 0.06924,
-   "total": 3.41
+   "total": 3.47
   },
   "jobs": [
    {
@@ -9321,15 +9331,15 @@
    },
    {
     "created_at": "2026-10-23T12:20:41.413430+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-10-23T13:17:15.795524+00:00",
+    "eur": 0.0109,
+    "hours": 0.943,
     "id": "cl-tender-003",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0653,
     "rate_eur": 0.01152,
     "server_type": "cx23",
-    "status": "running"
+    "status": "deleted"
    },
    {
     "created_at": "2026-10-22T14:13:25.364954+00:00",
@@ -10148,19 +10158,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 54,
+  "jobs_this_month": 55,
   "jobs_total": 96,
-  "lifetime_eur": 3.19,
+  "lifetime_eur": 3.2,
   "live": {
-   "checked_at": "2026-10-23T12:50:17+00:00",
+   "checked_at": "2026-10-23T13:50:16+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 15.4,
-  "month_to_date": 0.75,
+  "month_hours": 16.3,
+  "month_to_date": 0.76,
   "months": [
    {
     "eur": 2.4452,
@@ -10169,46 +10179,18 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.747,
-    "hours": 15.37,
-    "jobs": 54,
+    "eur": 0.7579,
+    "hours": 16.31,
+    "jobs": 55,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 1.01
+  "projected_month_eur": 1.02
  },
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 424.6,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "8f88e2c76c590cdf1ca6effd36e1d68d5ae306eed15bb7aa8a1ad4add3da153c",
-    "ts": "2026-10-23T07:16:10.381915+00:00"
-   },
-   {
-    "elapsed_seconds": 823.3,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "55a9805d8cd21fc7991f84b0e88566b506b81c1b3c52663ef5ca52d2c1c72521",
-    "ts": "2026-10-23T08:26:18.959039+00:00"
-   },
    {
     "elapsed_seconds": 2628.2,
     "event": "session",
@@ -10264,6 +10246,34 @@
     "run_budget": 900,
     "submitted_brief_sha256": "1740b9db7d8a39d602a3a3e47ad4157540bc3cf4b1051a139ee0f332dc7d4fdb",
     "ts": "2026-10-23T11:42:05.837170+00:00"
+   },
+   {
+    "elapsed_seconds": 4310.4,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "7ae57d75e8db3064cf6bdc9026265aa11c1ae7016209b475f4975e486188a465",
+    "ts": "2026-10-23T13:09:47.052530+00:00"
+   },
+   {
+    "elapsed_seconds": 509.7,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "596ff5076e999fb6b96592d290e85c7f5d6898ba84b1d8d03231df7c40b6c8e6",
+    "ts": "2026-10-23T13:21:03.560748+00:00"
    }
   ],
   "total": 36
