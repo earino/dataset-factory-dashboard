@@ -15,15 +15,17 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-10-23T07:50:01.772793+00:00",
+   "allowed": false,
+   "moment": "2026-10-23T08:50:01.843689+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 117s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 12761602,
-   "runs_last_7_days": 171,
-   "runs_weighted_last_7_days": 172,
+   "research_tokens_last_7_days": 13096061,
+   "runs_last_7_days": 179,
+   "runs_weighted_last_7_days": 180,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 1,
    "usage": {
@@ -38,25 +40,25 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 4509,
+     "calls": 4603,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 22067417,
-     "output_tokens": 2425956,
+     "input_tokens": 22544519,
+     "output_tokens": 2464216,
      "pricing_available": false
     },
     "research": {
-     "calls": 4178,
+     "calls": 4239,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 9925326,
-     "output_tokens": 4084992,
+     "input_tokens": 10211638,
+     "output_tokens": 4133139,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -79,7 +81,7 @@
  },
  "candidates": {
   "countries": {
-   "BR": 1,
+   "BR": 2,
    "CA": 2,
    "CO": 1,
    "DE": 1,
@@ -91,11 +93,11 @@
   },
   "counts": {
    "dropped": 29,
-   "investigating": 12,
+   "investigating": 13,
    "packaged": 1,
    "parked": 27,
    "published": 9,
-   "ready": 4
+   "ready": 3
   },
   "errors": [],
   "live": [
@@ -153,6 +155,95 @@
     "split_strategy": "Temporal, one row per (sample x reporting year) in the Campylobacter frame: train 2021, eval 2022, holdout 2023 - the only three reporting years the publisher exposes. Measured on the downloaded CSVs (2026-10-21): Campylobacter genus rows 2021: 1,394 rows / 443 positive (31.8%); 2022: 2,364 / 613 (25.9%); 2023: 1,312 / 390 (29.7%) - both classes present in every window, so the split-capacity contract is satisfied as measured, but each window is a single reporting year (thin depth; no second holdout year exists yet). Positives cluster by sampling batch/day: distinct samples per year are 5,373 (2021) and 5,969 (2022), but the ProbenNrPseud column is EMPTY in the 2023 file (measured: 0 distinct values vs thousands in 2021/2022) - a publisher data-quality defect that forces 2023 clustering to fall back to matrix x month proxies, and construction must report the clustered count under that limitation. Fallback parameter with the same timing if Campylobacter is too thin: ESBL/AmpC-bildende E. coli 1,947/1,900/1,825 rows at 32.3%/19.8%/26.4%.",
     "status": "investigating",
     "target": "Binary from the source row: ErgAlphaT = 'positiv; nachgewiesen' (detected) vs 'negativ; nicht nachgewiesen' (not detected), restricted to rows whose Parameter is the Campylobacter genus detection ('Genus Campylobacter'; Parameter/ParameterT1 columns). Label source columns ErgAlpha, ErgAlphaT and the legally derived assessment Bewertung/BewertungT ('Beanstandet'/'Ohne Beanstandung') are recorded in label_source_columns and must be absent from the shipped features. Unit/frame: qualitative presence/absence per sample at the method's declared analytical amount (Methode/Probenvorbereitung columns, e.g. 10 g), the publisher's own frame - no external threshold is compared, so no known-event fixture is required. Rows where a quantitative result or a different parameter vocabulary appears are out of frame and must be pinned at construction from the Datensatzbeschreibung column dictionary."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "BR",
+    "domain": "legislative process - bill-level ultimate-outcome prediction (Brazil, Chamber of Deputies)",
+    "id": "camara-bill-advancement",
+    "jobs": [
+     {
+      "at": null,
+      "id": "camara-001",
+      "status": null
+     },
+     {
+      "at": null,
+      "id": "camara-002",
+      "status": null
+     }
+    ],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "api_cohort_counts_2026_10_21": "dataApresentacao-filtered cohorts via Link rel=last page counts x 100: 2005 ~= 26,300 (41+92+61+69 pages); 2019 ~= 41,400 (68+105+107+135). Cross-checks the file-based row estimate for 2005 (~22 MB / ~850 B/row).",
+     "camara_001_full_union_2026_10_23": "Full build over the 70 bulk year files on the worker (camara-001, 395.6 s, exit 2 on guard anchors only). Measured: 642,067 in-window bills (presented 1991-2022) after a descending-first-wins union; splits train 160,559 rows / 14,323 positives (8.92%), eval 37,885 / 1,397 (3.69%), holdout 36,892 / 1,793 (4.86%); assumption buckets - train empty-status 208,487 / non-terminal 9,662 / merged 12,893, eval 68,809 / 8,553 / 776, holdout 75,639 / 20,842 / 1,070. Two measured properties to report beside any model score: (1) the scored population is only the terminal-status subset - roughly 55% of train and 64% of holdout rows are unobserved (no status or still live), so the task is conditioned on an observed fate and the unobserved share rises with recency; (2) positive rate moves 8.92% (train) -> 3.69% (eval) -> 4.86% (holdout), a prevalence shift that is a property of the phenomenon, not a construction fault. The in-build naive references and the fixture results are in the camara-002 summary.",
+     "camara_002_gate_result_2026_10_23": "Gate 1.4.0 over the full staged artifact (artifact_version digest 013f0b0696696a03cd0e0bcaad176936e7cd96b8c2e02358d0a67257af799fa9; train/eval/holdout/meta/quality): 37 of 38 checks passed; the only failure is splits.enough_clustered_positives, recomputed by the gate from the rows as eval 1,397 positives / 4 distinct apresentacao_year events and holdout 1,793 / 4, against minimums of 30 positives and 20 distinct events (train has 24 distinct positive years). The full artifact and the gate report are preserved at the private staging release job-camara-002 (id 421533646, 12 assets, digests verified at collection); the gate report is also at .factory/camara-002/reports/qualification-camara-bill-advancement.json (gitignored local copy).",
+     "construction_probes_2026_10_23": "probe_censoring.py (v1, naive line-splitting: defective - quoted multi-line ementas corrupt mid-file chunks), corrected by probe_censoring2.py (quote-parity record-boundary trimming; whole-1991 file ground truth) + probe_empty_status.py + probe_file_vs_api.py + probe_file_inventory.py, all run end-to-end 2026-10-23 from the coordinator: (1) situation-code vocabulary keyed by header name: 923 Arquivada (2,491 of 4,436 whole-1991 rows), 1140 Transformado em Norma Jur\u00eddica (311 = 7.0%), 1230 Transformado em nova proposi\u00e7\u00e3o, 937 Vetado totalmente, 925 Tramitando em Conjunto, 907/915/924/926/936/1070/1120/1170/1220/1285 ongoing/other - consistent code->description pairs, unlike the discovery sample's mis-indexed columns; (2) empty ultimoStatus share by year-file sample: 1991 36.6% (whole file), 2000 14.8%, 2005 51.4%, 2010 52.7%, 2015 51.9%, 2019 48.7%, 2021 52.3%, 2022 39.9% - and the API returns statusProposicao None for sampled such ids, so the emptiness is the publisher's own record, not a file gap; empty-status rows skew to procedural types (RIC/REQ/EMP/MSC) but include some PLs; (3) right-censoring: bills presented 2019 still carry non-terminal statuses with ultimoStatus_dataHora in 2024-2026 (e.g. PL 1/2019 id 2190407 'Aguardando Aprecia\u00e7\u00e3o pelo Senado Federal', dataHora 2025-08-26) and the API agrees with the file on every sampled id - the vintage is current, the legislatures are not closed for these bills; (4) file inventory: 35/35 years 200 OK for both families, proposicoes 747.4 MB + proposicoesAutores 456.0 MB total; (5) autores schema measured: idProposicao, tipoAutor, siglaPartidoAutor, siglaUFAutor, ordemAssinatura, proponente - first-author features keyed on the proponente row. Observation for the novelty record: an HF org (belisards) mirrors the raw proposicoes files 1934-2024 (ementas_camarabr_1934_2024) - raw extract, no splits, no scored contract; recorded as a mirror observation, not permission, and it does not change the recorded 'differentiated' verdict.",
+     "cost_measured": "Discovery cost: 15 requests / ~4 MB of ranged samples / 31 s wall clock (probe_samples.py) + 8 API count requests. Construction cost: ~35 year files (sizes measured, sum ~= 1.2 GB ESTIMATE) + proposicoesAutores files; worker-trivial.",
+     "ranged_samples_2026_10_21": "probe_samples.py: 4 x 1 MB ranged chunks each of proposicoes-2005.csv (4,852 parsed rows) and proposicoes-2019.csv (4,909 rows). 2005 sample: dataApresentacao 100% in 2005; ultimoStatus vocabulary: 'Arquivada' ~62% across codes (1005, 502, 241, 100, 1001, 180...), 'Transformado em nova proposi\u00e7\u00e3o' ~3.5% (codes 469, 604...), 'Transformado em Norma Jur\u00eddica' (idSituacao 251) 72 = 1.5%; urnFinal non-empty 0/4,852. 2019 sample: 98% presented 2019; statuses still mixed (Arquivada 14.8%, ongoing tramita\u00e7\u00e3o states) - recent cohorts right-censored, excluded from the task.",
+     "situation_code_quality_2026_10_21": "Many rows carry idSituacao with EMPTY descricaoSituacao (codes '100', '319' are the most frequent with empty descriptions, 39-40% of sample rows) while the same codes also appear WITH descriptions elsewhere - the label must be defined on the publisher's situation CODE table (fetched at construction), with descriptions as a cross-check where present. Measured on the same samples."
+    },
+    "next_action": "NONE until the review hold is lifted. No declaration-only re-gate, no further job. Resolve (a) selection against prediction-time information, (b) early scoring ",
+    "packaged_at": null,
+    "path": "candidates/camara-bill-advancement/record.json",
+    "prediction_time": "The instant of presentation (dataApresentacao). Excluded from shipped features by documented timing reasoning: the publisher's indexa\u00e7\u00e3o fields keywords and proposicoesTemas (assigned by the Chamber's indexing service after presentation - post-hoc, and the file documentation itself lists them beside 'informa\u00e7\u00f5es sobre a tramita\u00e7\u00e3o mais recente'); all ultimoStatus_* fields (the current/last tramita\u00e7\u00e3o state - label source); regime as recorded in ultimoStatus (current regime, mutable after presentation); uriPropAnterior/Principal/Posterior (later-created links); urnFinal. Safe features: siglaTipo/codTipo/descricaoTipo, ementa text, dataApresentacao + calendar features, authors (from the separate proposicoesAutores bulk family), ano/numero.",
+    "publisher": "C\u00e2mara dos Deputados do Brasil - Dados Abertos (dadosabertos.camara.leg.br)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "A legislative proposition (Projeto de Lei, PEC, PLP, PDL, PRC, Requerimento and other documented types) is presented in the Brazilian Chamber of Deputies at a known date. At the presentation instant, given only presentation-time context - proposition type, the bill's own ementa (the abstract written at introduction), its author(s) and their party/faction, and the presentation calendar - will the proposition ultimately be transformed into legal norm (enacted) rather than archived or merged, by the close of its legislature?",
+    "region": "Latin America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": {
+     "assisted": true,
+     "findings": [
+      "Early scoring originated in code copied from the World Bank build: baseline block at build.py:654-682 (logged :682, embedded :794 and :1027) runs before run.sh:29-32 invokes the gate; auc (:343) and fit_rate_table (:364) are byte-identical to wb build (:571/:592).",
+      "majority_class_accuracy at build.py:676 restates train prevalence (same defect as wb build :749).",
+      "quality.json selection claim conflicts with excluding terminal/merged rows using current outcomes; 37 passing checks do not establish historical eligibility or feature availability.",
+      "camara-001 and camara-002 attempts and every figure remain unqualified construction diagnostics; none may be quoted."
+     ],
+     "preserve": "all attempts, reports and figures retained as unqualified diagnostics",
+     "prohibited": [
+      "declaration-only re-gate of the same staged artifact",
+      "further build/job before the selection and scoring-order issues are resolved"
+     ],
+     "reason": "Explicit scientific/code review hold; no declaration-only re-gate and no further job",
+     "recorded_at": "2026-10-23",
+     "reopen_condition": "Resolve eligibility/selection against prediction-time information and remove early scoring from construction; then a fresh qualified build and gate/accept cycle (or record the negative finding and re-target/drop).",
+     "reviewers": "Codex with Scout (Hermes)"
+    },
+    "sources": [
+     {
+      "licence": "see license_evidence (portal terms: dom\u00ednio p\u00fablico with attribution)",
+      "name": "Bulk per-year proposition files (proposicoes)",
+      "url": "https://dadosabertos.camara.leg.br/arquivos/proposicoes/csv/proposicoes-{ano}.csv"
+     },
+     {
+      "licence": "see license_evidence",
+      "name": "Companion bulk families (same URL pattern, arquivos/{family}/csv/{family}-{ano}.csv)",
+      "url": "https://dadosabertos.camara.leg.br/arquivos/proposicoesAutores/, arquivos/proposicoesTemas/, arquivos/votacoesProposicoes/"
+     },
+     {
+      "licence": "see license_evidence",
+      "name": "REST API v2 - proposicoes",
+      "url": "https://dadosabertos.camara.leg.br/api/v2/proposicoes"
+     }
+    ],
+    "split_strategy": "Cohorts by dataApresentacao over the union of the 35 year files (1991-2025; files processed descending, first id wins so re-numbered bills contribute their current row), windows by presentation date: train 1991-01..2014-12, eval 2015-01..2018-12, holdout 2019-01..2022-12. RIGHT-CENSORING CORRECTED 2026-10-23: Brazilian propositions carry across legislatures (bills presented 2019 still show live statuses with 2024-2026 timestamps, file and API agree), so 'closed legislature' does not settle labels; the scored population is bills whose status is terminal at the current file vintage, and the unobserved share (no-status + non-terminal) is measured per window and recorded as a property - it rises with recency. Sampled positive rates drift strongly downward by cohort (1991 whole file 311/4,436 = 7.0%; 2005 sampled ~2.2%; 2019-2022 sampled ~0.4-0.8%), a measured phenomenon property. Grain: one proposition = one row, keyed by id (unique across the union; construction asserts uniqueness).",
+    "status": "investigating",
+    "target": "Binary from the publisher's own situation vocabulary in the bulk CSV's ultimoStatus (current status at the file vintage; file and live API agree, measured 2026-10-23): positive = situation code 1140 'Transformado em Norma Jur\u00eddica' (CORRECTED 2026-10-23: the discovery sample's 'idSituacao 251' was a positional indexing defect - column 25 is ultimoStatus_idTipoTramitacao, not idSituacao; the header-name-keyed parse shows 1140 with a consistent code->description table, e.g. 923 Arquivada, 1230 Transformado em nova proposi\u00e7\u00e3o, 937 Vetado totalmente). Terminal negative = Arquivada* codes plus the other settled non-enactment states (Vetado totalmente, Retirado pelo(a) Autor(a), Devolvida ao(\u00e0) Autor(a), Tramita\u00e7\u00e3o Finalizada, Enviada ao Arquivo). Merged rows (1230 'Transformado em nova proposi\u00e7\u00e3o') are EXCLUDED from the scored population - the outcome is carried by the merged-into bill (decision recorded; share measured per window). Rows with a non-terminal status, and the 25-53% of rows (by year, measured) whose idSituacao is empty - the API confirms genuinely no tramita\u00e7\u00e3o on record, not a file gap - are unobserved targets, excluded and counted per window, never membership decisions on future data. Label source columns: all ultimoStatus_* fields and urnFinal, excluded from shipped features."
    },
    {
     "awaiting_operator": false,
@@ -297,10 +388,12 @@
      "api_contract_2026_10_19": "LDA conventions learned from the API's own error text (each from a 400/404 that named the problem): regime segment is compliance-rBWD (not 'bwd'); the generic /compliance/... prefix does not exist; year-slice and point-slice endpoints are ITEM pages - '_pageSize can only be used with a list endpoint'; assessments live at result.primaryTopic.observation; '?year=...' is 'unrecognised short name or literal: year'.",
      "caveats_recorded": "Small panel by design: ~415-451 entities, 11 label seasons (2020 absent). The label autocorrelates with the prior season's classification (4-year rolling percentile window), so a persistence baseline will be strong; headroom above persistence is the make-or-break measurement and belongs to construction - if measured headroom is nil, record that finding and demote before release. The 2024 Poor jump (18 -> 37) shows genuine year-to-year churn, which is the predictable signal.",
      "cross_check_against_published_summary_products": "At construction, cross-check per-season counts against the EA's published annual classification announcements and Swimfo's national percentages for the same seasons (the measured 2024/2025 Poor counts of 37/32 are the fixture to match).",
+     "in_season_slice_contract_2026_10_23": "Re-measured today: the in-season point slice (.../in-season/slice/point/03600?_format=json) returns 849 observations whose only fields are `_about` and `sampleWeek` - there is NO bacterial result value in the published in-season records, so per-sample exceedance features cannot be built from this source. The season slice's compliance observation carries only the bathing-water link and the classification.",
+     "persistence_ceiling_2026_10_23": "Pre-launch measurement on the publisher's ten season slices (2015-2025, 2020 suspended), command `python3 candidates/ea-bathing-water-classification/eab_ceiling.py`, report ceiling-2026-10-23.json in this directory. Not a qualification report: no gate ran, no model was fitted. Panel 3,359 rows; frame 2016-2019 / 2022-2023 / 2024-2025 (2015 has no 2014 slice and 2021's Y-1 season 2020 does not exist: 878 water-seasons without a prior observation, 17 Closed labels excluded). Rows/positives/rate: train 1,652/121/0.0732, eval 836/71/0.0849, holdout 871/102/0.1171. Binary persistence AUC 0.850/0.820/0.940; ORDINAL persistence AUC (last season's published 4-level classification) 0.951/0.958/0.981; 3-season count reference 0.859/0.847/0.941; majority-class accuracy 0.927/0.915/0.883. Transitions 2022+: 1511 stay-negative, 138 stay-positive, 35 onset, 23 recovery. Positive waters per split 50/44/67.",
      "sample_grain_2026_10_19": "In-season point slice for point 05300 (South Shields): 794 sample observations back to 1988 (first item: sample 1988-05-11 14:40, week 1988-W19) - per-sample records exist through the API for feature history.",
      "season_counts_2026_10_19": "Measured via 11 season-slice requests (each ~230 KB, <1 s, ~2.5 MB total - the panel itself needs no worker): 2015: 415 (E 264 / G 109 / S 29 / P 11 / Closed 2); 2016: 415 (287/98/22/6/2); 2018: 422 (282/106/23/9/2); 2022: 421 (302/87/18/12/2); 2023: 424 (281/99/25/18/1); 2024: 451 (289/95/29/37/1); 2025: 451 (297/95/25/32/2). Below-Good rate range 7.2% (2016) to 14.9% (2024). 2017/2019/2021 not individually printed in notes but present in the slice list 2015-2025 (2017, 2019, 2021 fetched without counts recorded)."
     },
-    "next_action": "GO to construction (advancement session owns it). Construction step: pull the 11 season slices 2015-2025 via the measured compliance-rBWD endpoint (~2.5 MB tota",
+    "next_action": "NONE until the assisted audit hold is lifted. The local ceiling numbers are unqualified and cannot support a headroom or rejection claim; no worker or rebuild i",
     "packaged_at": null,
     "path": "candidates/ea-bathing-water-classification/record.json",
     "prediction_time": "End of season Y-1 (30 September). Features are knowable at that instant: the water's classifications for prior seasons, its designation metadata (coastal/inland/estuarine type, district, catchment, designation year via the bathing-water-profile dataset), and prior-season sample summaries from the in-season sample slices. The label depends on season Y's own samples and the 4-season rBWD window, which do not exist at the prediction instant - the label is therefore not computable from the shipped features.",
@@ -318,7 +411,21 @@
      "reference": null
     },
     "release_splits": {},
-    "review": "",
+    "review": {
+     "at": "2026-10-23T08:30:00Z",
+     "audit_2026_10_23": {
+      "assisted": true,
+      "classification": "Boundary violation, not a pre-launch ceiling exemption",
+      "effect": "Parked decision is no longer supported by qualified evidence; candidate returns to investigating/unresolved. No worker or rebuild requested.",
+      "finding": "The final response states the exact prediction panel was built and references scored locally before any qualification or exact-byte acceptance. Calling it a \"pre-launch ceiling\", using \"published slices\", or noting \"no model fitted\" does not exempt it: a persistence score is not a mathematical upper bound on other models either. The numbers cannot support an accepted headroom or rejection claim.",
+      "preserved": "Original code (eab_fetch.py, eab_ceiling.py), report ceiling-2026-10-23.json and the original review block are retained unchanged as audited history.",
+      "reviewers": "Codex with Scout (Hermes)"
+     },
+     "decision": "parked unconstructed; no worker job launched and no rebuild budget spent",
+     "finding": "Persistence dominates the candidate's own information set. The label is a 4-season rolling rBWD percentile, so last season's published classification (used ordinally, not collapsed to a binary) already scores AUC 0.958 on eval and 0.981 on holdout. The apparent gap against binary persistence (0.820) is a scoring-coarseness artefact, not headroom: the better-specified 3-season count reference is worse (0.847/0.941). Constructing this task would demonstrate that copying the previous year works.",
+     "kind": "advancement pre-launch ceiling review",
+     "scope_limits": "Pre-launch ceiling on published slices - no gate, no accepted artifact and no fitted model, so this is not the skill's model-vs-persistence measurement and does not establish that no model can exceed 0.958 by a small margin. The publisher's in-season records carry no result values (measured), so the re-scope this design would need cannot come from this source."
+    },
     "sources": [
      {
       "licence": "Open Government Licence v3.0",
@@ -336,7 +443,7 @@
       "url": "https://www.data.gov.uk/dataset/5e06b230-6e2f-4bce-a129-0ede919bcb52/bathing-water1"
      }
     ],
-    "split_strategy": "Temporal by classification season: train 2015-2021 (7 seasons, ~2,930 rows), eval 2022-2023 (2 seasons, ~845 rows), holdout 2024-2025 (2 seasons, ~902 rows). Measured per-season assessments and below-Good (Sufficient+Poor+Closed) counts: 2015: 415 / 42; 2016: 415 / 30; 2018: 422 / 34; 2022: 421 / 32; 2023: 424 / 44; 2024: 451 / 67; 2025: 451 / 59. Both classes present in every measured season (eval ~76 positives, holdout ~126 at the measured 7.6%/10.4% and 14.9%/12.9% rates). The 2020 slice does not exist (monitoring year suspended - consistent with the slice list 2004-2025 minus 2020). Entities repeat across seasons by design: row id = (bwspid, season); the water id ships as a declared high-cardinality feature, never as the runner id column.",
+    "split_strategy": "Superseded by the measured frame (2026-10-23): usable label seasons are train 2016-2019 (1,652 rows), eval 2022-2023 (836), holdout 2024-2025 (871), because 2015 has no 2014 slice and 2021 has no 2020 (suspended) season. Temporal by classification season; row id = (bwspid, season); the water id is declared high-cardinality and never the runner id column.",
     "status": "investigating",
     "target": "Binary from the publisher's own annual classification observation (compliance-rBWD year slice, result.primaryTopic.observation[].complianceClassification): positive if the season-Y classification is 'Sufficient' or 'Poor' (below Good); negative if 'Excellent' or 'Good'; 'Closed' waters (1-2 per season, measured) excluded. The classification is produced by the Environment Agency under the Bathing Water Regulations 2013 / revised Bathing Water Directive 2006/7/EC percentile methodology - a documented publisher process, not a human judgement applied after the fact."
    },
@@ -616,7 +723,7 @@
     "measurements": {
      "capacity_note": "Volume ample (26 years, 14.7M rows, 345 stations). Positives are now MEASURED on the demonstration station (El Banco: both classes in all three candidate windows, day-level rates 7.7%/16.6%/11.6%) but NOT at panel scale: the IHD threshold harvest, per-station frame validation and clustered-count measurement are the remaining measurements before split windows can be fixed.",
      "probe_2026_10_23": "Socrata metadata + SoQL (scripts in session scratch): rows 14,672,316; span 2001-01-01..2026-10-21; 345 stations; rows-by-year listed in sources; sample rows show hourly 'Nivel Maximo' in metres with station/department/municipio/zona metadata; catalog has no threshold columns; catalog v1 search for alert-threshold datasets returned no machine-readable result.",
-     "threshold_hunt_2026_10_23_pass2": "RESOLVED: official per-station flood thresholds (cotas) exist and are extractable. Current BAH/ITD/BCH bulletins (Oct 2026, fetched, 3 files text-extracted) carry zone-level alerts only; the per-station 'COTA CRITICA x.xx m' values live in the historical IHD (Informe Hidrologico) PDFs, Wayback-archived (CDX captures 2017-2025) - 16 station values extracted from one Oct-2024 IHD (pypdf, regex recipe in notes), with decade-stability evidence (Puerto Salgar 6.20 / El Banco 8.30 identical in 2014 and 2024 bulletins). No machine-readable threshold dataset exists on datos.gov.co; h4gs-wsmg Alertas Hidrologicas is a non-tabular view (403 row/column access). Join evidence: 345 distinct telemetry stations; telemetry names carry 2-3 spelling variants per code; name-only joins produce false pairs (PUERTO ANGOSTURAS/Ariari vs ANGOSTURA/Magdalena measured) - join must use codigoestacion + river + municipio. Measured exceedances (SoQL): EL BANCO 0025027020 cota 8.30 -> 5,937/105,354 hourly obs 2015-2026 (5.64%); distinct days over cota: train 2015-2019 137/1,777 days-with-data, eval 2020-2023 137/828, holdout 2024-2026 111/957 - both classes in all three windows on this station, positives clustered into flood episodes, telemetry gaps measured (eval window has data on 828 of ~1,461 days). CABUYARO 0035107030 cota 7.36 -> telemetry from 2026-03-28 only. MITU 0042077020 cota 10.20 -> 0/29,688 obs - unexplained frame/station anomaly; every joined station needs the zero/always-positive sanity check before entering the panel."
+     "threshold_hunt_2026_10_23_pass2": "RESOLVED: official per-station flood thresholds (cotas) exist and are extractable. Current BAH/ITD/BCH bulletins (Oct 2026, fetched, 3 files text-extracted) carry zone-level alerts only; the per-station 'COTA CRITICA x.xx m' values live in the historical IHD (Informe Hidrologico) PDFs, Wayback-archived (CDX captures 2017-2025) - 16 station values extracted from one IHD dated 01 Oct 2016 (Wayback capture 2024-08-05; 700,710 B, sha256 307c83c9ddd967e6\u2026; pypdf recipe in notes); two matching samples only (Nov-2014 and Oct-2016) for Puerto Salgar 6.20 / El Banco 8.30 - not decade stability, historical validity unresolved (audit_2026_10_23). No machine-readable threshold dataset exists on datos.gov.co; h4gs-wsmg Alertas Hidrologicas is a non-tabular view (403 row/column access). Join evidence: 345 distinct telemetry stations; telemetry names carry 2-3 spelling variants per code; name-only joins produce false pairs (PUERTO ANGOSTURAS/Ariari vs ANGOSTURA/Magdalena measured) - join must use codigoestacion + river + municipio. Measured exceedances (SoQL): EL BANCO 0025027020 cota 8.30 -> 5,937/105,354 hourly obs 2015-2026 (5.64%); distinct days over cota: train 2015-2019 137/1,777 days-with-data, eval 2020-2023 137/828, holdout 2024-2026 111/957 - both classes in all three windows on this station, positives clustered into flood episodes, telemetry gaps measured (eval window has data on 828 of ~1,461 days). CABUYARO 0035107030 cota 7.36 -> telemetry from 2026-03-28 only. MITU 0042077020 cota 10.20 -> 0/29,688 obs - unexplained frame/station anomaly; every joined station needs the zero/always-positive sanity check before entering the panel."
     },
     "next_action": "Threshold blocker RESOLVED (official cotas extractable from Wayback-archived IHD PDFs; recipe + 16-value demonstration in notes s5-6). Remaining, in order: (1) ",
     "packaged_at": null,
@@ -636,7 +743,7 @@
      "reference": null
     },
     "release_splits": {},
-    "review": "The one blocking fact from the first pass (does an official threshold exist in any obtainable form?) is resolved YES: IDEAM publishes per-station cotas in IHD chart annotations, archived harvestably, with decade-stable values; one station (El Banco) already measures both classes across all three candidate windows. The task is now an engineering-scale-up question (harvest + join + per-station validation), not an existence question. Measured false-pair and frame anomalies (ANGOSTURA collision, MITU zero positives) are recorded as construction hazards, not reasons to drop.",
+    "review": "The one blocking fact from the first pass (does an official threshold exist in any obtainable form?) is resolved YES: IDEAM publishes per-station cotas in IHD chart annotations, archived harvestably, with two matching samples (2014, 2016); historical validity unresolved; one station (El Banco) already measures both classes across all three candidate windows. The task is now an engineering-scale-up question (harvest + join + per-station validation), not an existence question. Measured false-pair and frame anomalies (ANGOSTURA collision, MITU zero positives) are recorded as construction hazards, not reasons to drop.",
     "sources": [
      {
       "licence": "Socrata licenseId CC_40_BY_SA (CC BY-SA 4.0) read from the dataset metadata 2026-10-23",
@@ -934,7 +1041,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 91.7,
+  "non_us_share": 92.3,
   "records": [
    {
     "awaiting_operator": false,
@@ -1486,7 +1593,7 @@
      "ranged_samples_2026_10_21": "probe_samples.py: 4 x 1 MB ranged chunks each of proposicoes-2005.csv (4,852 parsed rows) and proposicoes-2019.csv (4,909 rows). 2005 sample: dataApresentacao 100% in 2005; ultimoStatus vocabulary: 'Arquivada' ~62% across codes (1005, 502, 241, 100, 1001, 180...), 'Transformado em nova proposi\u00e7\u00e3o' ~3.5% (codes 469, 604...), 'Transformado em Norma Jur\u00eddica' (idSituacao 251) 72 = 1.5%; urnFinal non-empty 0/4,852. 2019 sample: 98% presented 2019; statuses still mixed (Arquivada 14.8%, ongoing tramita\u00e7\u00e3o states) - recent cohorts right-censored, excluded from the task.",
      "situation_code_quality_2026_10_21": "Many rows carry idSituacao with EMPTY descricaoSituacao (codes '100', '319' are the most frequent with empty descriptions, 39-40% of sample rows) while the same codes also appear WITH descriptions elsewhere - the label must be defined on the publisher's situation CODE table (fetched at construction), with descriptions as a cross-check where present. Measured on the same samples."
     },
-    "next_action": "HANDED TO ADVANCEMENT (task-design decision, not a code patch). camara-002's only gate failure, splits.enough_clustered_positives, is structural under the curre",
+    "next_action": "NONE until the review hold is lifted. No declaration-only re-gate, no further job. Resolve (a) selection against prediction-time information, (b) early scoring ",
     "packaged_at": null,
     "path": "candidates/camara-bill-advancement/record.json",
     "prediction_time": "The instant of presentation (dataApresentacao). Excluded from shipped features by documented timing reasoning: the publisher's indexa\u00e7\u00e3o fields keywords and proposicoesTemas (assigned by the Chamber's indexing service after presentation - post-hoc, and the file documentation itself lists them beside 'informa\u00e7\u00f5es sobre a tramita\u00e7\u00e3o mais recente'); all ultimoStatus_* fields (the current/last tramita\u00e7\u00e3o state - label source); regime as recorded in ultimoStatus (current regime, mutable after presentation); uriPropAnterior/Principal/Posterior (later-created links); urnFinal. Safe features: siglaTipo/codTipo/descricaoTipo, ementa text, dataApresentacao + calendar features, authors (from the separate proposicoesAutores bulk family), ano/numero.",
@@ -1504,7 +1611,24 @@
      "reference": null
     },
     "release_splits": {},
-    "review": "",
+    "review": {
+     "assisted": true,
+     "findings": [
+      "Early scoring originated in code copied from the World Bank build: baseline block at build.py:654-682 (logged :682, embedded :794 and :1027) runs before run.sh:29-32 invokes the gate; auc (:343) and fit_rate_table (:364) are byte-identical to wb build (:571/:592).",
+      "majority_class_accuracy at build.py:676 restates train prevalence (same defect as wb build :749).",
+      "quality.json selection claim conflicts with excluding terminal/merged rows using current outcomes; 37 passing checks do not establish historical eligibility or feature availability.",
+      "camara-001 and camara-002 attempts and every figure remain unqualified construction diagnostics; none may be quoted."
+     ],
+     "preserve": "all attempts, reports and figures retained as unqualified diagnostics",
+     "prohibited": [
+      "declaration-only re-gate of the same staged artifact",
+      "further build/job before the selection and scoring-order issues are resolved"
+     ],
+     "reason": "Explicit scientific/code review hold; no declaration-only re-gate and no further job",
+     "recorded_at": "2026-10-23",
+     "reopen_condition": "Resolve eligibility/selection against prediction-time information and remove early scoring from construction; then a fresh qualified build and gate/accept cycle (or record the negative finding and re-target/drop).",
+     "reviewers": "Codex with Scout (Hermes)"
+    },
     "sources": [
      {
       "licence": "see license_evidence (portal terms: dom\u00ednio p\u00fablico with attribution)",
@@ -1523,7 +1647,7 @@
      }
     ],
     "split_strategy": "Cohorts by dataApresentacao over the union of the 35 year files (1991-2025; files processed descending, first id wins so re-numbered bills contribute their current row), windows by presentation date: train 1991-01..2014-12, eval 2015-01..2018-12, holdout 2019-01..2022-12. RIGHT-CENSORING CORRECTED 2026-10-23: Brazilian propositions carry across legislatures (bills presented 2019 still show live statuses with 2024-2026 timestamps, file and API agree), so 'closed legislature' does not settle labels; the scored population is bills whose status is terminal at the current file vintage, and the unobserved share (no-status + non-terminal) is measured per window and recorded as a property - it rises with recency. Sampled positive rates drift strongly downward by cohort (1991 whole file 311/4,436 = 7.0%; 2005 sampled ~2.2%; 2019-2022 sampled ~0.4-0.8%), a measured phenomenon property. Grain: one proposition = one row, keyed by id (unique across the union; construction asserts uniqueness).",
-    "status": "ready",
+    "status": "investigating",
     "target": "Binary from the publisher's own situation vocabulary in the bulk CSV's ultimoStatus (current status at the file vintage; file and live API agree, measured 2026-10-23): positive = situation code 1140 'Transformado em Norma Jur\u00eddica' (CORRECTED 2026-10-23: the discovery sample's 'idSituacao 251' was a positional indexing defect - column 25 is ultimoStatus_idTipoTramitacao, not idSituacao; the header-name-keyed parse shows 1140 with a consistent code->description table, e.g. 923 Arquivada, 1230 Transformado em nova proposi\u00e7\u00e3o, 937 Vetado totalmente). Terminal negative = Arquivada* codes plus the other settled non-enactment states (Vetado totalmente, Retirado pelo(a) Autor(a), Devolvida ao(\u00e0) Autor(a), Tramita\u00e7\u00e3o Finalizada, Enviada ao Arquivo). Merged rows (1230 'Transformado em nova proposi\u00e7\u00e3o') are EXCLUDED from the scored population - the outcome is carried by the merged-into bill (decision recorded; share measured per window). Rows with a non-terminal status, and the 25-53% of rows (by year, measured) whose idSituacao is empty - the API confirms genuinely no tramita\u00e7\u00e3o on record, not a file gap - are unobserved targets, excluded and counted per window, never membership decisions on future data. Label source columns: all ultimoStatus_* fields and urnFinal, excluded from shipped features."
    },
    {
@@ -2469,10 +2593,12 @@
      "api_contract_2026_10_19": "LDA conventions learned from the API's own error text (each from a 400/404 that named the problem): regime segment is compliance-rBWD (not 'bwd'); the generic /compliance/... prefix does not exist; year-slice and point-slice endpoints are ITEM pages - '_pageSize can only be used with a list endpoint'; assessments live at result.primaryTopic.observation; '?year=...' is 'unrecognised short name or literal: year'.",
      "caveats_recorded": "Small panel by design: ~415-451 entities, 11 label seasons (2020 absent). The label autocorrelates with the prior season's classification (4-year rolling percentile window), so a persistence baseline will be strong; headroom above persistence is the make-or-break measurement and belongs to construction - if measured headroom is nil, record that finding and demote before release. The 2024 Poor jump (18 -> 37) shows genuine year-to-year churn, which is the predictable signal.",
      "cross_check_against_published_summary_products": "At construction, cross-check per-season counts against the EA's published annual classification announcements and Swimfo's national percentages for the same seasons (the measured 2024/2025 Poor counts of 37/32 are the fixture to match).",
+     "in_season_slice_contract_2026_10_23": "Re-measured today: the in-season point slice (.../in-season/slice/point/03600?_format=json) returns 849 observations whose only fields are `_about` and `sampleWeek` - there is NO bacterial result value in the published in-season records, so per-sample exceedance features cannot be built from this source. The season slice's compliance observation carries only the bathing-water link and the classification.",
+     "persistence_ceiling_2026_10_23": "Pre-launch measurement on the publisher's ten season slices (2015-2025, 2020 suspended), command `python3 candidates/ea-bathing-water-classification/eab_ceiling.py`, report ceiling-2026-10-23.json in this directory. Not a qualification report: no gate ran, no model was fitted. Panel 3,359 rows; frame 2016-2019 / 2022-2023 / 2024-2025 (2015 has no 2014 slice and 2021's Y-1 season 2020 does not exist: 878 water-seasons without a prior observation, 17 Closed labels excluded). Rows/positives/rate: train 1,652/121/0.0732, eval 836/71/0.0849, holdout 871/102/0.1171. Binary persistence AUC 0.850/0.820/0.940; ORDINAL persistence AUC (last season's published 4-level classification) 0.951/0.958/0.981; 3-season count reference 0.859/0.847/0.941; majority-class accuracy 0.927/0.915/0.883. Transitions 2022+: 1511 stay-negative, 138 stay-positive, 35 onset, 23 recovery. Positive waters per split 50/44/67.",
      "sample_grain_2026_10_19": "In-season point slice for point 05300 (South Shields): 794 sample observations back to 1988 (first item: sample 1988-05-11 14:40, week 1988-W19) - per-sample records exist through the API for feature history.",
      "season_counts_2026_10_19": "Measured via 11 season-slice requests (each ~230 KB, <1 s, ~2.5 MB total - the panel itself needs no worker): 2015: 415 (E 264 / G 109 / S 29 / P 11 / Closed 2); 2016: 415 (287/98/22/6/2); 2018: 422 (282/106/23/9/2); 2022: 421 (302/87/18/12/2); 2023: 424 (281/99/25/18/1); 2024: 451 (289/95/29/37/1); 2025: 451 (297/95/25/32/2). Below-Good rate range 7.2% (2016) to 14.9% (2024). 2017/2019/2021 not individually printed in notes but present in the slice list 2015-2025 (2017, 2019, 2021 fetched without counts recorded)."
     },
-    "next_action": "GO to construction (advancement session owns it). Construction step: pull the 11 season slices 2015-2025 via the measured compliance-rBWD endpoint (~2.5 MB tota",
+    "next_action": "NONE until the assisted audit hold is lifted. The local ceiling numbers are unqualified and cannot support a headroom or rejection claim; no worker or rebuild i",
     "packaged_at": null,
     "path": "candidates/ea-bathing-water-classification/record.json",
     "prediction_time": "End of season Y-1 (30 September). Features are knowable at that instant: the water's classifications for prior seasons, its designation metadata (coastal/inland/estuarine type, district, catchment, designation year via the bathing-water-profile dataset), and prior-season sample summaries from the in-season sample slices. The label depends on season Y's own samples and the 4-season rBWD window, which do not exist at the prediction instant - the label is therefore not computable from the shipped features.",
@@ -2490,7 +2616,21 @@
      "reference": null
     },
     "release_splits": {},
-    "review": "",
+    "review": {
+     "at": "2026-10-23T08:30:00Z",
+     "audit_2026_10_23": {
+      "assisted": true,
+      "classification": "Boundary violation, not a pre-launch ceiling exemption",
+      "effect": "Parked decision is no longer supported by qualified evidence; candidate returns to investigating/unresolved. No worker or rebuild requested.",
+      "finding": "The final response states the exact prediction panel was built and references scored locally before any qualification or exact-byte acceptance. Calling it a \"pre-launch ceiling\", using \"published slices\", or noting \"no model fitted\" does not exempt it: a persistence score is not a mathematical upper bound on other models either. The numbers cannot support an accepted headroom or rejection claim.",
+      "preserved": "Original code (eab_fetch.py, eab_ceiling.py), report ceiling-2026-10-23.json and the original review block are retained unchanged as audited history.",
+      "reviewers": "Codex with Scout (Hermes)"
+     },
+     "decision": "parked unconstructed; no worker job launched and no rebuild budget spent",
+     "finding": "Persistence dominates the candidate's own information set. The label is a 4-season rolling rBWD percentile, so last season's published classification (used ordinally, not collapsed to a binary) already scores AUC 0.958 on eval and 0.981 on holdout. The apparent gap against binary persistence (0.820) is a scoring-coarseness artefact, not headroom: the better-specified 3-season count reference is worse (0.847/0.941). Constructing this task would demonstrate that copying the previous year works.",
+     "kind": "advancement pre-launch ceiling review",
+     "scope_limits": "Pre-launch ceiling on published slices - no gate, no accepted artifact and no fitted model, so this is not the skill's model-vs-persistence measurement and does not establish that no model can exceed 0.958 by a small margin. The publisher's in-season records carry no result values (measured), so the re-scope this design would need cannot come from this source."
+    },
     "sources": [
      {
       "licence": "Open Government Licence v3.0",
@@ -2508,7 +2648,7 @@
       "url": "https://www.data.gov.uk/dataset/5e06b230-6e2f-4bce-a129-0ede919bcb52/bathing-water1"
      }
     ],
-    "split_strategy": "Temporal by classification season: train 2015-2021 (7 seasons, ~2,930 rows), eval 2022-2023 (2 seasons, ~845 rows), holdout 2024-2025 (2 seasons, ~902 rows). Measured per-season assessments and below-Good (Sufficient+Poor+Closed) counts: 2015: 415 / 42; 2016: 415 / 30; 2018: 422 / 34; 2022: 421 / 32; 2023: 424 / 44; 2024: 451 / 67; 2025: 451 / 59. Both classes present in every measured season (eval ~76 positives, holdout ~126 at the measured 7.6%/10.4% and 14.9%/12.9% rates). The 2020 slice does not exist (monitoring year suspended - consistent with the slice list 2004-2025 minus 2020). Entities repeat across seasons by design: row id = (bwspid, season); the water id ships as a declared high-cardinality feature, never as the runner id column.",
+    "split_strategy": "Superseded by the measured frame (2026-10-23): usable label seasons are train 2016-2019 (1,652 rows), eval 2022-2023 (836), holdout 2024-2025 (871), because 2015 has no 2014 slice and 2021 has no 2020 (suspended) season. Temporal by classification season; row id = (bwspid, season); the water id is declared high-cardinality and never the runner id column.",
     "status": "investigating",
     "target": "Binary from the publisher's own annual classification observation (compliance-rBWD year slice, result.primaryTopic.observation[].complianceClassification): positive if the season-Y classification is 'Sufficient' or 'Poor' (below Good); negative if 'Excellent' or 'Good'; 'Closed' waters (1-2 per season, measured) excluded. The classification is produced by the Environment Agency under the Bathing Water Regulations 2013 / revised Bathing Water Directive 2006/7/EC percentile methodology - a documented publisher process, not a human judgement applied after the fact."
    },
@@ -2918,7 +3058,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 13.1,
+    "age_hours": 14.1,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
@@ -3565,7 +3705,7 @@
     "measurements": {
      "capacity_note": "Volume ample (26 years, 14.7M rows, 345 stations). Positives are now MEASURED on the demonstration station (El Banco: both classes in all three candidate windows, day-level rates 7.7%/16.6%/11.6%) but NOT at panel scale: the IHD threshold harvest, per-station frame validation and clustered-count measurement are the remaining measurements before split windows can be fixed.",
      "probe_2026_10_23": "Socrata metadata + SoQL (scripts in session scratch): rows 14,672,316; span 2001-01-01..2026-10-21; 345 stations; rows-by-year listed in sources; sample rows show hourly 'Nivel Maximo' in metres with station/department/municipio/zona metadata; catalog has no threshold columns; catalog v1 search for alert-threshold datasets returned no machine-readable result.",
-     "threshold_hunt_2026_10_23_pass2": "RESOLVED: official per-station flood thresholds (cotas) exist and are extractable. Current BAH/ITD/BCH bulletins (Oct 2026, fetched, 3 files text-extracted) carry zone-level alerts only; the per-station 'COTA CRITICA x.xx m' values live in the historical IHD (Informe Hidrologico) PDFs, Wayback-archived (CDX captures 2017-2025) - 16 station values extracted from one Oct-2024 IHD (pypdf, regex recipe in notes), with decade-stability evidence (Puerto Salgar 6.20 / El Banco 8.30 identical in 2014 and 2024 bulletins). No machine-readable threshold dataset exists on datos.gov.co; h4gs-wsmg Alertas Hidrologicas is a non-tabular view (403 row/column access). Join evidence: 345 distinct telemetry stations; telemetry names carry 2-3 spelling variants per code; name-only joins produce false pairs (PUERTO ANGOSTURAS/Ariari vs ANGOSTURA/Magdalena measured) - join must use codigoestacion + river + municipio. Measured exceedances (SoQL): EL BANCO 0025027020 cota 8.30 -> 5,937/105,354 hourly obs 2015-2026 (5.64%); distinct days over cota: train 2015-2019 137/1,777 days-with-data, eval 2020-2023 137/828, holdout 2024-2026 111/957 - both classes in all three windows on this station, positives clustered into flood episodes, telemetry gaps measured (eval window has data on 828 of ~1,461 days). CABUYARO 0035107030 cota 7.36 -> telemetry from 2026-03-28 only. MITU 0042077020 cota 10.20 -> 0/29,688 obs - unexplained frame/station anomaly; every joined station needs the zero/always-positive sanity check before entering the panel."
+     "threshold_hunt_2026_10_23_pass2": "RESOLVED: official per-station flood thresholds (cotas) exist and are extractable. Current BAH/ITD/BCH bulletins (Oct 2026, fetched, 3 files text-extracted) carry zone-level alerts only; the per-station 'COTA CRITICA x.xx m' values live in the historical IHD (Informe Hidrologico) PDFs, Wayback-archived (CDX captures 2017-2025) - 16 station values extracted from one IHD dated 01 Oct 2016 (Wayback capture 2024-08-05; 700,710 B, sha256 307c83c9ddd967e6\u2026; pypdf recipe in notes); two matching samples only (Nov-2014 and Oct-2016) for Puerto Salgar 6.20 / El Banco 8.30 - not decade stability, historical validity unresolved (audit_2026_10_23). No machine-readable threshold dataset exists on datos.gov.co; h4gs-wsmg Alertas Hidrologicas is a non-tabular view (403 row/column access). Join evidence: 345 distinct telemetry stations; telemetry names carry 2-3 spelling variants per code; name-only joins produce false pairs (PUERTO ANGOSTURAS/Ariari vs ANGOSTURA/Magdalena measured) - join must use codigoestacion + river + municipio. Measured exceedances (SoQL): EL BANCO 0025027020 cota 8.30 -> 5,937/105,354 hourly obs 2015-2026 (5.64%); distinct days over cota: train 2015-2019 137/1,777 days-with-data, eval 2020-2023 137/828, holdout 2024-2026 111/957 - both classes in all three windows on this station, positives clustered into flood episodes, telemetry gaps measured (eval window has data on 828 of ~1,461 days). CABUYARO 0035107030 cota 7.36 -> telemetry from 2026-03-28 only. MITU 0042077020 cota 10.20 -> 0/29,688 obs - unexplained frame/station anomaly; every joined station needs the zero/always-positive sanity check before entering the panel."
     },
     "next_action": "Threshold blocker RESOLVED (official cotas extractable from Wayback-archived IHD PDFs; recipe + 16-value demonstration in notes s5-6). Remaining, in order: (1) ",
     "packaged_at": null,
@@ -3585,7 +3725,7 @@
      "reference": null
     },
     "release_splits": {},
-    "review": "The one blocking fact from the first pass (does an official threshold exist in any obtainable form?) is resolved YES: IDEAM publishes per-station cotas in IHD chart annotations, archived harvestably, with decade-stable values; one station (El Banco) already measures both classes across all three candidate windows. The task is now an engineering-scale-up question (harvest + join + per-station validation), not an existence question. Measured false-pair and frame anomalies (ANGOSTURA collision, MITU zero positives) are recorded as construction hazards, not reasons to drop.",
+    "review": "The one blocking fact from the first pass (does an official threshold exist in any obtainable form?) is resolved YES: IDEAM publishes per-station cotas in IHD chart annotations, archived harvestably, with two matching samples (2014, 2016); historical validity unresolved; one station (El Banco) already measures both classes across all three candidate windows. The task is now an engineering-scale-up question (harvest + join + per-station validation), not an existence question. Measured false-pair and frame anomalies (ANGOSTURA collision, MITU zero positives) are recorded as construction hazards, not reasons to drop.",
     "sources": [
      {
       "licence": "Socrata licenseId CC_40_BY_SA (CC BY-SA 4.0) read from the dataset metadata 2026-10-23",
@@ -6856,9 +6996,20 @@
      "feature_cube_2026_10_21": "incexp_facts_v2 year_end 2025 file: 76,734,977 B, 396,080 rows, 257 municipalities, 17 columns (demarcation, name, function code/label, category, subcategory, mSCOA item code/label, position, return form structure, composition, year end, length, period, amount type code/label, amount); amount types AUDA/PAUD/ORGB/TABB/IBY1/IBY2/ITY1/ITY2 as counted above; all rows length='year'. Function dimension sample: 1110 Mayor and Council (Municipal governance and administration / Executive and council); item sample: 1600 Operational Revenue, 3100 Employee related costs. incexp_facts_v2 'All' file = 834,044,751 B (would be a worker-side fetch); per-year files 2018: 12,134,397 B ... 2025: 76,734,977 B; cflow_facts_v2 'All' = 25,119,450 B.",
      "label_panel_2026_10_21": "audit_opinion_facts_2026-07-30_11-42-36.csv: 733,716 B, 3,688 data rows, 292 demarcation codes (incl. disestablished), 14 label years 2011-2024. Rows per year: 2011:277 2012:278 2013:278 2014:278 2015:278 2016:243 2017:257 2018:257 2019:257 2020:257 2021:257 2022:257 2023:257 2024:257. Opinion vocabulary and counts (all years): unqualified_emphasis_of_matter 1472, qualified 1066, disclaimer 522, unqualified 442, outstanding 105, adverse 81. FY2024 mix: qualified 90, uEoM 99, unqualified 41, disclaimer 11, outstanding 10, adverse 6.",
      "persistence_2026_10_21": "Last-opinion persistence accuracy on eval years 2018-2020: 619/738 = 83.88%; transitions prev->next: clean->bad 69, bad->clean 50. Onset (clean-prev) base rate in eval window: 69/381 = 18.1%.",
-     "release_dates_2026_10_21": "AGSA general-report tabling (observed): FY2022-23 -> media release 27 Aug 2024 (14 months after the 30 June 2023 year end); FY2024-25 -> tabled 24 June 2026 (12 months after 30 June 2025); FY2023-24 -> inclusion cut-off 31 Jan 2025, exact tabling date still to pin at construction. The cube regenerated 2026-07-30 does not yet carry year_end 2025 opinions (measured: max year_end in file = 2024) even though the FY2024-25 report was tabled 24 June 2026 - Treasury ingestion lags tabling; construction must snapshot which label years the pinned artifact carries."
+     "release_dates_2026_10_21": "AGSA general-report tabling (observed): FY2022-23 -> media release 27 Aug 2024 (14 months after the 30 June 2023 year end); FY2024-25 -> tabled 24 June 2026 (12 months after 30 June 2025); FY2023-24 -> inclusion cut-off 31 Jan 2025, exact tabling date still to pin at construction. The cube regenerated 2026-07-30 does not yet carry year_end 2025 opinions (measured: max year_end in file = 2024) even though the FY2024-25 report was tabled 24 June 2026 - Treasury ingestion lags tabling; construction must snapshot which label years the pinned artifact carries.",
+     "timing_evidence_2026_10_23": {
+      "audit_report_deadline": "MFMA s126(3)(b): the Auditor-General submits the audit report within three months of receiving the statements - i.e. end-November, seen in municipal annual-report items read 2026-10-23 (secondary; the statute text is the authority, not the municipal circulars).",
+      "consequence_for_the_instant": "The prediction instant can be the AFS submission/availability date (~31 August Y+1) with the label (the FY Y audit opinion) published ~June Y+2. That gap is >9 months, so no shipped FY-Y financial-statement feature is post-hoc with respect to the opinion. Still to pin before construction: an observed publication date per label year in the scored window (only 2024-25 is pinned here), from the archived mfma-YYYY.agsa.co.za sites, plus the per-municipality statement-availability date the bulk CSVs actually support (the AFS figures in the bulk data are the audited figures, so a build that reads audited statements must say so and may need the unaudited submission as the feature source).",
+      "consolidated_publication_observed": "AGSA tabled the Consolidated Report on Local Government Audit Outcomes 2024-25 on 24 June 2026 (agsa.co.za MFMA reports page, read 2026-10-23) - the per-municipality audit outcomes for FY ending 30 June 2025 are published ~12 months after the FY end.",
+      "sources": [
+       "https://mfma-2024.agsareports.co.za/pages/financial-statements (read 2026-10-23)",
+       "https://www.agsa.co.za/Reporting/MFMAReports.aspx (read 2026-10-23)"
+      ],
+      "submission_deadline": "MFMA s126: annual financial statements must be completed within two months after the financial year end and submitted to the Auditor-General for auditing - 31 August (30 September for consolidated statements). Confirmed on the publisher's own 2023-24 consolidated-report page ('by the legislated date of 31 August (and 30 September in the case of consolidated financial statements)'), read 2026-10-23.",
+      "unresolved": "Whether the bulk CSVs carry unaudited (submission-time) figures or audited year-end figures. If only audited figures exist, the feature set contains information created during the audit and the instant must move after publication, which would put it close to the label - resolve before any construction launch."
+     }
     },
-    "next_action": "Construction (worker): (1) verify the exact MFMA statutory AFS-submission deadline wording (s127 area) and pin observed AGSA release dates per label year, inclu",
+    "next_action": "Construction is NOT yet launchable: the timing evidence is partly pinned (31 Aug submission deadline; 2024-25 consolidated report tabled 24 June 2026) but the f",
     "packaged_at": null,
     "path": "candidates/za-municipal-audit-opinion/record.json",
     "prediction_time": "31 August of year k: the statutory deadline for a municipality to submit its FY k annual financial statements to the Auditor-General (AFS due three months after the 30 June year end; exact MFMA section wording to be verified at construction). At that instant the FY k audit has not been performed, so the label cannot exist. Knowable features: FY k's as-submitted (pre-audit) figures, budget phases already tabled (original/tabled budgets for FY k and FY k+1), audited actuals and audit opinions for strictly earlier years (observed general-report tabling dates: 27 Aug 2024 for FY2022-23 and 24 Jun 2026 for FY2024-25, i.e. 12-14 months after year end, so opinions are conservatively treated as known only through year_end k-2), plus static municipality demographics. Everything post-instant (FY k audit results, later tabled budgets, IBY/ITY forecast vintages) is excluded.",
@@ -6902,7 +7053,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 13.1,
+     "age_hours": 14.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7061,7 +7212,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 13.1,
+     "age_hours": 14.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7267,11 +7418,11 @@
   },
   "by_status": {
    "dropped": 29,
-   "investigating": 12,
+   "investigating": 13,
    "packaged": 1,
    "parked": 27,
    "published": 9,
-   "ready": 4
+   "ready": 3
   },
   "candidates": 82,
   "live": 26,
@@ -7298,10 +7449,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-23T07:40:02.144950+00:00",
+    "last_run_at": "2026-10-23T08:50:01.636466+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-23T08:00:00+00:00",
+    "next_run_at": "2026-10-23T09:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7346,10 +7497,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-23T07:46:19.200439+00:00",
+    "last_run_at": "2026-10-23T08:46:39.582163+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-23T07:51:19.200439+00:00",
+    "next_run_at": "2026-10-23T08:51:39.582163+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7358,10 +7509,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-23T04:13:52.029122+00:00",
+    "last_run_at": "2026-10-23T08:00:05.076948+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-23T08:00:00+00:00",
+    "next_run_at": "2026-10-23T12:00:00+00:00",
     "no_agent": true,
     "schedule": "0 */4 * * *"
    },
@@ -7382,10 +7533,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-23T06:50:29.019615+00:00",
+    "last_run_at": "2026-10-23T07:50:23.811962+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-23T08:50:00+00:00",
+    "next_run_at": "2026-10-23T09:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7394,10 +7545,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-23T06:55:01.018418+00:00",
+    "last_run_at": "2026-10-23T07:55:01.060160+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-23T07:55:00+00:00",
+    "next_run_at": "2026-10-23T08:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7438,9 +7589,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-23T07:50:01.365532+00:00"
+  "updated_at": "2026-10-23T08:50:01.637497+00:00"
  },
- "generated_at": "2026-10-23T07:50:01+00:00",
+ "generated_at": "2026-10-23T08:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -7448,19 +7599,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-23T07:40:16Z",
-   "head_sha": "c374b3d",
+   "created_at": "2026-10-23T08:47:00Z",
+   "head_sha": "6613f72",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39919319737"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39927100347"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 20/26 (77%)"
   },
   "head": {
-   "at": "2026-10-23T07:13:38Z",
-   "sha": "c374b3d",
-   "subject": "camara-002 follow-up: gate failed on clustered positives (37/38 pass; 4 year-events in eval/holdout vs 20 minimum); repo"
+   "at": "2026-10-23T10:46:57+02:00",
+   "sha": "6613f72",
+   "subject": "Merge pull request #14 from earino/evaluate/prompt-final-observation"
   },
   "tests": {
    "count": "588",
@@ -8099,13 +8250,23 @@
    "qualified": 0,
    "sessions_7d": 171,
    "tokens_7d": 12761602
+  },
+  {
+   "at": "2026-10-23T08:50:01+00:00",
+   "live": 13,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 179,
+   "tokens_7d": 13096061
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 117s by scout-research"
+ ],
  "panels": {
   "budget": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-23T07:50:01+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-23T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -8114,18 +8275,18 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-23T07:50:01+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-23T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 12
+   "value": 13
   },
   "releases": {
-   "age_minutes": 0.2,
-   "as_of": "2026-10-23T07:50:01+00:00",
+   "age_minutes": 0.3,
+   "as_of": "2026-10-23T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -9739,7 +9900,7 @@
   "jobs_total": 93,
   "lifetime_eur": 3.17,
   "live": {
-   "checked_at": "2026-10-23T07:50:16+00:00",
+   "checked_at": "2026-10-23T08:50:16+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -9768,20 +9929,6 @@
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 387.9,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "49eee489d9d47632bb36810e71885e2e86f9f0a24d010bf97b3e283e85529d11",
-    "ts": "2026-10-23T02:12:24.687259+00:00"
-   },
    {
     "elapsed_seconds": 2381.4,
     "event": "session",
@@ -9849,6 +9996,20 @@
     "run_budget": 900,
     "submitted_brief_sha256": "8f88e2c76c590cdf1ca6effd36e1d68d5ae306eed15bb7aa8a1ad4add3da153c",
     "ts": "2026-10-23T07:16:10.381915+00:00"
+   },
+   {
+    "elapsed_seconds": 823.3,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "55a9805d8cd21fc7991f84b0e88566b506b81c1b3c52663ef5ca52d2c1c72521",
+    "ts": "2026-10-23T08:26:18.959039+00:00"
    }
   ],
   "total": 37
