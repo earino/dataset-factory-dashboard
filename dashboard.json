@@ -16,16 +16,16 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-23T01:50:01.381257+00:00",
+   "moment": "2026-10-23T02:50:01.434729+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 2310s by scout-research"
+    "lock held for 2218s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 11394312,
-   "runs_last_7_days": 157,
-   "runs_weighted_last_7_days": 158,
+   "research_tokens_last_7_days": 11852007,
+   "runs_last_7_days": 167,
+   "runs_weighted_last_7_days": 168,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 1,
    "usage": {
@@ -40,25 +40,25 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 4420,
+     "calls": 4494,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 22007983,
-     "output_tokens": 2390185,
+     "input_tokens": 22059904,
+     "output_tokens": 2419285,
      "pricing_available": false
     },
     "research": {
-     "calls": 3859,
+     "calls": 3952,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 8959045,
-     "output_tokens": 3683983,
+     "input_tokens": 9274306,
+     "output_tokens": 3826417,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -81,6 +81,7 @@
  },
  "candidates": {
   "countries": {
+   "BR": 1,
    "CA": 2,
    "CO": 1,
    "DE": 1,
@@ -90,12 +91,12 @@
    "US": 1
   },
   "counts": {
-   "dropped": 27,
-   "investigating": 10,
+   "dropped": 28,
+   "investigating": 11,
    "packaged": 1,
    "parked": 25,
    "published": 9,
-   "ready": 5
+   "ready": 4
   },
   "errors": [],
   "live": [
@@ -567,10 +568,11 @@
      "status": null
     },
     "measurements": {
-     "capacity_note": "Volume is ample for station-hour exceedance pairs across 26 years, but positive counts are NOT measured until a threshold exists - no base-rate or split claim is made yet.",
-     "probe_2026_10_23": "Socrata metadata + SoQL (scripts in session scratch): rows 14,672,316; span 2001-01-01..2026-10-21; 345 stations; rows-by-year listed in sources; sample rows show hourly 'Nivel Maximo' in metres with station/department/municipio/zona metadata; catalog has no threshold columns; catalog v1 search for alert-threshold datasets returned no machine-readable result."
+     "capacity_note": "Volume ample (26 years, 14.7M rows, 345 stations). Positives are now MEASURED on the demonstration station (El Banco: both classes in all three candidate windows, day-level rates 7.7%/16.6%/11.6%) but NOT at panel scale: the IHD threshold harvest, per-station frame validation and clustered-count measurement are the remaining measurements before split windows can be fixed.",
+     "probe_2026_10_23": "Socrata metadata + SoQL (scripts in session scratch): rows 14,672,316; span 2001-01-01..2026-10-21; 345 stations; rows-by-year listed in sources; sample rows show hourly 'Nivel Maximo' in metres with station/department/municipio/zona metadata; catalog has no threshold columns; catalog v1 search for alert-threshold datasets returned no machine-readable result.",
+     "threshold_hunt_2026_10_23_pass2": "RESOLVED: official per-station flood thresholds (cotas) exist and are extractable. Current BAH/ITD/BCH bulletins (Oct 2026, fetched, 3 files text-extracted) carry zone-level alerts only; the per-station 'COTA CRITICA x.xx m' values live in the historical IHD (Informe Hidrologico) PDFs, Wayback-archived (CDX captures 2017-2025) - 16 station values extracted from one Oct-2024 IHD (pypdf, regex recipe in notes), with decade-stability evidence (Puerto Salgar 6.20 / El Banco 8.30 identical in 2014 and 2024 bulletins). No machine-readable threshold dataset exists on datos.gov.co; h4gs-wsmg Alertas Hidrologicas is a non-tabular view (403 row/column access). Join evidence: 345 distinct telemetry stations; telemetry names carry 2-3 spelling variants per code; name-only joins produce false pairs (PUERTO ANGOSTURAS/Ariari vs ANGOSTURA/Magdalena measured) - join must use codigoestacion + river + municipio. Measured exceedances (SoQL): EL BANCO 0025027020 cota 8.30 -> 5,937/105,354 hourly obs 2015-2026 (5.64%); distinct days over cota: train 2015-2019 137/1,777 days-with-data, eval 2020-2023 137/828, holdout 2024-2026 111/957 - both classes in all three windows on this station, positives clustered into flood episodes, telemetry gaps measured (eval window has data on 828 of ~1,461 days). CABUYARO 0035107030 cota 7.36 -> telemetry from 2026-03-28 only. MITU 0042077020 cota 10.20 -> 0/29,688 obs - unexplained frame/station anomaly; every joined station needs the zero/always-positive sanity check before entering the panel."
     },
-    "next_action": "Next probe (bounded, one session): (1) locate the official per-station alert/danger threshold: search datos.gov.co catalogue API for 'nivel de alerta'/'umbral' ",
+    "next_action": "Threshold blocker RESOLVED (official cotas extractable from Wayback-archived IHD PDFs; recipe + 16-value demonstration in notes s5-6). Remaining, in order: (1) ",
     "packaged_at": null,
     "path": "candidates/ideam-rio-nivel-exceedance/record.json",
     "prediction_time": "Telemetry is hourly and near-real-time on the live feed; the published dataset is one current table of raw unvalidated sensor values (publisher clause: 'los datos ... no han sido validados por el IDEAM'), and IDEAM documents a preliminary -> en revision -> definitivo lifecycle for its validated series (separate 'Niveles Horarios' dataset). UNRESOLVED: the as-of policy - current raw values may later be corrected, so features computed from today's table may differ from what the live feed showed at the time; construction must either use only the raw-feed table (accepting and measuring the revision effect) or obtain vintage information. This is the main open question besides the threshold.",
@@ -588,7 +590,7 @@
      "reference": null
     },
     "release_splits": {},
-    "review": "",
+    "review": "The one blocking fact from the first pass (does an official threshold exist in any obtainable form?) is resolved YES: IDEAM publishes per-station cotas in IHD chart annotations, archived harvestably, with decade-stable values; one station (El Banco) already measures both classes across all three candidate windows. The task is now an engineering-scale-up question (harvest + join + per-station validation), not an existence question. Measured false-pair and frame anomalies (ANGOSTURA collision, MITU zero positives) are recorded as construction hazards, not reasons to drop.",
     "sources": [
      {
       "licence": "Socrata licenseId CC_40_BY_SA (CC BY-SA 4.0) read from the dataset metadata 2026-10-23",
@@ -609,6 +611,88 @@
     "split_strategy": "",
     "status": "investigating",
     "target": "PROPOSED (blocked on threshold source): binary - station-hour (or station-day) level exceedance of the official alert threshold within (H, H+48]. Label source: valorobservado hourly maxima (cm/m) per station; the threshold would come from an official IDEAM table (NOT FOUND in the bounded probe: the station catalog cqmv-a99d has no threshold columns, and a catalog search for alert-level datasets returned nothing machine-readable). Fallback (weaker): per-station seasonal high-quantile exceedance - requires a known-event fixture (e.g. a documented 2021-2025 flood on a specific river) before that route may be probed further."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "BR",
+    "domain": "wildfire operations - municipal fire-alert onset prediction (Brazil, all biomes; INPE reference-satellite active-fire detections)",
+    "id": "inpe-foco-municipal-onset",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "asof_limitation": "No historical vintages of archive files; files regenerated 2025-09-08 (2003-2017) and 2025-06-06 (2024). Detection rows carry event timestamps and are treated as immutable observations; construction measures late-row churn (re-fetch one fixed month after >=2 weeks, compare checksums/row counts) before any number is quoted.",
+     "cost_measured": "Discovery: 4 ref-year zips = 35,536,896 B in 16.9 s wall (coordinator container, 4 vCPU); plus ~30 small HTTP listings/page reads. Construction estimate from measured per-file sizes: all 23 ref years ~= 150 MB in one worker job (minutes), plus optional monthly all-satellite files 2024+ (~25-90 MB/month measured/partial) if used.",
+     "probe_evidence_2026_10_23": "Probes (scripts in .factory scratch, summarized in notes.md): dataserver repository listing; annual ref zip inventory 2003-2025 with sizes; 4 ref years fully downloaded and counted; monthly 2024-06 partial schema read (25 MB); daily-file publication lastmods; risk-grid archive ascending listing; Estatisticas CSV cross-check (exact match).",
+     "publication_lag_measured": "Day-D daily CSV complete by 09:05 BRT on D+1 (lastmod pattern measured across 30 daily files); risk grids for D published by ~03:32 on D+1; Estatisticas current-month partial through yesterday (page text). These fix the prediction instant at 13:00 UTC on D+1."
+    },
+    "next_action": "Advancement session constructs on the worker: (1) download all focos_br_ref_YYYY.zip 2003-2025 with checksums; map municipio names to IBGE codes (2024+ monthly ",
+    "packaged_at": null,
+    "path": "candidates/inpe-foco-municipal-onset/record.json",
+    "prediction_time": "Instant: 13:00 UTC on day D+1. Features are everything published by then with event time <= D: the complete detection archive through day D (daily file for D observed complete at 09:05 BRT on D+1; detections stream near-real-time at 10-minute granularity during day D), calendar, state/biome. Optional covariates also available at the instant: observed fire-risk grid for day D (NetCDF published ~03:32 server time on D+1) and INPE's forecast risk grids for D+1..D+3 (published on day D). Excluded as post-instant: every detection row with event time > D, and any current-year statistic that only becomes final later. As-of policy: each detection row carries its event timestamp (data_pas / data_hora_gmt); the archive is treated as an append-mostly observation log; LIMITATION (recorded): INPE regenerates archive files (2003-2017 files regenerated 2025-09-08; 2024 file regenerated 2025-06-06) and no historical file vintages are kept, so features are taken from the current archive under the policy that detection rows are immutable observations; construction pins file checksums and must re-fetch one fixed month after >=2 weeks to measure late-row churn before quoting any number.",
+    "publisher": "Instituto Nacional de Pesquisas Espaciais (INPE) - Programa Queimadas (portal data.inpe.br / terrabrasilis.dpi.inpe.br; repository dataserver-coids.inpe.br)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "A Brazilian municipality has recorded zero active-fire detections (INPE reference-satellite series) for 14 consecutive days through day D. At 13:00 UTC on day D+1 - after INPE's morning consolidation of day-D detections (daily CSV for day D observed published 09:05 BRT on D+1) - given only the municipality's detection history through day D, the calendar, state and biome, will at least one active-fire detection be recorded in that municipality within the next 7 days (event days D+1..D+7)? A useful prediction lets PREVFOGO/IBAMA, state civil defence and municipal fire brigades pre-position crews in a country where detection precedes enforcement, and persistence cannot win by construction.",
+    "region": "Latin America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": {
+     "assisted": true,
+     "findings": [
+      "Target window [D+1 00:00, D+8 00:00) begins 13 hours before the 13:00 UTC D+1 prediction instant; label information precedes prediction.",
+      "INPE FAQ Q39: Base 2 launched 14 Jun 2018, replaced Collection 5 with 6, reprocessed Terra history since 01 Nov 2000 and Aqua since 04 Jul 2002, corrected 2017 MODIS/VIIRS detections, moved to IBGE 2016 boundaries. Historical rows are retrospectively reprocessed, not operational snapshots.",
+      "Current regenerated files and a prospective two-week churn check do not establish historical as-of availability; Last-Modified is not completeness or time zone.",
+      "next_action ordered reference baselines before the full qualification gate; construction must qualify and accept exact bytes before any scoring."
+     ],
+     "preserved": "Original discovery evidence and measurements retained unchanged; this block records an assisted audit finding, not a discovery win.",
+     "primary_source": "https://data.inpe.br/queimadas/portal/pages/secao_informacoes/faq/",
+     "reason": "Ready contract withheld pending correction",
+     "recorded_at": "2026-10-23",
+     "reopen_condition": "Corrected contract with a fully future target window, evidenced as-of coverage for the constructed years (or an explicitly retrospective task), and gate-ordered handoff.",
+     "reviewers": "Codex with Scout (Hermes)"
+    },
+    "sources": [
+     {
+      "licence": "see license_evidence",
+      "name": "Annual reference-satellite active-fire archive (focos, Brasil, satelite de referencia)",
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/anual/Brasil_sat_ref/focos_br_ref_{ano}.zip"
+     },
+     {
+      "licence": "see license_evidence",
+      "name": "Monthly all-satellite CSVs (richer schema) + daily near-real-time CSVs",
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/mensal/Brasil/focos_mensal_br_{ano}{mes}.csv (2024-01 onward plain CSV; 2023 zips); diario/Brasil/focos_diario_br_{yyyymmdd}.csv (rolling window)"
+     },
+     {
+      "licence": "see license_evidence",
+      "name": "Publisher's own summary product (Estatisticas) - cross-check source",
+      "url": "https://data.inpe.br/queimadas/portal/csv/download/historico-mensal/estados/mato_grosso.csv"
+     },
+     {
+      "licence": "see license_evidence",
+      "name": "Fire-risk and meteorology products (baseline comparison, not historical feature)",
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/riscofogo_meteorologia/observado/risco_fogo/ (INPE_FireRiskModel_2.2_FireRisk_YYYYMMDD.nc) and .../previsto/"
+     },
+     {
+      "licence": "see license_evidence",
+      "name": "Programa Queimadas portal (licence instrument + docs)",
+      "url": "https://data.inpe.br/queimadas/portal/ (mirrors terrabrasilis.dpi.inpe.br/queimadas/portal/)"
+     }
+    ],
+    "split_strategy": "Windows by fire year (July-June or calendar year - construction fixes one definition and records it), temporal, non-overlapping: train 2003-2019, eval 2020-2022, holdout 2023-2025, each window carrying full seasonal cycles. Every measured year holds both classes at large margin: municipality-days with >=1 detection 2019: 53,369; 2020: 54,956; 2022: 49,559; 2024: 62,450 (positives cluster in the dry season and in drought years - reported as clustered counts; onset-conditioned pairs measured on 2024: 1,173,526 evaluated pairs, 88,888 positives = 7.57% base rate; raw pairs 1,535,182 with 244,175 positives = 15.9%). Exact per-window pair counts are computed on the full files at construction (all 23 ref years measured feasible: 4 years = 35.5 MB in 16.9 s on the coordinator). Reference-satellite era consistency: the publisher curates the reference series for comparability and the Estatisticas product uses the same series (cross-check exact), but construction must record the per-era reference satellite from INPE documentation and pin window boundaries on any era change observed in the yearly counts.",
+    "status": "investigating",
+    "target": "Binary. Positive: >=1 reference-satellite detection with event timestamp in [D+1 00:00, D+8 00:00) located in municipality m; negative: zero such detections. Label source: the same detection rows (data_pas timestamp + municipio/estado name) that feed the feature history - construction derives the label from event-time windows and must not ship any row with event time > D in feature columns (the label column is a derived aggregate, never a carried source column). Population: all Brazilian municipalities (5570 IBGE codes; ref-era files key by name - construction maps names to IBGE codes and asserts the mapping is total over the detection rows). Conditioning: evaluated pairs are municipality-days with zero detections in [D-13, D] (onset-conditioned; raw-pair variant recorded for comparison)."
    },
    {
     "awaiting_operator": false,
@@ -804,7 +888,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 90.0,
+  "non_us_share": 90.9,
   "records": [
    {
     "awaiting_operator": false,
@@ -934,6 +1018,53 @@
     "split_strategy": "",
     "status": "parked",
     "target": "Would be mechanical: mean of the station's D+1 hourly PM2.5 values above the Thai 24-hour PM2.5 standard (a published regulatory threshold), the D+1 series excluded from shipped columns."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "AR",
+    "domain": "urban mobility / public bicycle-share trip panel",
+    "id": "ar-ecobici-station-demand-exceedance",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "bounded_sample_2015_2026_10_23": "Downloaded the 2015 zip (8.8 MB, 30.8 s at 0.3 MB/s; single member recorridos-realizados-2015.csv, 116,754,579 B uncompressed): 503,252 trips, 15 documented columns - periodo, genero_usuario, fecha_origen_recorrido, id_estacion_origen, nombre_estacion_origen, long_estacion_origen, lat_estacion_origen, domicilio_estacion_origen, duracion_recorrido, fecha_destino_recorrido, id/nombre/long/lat/domicilio_estacion_destino. Trip-level rows carry station ids + coordinates; station-day aggregation is directly constructible. (The 2026 partial-year sample download was started and killed: the novelty gate had already closed the task, so the 143 MB fetch was not completed - no recent-era station-day counts were measured.)",
+     "file_inventory_2026_10_23": "Every year 2010-2026 exists and returns HTTP 200 with Content-Length (HEAD, measured 2026-10-23; sizes in sources.api). CDN Last-Modified: 2026 file 2026-10-07; 2025 -> 2026-01-14; 2024 -> 2025-03-01; 2023 -> 2024-01-03; 2020/2010/2013 -> 2023-03-06/07 (a CDN migration stamp, not a content date); 2018 -> 2021-03-11. Current-year accumulation is the publication channel for fresh rows; completed years are static.",
+     "not_measured": "No split counts, base rates or station-day panel counts: the novelty gate closed the task first."
+    },
+    "next_action": "Closed. Reopen only if (a) the operator explicitly decides this bench wants a bike-share benchmark and values city/population novelty over task novelty - the so",
+    "packaged_at": null,
+    "path": "candidates/ar-ecobici-station-demand-exceedance/record.json",
+    "prediction_time": "End of day D-1, America/Argentina/Buenos_Aires: each trip is event-logged with its own timestamp, so 'information available at the instant' = the trip log through 23:59:59 of D-1. The operator logs trips in real time; the published yearly archive is refreshed in-year (2026 file CDN Last-Modified 2026-10-07, portal metadata_modified 2026-10-08) and each year-Y file stops updating after year end (observed final Last-Modified: 2023 file -> 2024-01-03; 2024 -> 2025-03-01; 2025 -> 2026-01-14).",
+    "publisher": "Gobierno de la Ciudad de Buenos Aires (Buenos Aires Data portal, Secretar\u00eda de Transporte y Obras P\u00fablicas)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "HYPOTHETICAL task this source would support (closed on novelty, never constructed): for an Ecobici station, given all published trips through the end of day D-1, will the station's day-D departures exceed a per-station threshold frozen from training data (a rebalancing-relevant exceedance)?",
+    "region": "Latin America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "A textbook 'easy source, taken task': the publisher's data is clean, well-licensed and bulk-accessible, which is exactly why the task on top of it is already done (theses, course projects, a Kaggle raw-data mirror). Closed at the cheapest decisive gate (novelty search, minutes) before any split/baseline measurement was spent. Argentina coverage honestly recorded: one lead opened, licence+access verified, task rejected as saturated.",
+    "sources": [
+     {
+      "licence": "CC-BY-2.5-AR per package metadata",
+      "name": "Bicicletas P\u00fablicas - Recorridos Realizados (Ecobici trip archive, yearly files 2010-2026)",
+      "url": "https://data.buenosaires.gob.ar/dataset/bicicletas-publicas"
+     }
+    ],
+    "split_strategy": "Would have been temporal windows over the 17-year station-day panel (e.g. train 2011-2018 / eval 2019-2022 / holdout 2023-2026 with structural-break review at the 2019 network expansion and COVID collapse); never fixed - the candidate was dropped at the novelty gate before any split measurement.",
+    "status": "dropped",
+    "target": "Day-D origin-station trip count >= theta_station, theta frozen from the training window; label source columns fecha_origen_recorrido + id_estacion_origen/nombre_estacion_origen, excludable from shipped features. Never built: the task was closed at the novelty gate."
    },
    {
     "awaiting_operator": false,
@@ -2727,7 +2858,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 7.1,
+    "age_hours": 8.1,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
@@ -3325,10 +3456,11 @@
      "status": null
     },
     "measurements": {
-     "capacity_note": "Volume is ample for station-hour exceedance pairs across 26 years, but positive counts are NOT measured until a threshold exists - no base-rate or split claim is made yet.",
-     "probe_2026_10_23": "Socrata metadata + SoQL (scripts in session scratch): rows 14,672,316; span 2001-01-01..2026-10-21; 345 stations; rows-by-year listed in sources; sample rows show hourly 'Nivel Maximo' in metres with station/department/municipio/zona metadata; catalog has no threshold columns; catalog v1 search for alert-threshold datasets returned no machine-readable result."
+     "capacity_note": "Volume ample (26 years, 14.7M rows, 345 stations). Positives are now MEASURED on the demonstration station (El Banco: both classes in all three candidate windows, day-level rates 7.7%/16.6%/11.6%) but NOT at panel scale: the IHD threshold harvest, per-station frame validation and clustered-count measurement are the remaining measurements before split windows can be fixed.",
+     "probe_2026_10_23": "Socrata metadata + SoQL (scripts in session scratch): rows 14,672,316; span 2001-01-01..2026-10-21; 345 stations; rows-by-year listed in sources; sample rows show hourly 'Nivel Maximo' in metres with station/department/municipio/zona metadata; catalog has no threshold columns; catalog v1 search for alert-threshold datasets returned no machine-readable result.",
+     "threshold_hunt_2026_10_23_pass2": "RESOLVED: official per-station flood thresholds (cotas) exist and are extractable. Current BAH/ITD/BCH bulletins (Oct 2026, fetched, 3 files text-extracted) carry zone-level alerts only; the per-station 'COTA CRITICA x.xx m' values live in the historical IHD (Informe Hidrologico) PDFs, Wayback-archived (CDX captures 2017-2025) - 16 station values extracted from one Oct-2024 IHD (pypdf, regex recipe in notes), with decade-stability evidence (Puerto Salgar 6.20 / El Banco 8.30 identical in 2014 and 2024 bulletins). No machine-readable threshold dataset exists on datos.gov.co; h4gs-wsmg Alertas Hidrologicas is a non-tabular view (403 row/column access). Join evidence: 345 distinct telemetry stations; telemetry names carry 2-3 spelling variants per code; name-only joins produce false pairs (PUERTO ANGOSTURAS/Ariari vs ANGOSTURA/Magdalena measured) - join must use codigoestacion + river + municipio. Measured exceedances (SoQL): EL BANCO 0025027020 cota 8.30 -> 5,937/105,354 hourly obs 2015-2026 (5.64%); distinct days over cota: train 2015-2019 137/1,777 days-with-data, eval 2020-2023 137/828, holdout 2024-2026 111/957 - both classes in all three windows on this station, positives clustered into flood episodes, telemetry gaps measured (eval window has data on 828 of ~1,461 days). CABUYARO 0035107030 cota 7.36 -> telemetry from 2026-03-28 only. MITU 0042077020 cota 10.20 -> 0/29,688 obs - unexplained frame/station anomaly; every joined station needs the zero/always-positive sanity check before entering the panel."
     },
-    "next_action": "Next probe (bounded, one session): (1) locate the official per-station alert/danger threshold: search datos.gov.co catalogue API for 'nivel de alerta'/'umbral' ",
+    "next_action": "Threshold blocker RESOLVED (official cotas extractable from Wayback-archived IHD PDFs; recipe + 16-value demonstration in notes s5-6). Remaining, in order: (1) ",
     "packaged_at": null,
     "path": "candidates/ideam-rio-nivel-exceedance/record.json",
     "prediction_time": "Telemetry is hourly and near-real-time on the live feed; the published dataset is one current table of raw unvalidated sensor values (publisher clause: 'los datos ... no han sido validados por el IDEAM'), and IDEAM documents a preliminary -> en revision -> definitivo lifecycle for its validated series (separate 'Niveles Horarios' dataset). UNRESOLVED: the as-of policy - current raw values may later be corrected, so features computed from today's table may differ from what the live feed showed at the time; construction must either use only the raw-feed table (accepting and measuring the revision effect) or obtain vintage information. This is the main open question besides the threshold.",
@@ -3346,7 +3478,7 @@
      "reference": null
     },
     "release_splits": {},
-    "review": "",
+    "review": "The one blocking fact from the first pass (does an official threshold exist in any obtainable form?) is resolved YES: IDEAM publishes per-station cotas in IHD chart annotations, archived harvestably, with decade-stable values; one station (El Banco) already measures both classes across all three candidate windows. The task is now an engineering-scale-up question (harvest + join + per-station validation), not an existence question. Measured false-pair and frame anomalies (ANGOSTURA collision, MITU zero positives) are recorded as construction hazards, not reasons to drop.",
     "sources": [
      {
       "licence": "Socrata licenseId CC_40_BY_SA (CC BY-SA 4.0) read from the dataset metadata 2026-10-23",
@@ -3559,7 +3691,21 @@
      "reference": null
     },
     "release_splits": {},
-    "review": "",
+    "review": {
+     "assisted": true,
+     "findings": [
+      "Target window [D+1 00:00, D+8 00:00) begins 13 hours before the 13:00 UTC D+1 prediction instant; label information precedes prediction.",
+      "INPE FAQ Q39: Base 2 launched 14 Jun 2018, replaced Collection 5 with 6, reprocessed Terra history since 01 Nov 2000 and Aqua since 04 Jul 2002, corrected 2017 MODIS/VIIRS detections, moved to IBGE 2016 boundaries. Historical rows are retrospectively reprocessed, not operational snapshots.",
+      "Current regenerated files and a prospective two-week churn check do not establish historical as-of availability; Last-Modified is not completeness or time zone.",
+      "next_action ordered reference baselines before the full qualification gate; construction must qualify and accept exact bytes before any scoring."
+     ],
+     "preserved": "Original discovery evidence and measurements retained unchanged; this block records an assisted audit finding, not a discovery win.",
+     "primary_source": "https://data.inpe.br/queimadas/portal/pages/secao_informacoes/faq/",
+     "reason": "Ready contract withheld pending correction",
+     "recorded_at": "2026-10-23",
+     "reopen_condition": "Corrected contract with a fully future target window, evidenced as-of coverage for the constructed years (or an explicitly retrospective task), and gate-ordered handoff.",
+     "reviewers": "Codex with Scout (Hermes)"
+    },
     "sources": [
      {
       "licence": "see license_evidence",
@@ -3588,7 +3734,7 @@
      }
     ],
     "split_strategy": "Windows by fire year (July-June or calendar year - construction fixes one definition and records it), temporal, non-overlapping: train 2003-2019, eval 2020-2022, holdout 2023-2025, each window carrying full seasonal cycles. Every measured year holds both classes at large margin: municipality-days with >=1 detection 2019: 53,369; 2020: 54,956; 2022: 49,559; 2024: 62,450 (positives cluster in the dry season and in drought years - reported as clustered counts; onset-conditioned pairs measured on 2024: 1,173,526 evaluated pairs, 88,888 positives = 7.57% base rate; raw pairs 1,535,182 with 244,175 positives = 15.9%). Exact per-window pair counts are computed on the full files at construction (all 23 ref years measured feasible: 4 years = 35.5 MB in 16.9 s on the coordinator). Reference-satellite era consistency: the publisher curates the reference series for comparability and the Estatisticas product uses the same series (cross-check exact), but construction must record the per-era reference satellite from INPE documentation and pin window boundaries on any era change observed in the yearly counts.",
-    "status": "ready",
+    "status": "investigating",
     "target": "Binary. Positive: >=1 reference-satellite detection with event timestamp in [D+1 00:00, D+8 00:00) located in municipality m; negative: zero such detections. Label source: the same detection rows (data_pas timestamp + municipio/estado name) that feed the feature history - construction derives the label from event-time windows and must not ship any row with event time > D in feature columns (the label column is a derived aggregate, never a carried source column). Population: all Brazilian municipalities (5570 IBGE codes; ref-era files key by name - construction maps names to IBGE codes and asserts the mapping is total over the detection rows). Conditioning: evaluated pairs are municipality-days with zero detections in [D-13, D] (onset-conditioned; raw-pair variant recorded for comparison)."
    },
    {
@@ -6181,8 +6327,19 @@
     },
     "release_splits": {},
     "review": {
+     "clarifications_2026_10_23": {
+      "assisted": true,
+      "corrections": [
+       "CIs containing zero mean an advantage was not demonstrated; they do not establish statistical equivalence or prove that task signal cannot survive.",
+       "The historical as-of/vintage limitation for the prior-history feature remains unresolved scientifically. It affects no release because the candidate is dropped, but any future instance must state it as an assumption, never a point-in-time reconstruction.",
+       "The identity rule holdout AUC (0.4909) was already known from the build's early-scored values before this job. The holdout job was a fixed-config deterministic refit of the same contract model (first new model holdout comparison), not a wholly untouched holdout evaluation.",
+       "\"No packaging is now possible\" is the current protocol/budget decision (no demonstrated headroom, one repair spent), not evidence of impossibility.",
+       "Codex final wording reconciliation: absence of an identified implementation defect is not proof of code correctness or diagnosis of task-design failure; the stop remains protocol/budget scoped."
+      ],
+      "source": "Codex audit with Scout (Hermes)"
+     },
      "decision_2026_10_23": "Negative finding recorded after the one budgeted repair (wb-holdout-001): no demonstrated headroom on the runner-scored holdout; dropped per the candidate's own pre-registered decision rule. Not a claim that every competent model must lose - the finding is protocol-scoped (these features, this split, this contract model).",
-     "source_review_2026_10_22": "Codex read-only review of wb-001 (evals/research-prompts/results/old-prompt-build-review.json) found: scoring/logging before the gate in build.py; majority_class_accuracy restating training prevalence; the country x approval_fy 'calendar' control degenerating to country identity; and an unsupported latest-vintage claim for the prior-history feature. Disposition in this candidate: the first three were re-measured and closed by wb-holdout-001 (accept-before-score ordering; per-split measured accuracy; degeneracy empirically confirmed at fallback fraction 1.0 and replaced by a genuine time-only control); the fourth is moot for release because the candidate is dropped and nothing ships - recorded as a limitation any future instance must state as an assumption, never a point-in-time reconstruction."
+     "source_review_2026_10_22": "Codex read-only review of wb-001 (evals/research-prompts/results/old-prompt-build-review.json) found: scoring/logging before the gate in build.py; majority_class_accuracy restating training prevalence; the country x approval_fy 'calendar' control degenerating to country identity; and an unsupported latest-vintage claim for the prior-history feature. Disposition in this candidate: the first three were re-measured and closed by wb-holdout-001 (accept-before-score ordering; per-split measured accuracy; degeneracy empirically confirmed at fallback fraction 1.0 and replaced by a genuine time-only control); the fourth remains scientifically unresolved; it affects no release because the candidate is dropped, but any future instance must state it as an assumption, never a point-in-time reconstruction (see review.clarifications_2026_10_23)."
     },
     "sources": [
      {
@@ -6473,7 +6630,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 7.1,
+     "age_hours": 8.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6632,7 +6789,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 7.1,
+     "age_hours": 8.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6794,6 +6951,7 @@
  },
  "coverage": {
   "by_country": {
+   "AR": 1,
    "AT": 1,
    "AU": 4,
    "BR": 2,
@@ -6827,20 +6985,20 @@
    "East Asia": 5,
    "Europe": 16,
    "International organisations": 7,
-   "Latin America": 6,
+   "Latin America": 7,
    "North America": 22,
    "Oceania": 5,
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 27,
-   "investigating": 10,
+   "dropped": 28,
+   "investigating": 11,
    "packaged": 1,
    "parked": 25,
    "published": 9,
-   "ready": 5
+   "ready": 4
   },
-  "candidates": 77,
+  "candidates": 78,
   "live": 25,
   "live_non_us": 19,
   "live_non_us_share": 0.76,
@@ -6865,10 +7023,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-23T01:50:01.343667+00:00",
+    "last_run_at": "2026-10-23T02:50:01.115796+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-23T02:00:00+00:00",
+    "next_run_at": "2026-10-23T03:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -6889,10 +7047,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-22T22:35:54.257898+00:00",
+    "last_run_at": "2026-10-23T02:00:01.091915+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-23T02:00:00+00:00",
+    "next_run_at": "2026-10-23T06:00:00+00:00",
     "no_agent": true,
     "schedule": "0 2-22/4 * * *"
    },
@@ -6913,10 +7071,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-23T01:45:50.695548+00:00",
+    "last_run_at": "2026-10-23T02:47:32.689454+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-23T01:50:50.695548+00:00",
+    "next_run_at": "2026-10-23T02:52:32.689454+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -6949,10 +7107,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-23T00:50:22.383722+00:00",
+    "last_run_at": "2026-10-23T01:51:08.775398+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-23T02:50:00+00:00",
+    "next_run_at": "2026-10-23T03:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -6961,10 +7119,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-23T00:55:01.073841+00:00",
+    "last_run_at": "2026-10-23T01:55:00.720626+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-23T01:55:00+00:00",
+    "next_run_at": "2026-10-23T02:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7005,29 +7163,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-23T01:50:01.344640+00:00"
+  "updated_at": "2026-10-23T02:50:01.116816+00:00"
  },
- "generated_at": "2026-10-23T01:50:00+00:00",
+ "generated_at": "2026-10-23T02:50:00+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 77
+   "passing": 78
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-23T01:46:02Z",
-   "head_sha": "206a94c",
+   "created_at": "2026-10-23T02:29:41Z",
+   "head_sha": "39fce5b",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39885846532"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39889862934"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 19/25 (76%)"
   },
   "head": {
-   "at": "2026-10-23T01:45:49Z",
-   "sha": "206a94c",
-   "subject": "wb-ieg decision point: holdout comparison measured, no headroom, dropped"
+   "at": "2026-10-23T04:07:24+02:00",
+   "sha": "ad607ca",
+   "subject": "Merge pull request #12 from earino/evaluate/prompt-rollout"
   },
   "tests": {
    "count": "588",
@@ -7618,15 +7776,23 @@
    "qualified": 0,
    "sessions_7d": 157,
    "tokens_7d": 11394312
+  },
+  {
+   "at": "2026-10-23T02:50:00+00:00",
+   "live": 11,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 167,
+   "tokens_7d": 11852007
   }
  ],
  "notices": [
-  "A research session is running: lock held for 2310s by scout-research"
+  "A research session is running: lock held for 2218s by scout-research"
  ],
  "panels": {
   "budget": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-23T01:50:00+00:00",
+   "as_of": "2026-10-23T02:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -7636,17 +7802,17 @@
   },
   "candidates": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-23T01:50:00+00:00",
+   "as_of": "2026-10-23T02:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 10
+   "value": 11
   },
   "releases": {
    "age_minutes": 0.3,
-   "as_of": "2026-10-23T01:50:00+00:00",
+   "as_of": "2026-10-23T02:50:00+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -9236,7 +9402,7 @@
   "jobs_total": 91,
   "lifetime_eur": 3.16,
   "live": {
-   "checked_at": "2026-10-23T01:50:15+00:00",
+   "checked_at": "2026-10-23T02:50:16+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -9265,24 +9431,6 @@
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 2200.1,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "ts": "2026-10-22T14:36:42.284720+00:00"
-   },
-   {
-    "elapsed_seconds": 1299.9,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "ts": "2026-10-22T16:21:41.856884+00:00"
-   },
    {
     "elapsed_seconds": 2272.0,
     "event": "session",
@@ -9322,8 +9470,36 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "cdee0c85353a2792de88eff68e932fb397d762314ffdfe13c8f45bf191a728f4",
     "ts": "2026-10-23T01:10:39.200133+00:00"
+   },
+   {
+    "elapsed_seconds": 2376.4,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "d213f4afa831a35edc3e76c7713fbc6cfb19916e4d1cbfaa51d8ec09ea8dd939",
+    "ts": "2026-10-23T01:51:07.312085+00:00"
+   },
+   {
+    "elapsed_seconds": 387.9,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "49eee489d9d47632bb36810e71885e2e86f9f0a24d010bf97b3e283e85529d11",
+    "ts": "2026-10-23T02:12:24.687259+00:00"
    }
   ],
-  "total": 36
+  "total": 35
  }
 }
