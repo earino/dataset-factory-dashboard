@@ -1,7 +1,6 @@
 {
  "alarms": [
-  "scout-research-session missed its window (2026-10-23T20:35:00+00:00); last status ok",
-  "eutl-installation-net-short is verified and waiting on the operator for the public flip (26.1h)"
+  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
  ],
  "budget": {
   "config": {
@@ -18,50 +17,48 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-10-23T20:50:03.370244+00:00",
+   "allowed": true,
+   "moment": "2026-10-23T21:50:02.919876+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 1201s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 16082804,
-   "runs_last_7_days": 191,
-   "runs_weighted_last_7_days": 193,
+   "research_tokens_last_7_days": 16314156,
+   "runs_last_7_days": 193,
+   "runs_weighted_last_7_days": 195,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 2,
    "usage": {
     "auxiliary": {
-     "calls": 669,
+     "calls": 671,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 1417388,
-     "output_tokens": 690110,
+     "input_tokens": 1417987,
+     "output_tokens": 691044,
      "pricing_available": false
     },
     "interactive": {
-     "calls": 5054,
+     "calls": 5104,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 24816123,
-     "output_tokens": 2742435,
+     "input_tokens": 24839378,
+     "output_tokens": 2773841,
      "pricing_available": false
     },
     "research": {
-     "calls": 5038,
+     "calls": 5136,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 12467761,
-     "output_tokens": 4863759,
+     "input_tokens": 12620228,
+     "output_tokens": 4942644,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -97,9 +94,8 @@
   "counts": {
    "dropped": 30,
    "investigating": 13,
-   "packaged": 1,
    "parked": 27,
-   "published": 9,
+   "published": 10,
    "ready": 3
   },
   "errors": [],
@@ -3130,8 +3126,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 26.1,
-    "awaiting_operator": true,
+    "awaiting_operator": false,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
      "artifact_fetched_from_staging": 420810883,
@@ -3238,7 +3233,7 @@
      "publisher_summary_crosscheck_2026_10_21": "Cross-check executed at discovery against the publisher's own summary product (`.factory/eu_crosscheck_1.py`-`3.py`, full panel re-sum vs streamed EEA xlsx): Germany, 2023 - panel sum of VERIFIED_EMISSIONS over the 3,802 DE installation rows = 296,989,213 t; EEA aggregate '2.1 EU-ETS Verified Emission' (activity 10 + 20-99, all entities) = 296,989,209 t (difference 4 t, 0.0000013% - rounding). Panel sum of ALLOCATION = 127,923,163; EEA aggregate '1.1 Freely allocated allowances' = 127,958,123 (difference 34,960, 0.027%) - confirming ALLOCATION is the free-allocation field the net-short comparison should use (the EEA's broader '1. Total allocated allowances' = 219,474,123 is a different concept), and confirming the panel is the same population the EEA aggregates.",
      "sample_rows_2026_10_20": "e.g. (AT, installation 1 'Calmit Bad Ischl', 2005): VERIFIED_EMISSIONS 41399, ALLOCATION 44894, SURR_ALL 41399 (surrendered equals verified: compliant net-long year); (AT, 1, 2007): VE 51041 > ALLOCATION 44894 (net-short year); (AT, 1, 2030): VE n/a, ALLOCATION 30485 - the advance allocation the task uses as a feature."
     },
-    "next_action": "PACKAGED 2026-10-22T18:43:19Z, fully staged PRIVATE on both destinations, awaiting the operator's private-to-public flip - the one step that is the operator's, ",
+    "next_action": "PUBLISHED 2026-10-23T21:35:25Z: operator approved the private-to-public flip; both destinations public and anonymously verified (GitHub repo 200, 5/5 release as",
     "packaged_at": "2026-10-22T18:43:19Z",
     "path": "candidates/eutl-installation-net-short/record.json",
     "prediction_time": "30 April of compliance year t, the surrender deadline that closes year t-1's compliance cycle: by then the installation's verified emissions and surrendered allowances for year t-1 are published in the Union Registry (verified emissions are due by 31 March and surrendered allowances by 30 April), and year t's free allocation is known in advance (fixed by the phase-4 national implementation measures decisions recorded in the registry - the extract already carries ALLOCATION for years up to 2030). Year t's verified emissions are not yet observed anywhere: they are reported by 31 March t+1. The extract refreshes daily (SNAPSHOT_DATE column, last-modified 2026-10-20), so a monthly refresh of this task is honest.",
@@ -3283,7 +3278,7 @@
      }
     ],
     "split_strategy": "Temporal at installation-year grain, one row per (installation, compliance year t): train t <= 2019 (2005-2019), eval 2020-2022, holdout 2023-2025, all restricted to in-frame installation-years (both VERIFIED_EMISSIONS and ALLOCATION numeric). Measured on the 2026-10-20 snapshot (measured_net_short_by_year in notes.md): every year 2005-2025 carries both classes; eligible rows per year range 7,402 (2025) to 11,520 (2012); the net-short base rate drifts by phase - 27.7-31.3% in phase 1/2 (2005-2012), 56.4-71.5% in phase 3 (2013-2020), 69.8-80.6% in phase 4 (2021-2025) - a documented phenomenon property (free-allocation share fell and benchmarks tightened while the cap declined), the analogue of the flunet COVID-era base-rate break; construction must document it, not smooth it. Entities recur across windows by construction (23,708 installation keys observed over 2005-2030 rows), so the row id must be the composite (registry, installation, year) and the recurring-entity property declared, not mistaken for split leakage; positives cluster weakly at the installation level (an installation's net-short status is autocorrelated year to year), so the clustered count to report is distinct installations going net-short in a window, measured at construction.",
-    "status": "packaged",
+    "status": "published",
     "target": "Binary, computed from the source row of (installation, year t): VERIFIED_EMISSIONS(t) > ALLOCATION(t), where ALLOCATION is the free allocation recorded in the registry for year t and VERIFIED_EMISSIONS is the independently verified emissions figure. Unit: both are tonnes CO2-equivalent per installation-year (1 allowance = 1 tonne); the comparison is unit-free within the source's own frame (no external threshold or datum is involved). Frame restriction: installation-years where both VERIFIED_EMISSIONS and ALLOCATION are numeric ('n/a' rows - not-yet-operating, excluded or closed sites - are out of frame and their handling must be pinned at construction). Label source columns VERIFIED_EMISSIONS and ALLOCATION at year t are recorded in label_source_columns and must be absent from the shipped features; feature rows may use emissions/allocation/surrender values only for years <= t-1 plus year-t allocation."
    },
    {
@@ -5805,6 +5800,21 @@
       "at": null,
       "id": "nz-ea-002",
       "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": "nz-ea-baseline-001",
+      "status": "failed"
+     },
+     {
+      "at": null,
+      "id": "nz-ea-baseline-002",
+      "status": "failed"
+     },
+     {
+      "at": null,
+      "id": "nz-ea-baseline-003",
+      "status": "succeeded"
      }
     ],
     "licence_summary": {
@@ -5833,7 +5843,7 @@
      "publication_lag_measured": "daily files: Last-Modified minus trade date over all 368 files: min 0.75 d, p50 1.80 d, p90 3.80 d, max 5.80 d; documented instrument says final by 2pm the following business day",
      "schema_measured": "FinalEnergyPrices CSV columns: TradingDate, TradingPeriod, PointOfConnection, DollarsPerMegawattHour; 48 trading periods per day; per-file rows 346,392-370,512 (monthly) and POCs 238 (1997) / 249 (2008) / 241 (2020, 2024) - node set evolves, the NSP table carries POC start/end dates"
     },
-    "next_action": "nz-ea-002 succeeded, qualified and accepted 2026-10-23 (staging release 422246241, tag job-nz-ea-002, artifact 545e0e4418c1f0e54bb55389e7816c1736a8473de600e70d6",
+    "next_action": "nz-ea-baseline-003 completed the baseline triad on the accepted nz-ea-002 artifact (re-accepted on the worker before scoring, staging release 422309725, worker ",
     "packaged_at": null,
     "path": "candidates/nz-ea-wholesale-price-exceedance/record.json",
     "prediction_time": "The publication instant of final prices: the Electricity Authority states interim prices 'will be declared to be final prices by 2pm the following business day' (Real-time dispatch and pricing page + Code Part 13); measured on the actual files, Last-Modified minus trade date is p50 1.80 days, max 5.80 days (368 daily files, measured 2026-10-22). Features are final prices for trading dates already published at the instant; the label day is not.",
@@ -7232,324 +7242,8 @@
    }
   ],
   "release": {
-   "awaiting": [
-    {
-     "age_hours": 26.1,
-     "awaiting_operator": true,
-     "baseline": {
-      "accepted_artifact_version": "3540ad2180d8df8a",
-      "artifact_fetched_from_staging": 420810883,
-      "contract_ok": true,
-      "dependencies": {
-       "numpy": "2.5.4",
-       "pandas": "2.3.3",
-       "python": "3.13.17",
-       "scikit-learn": "1.9.1",
-       "xgboost": "3.4.1"
-      },
-      "elapsed_seconds": 41.3,
-      "eval_auc_from_train_py": 0.9199,
-      "eval_auc_from_validate_py": 0.9199,
-      "job": "eutl-baseline-001",
-      "note": "Measured on the bytes being released (fetched from staging 420810883, digest-verified, gate --accept before scoring), not a rebuild. The XGBoost pass (0.9199 eval AUC) clears the persistence margin (0.8671) by +0.0532 on identical eval rows, so the level target stands - most of the edge is the announced-allocation margin_t rule, itself 0.8988 eval. Persistence is recorded beside every model number. No holdout AUC is quoted: the holdout never enters a workdir.",
-      "per_year_eval_texture": {
-       "2020": {
-        "persistence_margin_auc": 0.9046,
-        "positive_rate": 0.6713
-       },
-       "2021": {
-        "persistence_margin_auc": 0.8269,
-        "positive_rate": 0.8075
-       },
-       "2022": {
-        "persistence_margin_auc": 0.8723,
-        "positive_rate": 0.7582
-       }
-      },
-      "reference_baselines_on_identical_rows": {
-       "announced_allocation_margin_t_single_column": {
-        "eval": 0.8988,
-        "holdout": 0.8881
-       },
-       "calendar_only_registry_phase": {
-        "eval": 0.527,
-        "holdout": 0.5708
-       },
-       "full_model": {
-        "eval": 0.9199
-       },
-       "identity_only_registry": {
-        "eval": 0.5719,
-        "holdout": 0.5708
-       },
-       "persistence_margin_l1": {
-        "eval": 0.8671,
-        "holdout": 0.8789
-       }
-      },
-      "runner_files_unmodified": true,
-      "server_id": 171847046,
-      "staging_release": 420818845
-     },
-     "country": "EU",
-     "domain": "EU carbon-market compliance - installation-level allowance shortfall prediction (EU institution publisher, EUTL public extracts)",
-     "id": "eutl-installation-net-short",
-     "jobs": [
-      {
-       "at": null,
-       "id": "eutl-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "eutl-baseline-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "eutl-publish-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "eutl-hf-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "eutl-hf-002",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "eutl-hf-003",
-       "status": null
-      }
-     ],
-     "licence_summary": {
-      "compilation_spdx": "CC0-1.0",
-      "source_spdx": "CC-BY-4.0",
-      "status": "European Commission reuse policy, CC BY 4.0 unless otherwise indicated: applies to Commission-owned content on the Union Registry Public Website, whose Data Download section publishes the EUTL public extracts. Reuse is allowed provided appropriate credit is given and changes are indicated. The dataset's derived rows are indicated changes: a row selection, a derived binary label and derived features, not the Commission's own product."
-     },
-     "measurements": {
-      "baseline_2026_10_22": "Runner-contract baseline job eutl-baseline-001 (worker 171847046, cx23, 41.3 s job elapsed, exit 0, EUR 0.06 reservation, destroyed 2026-10-22T14:24:17Z; report at staging release 420818845): the benchmark's own train.py and validate.sh unmodified (bundled sha256s match the read-only clone's files exactly; validate.py independent recompute agrees with train.py) on the re-ACCEPTed eutl-001 artifact (accepted before scoring, artifact 3540ad2180d8df8a...). TRIAD on identical eval rows (2020-2022, 24,322 rows): persistence (t-1 net-position margin) 0.8671 < calendar-only (registry x phase) 0.527 < identity-only (registry) 0.5719 < full model 0.9199. The full model beats the persistence margin by +0.0532 eval AUC, so this is NOT the nhs-ae persistence defect: the level target stands, and persistence is recorded beside the number. The margin_t feature alone measured 0.8988 at construction, so most of the model's edge over persistence is the announced-allocation rule. The runner's contract prints a pooled eval AUC over three prevalence-shifted years (per-year base rates 0.6713 / 0.8075 / 0.7582; per-year persistence margin AUC 0.9046 / 0.8269 / 0.8723 measured on the same written rows); a per-year model AUC is not produced by the contract and none is quoted. No holdout AUC is quoted either: the holdout is never copied into a runner workdir; its construction-time references are persistence 0.8789 / identity 0.5708.",
-      "bulk_extract_2026_10_20": "GET operators_yearly_activity_daily.csv.gz -> HTTP 200, 5,959,551 bytes compressed (HEAD content-length matches), 616,408 data rows after gunzip, 23 columns; download + full row parse on the coordinator completed inside a 52 s wall-clock process (four sibling HEAD probes included); the extract is rectangular: 23,708 (registry, installation) keys x 26 PERIOD_YEAR values (2005-2030 inclusive), i.e. future years carry advance ALLOCATION with VERIFIED_EMISSIONS = n/a (measured: 16,306 rows without numeric emissions in 2025 vs 15,966 in 2021).",
-      "columns_2026_10_20": "INSTALLATION_IDENTIFIER, REGISTRY_CODE, REGISTRY_NAME, INSTALLATION_NAME, PERIOD_YEAR, VERIFIED_EMISSIONS, CH_VERIFIED_EMISSIONS, ALLOCATION, ALLOCATION_RES, ALLOCATION_TRA, CH_ALLOCATION, EXCLUDED, CH_EXCLUDED, SURR_EUA, SURR_EUAA, SURR_CHU, SURR_CHUA, SURR_ERU_FROM_AAU, SURR_FORMER_EUA, SURR_CER, SURR_ALLOWANCE_CP0, SURR_ALL, SNAPSHOT_DATE. 32 registries present: EU-27 plus GB, IS, LI, NO (EEA-EFTA members in the linked ETS) and XI (Northern Ireland electricity).",
-      "construction_2026_10_22": "Worker job eutl-001 (cx23, 40.7 s job elapsed, exit 0, EUR 0.04 reservation, worker 171845011 destroyed 2026-10-22T14:18:34Z): one anonymous GET of operators_yearly_activity_daily.csv.gz (5,965,780 bytes, sha256 1c7db5527c7c9b9a..., snapshot SNAPSHOT_DATE 2026-10-22, Last-Modified 2026-10-22 10:08 GMT, 1.0 s) plus the EEA aggregate zip (10,794,107 bytes, 9.3 s). Panel: 617,448 rows, 23,748 (registry, installation) keys, 32 registries, years 2005-2030, 0 identifiers carrying '@'. Shipped panel: train 141,732 rows / 64,528 positives (45.53%) / 2006-2019; eval 24,322 / 18,002 (74.02%) / 2020-2022; holdout 22,151 / 15,993 (72.20%) / 2023-2025. Eligibility accounted: 16,709 insufficient_history installation-years (all of 2005 - the extract starts 2005 so t-1 does not exist - plus each installation's first active year), 4,224 exact ties labelled 0 and counted, 81 in-frame rows flagged EXCLUDED(t)=YES kept with the mix recorded (0.04%), 6,449 live year-2026 rows (allocation published, emissions unreported until 31 March 2027) scorable at the next compliance cycle. SURR_ALL(t-1) probed as a surrender-history feature and DROPPED: missing on 10,647 of 188,205 eligible rows, and the gate scores a column with empty cells as a categorical, so a partially-defined numeric column cannot ship. Status persistence measured on eligible rows: P(short t | short t-1) = 0.8571, P(short t | long t-1) = 0.1759. Reference baselines measured on the written rows (train-estimated tables): persistence (margin_l1) eval AUC 0.8671 / holdout 0.8789; status rule 0.8197 / 0.8289 (accuracy 0.8587 / 0.8686); identity-only (registry) 0.5719 / 0.5708; calendar-only (registry x ETS phase) 0.527 / 0.5708. The margin_t feature alone (ve_l1 - alloc_t, the announced-allocation rule) measures 0.8988 / 0.8881 - the task has real signal beyond persistence, and persistence is recorded beside every model number. In-build publisher cross-check vs the EEA aggregate product (activity codes 10 + 20-99 exactly; including the per-activity detail rows double-counts): DE 2022 verified emissions exact (361,145,695 = 361,145,695), DE 2023 diff 4 t (1.3e-8), free allocation within 4.3e-4 / 2.7e-4. Known-event fixtures asserted in-build: (AT,1) 2005 net-long VE 41,399 < ALLOC 44,894; (AT,1) 2007 net-short VE 51,041 > 44,894; (AT,1) 2030 advance ALLOC 30,485 with VE n/a; phase-3 cut: eligible-row net-short rate 2012 0.2473 -> 2013 0.5783 (gap 0.3310 >= 0.25). The three CSVs are byte-identical between the coordinator dry run and the worker build (sha256 c7f23c55... / 0d9f35d5... / 1c694e5e... on both), differing only in built-at-stamped meta/quality JSONs.",
-      "eea_aggregate_grain_2026_10_21": "The EEA summary product (ETS_Database_September_2026.xlsx inside the 10.8 MB zip) is country x main_activity_code x year with citl_information labels like '1. Total allocated allowances (EUA or EUAA)' - aggregate-only, confirmed by reading its header and first rows; it cannot itself carry the installation-level task but is the publisher's own summary for cross-checking construction sums.",
-      "net_short_base_rates_2026_10_20": "Computed from the downloaded extract, rows with both VERIFIED_EMISSIONS and ALLOCATION numeric: 2005: 2851/10165 (28.0%); 2008: 3471/11098 (31.3%); 2012: 3168/11510 (27.5%); 2013: 6099/10808 (56.4%); 2017: 6870/9894 (69.4%); 2020: 6267/9324 (67.2%); 2021: 6239/7742 (80.6%); 2022: 5819/7662 (75.9%); 2023: 5253/7524 (69.8%); 2024: 5577/7588 (73.5%); 2025: 5453/7402 (73.7%). Full per-year table in notes.md.",
-      "per_year_xlsx_and_compliance_files_2026_10_21": "The Data Download page also publishes per-year verified_emissions_<year>_en.xlsx and compliance_<year>_code_en.xlsx (2021-2025 observed) plus transactions_eutl_2026.zip - a second, independent publisher channel for label cross-checks.",
-      "publisher_summary_crosscheck_2026_10_21": "Cross-check executed at discovery against the publisher's own summary product (`.factory/eu_crosscheck_1.py`-`3.py`, full panel re-sum vs streamed EEA xlsx): Germany, 2023 - panel sum of VERIFIED_EMISSIONS over the 3,802 DE installation rows = 296,989,213 t; EEA aggregate '2.1 EU-ETS Verified Emission' (activity 10 + 20-99, all entities) = 296,989,209 t (difference 4 t, 0.0000013% - rounding). Panel sum of ALLOCATION = 127,923,163; EEA aggregate '1.1 Freely allocated allowances' = 127,958,123 (difference 34,960, 0.027%) - confirming ALLOCATION is the free-allocation field the net-short comparison should use (the EEA's broader '1. Total allocated allowances' = 219,474,123 is a different concept), and confirming the panel is the same population the EEA aggregates.",
-      "sample_rows_2026_10_20": "e.g. (AT, installation 1 'Calmit Bad Ischl', 2005): VERIFIED_EMISSIONS 41399, ALLOCATION 44894, SURR_ALL 41399 (surrendered equals verified: compliant net-long year); (AT, 1, 2007): VE 51041 > ALLOCATION 44894 (net-short year); (AT, 1, 2030): VE n/a, ALLOCATION 30485 - the advance allocation the task uses as a feature."
-     },
-     "next_action": "PACKAGED 2026-10-22T18:43:19Z, fully staged PRIVATE on both destinations, awaiting the operator's private-to-public flip - the one step that is the operator's, ",
-     "packaged_at": "2026-10-22T18:43:19Z",
-     "path": "candidates/eutl-installation-net-short/record.json",
-     "prediction_time": "30 April of compliance year t, the surrender deadline that closes year t-1's compliance cycle: by then the installation's verified emissions and surrendered allowances for year t-1 are published in the Union Registry (verified emissions are due by 31 March and surrendered allowances by 30 April), and year t's free allocation is known in advance (fixed by the phase-4 national implementation measures decisions recorded in the registry - the extract already carries ALLOCATION for years up to 2030). Year t's verified emissions are not yet observed anywhere: they are reported by 31 March t+1. The extract refreshes daily (SNAPSHOT_DATE column, last-modified 2026-10-20), so a monthly refresh of this task is honest.",
-     "publisher": "European Commission, Directorate-General for Climate Action (Union Registry / European Union Transaction Log public extracts)",
-     "qualification": {
-      "artifact_version": "3540ad2180d8df8a9ff39f5f6c1326c5e487ed20e28f189b9528eeb71f799f66",
-      "result": "passed; 0 failed checks of 38 (leakage, timing, units, splits, runner)",
-      "splits": null
-     },
-     "question": "For a stationary installation covered by the EU Emissions Trading System, will its verified emissions for compliance year t exceed the free allocation it holds for year t (a net-short year: the operator must buy allowances at auction/secondary market to surrender, or face the excess-emissions penalty), given its verified-emissions, free-allocation and surrender history through year t-1, its already-published year-t free allocation, its registry (country) and its name/identifier?",
-     "region": "Europe",
-     "release_baseline": {
-      "auc": 0.9199,
-      "display": "0.9199",
-      "reference": null
-     },
-     "release_splits": {
-      "eval": {
-       "positives": 18002,
-       "rows": 24322
-      },
-      "holdout": {
-       "positives": 15993,
-       "rows": 22151
-      },
-      "train": {
-       "positives": 64528,
-       "rows": 141732
-      }
-     },
-     "review": "",
-     "sources": [
-      {
-       "licence": "Commission reuse policy via the site's Legal notice: 'Unless otherwise indicated (e.g. in individual copyright notices), content owned by the EU on this website is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence' - read 2026-10-21 at https://commission.europa.eu/legal-notice_en. The EEA's own metadata for the Union Registry-derived product independently states 'License CC-BY 4.0' with copyright holder 'European Commission, European Environment Agency (EEA)'.",
-       "name": "European Commission, Directorate-General for Climate Action - Union Registry Public Website, EUTL public extracts (Data Download section)",
-       "url": "https://union-registry-data.ec.europa.eu/report/eu-registry-data-download"
-      },
-      {
-       "licence": "EEA metadata XML inside the zip states: 'License CC-BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Copyright holder: European Commission, European Environment Agency (EEA).'",
-       "name": "European Environment Agency - 'European Union Emissions Trading System (EU ETS) data from the Union Registry' (Sep. 2026 release, publisher's own aggregated summary product for cross-checking)",
-       "url": "https://sdi.eea.europa.eu/data/9eee3fc9-3060-4e3f-bc8d-e22e7c3f6bda"
-      }
-     ],
-     "split_strategy": "Temporal at installation-year grain, one row per (installation, compliance year t): train t <= 2019 (2005-2019), eval 2020-2022, holdout 2023-2025, all restricted to in-frame installation-years (both VERIFIED_EMISSIONS and ALLOCATION numeric). Measured on the 2026-10-20 snapshot (measured_net_short_by_year in notes.md): every year 2005-2025 carries both classes; eligible rows per year range 7,402 (2025) to 11,520 (2012); the net-short base rate drifts by phase - 27.7-31.3% in phase 1/2 (2005-2012), 56.4-71.5% in phase 3 (2013-2020), 69.8-80.6% in phase 4 (2021-2025) - a documented phenomenon property (free-allocation share fell and benchmarks tightened while the cap declined), the analogue of the flunet COVID-era base-rate break; construction must document it, not smooth it. Entities recur across windows by construction (23,708 installation keys observed over 2005-2030 rows), so the row id must be the composite (registry, installation, year) and the recurring-entity property declared, not mistaken for split leakage; positives cluster weakly at the installation level (an installation's net-short status is autocorrelated year to year), so the clustered count to report is distinct installations going net-short in a window, measured at construction.",
-     "status": "packaged",
-     "target": "Binary, computed from the source row of (installation, year t): VERIFIED_EMISSIONS(t) > ALLOCATION(t), where ALLOCATION is the free allocation recorded in the registry for year t and VERIFIED_EMISSIONS is the independently verified emissions figure. Unit: both are tonnes CO2-equivalent per installation-year (1 allowance = 1 tonne); the comparison is unit-free within the source's own frame (no external threshold or datum is involved). Frame restriction: installation-years where both VERIFIED_EMISSIONS and ALLOCATION are numeric ('n/a' rows - not-yet-operating, excluded or closed sites - are out of frame and their handling must be pinned at construction). Label source columns VERIFIED_EMISSIONS and ALLOCATION at year t are recorded in label_source_columns and must be absent from the shipped features; feature rows may use emissions/allocation/surrender values only for years <= t-1 plus year-t allocation."
-    }
-   ],
-   "packaged": [
-    {
-     "age_hours": 26.1,
-     "awaiting_operator": true,
-     "baseline": {
-      "accepted_artifact_version": "3540ad2180d8df8a",
-      "artifact_fetched_from_staging": 420810883,
-      "contract_ok": true,
-      "dependencies": {
-       "numpy": "2.5.4",
-       "pandas": "2.3.3",
-       "python": "3.13.17",
-       "scikit-learn": "1.9.1",
-       "xgboost": "3.4.1"
-      },
-      "elapsed_seconds": 41.3,
-      "eval_auc_from_train_py": 0.9199,
-      "eval_auc_from_validate_py": 0.9199,
-      "job": "eutl-baseline-001",
-      "note": "Measured on the bytes being released (fetched from staging 420810883, digest-verified, gate --accept before scoring), not a rebuild. The XGBoost pass (0.9199 eval AUC) clears the persistence margin (0.8671) by +0.0532 on identical eval rows, so the level target stands - most of the edge is the announced-allocation margin_t rule, itself 0.8988 eval. Persistence is recorded beside every model number. No holdout AUC is quoted: the holdout never enters a workdir.",
-      "per_year_eval_texture": {
-       "2020": {
-        "persistence_margin_auc": 0.9046,
-        "positive_rate": 0.6713
-       },
-       "2021": {
-        "persistence_margin_auc": 0.8269,
-        "positive_rate": 0.8075
-       },
-       "2022": {
-        "persistence_margin_auc": 0.8723,
-        "positive_rate": 0.7582
-       }
-      },
-      "reference_baselines_on_identical_rows": {
-       "announced_allocation_margin_t_single_column": {
-        "eval": 0.8988,
-        "holdout": 0.8881
-       },
-       "calendar_only_registry_phase": {
-        "eval": 0.527,
-        "holdout": 0.5708
-       },
-       "full_model": {
-        "eval": 0.9199
-       },
-       "identity_only_registry": {
-        "eval": 0.5719,
-        "holdout": 0.5708
-       },
-       "persistence_margin_l1": {
-        "eval": 0.8671,
-        "holdout": 0.8789
-       }
-      },
-      "runner_files_unmodified": true,
-      "server_id": 171847046,
-      "staging_release": 420818845
-     },
-     "country": "EU",
-     "domain": "EU carbon-market compliance - installation-level allowance shortfall prediction (EU institution publisher, EUTL public extracts)",
-     "id": "eutl-installation-net-short",
-     "jobs": [
-      {
-       "at": null,
-       "id": "eutl-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "eutl-baseline-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "eutl-publish-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "eutl-hf-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "eutl-hf-002",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "eutl-hf-003",
-       "status": null
-      }
-     ],
-     "licence_summary": {
-      "compilation_spdx": "CC0-1.0",
-      "source_spdx": "CC-BY-4.0",
-      "status": "European Commission reuse policy, CC BY 4.0 unless otherwise indicated: applies to Commission-owned content on the Union Registry Public Website, whose Data Download section publishes the EUTL public extracts. Reuse is allowed provided appropriate credit is given and changes are indicated. The dataset's derived rows are indicated changes: a row selection, a derived binary label and derived features, not the Commission's own product."
-     },
-     "measurements": {
-      "baseline_2026_10_22": "Runner-contract baseline job eutl-baseline-001 (worker 171847046, cx23, 41.3 s job elapsed, exit 0, EUR 0.06 reservation, destroyed 2026-10-22T14:24:17Z; report at staging release 420818845): the benchmark's own train.py and validate.sh unmodified (bundled sha256s match the read-only clone's files exactly; validate.py independent recompute agrees with train.py) on the re-ACCEPTed eutl-001 artifact (accepted before scoring, artifact 3540ad2180d8df8a...). TRIAD on identical eval rows (2020-2022, 24,322 rows): persistence (t-1 net-position margin) 0.8671 < calendar-only (registry x phase) 0.527 < identity-only (registry) 0.5719 < full model 0.9199. The full model beats the persistence margin by +0.0532 eval AUC, so this is NOT the nhs-ae persistence defect: the level target stands, and persistence is recorded beside the number. The margin_t feature alone measured 0.8988 at construction, so most of the model's edge over persistence is the announced-allocation rule. The runner's contract prints a pooled eval AUC over three prevalence-shifted years (per-year base rates 0.6713 / 0.8075 / 0.7582; per-year persistence margin AUC 0.9046 / 0.8269 / 0.8723 measured on the same written rows); a per-year model AUC is not produced by the contract and none is quoted. No holdout AUC is quoted either: the holdout is never copied into a runner workdir; its construction-time references are persistence 0.8789 / identity 0.5708.",
-      "bulk_extract_2026_10_20": "GET operators_yearly_activity_daily.csv.gz -> HTTP 200, 5,959,551 bytes compressed (HEAD content-length matches), 616,408 data rows after gunzip, 23 columns; download + full row parse on the coordinator completed inside a 52 s wall-clock process (four sibling HEAD probes included); the extract is rectangular: 23,708 (registry, installation) keys x 26 PERIOD_YEAR values (2005-2030 inclusive), i.e. future years carry advance ALLOCATION with VERIFIED_EMISSIONS = n/a (measured: 16,306 rows without numeric emissions in 2025 vs 15,966 in 2021).",
-      "columns_2026_10_20": "INSTALLATION_IDENTIFIER, REGISTRY_CODE, REGISTRY_NAME, INSTALLATION_NAME, PERIOD_YEAR, VERIFIED_EMISSIONS, CH_VERIFIED_EMISSIONS, ALLOCATION, ALLOCATION_RES, ALLOCATION_TRA, CH_ALLOCATION, EXCLUDED, CH_EXCLUDED, SURR_EUA, SURR_EUAA, SURR_CHU, SURR_CHUA, SURR_ERU_FROM_AAU, SURR_FORMER_EUA, SURR_CER, SURR_ALLOWANCE_CP0, SURR_ALL, SNAPSHOT_DATE. 32 registries present: EU-27 plus GB, IS, LI, NO (EEA-EFTA members in the linked ETS) and XI (Northern Ireland electricity).",
-      "construction_2026_10_22": "Worker job eutl-001 (cx23, 40.7 s job elapsed, exit 0, EUR 0.04 reservation, worker 171845011 destroyed 2026-10-22T14:18:34Z): one anonymous GET of operators_yearly_activity_daily.csv.gz (5,965,780 bytes, sha256 1c7db5527c7c9b9a..., snapshot SNAPSHOT_DATE 2026-10-22, Last-Modified 2026-10-22 10:08 GMT, 1.0 s) plus the EEA aggregate zip (10,794,107 bytes, 9.3 s). Panel: 617,448 rows, 23,748 (registry, installation) keys, 32 registries, years 2005-2030, 0 identifiers carrying '@'. Shipped panel: train 141,732 rows / 64,528 positives (45.53%) / 2006-2019; eval 24,322 / 18,002 (74.02%) / 2020-2022; holdout 22,151 / 15,993 (72.20%) / 2023-2025. Eligibility accounted: 16,709 insufficient_history installation-years (all of 2005 - the extract starts 2005 so t-1 does not exist - plus each installation's first active year), 4,224 exact ties labelled 0 and counted, 81 in-frame rows flagged EXCLUDED(t)=YES kept with the mix recorded (0.04%), 6,449 live year-2026 rows (allocation published, emissions unreported until 31 March 2027) scorable at the next compliance cycle. SURR_ALL(t-1) probed as a surrender-history feature and DROPPED: missing on 10,647 of 188,205 eligible rows, and the gate scores a column with empty cells as a categorical, so a partially-defined numeric column cannot ship. Status persistence measured on eligible rows: P(short t | short t-1) = 0.8571, P(short t | long t-1) = 0.1759. Reference baselines measured on the written rows (train-estimated tables): persistence (margin_l1) eval AUC 0.8671 / holdout 0.8789; status rule 0.8197 / 0.8289 (accuracy 0.8587 / 0.8686); identity-only (registry) 0.5719 / 0.5708; calendar-only (registry x ETS phase) 0.527 / 0.5708. The margin_t feature alone (ve_l1 - alloc_t, the announced-allocation rule) measures 0.8988 / 0.8881 - the task has real signal beyond persistence, and persistence is recorded beside every model number. In-build publisher cross-check vs the EEA aggregate product (activity codes 10 + 20-99 exactly; including the per-activity detail rows double-counts): DE 2022 verified emissions exact (361,145,695 = 361,145,695), DE 2023 diff 4 t (1.3e-8), free allocation within 4.3e-4 / 2.7e-4. Known-event fixtures asserted in-build: (AT,1) 2005 net-long VE 41,399 < ALLOC 44,894; (AT,1) 2007 net-short VE 51,041 > 44,894; (AT,1) 2030 advance ALLOC 30,485 with VE n/a; phase-3 cut: eligible-row net-short rate 2012 0.2473 -> 2013 0.5783 (gap 0.3310 >= 0.25). The three CSVs are byte-identical between the coordinator dry run and the worker build (sha256 c7f23c55... / 0d9f35d5... / 1c694e5e... on both), differing only in built-at-stamped meta/quality JSONs.",
-      "eea_aggregate_grain_2026_10_21": "The EEA summary product (ETS_Database_September_2026.xlsx inside the 10.8 MB zip) is country x main_activity_code x year with citl_information labels like '1. Total allocated allowances (EUA or EUAA)' - aggregate-only, confirmed by reading its header and first rows; it cannot itself carry the installation-level task but is the publisher's own summary for cross-checking construction sums.",
-      "net_short_base_rates_2026_10_20": "Computed from the downloaded extract, rows with both VERIFIED_EMISSIONS and ALLOCATION numeric: 2005: 2851/10165 (28.0%); 2008: 3471/11098 (31.3%); 2012: 3168/11510 (27.5%); 2013: 6099/10808 (56.4%); 2017: 6870/9894 (69.4%); 2020: 6267/9324 (67.2%); 2021: 6239/7742 (80.6%); 2022: 5819/7662 (75.9%); 2023: 5253/7524 (69.8%); 2024: 5577/7588 (73.5%); 2025: 5453/7402 (73.7%). Full per-year table in notes.md.",
-      "per_year_xlsx_and_compliance_files_2026_10_21": "The Data Download page also publishes per-year verified_emissions_<year>_en.xlsx and compliance_<year>_code_en.xlsx (2021-2025 observed) plus transactions_eutl_2026.zip - a second, independent publisher channel for label cross-checks.",
-      "publisher_summary_crosscheck_2026_10_21": "Cross-check executed at discovery against the publisher's own summary product (`.factory/eu_crosscheck_1.py`-`3.py`, full panel re-sum vs streamed EEA xlsx): Germany, 2023 - panel sum of VERIFIED_EMISSIONS over the 3,802 DE installation rows = 296,989,213 t; EEA aggregate '2.1 EU-ETS Verified Emission' (activity 10 + 20-99, all entities) = 296,989,209 t (difference 4 t, 0.0000013% - rounding). Panel sum of ALLOCATION = 127,923,163; EEA aggregate '1.1 Freely allocated allowances' = 127,958,123 (difference 34,960, 0.027%) - confirming ALLOCATION is the free-allocation field the net-short comparison should use (the EEA's broader '1. Total allocated allowances' = 219,474,123 is a different concept), and confirming the panel is the same population the EEA aggregates.",
-      "sample_rows_2026_10_20": "e.g. (AT, installation 1 'Calmit Bad Ischl', 2005): VERIFIED_EMISSIONS 41399, ALLOCATION 44894, SURR_ALL 41399 (surrendered equals verified: compliant net-long year); (AT, 1, 2007): VE 51041 > ALLOCATION 44894 (net-short year); (AT, 1, 2030): VE n/a, ALLOCATION 30485 - the advance allocation the task uses as a feature."
-     },
-     "next_action": "PACKAGED 2026-10-22T18:43:19Z, fully staged PRIVATE on both destinations, awaiting the operator's private-to-public flip - the one step that is the operator's, ",
-     "packaged_at": "2026-10-22T18:43:19Z",
-     "path": "candidates/eutl-installation-net-short/record.json",
-     "prediction_time": "30 April of compliance year t, the surrender deadline that closes year t-1's compliance cycle: by then the installation's verified emissions and surrendered allowances for year t-1 are published in the Union Registry (verified emissions are due by 31 March and surrendered allowances by 30 April), and year t's free allocation is known in advance (fixed by the phase-4 national implementation measures decisions recorded in the registry - the extract already carries ALLOCATION for years up to 2030). Year t's verified emissions are not yet observed anywhere: they are reported by 31 March t+1. The extract refreshes daily (SNAPSHOT_DATE column, last-modified 2026-10-20), so a monthly refresh of this task is honest.",
-     "publisher": "European Commission, Directorate-General for Climate Action (Union Registry / European Union Transaction Log public extracts)",
-     "qualification": {
-      "artifact_version": "3540ad2180d8df8a9ff39f5f6c1326c5e487ed20e28f189b9528eeb71f799f66",
-      "result": "passed; 0 failed checks of 38 (leakage, timing, units, splits, runner)",
-      "splits": null
-     },
-     "question": "For a stationary installation covered by the EU Emissions Trading System, will its verified emissions for compliance year t exceed the free allocation it holds for year t (a net-short year: the operator must buy allowances at auction/secondary market to surrender, or face the excess-emissions penalty), given its verified-emissions, free-allocation and surrender history through year t-1, its already-published year-t free allocation, its registry (country) and its name/identifier?",
-     "region": "Europe",
-     "release_baseline": {
-      "auc": 0.9199,
-      "display": "0.9199",
-      "reference": null
-     },
-     "release_splits": {
-      "eval": {
-       "positives": 18002,
-       "rows": 24322
-      },
-      "holdout": {
-       "positives": 15993,
-       "rows": 22151
-      },
-      "train": {
-       "positives": 64528,
-       "rows": 141732
-      }
-     },
-     "review": "",
-     "sources": [
-      {
-       "licence": "Commission reuse policy via the site's Legal notice: 'Unless otherwise indicated (e.g. in individual copyright notices), content owned by the EU on this website is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence' - read 2026-10-21 at https://commission.europa.eu/legal-notice_en. The EEA's own metadata for the Union Registry-derived product independently states 'License CC-BY 4.0' with copyright holder 'European Commission, European Environment Agency (EEA)'.",
-       "name": "European Commission, Directorate-General for Climate Action - Union Registry Public Website, EUTL public extracts (Data Download section)",
-       "url": "https://union-registry-data.ec.europa.eu/report/eu-registry-data-download"
-      },
-      {
-       "licence": "EEA metadata XML inside the zip states: 'License CC-BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Copyright holder: European Commission, European Environment Agency (EEA).'",
-       "name": "European Environment Agency - 'European Union Emissions Trading System (EU ETS) data from the Union Registry' (Sep. 2026 release, publisher's own aggregated summary product for cross-checking)",
-       "url": "https://sdi.eea.europa.eu/data/9eee3fc9-3060-4e3f-bc8d-e22e7c3f6bda"
-      }
-     ],
-     "split_strategy": "Temporal at installation-year grain, one row per (installation, compliance year t): train t <= 2019 (2005-2019), eval 2020-2022, holdout 2023-2025, all restricted to in-frame installation-years (both VERIFIED_EMISSIONS and ALLOCATION numeric). Measured on the 2026-10-20 snapshot (measured_net_short_by_year in notes.md): every year 2005-2025 carries both classes; eligible rows per year range 7,402 (2025) to 11,520 (2012); the net-short base rate drifts by phase - 27.7-31.3% in phase 1/2 (2005-2012), 56.4-71.5% in phase 3 (2013-2020), 69.8-80.6% in phase 4 (2021-2025) - a documented phenomenon property (free-allocation share fell and benchmarks tightened while the cap declined), the analogue of the flunet COVID-era base-rate break; construction must document it, not smooth it. Entities recur across windows by construction (23,708 installation keys observed over 2005-2030 rows), so the row id must be the composite (registry, installation, year) and the recurring-entity property declared, not mistaken for split leakage; positives cluster weakly at the installation level (an installation's net-short status is autocorrelated year to year), so the clustered count to report is distinct installations going net-short in a window, measured at construction.",
-     "status": "packaged",
-     "target": "Binary, computed from the source row of (installation, year t): VERIFIED_EMISSIONS(t) > ALLOCATION(t), where ALLOCATION is the free allocation recorded in the registry for year t and VERIFIED_EMISSIONS is the independently verified emissions figure. Unit: both are tonnes CO2-equivalent per installation-year (1 allowance = 1 tonne); the comparison is unit-free within the source's own frame (no external threshold or datum is involved). Frame restriction: installation-years where both VERIFIED_EMISSIONS and ALLOCATION are numeric ('n/a' rows - not-yet-operating, excluded or closed sites - are out of frame and their handling must be pinned at construction). Label source columns VERIFIED_EMISSIONS and ALLOCATION at year t are recorded in label_source_columns and must be absent from the shipped features; feature rows may use emissions/allocation/surrender values only for years <= t-1 plus year-t allocation."
-    }
-   ],
+   "awaiting": [],
+   "packaged": [],
    "pending": []
   }
  },
@@ -7600,9 +7294,8 @@
   "by_status": {
    "dropped": 30,
    "investigating": 13,
-   "packaged": 1,
    "parked": 27,
-   "published": 9,
+   "published": 10,
    "ready": 3
   },
   "candidates": 83,
@@ -7630,10 +7323,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-23T20:50:01.876184+00:00",
+    "last_run_at": "2026-10-23T21:50:01.707111+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-23T21:00:00+00:00",
+    "next_run_at": "2026-10-23T22:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7654,10 +7347,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-23T20:25:00.736946+00:00",
+    "last_run_at": "2026-10-23T21:50:01.644973+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-23T20:35:00+00:00",
+    "next_run_at": "2026-10-23T21:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7678,10 +7371,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-23T20:46:59.773192+00:00",
+    "last_run_at": "2026-10-23T21:46:18.902102+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-23T20:51:59.773192+00:00",
+    "next_run_at": "2026-10-23T21:51:18.902102+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7690,10 +7383,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-23T20:50:01.860686+00:00",
+    "last_run_at": "2026-10-23T21:50:01.089319+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-23T20:55:00+00:00",
+    "next_run_at": "2026-10-23T21:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7714,10 +7407,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-23T19:50:36.623928+00:00",
+    "last_run_at": "2026-10-23T20:50:43.301419+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-23T21:50:00+00:00",
+    "next_run_at": "2026-10-23T22:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7726,10 +7419,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-23T19:55:01.338772+00:00",
+    "last_run_at": "2026-10-23T20:55:00.878694+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-23T20:55:00+00:00",
+    "next_run_at": "2026-10-23T21:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7770,9 +7463,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-23T20:50:01.877338+00:00"
+  "updated_at": "2026-10-23T21:50:01.708246+00:00"
  },
- "generated_at": "2026-10-23T20:50:02+00:00",
+ "generated_at": "2026-10-23T21:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -7780,22 +7473,22 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-23T20:44:37Z",
-   "head_sha": "edf3b3c",
+   "created_at": "2026-10-23T21:37:25Z",
+   "head_sha": "d85a0d3",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40021561724"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40028113809"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 20/26 (77%)"
   },
   "head": {
-   "at": "2026-10-23T20:44:34Z",
-   "sha": "edf3b3c",
-   "subject": "Site build: refuse records without documented split rows"
+   "at": "2026-10-23T21:37:12Z",
+   "sha": "d85a0d3",
+   "subject": "nz-ea baseline follow-up: 001/002 fetch-spec digest failures diagnosed, 003 triad clean; headroom over persistence not d"
   },
   "tests": {
-   "count": "615",
+   "count": "616",
    "ok": true
   }
  },
@@ -8535,15 +8228,21 @@
    "qualified": 0,
    "sessions_7d": 191,
    "tokens_7d": 16082804
+  },
+  {
+   "at": "2026-10-23T21:50:01+00:00",
+   "live": 13,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 193,
+   "tokens_7d": 16314156
   }
  ],
- "notices": [
-  "A research session is running: lock held for 1201s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.6,
-   "as_of": "2026-10-23T20:50:02+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-23T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -8552,8 +8251,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.6,
-   "as_of": "2026-10-23T20:50:02+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-23T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -8562,8 +8261,8 @@
    "value": 13
   },
   "releases": {
-   "age_minutes": 0.6,
-   "as_of": "2026-10-23T20:50:02+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-23T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -8733,7 +8432,7 @@
     "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "eutl-installation-net-short",
-    "disposition": "packaged",
+    "disposition": "published",
     "errors": [],
     "persistence_auc": null,
     "publication_note": "Prepared for human review. Nothing here has been published.",
@@ -8756,10 +8455,11 @@
     },
     "verified": {
      "github": true,
-     "huggingface": true
+     "huggingface": true,
+     "site": true
     },
     "verified_all": true,
-    "verified_at": "2026-10-22T18:45:21+00:00"
+    "verified_at": "2026-10-23T21:35:08+00:00"
    },
    {
     "assets": 226,
@@ -8796,7 +8496,7 @@
      "site": true
     },
     "verified_all": true,
-    "verified_at": "2026-10-19T11:05:00Z"
+    "verified_at": "2026-10-23T21:16:29+00:00"
    },
    {
     "assets": 5,
@@ -9013,12 +8713,12 @@
      "lo": 0.003
     },
     {
-     "count": 25,
+     "count": 26,
      "hi": 0.01,
      "lo": 0.005
     },
     {
-     "count": 28,
+     "count": 30,
      "hi": 0.02,
      "lo": 0.01
     },
@@ -9050,10 +8750,10 @@
    ],
    "max": 0.6296,
    "median": 0.014,
-   "n": 98,
-   "p90": 0.0611,
+   "n": 101,
+   "p90": 0.0561,
    "ref_rate": 0.06924,
-   "total": 3.6
+   "total": 3.63
   },
   "jobs": [
    {
@@ -10114,15 +9814,39 @@
    },
    {
     "created_at": "2026-10-23T20:43:21.633295+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-10-23T20:50:43.046253+00:00",
+    "eur": 0.0014,
+    "hours": 0.123,
     "id": "nz-ea-baseline-001",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0085,
     "rate_eur": 0.01152,
     "server_type": "cx23",
-    "status": "collected"
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-23T20:51:07.286754+00:00",
+    "deleted_at": "2026-10-23T21:03:10.564835+00:00",
+    "eur": 0.0023,
+    "hours": 0.201,
+    "id": "nz-ea-baseline-002",
+    "location": "hel1",
+    "normalised_eur": 0.0139,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-23T21:03:55.130936+00:00",
+    "deleted_at": "2026-10-23T21:13:05.208561+00:00",
+    "eur": 0.0018,
+    "hours": 0.153,
+    "id": "nz-ea-baseline-003",
+    "location": "hel1",
+    "normalised_eur": 0.0106,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
    },
    {
     "created_at": "2026-10-22T02:08:44.533980+00:00",
@@ -10245,18 +9969,18 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 57,
-  "jobs_total": 99,
-  "lifetime_eur": 3.22,
+  "jobs_this_month": 60,
+  "jobs_total": 101,
+  "lifetime_eur": 3.23,
   "live": {
-   "checked_at": "2026-10-23T20:50:35+00:00",
+   "checked_at": "2026-10-23T21:50:29+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
+   "primary_ips": 0,
+   "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 18.1,
+  "month_hours": 18.6,
   "month_to_date": 0.78,
   "months": [
    {
@@ -10266,58 +9990,18 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.7789,
-    "hours": 18.13,
-    "jobs": 57,
+    "eur": 0.7844,
+    "hours": 18.61,
+    "jobs": 60,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 1.05
+  "projected_month_eur": 1.06
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 0,
+  "failed_last_three": 2,
   "recent": [
-   {
-    "elapsed_seconds": 1930.6,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "11db33077aa1caee66c78193dba9262d781d3a1e97f8c0a3c55cb856ce37199c",
-    "ts": "2026-10-23T16:17:11.285827+00:00"
-   },
-   {
-    "elapsed_seconds": 6.1,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "exit 1",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "512ba7df3a970d0863c23ad4c1a6242c4091955f449b43908456c2e3276e42f5",
-    "ts": "2026-10-23T16:21:39.020301+00:00"
-   },
-   {
-    "elapsed_seconds": 5.4,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "exit 1",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "601956f712fe4ad1db72ea92e923db4c341eef17331228b3ab537739d034934c",
-    "ts": "2026-10-23T16:25:06.529441+00:00"
-   },
    {
     "elapsed_seconds": 1406.9,
     "event": "session",
@@ -10358,6 +10042,48 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "05cb70bd6b8ca5d0616cc0a2d6aebb7631fac3ad73939ec67ee538d7c4b9e614",
     "ts": "2026-10-23T20:29:15.634615+00:00"
+   },
+   {
+    "elapsed_seconds": 2666.4,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "exit 1",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "103e7317b52442eb8855709e71b2d18d5729b83d6076077523937fafd0f9666b",
+    "ts": "2026-10-23T21:14:28.515094+00:00"
+   },
+   {
+    "elapsed_seconds": 602.3,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "exit 1",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "1506b95dec38c15633a58d8a9367a9de80b05d63c10a6d6fc5b4b6e5645169b3",
+    "ts": "2026-10-23T21:27:08.529464+00:00"
+   },
+   {
+    "elapsed_seconds": 546.1,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "1506b95dec38c15633a58d8a9367a9de80b05d63c10a6d6fc5b4b6e5645169b3",
+    "ts": "2026-10-23T21:41:16.486711+00:00"
    }
   ],
   "total": 35
