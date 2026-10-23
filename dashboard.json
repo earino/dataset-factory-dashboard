@@ -15,17 +15,15 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-10-23T06:50:02.003235+00:00",
+   "allowed": true,
+   "moment": "2026-10-23T07:50:01.772793+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 3001s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 12569107,
-   "runs_last_7_days": 169,
-   "runs_weighted_last_7_days": 170,
+   "research_tokens_last_7_days": 12761602,
+   "runs_last_7_days": 171,
+   "runs_weighted_last_7_days": 172,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 1,
    "usage": {
@@ -40,25 +38,25 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 4499,
+     "calls": 4509,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 22061597,
-     "output_tokens": 2421425,
+     "input_tokens": 22067417,
+     "output_tokens": 2425956,
      "pricing_available": false
     },
     "research": {
-     "calls": 4124,
+     "calls": 4178,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 9810140,
-     "output_tokens": 4007683,
+     "input_tokens": 9925326,
+     "output_tokens": 4084992,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -1482,12 +1480,13 @@
     "measurements": {
      "api_cohort_counts_2026_10_21": "dataApresentacao-filtered cohorts via Link rel=last page counts x 100: 2005 ~= 26,300 (41+92+61+69 pages); 2019 ~= 41,400 (68+105+107+135). Cross-checks the file-based row estimate for 2005 (~22 MB / ~850 B/row).",
      "camara_001_full_union_2026_10_23": "Full build over the 70 bulk year files on the worker (camara-001, 395.6 s, exit 2 on guard anchors only). Measured: 642,067 in-window bills (presented 1991-2022) after a descending-first-wins union; splits train 160,559 rows / 14,323 positives (8.92%), eval 37,885 / 1,397 (3.69%), holdout 36,892 / 1,793 (4.86%); assumption buckets - train empty-status 208,487 / non-terminal 9,662 / merged 12,893, eval 68,809 / 8,553 / 776, holdout 75,639 / 20,842 / 1,070. Two measured properties to report beside any model score: (1) the scored population is only the terminal-status subset - roughly 55% of train and 64% of holdout rows are unobserved (no status or still live), so the task is conditioned on an observed fate and the unobserved share rises with recency; (2) positive rate moves 8.92% (train) -> 3.69% (eval) -> 4.86% (holdout), a prevalence shift that is a property of the phenomenon, not a construction fault. The in-build naive references and the fixture results are in the camara-002 summary.",
+     "camara_002_gate_result_2026_10_23": "Gate 1.4.0 over the full staged artifact (artifact_version digest 013f0b0696696a03cd0e0bcaad176936e7cd96b8c2e02358d0a67257af799fa9; train/eval/holdout/meta/quality): 37 of 38 checks passed; the only failure is splits.enough_clustered_positives, recomputed by the gate from the rows as eval 1,397 positives / 4 distinct apresentacao_year events and holdout 1,793 / 4, against minimums of 30 positives and 20 distinct events (train has 24 distinct positive years). The full artifact and the gate report are preserved at the private staging release job-camara-002 (id 421533646, 12 assets, digests verified at collection); the gate report is also at .factory/camara-002/reports/qualification-camara-bill-advancement.json (gitignored local copy).",
      "construction_probes_2026_10_23": "probe_censoring.py (v1, naive line-splitting: defective - quoted multi-line ementas corrupt mid-file chunks), corrected by probe_censoring2.py (quote-parity record-boundary trimming; whole-1991 file ground truth) + probe_empty_status.py + probe_file_vs_api.py + probe_file_inventory.py, all run end-to-end 2026-10-23 from the coordinator: (1) situation-code vocabulary keyed by header name: 923 Arquivada (2,491 of 4,436 whole-1991 rows), 1140 Transformado em Norma Jur\u00eddica (311 = 7.0%), 1230 Transformado em nova proposi\u00e7\u00e3o, 937 Vetado totalmente, 925 Tramitando em Conjunto, 907/915/924/926/936/1070/1120/1170/1220/1285 ongoing/other - consistent code->description pairs, unlike the discovery sample's mis-indexed columns; (2) empty ultimoStatus share by year-file sample: 1991 36.6% (whole file), 2000 14.8%, 2005 51.4%, 2010 52.7%, 2015 51.9%, 2019 48.7%, 2021 52.3%, 2022 39.9% - and the API returns statusProposicao None for sampled such ids, so the emptiness is the publisher's own record, not a file gap; empty-status rows skew to procedural types (RIC/REQ/EMP/MSC) but include some PLs; (3) right-censoring: bills presented 2019 still carry non-terminal statuses with ultimoStatus_dataHora in 2024-2026 (e.g. PL 1/2019 id 2190407 'Aguardando Aprecia\u00e7\u00e3o pelo Senado Federal', dataHora 2025-08-26) and the API agrees with the file on every sampled id - the vintage is current, the legislatures are not closed for these bills; (4) file inventory: 35/35 years 200 OK for both families, proposicoes 747.4 MB + proposicoesAutores 456.0 MB total; (5) autores schema measured: idProposicao, tipoAutor, siglaPartidoAutor, siglaUFAutor, ordemAssinatura, proponente - first-author features keyed on the proponente row. Observation for the novelty record: an HF org (belisards) mirrors the raw proposicoes files 1934-2024 (ementas_camarabr_1934_2024) - raw extract, no splits, no scored contract; recorded as a mirror observation, not permission, and it does not change the recorded 'differentiated' verdict.",
      "cost_measured": "Discovery cost: 15 requests / ~4 MB of ranged samples / 31 s wall clock (probe_samples.py) + 8 API count requests. Construction cost: ~35 year files (sizes measured, sum ~= 1.2 GB ESTIMATE) + proposicoesAutores files; worker-trivial.",
      "ranged_samples_2026_10_21": "probe_samples.py: 4 x 1 MB ranged chunks each of proposicoes-2005.csv (4,852 parsed rows) and proposicoes-2019.csv (4,909 rows). 2005 sample: dataApresentacao 100% in 2005; ultimoStatus vocabulary: 'Arquivada' ~62% across codes (1005, 502, 241, 100, 1001, 180...), 'Transformado em nova proposi\u00e7\u00e3o' ~3.5% (codes 469, 604...), 'Transformado em Norma Jur\u00eddica' (idSituacao 251) 72 = 1.5%; urnFinal non-empty 0/4,852. 2019 sample: 98% presented 2019; statuses still mixed (Arquivada 14.8%, ongoing tramita\u00e7\u00e3o states) - recent cohorts right-censored, excluded from the task.",
      "situation_code_quality_2026_10_21": "Many rows carry idSituacao with EMPTY descricaoSituacao (codes '100', '319' are the most frequent with empty descriptions, 39-40% of sample rows) while the same codes also appear WITH descriptions elsewhere - the label must be defined on the publisher's situation CODE table (fetched at construction), with descriptions as a cross-check where present. Measured on the same samples."
     },
-    "next_action": "camara-002 (server 171989986) was RUNNING at session close: collect it, require exit 0 AND a passing gate report on the full artifact, then run `qualify_dataset",
+    "next_action": "HANDED TO ADVANCEMENT (task-design decision, not a code patch). camara-002's only gate failure, splits.enough_clustered_positives, is structural under the curre",
     "packaged_at": null,
     "path": "candidates/camara-bill-advancement/record.json",
     "prediction_time": "The instant of presentation (dataApresentacao). Excluded from shipped features by documented timing reasoning: the publisher's indexa\u00e7\u00e3o fields keywords and proposicoesTemas (assigned by the Chamber's indexing service after presentation - post-hoc, and the file documentation itself lists them beside 'informa\u00e7\u00f5es sobre a tramita\u00e7\u00e3o mais recente'); all ultimoStatus_* fields (the current/last tramita\u00e7\u00e3o state - label source); regime as recorded in ultimoStatus (current regime, mutable after presentation); uriPropAnterior/Principal/Posterior (later-created links); urnFinal. Safe features: siglaTipo/codTipo/descricaoTipo, ementa text, dataApresentacao + calendar features, authors (from the separate proposicoesAutores bulk family), ano/numero.",
@@ -2919,7 +2918,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 12.1,
+    "age_hours": 13.1,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
@@ -6903,7 +6902,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 12.1,
+     "age_hours": 13.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7062,7 +7061,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 12.1,
+     "age_hours": 13.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7299,10 +7298,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-23T06:50:01.446132+00:00",
+    "last_run_at": "2026-10-23T07:40:02.144950+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-23T07:00:00+00:00",
+    "next_run_at": "2026-10-23T08:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7323,7 +7322,7 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-23T02:00:01.091915+00:00",
+    "last_run_at": "2026-10-23T06:52:22.414130+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
     "next_run_at": "2026-10-23T10:00:00+00:00",
@@ -7347,10 +7346,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-23T06:48:39.899808+00:00",
+    "last_run_at": "2026-10-23T07:46:19.200439+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-23T06:53:39.899808+00:00",
+    "next_run_at": "2026-10-23T07:51:19.200439+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7383,10 +7382,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-23T05:50:24.198928+00:00",
+    "last_run_at": "2026-10-23T06:50:29.019615+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-23T07:50:00+00:00",
+    "next_run_at": "2026-10-23T08:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7395,10 +7394,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-23T05:55:00.842910+00:00",
+    "last_run_at": "2026-10-23T06:55:01.018418+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-23T06:55:00+00:00",
+    "next_run_at": "2026-10-23T07:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7439,9 +7438,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-23T06:50:01.447233+00:00"
+  "updated_at": "2026-10-23T07:50:01.365532+00:00"
  },
- "generated_at": "2026-10-23T06:50:01+00:00",
+ "generated_at": "2026-10-23T07:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -7449,19 +7448,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-23T04:12:53Z",
-   "head_sha": "06776d1",
+   "created_at": "2026-10-23T07:40:16Z",
+   "head_sha": "c374b3d",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39899122266"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39919319737"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 20/26 (77%)"
   },
   "head": {
-   "at": "2026-10-23T06:50:16Z",
-   "sha": "97d7beb",
-   "subject": "camara-001 ledger: collected + destroyed 06:48:42Z"
+   "at": "2026-10-23T07:13:38Z",
+   "sha": "c374b3d",
+   "subject": "camara-002 follow-up: gate failed on clustered positives (37/38 pass; 4 year-events in eval/holdout vs 20 minimum); repo"
   },
   "tests": {
    "count": "588",
@@ -8092,15 +8091,21 @@
    "qualified": 0,
    "sessions_7d": 169,
    "tokens_7d": 12569107
+  },
+  {
+   "at": "2026-10-23T07:50:01+00:00",
+   "live": 12,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 171,
+   "tokens_7d": 12761602
   }
  ],
- "notices": [
-  "A research session is running: lock held for 3001s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-23T06:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-23T07:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -8109,8 +8114,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-23T06:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-23T07:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -8119,8 +8124,8 @@
    "value": 12
   },
   "releases": {
-   "age_minutes": 0.3,
-   "as_of": "2026-10-23T06:50:01+00:00",
+   "age_minutes": 0.2,
+   "as_of": "2026-10-23T07:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -8580,7 +8585,7 @@
      "lo": 0.01
     },
     {
-     "count": 19,
+     "count": 20,
      "hi": 0.05,
      "lo": 0.02
     },
@@ -8606,11 +8611,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0138,
-   "n": 92,
+   "median": 0.014,
+   "n": 93,
    "p90": 0.0526,
    "ref_rate": 0.06924,
-   "total": 3.26
+   "total": 3.28
   },
   "jobs": [
    {
@@ -8843,15 +8848,15 @@
    },
    {
     "created_at": "2026-10-23T06:48:44.619375+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-10-23T07:12:22.852834+00:00",
+    "eur": 0.0045,
+    "hours": 0.394,
     "id": "camara-002",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0273,
     "rate_eur": 0.01152,
     "server_type": "cx23",
-    "status": "running"
+    "status": "deleted"
    },
    {
     "created_at": "2026-09-26T19:08:25.619435+00:00",
@@ -9730,19 +9735,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 51,
+  "jobs_this_month": 52,
   "jobs_total": 93,
   "lifetime_eur": 3.17,
   "live": {
-   "checked_at": "2026-10-23T06:50:16+00:00",
+   "checked_at": "2026-10-23T07:50:16+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 13.2,
-  "month_to_date": 0.72,
+  "month_hours": 13.6,
+  "month_to_date": 0.73,
   "months": [
    {
     "eur": 2.4452,
@@ -9751,54 +9756,18 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.722,
-    "hours": 13.2,
-    "jobs": 51,
+    "eur": 0.7265,
+    "hours": 13.59,
+    "jobs": 52,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 0.97
+  "projected_month_eur": 0.98
  },
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 2153.4,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "ts": "2026-10-22T22:35:54.221431+00:00"
-   },
-   {
-    "elapsed_seconds": 944.2,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "cdee0c85353a2792de88eff68e932fb397d762314ffdfe13c8f45bf191a728f4",
-    "ts": "2026-10-23T01:10:39.200133+00:00"
-   },
-   {
-    "elapsed_seconds": 2376.4,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "d213f4afa831a35edc3e76c7713fbc6cfb19916e4d1cbfaa51d8ec09ea8dd939",
-    "ts": "2026-10-23T01:51:07.312085+00:00"
-   },
    {
     "elapsed_seconds": 387.9,
     "event": "session",
@@ -9838,8 +9807,50 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "86b35548bfb73367766229be52001660c17972ca224475298feb8e100e733eb5",
     "ts": "2026-10-23T04:13:51.992181+00:00"
+   },
+   {
+    "elapsed_seconds": 3141.5,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "f4d71fef93a41d2dee06b1bcf9aefe8252df1ff481eebbd60756bbbdbdc7750a",
+    "ts": "2026-10-23T06:52:22.373580+00:00"
+   },
+   {
+    "elapsed_seconds": 619.3,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "d408799e7fb1080bf1f47a402742d5d2ab7aa3f43fd1cd2e0ef3b0aa433882c2",
+    "ts": "2026-10-23T07:04:01.675880+00:00"
+   },
+   {
+    "elapsed_seconds": 424.6,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "8f88e2c76c590cdf1ca6effd36e1d68d5ae306eed15bb7aa8a1ad4add3da153c",
+    "ts": "2026-10-23T07:16:10.381915+00:00"
    }
   ],
-  "total": 35
+  "total": 37
  }
 }
