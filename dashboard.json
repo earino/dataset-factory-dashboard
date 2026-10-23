@@ -18,7 +18,7 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-23T16:50:02.768587+00:00",
+   "moment": "2026-10-23T17:50:02.551442+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
@@ -40,14 +40,14 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 4754,
+     "calls": 4832,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 24218085,
-     "output_tokens": 2536299,
+     "input_tokens": 24268578,
+     "output_tokens": 2580215,
      "pricing_available": false
     },
     "research": {
@@ -3127,7 +3127,7 @@
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
    },
    {
-    "age_hours": 22.1,
+    "age_hours": 23.1,
     "awaiting_operator": true,
     "baseline": {
      "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7211,7 +7211,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 22.1,
+     "age_hours": 23.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7370,7 +7370,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 22.1,
+     "age_hours": 23.1,
      "awaiting_operator": true,
      "baseline": {
       "accepted_artifact_version": "3540ad2180d8df8a",
@@ -7607,10 +7607,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-23T16:50:02.246309+00:00",
+    "last_run_at": "2026-10-23T17:50:02.075840+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-23T17:00:00+00:00",
+    "next_run_at": "2026-10-23T18:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7631,10 +7631,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-23T16:50:01.203704+00:00",
+    "last_run_at": "2026-10-23T17:50:00.801451+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-23T16:55:00+00:00",
+    "next_run_at": "2026-10-23T17:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7655,10 +7655,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-23T16:46:39.811920+00:00",
+    "last_run_at": "2026-10-23T17:47:00.818801+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-23T16:51:39.811920+00:00",
+    "next_run_at": "2026-10-23T17:52:00.818801+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7667,10 +7667,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-23T16:50:01.174851+00:00",
+    "last_run_at": "2026-10-23T17:50:00.755619+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-23T16:55:00+00:00",
+    "next_run_at": "2026-10-23T17:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7691,10 +7691,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-23T15:50:24.416980+00:00",
+    "last_run_at": "2026-10-23T16:50:35.117204+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-23T17:50:00+00:00",
+    "next_run_at": "2026-10-23T18:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7703,10 +7703,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-23T15:55:00.955311+00:00",
+    "last_run_at": "2026-10-23T16:55:00.882461+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-23T16:55:00+00:00",
+    "next_run_at": "2026-10-23T17:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7747,9 +7747,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-23T16:50:02.247317+00:00"
+  "updated_at": "2026-10-23T17:50:02.076828+00:00"
  },
- "generated_at": "2026-10-23T16:50:01+00:00",
+ "generated_at": "2026-10-23T17:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -7757,19 +7757,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-23T16:16:07Z",
-   "head_sha": "43e26c2",
+   "created_at": "2026-10-23T17:11:43Z",
+   "head_sha": "77ff65c",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/39985360370"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/39993060496"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 19/25 (76%)"
   },
   "head": {
-   "at": "2026-10-23T16:16:00Z",
-   "sha": "43e26c2",
-   "subject": "hk-red-tide-sighting: PARKED on timing (label date undocumented; observed lag 1-155 days); East Asia scan recorded"
+   "at": "2026-10-23T17:11:36Z",
+   "sha": "77ff65c",
+   "subject": "Launch research sessions with an enum-safe --source tag"
   },
   "tests": {
    "count": "601",
@@ -8480,13 +8480,21 @@
    "qualified": 0,
    "sessions_7d": 187,
    "tokens_7d": 15562718
+  },
+  {
+   "at": "2026-10-23T17:50:01+00:00",
+   "live": 13,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 187,
+   "tokens_7d": 15562718
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.4,
-   "as_of": "2026-10-23T16:50:01+00:00",
+   "as_of": "2026-10-23T17:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -8496,7 +8504,7 @@
   },
   "candidates": {
    "age_minutes": 0.4,
-   "as_of": "2026-10-23T16:50:01+00:00",
+   "as_of": "2026-10-23T17:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -8506,7 +8514,7 @@
   },
   "releases": {
    "age_minutes": 0.4,
-   "as_of": "2026-10-23T16:50:01+00:00",
+   "as_of": "2026-10-23T17:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -10168,7 +10176,7 @@
   "jobs_total": 97,
   "lifetime_eur": 3.2,
   "live": {
-   "checked_at": "2026-10-23T16:50:26+00:00",
+   "checked_at": "2026-10-23T17:50:26+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
