@@ -18,7 +18,7 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-24T18:50:02.718382+00:00",
+   "moment": "2026-10-24T19:50:02.931009+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
@@ -7680,10 +7680,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-24T18:50:01.592273+00:00",
+    "last_run_at": "2026-10-24T19:50:02.122614+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-24T19:00:00+00:00",
+    "next_run_at": "2026-10-24T20:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7704,10 +7704,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-24T18:50:01.426443+00:00",
+    "last_run_at": "2026-10-24T19:50:02.139318+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-24T18:55:00+00:00",
+    "next_run_at": "2026-10-24T19:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7728,10 +7728,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-24T18:47:53.173628+00:00",
+    "last_run_at": "2026-10-24T19:48:19.045736+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-24T18:52:53.173628+00:00",
+    "next_run_at": "2026-10-24T19:53:19.045736+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7740,10 +7740,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-24T18:50:01.637204+00:00",
+    "last_run_at": "2026-10-24T19:50:01.401082+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-24T18:55:00+00:00",
+    "next_run_at": "2026-10-24T19:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7764,10 +7764,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-24T17:50:42.208169+00:00",
+    "last_run_at": "2026-10-24T18:50:41.384633+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-24T19:50:00+00:00",
+    "next_run_at": "2026-10-24T20:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7776,10 +7776,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-24T17:55:00.766523+00:00",
+    "last_run_at": "2026-10-24T18:55:01.013025+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-24T18:55:00+00:00",
+    "next_run_at": "2026-10-24T19:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7820,9 +7820,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-24T18:50:01.638269+00:00"
+  "updated_at": "2026-10-24T19:50:02.140443+00:00"
  },
- "generated_at": "2026-10-24T18:50:01+00:00",
+ "generated_at": "2026-10-24T19:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -7830,10 +7830,10 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-24T16:41:20Z",
+   "created_at": "2026-10-24T19:32:52Z",
    "head_sha": "c19caf6",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40112714253"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40125791282"
   },
   "coverage": {
    "ok": true,
@@ -8769,13 +8769,21 @@
    "qualified": 0,
    "sessions_7d": 198,
    "tokens_7d": 17100439
+  },
+  {
+   "at": "2026-10-24T19:50:01+00:00",
+   "live": 14,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 198,
+   "tokens_7d": 17100439
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-24T18:50:01+00:00",
+   "as_of": "2026-10-24T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -8785,7 +8793,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-24T18:50:01+00:00",
+   "as_of": "2026-10-24T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -8795,7 +8803,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-24T18:50:01+00:00",
+   "as_of": "2026-10-24T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -10615,7 +10623,7 @@
   "jobs_total": 107,
   "lifetime_eur": 3.29,
   "live": {
-   "checked_at": "2026-10-24T18:50:33+00:00",
+   "checked_at": "2026-10-24T19:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
