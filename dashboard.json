@@ -18,7 +18,7 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-24T03:50:02.467225+00:00",
+   "moment": "2026-10-24T04:50:02.885920+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
@@ -5907,7 +5907,7 @@
     "target": "Binary: the per-warning `verify` boolean returned by IEM cow for phenomena=TO, significance=W - whether >=1 tornado local storm report (buffered by cow's default 15 km) falls inside the polygon during the valid window. The method is documented on the cow page ('NWS Storm Based Warning Verification') and matches the official storm-based verification concept in NWS Instruction 10-1601 ('FAR is the number of false alarms (unverified warnings) divided by the total number of warnings'; storm report points verify warning areas)."
    },
    {
-    "age_hours": 5.3,
+    "age_hours": 6.3,
     "awaiting_operator": true,
     "baseline": {},
     "country": "NZ",
@@ -7460,7 +7460,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 5.3,
+     "age_hours": 6.3,
      "awaiting_operator": true,
      "baseline": {},
      "country": "NZ",
@@ -7604,7 +7604,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 5.3,
+     "age_hours": 6.3,
      "awaiting_operator": true,
      "baseline": {},
      "country": "NZ",
@@ -7827,10 +7827,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-24T03:50:01.934689+00:00",
+    "last_run_at": "2026-10-24T04:50:02.313193+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-24T04:00:00+00:00",
+    "next_run_at": "2026-10-24T05:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7851,10 +7851,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-24T03:50:01.206148+00:00",
+    "last_run_at": "2026-10-24T04:50:01.958653+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-24T03:55:00+00:00",
+    "next_run_at": "2026-10-24T04:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7875,10 +7875,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-24T03:47:29.019196+00:00",
+    "last_run_at": "2026-10-24T04:47:46.902265+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-24T03:52:29.019196+00:00",
+    "next_run_at": "2026-10-24T04:52:46.902265+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7887,10 +7887,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-24T03:50:00.917996+00:00",
+    "last_run_at": "2026-10-24T04:50:01.431443+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-24T03:55:00+00:00",
+    "next_run_at": "2026-10-24T04:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7911,10 +7911,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-24T02:50:36.371939+00:00",
+    "last_run_at": "2026-10-24T03:50:35.440030+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-24T04:50:00+00:00",
+    "next_run_at": "2026-10-24T05:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7923,10 +7923,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-24T02:55:00.814814+00:00",
+    "last_run_at": "2026-10-24T03:55:01.368145+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-24T03:55:00+00:00",
+    "next_run_at": "2026-10-24T04:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7967,9 +7967,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-24T03:50:01.935936+00:00"
+  "updated_at": "2026-10-24T04:50:02.314316+00:00"
  },
- "generated_at": "2026-10-24T03:50:01+00:00",
+ "generated_at": "2026-10-24T04:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -8796,13 +8796,21 @@
    "qualified": 0,
    "sessions_7d": 198,
    "tokens_7d": 17100439
+  },
+  {
+   "at": "2026-10-24T04:50:01+00:00",
+   "live": 13,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 198,
+   "tokens_7d": 17100439
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.4,
-   "as_of": "2026-10-24T03:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-24T04:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -8811,8 +8819,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.4,
-   "as_of": "2026-10-24T03:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-24T04:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -8821,8 +8829,8 @@
    "value": 13
   },
   "releases": {
-   "age_minutes": 0.4,
-   "as_of": "2026-10-24T03:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-24T04:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -10618,7 +10626,7 @@
   "jobs_total": 105,
   "lifetime_eur": 3.24,
   "live": {
-   "checked_at": "2026-10-24T03:50:28+00:00",
+   "checked_at": "2026-10-24T04:50:28+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -10646,91 +10654,7 @@
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
-  "recent": [
-   {
-    "elapsed_seconds": 546.1,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "1506b95dec38c15633a58d8a9367a9de80b05d63c10a6d6fc5b4b6e5645169b3",
-    "ts": "2026-10-23T21:41:16.486711+00:00"
-   },
-   {
-    "elapsed_seconds": 1882.0,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "0e4337bc82155d10d07e11514a764ed7a4bf77a09f6e9f949385cfa7be6a4a44",
-    "ts": "2026-10-23T22:31:23.318341+00:00"
-   },
-   {
-    "elapsed_seconds": 712.8,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "e5e54e23747c04dd59706772a0ba6c5a126f0ef29cecb7936c55a83a531d2701",
-    "ts": "2026-10-23T22:43:23.070261+00:00"
-   },
-   {
-    "elapsed_seconds": 2894.0,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "b8cf89f77f95c7bd4fe7ae2165411b463185c92223ccf8e5d8791389ce588708",
-    "ts": "2026-10-23T23:33:16.145479+00:00"
-   },
-   {
-    "elapsed_seconds": 459.0,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "b4a106c6aad5edd78858e84521c0742dc28f6e1b2e9be960e60dcc507078bf02",
-    "ts": "2026-10-23T23:41:16.149826+00:00"
-   },
-   {
-    "elapsed_seconds": 1700.9,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "3a707ad7532d429b9aaaf77101093ba087e1b37f6c16a3ddf7dcdb857cbed01f",
-    "ts": "2026-10-24T00:28:23.743436+00:00"
-   }
-  ],
-  "total": 16
+  "recent": [],
+  "total": 0
  }
 }
