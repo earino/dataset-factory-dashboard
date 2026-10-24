@@ -1,7 +1,7 @@
 {
  "alarms": [
   "Research gate refused the next session: 198 research session(s) already ran in the last 7 days, 2 of which overshot the 600,000-token cap and count double (cap 200)",
-  "CI on 682fc68 concluded failure",
+  "CI on 5e6a28c concluded failure",
   "Test suite is failing"
  ],
  "budget": {
@@ -20,7 +20,7 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-24T10:50:02.517326+00:00",
+   "moment": "2026-10-24T11:50:02.964134+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
@@ -44,14 +44,14 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 5116,
+     "calls": 5135,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 25282205,
-     "output_tokens": 2789708,
+     "input_tokens": 25301403,
+     "output_tokens": 2815944,
      "pricing_available": false
     },
     "research": {
@@ -1228,7 +1228,7 @@
       "train 1991-2014": "up=24166 down=13575 flat=520 (23 of 24 years carry both classes)"
      }
     },
-    "next_action": "PUBLISHED on GitHub, Hugging Face and the website; all verified anonymously.",
+    "next_action": "BENCHMARK DEFECT confirmed by independent audit (2026-10-24T11:15:09Z): eval join (country,T)->(country,T+1): next val_m/val_m12 are the label operands; 4071/41",
     "packaged_at": null,
     "path": "candidates/abs-visitor-arrivals-direction/record.json",
     "prediction_time": "The publication instant of the ABS Overseas Arrivals and Departures (OAD) release for reference month M, which lands about six weeks after month end (max observed lag 43 days; releases observed 13/10/2026 for Aug 2026, 11/09/2026 for Jul 2026, 12/06/2026 for Apr 2026, all 11:30am local). Features are the published series values for months <= M only; the target month M+1 is unpublished at that instant (it is released ~43 days after its own month end).",
@@ -1505,7 +1505,7 @@
      "rows_total_measured": 1049636,
      "threshold_training_rate_measured": 0.403763
     },
-    "next_action": "Released and verified. Nothing outstanding for this release: further work would be a new release, not a correction to this one. CORRECTED 2026-09-26: the previo",
+    "next_action": "Survived the 2026-10-24T11:15:09Z bounded leakage audit (bounded PASS: strongest frozen lookup 75300/285665 covered, 25154 mismatches, AUC 0.6386 - context memo",
     "packaged_at": null,
     "path": "candidates/austin-911-response/record.json",
     "prediction_time": "At dispatch: the moment the 911 call-taker's ECT screen opens (response_datetime). Only fields known then may be features. Arrival, closing, priority, mental-health, final-classification and injury fields are excluded.",
@@ -1994,7 +1994,7 @@
       "min": "2008-01-01"
      }
     },
-    "next_action": "Released. Both destinations are public and verified from an unauthenticated client, the site is live and verified, and tag v2026.09 resolves to the same commit ",
+    "next_action": "Survived the 2026-10-24T11:15:09Z bounded leakage audit (bounded PASS: 57/3436 covered, 4 mismatches, AUC 0.4732 - no meaningful recovery). Not a proof that no ",
     "packaged_at": null,
     "path": "candidates/chicago-doah-adjudication/record.json",
     "prediction_time": "At docketing, before the hearing date. Permitted features are the violation, the property and the docket metadata. case_disposition, imposed_fine, admin_costs and last_modified_date are outcomes and excluded.",
@@ -2203,7 +2203,7 @@
      "rows_total": 316205,
      "rows_with_violations": 227036
     },
-    "next_action": "PUBLISHED 2026-10-20T21:55:35Z - GitHub (public repo earino/chicago-food-inspections, tag v2026.10, release 418734355, 201/201 assets) and Hugging Face (public,",
+    "next_action": "BENCHMARK DEFECT confirmed by independent audit (2026-10-24T11:15:09Z): reverse-history join via days_since_previous: all 40 configurations, 22309/35358 covered",
     "packaged_at": "2026-10-20T17:20:56.111144+00:00",
     "path": "candidates/chicago-food-inspections/record.json",
     "prediction_time": "The moment the inspection is opened, before any observation: inspection_date is known when a canvass is scheduled or a complaint triggers a visit, and every intended feature is either a static facility attribute, the inspection's own type, or a field of an earlier inspection of the same licence.",
@@ -3442,7 +3442,7 @@
      "publisher_summary_crosscheck_2026_10_21": "Cross-check executed at discovery against the publisher's own summary product (`.factory/eu_crosscheck_1.py`-`3.py`, full panel re-sum vs streamed EEA xlsx): Germany, 2023 - panel sum of VERIFIED_EMISSIONS over the 3,802 DE installation rows = 296,989,213 t; EEA aggregate '2.1 EU-ETS Verified Emission' (activity 10 + 20-99, all entities) = 296,989,209 t (difference 4 t, 0.0000013% - rounding). Panel sum of ALLOCATION = 127,923,163; EEA aggregate '1.1 Freely allocated allowances' = 127,958,123 (difference 34,960, 0.027%) - confirming ALLOCATION is the free-allocation field the net-short comparison should use (the EEA's broader '1. Total allocated allowances' = 219,474,123 is a different concept), and confirming the panel is the same population the EEA aggregates.",
      "sample_rows_2026_10_20": "e.g. (AT, installation 1 'Calmit Bad Ischl', 2005): VERIFIED_EMISSIONS 41399, ALLOCATION 44894, SURR_ALL 41399 (surrendered equals verified: compliant net-long year); (AT, 1, 2007): VE 51041 > ALLOCATION 44894 (net-short year); (AT, 1, 2030): VE n/a, ALLOCATION 30485 - the advance allocation the task uses as a feature."
     },
-    "next_action": "PUBLISHED 2026-10-23T21:35:25Z: operator approved the private-to-public flip; both destinations public and anonymously verified (GitHub repo 200, 5/5 release as",
+    "next_action": "BENCHMARK DEFECT confirmed by independent audit (2026-10-24T11:15:09Z): join (installation,t)->(installation,t+1): next net_short_l1 is T's label; 14731/24322 c",
     "packaged_at": "2026-10-22T18:43:19Z",
     "path": "candidates/eutl-installation-net-short/record.json",
     "prediction_time": "30 April of compliance year t, the surrender deadline that closes year t-1's compliance cycle: by then the installation's verified emissions and surrendered allowances for year t-1 are published in the Union Registry (verified emissions are due by 31 March and surrendered allowances by 30 April), and year t's free allocation is known in advance (fixed by the phase-4 national implementation measures decisions recorded in the registry - the extract already carries ALLOCATION for years up to 2030). Year t's verified emissions are not yet observed anywhere: they are reported by 31 March t+1. The extract refreshes daily (SNAPSHOT_DATE column, last-modified 2026-10-20), so a monthly refresh of this task is honest.",
@@ -5235,7 +5235,7 @@
       "2026_partial": 12446
      }
     },
-    "next_action": "PUBLISHED 2026-10-19. Both data destinations were flipped to public after the operator asked for the dataset to be taken over the line, and both were then verif",
+    "next_action": "BENCHMARK DEFECT confirmed by independent audit (2026-10-24T11:15:09Z): reverse-history join via days_since_previous: all 45 configurations, 36054/49233 covered",
     "packaged_at": null,
     "path": "candidates/msha-enforcement-citations/record.json",
     "prediction_time": "The instant the inspection begins (INSPECTION_BEGIN_DT). Every feature is either a static mine attribute (Mines table), the inspection's own trigger recorded when it opens (ACTIVITY_CODE/ACTIVITY, PROGRAM_AREA, INSPECT_OFFICE_CD), or a field of an earlier inspection of the same MINE_ID. Everything the inspector observes or records during the visit is post-hoc and excluded.",
@@ -5328,7 +5328,7 @@
      "state": "Johor",
      "unobserved_outcomes": 143978
     },
-    "next_action": "PUBLISHED on GitHub, Hugging Face and the website; all three verified anonymously. No further action.",
+    "next_action": "BENCHMARK DEFECT confirmed by independent audit (2026-10-24T11:15:09Z): join (premise,item,T)->(pair,T+7): next prices are the label operands; 264956/280468 cov",
     "packaged_at": null,
     "path": "candidates/my-pricecatcher-weekly-increase/record.json",
     "prediction_time": "End of week W (Sunday 23:59:59 MYT = UTC+8, i.e. 15:59:59 UTC). Features may use only price observations with date <= end of week W, from files whose data_as_of is within week W or earlier. The publisher's storage channel is measured to carry rows dated the same day (2026-10-21 rows present in the 2026-10 file, file last-modified 2026-10-21 12:10 UTC), so no publication lag is incurred for the feature instant; the label (week W+1 modal price) is computable from files available by day 2 of week W+2 at the latest (current-month file refreshes daily; a completed month's file was last modified 12 days after month end, 2026-09 file -> 2026-10-12, so construction snapshots and hashes monthly files at freeze time - see construction notes).",
@@ -5746,7 +5746,7 @@
       "result": "identical row counts, positives, coverage and day-quality; sparse value revisions in the observations and a different byte size in every file"
      }
     },
-    "next_action": "The release is public and verified; what remains is documentation-only and touches no asset byte. In order: (1) DATA_DICTIONARY.md's label row still names the c",
+    "next_action": "BENCHMARK DEFECT confirmed by independent audit (2026-10-24T11:15:09Z): join (station,D)->(station,D+1) ships the outcome day's observed_max_ft: temporal 0.9992",
     "packaged_at": null,
     "path": "candidates/noaa-tide-flooding/record.json",
     "prediction_time": "End of the local day before the target day. Features are observed water levels only. NOAA tide predictions and model guidance are model output and must be excluded so the task stays an observation-only forecast.",
@@ -6776,7 +6776,7 @@
      "publisher_cross_check": "TSB 2025 annual summary (fetched 2026-10-21): 831 rail accidents in 2025 (895 in 2024; 10-year average 1,007), 332 incidents (303 in 2024), 82 accidents involving dangerous goods, 3 with DG released, 'Freight trains accounted for 42% of all rolling stock involved in rail accidents in 2025'. Sample consistency: the newest 2 MB sample holds 665 rows from 2025 and 836 from 2026 (to 2026-09-05) - consistent in order of magnitude with 831+332=1,163 occurrences in 2025. Full-panel accident/incident counts must be cross-checked against these published figures at construction.",
      "row_count_estimate": "97,765,258 bytes / (2,097,152 bytes per 1,502 rows ~= 1,396 B/row) ~= 70,000 occurrences total (ESTIMATE; measured on samples only - the full file was not downloaded to the coordinator, per the coordinator's no-bulk-download rule). Construction fetches it on the worker."
     },
-    "next_action": "PUBLISHED 2026-10-22T09:05:57Z - GitHub public (v2026.10, 5/5 assets digest-verified anonymously), Hugging Face public (16 files), site live at earino.github.io",
+    "next_action": "Survived the 2026-10-24T11:15:09Z bounded leakage audit (bounded PASS: no train match supplying outcomes; AUC undefined (0 covered)). Not a proof that no strong",
     "packaged_at": "2026-10-22T06:30:00Z",
     "path": "candidates/tsb-railway-occurrence-casualty/record.json",
     "prediction_time": "The instant the occurrence begins (OccDate/OccTime, with the documented local time zone via TimeZoneID). Everything the TSB records during or after the occurrence is excluded from the shipped features: TSB's accident/incident type assignment (its taxonomy embeds outcomes, e.g. 'NON-MAIN-TRACK TRAIN DERAILMENT (NO DAMAGE)'), all injury/DG-release/fire/evacuation/damage flags and counts, weather observations taken at the occurrence, track and rolling-stock attributes measured during the occurrence, investigation/deployment/closeout fields, process dates (ENTRY_DT, RELEASE_DT, DAILY_RELEASED_DT, OccClosedDate), the free-text Summary, and even ReportedDate/ReportedTime (the notification instant, which post-dates the onset) - the last is shipped only in the record's provenance, never as a feature. The casualty outcome unfolds after onset and is the label.",
@@ -7407,7 +7407,7 @@
      "split_window_counts_2026_10_20": "Computed from the downloaded table at country-week grain (streams summed, denominator INF_ALL+INF_NEGATIVE >= 50): 2005-2019: 14,870 country-weeks, 81.8% positive - INFLATED, see negatives trap; 2020-2022: 8,559 country-weeks, 2,485 positive (29.0%); 2023: 4,677 country-weeks, 1,984 positive (42.4%); 2024-2026: 12,707 country-weeks, 6,135 positive (48.3%). Clustered positives (country-years with >=1 positive week): 278 (eval window), 131 (2023), 400 (2024-2026).",
      "trap_acceptance_flunet_002": "Measured on the full table: the 1995-2004 window holds 931 pre-rule country-weeks at 100% positive - byte-for-byte the discovery session's 931/931 measurement, reproduced independently - and the systematic-negative rule leaves 14 of them. The frame rule is therefore proven to remove the trap it was designed against."
     },
-    "next_action": "PUBLISHED 2026-10-21T10:24:48Z - GitHub public (tag v2026.10, 5/5 assets digest-verified anonymously), Hugging Face public (license field 'other', 15 files), si",
+    "next_action": "BENCHMARK DEFECT confirmed by independent audit (2026-10-24T11:15:09Z): join (country,W)->(country,W+28d): next inf_all_w/denom_w are the label operands; 6022/6",
     "packaged_at": "2026-10-21T02:29:20Z",
     "path": "candidates/who-flunet-activity-exceedance/record.json",
     "prediction_time": "End of ISO week W (the Sunday that closes week W): every feature is derived from weekly laboratory counts published for weeks <= W; the target is week W+4's row, which is not yet observed. FluNet is updated weekly (measured: on 2026-10-20 the table already carries week-start 2026-10-19), so a monthly refresh of this task is honest.",
@@ -7682,10 +7682,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-24T10:50:01.695944+00:00",
+    "last_run_at": "2026-10-24T11:50:01.969706+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-24T11:00:00+00:00",
+    "next_run_at": "2026-10-24T12:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7706,10 +7706,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-24T10:50:01.586330+00:00",
+    "last_run_at": "2026-10-24T11:50:01.247480+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-24T10:55:00+00:00",
+    "next_run_at": "2026-10-24T11:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7730,10 +7730,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-24T10:49:43.469179+00:00",
+    "last_run_at": "2026-10-24T11:50:02.613874+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-24T10:54:43.469179+00:00",
+    "next_run_at": "2026-10-24T11:55:02.613874+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7742,10 +7742,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-24T10:50:01.392154+00:00",
+    "last_run_at": "2026-10-24T11:50:01.429224+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-24T10:55:00+00:00",
+    "next_run_at": "2026-10-24T11:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7766,10 +7766,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-24T09:50:37.719241+00:00",
+    "last_run_at": "2026-10-24T10:50:36.421250+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-24T11:50:00+00:00",
+    "next_run_at": "2026-10-24T12:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7778,10 +7778,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-24T09:55:00.965936+00:00",
+    "last_run_at": "2026-10-24T10:55:00.978932+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-24T10:55:00+00:00",
+    "next_run_at": "2026-10-24T11:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7822,9 +7822,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-24T10:50:01.696986+00:00"
+  "updated_at": "2026-10-24T11:50:02.614727+00:00"
  },
- "generated_at": "2026-10-24T10:50:01+00:00",
+ "generated_at": "2026-10-24T11:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -7832,19 +7832,19 @@
   },
   "ci": {
    "conclusion": "failure",
-   "created_at": "2026-10-24T10:46:24Z",
-   "head_sha": "682fc68",
+   "created_at": "2026-10-24T11:44:36Z",
+   "head_sha": "5e6a28c",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40087238865"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40091115262"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 21/27 (78%)"
   },
   "head": {
-   "at": "2026-10-24T10:46:21Z",
-   "sha": "682fc68",
-   "subject": "Cancel nz-ea publication: independent audit found a critical cross-row label leak"
+   "at": "2026-10-24T11:44:33Z",
+   "sha": "5e6a28c",
+   "subject": "Per-dataset suitability records and editorial revisions (issue #17)"
   },
   "tests": {
    "count": "618",
@@ -8707,13 +8707,21 @@
    "qualified": 0,
    "sessions_7d": 198,
    "tokens_7d": 17100439
+  },
+  {
+   "at": "2026-10-24T11:50:01+00:00",
+   "live": 14,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 198,
+   "tokens_7d": 17100439
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.4,
-   "as_of": "2026-10-24T10:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-24T11:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -8722,8 +8730,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.4,
-   "as_of": "2026-10-24T10:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-24T11:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -8732,8 +8740,8 @@
    "value": 14
   },
   "releases": {
-   "age_minutes": 0.4,
-   "as_of": "2026-10-24T10:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-24T11:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -10529,7 +10537,7 @@
   "jobs_total": 105,
   "lifetime_eur": 3.24,
   "live": {
-   "checked_at": "2026-10-24T10:50:28+00:00",
+   "checked_at": "2026-10-24T11:50:28+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
