@@ -1,6 +1,8 @@
 {
  "alarms": [
-  "Research gate refused the next session: 198 research session(s) already ran in the last 7 days, 2 of which overshot the 600,000-token cap and count double (cap 200)"
+  "Research gate refused the next session: 198 research session(s) already ran in the last 7 days, 2 of which overshot the 600,000-token cap and count double (cap 200)",
+  "CI on 682fc68 concluded failure",
+  "Test suite is failing"
  ],
  "budget": {
   "config": {
@@ -18,7 +20,7 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-24T09:50:04.065023+00:00",
+   "moment": "2026-10-24T10:50:02.517326+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
@@ -42,14 +44,14 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 5104,
+     "calls": 5116,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 24839378,
-     "output_tokens": 2773841,
+     "input_tokens": 25282205,
+     "output_tokens": 2789708,
      "pricing_available": false
     },
     "research": {
@@ -90,13 +92,13 @@
    "EU": 1,
    "GB": 3,
    "GH": 1,
+   "NZ": 1,
    "TW": 1,
    "US": 1
   },
   "counts": {
    "dropped": 32,
-   "investigating": 13,
-   "packaged": 1,
+   "investigating": 14,
    "parked": 27,
    "published": 10,
    "ready": 3
@@ -983,6 +985,147 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "NZ",
+    "domain": "energy markets / wholesale electricity spot prices",
+    "id": "nz-ea-wholesale-price-exceedance",
+    "jobs": [
+     {
+      "at": null,
+      "id": "nz-ea-002",
+      "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": "nz-ea-baseline-001",
+      "status": "failed"
+     },
+     {
+      "at": null,
+      "id": "nz-ea-baseline-002",
+      "status": "failed"
+     },
+     {
+      "at": null,
+      "id": "nz-ea-baseline-003",
+      "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": "nz-ea-publish-001",
+      "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": "nz-ea-hf-001",
+      "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": "nz-ea-hf-002",
+      "status": "failed"
+     },
+     {
+      "at": null,
+      "id": "nz-ea-hf-003",
+      "status": "succeeded"
+     }
+    ],
+    "licence_summary": {
+     "compilation_spdx": "CC0-1.0",
+     "source_spdx": "CC-BY-4.0",
+     "status": "Electricity Authority (Te Mana Hiko) EMI LegalInformation: CC BY 4.0 unless otherwise indicated for specific items. The FinalEnergyPrices datasets and the NetworkSupplyPointsTable are Authority content published on the EMI platform; neither is in the stated restricted carve-outs. Reuse is allowed with attribution to the Electricity Authority and abiding by the other licence terms. The dataset's derived rows are indicated changes: a row selection, a derived binary label at a fixed threshold and derived features, not the Authority's official product."
+    },
+    "measurements": {
+     "construction_decisions_2026_10_23": {
+      "channel_ownership": "monthly ByMonth files own trading dates <= 2025-10-31; daily files own dates > 2025-10-31 (interim _I and _incomplete variants excluded and counted); the 10 overlap days 2025-10-22..31 are cross-checked between channels (max |diff| asserted <= 0.01).",
+      "decided_by": "advancement session 2026-10-23, before the nz-ea-001 worker launch",
+      "event_key": "target_week = ISO week of the target day, market-wide (both islands share a week). Weeks within one long storage crisis are not fully independent; the count is a capacity floor per the gate's rule, not an independence proof.",
+      "fixture_smoke": "synthetic fixture (fabricated data, nothing quotable): build.py ran clean and gate 1.4.0 passed 38/38 including capacity minimums; one defect found and fixed (duplicate 'island' header - the exact one-column-list failure mode the qualification skill documents). Gate --selftest passed with the shipped broken fixtures still rejected.",
+      "grain": "one row per (island, anchor trading day D); row_id = {island}-{anchor_date}",
+      "known_events": "Aug 2024 dry-year episode (EA Review of winter 2024: 'in early August the average daily price reached $820/MWh') must exceed; 2008-07-01 (record-measured market mean 306) must exceed; Jan 1997 quiet-era control (record-measured monthly max 50) must not. Asserted by the build from the constructed panel.",
+      "mapping": "POC -> island from the current-vintage NetworkSupplyPointsTable (894 POCs, 0 island conflicts measured); POCs absent from it are excluded and counted per year (199610 first-day sample: 213/225 mapped, 12 retired POCs unmapped).",
+      "splits": "anchor-day windows train (first anchor .. 2015-12-31), eval (2016-01-01 .. 2022-10-31), holdout (2022-11-01 .. last anchor). The eval->holdout boundary coincides with the documented 2022-11-01 real-time pricing regime change, so no window straddles the structural break; the holdout is a different market regime by design and per-year reporting is mandatory.",
+      "threshold": "NZD 100/MWh fixed (external, frozen from the training-window design). Basis: candidate levels 100/150/200/300 measured on era samples (2020-06: 28/12/5/0 days above each); the Authority's own wholesale review records 2019 average spot $127/MWh and 2020 $105/MWh, so NZD 100 keeps clustered positive target-weeks measurable in every split while staying ~2x the long-run median. Never tuned on a held-out score.",
+      "timing": "prediction instant = publication of day D's final prices, conservatively placed at D+6 calendar days: the documented rule is final by 2pm the following business day, and the daily-file channel measured Last-Modified minus trade date = 0-5 calendar days over 365 files (fresh listing 2026-10-23: distribution 1d:249, 2d:52, 3d:52, 4d:9, 5d:5, 0d:1). Features read published prices for trading days <= D only; the target trading day D+7 has not finished trading at the instant, so the label cannot exist there under any publication scheme."
+     },
+     "era_and_event_samples_measured": "market daily-mean $/MWh (mean over POCs x periods): 1997-01 min 26 / median 42 / max 50, 0 days >$100; 2008-07 median 135 / max 306, 13 days >$150, 9 >$200; 2020-06 median 145 / max 287, 12 days >$150 (mid-month event); 2024-08 median 436 / max 884, 27 days >$150, 25 >$200, 22 >$300; recent era (12 sampled days 2025-10..2026-10) median 32 / max 165, 1 day >$100",
+     "extraction_cost_measured": "probe: 19 requests, 45,112,531 bytes, 75.1 s (4 whole monthly files + 12 daily files + mapping + listings) on this coordinator; full construction estimated (not measured) at 728 files / 3,714.3 MB / ~1-2 h sequential on a worker - labelled an estimate from the measured per-file sizes",
+     "inventory_measured": "container listing (1 request, 2.80 s, 460,102 bytes): 728 files, 360 monthly (199610..202609, size min 8,245,783 / median 10,012,278 / max 10,894,850 bytes; total 3,594.6 MB) + 368 daily (20251021..20261021, ~312,808-348,002 bytes; total 119.7 MB); monthly naming has no gaps",
+     "known_event_fixtures": "August 2024 dry-year price episode: measured daily means 2024-08-05..08-08 of 815-884 $/MWh - must exceed any training-frozen threshold; 2008 winter dry-year: 2008-07-01 mean 306 - must exceed $200; quiet-era control: 1997-01 max 50 - must not exceed $100. Fixtures to be pinned from the publisher's own market commentary at construction.",
+     "measured_on": "2026-10-22 via .factory/nz_ea_probe.py (v1, listing crashed on the monthly-file name shape, diagnosed), .factory/nz_listing_stats.py, .factory/nz_ea_probe2.py; commands and outputs in notes.md",
+     "publication_lag_measured": "daily files: Last-Modified minus trade date over all 368 files: min 0.75 d, p50 1.80 d, p90 3.80 d, max 5.80 d; documented instrument says final by 2pm the following business day",
+     "schema_measured": "FinalEnergyPrices CSV columns: TradingDate, TradingPeriod, PointOfConnection, DollarsPerMegawattHour; 48 trading periods per day; per-file rows 346,392-370,512 (monthly) and POCs 238 (1997) / 249 (2008) / 241 (2020, 2024) - node set evolves, the NSP table carries POC start/end dates"
+    },
+    "next_action": "DO NOT FLIP - publication cancelled 2026-10-24T10:45:45Z. Independent audit (audits/2026-10-24-independent-codex-audit.md, operator-commissioned) found a critic",
+    "packaged_at": null,
+    "path": "candidates/nz-ea-wholesale-price-exceedance/record.json",
+    "prediction_time": "The publication instant of final prices: the Electricity Authority states interim prices 'will be declared to be final prices by 2pm the following business day' (Real-time dispatch and pricing page + Code Part 13); measured on the actual files, Last-Modified minus trade date is p50 1.80 days, max 5.80 days (368 daily files, measured 2026-10-22). Features are final prices for trading dates already published at the instant; the label day is not.",
+    "publisher": "Electricity Authority Te Mana Hiko (New Zealand)",
+    "qualification": {
+     "artifact_version": "545e0e4418c1f0e54bb55389e7816c1736a8473de600e70d6f006ed33089f7e7",
+     "result": "passed; 0 failed checks of 38 (leakage incl. every_column_could_be_scored, timing incl. 11/11 observed publication dates, units with known-event fixture, splits incl. disjoint actual ranges and clustered positive events, runner contract)",
+     "splits": {
+      "eval": {
+       "distinct_events": 231,
+       "positive_rate": 0.430689,
+       "positives": 2150,
+       "rows": 4992
+      },
+      "holdout": {
+       "distinct_events": 152,
+       "positive_rate": 0.543599,
+       "positives": 1571,
+       "rows": 2890
+      },
+      "train": {
+       "distinct_events": 404,
+       "positive_rate": 0.199157,
+       "positives": 2789,
+       "rows": 14004
+      }
+     }
+    },
+    "question": "For a New Zealand pricing region (island-level aggregate of published nodal final prices), will the daily mean final wholesale energy price on a trading day about a week ahead exceed a threshold fixed from the training window?",
+    "region": "Oceania",
+    "release_baseline": {
+     "auc": 0.8924,
+     "display": "0.8924",
+     "reference": null
+    },
+    "release_splits": {
+     "eval": {
+      "positives": 2150,
+      "rows": 4992
+     },
+     "holdout": {
+      "positives": 1571,
+      "rows": 2890
+     },
+     "train": {
+      "positives": 2789,
+      "rows": 14004
+     }
+    },
+    "review": "Class A licence read first-hand on both the current platform and its announced successor; 30 years of daily-grain labels; a documented publication instant with measured file lags; publisher-published regional mapping; strong clustered event structure (dry-year episodes) and quiet eras giving both classes in every candidate window. Prior art is level-regression forecasting (EPF benchmark, an AUT study, a single-node GitHub project) - no published exceedance task with splits and a scored contract.",
+    "sources": [
+     {
+      "licence": "CC BY 4.0 per EMI LegalInformation and the successor hub's copyright statement (see license_evidence)",
+      "name": "Electricity Authority (Te Mana Hiko) - EMI dataset 'Final energy prices' (Real-time dispatch and pricing)",
+      "url": "https://www.ea.govt.nz/data-and-insights/datasets/wholesale/dispatch-and-pricing/final-energy-prices/"
+     },
+     {
+      "licence": "CC BY 4.0 - the NetworkSupplyPointsTable is Authority content published on the same EMI platform, covered by the same EMI LegalInformation CC BY 4.0 statement recorded in license_evidence",
+      "name": "NetworkSupplyPointsTable (POC -> Island / Network reporting region mapping, with POC start/end dates)",
+      "url": "https://www.ea.govt.nz/data-and-insights/datasets/wholesale/mapping-and-geospatial/"
+     }
+    ],
+    "split_strategy": "Temporal windows on the 1996-10..2026-10 daily panel, e.g. train 1996-10..2015-12 / eval 2016-01..2020-12 / holdout 2021-01..2026-10; each window contains at least one measured high-price episode (train: 2008-07 measured 9/31 days >$200; eval: 2020-06 measured 5/30 days >$200 with mid-month means to $287; holdout: 2024-08 measured 25/31 days >$200). Positives cluster into multi-day weather/storage episodes, so split capacity is counted per episode-week, not per day; sampled episode weeks measured, exact counts computed at construction over the full files. The 2022-11-01 real-time-pricing regime change (ex-post -> real-time pricing, documented by the publisher) is a structural break: either bound all windows inside one regime or ship a regime indicator; decided and documented at construction.",
+    "status": "investigating",
+    "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "TW",
     "domain": "emergency management / government decision prediction",
     "id": "tw-typhoon-day-closure",
@@ -1043,7 +1186,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 92.3,
+  "non_us_share": 92.9,
   "records": [
    {
     "awaiting_operator": false,
@@ -5907,8 +6050,7 @@
     "target": "Binary: the per-warning `verify` boolean returned by IEM cow for phenomena=TO, significance=W - whether >=1 tornado local storm report (buffered by cow's default 15 km) falls inside the polygon during the valid window. The method is documented on the cow page ('NWS Storm Based Warning Verification') and matches the official storm-based verification concept in NWS Instruction 10-1601 ('FAR is the number of false alarms (unverified warnings) divided by the total number of warnings'; storm report points verify warning areas)."
    },
    {
-    "age_hours": 11.3,
-    "awaiting_operator": true,
+    "awaiting_operator": false,
     "baseline": {},
     "country": "NZ",
     "domain": "energy markets / wholesale electricity spot prices",
@@ -5981,8 +6123,8 @@
      "publication_lag_measured": "daily files: Last-Modified minus trade date over all 368 files: min 0.75 d, p50 1.80 d, p90 3.80 d, max 5.80 d; documented instrument says final by 2pm the following business day",
      "schema_measured": "FinalEnergyPrices CSV columns: TradingDate, TradingPeriod, PointOfConnection, DollarsPerMegawattHour; 48 trading periods per day; per-file rows 346,392-370,512 (monthly) and POCs 238 (1997) / 249 (2008) / 241 (2020, 2024) - node set evolves, the NSP table carries POC start/end dates"
     },
-    "next_action": "PACKAGED and privately staged on BOTH destinations; the flip is now the sole remaining step, so awaiting_operator=true is set. GitHub: private repo earino/nz-ea",
-    "packaged_at": "2026-10-23T22:32:00Z",
+    "next_action": "DO NOT FLIP - publication cancelled 2026-10-24T10:45:45Z. Independent audit (audits/2026-10-24-independent-codex-audit.md, operator-commissioned) found a critic",
+    "packaged_at": null,
     "path": "candidates/nz-ea-wholesale-price-exceedance/record.json",
     "prediction_time": "The publication instant of final prices: the Electricity Authority states interim prices 'will be declared to be final prices by 2pm the following business day' (Real-time dispatch and pricing page + Code Part 13); measured on the actual files, Last-Modified minus trade date is p50 1.80 days, max 5.80 days (368 daily files, measured 2026-10-22). Features are final prices for trading dates already published at the instant; the label day is not.",
     "publisher": "Electricity Authority Te Mana Hiko (New Zealand)",
@@ -6045,7 +6187,7 @@
      }
     ],
     "split_strategy": "Temporal windows on the 1996-10..2026-10 daily panel, e.g. train 1996-10..2015-12 / eval 2016-01..2020-12 / holdout 2021-01..2026-10; each window contains at least one measured high-price episode (train: 2008-07 measured 9/31 days >$200; eval: 2020-06 measured 5/30 days >$200 with mid-month means to $287; holdout: 2024-08 measured 25/31 days >$200). Positives cluster into multi-day weather/storage episodes, so split capacity is counted per episode-week, not per day; sampled episode weeks measured, exact counts computed at construction over the full files. The 2022-11-01 real-time-pricing regime change (ex-post -> real-time pricing, documented by the publisher) is a structural break: either bound all windows inside one regime or ship a regime indicator; decided and documented at construction.",
-    "status": "packaged",
+    "status": "investigating",
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
    },
    {
@@ -7458,294 +7600,8 @@
    }
   ],
   "release": {
-   "awaiting": [
-    {
-     "age_hours": 11.3,
-     "awaiting_operator": true,
-     "baseline": {},
-     "country": "NZ",
-     "domain": "energy markets / wholesale electricity spot prices",
-     "id": "nz-ea-wholesale-price-exceedance",
-     "jobs": [
-      {
-       "at": null,
-       "id": "nz-ea-002",
-       "status": "succeeded"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-baseline-001",
-       "status": "failed"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-baseline-002",
-       "status": "failed"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-baseline-003",
-       "status": "succeeded"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-publish-001",
-       "status": "succeeded"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-hf-001",
-       "status": "succeeded"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-hf-002",
-       "status": "failed"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-hf-003",
-       "status": "succeeded"
-      }
-     ],
-     "licence_summary": {
-      "compilation_spdx": "CC0-1.0",
-      "source_spdx": "CC-BY-4.0",
-      "status": "Electricity Authority (Te Mana Hiko) EMI LegalInformation: CC BY 4.0 unless otherwise indicated for specific items. The FinalEnergyPrices datasets and the NetworkSupplyPointsTable are Authority content published on the EMI platform; neither is in the stated restricted carve-outs. Reuse is allowed with attribution to the Electricity Authority and abiding by the other licence terms. The dataset's derived rows are indicated changes: a row selection, a derived binary label at a fixed threshold and derived features, not the Authority's official product."
-     },
-     "measurements": {
-      "construction_decisions_2026_10_23": {
-       "channel_ownership": "monthly ByMonth files own trading dates <= 2025-10-31; daily files own dates > 2025-10-31 (interim _I and _incomplete variants excluded and counted); the 10 overlap days 2025-10-22..31 are cross-checked between channels (max |diff| asserted <= 0.01).",
-       "decided_by": "advancement session 2026-10-23, before the nz-ea-001 worker launch",
-       "event_key": "target_week = ISO week of the target day, market-wide (both islands share a week). Weeks within one long storage crisis are not fully independent; the count is a capacity floor per the gate's rule, not an independence proof.",
-       "fixture_smoke": "synthetic fixture (fabricated data, nothing quotable): build.py ran clean and gate 1.4.0 passed 38/38 including capacity minimums; one defect found and fixed (duplicate 'island' header - the exact one-column-list failure mode the qualification skill documents). Gate --selftest passed with the shipped broken fixtures still rejected.",
-       "grain": "one row per (island, anchor trading day D); row_id = {island}-{anchor_date}",
-       "known_events": "Aug 2024 dry-year episode (EA Review of winter 2024: 'in early August the average daily price reached $820/MWh') must exceed; 2008-07-01 (record-measured market mean 306) must exceed; Jan 1997 quiet-era control (record-measured monthly max 50) must not. Asserted by the build from the constructed panel.",
-       "mapping": "POC -> island from the current-vintage NetworkSupplyPointsTable (894 POCs, 0 island conflicts measured); POCs absent from it are excluded and counted per year (199610 first-day sample: 213/225 mapped, 12 retired POCs unmapped).",
-       "splits": "anchor-day windows train (first anchor .. 2015-12-31), eval (2016-01-01 .. 2022-10-31), holdout (2022-11-01 .. last anchor). The eval->holdout boundary coincides with the documented 2022-11-01 real-time pricing regime change, so no window straddles the structural break; the holdout is a different market regime by design and per-year reporting is mandatory.",
-       "threshold": "NZD 100/MWh fixed (external, frozen from the training-window design). Basis: candidate levels 100/150/200/300 measured on era samples (2020-06: 28/12/5/0 days above each); the Authority's own wholesale review records 2019 average spot $127/MWh and 2020 $105/MWh, so NZD 100 keeps clustered positive target-weeks measurable in every split while staying ~2x the long-run median. Never tuned on a held-out score.",
-       "timing": "prediction instant = publication of day D's final prices, conservatively placed at D+6 calendar days: the documented rule is final by 2pm the following business day, and the daily-file channel measured Last-Modified minus trade date = 0-5 calendar days over 365 files (fresh listing 2026-10-23: distribution 1d:249, 2d:52, 3d:52, 4d:9, 5d:5, 0d:1). Features read published prices for trading days <= D only; the target trading day D+7 has not finished trading at the instant, so the label cannot exist there under any publication scheme."
-      },
-      "era_and_event_samples_measured": "market daily-mean $/MWh (mean over POCs x periods): 1997-01 min 26 / median 42 / max 50, 0 days >$100; 2008-07 median 135 / max 306, 13 days >$150, 9 >$200; 2020-06 median 145 / max 287, 12 days >$150 (mid-month event); 2024-08 median 436 / max 884, 27 days >$150, 25 >$200, 22 >$300; recent era (12 sampled days 2025-10..2026-10) median 32 / max 165, 1 day >$100",
-      "extraction_cost_measured": "probe: 19 requests, 45,112,531 bytes, 75.1 s (4 whole monthly files + 12 daily files + mapping + listings) on this coordinator; full construction estimated (not measured) at 728 files / 3,714.3 MB / ~1-2 h sequential on a worker - labelled an estimate from the measured per-file sizes",
-      "inventory_measured": "container listing (1 request, 2.80 s, 460,102 bytes): 728 files, 360 monthly (199610..202609, size min 8,245,783 / median 10,012,278 / max 10,894,850 bytes; total 3,594.6 MB) + 368 daily (20251021..20261021, ~312,808-348,002 bytes; total 119.7 MB); monthly naming has no gaps",
-      "known_event_fixtures": "August 2024 dry-year price episode: measured daily means 2024-08-05..08-08 of 815-884 $/MWh - must exceed any training-frozen threshold; 2008 winter dry-year: 2008-07-01 mean 306 - must exceed $200; quiet-era control: 1997-01 max 50 - must not exceed $100. Fixtures to be pinned from the publisher's own market commentary at construction.",
-      "measured_on": "2026-10-22 via .factory/nz_ea_probe.py (v1, listing crashed on the monthly-file name shape, diagnosed), .factory/nz_listing_stats.py, .factory/nz_ea_probe2.py; commands and outputs in notes.md",
-      "publication_lag_measured": "daily files: Last-Modified minus trade date over all 368 files: min 0.75 d, p50 1.80 d, p90 3.80 d, max 5.80 d; documented instrument says final by 2pm the following business day",
-      "schema_measured": "FinalEnergyPrices CSV columns: TradingDate, TradingPeriod, PointOfConnection, DollarsPerMegawattHour; 48 trading periods per day; per-file rows 346,392-370,512 (monthly) and POCs 238 (1997) / 249 (2008) / 241 (2020, 2024) - node set evolves, the NSP table carries POC start/end dates"
-     },
-     "next_action": "PACKAGED and privately staged on BOTH destinations; the flip is now the sole remaining step, so awaiting_operator=true is set. GitHub: private repo earino/nz-ea",
-     "packaged_at": "2026-10-23T22:32:00Z",
-     "path": "candidates/nz-ea-wholesale-price-exceedance/record.json",
-     "prediction_time": "The publication instant of final prices: the Electricity Authority states interim prices 'will be declared to be final prices by 2pm the following business day' (Real-time dispatch and pricing page + Code Part 13); measured on the actual files, Last-Modified minus trade date is p50 1.80 days, max 5.80 days (368 daily files, measured 2026-10-22). Features are final prices for trading dates already published at the instant; the label day is not.",
-     "publisher": "Electricity Authority Te Mana Hiko (New Zealand)",
-     "qualification": {
-      "artifact_version": "545e0e4418c1f0e54bb55389e7816c1736a8473de600e70d6f006ed33089f7e7",
-      "result": "passed; 0 failed checks of 38 (leakage incl. every_column_could_be_scored, timing incl. 11/11 observed publication dates, units with known-event fixture, splits incl. disjoint actual ranges and clustered positive events, runner contract)",
-      "splits": {
-       "eval": {
-        "distinct_events": 231,
-        "positive_rate": 0.430689,
-        "positives": 2150,
-        "rows": 4992
-       },
-       "holdout": {
-        "distinct_events": 152,
-        "positive_rate": 0.543599,
-        "positives": 1571,
-        "rows": 2890
-       },
-       "train": {
-        "distinct_events": 404,
-        "positive_rate": 0.199157,
-        "positives": 2789,
-        "rows": 14004
-       }
-      }
-     },
-     "question": "For a New Zealand pricing region (island-level aggregate of published nodal final prices), will the daily mean final wholesale energy price on a trading day about a week ahead exceed a threshold fixed from the training window?",
-     "region": "Oceania",
-     "release_baseline": {
-      "auc": 0.8924,
-      "display": "0.8924",
-      "reference": null
-     },
-     "release_splits": {
-      "eval": {
-       "positives": 2150,
-       "rows": 4992
-      },
-      "holdout": {
-       "positives": 1571,
-       "rows": 2890
-      },
-      "train": {
-       "positives": 2789,
-       "rows": 14004
-      }
-     },
-     "review": "Class A licence read first-hand on both the current platform and its announced successor; 30 years of daily-grain labels; a documented publication instant with measured file lags; publisher-published regional mapping; strong clustered event structure (dry-year episodes) and quiet eras giving both classes in every candidate window. Prior art is level-regression forecasting (EPF benchmark, an AUT study, a single-node GitHub project) - no published exceedance task with splits and a scored contract.",
-     "sources": [
-      {
-       "licence": "CC BY 4.0 per EMI LegalInformation and the successor hub's copyright statement (see license_evidence)",
-       "name": "Electricity Authority (Te Mana Hiko) - EMI dataset 'Final energy prices' (Real-time dispatch and pricing)",
-       "url": "https://www.ea.govt.nz/data-and-insights/datasets/wholesale/dispatch-and-pricing/final-energy-prices/"
-      },
-      {
-       "licence": "CC BY 4.0 - the NetworkSupplyPointsTable is Authority content published on the same EMI platform, covered by the same EMI LegalInformation CC BY 4.0 statement recorded in license_evidence",
-       "name": "NetworkSupplyPointsTable (POC -> Island / Network reporting region mapping, with POC start/end dates)",
-       "url": "https://www.ea.govt.nz/data-and-insights/datasets/wholesale/mapping-and-geospatial/"
-      }
-     ],
-     "split_strategy": "Temporal windows on the 1996-10..2026-10 daily panel, e.g. train 1996-10..2015-12 / eval 2016-01..2020-12 / holdout 2021-01..2026-10; each window contains at least one measured high-price episode (train: 2008-07 measured 9/31 days >$200; eval: 2020-06 measured 5/30 days >$200 with mid-month means to $287; holdout: 2024-08 measured 25/31 days >$200). Positives cluster into multi-day weather/storage episodes, so split capacity is counted per episode-week, not per day; sampled episode weeks measured, exact counts computed at construction over the full files. The 2022-11-01 real-time-pricing regime change (ex-post -> real-time pricing, documented by the publisher) is a structural break: either bound all windows inside one regime or ship a regime indicator; decided and documented at construction.",
-     "status": "packaged",
-     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
-    }
-   ],
-   "packaged": [
-    {
-     "age_hours": 11.3,
-     "awaiting_operator": true,
-     "baseline": {},
-     "country": "NZ",
-     "domain": "energy markets / wholesale electricity spot prices",
-     "id": "nz-ea-wholesale-price-exceedance",
-     "jobs": [
-      {
-       "at": null,
-       "id": "nz-ea-002",
-       "status": "succeeded"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-baseline-001",
-       "status": "failed"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-baseline-002",
-       "status": "failed"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-baseline-003",
-       "status": "succeeded"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-publish-001",
-       "status": "succeeded"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-hf-001",
-       "status": "succeeded"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-hf-002",
-       "status": "failed"
-      },
-      {
-       "at": null,
-       "id": "nz-ea-hf-003",
-       "status": "succeeded"
-      }
-     ],
-     "licence_summary": {
-      "compilation_spdx": "CC0-1.0",
-      "source_spdx": "CC-BY-4.0",
-      "status": "Electricity Authority (Te Mana Hiko) EMI LegalInformation: CC BY 4.0 unless otherwise indicated for specific items. The FinalEnergyPrices datasets and the NetworkSupplyPointsTable are Authority content published on the EMI platform; neither is in the stated restricted carve-outs. Reuse is allowed with attribution to the Electricity Authority and abiding by the other licence terms. The dataset's derived rows are indicated changes: a row selection, a derived binary label at a fixed threshold and derived features, not the Authority's official product."
-     },
-     "measurements": {
-      "construction_decisions_2026_10_23": {
-       "channel_ownership": "monthly ByMonth files own trading dates <= 2025-10-31; daily files own dates > 2025-10-31 (interim _I and _incomplete variants excluded and counted); the 10 overlap days 2025-10-22..31 are cross-checked between channels (max |diff| asserted <= 0.01).",
-       "decided_by": "advancement session 2026-10-23, before the nz-ea-001 worker launch",
-       "event_key": "target_week = ISO week of the target day, market-wide (both islands share a week). Weeks within one long storage crisis are not fully independent; the count is a capacity floor per the gate's rule, not an independence proof.",
-       "fixture_smoke": "synthetic fixture (fabricated data, nothing quotable): build.py ran clean and gate 1.4.0 passed 38/38 including capacity minimums; one defect found and fixed (duplicate 'island' header - the exact one-column-list failure mode the qualification skill documents). Gate --selftest passed with the shipped broken fixtures still rejected.",
-       "grain": "one row per (island, anchor trading day D); row_id = {island}-{anchor_date}",
-       "known_events": "Aug 2024 dry-year episode (EA Review of winter 2024: 'in early August the average daily price reached $820/MWh') must exceed; 2008-07-01 (record-measured market mean 306) must exceed; Jan 1997 quiet-era control (record-measured monthly max 50) must not. Asserted by the build from the constructed panel.",
-       "mapping": "POC -> island from the current-vintage NetworkSupplyPointsTable (894 POCs, 0 island conflicts measured); POCs absent from it are excluded and counted per year (199610 first-day sample: 213/225 mapped, 12 retired POCs unmapped).",
-       "splits": "anchor-day windows train (first anchor .. 2015-12-31), eval (2016-01-01 .. 2022-10-31), holdout (2022-11-01 .. last anchor). The eval->holdout boundary coincides with the documented 2022-11-01 real-time pricing regime change, so no window straddles the structural break; the holdout is a different market regime by design and per-year reporting is mandatory.",
-       "threshold": "NZD 100/MWh fixed (external, frozen from the training-window design). Basis: candidate levels 100/150/200/300 measured on era samples (2020-06: 28/12/5/0 days above each); the Authority's own wholesale review records 2019 average spot $127/MWh and 2020 $105/MWh, so NZD 100 keeps clustered positive target-weeks measurable in every split while staying ~2x the long-run median. Never tuned on a held-out score.",
-       "timing": "prediction instant = publication of day D's final prices, conservatively placed at D+6 calendar days: the documented rule is final by 2pm the following business day, and the daily-file channel measured Last-Modified minus trade date = 0-5 calendar days over 365 files (fresh listing 2026-10-23: distribution 1d:249, 2d:52, 3d:52, 4d:9, 5d:5, 0d:1). Features read published prices for trading days <= D only; the target trading day D+7 has not finished trading at the instant, so the label cannot exist there under any publication scheme."
-      },
-      "era_and_event_samples_measured": "market daily-mean $/MWh (mean over POCs x periods): 1997-01 min 26 / median 42 / max 50, 0 days >$100; 2008-07 median 135 / max 306, 13 days >$150, 9 >$200; 2020-06 median 145 / max 287, 12 days >$150 (mid-month event); 2024-08 median 436 / max 884, 27 days >$150, 25 >$200, 22 >$300; recent era (12 sampled days 2025-10..2026-10) median 32 / max 165, 1 day >$100",
-      "extraction_cost_measured": "probe: 19 requests, 45,112,531 bytes, 75.1 s (4 whole monthly files + 12 daily files + mapping + listings) on this coordinator; full construction estimated (not measured) at 728 files / 3,714.3 MB / ~1-2 h sequential on a worker - labelled an estimate from the measured per-file sizes",
-      "inventory_measured": "container listing (1 request, 2.80 s, 460,102 bytes): 728 files, 360 monthly (199610..202609, size min 8,245,783 / median 10,012,278 / max 10,894,850 bytes; total 3,594.6 MB) + 368 daily (20251021..20261021, ~312,808-348,002 bytes; total 119.7 MB); monthly naming has no gaps",
-      "known_event_fixtures": "August 2024 dry-year price episode: measured daily means 2024-08-05..08-08 of 815-884 $/MWh - must exceed any training-frozen threshold; 2008 winter dry-year: 2008-07-01 mean 306 - must exceed $200; quiet-era control: 1997-01 max 50 - must not exceed $100. Fixtures to be pinned from the publisher's own market commentary at construction.",
-      "measured_on": "2026-10-22 via .factory/nz_ea_probe.py (v1, listing crashed on the monthly-file name shape, diagnosed), .factory/nz_listing_stats.py, .factory/nz_ea_probe2.py; commands and outputs in notes.md",
-      "publication_lag_measured": "daily files: Last-Modified minus trade date over all 368 files: min 0.75 d, p50 1.80 d, p90 3.80 d, max 5.80 d; documented instrument says final by 2pm the following business day",
-      "schema_measured": "FinalEnergyPrices CSV columns: TradingDate, TradingPeriod, PointOfConnection, DollarsPerMegawattHour; 48 trading periods per day; per-file rows 346,392-370,512 (monthly) and POCs 238 (1997) / 249 (2008) / 241 (2020, 2024) - node set evolves, the NSP table carries POC start/end dates"
-     },
-     "next_action": "PACKAGED and privately staged on BOTH destinations; the flip is now the sole remaining step, so awaiting_operator=true is set. GitHub: private repo earino/nz-ea",
-     "packaged_at": "2026-10-23T22:32:00Z",
-     "path": "candidates/nz-ea-wholesale-price-exceedance/record.json",
-     "prediction_time": "The publication instant of final prices: the Electricity Authority states interim prices 'will be declared to be final prices by 2pm the following business day' (Real-time dispatch and pricing page + Code Part 13); measured on the actual files, Last-Modified minus trade date is p50 1.80 days, max 5.80 days (368 daily files, measured 2026-10-22). Features are final prices for trading dates already published at the instant; the label day is not.",
-     "publisher": "Electricity Authority Te Mana Hiko (New Zealand)",
-     "qualification": {
-      "artifact_version": "545e0e4418c1f0e54bb55389e7816c1736a8473de600e70d6f006ed33089f7e7",
-      "result": "passed; 0 failed checks of 38 (leakage incl. every_column_could_be_scored, timing incl. 11/11 observed publication dates, units with known-event fixture, splits incl. disjoint actual ranges and clustered positive events, runner contract)",
-      "splits": {
-       "eval": {
-        "distinct_events": 231,
-        "positive_rate": 0.430689,
-        "positives": 2150,
-        "rows": 4992
-       },
-       "holdout": {
-        "distinct_events": 152,
-        "positive_rate": 0.543599,
-        "positives": 1571,
-        "rows": 2890
-       },
-       "train": {
-        "distinct_events": 404,
-        "positive_rate": 0.199157,
-        "positives": 2789,
-        "rows": 14004
-       }
-      }
-     },
-     "question": "For a New Zealand pricing region (island-level aggregate of published nodal final prices), will the daily mean final wholesale energy price on a trading day about a week ahead exceed a threshold fixed from the training window?",
-     "region": "Oceania",
-     "release_baseline": {
-      "auc": 0.8924,
-      "display": "0.8924",
-      "reference": null
-     },
-     "release_splits": {
-      "eval": {
-       "positives": 2150,
-       "rows": 4992
-      },
-      "holdout": {
-       "positives": 1571,
-       "rows": 2890
-      },
-      "train": {
-       "positives": 2789,
-       "rows": 14004
-      }
-     },
-     "review": "Class A licence read first-hand on both the current platform and its announced successor; 30 years of daily-grain labels; a documented publication instant with measured file lags; publisher-published regional mapping; strong clustered event structure (dry-year episodes) and quiet eras giving both classes in every candidate window. Prior art is level-regression forecasting (EPF benchmark, an AUT study, a single-node GitHub project) - no published exceedance task with splits and a scored contract.",
-     "sources": [
-      {
-       "licence": "CC BY 4.0 per EMI LegalInformation and the successor hub's copyright statement (see license_evidence)",
-       "name": "Electricity Authority (Te Mana Hiko) - EMI dataset 'Final energy prices' (Real-time dispatch and pricing)",
-       "url": "https://www.ea.govt.nz/data-and-insights/datasets/wholesale/dispatch-and-pricing/final-energy-prices/"
-      },
-      {
-       "licence": "CC BY 4.0 - the NetworkSupplyPointsTable is Authority content published on the same EMI platform, covered by the same EMI LegalInformation CC BY 4.0 statement recorded in license_evidence",
-       "name": "NetworkSupplyPointsTable (POC -> Island / Network reporting region mapping, with POC start/end dates)",
-       "url": "https://www.ea.govt.nz/data-and-insights/datasets/wholesale/mapping-and-geospatial/"
-      }
-     ],
-     "split_strategy": "Temporal windows on the 1996-10..2026-10 daily panel, e.g. train 1996-10..2015-12 / eval 2016-01..2020-12 / holdout 2021-01..2026-10; each window contains at least one measured high-price episode (train: 2008-07 measured 9/31 days >$200; eval: 2020-06 measured 5/30 days >$200 with mid-month means to $287; holdout: 2024-08 measured 25/31 days >$200). Positives cluster into multi-day weather/storage episodes, so split capacity is counted per episode-week, not per day; sampled episode weeks measured, exact counts computed at construction over the full files. The 2022-11-01 real-time-pricing regime change (ex-post -> real-time pricing, documented by the publisher) is a structural break: either bound all windows inside one regime or ship a regime indicator; decided and documented at construction.",
-     "status": "packaged",
-     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
-    }
-   ],
+   "awaiting": [],
+   "packaged": [],
    "pending": []
   }
  },
@@ -7796,8 +7652,7 @@
   },
   "by_status": {
    "dropped": 32,
-   "investigating": 13,
-   "packaged": 1,
+   "investigating": 14,
    "parked": 27,
    "published": 10,
    "ready": 3
@@ -7827,10 +7682,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-24T09:50:03.561307+00:00",
+    "last_run_at": "2026-10-24T10:50:01.695944+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-24T10:00:00+00:00",
+    "next_run_at": "2026-10-24T11:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7851,10 +7706,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-24T09:50:02.015889+00:00",
+    "last_run_at": "2026-10-24T10:50:01.586330+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-24T09:55:00+00:00",
+    "next_run_at": "2026-10-24T10:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7875,10 +7730,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-24T09:49:22.777318+00:00",
+    "last_run_at": "2026-10-24T10:49:43.469179+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-24T09:54:22.777318+00:00",
+    "next_run_at": "2026-10-24T10:54:43.469179+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7887,10 +7742,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-24T09:50:01.610293+00:00",
+    "last_run_at": "2026-10-24T10:50:01.392154+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-24T09:55:00+00:00",
+    "next_run_at": "2026-10-24T10:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7911,10 +7766,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-24T08:50:37.331319+00:00",
+    "last_run_at": "2026-10-24T09:50:37.719241+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-24T10:50:00+00:00",
+    "next_run_at": "2026-10-24T11:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7923,10 +7778,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-24T08:55:00.931215+00:00",
+    "last_run_at": "2026-10-24T09:55:00.965936+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-24T09:55:00+00:00",
+    "next_run_at": "2026-10-24T10:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7967,33 +7822,33 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-24T09:50:03.562457+00:00"
+  "updated_at": "2026-10-24T10:50:01.696986+00:00"
  },
- "generated_at": "2026-10-24T09:50:02+00:00",
+ "generated_at": "2026-10-24T10:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
    "passing": 86
   },
   "ci": {
-   "conclusion": "success",
-   "created_at": "2026-10-24T07:24:10Z",
-   "head_sha": "2ab8a81",
+   "conclusion": "failure",
+   "created_at": "2026-10-24T10:46:24Z",
+   "head_sha": "682fc68",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40073985455"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40087238865"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 21/27 (78%)"
   },
   "head": {
-   "at": "2026-10-24T00:26:00Z",
-   "sha": "2ab8a81",
-   "subject": "EU/EEA discovery tick: ec-merger-phase2-opening ready (DG COMP merger Phase II opening task); Paris MoU and G-BA/IQTIG c"
+   "at": "2026-10-24T10:46:21Z",
+   "sha": "682fc68",
+   "subject": "Cancel nz-ea publication: independent audit found a critical cross-row label leak"
   },
   "tests": {
    "count": "618",
-   "ok": true
+   "ok": false
   }
  },
  "history": [
@@ -8844,13 +8699,21 @@
    "qualified": 0,
    "sessions_7d": 198,
    "tokens_7d": 17100439
+  },
+  {
+   "at": "2026-10-24T10:50:01+00:00",
+   "live": 14,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 198,
+   "tokens_7d": 17100439
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.5,
-   "as_of": "2026-10-24T09:50:02+00:00",
+   "age_minutes": 0.4,
+   "as_of": "2026-10-24T10:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -8859,18 +8722,18 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.5,
-   "as_of": "2026-10-24T09:50:02+00:00",
+   "age_minutes": 0.4,
+   "as_of": "2026-10-24T10:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 13
+   "value": 14
   },
   "releases": {
-   "age_minutes": 0.5,
-   "as_of": "2026-10-24T09:50:02+00:00",
+   "age_minutes": 0.4,
+   "as_of": "2026-10-24T10:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -9237,7 +9100,7 @@
     "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "nz-ea-wholesale-price-exceedance",
-    "disposition": "packaged",
+    "disposition": "investigating",
     "errors": [],
     "persistence_auc": null,
     "publication_note": "Prepared for human review. Nothing here has been published.",
@@ -10666,7 +10529,7 @@
   "jobs_total": 105,
   "lifetime_eur": 3.24,
   "live": {
-   "checked_at": "2026-10-24T09:50:29+00:00",
+   "checked_at": "2026-10-24T10:50:28+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
