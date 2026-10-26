@@ -18,7 +18,7 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-26T12:50:02.668192+00:00",
+   "moment": "2026-10-26T13:50:02.966236+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
@@ -7769,10 +7769,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-26T12:50:02.146405+00:00",
+    "last_run_at": "2026-10-26T13:50:01.628880+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-26T13:00:00+00:00",
+    "next_run_at": "2026-10-26T14:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7793,10 +7793,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-26T12:50:01.456400+00:00",
+    "last_run_at": "2026-10-26T13:50:01.176563+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-26T12:55:00+00:00",
+    "next_run_at": "2026-10-26T13:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7817,10 +7817,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-26T12:47:33.284856+00:00",
+    "last_run_at": "2026-10-26T13:47:59.159509+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-26T12:52:33.284856+00:00",
+    "next_run_at": "2026-10-26T13:52:59.159509+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7829,10 +7829,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-26T12:50:01.229055+00:00",
+    "last_run_at": "2026-10-26T13:50:01.511854+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-26T12:55:00+00:00",
+    "next_run_at": "2026-10-26T13:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7853,10 +7853,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-26T11:50:42.805262+00:00",
+    "last_run_at": "2026-10-26T12:50:41.840636+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-26T13:50:00+00:00",
+    "next_run_at": "2026-10-26T14:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7865,10 +7865,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-26T11:55:00.878481+00:00",
+    "last_run_at": "2026-10-26T12:55:00.725026+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-26T12:55:00+00:00",
+    "next_run_at": "2026-10-26T13:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7909,9 +7909,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-26T12:50:02.147549+00:00"
+  "updated_at": "2026-10-26T13:50:01.629929+00:00"
  },
- "generated_at": "2026-10-26T12:50:01+00:00",
+ "generated_at": "2026-10-26T13:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -9194,13 +9194,21 @@
    "qualified": 1,
    "sessions_7d": 198,
    "tokens_7d": 18100827
+  },
+  {
+   "at": "2026-10-26T13:50:01+00:00",
+   "live": 15,
+   "published": 9,
+   "qualified": 1,
+   "sessions_7d": 198,
+   "tokens_7d": 18100827
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-26T12:50:01+00:00",
+   "as_of": "2026-10-26T13:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -9210,7 +9218,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-26T12:50:01+00:00",
+   "as_of": "2026-10-26T13:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -9220,7 +9228,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-26T12:50:01+00:00",
+   "as_of": "2026-10-26T13:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -11064,7 +11072,7 @@
   "jobs_total": 109,
   "lifetime_eur": 3.3,
   "live": {
-   "checked_at": "2026-10-26T12:50:33+00:00",
+   "checked_at": "2026-10-26T13:50:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -11092,22 +11100,7 @@
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
-  "recent": [
-   {
-    "elapsed_seconds": 2246.8,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "9bfcf98486fea1a5c8eb047f2b5b592a1710563e60c2439f26a131268220ee32",
-    "ts": "2026-10-26T12:22:28.439275+00:00"
-   }
-  ],
-  "total": 1
+  "recent": [],
+  "total": 0
  }
 }
