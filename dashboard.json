@@ -18,14 +18,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-26T19:50:03.073852+00:00",
+   "moment": "2026-10-26T20:50:02.743564+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "197 research session(s) already ran in the last 7 days, 3 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 17883956,
+   "research_tokens_last_7_days": 17819540,
    "runs_last_7_days": 197,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -53,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 5545,
+     "calls": 5555,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 14283827,
-     "output_tokens": 5364174,
+     "input_tokens": 14346688,
+     "output_tokens": 5394219,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -7769,10 +7769,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-26T19:50:02.210799+00:00",
+    "last_run_at": "2026-10-26T20:50:02.306147+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-26T20:00:00+00:00",
+    "next_run_at": "2026-10-26T21:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7793,10 +7793,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-26T19:50:01.319619+00:00",
+    "last_run_at": "2026-10-26T20:50:01.217301+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-26T19:55:00+00:00",
+    "next_run_at": "2026-10-26T20:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7817,10 +7817,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-26T19:45:25.273649+00:00",
+    "last_run_at": "2026-10-26T20:45:52.832140+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-26T19:50:25.273649+00:00",
+    "next_run_at": "2026-10-26T20:50:52.832140+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7829,10 +7829,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-26T19:50:01.465717+00:00",
+    "last_run_at": "2026-10-26T20:50:00.910181+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-26T19:55:00+00:00",
+    "next_run_at": "2026-10-26T20:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7853,10 +7853,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-26T18:50:42.448790+00:00",
+    "last_run_at": "2026-10-26T19:50:43.565081+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-26T20:50:00+00:00",
+    "next_run_at": "2026-10-26T21:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7865,10 +7865,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-26T18:55:01.315196+00:00",
+    "last_run_at": "2026-10-26T19:55:00.593170+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-26T19:55:00+00:00",
+    "next_run_at": "2026-10-26T20:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7909,9 +7909,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-26T19:50:02.212007+00:00"
+  "updated_at": "2026-10-26T20:50:02.307399+00:00"
  },
- "generated_at": "2026-10-26T19:50:01+00:00",
+ "generated_at": "2026-10-26T20:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -7919,19 +7919,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-26T15:16:19Z",
-   "head_sha": "7b802a1",
+   "created_at": "2026-10-26T20:37:24Z",
+   "head_sha": "717aac7",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40347675203"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40397287518"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 21/27 (78%)"
   },
   "head": {
-   "at": "2026-10-26T12:21:22Z",
-   "sha": "7b802a1",
-   "subject": "ec-merger-phase2-opening qualified: gate 1.5.0 46/46 on worker ec-merger-002, exact-byte accepted, references recorded"
+   "at": "2026-10-26T20:08:34Z",
+   "sha": "717aac7",
+   "subject": "Watcher follow-up ec-merger-001/002: receipts re-verified, staging preservation re-proven, provider cleanup confirmed"
   },
   "tests": {
    "count": "672",
@@ -9250,13 +9250,21 @@
    "qualified": 1,
    "sessions_7d": 197,
    "tokens_7d": 17883956
+  },
+  {
+   "at": "2026-10-26T20:50:01+00:00",
+   "live": 15,
+   "published": 9,
+   "qualified": 1,
+   "sessions_7d": 197,
+   "tokens_7d": 17819540
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-26T19:50:01+00:00",
+   "as_of": "2026-10-26T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -9266,7 +9274,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-26T19:50:01+00:00",
+   "as_of": "2026-10-26T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -9276,7 +9284,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-26T19:50:01+00:00",
+   "as_of": "2026-10-26T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -11120,7 +11128,7 @@
   "jobs_total": 109,
   "lifetime_eur": 3.3,
   "live": {
-   "checked_at": "2026-10-26T19:50:33+00:00",
+   "checked_at": "2026-10-26T20:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -11148,7 +11156,22 @@
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
-  "recent": [],
-  "total": 0
+  "recent": [
+   {
+    "elapsed_seconds": 610.4,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "c7e0ef34fb1af9fa54c4500287c4c1abe857580d443a259fe38bf3b6a97c1be2",
+    "ts": "2026-10-26T20:10:42.169924+00:00"
+   }
+  ],
+  "total": 1
  }
 }
