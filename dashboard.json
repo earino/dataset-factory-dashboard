@@ -19,14 +19,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-27T11:50:02.824179+00:00",
+   "moment": "2026-10-27T12:50:02.747052+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "196 research session(s) already ran in the last 7 days, 4 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 18810236,
+   "research_tokens_last_7_days": 19095287,
    "runs_last_7_days": 196,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -54,14 +54,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 5928,
+     "calls": 5978,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 15960302,
-     "output_tokens": 5754617,
+     "input_tokens": 16293031,
+     "output_tokens": 5820264,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -101,7 +101,7 @@
    "parked": 26,
    "published": 10,
    "qualified": 1,
-   "ready": 4
+   "ready": 5
   },
   "errors": [],
   "live": [
@@ -2559,6 +2559,97 @@
     "split_strategy": "",
     "status": "parked",
     "target": "Binary exit: the company is absent from the live register (or carries a dissolution status) at snapshot M+12. The label source is a LATER snapshot than the feature snapshot - which is exactly the blocker recorded in rejection_reason: Companies House publishes no bulk historical snapshots and no dissolved-companies bulk product, so the label cannot be observed from anything published today."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "MX",
+    "domain": "water resources / national dam-storage daily panel",
+    "id": "conagua-dam-drought-onset",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "access_block_measured": "Incapsula fronting on sih.conagua.gob.mx: plain python urllib = HTTP 403 (catalog) or 302-to-self redirect loop (station files); curl with cookie jar + one redirect hop = HTTP 200 on first retry (measured 2026-10-27); TLS chain valid (GlobalSign Atlas R46 DV, verify ok)",
+     "as_of_policy": "features = rows with Fecha <= T from the file as fetched at the weekly-updated archive; T = max(Fecha) present per dam at fetch; current-vintage values (publisher warns of retroactive updates; 1990s backfill observed); no point-in-time historical snapshots exist, so no historical operational-availability claim is made - same current-vintage treatment as the published abs-visitor-arrivals-direction dataset",
+     "catalog_measured": "0_Catalogo_de_presas.csv: 210 dams, 26 states, columns Numero/Clave/Nombre/Latitud/Longitud/Altitud/Estado/Municipio/cuenca/region hidrologica; no capacity column (capacity comes from the weekly report archive or SISP inventory at construction)",
+     "coverage_measured": "ALRBN daily rows 1929-01-01..2026-10-26 (33,881 rows) with VolumenAlm populated 50 percent in the 1990s, 100 percent from 2000; the 26-dam sample: 23 of 26 dams have volume rows from 1993-1995 onward, earliest starts 2002-03-20 (ELOSL) and 2006-07-14 (CJNNR); latest row 2026-10-26 for 25 of 26 dams, 2026-09-28 for LDCVC",
+     "cross_check_summary": "Against the publisher's own weekly summary product: INCONCLUSIVE at discovery time - the 'Periodo del 4 al 11 de Marzo de 2019' PDF's machine text extraction is column-scrambled (e.g. elevation 2047.57 m listed for the Tijuana dam), so no clean cell-level match could be made; redo at construction with a proper PDF table parse of that archive (ftp://ftp.conagua.gob.mx/Gobmx/DisponibilidadenPresas/). Against independently reported CONAGUA figures (press, June 2024 El Cuchillo): exact corroboration (363.541 vs 363 hm3, 32.4 vs 32.3 percent).",
+     "fetch_cost_measured": "hosted coordinator (4 vCPU), 2026-10-27: catalog 25,023 B / 2.48 s; 6-dam probe 5.6 MB / 21.6 s; 20-dam stratified probe ~19.2 MB / ~70 s; total 26 dams 24.8 MB / ~90 s, all 200 OK, zero failures after cookie jar. Extrapolated full panel: ~210 dams x ~0.96 MB ~= 200 MB, ~13-20 min single-threaded - a worker-scale one-shot harvest, NOT to be done on the coordinator (coordinator rule)",
+     "known_event_fixtures": [
+      {
+       "event": "El Cuchillo (Monterrey's main supply) at critical low during the national drought; press-reported CONAGUA figure",
+       "expected_verdict": "SIH VolumenAlm on 2024-06-09 ~= 363 Mm3 (~32 percent of official 1,123 Mm3 capacity); source Excelsior 2024-06: 'tan solo 363 hectometros cubicos... 32.3 por ciento de su capacidad'",
+       "measured": "SIH CCHNL 2024-06-09 = 363.541 Mm3 (363.5/1123 = 32.4 percent) - matches the independently reported figure within 0.2 percent; adjacent days monotone (366.148 on 06-07, 361.586 on 06-11)"
+      },
+      {
+       "event": "Monterrey 2022 emergency hidrica (Cuchillo trajectory); and spring-2024 pre-Alberto low",
+       "expected_verdict": "SIH shows the 2022 decline crossing the 441.4 Mm3 proxy threshold on 2022-08-27 and the 2024 crossing on 2024-03-27, followed by the reported refill to ~100 percent after Tropical Storm Alberto (late June 2024, press)",
+       "measured": "CCHNL 2022-06-15 508.809 -> 2022-08-26 441.756 -> 2022-08-27 441.105 (crossing) -> 2022-09-15 still below; 2024-03-27 onset then June 2024 values ~363"
+      }
+     ],
+     "measured_on": "2026-10-27, hosted coordinator, scripts retained at candidates/conagua-dam-drought-onset/probe_*.py; raw sample files in ephemeral scratch (opt/data/cache/scratch), JSON summaries conagua_sample_summary2.json + conagua_splits_sample.json",
+     "per_dam_sample_events": {
+      "CCHNL El Cuchillo NL (vmax 1765.7)": "6 onsets: 1996-01-22, 2001-11-14, 2002-02-20, 2012-12-06, 2022-08-27, 2024-03-27",
+      "CILAAMSMX La Amistad Coah (vmax 2254.2)": "13 onsets (first: 1995-01-07, 1997-05-02, 1997-05-07, 1998-05-02, 2005-03-19...)",
+      "CILAFLCMX Falcon Tamps (vmax 1742.5)": "16 onsets (first: 1994-04-16, 1995-01-07, 2002-12-21, 2002-12-25, 2006-05-06...); observed minimum 0.8 Mm3 on 1995-05-05",
+      "IALGJ Ignacio Allende Gto (vmax 233.7)": "24 onsets 1993-2002+",
+      "INFMC Infiernillo Mich (vmax 10441.0)": "2 onsets: 2018-05-30, 2023-06-20 (large dam rarely below 25 percent)",
+      "SLSGJ Solis Gto (vmax 985.3)": "7 onsets 1995-2012",
+      "no-event dams in sample": "CDOOX, CJNNR, LDACM, NGRAG (0 onsets at 25 percent of observed max); ANGCP 2, PSANL 3, CBRDR 6, ELZBN 6, ELOSL 7"
+     },
+     "schema_measured": "per-dam CSV header: Estacion,Fecha,Precipitacion(mm),Nivel(m),ObraToma(m3/s),Vertedor(m3/s),Derrame(m3/s),Evaporacion(mm),VolumenAlm(Mm3); two parse quirks measured and handled: (1) column ORDER VARIES per file (e.g. VolumenAlm is index 8 in ALRBN, index 4 in CCHNL/INFMC, index 5 in CILAAMSMX/CILAFLCMX) - parse by header name, never fixed index; (2) files contain repeated header + preamble blocks (multi-block layout) - split at 'Estacion,' lines and merge blocks; a naive fixed-index parse silently reads Evaporacion as storage and produces wrong volumes by 2 orders of magnitude",
+     "split_windows_sample_26dams": {
+      "clusters_dam_year": 271,
+      "eval_2011-2018": 84,
+      "holdout_2019-2026": 71,
+      "note": "stratified sample (1 dam per state where available + 7 named large/drought-prone dams); per-dam counts in notes.md; full-panel counts are the first construction measurement (worker job), never extrapolated from this sample",
+      "onset_events_at_25pct_of_observed_max": 357,
+      "train_T<=2010": 202
+     }
+    },
+    "next_action": "Construction on a worker (the 200 MB harvest must not run on the coordinator): (1) job conagua-dams-001: harvest all 210 station CSVs with the cookie-jar recipe",
+    "packaged_at": null,
+    "path": "candidates/conagua-dam-drought-onset/record.json",
+    "prediction_time": "The instant is a fetch of CONAGUA SIH's per-dam historical CSV after its weekly update (publisher statement, SIH homepage: 'La actualizacion de los archivos se realiza semanalmente' - files are updated weekly). T is the latest Fecha row present in the file at fetch. Observed 2026-10-27: the Cuchillo, La Amistad, Falcon, Solis and Infiernillo files each carried rows through 2026-10-26 (T = yesterday); one sampled dam (LDCVC) lagged at 2026-09-28, so T is measured per dam per fetch. All feature rows are Fecha <= T; every target row is Fecha in (T, T+30]. The SIH files are the publisher's cumulative current-vintage archive, not point-in-time snapshots: the portal warns 'Algunas bases de datos pueden incluir actualizaciones retroactivos por lo que la informacion historica puede cambiar en actualizaciones posteriores', and the 1990s show partial backfill (ALRBN volume column 50 percent populated 1990-1999, 100 percent from 2000). Features are therefore stated as current-vintage values, same treatment as the published abs-visitor-arrivals-direction record; no claim of historical operational availability is made (see review). The daily observation cutoff time within a day is not documented by the publisher; the contract uses whole calendar days (America/Mexico_City), features <= T, target > T, so no intra-day ordering is assumed.",
+    "publisher": "Comision Nacional del Agua (CONAGUA), Gobierno de Mexico",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a Mexican dam in the CONAGUA SIH reservoir network (210 catalogued dams, 26 states) whose published stored volume VolumenAlm on the latest available day T is at or above the drought threshold (25 percent of the dam's reference capacity), will VolumenAlm fall below that threshold on at least one day in the 30 calendar days after T (a drought-onset event)? A useful prediction supports water-allocation planning, drought-monitoring inputs (the official Monitor de Sequia en Mexico uses reservoir availability as an index), and urban supply outlooks (Monterrey 2022, Tijuana 2019-2022, Falcon 2002 crises all crossed this threshold in this panel).",
+    "region": "Latin America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Five contracts, reconciled against written evidence: (1) Redistribution SUPPORTED - CC BY 4.0 on the publisher's own resource record (class A), quoted with URL; attribution 'CONAGUA, SIH' carried into LICENSE.md at release. (2) Prediction timing SUPPORTED with documented vintage limitation - the instant is stateable and observed (weekly-updated file; T = latest Fecha, measured 2026-10-26 on a 2026-10-27 fetch; one sampled dam lagged 29 days, so T is measured per dam per fetch); every feature row is Fecha <= T, the whole target window is Fecha > T; current-vintage treatment documented because the publisher warns of retroactive updates and the archive is cumulative (partial 1990s backfill observed) - no historical operational-availability claim, which is what the evaluation contract must state. (3) Target SUPPORTED - label from VolumenAlm(Mm3) rows after T, excludable by date filter; eligibility defined only from information at T (>= 365 prior rows, volume at/above threshold); censoring: missing days recorded as absent rows (no fabricated zero volumes), and right-edge truncation only affects the last 30 days; threshold frame ambiguity identified and bounded - two frames measured, the proxy is the strictly harder threshold, so events under the proxy are a subset of events under the official-capacity frame and capacity holds under both. (4) Split capacity SUPPORTED - 26-dam stratified sample measured from the source: 357 onset events, 202/84/71 across train/eval/holdout, both classes in every window, 271 (dam, year) clusters recorded; the full-panel count is a worker measurement recorded as the first construction step (monotone in dams: additional dams cannot empty a window). (5) Not a mirror SUPPORTED - novelty check recorded with verdict differentiated: prior art ships raw series (ResOpsUS 679 US dams; GROWL 4,134 global series) or closed-data studies (T\u00fcrkiye, data 'under official permission and commercial terms'); no ML-ready public dam-storage drought-onset prediction task with an as-of policy, splits and a scored contract exists for Mexico or any jurisdiction; this task shape was probed twice before on this bench (tw-reservoir-drought-storage, za-dws-dam-storage-exceedance) and both died on ACCESS, never sourcing the shape - this candidate sources it. Unresolved, recorded: full-panel split counts (worker prerequisite); official per-dam capacities need a proper parse of the weekly-report archive (the PDF text layer is scrambled); intra-day observation cutoff undocumented (contract avoids assuming one); the weekly-summary cell-level cross-check is deferred to construction with the press-figure corroboration standing in its place.",
+    "sources": [
+     {
+      "licence": "CC BY 4.0 per the publisher's own national-portal resource record (see license_evidence)",
+      "name": "CONAGUA Sistema de Informacion Hidrologica (SIH) - Estaciones en Presas: per-dam daily historical CSVs (Estacion, Fecha, Precipitacion(mm), Nivel(m), ObraToma(m3/s), Vertedor(m3/s), Derrame(m3/s), Evaporacion(mm), VolumenAlm(Mm3); column order varies per file and files contain repeated header/preamble blocks)",
+      "url": "https://sih.conagua.gob.mx/presas.html"
+     },
+     {
+      "licence": "resource metadata field: 'Licencia | Creative Commons Attribution 4.0' (https://creativecommons.org/licenses/by/4.0/)",
+      "name": "Plataforma Nacional de Datos Abiertos (datos.gob.mx) - record 'Estaciones del Sistema de Informacion Hidrologica' (CONAGUA), resource 'Presas'",
+      "url": "https://www.datos.gob.mx/dataset/estaciones_sistema_informacion_hidrologica/resource/35e8d001-6195-45c7-9a1c-58a8594fb3a1"
+     },
+     {
+      "licence": "Gobierno de Mexico public-sector publication; used for capacity metadata, not for derived rows",
+      "name": "CONAGUA weekly report 'Almacenamiento de las Principales Presas del Pais' (official capacities + weekly storage)",
+      "url": "https://www.gob.mx/conagua/documentos/almacenamiento-de-las-principales-presas-del-pais"
+     }
+    ],
+    "split_strategy": "Dam-day panel, temporal windows on the prediction instant: candidate partition train T<=2010 / eval 2011-2018 / holdout 2019-2026 (all three windows observed to carry both classes in the 26-dam stratified sample: 202 / 84 / 71 onset events; construction recomputes on the full 210-dam panel, which is monotone - additional dams can only add events, never empty a window). Events cluster by dam-season: 357 events over 26 dams = 271 distinct (dam, year) clusters; clustered counts must be reported beside raw counts. Dams with zero historical onsets at the chosen threshold (4 of the 26 sampled) are an eligibility choice for construction: either exclude or keep as all-negative rows, decided and documented at build time.",
+    "status": "ready",
+    "target": "Binary: 1 if VolumenAlm(Mm3) < threshold on at least one day with Fecha in (T, T+30] in the dam's SIH series, else 0. Label source column: VolumenAlm(Mm3) (the same column as the target variable), excluded from features by the Fecha <= T filter; no other column carries the answer. Threshold frame, two candidates measured in the sample: (a) discovery-time proxy = 25 percent of the dam's own observed maximum VolumenAlm (the SIH catalog carries no capacity column); (b) construction-time preferred frame = 25 percent of official capacity, published per dam in CONAGUA's weekly 'Almacenamiento de las Principales Presas del Pais' report (columns CAPACIDAD MUERTA / CAP. UTIL DISENO Mm3; archive at ftp://ftp.conagua.gob.mx/Gobmx/DisponibilidadenPresas/) and in the press-percentage frame (e.g. El Cuchillo capacity 1,123 Mm3 vs observed max 1,765.7 Mm3 including flood surcharge; the proxy threshold 441.4 Mm3 equals 39 percent of the official frame, so the proxy is the conservative/higher threshold and events under it are a subset of events under the official frame). Eligibility at T, from information available at prediction: dam has >= 365 prior daily VolumenAlm rows and VolumenAlm(T) >= threshold (onset formulation; days already below threshold are not prediction rows)."
    },
    {
     "awaiting_operator": false,
@@ -8120,7 +8211,7 @@
    "KE": 1,
    "KR": 1,
    "MA": 1,
-   "MX": 1,
+   "MX": 2,
    "MY": 2,
    "NG": 1,
    "NL": 1,
@@ -8138,7 +8229,7 @@
    "East Asia": 6,
    "Europe": 22,
    "International organisations": 7,
-   "Latin America": 7,
+   "Latin America": 8,
    "North America": 23,
    "Oceania": 5,
    "South & South-East Asia": 13
@@ -8149,12 +8240,12 @@
    "parked": 26,
    "published": 10,
    "qualified": 1,
-   "ready": 4
+   "ready": 5
   },
-  "candidates": 90,
-  "live": 29,
-  "live_non_us": 23,
-  "live_non_us_share": 0.793,
+  "candidates": 91,
+  "live": 30,
+  "live_non_us": 24,
+  "live_non_us_share": 0.8,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -8176,10 +8267,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-27T11:50:01.461657+00:00",
+    "last_run_at": "2026-10-27T12:50:01.574355+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-27T12:00:00+00:00",
+    "next_run_at": "2026-10-27T13:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -8200,10 +8291,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-27T11:50:00.868996+00:00",
+    "last_run_at": "2026-10-27T12:50:01.160065+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-27T11:55:00+00:00",
+    "next_run_at": "2026-10-27T12:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -8224,10 +8315,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-27T11:46:34.010396+00:00",
+    "last_run_at": "2026-10-27T12:46:53.217159+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-27T11:51:34.010396+00:00",
+    "next_run_at": "2026-10-27T12:51:53.217159+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -8236,10 +8327,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-27T11:50:01.105083+00:00",
+    "last_run_at": "2026-10-27T12:50:01.107837+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-27T11:55:00+00:00",
+    "next_run_at": "2026-10-27T12:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -8260,10 +8351,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-27T10:50:42.217059+00:00",
+    "last_run_at": "2026-10-27T11:50:42.579707+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-27T12:50:00+00:00",
+    "next_run_at": "2026-10-27T13:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -8272,10 +8363,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-27T10:55:00.980813+00:00",
+    "last_run_at": "2026-10-27T11:55:01.618839+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-27T11:55:00+00:00",
+    "next_run_at": "2026-10-27T12:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -8316,29 +8407,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-27T11:50:01.462705+00:00"
+  "updated_at": "2026-10-27T12:50:01.575343+00:00"
  },
- "generated_at": "2026-10-27T11:50:01+00:00",
+ "generated_at": "2026-10-27T12:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 90
+   "passing": 91
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-27T11:14:54Z",
-   "head_sha": "c86b957",
+   "created_at": "2026-10-27T12:37:20Z",
+   "head_sha": "b60ca2a",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40494698858"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40505206921"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 23/29 (79%)"
+   "summary": "live non-US: 24/30 (80%)"
   },
   "head": {
-   "at": "2026-10-27T11:14:45Z",
-   "sha": "c86b957",
-   "subject": "Watcher follow-up ec-merger-003/baseline-001: both jobs verified (build 46/46 gate + exact-byte accept; baseline 0.6973 "
+   "at": "2026-10-27T12:37:15Z",
+   "sha": "b60ca2a",
+   "subject": "Latin America discovery tick: conagua-dam-drought-onset (MX) ready (CC BY 4.0, differentiated); Chile GEC episode regist"
   },
   "tests": {
    "count": "672",
@@ -9785,13 +9876,21 @@
    "qualified": 1,
    "sessions_7d": 196,
    "tokens_7d": 18810236
+  },
+  {
+   "at": "2026-10-27T12:50:01+00:00",
+   "live": 15,
+   "published": 9,
+   "qualified": 1,
+   "sessions_7d": 196,
+   "tokens_7d": 19095287
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T11:50:01+00:00",
+   "as_of": "2026-10-27T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -9801,7 +9900,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T11:50:01+00:00",
+   "as_of": "2026-10-27T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -9811,7 +9910,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T11:50:01+00:00",
+   "as_of": "2026-10-27T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -11713,7 +11812,7 @@
   "jobs_total": 111,
   "lifetime_eur": 3.3,
   "live": {
-   "checked_at": "2026-10-27T11:50:33+00:00",
+   "checked_at": "2026-10-27T12:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -11782,8 +11881,21 @@
     "run_budget": 900,
     "submitted_brief_sha256": "02a6cb057981de688a8ef9f0a9082852b3a5ec7726cbf2e38e11d97fd9dbe94a",
     "ts": "2026-10-27T11:16:23.415736+00:00"
+   },
+   {
+    "elapsed_seconds": 2030.9,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "bcb3cb92ad8fecad46a24fb04cd1b50d8e07ce60f880329e77ed5bd7031bc746",
+    "ts": "2026-10-27T12:38:52.255476+00:00"
    }
   ],
-  "total": 3
+  "total": 4
  }
 }
