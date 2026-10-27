@@ -19,14 +19,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-27T10:50:02.575507+00:00",
+   "moment": "2026-10-27T11:50:02.824179+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "196 research session(s) already ran in the last 7 days, 4 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 18800682,
+   "research_tokens_last_7_days": 18810236,
    "runs_last_7_days": 196,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -54,14 +54,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 5899,
+     "calls": 5928,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 15887768,
-     "output_tokens": 5707754,
+     "input_tokens": 15960302,
+     "output_tokens": 5754617,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -8176,10 +8176,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-27T10:50:01.666862+00:00",
+    "last_run_at": "2026-10-27T11:50:01.461657+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-27T11:00:00+00:00",
+    "next_run_at": "2026-10-27T12:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -8200,10 +8200,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-27T10:50:01.425928+00:00",
+    "last_run_at": "2026-10-27T11:50:00.868996+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-27T10:55:00+00:00",
+    "next_run_at": "2026-10-27T11:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -8224,10 +8224,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-27T10:45:15.363857+00:00",
+    "last_run_at": "2026-10-27T11:46:34.010396+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-27T10:50:15.363857+00:00",
+    "next_run_at": "2026-10-27T11:51:34.010396+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -8236,10 +8236,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-27T10:50:01.385620+00:00",
+    "last_run_at": "2026-10-27T11:50:01.105083+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-27T10:55:00+00:00",
+    "next_run_at": "2026-10-27T11:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -8260,10 +8260,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-27T09:50:41.880978+00:00",
+    "last_run_at": "2026-10-27T10:50:42.217059+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-27T11:50:00+00:00",
+    "next_run_at": "2026-10-27T12:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -8272,10 +8272,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-27T09:55:00.543452+00:00",
+    "last_run_at": "2026-10-27T10:55:00.980813+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-27T10:55:00+00:00",
+    "next_run_at": "2026-10-27T11:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -8316,9 +8316,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-27T10:50:01.667925+00:00"
+  "updated_at": "2026-10-27T11:50:01.462705+00:00"
  },
- "generated_at": "2026-10-27T10:50:01+00:00",
+ "generated_at": "2026-10-27T11:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -8326,19 +8326,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-27T08:38:05Z",
-   "head_sha": "9b71f7c",
+   "created_at": "2026-10-27T11:14:54Z",
+   "head_sha": "c86b957",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40474874640"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40494698858"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 23/29 (79%)"
   },
   "head": {
-   "at": "2026-10-27T10:21:42Z",
-   "sha": "54428d2",
-   "subject": "ec-merger-003: meta.json runner keys fixed, gate re-passed, baseline job assembled"
+   "at": "2026-10-27T11:14:45Z",
+   "sha": "c86b957",
+   "subject": "Watcher follow-up ec-merger-003/baseline-001: both jobs verified (build 46/46 gate + exact-byte accept; baseline 0.6973 "
   },
   "tests": {
    "count": "672",
@@ -9777,13 +9777,21 @@
    "qualified": 1,
    "sessions_7d": 196,
    "tokens_7d": 18800682
+  },
+  {
+   "at": "2026-10-27T11:50:01+00:00",
+   "live": 15,
+   "published": 9,
+   "qualified": 1,
+   "sessions_7d": 196,
+   "tokens_7d": 18810236
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T10:50:01+00:00",
+   "as_of": "2026-10-27T11:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -9793,7 +9801,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T10:50:01+00:00",
+   "as_of": "2026-10-27T11:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -9803,7 +9811,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T10:50:01+00:00",
+   "as_of": "2026-10-27T11:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -11705,7 +11713,7 @@
   "jobs_total": 111,
   "lifetime_eur": 3.3,
   "live": {
-   "checked_at": "2026-10-27T10:50:34+00:00",
+   "checked_at": "2026-10-27T11:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -11760,8 +11768,22 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "0595d47f2f0c0005e9d5ee44ff2c2fe393182a36c8f00dde80c748854ab4ffa6",
     "ts": "2026-10-27T10:35:39.967969+00:00"
+   },
+   {
+    "elapsed_seconds": 962.1,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "02a6cb057981de688a8ef9f0a9082852b3a5ec7726cbf2e38e11d97fd9dbe94a",
+    "ts": "2026-10-27T11:16:23.415736+00:00"
    }
   ],
-  "total": 2
+  "total": 3
  }
 }
