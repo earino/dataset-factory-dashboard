@@ -1,6 +1,6 @@
 {
  "alarms": [
-  "Research gate refused the next session: 197 research session(s) already ran in the last 7 days, 3 of which overshot the 600,000-token cap and count double (cap 200)"
+  "Research gate refused the next session: 197 research session(s) already ran in the last 7 days, 4 of which overshot the 600,000-token cap and count double (cap 200)"
  ],
  "budget": {
   "config": {
@@ -18,18 +18,18 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-27T07:50:02.696941+00:00",
+   "moment": "2026-10-27T08:50:02.816732+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "197 research session(s) already ran in the last 7 days, 3 of which overshot the 600,000-token cap and count double (cap 200)"
+    "197 research session(s) already ran in the last 7 days, 4 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 18249212,
+   "research_tokens_last_7_days": 19052766,
    "runs_last_7_days": 197,
-   "runs_weighted_last_7_days": 200,
+   "runs_weighted_last_7_days": 201,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 3,
+   "sessions_over_token_cap": 4,
    "usage": {
     "auxiliary": {
      "calls": 681,
@@ -53,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 5671,
+     "calls": 5778,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 14876732,
-     "output_tokens": 5540102,
+     "input_tokens": 15691995,
+     "output_tokens": 5639409,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -95,12 +95,12 @@
    "US": 1
   },
   "counts": {
-   "dropped": 34,
+   "dropped": 35,
    "investigating": 14,
-   "parked": 27,
+   "parked": 26,
    "published": 10,
    "qualified": 1,
-   "ready": 3
+   "ready": 4
   },
   "errors": [],
   "live": [
@@ -3823,20 +3823,21 @@
      "status": null
     },
     "measurements": {
-     "access_probe_2026_10_21": "CKAN package_show x3 (two Vigilance packages, one cannabis-ADR package): all resources are HTML (query-form pages) or PDF (annual reports). No CSV, no API, no bulk export on any of the three records. Database landing page: two fetch attempts timed out from the coordinator (90 s), recorded. Total probe cost: 3 small API calls + 2 failed page fetches.",
-     "task_family_comparison": "Even with access, differentiation would be uphill: the US counterpart (FDA FAERS via openFDA) ships event-level ADR data through a documented anonymous API and already exists in this bench's family (openfda-food-recall-classification is the recalls sibling; ADR-outcome prediction on FAERS is a heavily published literature). A Canadian ADR task's novelty would rest on the Canadian-only reporting population and the seriousness/outcome coding - a thin contribution against the public FAERS ecosystem."
+     "access_probe_2026_10_21": "CKAN package_show x3: at that time only 98cad9a3 was successfully shown (2 HTML links); the recorded claim that 'both packages' were HTML-only is now corrected by the 2026-10-27 package_show of 9cbaef00 (ZIP + JSON + XML + HTML resources, created 2016-09-25, resources dated 2016-12-01/2018-04-13, metadata_modified 2025-12-19 - i.e. the bulk channel predates the park measurement and was missed by it, not newly added since).",
+     "reopen_probe_2026_10_27": "One package_show (9cbaef00), one 128 KiB ZIP tail range fetch (HTTP 206; 13 members parsed, sizes above), four lookup-API GETs (outcome/reporttype/gender 200; severity 404), one ZIP HEAD (313,578,432 bytes; Last-Modified 2025-05-28), plus the extracts/structure pages via the extraction backend. No bulk download; the coordinator never held more than 128 KiB of the ZIP.",
+     "task_family_comparison": "Carried over and now decisive: the US counterpart (FDA FAERS via openFDA) ships event-level ADR data through a documented anonymous API, and the exact task shapes are published and mirrored - see rejection_reason."
     },
-    "next_action": "Parked. Unpark only if Health Canada publishes a machine-readable export of Canada Vigilance (watch the two open.canada.ca packages for a CSV/API resource appea",
+    "next_action": "None - dropped (mirror). Reopen only with a formulation that does not exist on the FAERS/openFDA ecosystem and names its own novelty case as a NEW candidate: e.",
     "packaged_at": null,
     "path": "candidates/hc-canada-vigilance-adverse-reactions/record.json",
-    "prediction_time": "Would be the report's receipt by the Canada Vigilance Program; seriousness/outcome classification is assigned and updated later, so timing would be stateable - but the source never got that far (access blocker below).",
+    "prediction_time": "Would be the report's initial receipt by the Canada Vigilance Program (DATINTRECEIVED), with seriousness/outcome as resolved in a pinned extract vintage - stateable on the reopen evidence below, but moot given the drop reason.",
     "publisher": "Health Canada - MedEffect Canada / Canada Vigilance Program",
     "qualification": {
      "artifact_version": null,
      "result": null,
      "splits": null
     },
-    "question": "Hypothetical task this source would support (parked): predict the outcome or seriousness of a reported adverse drug reaction (patient demographics, suspect drug, reaction) from the Canada Vigilance reports - the Canadian counterpart of FAERS/openFDA-style tasks.",
+    "question": "Hypothetical task this source would support: predict the outcome or seriousness of a reported adverse drug reaction (patient demographics, suspect drug, reaction) from the Canada Vigilance reports - the Canadian counterpart of FAERS/openFDA-style tasks. Also considered at reopen: suspect-drug role identification (DRUGINVOLV) within multi-drug reports.",
     "region": "North America",
     "release_baseline": {
      "auc": null,
@@ -3847,19 +3848,29 @@
     "review": "",
     "sources": [
      {
-      "licence": "open.canada.ca records carry license_id ca-ogl-lgo (Open Government Licence - Canada 2.0); but licence on viewable database content does not create a bulk channel.",
-      "name": "Canada Vigilance Adverse Reaction Online Database (open.canada.ca packages 9cbaef00 / 98cad9a3)",
+      "licence": "ca-ogl-lgo (Open Government Licence - Canada).",
+      "name": "Canada Vigilance adverse reaction online database - query-form package (98cad9a3)",
       "url": "https://www.canada.ca/en/health-canada/services/drugs-health-products/medeffect-canada/adverse-reaction-database.html"
      },
      {
       "licence": "ca-ogl-lgo per the package record.",
-      "name": "'Data on cannabis adverse reactions' (open.canada.ca package 371d84b2) - checked as a possible bulk side-channel",
+      "name": "Canada Vigilance Adverse Reaction Online Database - data extract package (9cbaef00-b52c-4a70-9fed-d9aa8263ab74)",
+      "url": "https://open.canada.ca/data/en/dataset/9cbaef00-b52c-4a70-9fed-d9aa8263ab74"
+     },
+     {
+      "licence": "ca-ogl-lgo per the package records.",
+      "name": "Data extracts program page + data structure page (publisher documents grain, cadence, coverage, schema)",
+      "url": "https://www.canada.ca/en/health-canada/services/drugs-health-products/medeffect-canada/adverse-reaction-database/canada-vigilance-online-database-data-extract.html"
+     },
+     {
+      "licence": "ca-ogl-lgo per the package record.",
+      "name": "'Data on cannabis adverse reactions' (open.canada.ca package 371d84b2)",
       "url": "https://open.canada.ca/data/en/dataset/371d84b2-e439-4c39-a4ef-8817d65a1485"
      }
     ],
-    "split_strategy": "Not built - no bulk access to measure a panel from. The query-form database returns on-screen results only; a panel would have to be assembled by scripted query traffic, which is exactly the kind of undocumented scraping the pipeline avoids as provenance.",
-    "status": "parked",
-    "target": "Not fixed: report-level seriousness or outcome class. Moot given the park reason."
+    "split_strategy": "Not built. The reopen established that construction is feasible (a 1965-2026 monthly-updated bulk extract with documented per-report and per-drug fields trivially fills temporal windows), but feasibility is not contribution - see rejection_reason.",
+    "status": "dropped",
+    "target": "Not fixed: report-level seriousness or outcome class (OUTCOME_CODE, SERIOUSNESS_CODE + six criterion flags). Moot given the drop reason."
    },
    {
     "awaiting_operator": false,
@@ -6209,6 +6220,73 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "CA",
+    "domain": "drinking water regulation - boil water advisory duration to lift (Nova Scotia, Canada)",
+    "id": "ns-bwa-advisory-lift-duration",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "censoring_by_issue_year": "73 unresolved: 2013:1, 2017:1, 2020:1, 2021:4, 2022:1, 2024:5, 2025:11, 2026:19 + 30 rows with missing issue date (unknown vintage exposure). Publisher documents the semantics: blanks are advisories currently in effect.",
+     "cross_check": "Publisher's own dataset page reports 'Rows: 2,649, Columns: 7' - exactly matches the fetched CSV (no missing rows). Page documents grain, 2006-current coverage, quarterly frequency and the blank-means-active censoring rule that the 73 measured censored rows follow. Changelog shows dated full refreshes (2025-10-14, 2026-06-16 'Inserted 2649 rows, Deleted 0'); whether Socrata restore points/revisions expose prior vintages is a construction-time check that would strengthen (not rescue) the as-of story - the task is declared retrospective on the pinned vintage regardless.",
+     "dated_example": "Named timezone America/Halifax (register records calendar days). Prediction instant 2024-08-31 (Maple Meadows Campground Inc, INVERNESS COUNTY, Registered, 'Total Coliform Present' - row verified in the pinned CSV: issued August 31 2024). Feature event window: all register rows with issue date < 2024-08-31 (site's and county's earlier advisories only). First-available version: the single pinned vintage, content current as of 2026-06-16, fetched 2026-10-27, sha256 60f77ac4.... Target window: the 30 days following 2024-08-31, i.e. through 2024-09-30 (no part precedes the instant). Measured outcome: Date Advisory Removed = July 04 2025, 307 days -> lift30 label NEGATIVE. Second fixture (positive class): 'Canning, NS' (Municipal, Total Coliform Present), issued October 02 2025, removed October 03 2025, 1 day -> lift30 POSITIVE. Both rows verified in-file; fixture commands in notes.md.",
+     "extraction_cost": "One 284 KB CSV GET plus 12 small SoQL calls; full local aggregate pass < 5 s on the coordinator. Construction needs no worker for the fetch; qualification runs on a worker per the standing order.",
+     "fetch_2026_10_27": "Full CSV: one GET, 283,987 bytes, sha256 60f77ac4945ca824700f5bcd3eaf564f4e5c5d4ec3f08496e8dd796e7184a30a, 2,649 rows x 7 columns. Machine class: hosted coordinator (2 vCPU container). Local parse + all aggregates: < 5 s. SoQL aggregates: 12 anonymous calls, ~1-2 s each. No API key. Probe scripts retained in this directory and re-runnable.",
+     "hazards_measured": "CSV dates are month-name text ('October 02 2025'), not ISO. 3 rows have NEGATIVE duration (removal date before issue): McIntyre's H. Cottages (Baddeck) -1, PID 50323732 -52, Naugler's Ultramar - Italy Cross -7 (construction must define the handling rule and record the row counts). 5 rows have 0-day duration. 30 rows have no parseable issue date. 57 rows missing facility type. 5 rows missing reason. Duration range -52 to 1,668 days. Site identity is messy by design (name variants for the same facility, PID-addressed sites) - no clean entity key; site-history features must be built with an as-of filter and a stated identity rule.",
+     "register_totals": "2,649 advisories; 2,576 resolved (removal date present); 73 active/censored (removal blank); 1,116 distinct site names; facility types: Registered 2,491, Municipal 101, missing 57; reasons: Total Coliform Present 1,816, Chemical Exceedance 389, Other 186, E. Coli Present 83 + E.Coli Present 52 (spelling variants - same category), Lack of Disinfection 50, Failure of Treatment Processes 42, Ineffective Disinfection 14, others 13, missing 5.",
+     "sibling_channels_checked_2026_10_27": "Newfoundland & Labrador 'Boil Water Advisories' (opendata.gov.nl.ca file-id=17146, nl-oglnl, 53,342 bytes, bounded header+rows sample read): carries BOIL_ADVISORY_ISSUE_DATE and rich system features (SUPPLY_TYPE, SOURCE_TYPE, NUM_OF_WELLS, CHLORINATION, POPULATION_SERVICED, REGION_*) but NO lift/rescinded date column - cannot support the duration task (measured negative). Manitoba 'Current BWAPWS' (mb-omb): current advisories only, no lifts. Quebec (donneesquebec.ca, qc-cc-by): one city (Repentigny). ECCC/CESI 'Boil water advisories' (ca-ogl-lgo): national aggregate indicator CSVs only. The NS register is the only per-advisory machine-readable channel with lift dates found this tick - the provincial municipal-water channel the isc-ltdwa record named as its reopening condition."
+    },
+    "next_action": "READY (go). Advancement owns construction: build per the handoff on a worker. Nothing in this session constructed, qualified or scored any rows.",
+    "packaged_at": null,
+    "path": "candidates/ns-bwa-advisory-lift-duration/record.json",
+    "prediction_time": "The advisory issue date (register column 'Date Advisory Issued', calendar day, America/Halifax). Every shipped feature must be a value fixed at or before that day: the issuing row's own site name, county, facility type, reason for the report, and derived calendar features; site/county history features may only use rows with an earlier issue date. The label window is the 30 days that follow the issue date. No part of the target window precedes the instant.",
+    "publisher": "Open Data Nova Scotia / Nova Scotia Department of Environment and Climate Change (Environment and Energy portal category)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the moment a boil water advisory is issued for a public registered or municipal drinking water supply in Nova Scotia - known then: site name, county, facility type, reason for the report, calendar season, and the prior advisory history of the same site/county computed only from earlier advisories - will the advisory be lifted within 30 days?",
+    "region": "North America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "Nova Scotia Open Government Licence v1.1 (ns-oglns), linked from the dataset page.",
+      "name": "Boil Water Advisories - Open Data Nova Scotia (Socrata 7t68-9xmm)",
+      "url": "https://data.novascotia.ca/datasets/7t68-9xmm"
+     },
+     {
+      "licence": "License row on the page: 'Nova Scotia Open Government Licence' -> http://novascotia.ca/opendata/licence.asp",
+      "name": "Dataset page metadata (publisher's own instrument for grain, coverage, censoring)",
+      "url": "https://data.novascotia.ca/datasets/7t68-9xmm"
+     },
+     {
+      "licence": "'The Information Provider grants you a worldwide, royalty-free, perpetual, non-exclusive licence to use the Information, including for commercial purposes'; 'You are free to: Copy, modify, publish, translate, adapt, distribute or otherwise use the Information in any medium, mode or format for any lawful purpose'; attribution required: 'Contains information licensed under the Open Government Licence - Nova Scotia'. Versioning: v1.1, governed by the laws of Nova Scotia and Canada.",
+      "name": "Open Government Licence - Nova Scotia v1.1 (the publisher's own licence instrument)",
+      "url": "https://novascotia.ca/opendata/licence.asp"
+     },
+     {
+      "licence": "ns-oglns per the CKAN record.",
+      "name": "open.canada.ca federated record (where the lead was found; confirms licence id ns-oglns)",
+      "url": "https://open.canada.ca/data/en/dataset/cc06d839-c26a-19f1-2428-4b5464670f8a"
+     }
+    ],
+    "split_strategy": "Cohort split on advisory issue year (disjoint calendar-year windows, both classes in every window). Computed from the full fetched CSV (sha256 60f77ac4...) and cross-checked against independent SoQL aggregates run against the live API (identical numbers). Censored rows excluded from scored sets with per-window counts. Clustered (site-repeat) counts recorded because advisories cluster by site: 586 / 286 / 551 distinct sites per window.",
+    "status": "ready",
+    "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "US",
     "domain": "severe weather forecasting / NWS warning verification",
     "id": "nws-tornado-warning-verification",
@@ -7947,7 +8025,7 @@
    "AT": 1,
    "AU": 4,
    "BR": 2,
-   "CA": 12,
+   "CA": 13,
    "CH": 3,
    "CL": 2,
    "CO": 1,
@@ -7982,22 +8060,22 @@
    "Europe": 22,
    "International organisations": 7,
    "Latin America": 7,
-   "North America": 22,
+   "North America": 23,
    "Oceania": 5,
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 34,
+   "dropped": 35,
    "investigating": 14,
-   "parked": 27,
+   "parked": 26,
    "published": 10,
    "qualified": 1,
-   "ready": 3
+   "ready": 4
   },
-  "candidates": 89,
-  "live": 28,
-  "live_non_us": 22,
-  "live_non_us_share": 0.786,
+  "candidates": 90,
+  "live": 29,
+  "live_non_us": 23,
+  "live_non_us_share": 0.793,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -8019,10 +8097,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-27T07:50:02.474044+00:00",
+    "last_run_at": "2026-10-27T08:50:01.762353+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-27T08:00:00+00:00",
+    "next_run_at": "2026-10-27T09:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -8043,10 +8121,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-27T07:50:01.233974+00:00",
+    "last_run_at": "2026-10-27T08:50:01.574181+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-27T07:55:00+00:00",
+    "next_run_at": "2026-10-27T08:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -8067,10 +8145,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-27T07:49:20.086594+00:00",
+    "last_run_at": "2026-10-27T08:49:39.972144+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-27T07:54:20.086594+00:00",
+    "next_run_at": "2026-10-27T08:54:39.972144+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -8079,10 +8157,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-27T07:50:01.270782+00:00",
+    "last_run_at": "2026-10-27T08:50:01.100586+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-27T07:55:00+00:00",
+    "next_run_at": "2026-10-27T08:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -8103,10 +8181,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-27T06:50:40.524764+00:00",
+    "last_run_at": "2026-10-27T07:50:41.030050+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-27T08:50:00+00:00",
+    "next_run_at": "2026-10-27T09:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -8115,10 +8193,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-27T06:55:01.168801+00:00",
+    "last_run_at": "2026-10-27T07:55:00.698628+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-27T07:55:00+00:00",
+    "next_run_at": "2026-10-27T08:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -8159,29 +8237,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-27T07:50:02.475253+00:00"
+  "updated_at": "2026-10-27T08:50:01.763712+00:00"
  },
- "generated_at": "2026-10-27T07:50:01+00:00",
+ "generated_at": "2026-10-27T08:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 89
+   "passing": 90
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-27T06:23:47Z",
-   "head_sha": "957bfc0",
+   "created_at": "2026-10-27T08:38:05Z",
+   "head_sha": "9b71f7c",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40460845056"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40474874640"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 22/28 (79%)"
+   "summary": "live non-US: 23/29 (79%)"
   },
   "head": {
-   "at": "2026-10-27T04:31:11Z",
-   "sha": "957bfc0",
-   "subject": "UK discovery tick: ipo-trademark-registration-outcome ready (licence A, novelty differentiated); bovine TB triaged close"
+   "at": "2026-10-27T08:37:15Z",
+   "sha": "9b71f7c",
+   "subject": "Canada discovery tick: ns-bwa-advisory-lift-duration ready (OGL-NS, no_precedent); Canada Vigilance reopened on correcte"
   },
   "tests": {
    "count": "672",
@@ -9596,13 +9674,21 @@
    "qualified": 1,
    "sessions_7d": 197,
    "tokens_7d": 18249212
+  },
+  {
+   "at": "2026-10-27T08:50:01+00:00",
+   "live": 15,
+   "published": 9,
+   "qualified": 1,
+   "sessions_7d": 197,
+   "tokens_7d": 19052766
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T07:50:01+00:00",
+   "as_of": "2026-10-27T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -9612,7 +9698,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T07:50:01+00:00",
+   "as_of": "2026-10-27T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -9622,7 +9708,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T07:50:01+00:00",
+   "as_of": "2026-10-27T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -11466,7 +11552,7 @@
   "jobs_total": 109,
   "lifetime_eur": 3.3,
   "live": {
-   "checked_at": "2026-10-27T07:50:33+00:00",
+   "checked_at": "2026-10-27T08:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -11494,7 +11580,21 @@
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
-  "recent": [],
-  "total": 0
+  "recent": [
+   {
+    "elapsed_seconds": 2052.0,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "2c6612af68250581a932b378afe5edd196d239ab77c553e8a2ac95f9975bd474",
+    "ts": "2026-10-27T08:39:13.422272+00:00"
+   }
+  ],
+  "total": 1
  }
 }
