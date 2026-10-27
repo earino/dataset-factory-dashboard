@@ -18,14 +18,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-26T23:50:02.751147+00:00",
+   "moment": "2026-10-27T00:50:03.107580+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "197 research session(s) already ran in the last 7 days, 3 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 17819540,
+   "research_tokens_last_7_days": 17921000,
    "runs_last_7_days": 197,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -53,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 5555,
+     "calls": 5636,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 14346688,
-     "output_tokens": 5394219,
+     "input_tokens": 14480477,
+     "output_tokens": 5474466,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -95,7 +95,7 @@
    "US": 1
   },
   "counts": {
-   "dropped": 32,
+   "dropped": 34,
    "investigating": 14,
    "parked": 27,
    "published": 10,
@@ -6580,6 +6580,52 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "EU",
+    "domain": "EU food and feed safety rapid alerts / notification risk classification",
+    "id": "rasff-notification-risk-decision",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "catalogue_probe_2026_10_27": "data.europa.eu hub search: 'RASFF notifications food feed safety' and 'Rapid Alert System Food Feed RASFF portal data' both return restored_rasff 'Food and Feed Alert Notifications' (DG SANTE) as the only official EU dataset, alongside national mirrors (LT 'Urgent notifications of unsafe food and feed', FSA intensified-controls list, Safety Gate for non-food as a sibling system). Full dataset detail in probe/probe_rasff_catalogue.py output, notes.md.",
+     "prior_art_numbers_2026_10_27": "Frontiers in Food Science & Technology (2026) 10.3389/frfst.2026.1890831: binary serious/not-serious RASFF classification, 28,708 records 2019-2025 -> 22,643 after removing ambiguous risk decisions, serious base rate 79.1% (post-exclusion), chronological train/calibration/test split, XGBoost + Mondrian conformal prediction, accuracy 0.784. Springer (2025) 10.1007/s11947-025-03819-4: LR/SVM/RF/DT/NB/XGBoost/LightGBM/AdaBoost/ANN on 61,350 RASFF entries classifying serious/not-serious/undecided, with data enrichment and XAI. arXiv 2009.06704 (2020): categorical-embedding MLP/CNN predicting product category, hazard category and the action to be taken, RASFF 2004-2018, accuracy 74.08-93.06%. MDPI (2026) 2673-4532/6/3/36: 1,138 pesticide-residue RASFF alerts 2020-2025 with the cleaned dataset released as supplementary material."
+    },
+    "next_action": "Closed for the risk-decision classification target and for product-category / hazard-category / required-measure targets (all covered by the named prior art). R",
+    "packaged_at": null,
+    "path": "candidates/rasff-notification-risk-decision/record.json",
+    "prediction_time": "Unresolved on its face, and moot under the mirror veto: the public RASFF window and the DG SANTE datalake API serve the current consolidated notification record (notification date is the only instant-like field); the risk decision is assigned during post-notification assessment, and the initial-notification vintage is not separately published, so feature availability at a stated instant cannot be evidenced from this source alone without further publisher documentation.",
+    "publisher": "Directorate-General for Health and Food Safety, European Commission (RASFF window / DG SANTE datalake)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the circulation of a new RASFF notification (product, origin country, notifying country, reason for notification, hazard signal), will the risk assessment classify the issue as a serious risk?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "The source is real and machine-readable (DG SANTE datalake API plus a pre-2021 public XLSX), so this is not a data-availability rejection; it is a saturated-task rejection, recorded so a future EU tick does not re-open RASFF risk classification. The licence was deliberately left unread because the mirror veto is decisive regardless of licence class.",
+    "sources": [
+     {
+      "licence": "Not read this session - distribution-level licence fields are null on data.europa.eu; the DG SANTE datalake API terms and RASFF window legal notice are the instruments to read on any reopen. The mirror veto precedes licence work.",
+      "name": "RASFF window + DG SANTE datalake API (Food and Feed Alert Notifications), data.europa.eu catalogue id restored_rasff",
+      "url": "https://webgate.ec.europa.eu/rasff-window/screen/search"
+     }
+    ],
+    "split_strategy": "Not built - mirror veto. Prior art already built the panels this task would use: Frontiers Food Sci Technol 2026 uses 22,643 RASFF notifications 2019-2025 with a CHRONOLOGICAL training/calibration/test split; Springer Food Eng Rev/Technol 2025 uses 61,350 entries (serious 28.93%, not serious 22.42%, undecided 48.65%); arXiv 2009.06704 uses 2004-2018 with 80/20 splits; MDPI 2026 releases its cleaned 2020-2025 pesticide-alerts dataset (RASFF_enriched.csv) as supplementary material.",
+    "status": "dropped",
+    "target": "Binary: RISK_DECISION serious / potentially-serious (positive) vs not serious / no risk (negative); 'undecided' and 'potential risk' excluded by prior art when ambiguous. Label source column: the notification's risk-decision field."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "CL",
     "domain": "food-safety enforcement - agricultural sample residue-noncompliance prediction (Chile, SAG pesticide-residue monitoring)",
     "id": "sag-residuos-plaguicidas",
@@ -6783,6 +6829,68 @@
     "split_strategy": "Not measured beyond the probes above: the park is at the source-class level, before any single table was selected. Aggregate series would trivially fill temporal windows (daily/monthly series back to the 1980s), but window-filling is not the binding constraint here.",
     "status": "parked",
     "target": "Not fixed (parked before one was chosen): aggregate-series direction labels or same-survey PUMF outcomes - both are documented classes with known problems (see rejection_reason)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "EU",
+    "domain": "EU public procurement / tender competition prediction",
+    "id": "ted-procurement-single-bid",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "baserate_prefix_samples_2026_10_27": "CAN CSV year-file prefixes (first ~256 KiB compressed, ordered by notice ID = early-January notices; explicitly NOT year-representative): 2019: 3,343 rows / 706 notices, NUMBER_OFFERS populated 64.4%, single-bid 704 (32.7% of populated), multi 1,450, zero 0, INFO_ON_NON_AWARD set 9.5%; 2021: 4,049 rows / 568 notices, populated 58.2%, single 749 (31.8%); 2023: 2,361 rows / 722 notices, populated 72.3%, single 731 (42.8%). These match the ~30-40% single-bidding phenomenon published by the European Court of Auditors (SR 28/2023) and the Commission's Single Market Scoreboard, which is the cross-check against the publisher's own summary product.",
+     "bulk_inventory_2026_10_27": "data.europa.eu ted-csv catalogue: annual CN zips 2006-2023 and CAN zips 2007-2023 plus combined packages and a deprecated V1/V2.2 line; last catalogue update 2024-01-25; no 2024+ CSV distribution, so the CSV subset ends at 2023 while the Search API continues (measured 35,853 eForms CANs in Sept 2026). CAN 2023 zip = 111,181,340 bytes; CN 2023 zip = 42,882,577 bytes (Content-Range totals via ranged GET; HEAD returns 401).",
+     "can_csv_schema_2026_10_27": "74 columns incl. ID_NOTICE_CAN, DT_DISPATCH, CORRECTIONS, CAE_NAME/CAE_NATIONALID/CAE_TOWN, ISO_COUNTRY_CODE, CAE_TYPE, MAIN_ACTIVITY, TYPE_OF_CONTRACT (S/U/W), TAL_LOCATION_NUTS, CPV, ID_LOT, LOTS_NUMBER, VALUE_EURO, TOP_TYPE (procedure), B_ACCELERATED, CRIT_CODE/CRIT_PRICE_WEIGHT, B_ELECTRONIC_AUCTION, NUMBER_AWARDS, ID_AWARD, INFO_ON_NON_AWARD, B_CONTRACTOR_SME, TITLE, NUMBER_OFFERS, NUMBER_TENDERS_SME, NUMBER_TENDERS_OTHER_EU, NUMBER_TENDERS_NON_EU, NUMBER_OFFERS_ELECTR, AWARD_EST_VALUE_EURO, AWARD_VALUE_EURO, DT_AWARD. Header + leading rows recovered by a ranged 256 KiB read + partial inflate (262,144 bytes -> ~1.5 MB CSV, ~2,361 rows for 2023), recorded in probe/probe_csv_prefix.py.",
+     "cn_csv_schema_2026_10_27": "64 columns incl. ID_NOTICE_CN, DT_DISPATCH, FUTURE_CAN_ID, FUTURE_CAN_ID_ESTIMATED, buyer fields, TYPE_OF_CONTRACT, TAL_LOCATION_NUTS, CPV, ID_LOT, LOTS_NUMBER, B_VARIANTS, VALUE_EURO (estimated), B_OPTIONS, DURATION, CONTRACT_START/CONTRACT_COMPLETION, TOP_TYPE, B_ACCELERATED, ENV_OPERATORS/MIN/MAX, CRIT_CODE/CRIT_PRICE_WEIGHT, DT_APPLICATIONS (deadline), B_RECURRENT_PROCUREMENT.",
+     "fetch_cost_measured_2026_10_27": "ranged 256 KiB zip-prefix fetch 0.29-0.33 s each (three years measured); Search API count query 0.08-0.16 s; search response with converted full-text content ~5-10 KB per notice (multilingual). Full construction would download ~150 MiB compressed per CN+CAN year pair on a worker (~1.5 GiB for 2014-2023), well inside worker norms and far above coordinator limits - bulk stays on workers.",
+     "form_type_vocabulary_2026_10_27": "The expert query FT field distinguishes legacy standard-form families (FT=3 = award notices under the classic directives; 38,898 in June 2019) from eForms result notices (FT=\"CAN\"; 0 in June 2015 before eForms existed, 640 in January 2023 during the transition, 28,676-35,853 per month by 2024-2026). A full award population needs both families plus the other legacy award form codes; the CSV subset aggregates all families, which is why construction should count from the CSV/API pair rather than FT=\"CAN\" alone.",
+     "link_verification_2026_10_27": "FUTURE_CAN_ID populated in 10/10 complete rows of the CN 2019 prefix (all ESTIMATED=0) and in the first CN 2023 rows. Two fixtures verified against the Search API: CN 10-2023 (PRT, Instituto Superior Tecnico, CPV 90910000, dispatched 2022-12-28, published 2023-01-02+01:00) -> FUTURE_CAN_ID 371295-2023, which the API returns as a CAN published 2023-06-21+02:00, CY=PRT, matching authority code; CN 2-2023 (ESP, Consejeria de Presidencia, dispatched 2022-12-28) -> 181795-2023, a CAN published 2023-03-27+02:00, CY=ESP. Both targets follow the prediction instant by months. Recorded in probe/probe_api_counts.py.",
+     "novelty_prior_art_2026_10_27": "The exact task exists in reproducible form: Acikalin, Gorgun, Kutlu & Tas, 'How you describe procurement calls matters: Predicting outcome of public procurement using call descriptions', Natural Language Engineering 30(6) 2024 (online 2023-08-10): four prediction tasks on THIS TED CSV subset (number of offers PNumOffers; single offer PSingleOffer; foreign-firm award; price overrun vs estimate), 333,832 notices, 80/20 train/test, scored transformers, and released code: github.com/utkuumur/HowYouDescribeProcurementCallsMatters. Adjacent prior art: Demiray, Ozbayoglu & Tas 2015 (bidder counts on TED); Gallego, Rivero & Martinez 2021; 'Intensifying Competition in Public Procurement' (Springer GIQ 2023, TED 2017-2020 offers modelling); ECA Special Report 28/2023 single-bidding dashboard (DG GROW TED CSV + DigiWhist opentender); MDPI Algorithms 2025 (SME winner + main activity, TED 2015-2023); Spanish bidder-recommender (Wiley 2020). ML-ready data compilations already public: PleIAs/TEDEUTenders (HF parquet by year), EUROPROCURE-10 (HF, 2016-2025), zalizedata TED+OCDS (HF/Kaggle, 6.3M notices - NC licensed, unusable for us, but demonstrates availability)."
+    },
+    "next_action": "Closed for any target that is a bucket of the number of offers received (incl. zero-offer / no-award / INFO_ON_NON_AWARD variants, which are thresholds of PNumO",
+    "packaged_at": null,
+    "path": "candidates/ted-procurement-single-bid/record.json",
+    "prediction_time": "The TED publication instant of the contract notice (CN). The CN CSV export carries the buyer's dispatch date (DT_DISPATCH) and year; the exact publication date (PD) per notice is served by the anonymous TED Search API v3. Worked example in notes.md: CN 10-2023 dispatched 2022-12-28, published 2023-01-02+01:00 (Europe/Brussels); its linked award notice 371295-2023 was published 2023-06-21+02:00, i.e. the whole target window (award decision, offers received) follows the prediction instant.",
+    "publisher": "Publications Office of the European Union (European Commission), Luxembourg",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the TED publication of a contract notice (call for competition), will the linked award notice report that the procedure's lot received exactly one offer (single bid)?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "The licence is clean (class B: Commission Decision 2011/833/EU reuse, attribution, no distortion, personal-data caveat handled by excluding contact-person fields), the access is unusually good for this bench (official annual CSV extracts plus an anonymous search API), and the official CN->CAN link column (FUTURE_CAN_ID) removes the main construction risk - which is precisely why the source is heavily mined. Both timing and target contracts are satisfiable, so this is not a weak-source rejection; it is a strong source whose obvious task is taken. Recorded so no future tick re-probes TED blind, and so the measured access map (CSV subset ends 2023; FT vocabulary split legacy/eForms; link fixtures) is reusable for any genuinely different formulation.",
+    "sources": [
+     {
+      "licence": "Commission Decision 2011/833/EU per the TED legal notice copyright section (read 2026-10-27): procurement notices freely reusable for commercial and non-commercial purposes with attribution; class B",
+      "name": "TED CSV subset - Tenders Electronic Daily public procurement notices (contract notices 2006-2023, contract award notices 2007-2023), data.europa.eu dataset ted-csv",
+      "url": "https://data.europa.eu/data/datasets/ted-csv"
+     },
+     {
+      "licence": "Commission Decision 2011/833/EU per the TED legal notice copyright section (read 2026-10-27): procurement notices freely reusable for commercial and non-commercial purposes with attribution; class B",
+      "name": "TED Search API v3 (anonymous, no key), Publications Office of the EU",
+      "url": "https://api.ted.europa.eu/v3/notices/search"
+     },
+     {
+      "licence": "Commission Decision 2011/833/EU per the TED legal notice copyright section (read 2026-10-27): procurement notices freely reusable for commercial and non-commercial purposes with attribution; class B",
+      "name": "TED legal notice (publisher's own reuse terms), read 2026-10-27 in the supported browser after plain urllib got HTTP 429 from this host",
+      "url": "https://ted.europa.eu/en/legal-notice"
+     }
+    ],
+    "split_strategy": "Not built - the mirror veto precedes construction. Measured anchors any future reformulation would build on: award-notice population by era (Search API totalNoticeCount, 2026-10-27): FT=3 (legacy award form) 38,898 in June 2019 alone; FT=\"CAN\" (eForms result notices) 0 in June 2015, 1,147 in June 2019, 723 in June 2022, 1,161 in June 2023, full-year 2023 34,699, 28,676 in June 2024, 33,463 in June 2025, 35,853 in September 2026. CSV prefix samples (first ~256 KiB per year file, early-January notices, NOT year-representative): NUMBER_OFFERS populated on 64.4% of rows (2019), 58.2% (2021), 72.3% (2023); single-bid share among populated rows 32.7% / 31.8% / 42.8%. Full-population eligible counts (CANs with offers populated AND linked CN) require bulk processing on a worker - recorded as a prerequisite, not measured here.",
+    "status": "dropped",
+    "target": "Binary single-bid label per procedure lot: NUMBER_OFFERS = 1 in the linked contract award notice (CAN) row for that lot, vs NUMBER_OFFERS > 1. Label source columns: CAN's NUMBER_OFFERS (plus the FUTURE_CAN_ID join key); both excluded from any shipped features. Pre-eForms CANs also carry NUMBER_TENDERS_SME / NUMBER_TENDERS_OTHER_EU / NUMBER_TENDERS_NON_EU breakdowns of the same total."
    },
    {
     "awaiting_operator": false,
@@ -7702,7 +7810,7 @@
    "CL": 2,
    "CO": 1,
    "DE": 2,
-   "EU": 6,
+   "EU": 8,
    "FR": 1,
    "GB": 10,
    "GH": 1,
@@ -7729,7 +7837,7 @@
   "by_region": {
    "Africa": 7,
    "East Asia": 6,
-   "Europe": 19,
+   "Europe": 21,
    "International organisations": 7,
    "Latin America": 7,
    "North America": 22,
@@ -7737,14 +7845,14 @@
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 32,
+   "dropped": 34,
    "investigating": 14,
    "parked": 27,
    "published": 10,
    "qualified": 1,
    "ready": 2
   },
-  "candidates": 86,
+  "candidates": 88,
   "live": 27,
   "live_non_us": 21,
   "live_non_us_share": 0.778,
@@ -7769,10 +7877,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-26T23:50:02.337805+00:00",
+    "last_run_at": "2026-10-27T00:50:02.656307+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-27T00:00:00+00:00",
+    "next_run_at": "2026-10-27T01:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -7793,10 +7901,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-26T23:50:02.221029+00:00",
+    "last_run_at": "2026-10-27T00:50:01.430903+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-26T23:55:00+00:00",
+    "next_run_at": "2026-10-27T00:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7817,10 +7925,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-26T23:46:49.206981+00:00",
+    "last_run_at": "2026-10-27T00:47:08.029948+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-26T23:51:49.206981+00:00",
+    "next_run_at": "2026-10-27T00:52:08.029948+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -7829,10 +7937,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-26T23:50:01.329859+00:00",
+    "last_run_at": "2026-10-27T00:50:01.518764+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-26T23:55:00+00:00",
+    "next_run_at": "2026-10-27T00:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -7853,10 +7961,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-26T22:50:41.090704+00:00",
+    "last_run_at": "2026-10-26T23:50:40.747569+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-27T00:50:00+00:00",
+    "next_run_at": "2026-10-27T01:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -7865,10 +7973,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-26T22:55:00.678361+00:00",
+    "last_run_at": "2026-10-26T23:55:01.031530+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-26T23:55:00+00:00",
+    "next_run_at": "2026-10-27T00:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -7909,29 +8017,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-26T23:50:02.338854+00:00"
+  "updated_at": "2026-10-27T00:50:02.657382+00:00"
  },
- "generated_at": "2026-10-26T23:50:01+00:00",
+ "generated_at": "2026-10-27T00:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 86
+   "passing": 88
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-26T20:37:24Z",
-   "head_sha": "717aac7",
+   "created_at": "2026-10-27T00:43:41Z",
+   "head_sha": "953b9f3",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40397287518"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40428223820"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 21/27 (78%)"
   },
   "head": {
-   "at": "2026-10-26T20:08:34Z",
-   "sha": "717aac7",
-   "subject": "Watcher follow-up ec-merger-001/002: receipts re-verified, staging preservation re-proven, provider cleanup confirmed"
+   "at": "2026-10-27T00:42:43Z",
+   "sha": "953b9f3",
+   "subject": "Discovery 2026-10-27 EU/EEA tick: TED single-bid and RASFF risk-decision dropped as mirrors; infringement register not m"
   },
   "tests": {
    "count": "672",
@@ -9282,13 +9390,21 @@
    "qualified": 1,
    "sessions_7d": 197,
    "tokens_7d": 17819540
+  },
+  {
+   "at": "2026-10-27T00:50:01+00:00",
+   "live": 15,
+   "published": 9,
+   "qualified": 1,
+   "sessions_7d": 197,
+   "tokens_7d": 17921000
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-26T23:50:01+00:00",
+   "as_of": "2026-10-27T00:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -9298,7 +9414,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-26T23:50:01+00:00",
+   "as_of": "2026-10-27T00:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -9308,7 +9424,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-26T23:50:01+00:00",
+   "as_of": "2026-10-27T00:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -11152,7 +11268,7 @@
   "jobs_total": 109,
   "lifetime_eur": 3.3,
   "live": {
-   "checked_at": "2026-10-26T23:50:33+00:00",
+   "checked_at": "2026-10-27T00:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -11175,12 +11291,26 @@
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 1.02
+  "projected_month_eur": 0.98
  },
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
-  "recent": [],
-  "total": 0
+  "recent": [
+   {
+    "elapsed_seconds": 2460.7,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "ff1f9155e2e087d4dff990f8060f6d0cc37658ec4768d4af88c85061927202ed",
+    "ts": "2026-10-27T00:46:02.074976+00:00"
+   }
+  ],
+  "total": 1
  }
 }
