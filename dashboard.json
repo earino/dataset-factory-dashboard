@@ -1,7 +1,5 @@
 {
- "alarms": [
-  "1 release(s) not fully verified"
- ],
+ "alarms": [],
  "budget": {
   "config": {
    "allowance_usd": 30.0,
@@ -17,13 +15,15 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-10-27T13:50:02.496617+00:00",
+   "allowed": false,
+   "moment": "2026-10-27T14:50:02.639546+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 154s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 18999838,
+   "research_tokens_last_7_days": 19399140,
    "runs_last_7_days": 195,
    "runs_weighted_last_7_days": 199,
    "session_cap_per_week": 200,
@@ -40,25 +40,25 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 5528,
+     "calls": 5540,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 26734787,
-     "output_tokens": 3103522,
+     "input_tokens": 27149673,
+     "output_tokens": 3108353,
      "pricing_available": false
     },
     "research": {
-     "calls": 5978,
+     "calls": 6103,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 16293031,
-     "output_tokens": 5820264,
+     "input_tokens": 16699724,
+     "output_tokens": 5885317,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -85,7 +85,7 @@
    "CA": 2,
    "CO": 1,
    "DE": 1,
-   "EU": 2,
+   "EU": 1,
    "GB": 3,
    "GH": 1,
    "NZ": 1,
@@ -95,9 +95,9 @@
   "counts": {
    "dropped": 35,
    "investigating": 14,
+   "packaged": 1,
    "parked": 26,
    "published": 10,
-   "qualified": 1,
    "ready": 5
   },
   "errors": [],
@@ -604,120 +604,6 @@
     "split_strategy": "Temporal, one row per eligible alert event: train 2006-2019, eval 2020-2022, holdout 2023-2026 Q2 (file ends 2026-06-30). Measured at label window [D+1,D+7]: train 28,864 events / 3,638 positives (12.60%); eval 9,623 / 1,560 (16.21%); holdout 14,561 / 2,408 (16.54%). Positives occur in every year 2006-2026. Positives cluster by storm: 458 distinct year-weeks carry at least one positive (top week 2020-W7, Storms Ciara/Dennis, 324 same-window positives at the [D,D+7] definition). Report per-year metrics: a reporting-system migration in April 2017 (Floodline Warnings Direct -> Flood Warning System, per the EA's dataset description) is a candidate structural break.",
     "status": "investigating",
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
-   },
-   {
-    "awaiting_operator": false,
-    "baseline": {},
-    "country": "EU",
-    "domain": "EU competition policy / merger-control procedure outcomes (EU institution publisher, DG COMP open data)",
-    "id": "ec-merger-phase2-opening",
-    "jobs": [
-     {
-      "at": null,
-      "id": "ec-merger-001",
-      "status": null
-     },
-     {
-      "at": null,
-      "id": "ec-merger-002",
-      "status": null
-     },
-     {
-      "at": null,
-      "id": "ec-merger-003",
-      "status": null
-     },
-     {
-      "at": null,
-      "id": "ec-merger-baseline-001",
-      "status": null
-     }
-    ],
-    "licence_summary": {
-     "compilation_spdx": "CC0-1.0",
-     "source_spdx": "CC-BY-4.0",
-     "status": "European Commission reuse policy, CC BY 4.0 unless otherwise indicated: applies to Commission-owned content, and DG COMP explicitly released the machine-readable merger case data sets under that reuse notice for commercial and non-commercial processing with acknowledgement of the source. Reuse is allowed provided appropriate credit is given and changes are indicated. The dataset's derived rows are indicated changes: a row selection, a derived binary label and derived features, not the Commission's own product."
-    },
-    "measurements": {
-     "dated_example": "M.10188 ILLUMINA / GRAIL, all dates Brussels local (register carries date-only precision): feature event window = case attributes fixed at registration on 2021-06-16 (title 'ILLUMINA / GRAIL', sectors C.27.9 + C.21, Reg 139/2004); eligibility cutoff = caseType Merger and a notification date exists; prediction instant = 2021-06-16; target window = 2021-06-16 until the procedure's Phase I decision (by EUMR Art. 10(3) at most ~25-35 working days later, extendable); observed outcome = opener adopted 2021-07-22, 36 days after the instant, label positive. Downstream events (Art. 8(3) 2022-09-06, withdrawals 2024-09-06) are outside the label. No part of the target window precedes the instant; the same-month opener case (0-month lag) is still dated after its notification date.",
-     "feature_coverage_measured": "caseSectors missing on 79/10,123 eligible cases (0.78%, concentrated 1997-2004); caseTitle and caseRegulation present on 100%; caseSimplified present but EXCLUDED as a feature (a simplified filing upgraded to Normal during review would make the current value post-hoc; using it leaks the upgrade); caseInvestigationPhase (41 live cases) and caseDeadlineDate/caseLastDecisionDate/caseLinks/caseCourtCases/caseRenotificationDate excluded as post-hoc or derived.",
-     "fetch_cost_measured": "1 anonymous GET, 42,025,677 bytes, 0.87 s wall on the coordinator (whole-register fetch is trivial; no worker needed for discovery). S3 objects carry a 30-day expiry rule with daily regeneration - the distribution URL from the data.europa.eu record is the stable channel; construction records fetch date + sha256.",
-     "known_event_fixtures": [
-      "M.877 BOEING / McDONNELL DOUGLAS: register shows notif 1997-02-18, opener Art. 6(1)(c) 1997-03-19, Art. 8(2) with conditions & obligations 1997-07-30, Reg 4064/89 - matches the Commission's own decision PDF (ec.europa.eu/competition/mergers/cases/decisions/m877_19970730_600_fr.pdf: notification received 18 February 1997; proceedings opened by decision of 19 March 1997) and press release IP/97/729 (30 July 1997, cleared 'under conditions and obligations'). Expected verdict: positive; observed: positive.",
-      "M.4731 GOOGLE / DOUBLECLICK: register shows notif 2007-09-21, opener Art. 6(1)(c) 2007-11-13, Art. 8(1) 2008-03-11 - matches press release IP/07/1695 (Commission opens in-depth investigation, 13 November 2007) and IP/08/458 (clearance, 11 March 2008). Expected verdict: positive; observed: positive.",
-      "M.10188 ILLUMINA / GRAIL: register shows notif 2021-06-16, Art. 22 Full referral 2021-04-19, opener Art. 6(1)(c) 2021-07-22, Art. 8(3) prohibition 2022-09-06 - matches press release IP/22/5364 (6 September 2022 prohibition, register case number M.10188), including the 2024-09-06 withdrawals after the ECJ judgment. Expected verdict: positive; observed: positive. Also demonstrates the post-hoc-withdrawal caveat."
-     ],
-     "label_base_rate_measured": "Phase II opener (Art. 6(1)(c) present) 309/10,123 = 3.05% of notified cases; per notification year ranges 1 (2024) to 22 (2001); Phase I remedies ('Art. 6(1)(b) with conditions & obligations') 367/10,123 = 3.63%; union any-intervention 673 = 6.65%. Decision-type inventory across all records measured and recorded in notes.md (Art. 6(1)(b) 9,170 occurrences, referrals Art. 4(4)/4(5)/9(3)/22, Art. 8(1)/(2)/(3) outcomes, Withdrawn 263, etc.).",
-     "label_timing_measured": "notification -> first opener lag in months: 1 mo 201, 2 mo 101, 0 mo 1, plus a thin tail 3-18 mo (suspended-clock and extended cases); openers dated BEFORE notification: 1 (M.3333 SONY/BMG re-notification carrying the 2004-02-12 opener of the original procedure under its 2007-01-31 re-notification - exclusion rule: drop label decisions predating notification, or drop the case). Post-hoc withdrawal of an adopted opener: 1 case (M.10188, withdrawn 2024-09-06 after the ECJ Illumina judgment) - label stays 'opened' under the ever-adopted rule; recorded.",
-     "learnability_evidence_measured": "Sector-conditional Phase II rates vary well above/below the 3.05% base rate (top divisions by volume: div 20 rate 6.25% (n=256), div 61 5.23% (n=363), div 64 0.85% (n=351), div 65 0.00% (n=230), div 0 4.20% (n=1,523)) - a sector-conditional reference baseline is the required comparator, as with the matrix-stratified bvl reference.",
-     "measured_on": "2026-10-24 via scripts retained in candidates/ec-merger-phase2-opening/probe_merger_*.py, commands and outputs in notes.md",
-     "panel_shape_measured": "case-data-M.json 2026-10-24 (sha256 in notes.md): 10,395 case records keyed by case number; 10,123 eligible (caseType=MergerCaseType1 'Merger' AND has caseNotificationDate); excluded with recorded mix: 272 no-notification-date cases (decision mix: 219 Art. 4(4)-Full referral, 17 Art. 18 SO, 15 Art. 14, 6 Art. 7(3), 4 Art. 22 Refusal, plus singletons - referral/Art. 22 procedures that never produce an EU notification), 26 'Additional Procedure' (.AP purchaser-approval records), 2 'Consultation'. Notifications per year 1990: 11 rising to 2018: 408, then 350-400/yr to 2026: 317.",
-     "qualification_measured_2026_10_26": "Full artifact built on worker ec-merger-002 from a fresh register GET (sha256 83463d00..., 42,028,198 B): eligible 10,123 notified Merger cases (= record), 33 pending-censored (register establishes neither an opener nor a terminal decision; 26 are live 2026 filings), 10,090 shipped rows, 309 positives. Gate 1.5.0 passed with no failed checks (report .factory/ec-merger-002/qualification.json); exact-byte acceptance verified. Post-acceptance references on identical eval rows (1,770 rows / 46 positives; .factory/ec-merger-002/references.json): sector-division rate AUC 0.7679 (the required comparator; corrected division grouping), sector-combination 0.7051, party-title tokens 0.6644, calendar/identity (regulation x month) 0.5606, recent-3-train-year rate 0.5 (constant), majority-class accuracy 0.9740. Paired bootstrap differences on identical eval rows (1000 resamples): sector vs global +0.2679 [0.2126, 0.3206]; sector vs calendar +0.2073 [0.1255, 0.2886]; title vs sector -0.1035 [-0.2050, -0.0207]. Persistence recorded inapplicable (each row is a newly notified case; no prior same-entity observation exists at the instant). Per-year eval sector-rate AUC 0.69-0.84 with positives 7-12/year. Prevalence shift train 4.01% / eval 2.60% / holdout 1.58% recorded as an out-of-distribution property. Corrected division inventory (train+beyond): J.61 telecoms 6.22% (27/434), C.20 chemicals 5.97% (38/637), K.65 insurance 0.24% (1/412), L.68 real estate 0.00% (0/391) - the learnability claim stands under the corrected grouping (the discovery probe's division key was malformed; see notes.md). The full model is NOT yet run: its figure must be quoted beside these references when the harness baseline job evaluates the same rows.",
-     "revision_note": "The register is a current snapshot (bulk feed since 2025-03-18; interactive register earlier). Three fixtures spanning 1997-2022 reproduce external sources exactly, evidence that the register preserves historical procedure facts; features are nevertheless stated as current-vintage register values (precedent: ABS revision note). caseSectors uses NACE Rev 2 codes for all eras including pre-2008 notifications (M.877, notified 1997, coded C.30.3 'Manufacture of air and spacecraft') - the taxonomy label is current-vintage even where the underlying industries are notification-time facts; construction records this in the feature documentation and verifies one further old case's sectors against its OJ prior notice as a build-time fixture.",
-     "split_window_counts_phase2_label": {
-      "eval 2014-2018": "1,770 notified / 46 positive (2.60%) / 5 years, all carry both classes",
-      "holdout 2019-2026": "2,942 notified / 46 positive (1.56%) / 8 years, all carry both classes (2024-2026 positives 1/4/3 reflect still-maturing recent procedures, not zero)",
-      "train 1990-2013": "5,411 notified / 217 positive (4.01%) / 24 years, all carry both classes"
-     }
-    },
-    "next_action": "Package per dataset-release from the accepted ec-merger-003 artifact (e5a98dfc9c05d0b0..., staging release 425292628): rebuild the tree from the manifest parts,",
-    "packaged_at": null,
-    "path": "candidates/ec-merger-phase2-opening/record.json",
-    "prediction_time": "The notification date of the case (caseNotificationDate; date-only precision, Brussels local). All shipped features are case attributes fixed when the file is registered: caseTitle (the merging parties, an immutable historical fact), caseSectors (NACE codes of the parties' activities; current-vintage register coding, see revision_note), caseRegulation (4064/89 or 139/2004), caseNotificationDate. The label event - an Art. 6(1)(c) decision opening Phase II - is adopted after notification: measured 308/309 openers strictly follow the notification date (302/309 within 2 months; single documented exception M.3333, see anomalies). Fields that can change after notification are excluded from features and recorded below. No feature's target window precedes the instant.",
-    "publisher": "Directorate-General for Competition, European Commission",
-    "qualification": {
-     "artifact_version": "e5a98dfc9c05d0b087ed2dead21004fbbd972e415d2174469371a908bcaf90ad",
-     "result": "passed; 0 failed checks of 46 on the full artifact on the worker (same check set as the 002 pass: leakage incl. declared high-cardinality sector_divisions, timing event_time instant, contract current_snapshot vintage with training_label_timing declared, splits incl. clustered positive events 45/44, runner meta counts)",
-     "splits": {
-      "eval": {
-       "positive_rate": 0.025989,
-       "positives": 46,
-       "rows": 1770
-      },
-      "holdout": {
-       "positive_rate": 0.015786,
-       "positives": 46,
-       "rows": 2915
-      },
-      "train": {
-       "positive_rate": 0.040141,
-       "positives": 217,
-       "rows": 5406
-      }
-     }
-    },
-    "question": "For a concentration notified to the European Commission under the EU Merger Regulation, using only case attributes fixed at notification (the parties as named in the case title, the case's NACE sector codes, the applicable regulation, and the notification date), will the Commission open an in-depth Phase II investigation (adopt an Art. 6(1)(c) decision) in this case?",
-    "region": "Europe",
-    "release_baseline": {
-     "auc": 0.6973,
-     "display": "0.6973",
-     "reference": null
-    },
-    "release_splits": {
-     "eval": {
-      "positives": 46,
-      "rows": 1770
-     },
-     "holdout": {
-      "positives": 46,
-      "rows": 2915
-     },
-     "train": {
-      "positives": 217,
-      "rows": 5406
-     }
-    },
-    "review": "All five discovery contracts have measured evidence: redistribution (Commission reuse notice, CC BY 4.0, class A), timing (notification-date instant; 308/309 openers strictly post-instant, lag distribution measured; post-hoc and derived fields excluded by name), target (label from the decisions block, excludable; base rate 3.05% measured), splits (three disjoint windows, both classes everywhere, positives 217/46/46), not-a-mirror (novelty check differentiated: literature and proprietary compiled datasets exist; no public ML-ready formulation of this task with splits and a scored contract). The fetch is trivially open - the contribution is the formulation (notification-time contract, eligibility, label from the decision-type inventory, splits, fixtures, baselines) and validation, and the record states that explicitly.",
-    "sources": [
-     {
-      "licence": "European Commission reuse notice -> CC BY 4.0 (see license_evidence)",
-      "name": "European Commission, Directorate-General for Competition - EU Competition: Merger case publications (open data, machine-readable case register, coverage from November 1990, updated daily)",
-      "url": "https://data.europa.eu/data/datasets/cc7e224e-6569-40f0-8037-d3389aa0fae7"
-     }
-    ],
-    "split_strategy": "Temporal splits on notification year, measured from the full register. Candidate partitions (both classes present in every window): full-era thirds train 1990-2013 (5,411 cases / 217 Phase II), eval 2014-2018 (1,770 / 46), holdout 2019-2026 (2,942 / 46); or post-reform (Reg 139/2004 from 2005-09): train 2005-2015 (3,451 / 101), eval 2016-2020 (1,876 / 42), holdout 2021-2026 (2,207 / 30). Construction picks one and documents it; the Art. 6(1)(c) label is the same legal instrument under both regulations. Positive cases cluster weakly by acquisition wave; intervals on any score use notification-year clusters (positives per notification year measured 1-22, median ~8). Pending cases (41 live investigation-phase cases at fetch, concentrated 2025-2026) are censored like the ABS live-month rows: scorable when their procedure concludes.",
-    "status": "qualified",
-    "target": "Binary: the case record carries at least one decision of type 'Art. 6(1)(c)' (the decision by which the Commission initiates proceedings because of serious doubts - the Phase II opener, same article number under Reg 4064/89 and Reg 139/2004). Label source: the decisions[] block of the register record (decisionTypes, decisionAdoptionDate), which is excluded wholesale from shipped features. Measured: 309 positives / 10,123 eligible cases = 3.05%. Measured alternative recorded for construction: any-intervention union (Phase II opener OR Phase I remedies 'Art. 6(1)(b) with conditions & obligations') = 673 / 10,123 = 6.65% (remedies-only 367 = 3.63%)."
    },
    {
     "awaiting_operator": false,
@@ -1297,7 +1183,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 93.3,
+  "non_us_share": 92.9,
   "records": [
    {
     "awaiting_operator": false,
@@ -3226,7 +3112,8 @@
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
    },
    {
-    "awaiting_operator": false,
+    "age_hours": 0.1,
+    "awaiting_operator": true,
     "baseline": {},
     "country": "EU",
     "domain": "EU competition policy / merger-control procedure outcomes (EU institution publisher, DG COMP open data)",
@@ -3250,6 +3137,16 @@
      {
       "at": null,
       "id": "ec-merger-baseline-001",
+      "status": null
+     },
+     {
+      "at": null,
+      "id": "ecm-publish-001",
+      "status": null
+     },
+     {
+      "at": null,
+      "id": "ecm-hf-001",
       "status": null
      }
     ],
@@ -3280,8 +3177,8 @@
       "train 1990-2013": "5,411 notified / 217 positive (4.01%) / 24 years, all carry both classes"
      }
     },
-    "next_action": "Package per dataset-release from the accepted ec-merger-003 artifact (e5a98dfc9c05d0b0..., staging release 425292628): rebuild the tree from the manifest parts,",
-    "packaged_at": null,
+    "next_action": "AWAITING OPERATOR FLIP (packaged 2026-10-27T14:44:34Z; awaiting_operator true) - the flip is the operator's single act and nothing is public. Both destinations ",
+    "packaged_at": "2026-10-27T14:44:34Z",
     "path": "candidates/ec-merger-phase2-opening/record.json",
     "prediction_time": "The notification date of the case (caseNotificationDate; date-only precision, Brussels local). All shipped features are case attributes fixed when the file is registered: caseTitle (the merging parties, an immutable historical fact), caseSectors (NACE codes of the parties' activities; current-vintage register coding, see revision_note), caseRegulation (4064/89 or 139/2004), caseNotificationDate. The label event - an Art. 6(1)(c) decision opening Phase II - is adopted after notification: measured 308/309 openers strictly follow the notification date (302/309 within 2 months; single documented exception M.3333, see anomalies). Fields that can change after notification are excluded from features and recorded below. No feature's target window precedes the instant.",
     "publisher": "Directorate-General for Competition, European Commission",
@@ -3336,7 +3233,7 @@
      }
     ],
     "split_strategy": "Temporal splits on notification year, measured from the full register. Candidate partitions (both classes present in every window): full-era thirds train 1990-2013 (5,411 cases / 217 Phase II), eval 2014-2018 (1,770 / 46), holdout 2019-2026 (2,942 / 46); or post-reform (Reg 139/2004 from 2005-09): train 2005-2015 (3,451 / 101), eval 2016-2020 (1,876 / 42), holdout 2021-2026 (2,207 / 30). Construction picks one and documents it; the Art. 6(1)(c) label is the same legal instrument under both regulations. Positive cases cluster weakly by acquisition wave; intervals on any score use notification-year clusters (positives per notification year measured 1-22, median ~8). Pending cases (41 live investigation-phase cases at fetch, concentrated 2025-2026) are censored like the ABS live-month rows: scorable when their procedure concludes.",
-    "status": "qualified",
+    "status": "packaged",
     "target": "Binary: the case record carries at least one decision of type 'Art. 6(1)(c)' (the decision by which the Commission initiates proceedings because of serious doubts - the Phase II opener, same article number under Reg 4064/89 and Reg 139/2004). Label source: the decisions[] block of the register record (decisionTypes, decisionAdoptionDate), which is excluded wholesale from shipped features. Measured: 309 positives / 10,123 eligible cases = 3.05%. Measured alternative recorded for construction: any-intervention union (Phase II opener OR Phase I remedies 'Art. 6(1)(b) with conditions & obligations') = 673 / 10,123 = 6.65% (remedies-only 367 = 3.63%)."
    },
    {
@@ -8181,8 +8078,260 @@
    }
   ],
   "release": {
-   "awaiting": [],
-   "packaged": [],
+   "awaiting": [
+    {
+     "age_hours": 0.1,
+     "awaiting_operator": true,
+     "baseline": {},
+     "country": "EU",
+     "domain": "EU competition policy / merger-control procedure outcomes (EU institution publisher, DG COMP open data)",
+     "id": "ec-merger-phase2-opening",
+     "jobs": [
+      {
+       "at": null,
+       "id": "ec-merger-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "ec-merger-002",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "ec-merger-003",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "ec-merger-baseline-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "ecm-publish-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "ecm-hf-001",
+       "status": null
+      }
+     ],
+     "licence_summary": {
+      "compilation_spdx": "CC0-1.0",
+      "source_spdx": "CC-BY-4.0",
+      "status": "European Commission reuse policy, CC BY 4.0 unless otherwise indicated: applies to Commission-owned content, and DG COMP explicitly released the machine-readable merger case data sets under that reuse notice for commercial and non-commercial processing with acknowledgement of the source. Reuse is allowed provided appropriate credit is given and changes are indicated. The dataset's derived rows are indicated changes: a row selection, a derived binary label and derived features, not the Commission's own product."
+     },
+     "measurements": {
+      "dated_example": "M.10188 ILLUMINA / GRAIL, all dates Brussels local (register carries date-only precision): feature event window = case attributes fixed at registration on 2021-06-16 (title 'ILLUMINA / GRAIL', sectors C.27.9 + C.21, Reg 139/2004); eligibility cutoff = caseType Merger and a notification date exists; prediction instant = 2021-06-16; target window = 2021-06-16 until the procedure's Phase I decision (by EUMR Art. 10(3) at most ~25-35 working days later, extendable); observed outcome = opener adopted 2021-07-22, 36 days after the instant, label positive. Downstream events (Art. 8(3) 2022-09-06, withdrawals 2024-09-06) are outside the label. No part of the target window precedes the instant; the same-month opener case (0-month lag) is still dated after its notification date.",
+      "feature_coverage_measured": "caseSectors missing on 79/10,123 eligible cases (0.78%, concentrated 1997-2004); caseTitle and caseRegulation present on 100%; caseSimplified present but EXCLUDED as a feature (a simplified filing upgraded to Normal during review would make the current value post-hoc; using it leaks the upgrade); caseInvestigationPhase (41 live cases) and caseDeadlineDate/caseLastDecisionDate/caseLinks/caseCourtCases/caseRenotificationDate excluded as post-hoc or derived.",
+      "fetch_cost_measured": "1 anonymous GET, 42,025,677 bytes, 0.87 s wall on the coordinator (whole-register fetch is trivial; no worker needed for discovery). S3 objects carry a 30-day expiry rule with daily regeneration - the distribution URL from the data.europa.eu record is the stable channel; construction records fetch date + sha256.",
+      "known_event_fixtures": [
+       "M.877 BOEING / McDONNELL DOUGLAS: register shows notif 1997-02-18, opener Art. 6(1)(c) 1997-03-19, Art. 8(2) with conditions & obligations 1997-07-30, Reg 4064/89 - matches the Commission's own decision PDF (ec.europa.eu/competition/mergers/cases/decisions/m877_19970730_600_fr.pdf: notification received 18 February 1997; proceedings opened by decision of 19 March 1997) and press release IP/97/729 (30 July 1997, cleared 'under conditions and obligations'). Expected verdict: positive; observed: positive.",
+       "M.4731 GOOGLE / DOUBLECLICK: register shows notif 2007-09-21, opener Art. 6(1)(c) 2007-11-13, Art. 8(1) 2008-03-11 - matches press release IP/07/1695 (Commission opens in-depth investigation, 13 November 2007) and IP/08/458 (clearance, 11 March 2008). Expected verdict: positive; observed: positive.",
+       "M.10188 ILLUMINA / GRAIL: register shows notif 2021-06-16, Art. 22 Full referral 2021-04-19, opener Art. 6(1)(c) 2021-07-22, Art. 8(3) prohibition 2022-09-06 - matches press release IP/22/5364 (6 September 2022 prohibition, register case number M.10188), including the 2024-09-06 withdrawals after the ECJ judgment. Expected verdict: positive; observed: positive. Also demonstrates the post-hoc-withdrawal caveat."
+      ],
+      "label_base_rate_measured": "Phase II opener (Art. 6(1)(c) present) 309/10,123 = 3.05% of notified cases; per notification year ranges 1 (2024) to 22 (2001); Phase I remedies ('Art. 6(1)(b) with conditions & obligations') 367/10,123 = 3.63%; union any-intervention 673 = 6.65%. Decision-type inventory across all records measured and recorded in notes.md (Art. 6(1)(b) 9,170 occurrences, referrals Art. 4(4)/4(5)/9(3)/22, Art. 8(1)/(2)/(3) outcomes, Withdrawn 263, etc.).",
+      "label_timing_measured": "notification -> first opener lag in months: 1 mo 201, 2 mo 101, 0 mo 1, plus a thin tail 3-18 mo (suspended-clock and extended cases); openers dated BEFORE notification: 1 (M.3333 SONY/BMG re-notification carrying the 2004-02-12 opener of the original procedure under its 2007-01-31 re-notification - exclusion rule: drop label decisions predating notification, or drop the case). Post-hoc withdrawal of an adopted opener: 1 case (M.10188, withdrawn 2024-09-06 after the ECJ Illumina judgment) - label stays 'opened' under the ever-adopted rule; recorded.",
+      "learnability_evidence_measured": "Sector-conditional Phase II rates vary well above/below the 3.05% base rate (top divisions by volume: div 20 rate 6.25% (n=256), div 61 5.23% (n=363), div 64 0.85% (n=351), div 65 0.00% (n=230), div 0 4.20% (n=1,523)) - a sector-conditional reference baseline is the required comparator, as with the matrix-stratified bvl reference.",
+      "measured_on": "2026-10-24 via scripts retained in candidates/ec-merger-phase2-opening/probe_merger_*.py, commands and outputs in notes.md",
+      "panel_shape_measured": "case-data-M.json 2026-10-24 (sha256 in notes.md): 10,395 case records keyed by case number; 10,123 eligible (caseType=MergerCaseType1 'Merger' AND has caseNotificationDate); excluded with recorded mix: 272 no-notification-date cases (decision mix: 219 Art. 4(4)-Full referral, 17 Art. 18 SO, 15 Art. 14, 6 Art. 7(3), 4 Art. 22 Refusal, plus singletons - referral/Art. 22 procedures that never produce an EU notification), 26 'Additional Procedure' (.AP purchaser-approval records), 2 'Consultation'. Notifications per year 1990: 11 rising to 2018: 408, then 350-400/yr to 2026: 317.",
+      "qualification_measured_2026_10_26": "Full artifact built on worker ec-merger-002 from a fresh register GET (sha256 83463d00..., 42,028,198 B): eligible 10,123 notified Merger cases (= record), 33 pending-censored (register establishes neither an opener nor a terminal decision; 26 are live 2026 filings), 10,090 shipped rows, 309 positives. Gate 1.5.0 passed with no failed checks (report .factory/ec-merger-002/qualification.json); exact-byte acceptance verified. Post-acceptance references on identical eval rows (1,770 rows / 46 positives; .factory/ec-merger-002/references.json): sector-division rate AUC 0.7679 (the required comparator; corrected division grouping), sector-combination 0.7051, party-title tokens 0.6644, calendar/identity (regulation x month) 0.5606, recent-3-train-year rate 0.5 (constant), majority-class accuracy 0.9740. Paired bootstrap differences on identical eval rows (1000 resamples): sector vs global +0.2679 [0.2126, 0.3206]; sector vs calendar +0.2073 [0.1255, 0.2886]; title vs sector -0.1035 [-0.2050, -0.0207]. Persistence recorded inapplicable (each row is a newly notified case; no prior same-entity observation exists at the instant). Per-year eval sector-rate AUC 0.69-0.84 with positives 7-12/year. Prevalence shift train 4.01% / eval 2.60% / holdout 1.58% recorded as an out-of-distribution property. Corrected division inventory (train+beyond): J.61 telecoms 6.22% (27/434), C.20 chemicals 5.97% (38/637), K.65 insurance 0.24% (1/412), L.68 real estate 0.00% (0/391) - the learnability claim stands under the corrected grouping (the discovery probe's division key was malformed; see notes.md). The full model is NOT yet run: its figure must be quoted beside these references when the harness baseline job evaluates the same rows.",
+      "revision_note": "The register is a current snapshot (bulk feed since 2025-03-18; interactive register earlier). Three fixtures spanning 1997-2022 reproduce external sources exactly, evidence that the register preserves historical procedure facts; features are nevertheless stated as current-vintage register values (precedent: ABS revision note). caseSectors uses NACE Rev 2 codes for all eras including pre-2008 notifications (M.877, notified 1997, coded C.30.3 'Manufacture of air and spacecraft') - the taxonomy label is current-vintage even where the underlying industries are notification-time facts; construction records this in the feature documentation and verifies one further old case's sectors against its OJ prior notice as a build-time fixture.",
+      "split_window_counts_phase2_label": {
+       "eval 2014-2018": "1,770 notified / 46 positive (2.60%) / 5 years, all carry both classes",
+       "holdout 2019-2026": "2,942 notified / 46 positive (1.56%) / 8 years, all carry both classes (2024-2026 positives 1/4/3 reflect still-maturing recent procedures, not zero)",
+       "train 1990-2013": "5,411 notified / 217 positive (4.01%) / 24 years, all carry both classes"
+      }
+     },
+     "next_action": "AWAITING OPERATOR FLIP (packaged 2026-10-27T14:44:34Z; awaiting_operator true) - the flip is the operator's single act and nothing is public. Both destinations ",
+     "packaged_at": "2026-10-27T14:44:34Z",
+     "path": "candidates/ec-merger-phase2-opening/record.json",
+     "prediction_time": "The notification date of the case (caseNotificationDate; date-only precision, Brussels local). All shipped features are case attributes fixed when the file is registered: caseTitle (the merging parties, an immutable historical fact), caseSectors (NACE codes of the parties' activities; current-vintage register coding, see revision_note), caseRegulation (4064/89 or 139/2004), caseNotificationDate. The label event - an Art. 6(1)(c) decision opening Phase II - is adopted after notification: measured 308/309 openers strictly follow the notification date (302/309 within 2 months; single documented exception M.3333, see anomalies). Fields that can change after notification are excluded from features and recorded below. No feature's target window precedes the instant.",
+     "publisher": "Directorate-General for Competition, European Commission",
+     "qualification": {
+      "artifact_version": "e5a98dfc9c05d0b087ed2dead21004fbbd972e415d2174469371a908bcaf90ad",
+      "result": "passed; 0 failed checks of 46 on the full artifact on the worker (same check set as the 002 pass: leakage incl. declared high-cardinality sector_divisions, timing event_time instant, contract current_snapshot vintage with training_label_timing declared, splits incl. clustered positive events 45/44, runner meta counts)",
+      "splits": {
+       "eval": {
+        "positive_rate": 0.025989,
+        "positives": 46,
+        "rows": 1770
+       },
+       "holdout": {
+        "positive_rate": 0.015786,
+        "positives": 46,
+        "rows": 2915
+       },
+       "train": {
+        "positive_rate": 0.040141,
+        "positives": 217,
+        "rows": 5406
+       }
+      }
+     },
+     "question": "For a concentration notified to the European Commission under the EU Merger Regulation, using only case attributes fixed at notification (the parties as named in the case title, the case's NACE sector codes, the applicable regulation, and the notification date), will the Commission open an in-depth Phase II investigation (adopt an Art. 6(1)(c) decision) in this case?",
+     "region": "Europe",
+     "release_baseline": {
+      "auc": 0.6973,
+      "display": "0.6973",
+      "reference": null
+     },
+     "release_splits": {
+      "eval": {
+       "positives": 46,
+       "rows": 1770
+      },
+      "holdout": {
+       "positives": 46,
+       "rows": 2915
+      },
+      "train": {
+       "positives": 217,
+       "rows": 5406
+      }
+     },
+     "review": "All five discovery contracts have measured evidence: redistribution (Commission reuse notice, CC BY 4.0, class A), timing (notification-date instant; 308/309 openers strictly post-instant, lag distribution measured; post-hoc and derived fields excluded by name), target (label from the decisions block, excludable; base rate 3.05% measured), splits (three disjoint windows, both classes everywhere, positives 217/46/46), not-a-mirror (novelty check differentiated: literature and proprietary compiled datasets exist; no public ML-ready formulation of this task with splits and a scored contract). The fetch is trivially open - the contribution is the formulation (notification-time contract, eligibility, label from the decision-type inventory, splits, fixtures, baselines) and validation, and the record states that explicitly.",
+     "sources": [
+      {
+       "licence": "European Commission reuse notice -> CC BY 4.0 (see license_evidence)",
+       "name": "European Commission, Directorate-General for Competition - EU Competition: Merger case publications (open data, machine-readable case register, coverage from November 1990, updated daily)",
+       "url": "https://data.europa.eu/data/datasets/cc7e224e-6569-40f0-8037-d3389aa0fae7"
+      }
+     ],
+     "split_strategy": "Temporal splits on notification year, measured from the full register. Candidate partitions (both classes present in every window): full-era thirds train 1990-2013 (5,411 cases / 217 Phase II), eval 2014-2018 (1,770 / 46), holdout 2019-2026 (2,942 / 46); or post-reform (Reg 139/2004 from 2005-09): train 2005-2015 (3,451 / 101), eval 2016-2020 (1,876 / 42), holdout 2021-2026 (2,207 / 30). Construction picks one and documents it; the Art. 6(1)(c) label is the same legal instrument under both regulations. Positive cases cluster weakly by acquisition wave; intervals on any score use notification-year clusters (positives per notification year measured 1-22, median ~8). Pending cases (41 live investigation-phase cases at fetch, concentrated 2025-2026) are censored like the ABS live-month rows: scorable when their procedure concludes.",
+     "status": "packaged",
+     "target": "Binary: the case record carries at least one decision of type 'Art. 6(1)(c)' (the decision by which the Commission initiates proceedings because of serious doubts - the Phase II opener, same article number under Reg 4064/89 and Reg 139/2004). Label source: the decisions[] block of the register record (decisionTypes, decisionAdoptionDate), which is excluded wholesale from shipped features. Measured: 309 positives / 10,123 eligible cases = 3.05%. Measured alternative recorded for construction: any-intervention union (Phase II opener OR Phase I remedies 'Art. 6(1)(b) with conditions & obligations') = 673 / 10,123 = 6.65% (remedies-only 367 = 3.63%)."
+    }
+   ],
+   "packaged": [
+    {
+     "age_hours": 0.1,
+     "awaiting_operator": true,
+     "baseline": {},
+     "country": "EU",
+     "domain": "EU competition policy / merger-control procedure outcomes (EU institution publisher, DG COMP open data)",
+     "id": "ec-merger-phase2-opening",
+     "jobs": [
+      {
+       "at": null,
+       "id": "ec-merger-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "ec-merger-002",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "ec-merger-003",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "ec-merger-baseline-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "ecm-publish-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "ecm-hf-001",
+       "status": null
+      }
+     ],
+     "licence_summary": {
+      "compilation_spdx": "CC0-1.0",
+      "source_spdx": "CC-BY-4.0",
+      "status": "European Commission reuse policy, CC BY 4.0 unless otherwise indicated: applies to Commission-owned content, and DG COMP explicitly released the machine-readable merger case data sets under that reuse notice for commercial and non-commercial processing with acknowledgement of the source. Reuse is allowed provided appropriate credit is given and changes are indicated. The dataset's derived rows are indicated changes: a row selection, a derived binary label and derived features, not the Commission's own product."
+     },
+     "measurements": {
+      "dated_example": "M.10188 ILLUMINA / GRAIL, all dates Brussels local (register carries date-only precision): feature event window = case attributes fixed at registration on 2021-06-16 (title 'ILLUMINA / GRAIL', sectors C.27.9 + C.21, Reg 139/2004); eligibility cutoff = caseType Merger and a notification date exists; prediction instant = 2021-06-16; target window = 2021-06-16 until the procedure's Phase I decision (by EUMR Art. 10(3) at most ~25-35 working days later, extendable); observed outcome = opener adopted 2021-07-22, 36 days after the instant, label positive. Downstream events (Art. 8(3) 2022-09-06, withdrawals 2024-09-06) are outside the label. No part of the target window precedes the instant; the same-month opener case (0-month lag) is still dated after its notification date.",
+      "feature_coverage_measured": "caseSectors missing on 79/10,123 eligible cases (0.78%, concentrated 1997-2004); caseTitle and caseRegulation present on 100%; caseSimplified present but EXCLUDED as a feature (a simplified filing upgraded to Normal during review would make the current value post-hoc; using it leaks the upgrade); caseInvestigationPhase (41 live cases) and caseDeadlineDate/caseLastDecisionDate/caseLinks/caseCourtCases/caseRenotificationDate excluded as post-hoc or derived.",
+      "fetch_cost_measured": "1 anonymous GET, 42,025,677 bytes, 0.87 s wall on the coordinator (whole-register fetch is trivial; no worker needed for discovery). S3 objects carry a 30-day expiry rule with daily regeneration - the distribution URL from the data.europa.eu record is the stable channel; construction records fetch date + sha256.",
+      "known_event_fixtures": [
+       "M.877 BOEING / McDONNELL DOUGLAS: register shows notif 1997-02-18, opener Art. 6(1)(c) 1997-03-19, Art. 8(2) with conditions & obligations 1997-07-30, Reg 4064/89 - matches the Commission's own decision PDF (ec.europa.eu/competition/mergers/cases/decisions/m877_19970730_600_fr.pdf: notification received 18 February 1997; proceedings opened by decision of 19 March 1997) and press release IP/97/729 (30 July 1997, cleared 'under conditions and obligations'). Expected verdict: positive; observed: positive.",
+       "M.4731 GOOGLE / DOUBLECLICK: register shows notif 2007-09-21, opener Art. 6(1)(c) 2007-11-13, Art. 8(1) 2008-03-11 - matches press release IP/07/1695 (Commission opens in-depth investigation, 13 November 2007) and IP/08/458 (clearance, 11 March 2008). Expected verdict: positive; observed: positive.",
+       "M.10188 ILLUMINA / GRAIL: register shows notif 2021-06-16, Art. 22 Full referral 2021-04-19, opener Art. 6(1)(c) 2021-07-22, Art. 8(3) prohibition 2022-09-06 - matches press release IP/22/5364 (6 September 2022 prohibition, register case number M.10188), including the 2024-09-06 withdrawals after the ECJ judgment. Expected verdict: positive; observed: positive. Also demonstrates the post-hoc-withdrawal caveat."
+      ],
+      "label_base_rate_measured": "Phase II opener (Art. 6(1)(c) present) 309/10,123 = 3.05% of notified cases; per notification year ranges 1 (2024) to 22 (2001); Phase I remedies ('Art. 6(1)(b) with conditions & obligations') 367/10,123 = 3.63%; union any-intervention 673 = 6.65%. Decision-type inventory across all records measured and recorded in notes.md (Art. 6(1)(b) 9,170 occurrences, referrals Art. 4(4)/4(5)/9(3)/22, Art. 8(1)/(2)/(3) outcomes, Withdrawn 263, etc.).",
+      "label_timing_measured": "notification -> first opener lag in months: 1 mo 201, 2 mo 101, 0 mo 1, plus a thin tail 3-18 mo (suspended-clock and extended cases); openers dated BEFORE notification: 1 (M.3333 SONY/BMG re-notification carrying the 2004-02-12 opener of the original procedure under its 2007-01-31 re-notification - exclusion rule: drop label decisions predating notification, or drop the case). Post-hoc withdrawal of an adopted opener: 1 case (M.10188, withdrawn 2024-09-06 after the ECJ Illumina judgment) - label stays 'opened' under the ever-adopted rule; recorded.",
+      "learnability_evidence_measured": "Sector-conditional Phase II rates vary well above/below the 3.05% base rate (top divisions by volume: div 20 rate 6.25% (n=256), div 61 5.23% (n=363), div 64 0.85% (n=351), div 65 0.00% (n=230), div 0 4.20% (n=1,523)) - a sector-conditional reference baseline is the required comparator, as with the matrix-stratified bvl reference.",
+      "measured_on": "2026-10-24 via scripts retained in candidates/ec-merger-phase2-opening/probe_merger_*.py, commands and outputs in notes.md",
+      "panel_shape_measured": "case-data-M.json 2026-10-24 (sha256 in notes.md): 10,395 case records keyed by case number; 10,123 eligible (caseType=MergerCaseType1 'Merger' AND has caseNotificationDate); excluded with recorded mix: 272 no-notification-date cases (decision mix: 219 Art. 4(4)-Full referral, 17 Art. 18 SO, 15 Art. 14, 6 Art. 7(3), 4 Art. 22 Refusal, plus singletons - referral/Art. 22 procedures that never produce an EU notification), 26 'Additional Procedure' (.AP purchaser-approval records), 2 'Consultation'. Notifications per year 1990: 11 rising to 2018: 408, then 350-400/yr to 2026: 317.",
+      "qualification_measured_2026_10_26": "Full artifact built on worker ec-merger-002 from a fresh register GET (sha256 83463d00..., 42,028,198 B): eligible 10,123 notified Merger cases (= record), 33 pending-censored (register establishes neither an opener nor a terminal decision; 26 are live 2026 filings), 10,090 shipped rows, 309 positives. Gate 1.5.0 passed with no failed checks (report .factory/ec-merger-002/qualification.json); exact-byte acceptance verified. Post-acceptance references on identical eval rows (1,770 rows / 46 positives; .factory/ec-merger-002/references.json): sector-division rate AUC 0.7679 (the required comparator; corrected division grouping), sector-combination 0.7051, party-title tokens 0.6644, calendar/identity (regulation x month) 0.5606, recent-3-train-year rate 0.5 (constant), majority-class accuracy 0.9740. Paired bootstrap differences on identical eval rows (1000 resamples): sector vs global +0.2679 [0.2126, 0.3206]; sector vs calendar +0.2073 [0.1255, 0.2886]; title vs sector -0.1035 [-0.2050, -0.0207]. Persistence recorded inapplicable (each row is a newly notified case; no prior same-entity observation exists at the instant). Per-year eval sector-rate AUC 0.69-0.84 with positives 7-12/year. Prevalence shift train 4.01% / eval 2.60% / holdout 1.58% recorded as an out-of-distribution property. Corrected division inventory (train+beyond): J.61 telecoms 6.22% (27/434), C.20 chemicals 5.97% (38/637), K.65 insurance 0.24% (1/412), L.68 real estate 0.00% (0/391) - the learnability claim stands under the corrected grouping (the discovery probe's division key was malformed; see notes.md). The full model is NOT yet run: its figure must be quoted beside these references when the harness baseline job evaluates the same rows.",
+      "revision_note": "The register is a current snapshot (bulk feed since 2025-03-18; interactive register earlier). Three fixtures spanning 1997-2022 reproduce external sources exactly, evidence that the register preserves historical procedure facts; features are nevertheless stated as current-vintage register values (precedent: ABS revision note). caseSectors uses NACE Rev 2 codes for all eras including pre-2008 notifications (M.877, notified 1997, coded C.30.3 'Manufacture of air and spacecraft') - the taxonomy label is current-vintage even where the underlying industries are notification-time facts; construction records this in the feature documentation and verifies one further old case's sectors against its OJ prior notice as a build-time fixture.",
+      "split_window_counts_phase2_label": {
+       "eval 2014-2018": "1,770 notified / 46 positive (2.60%) / 5 years, all carry both classes",
+       "holdout 2019-2026": "2,942 notified / 46 positive (1.56%) / 8 years, all carry both classes (2024-2026 positives 1/4/3 reflect still-maturing recent procedures, not zero)",
+       "train 1990-2013": "5,411 notified / 217 positive (4.01%) / 24 years, all carry both classes"
+      }
+     },
+     "next_action": "AWAITING OPERATOR FLIP (packaged 2026-10-27T14:44:34Z; awaiting_operator true) - the flip is the operator's single act and nothing is public. Both destinations ",
+     "packaged_at": "2026-10-27T14:44:34Z",
+     "path": "candidates/ec-merger-phase2-opening/record.json",
+     "prediction_time": "The notification date of the case (caseNotificationDate; date-only precision, Brussels local). All shipped features are case attributes fixed when the file is registered: caseTitle (the merging parties, an immutable historical fact), caseSectors (NACE codes of the parties' activities; current-vintage register coding, see revision_note), caseRegulation (4064/89 or 139/2004), caseNotificationDate. The label event - an Art. 6(1)(c) decision opening Phase II - is adopted after notification: measured 308/309 openers strictly follow the notification date (302/309 within 2 months; single documented exception M.3333, see anomalies). Fields that can change after notification are excluded from features and recorded below. No feature's target window precedes the instant.",
+     "publisher": "Directorate-General for Competition, European Commission",
+     "qualification": {
+      "artifact_version": "e5a98dfc9c05d0b087ed2dead21004fbbd972e415d2174469371a908bcaf90ad",
+      "result": "passed; 0 failed checks of 46 on the full artifact on the worker (same check set as the 002 pass: leakage incl. declared high-cardinality sector_divisions, timing event_time instant, contract current_snapshot vintage with training_label_timing declared, splits incl. clustered positive events 45/44, runner meta counts)",
+      "splits": {
+       "eval": {
+        "positive_rate": 0.025989,
+        "positives": 46,
+        "rows": 1770
+       },
+       "holdout": {
+        "positive_rate": 0.015786,
+        "positives": 46,
+        "rows": 2915
+       },
+       "train": {
+        "positive_rate": 0.040141,
+        "positives": 217,
+        "rows": 5406
+       }
+      }
+     },
+     "question": "For a concentration notified to the European Commission under the EU Merger Regulation, using only case attributes fixed at notification (the parties as named in the case title, the case's NACE sector codes, the applicable regulation, and the notification date), will the Commission open an in-depth Phase II investigation (adopt an Art. 6(1)(c) decision) in this case?",
+     "region": "Europe",
+     "release_baseline": {
+      "auc": 0.6973,
+      "display": "0.6973",
+      "reference": null
+     },
+     "release_splits": {
+      "eval": {
+       "positives": 46,
+       "rows": 1770
+      },
+      "holdout": {
+       "positives": 46,
+       "rows": 2915
+      },
+      "train": {
+       "positives": 217,
+       "rows": 5406
+      }
+     },
+     "review": "All five discovery contracts have measured evidence: redistribution (Commission reuse notice, CC BY 4.0, class A), timing (notification-date instant; 308/309 openers strictly post-instant, lag distribution measured; post-hoc and derived fields excluded by name), target (label from the decisions block, excludable; base rate 3.05% measured), splits (three disjoint windows, both classes everywhere, positives 217/46/46), not-a-mirror (novelty check differentiated: literature and proprietary compiled datasets exist; no public ML-ready formulation of this task with splits and a scored contract). The fetch is trivially open - the contribution is the formulation (notification-time contract, eligibility, label from the decision-type inventory, splits, fixtures, baselines) and validation, and the record states that explicitly.",
+     "sources": [
+      {
+       "licence": "European Commission reuse notice -> CC BY 4.0 (see license_evidence)",
+       "name": "European Commission, Directorate-General for Competition - EU Competition: Merger case publications (open data, machine-readable case register, coverage from November 1990, updated daily)",
+       "url": "https://data.europa.eu/data/datasets/cc7e224e-6569-40f0-8037-d3389aa0fae7"
+      }
+     ],
+     "split_strategy": "Temporal splits on notification year, measured from the full register. Candidate partitions (both classes present in every window): full-era thirds train 1990-2013 (5,411 cases / 217 Phase II), eval 2014-2018 (1,770 / 46), holdout 2019-2026 (2,942 / 46); or post-reform (Reg 139/2004 from 2005-09): train 2005-2015 (3,451 / 101), eval 2016-2020 (1,876 / 42), holdout 2021-2026 (2,207 / 30). Construction picks one and documents it; the Art. 6(1)(c) label is the same legal instrument under both regulations. Positive cases cluster weakly by acquisition wave; intervals on any score use notification-year clusters (positives per notification year measured 1-22, median ~8). Pending cases (41 live investigation-phase cases at fetch, concentrated 2025-2026) are censored like the ABS live-month rows: scorable when their procedure concludes.",
+     "status": "packaged",
+     "target": "Binary: the case record carries at least one decision of type 'Art. 6(1)(c)' (the decision by which the Commission initiates proceedings because of serious doubts - the Phase II opener, same article number under Reg 4064/89 and Reg 139/2004). Label source: the decisions[] block of the register record (decisionTypes, decisionAdoptionDate), which is excluded wholesale from shipped features. Measured: 309 positives / 10,123 eligible cases = 3.05%. Measured alternative recorded for construction: any-intervention union (Phase II opener OR Phase I remedies 'Art. 6(1)(b) with conditions & obligations') = 673 / 10,123 = 6.65% (remedies-only 367 = 3.63%)."
+    }
+   ],
    "pending": []
   }
  },
@@ -8234,9 +8383,9 @@
   "by_status": {
    "dropped": 35,
    "investigating": 14,
+   "packaged": 1,
    "parked": 26,
    "published": 10,
-   "qualified": 1,
    "ready": 5
   },
   "candidates": 91,
@@ -8264,10 +8413,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-27T13:50:01.632507+00:00",
+    "last_run_at": "2026-10-27T14:50:01.749403+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-27T14:00:00+00:00",
+    "next_run_at": "2026-10-27T15:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -8288,10 +8437,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-27T13:50:01.079318+00:00",
+    "last_run_at": "2026-10-27T14:50:01.357769+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-27T13:55:00+00:00",
+    "next_run_at": "2026-10-27T14:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -8312,10 +8461,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-27T13:47:10.521508+00:00",
+    "last_run_at": "2026-10-27T14:42:26.816129+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-27T13:52:10.521508+00:00",
+    "next_run_at": "2026-10-27T14:52:28.236825+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -8324,10 +8473,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-27T13:50:01.163286+00:00",
+    "last_run_at": "2026-10-27T14:50:00.938662+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-27T13:55:00+00:00",
+    "next_run_at": "2026-10-27T14:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -8348,10 +8497,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-27T12:52:36.091624+00:00",
+    "last_run_at": "2026-10-27T13:50:42.431826+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-27T14:50:00+00:00",
+    "next_run_at": "2026-10-27T15:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -8360,10 +8509,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-27T12:55:00.762277+00:00",
+    "last_run_at": "2026-10-27T13:55:01.924695+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-27T13:55:00+00:00",
+    "next_run_at": "2026-10-27T14:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -8404,9 +8553,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-27T13:50:01.633621+00:00"
+  "updated_at": "2026-10-27T14:50:01.750879+00:00"
  },
- "generated_at": "2026-10-27T13:50:01+00:00",
+ "generated_at": "2026-10-27T14:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -8414,19 +8563,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-27T13:20:37Z",
-   "head_sha": "b60ca2a",
+   "created_at": "2026-10-27T14:22:19Z",
+   "head_sha": "8eec9f3",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40511193256"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40520469478"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 24/30 (80%)"
   },
   "head": {
-   "at": "2026-10-27T12:37:15Z",
-   "sha": "b60ca2a",
-   "subject": "Latin America discovery tick: conagua-dam-drought-onset (MX) ready (CC BY 4.0, differentiated); Chile GEC episode regist"
+   "at": "2026-10-27T14:22:14Z",
+   "sha": "8eec9f3",
+   "subject": "Worker-watch delivery contract: compact operator signal, full report stays in STATE"
   },
   "tests": {
    "count": "672",
@@ -9889,13 +10038,23 @@
    "qualified": 1,
    "sessions_7d": 195,
    "tokens_7d": 18999838
+  },
+  {
+   "at": "2026-10-27T14:50:01+00:00",
+   "live": 14,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 195,
+   "tokens_7d": 19399140
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 154s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T13:50:01+00:00",
+   "as_of": "2026-10-27T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -9905,17 +10064,17 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T13:50:01+00:00",
+   "as_of": "2026-10-27T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 15
+   "value": 14
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T13:50:01+00:00",
+   "as_of": "2026-10-27T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -10085,7 +10244,7 @@
     "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "ec-merger-phase2-opening",
-    "disposition": "qualified",
+    "disposition": "packaged",
     "errors": [],
     "persistence_auc": null,
     "publication_note": "Prepared for human review. Nothing here has been published.",
@@ -10106,9 +10265,12 @@
       "rows": 5406
      }
     },
-    "verified": {},
-    "verified_all": false,
-    "verified_at": null
+    "verified": {
+     "github": true,
+     "huggingface": true
+    },
+    "verified_all": true,
+    "verified_at": "2026-10-27T14:41:57+00:00"
    },
    {
     "assets": 5,
@@ -10437,12 +10599,12 @@
      "lo": 0.003
     },
     {
-     "count": 31,
+     "count": 32,
      "hi": 0.01,
      "lo": 0.005
     },
     {
-     "count": 32,
+     "count": 33,
      "hi": 0.02,
      "lo": 0.01
     },
@@ -10474,10 +10636,10 @@
    ],
    "max": 0.6296,
    "median": 0.014,
-   "n": 111,
+   "n": 113,
    "p90": 0.0542,
    "ref_rate": 0.06924,
-   "total": 3.78
+   "total": 3.8
   },
   "jobs": [
    {
@@ -10896,6 +11058,30 @@
     "id": "ec-merger-baseline-001",
     "location": "hel1",
     "normalised_eur": 0.0057,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-27T14:35:03.320238+00:00",
+    "deleted_at": "2026-10-27T14:39:43.975518+00:00",
+    "eur": 0.0009,
+    "hours": 0.078,
+    "id": "ecm-hf-001",
+    "location": "hel1",
+    "normalised_eur": 0.0054,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-27T14:19:53.290320+00:00",
+    "deleted_at": "2026-10-27T14:34:50.368506+00:00",
+    "eur": 0.0029,
+    "hours": 0.249,
+    "id": "ecm-publish-001",
+    "location": "hel1",
+    "normalised_eur": 0.0172,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -11813,19 +11999,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 70,
-  "jobs_total": 111,
+  "jobs_this_month": 72,
+  "jobs_total": 113,
   "lifetime_eur": 3.3,
   "live": {
-   "checked_at": "2026-10-27T13:50:33+00:00",
+   "checked_at": "2026-10-27T14:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 20.7,
-  "month_to_date": 0.85,
+  "month_hours": 21.1,
+  "month_to_date": 0.86,
   "months": [
    {
     "eur": 2.4452,
@@ -11834,13 +12020,13 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.855,
-    "hours": 20.74,
-    "jobs": 70,
+    "eur": 0.8588,
+    "hours": 21.07,
+    "jobs": 72,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 0.98
+  "projected_month_eur": 0.99
  },
  "schema": 1,
  "sessions": {
@@ -11899,8 +12085,22 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "bcb3cb92ad8fecad46a24fb04cd1b50d8e07ce60f880329e77ed5bd7031bc746",
     "ts": "2026-10-27T12:38:52.255476+00:00"
+   },
+   {
+    "elapsed_seconds": 2755.8,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "exit 1",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "750092faa72ba7779dd0b150f2c30f55c86ae6ddb58a6602cf0c2d9460ada9fb",
+    "ts": "2026-10-27T14:45:58.678899+00:00"
    }
   ],
-  "total": 4
+  "total": 5
  }
 }
