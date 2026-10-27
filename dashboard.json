@@ -1,8 +1,7 @@
 {
  "alarms": [
-  "scout-discovery-session missed its window (2026-10-27T20:15:00+00:00); last status ok",
-  "Research gate refused the next session: lock held for 2402s by scout-research; 196 research session(s) already ran in the last 7 days, 4 of which overshot the 600,000-token cap and count double (cap 200)",
-  "CI on d77e4f4 concluded failure",
+  "Research gate refused the next session: 196 research session(s) already ran in the last 7 days, 5 of which overshot the 600,000-token cap and count double (cap 200)",
+  "CI on 85c4c47 concluded failure",
   "Test suite is failing",
   "1 release(s) not fully verified"
  ],
@@ -22,19 +21,18 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-27T20:50:03.077860+00:00",
+   "moment": "2026-10-27T21:50:02.954989+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 2402s by scout-research",
-    "196 research session(s) already ran in the last 7 days, 4 of which overshot the 600,000-token cap and count double (cap 200)"
+    "196 research session(s) already ran in the last 7 days, 5 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 19474594,
+   "research_tokens_last_7_days": 20091587,
    "runs_last_7_days": 196,
-   "runs_weighted_last_7_days": 200,
+   "runs_weighted_last_7_days": 201,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 4,
+   "sessions_over_token_cap": 5,
    "usage": {
     "auxiliary": {
      "calls": 681,
@@ -47,25 +45,25 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 5581,
+     "calls": 5625,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 29921769,
-     "output_tokens": 3145912,
+     "input_tokens": 31143983,
+     "output_tokens": 3171015,
      "pricing_available": false
     },
     "research": {
-     "calls": 6476,
+     "calls": 6532,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 17530260,
-     "output_tokens": 6179904,
+     "input_tokens": 18113204,
+     "output_tokens": 6213953,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -1523,9 +1521,11 @@
     },
     "measurements": {
      "feeds_2026_10_20": "gempadirasakan.json: HTTP 200, 4,602 bytes, exactly 15 'Tanggal' items - the latest 15 felt events only. gempaterkini.json: HTTP 200, 4,157 bytes (latest events). The /gempabumi/ catalog page (24,466 bytes) enumerates only the autogempa/terkini/dirasakan json+xml feeds and greps clean of catalog/katalog/historis/arsip/unduh/CSV bulk-download hints.",
-     "felt_item_shape_2026_10_20": "a felt-quake item carries Tanggal, Jam, DateTime (ISO), Coordinates, Lintang/Bujur, Magnitude, Kedalaman (depth) - i.e. the instrumental features and the felt designation in one record, confirming a detection-time panel is constructible if history existed."
+     "felt_catalog_found_2026_10_28": "Historical felt catalogue EXISTS: BMKG EQ Repository (https://repogempa.bmkg.go.id/eventcatalog, 38,372 B) offers a 'Significant/Felt Earthquakes Catalog' (plus Preliminary, Final [login for arrivals], and Destructive Earthquakes and Tsunami catalogs); anonymous 'Origin (Main Parameter)' retrieval. BUT the retrieval contract is interactive: custom date windows capped at 30 days, e-mail + institution required, CAPTCHA on submit - a multi-year felt history needs ~hundreds of captcha-protected requests; not an anonymous bulk path, and automating past the captcha is not a path we take. Catalog depth (how far back) not measured.",
+     "felt_item_shape_2026_10_20": "a felt-quake item carries Tanggal, Jam, DateTime (ISO), Coordinates, Lintang/Bujur, Magnitude, Kedalaman (depth) - i.e. the instrumental features and the felt designation in one record, confirming a detection-time panel is constructible if history existed.",
+     "licence_2026_10_28": "Licence posture: repogempa eventcatalog footer 'Copyright (c) 2026 All rights reserved.'; gis.bmkg.go.id/portal/hukum is a list of governing laws, not a data licence; data.bmkg.go.id carries attribution-mandate usage terms without a named licence (2026-10-20); dataonline.bmkg.go.id is registration-gated. No redistribution grant anywhere - class C leaning D; no operator risk acceptance exists for this candidate."
     },
-    "next_action": "Probe https://gis.bmkg.go.id/portal/dataapi for a historical earthquake catalogue with felt annotations; if none exists, ask the operator whether to start a 12-",
+    "next_action": "Operator decision required to unpark; Scout probes are exhausted. Choose one: (a) authorize a formal catalogue request to BMKG (pusatdatabase@bmkg.go.id) includ",
     "packaged_at": null,
     "path": "candidates/bmkg-earthquake-felt/record.json",
     "prediction_time": "The network's automatic processing instant for the event (minutes after origin): magnitude/depth/location are knowable then, and felt reports arrive only afterwards from the public reporting process.",
@@ -3071,7 +3071,7 @@
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
    },
    {
-    "age_hours": 6.1,
+    "age_hours": 7.1,
     "awaiting_operator": true,
     "baseline": {},
     "country": "EU",
@@ -4284,9 +4284,11 @@
     },
     "measurements": {
      "dsp_policy_2026_10_20": "dsp.imdpune.gov.in pages (read via web search): 'Free Data Access' carries aggregate/gridded products only; station-level observation data (hourly rainfall, temperature, humidity, wind, pressure - the Data Supply list) is procured through enrolment, request forms and (for non-MoES users) data charges.",
+     "free_inventory_2026_10_28": "IMD-DSP 'Free Data Access' page read directly from the publisher's own instrument: exactly three free products - All India Monthly and Seasonal Mean Temperature Series, All India Monthly and Seasonal Rainfall, Frequency of Cyclonic Systems in Indian Ocean Region (all national aggregates; the page says the same info is on data.gov.in). No station-level series is free; enrolment + charges policy unchanged on the same page. mausam.imd.gov.in enumerated: forecast/bulletin/GIS portal only; the station-rainfall page (responsive/rainfall_page_station_rainfall.php, 53,057 bytes) is a static shell with no data form or AJAX endpoint.",
+     "reachable_2026_10_28": "Both IMD public hosts now answer from the coordinator (2026-10-10-20 finding stale): https://mausam.imd.gov.in/ HTTP 200, 229,231 bytes, 2.2 s; https://dsp.imdpune.gov.in/home_freedataaccess.php HTTP 200, 45,490 bytes, 2.0 s. No worker probe is needed for reachability.",
      "unreachable_2026_10_20": "curl to https://mausam.imd.gov.in/ and https://dps.imd.gov.in/: HTTP 000 (connection failure) from the coordinator, two attempts each, 2026-10-20 - possibly network/geo filtering of this host; a worker in another region may see otherwise."
     },
-    "next_action": "Unpark steps: (1) probe dsp.imdpune.gov.in and mausam.imd.gov.in from a worker in another network region and enumerate the free products (if any station-level s",
+    "next_action": "Operator decision: whether to enrol (paid, non-MoES tariff) for IMD station-level historical series. Without that decision this stays parked. Cheap quarterly wa",
     "packaged_at": null,
     "path": "candidates/imd-station-observation-series/record.json",
     "prediction_time": "Would be 23:59 IST on day D: station history through D knowable, day D+1 observations not yet made.",
@@ -4335,10 +4337,12 @@
     },
     "measurements": {
      "api_host_2026_10_20": "https://api.data.gov.in/ -> curl (7) Failed to connect ... after 663 ms; HTTP 000, 0 bytes, 0.66 s.",
+     "block_persists_2026_10_28": "Coordinator TCP refusal persists: https://data.gov.in and https://api.data.gov.in both HTTP 000 in ~1.2 s (2026-10-28), same as 2026-10-20. The extraction backend (different network) receives an Akamai edge error page (Reference #102... errors.edgesuite.net) - the origin is up; its edge refuses that client. Geo-block vs client-filter indistinguishable without a worker.",
      "catalog_2026_10_20": "https://data.gov.in/ -> curl (7) Failed to connect to data.gov.in port 443 after 557 ms; Could not connect to server. HTTP 000, 0 bytes, 0.56 s.",
-     "prior_session_corroboration": "candidates/cpcb-aqi-exceedance/record.json, evidence key data_gov_in_unreachable_2026_10_20: api.data.gov.in resource endpoint HTTP 000 from the coordinator on two attempts."
+     "prior_session_corroboration": "candidates/cpcb-aqi-exceedance/record.json, evidence key data_gov_in_unreachable_2026_10_20: api.data.gov.in resource endpoint HTTP 000 from the coordinator on two attempts.",
+     "probe_prepared_2026_10_28": "Worker probe source committed at candidates/india-datagovin-portal/probe/ (job id india-portal-probe-001, cx23/hel1, EUR 0.04 reservation, plan verified offline: source_sha256 378f75b87fe7fbeded9d3a0d59ec8faddcfb5cde85a3927b827d49a077c11f90, cloud_calls 0). LAUNCH REFUSED by factory/worker.py release_work_pending: 'Release work is pending for unhcr-refugee-data-finder; ship it before starting india-portal-probe-001'. Shipping that release is advancement work (outside the discovery session that prepared this probe), so the refusal stands recorded; no worker was created and no spend occurred."
     },
-    "next_action": "Unpark path: (1) from a Hetzner worker (EU/US network), probe https://data.gov.in and api.data.gov.in; if reachable, enumerate the API-enabled datasets via the ",
+    "next_action": "One command, after the pending unhcr-refugee-data-finder release ships (the guard blocks all non-release jobs until then): sh scripts/scout-factory worker launc",
     "packaged_at": null,
     "path": "candidates/india-datagovin-portal/record.json",
     "prediction_time": "Not stated - no task was selected. Any future task from this portal must state its instant at formulation time; this record only carries the access blocker.",
@@ -4998,11 +5002,15 @@
      "status": null
     },
     "measurements": {
+     "api_contract_2026_10_28": "Portal redesigned between 2026-10-20 and 2026-10-28: old WordPress trend AJAX endpoints now 404 (searchresultwaterleveldtlead_rptdb.php measured 404 for both station key formats; searchdistricttrend.php serves only a 'Notis Gangguan' maintenance image), so the recorded unpark step 1 is obsolete. New anonymous JSON API (Laravel) with a public bearer token embedded in every portal page HTML: POST /api/detailstation {state,district,station_name,parameter} returns per station: station_id, station_name, district, basins, last_update, water_level, official normal/alert/warning/danger thresholds, trend, wl_severity, graph_url. The official Danger Level (label threshold) is served per station by the publisher itself.",
      "current_pages_2026_10_20": "State river page /aras-air/data-paras-air/?state=KEL&lang=en: HTTP 200, 76,926 bytes, per-station rows carrying Normal/Alert/Warning/Danger threshold columns ('Danger Level:', 'Warning Level:', 'Alert Level:', 'Normal Level.' measured in HTML); 15 state options enumerated (PLS Kedah through WLP Labuan). The portal describes nearly 200 hydrological stations with real-time telemetry.",
      "historical_probe_failure_2026_10_20": "The 1-hour endpoint answers 'Tiada data / No data' for state=KEL with placeholder district/station values; the water-level DT endpoint answers '{\"count\":,]}No result' for a station code taken from the state page (CC2127) across four date formats (2026-07-01/2026-07-03 and 01/07/2026/03/07/2026, datafreq=60). Endpoints are alive and anonymous, but the district/station keys and date format the frontend actually sends were not captured. The dropdown helpers return only the 'ALL' placeholder for the values tried, and a third-party-documented live-feed path (latestreadingstrendabc.json) 404s at three guessed locations.",
+     "history_paths_closed_2026_10_28": "(a) data.gov.my catalogue enumerated: 355 datasets (storage.data.gov.my/metrics/dataset_list.csv), NO river-level telemetry (closest: water_pollution_basin, yearly aggregate pollution classes) - the CC BY 4.0 posture measured for PriceCatcher does not carry to this telemetry. (b) archive.data.gov.my (holds the official aras-air-sungai-malaysia.csv threshold table per search index) unreachable from the coordinator: connection timeout, HTTP 000 (25 s and 60 s attempts) - access failure, not absence. (c) mywater.gov.my Telemetri module = station inventory with Excel export only; historical series are application-gated via SPRHIN (sprhin.water.gov.my; free for government/academic use, charged for private, approval required - JPS FAQ measured on jpsweb.terengganu.gov.my and mywater.gov.my). (d) InaTEWS-style feed alternatives: none for MY river levels.",
+     "history_window_2026_10_28": "The only historical series on the public web is the per-station graph endpoint https://infobanjirjps<state>.water.gov.my/WaterLevel/GetWaterLevelGraph/<id>: measured for station 101 (Sg. Kelantan di Jambatan Tendong): 95,195 bytes, 2,068 points at 5-min cadence covering EXACTLY the trailing 7 days (2026-10-21T00:00 -> 2026-10-28T04:15); startDate/endDate and from/to params are ignored (same 7-day window measured twice). No multi-year history is anonymously obtainable any more.",
+     "national_cost_2026_10_28": "National extraction cost measured from the coordinator (probe/poll_states.py, 15 state requests, 2026-10-28): 563 water-level stations, 241,534 bytes, 43.6 s total. Largest states: Sarawak 121 stations/51,099 B, Selangor 86, Johor 58, Kedah 50. A daily collection poll is ~0.25 MB/day.",
      "trend_endpoints_2026_10_20": "Trend page JS (lines 1300/1409/2752/3327 of the fetched HTML) issues the four anonymous AJAX endpoints listed in sources; all answered HTTP 200."
     },
-    "next_action": "Unpark steps, in order: (1) load https://publicinfobanjir.water.gov.my/trend-hujan-aras-air/?lang=en in a real browser, pick a state/district/station and a date",
+    "next_action": "Operator decision required to unpark (two decisions, in order): (1) authorize a forward-collection loop on the public API - one scheduled daily job polling POST",
     "packaged_at": null,
     "path": "candidates/malaysia-river-danger-exceedance/record.json",
     "prediction_time": "Hour H of day D: hourly telemetry through H is knowable, and no reading after H exists. Features are the station's own trailing level/rainfall statistics; every reading in (H, H+24] is label source and never ships as a feature.",
@@ -5026,6 +5034,11 @@
       "licence": "No licence or copyright statement found on any portal HTML fetched (measured: grep of home, state and trend pages found no copyright/terms/licence text). data.gov.my's homepage advertises 'flood-warning' and 'rainfall' catalog categories, but the catalog pages load client-side and the entry for this telemetry was not located this session - licence question OPEN",
       "name": "PublicInfoBanjir portal - Department of Irrigation and Drainage (JPS) Malaysia, real-time rainfall and river water-level telemetry",
       "url": "https://publicinfobanjir.water.gov.my/ (home, 93,377 bytes, measured 2026-10-20); per-state current pages /aras-air/data-paras-air/?state=<CODE>&lang=en; trend page /trend-hujan-aras-air/?lang=en (190,352 bytes)"
+     },
+     {
+      "licence": "No licence or terms text on any page (measured 2026-10-28); absent from data.gov.my catalogue (355 datasets enumerated, none is this telemetry)",
+      "name": "PublicInfoBanjir redesigned portal (2026-10-28) - live dashboards, per-state tables, per-station 7-day graphs on state JPS subdomains",
+      "url": "https://publicinfobanjir.water.gov.my/{waterlevel,rainfall}; /waterleveldata/<State>; https://infobanjirjps<state>.water.gov.my/WaterLevel/Station/<id>"
      }
     ],
     "split_strategy": "",
@@ -7392,7 +7405,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 1.1,
+    "age_hours": 2.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -8228,7 +8241,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 6.1,
+     "age_hours": 7.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8355,7 +8368,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 6.1,
+     "age_hours": 7.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8480,7 +8493,7 @@
      "target": "Binary: the case record carries at least one decision of type 'Art. 6(1)(c)' (the decision by which the Commission initiates proceedings because of serious doubts - the Phase II opener, same article number under Reg 4064/89 and Reg 139/2004). Label source: the decisions[] block of the register record (decisionTypes, decisionAdoptionDate), which is excluded wholesale from shipped features. Measured: 309 positives / 10,123 eligible cases = 3.05%. Measured alternative recorded for construction: any-intervention union (Phase II opener OR Phase I remedies 'Art. 6(1)(b) with conditions & obligations') = 673 / 10,123 = 6.65% (remedies-only 367 = 3.63%)."
     },
     {
-     "age_hours": 1.1,
+     "age_hours": 2.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -8682,7 +8695,7 @@
    ],
    "pending": [
     {
-     "age_hours": 1.1,
+     "age_hours": 2.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -8962,10 +8975,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-27T20:50:01.513246+00:00",
+    "last_run_at": "2026-10-27T21:50:01.797608+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-27T21:00:00+00:00",
+    "next_run_at": "2026-10-27T22:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -8986,10 +8999,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-27T20:50:01.008751+00:00",
+    "last_run_at": "2026-10-27T21:50:00.811785+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-27T20:55:00+00:00",
+    "next_run_at": "2026-10-27T21:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9010,10 +9023,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-27T20:46:48.107387+00:00",
+    "last_run_at": "2026-10-27T21:47:11.524804+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-27T20:51:48.107387+00:00",
+    "next_run_at": "2026-10-27T21:52:11.524804+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -9022,10 +9035,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-27T20:05:00.864533+00:00",
+    "last_run_at": "2026-10-27T21:50:01.841471+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-27T20:15:00+00:00",
+    "next_run_at": "2026-10-27T21:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9046,10 +9059,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-27T19:50:42.330798+00:00",
+    "last_run_at": "2026-10-27T20:50:41.920153+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-27T21:50:00+00:00",
+    "next_run_at": "2026-10-27T22:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -9058,10 +9071,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-27T19:55:00.876932+00:00",
+    "last_run_at": "2026-10-27T20:55:01.106011+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-27T20:55:00+00:00",
+    "next_run_at": "2026-10-27T21:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -9102,9 +9115,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-27T20:50:01.514238+00:00"
+  "updated_at": "2026-10-27T21:50:01.842617+00:00"
  },
- "generated_at": "2026-10-27T20:50:01+00:00",
+ "generated_at": "2026-10-27T21:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -9112,19 +9125,19 @@
   },
   "ci": {
    "conclusion": "failure",
-   "created_at": "2026-10-27T20:48:30Z",
-   "head_sha": "d77e4f4",
+   "created_at": "2026-10-27T21:25:13Z",
+   "head_sha": "85c4c47",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40581310741"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40586633384"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 24/30 (80%)"
   },
   "head": {
-   "at": "2026-10-27T20:48:26Z",
-   "sha": "d77e4f4",
-   "subject": "ec-merger pre-flip audit: PUBLISH WITH CONDITIONS - verdict preserved, conditions recorded, flip held"
+   "at": "2026-10-27T21:24:31Z",
+   "sha": "85c4c47",
+   "subject": "South/South-East Asia discovery tick: Malaysia river API solved (7-day history only, operator decision), IMD free invent"
   },
   "tests": {
    "count": "672",
@@ -10643,13 +10656,21 @@
    "qualified": 0,
    "sessions_7d": 196,
    "tokens_7d": 19474594
+  },
+  {
+   "at": "2026-10-27T21:50:01+00:00",
+   "live": 13,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 196,
+   "tokens_7d": 20091587
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T20:50:01+00:00",
+   "as_of": "2026-10-27T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -10659,7 +10680,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T20:50:01+00:00",
+   "as_of": "2026-10-27T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -10669,7 +10690,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T20:50:01+00:00",
+   "as_of": "2026-10-27T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -11719,6 +11740,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-10-27T21:17:56.087130+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "ecm-requal-001",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "collected"
+   },
+   {
     "created_at": "2026-10-22T14:13:25.364954+00:00",
     "deleted_at": "2026-10-22T14:20:16.444651+00:00",
     "eur": 0.0013,
@@ -12656,15 +12689,15 @@
    }
   ],
   "jobs_this_month": 74,
-  "jobs_total": 115,
+  "jobs_total": 116,
   "lifetime_eur": 3.31,
   "live": {
-   "checked_at": "2026-10-27T20:50:33+00:00",
+   "checked_at": "2026-10-27T21:50:33+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
   "month_hours": 21.7,
   "month_to_date": 0.87,
@@ -12688,20 +12721,6 @@
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 2755.8,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "exit 1",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "750092faa72ba7779dd0b150f2c30f55c86ae6ddb58a6602cf0c2d9460ada9fb",
-    "ts": "2026-10-27T14:45:58.678899+00:00"
-   },
    {
     "elapsed_seconds": 493.0,
     "event": "session",
@@ -12770,8 +12789,21 @@
     "run_budget": 900,
     "submitted_brief_sha256": "acfc9e3d066ad86611d8e35f0037f1e77af890f1acbc1be5bfdd3ed5f217471b",
     "ts": "2026-10-27T20:06:37.368579+00:00"
+   },
+   {
+    "elapsed_seconds": 4793.1,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "12ec4041e4fce691672925c8a90b3f6a7ca417b4bde388cc4e043957e641dd36",
+    "ts": "2026-10-27T21:29:54.592093+00:00"
    }
   ],
-  "total": 10
+  "total": 11
  }
 }
