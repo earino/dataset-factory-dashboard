@@ -16,12 +16,12 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-27T15:50:02.607696+00:00",
+   "moment": "2026-10-27T16:50:03.517471+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 19349470,
+   "research_tokens_last_7_days": 19147551,
    "runs_last_7_days": 194,
    "runs_weighted_last_7_days": 198,
    "session_cap_per_week": 200,
@@ -49,14 +49,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 6113,
+     "calls": 6189,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 16714494,
-     "output_tokens": 5909006,
+     "input_tokens": 16796212,
+     "output_tokens": 5980917,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -85,18 +85,17 @@
    "DE": 1,
    "EU": 1,
    "GB": 3,
-   "GH": 1,
    "NZ": 1,
    "TW": 1,
    "US": 1
   },
   "counts": {
-   "dropped": 35,
-   "investigating": 14,
+   "dropped": 36,
+   "investigating": 13,
    "packaged": 1,
    "parked": 26,
    "published": 10,
-   "ready": 5
+   "ready": 6
   },
   "errors": [],
   "live": [
@@ -663,53 +662,6 @@
    {
     "awaiting_operator": false,
     "baseline": {},
-    "country": "GH",
-    "domain": "national open-data infrastructure / statistical publishing (country portal record, Ghana)",
-    "id": "gh-opendata-coverage",
-    "jobs": [],
-    "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
-    },
-    "measurements": {
-     "access_probes_2026_10_23": "data.gov.gh CKAN action API: connection refused (both /api/3/action/ and /data/api/3/action/ paths). Real browser: homepage unreachable (ERR_SOCKS_CONNECTION_FAILED). The portal's web pages remain indexed by search engines (group pages listing datasets render in search snippets), consistent with intermittent availability from other networks.",
-     "not_measured": "No first-hand licence read, no dataset download, no per-dataset metadata: the portal never answered from this coordinator.",
-     "third_party_content_attribution": "Search-index + Data Landscapers evidence (2026-10-23): ~912 resources / 271 catalogues / 22 MDAs claimed on the homepage; visible datasets are dated static CSVs (2008 presidential election run-off results, regional fire outbreaks 2007-2012, defilement cases 2015-2017, airport departures 1997-2015); catalogue count static ~3 years; no open licence on record."
-    },
-    "next_action": "One bounded re-probe from a reachable network (worker-side curl of https://data.gov.gh/api/3/action/package_list alongside the ZA DWS access test, or from the c",
-    "packaged_at": null,
-    "path": "candidates/gh-opendata-coverage/record.json",
-    "prediction_time": "n/a while the portal is unreachable: no publication-instant evidence could be measured. No ongoing release calendar is evidenced by any source read this session.",
-    "publisher": "Ghana Open Data Initiative (National Information Technology Agency, NITA, under the Ministry of Communications)",
-    "qualification": {
-     "artifact_version": null,
-     "result": null,
-     "splits": null
-    },
-    "question": "No task carried to formulation: this is a country-coverage record for the Africa tick. Ghana's open-data portal (data.gov.gh, Ghana Open Data Initiative run by NITA) is currently UNREACHABLE from this coordinator, so no licence or content claim could be measured first-hand; third-party evidence describes a catalogue that has been static for ~3 years with no open licence on record and content dominated by dated static CSVs (election results 1996-2008, fire outbreaks 2007-2012, immigration 1997-2015). No prediction question was opened.",
-    "region": "Africa",
-    "release_baseline": {
-     "auc": null,
-     "display": null,
-     "reference": null
-    },
-    "release_splits": {},
-    "review": "Access-failure coverage record, kept as 'investigating' because an unreachable portal is not a scientific rejection. The third-party evidence (static catalogue, no licence on record, dated snapshots rather than ongoing series) makes it unlikely that this portal can carry a task even when reachable, but that hypothesis is untested from the publisher's own pages and is recorded as such. Ghana's zero-coverage gap is documented with the exact failed probes so a future tick can re-probe in seconds.",
-    "sources": [
-     {
-      "licence": "unreadable - the portal is unreachable from this coordinator and no per-dataset licence metadata could be fetched. Third-party evidence records NO open licence for the portal (see license_evidence).",
-      "name": "Ghana Open Data Initiative portal - data.gov.gh (NITA, Ministry of Communications)",
-      "url": "https://data.gov.gh/"
-     }
-    ],
-    "split_strategy": "n/a - nothing measurable. No counts of any kind exist for Ghana.",
-    "status": "investigating",
-    "target": "n/a while the portal is unreachable: no label source could be measured. The visible content per third-party and search-index evidence is historical static snapshots, which would not support a prediction task even if reachable."
-   },
-   {
-    "awaiting_operator": false,
-    "baseline": {},
     "country": "CO",
     "domain": "hydrological risk operations - river-station alert-threshold exceedance prediction (Colombia, IDEAM automatic-station telemetry)",
     "id": "ideam-rio-nivel-exceedance",
@@ -1181,7 +1133,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 92.9,
+  "non_us_share": 92.3,
   "records": [
    {
     "awaiting_operator": false,
@@ -3110,7 +3062,7 @@
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
    },
    {
-    "age_hours": 1.1,
+    "age_hours": 2.1,
     "awaiting_operator": true,
     "baseline": {},
     "country": "EU",
@@ -3842,7 +3794,7 @@
      "not_measured": "No first-hand licence read, no dataset download, no per-dataset metadata: the portal never answered from this coordinator.",
      "third_party_content_attribution": "Search-index + Data Landscapers evidence (2026-10-23): ~912 resources / 271 catalogues / 22 MDAs claimed on the homepage; visible datasets are dated static CSVs (2008 presidential election run-off results, regional fire outbreaks 2007-2012, defilement cases 2015-2017, airport departures 1997-2015); catalogue count static ~3 years; no open licence on record."
     },
-    "next_action": "One bounded re-probe from a reachable network (worker-side curl of https://data.gov.gh/api/3/action/package_list alongside the ZA DWS access test, or from the c",
+    "next_action": "Closed 2026-10-27. Reopen ONLY if all three hold: (a) data.gov.gh or a successor portal answers from a reachable network, (b) its datasets carry explicit per-da",
     "packaged_at": null,
     "path": "candidates/gh-opendata-coverage/record.json",
     "prediction_time": "n/a while the portal is unreachable: no publication-instant evidence could be measured. No ongoing release calendar is evidenced by any source read this session.",
@@ -3869,7 +3821,7 @@
      }
     ],
     "split_strategy": "n/a - nothing measurable. No counts of any kind exist for Ghana.",
-    "status": "investigating",
+    "status": "dropped",
     "target": "n/a while the portal is unreachable: no label source could be measured. The visible content per third-party and search-index evidence is historical static snapshots, which would not support a prediction task even if reachable."
    },
    {
@@ -8073,12 +8025,71 @@
     "split_strategy": "Temporal, by label year (year_end), computed from the actual audit_opinion_facts CSV (command: python3 candidates/za-municipal-audit-opinion/probe_label_stats.py <audit_opinions.csv>, scratch kept this session): train 2011-2017 = 1,863 rows / 878 positives (47.13%); eval 2018-2020 = 738 rows / 376 positives (50.95%); holdout 2021-2024 = 982 rows / 415 positives (42.26%). Both classes present in every one of the 14 label years (measured per-year rates 35.0%-56.5%). Clustered positives: audit outcomes correlate within an audit cycle/year, so the independence scale is ~14 label years, not 3,689 rows - confidence intervals must be clustered by year and the onset-conditioned variant recomputed at construction. Municipalities are repeated entities across years: features may include each municipality's own history, and the runner's id_columns handle the municipality code; no cross-split entity leakage arises because splits are by time, but the descriptor must declare expected duplicate ids.",
     "status": "ready",
     "target": "Binary label from the audit_opinions cube ('Code' column, bulk CSV audit_opinion_facts on munimoney-media S3): 1 = qualified, disclaimer or adverse; 0 = unqualified or unqualified_emphasis_of_matter; 'outstanding' rows (audit not completed) are excluded, not imputed. Label source column is never shipped as a feature: the label CSV is used only to build y; features come from the separate incexp/cflow/capital/bsheet/grants/uifwexp/repmaint/aged-debtor/aged-creditor cubes and the demographics API. Measured per-year positive rates (qualified-or-worse, outstanding excluded): 35.0%-56.5% across all 14 label years, never degenerate. Measured persistence: 83.88% year-over-year agreement (2018-2020), so the level label is persistence-shaped and the primary task is the deterioration-onset conditioning; onset base rate measured 69/381 = 18.1% of clean-prev municipality-years in 2018-2020."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "ZA",
+    "domain": "corporate insolvency / monthly liquidations panel (industry x entity-type x procedure)",
+    "id": "za-statsa-liquidations-exceedance",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "as_of_policy": "Current-vintage retrospective task, clearly labelled: pre-restatement point-in-time vintages are NOT recoverable - the per-release ZIP archive keeps only the latest issue (17 older months probed, all 404), and no vintage archive exists; Wayback PDF snapshots exist for a few issues only. The task therefore makes NO claim of operational point-in-time availability for pre-restatement instants (2000-2026.09 history is the 2026-09 restated basis, which demonstrably differs from what was published at those instants - see restatement_2026). Forward operation from the restated basis is supported: the instant is the announced monthly embargo, and the intra-basis revision tail is measured and bounded.",
+     "cross_check_2026_10_27": "Publisher's own summary product: August 2026 release PDF Table A states Jan-Aug 2026 = 1,828 liquidations; the panel's LIQ00000 sums to exactly 1,828 over 2026-01..2026-08. The PDF's Table 2 (monthly totals 2020-01..2026-08) matches the panel value-for-value on all 80 months checked, including Aug 2026 = 227. (Observed minor inconsistency in the tertiary blog post 'Economic wrap-up for July 2026': states 1,361 for H1 2026 and simultaneously 1,299 voluntary + 132 compulsory = 1,431; the release PDF and panel agree on these months - the blog post is the outlier.)",
+     "extraction_cost_2026_10_27": "Coordinator: 1 HTTPS GET, 59,645 bytes HTTP / 43,994 chars content, 1.87 s wall clock (Imperva challenge intermittent; one retry with cookie jar or a real-browser fallback passes; per-issue PDFs ~470-500 KB each download without challenge). Full history is one file; no paging. Worker-side construction should fetch with retries + browser fallback and record the Imperva outcome; cost is negligible (<<1 MB, <10 s).",
+     "intra_basis_revisions": "Within the restated basis, consecutive release vintages (issue 202608 ZIP 'Release: 2026 08' vs Isibalo 'Release: 2026 09'): 15,040 overlapping values compared, 19 differ (0.13%), ALL in the recent tail (2026-03, 2026-05, 2026-08) with magnitudes +1..+7 - late-registered cases trickling into recent months. Older history is stable within the basis. Construction must state: features and labels are both current-vintage at freeze; recent-month values at the historical prediction instants differed slightly from the frozen values (bounded by the observed +0..+7/month tail pattern).",
+     "known_event_fixtures": "(1) April 2020 total liquidations = 0 - South Africa's hard COVID-19 lockdown closed the CIPC/Master's offices (verified in BOTH old-basis and restated vintages; expected verdict: any 'activity present' feature or count > 0 fails for 2020-04). (2) November 2020 = 261 restated / 272 old basis - post-lockdown backlog surge (expected: exceeds trailing median). (3) October 2024 = 312 on the restated basis, the highest 2024 month (expected: exceeds trailing median). All three verified directly in the fetched panel.",
+     "label_base_rates_2026_10_27": "See split_strategy. National-total series itself: median-exceedance 158/306 = 51.6% - the aggregate series is near-balanced, no degenerate label at any level.",
+     "measured_on": "2026-10-27 via scripts candidates/za-statsa-liquidations-exceedance/probe_parse_panel.py, probe_base_rates.py, probe_revision_check.py and probe_vintage_diff.py; commands and outputs in notes.md",
+     "panel_shape_2026_10_27": "Isibalo ASCII export 'Release: 2026 09': 47 series blocks (LIQ00000 total; companies: total/compulsory-total/voluntary-total + compulsory and voluntary per 9 SIC industries + unclassified; same structure for close corporations), each with 321 monthly values 2000-01..2026-09, no gaps (all 47 blocks have exactly 321 values, 15,087 numeric lines total). Column documentation from the export headers themselves (H04 survey, H05 entity type, H06 procedure, H07 industry, H16 'Actual figures', H17 'Number', H23 release, H24 start, H25 periodicity) plus the release PDF's explanatory notes and glossary.",
+     "pre_embargo_availability_caveat": "The Isibalo bulk export already carried Release-2026-09 values (through month 2026-09) when fetched 2026-10-27, one day before the announced 2026-10-28 embargo of the September issue, with HTTP Last-Modified 2026-10-16 - i.e. the bulk export refreshed up to ~12 days before the formal release. File mtime is not proof of first availability (recorded as an observation, not a bound). The announced embargo remains the task's prediction instant; a live operational solver could see values marginally early, which does not affect the fixed historical splits.",
+     "restatement_2026": "DECISIVE vintage fact: the series was fully restated during 2026. The February 2026 issue (embargoed 25 Mar 2026, old basis) vs the current Release-2026-09 vintage: 73 of 74 overlapping months differ (2020-2026 values revised upward ~30-100%, e.g. Feb 2026: 135 published then -> 223 now; Nov 2023: 144 -> 287; only Apr 2020 = 0 is unchanged). The September 2023 issue (old basis) vs current vintage: 36 of 36 months of 2017-2019 differ, downward (2017 total: 1,868 published then -> 1,454 now; Jan 2017: 91 -> 66). The Feb 2026 issue itself announced this: 'Statistics South Africa regularly engages with the Companies and Intellectual Property Commission to ensure the accuracy of statistics... a revised time series is under development and will be published as soon as it becomes available.' The restated basis went live in the PDF releases between the Feb 2026 issue (old basis) and the August 2026 issue (new basis, matches Isibalo exactly)."
+    },
+    "next_action": "Hand to construction (worker): (1) fetch the Isibalo ASCII export with retry + real-browser fallback for the Imperva challenge and freeze it (record sha256 + re",
+    "packaged_at": null,
+    "path": "candidates/za-statsa-liquidations-exceedance/record.json",
+    "prediction_time": "Instant = the announced embargo lift of the P0043.1 monthly release for reference month M (date+time published in advance by Stats SA; observed publication dates all fall in the last week of month M+1 at 14:30 SAST, lag 25-34 days after month end). At that instant, the latest published reference month is M; month M+1 is partially elapsed (the instant falls inside it), so M+1 can be neither feature nor target; the target month M+2 begins after the instant (about 4 days after) and ends about 34 days after it. Features are the released series values for months <= M only (current-vintage policy; see measurements.restatement_2026 and measurements.intra_basis_revisions). Dated example (Africa/Johannesburg): instant 2026-10-28 14:30 (embargo of the Release 2026-09 issue); feature window 2000-01..2026-09 as released in that vintage (first-available version = the monthly release; values for months M-11..M used by the label's trailing median are the values published at or before the instant); eligibility cutoff = series values for months <= 2026-09 exist; prediction instant 2026-10-28 14:30; target window 2026-11-01 through 2026-11-30 (starts 3 days 9.5 hours after the instant; ends 33 days 9.5 hours after). No part of the target window precedes the instant.",
+    "publisher": "Statistics South Africa (Stats SA) - ISIbalo Data Portal / P0043.1 statistical release; administrative source: Companies and Intellectual Property Commission (CIPC) and Department of Trade, Industry and Competition (DTIC)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the publication instant of the Stats SA P0043.1 'Statistics of liquidations' release for reference month M (published in the last week of month M+1, embargo lifting 14:30 SAST = 12:30 UTC; observed: 25 Mar 2026 for Feb issue, 27 May 2026 for Apr issue, 30 Sep 2026 14:30 for Aug issue, expected 28 Oct 2026 for Sep issue), will the number of liquidations in month M+2 for a given unit (companies/close-corporations x compulsory/voluntary x industry) exceed that unit's trailing 12-month median count over months M-11..M? Prospective users: credit and insurance exposure monitors, procurement/counterparty risk teams, and macro early-warning analysts, who get a ~1-month lead on industry-level insolvency pressure for provisioning and review decisions.",
+    "region": "Africa",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "All five discovery contracts reconciled against recorded evidence. (1) Redistribution: class B - Stats SA permits applying, publishing and distributing the data with attribution, plus a no-sale condition our free releases satisfy (quoted in license_evidence; to be carried into LICENSE.md). (2) Prediction timing: instant = the announced embargo (measured on four issues; always last week of M+1 at 14:30 SAST), M+2 target window entirely after the instant; feature meanings documented by the publisher (export headers + release explanatory notes); vintage contract handled explicitly - the 2026 restatement is measured (110/110 months checked differ from the old basis), pre-restatement vintages are unrecoverable, so the task is a clearly-labelled current-vintage retrospective panel with no operational point-in-time claim for history; intra-basis revision tail measured (19/15,040, all recent months, +1..+7). (3) Target: derived from the published count series itself; label source column excludable by shipping lagged features only; recent-tail revisions noted. (4) Split capacity: measured - both classes in all three windows and all 26 years; independence scale is the month (~306 instants), within-month cross-unit dependence documented as the cluster. (5) Contribution: no ML-ready formulation of SA liquidation counts at any grain found in catalog or literature searches; nearest prior art is firm-level bankruptcy prediction (US/Italian firm panels), a different population and target; novelty check recorded by script. Residual uncertainty: future restatements of the same scale would change future basis (publisher warning observed and quoted); the construction must enforce a restricted prediction protocol against the abs-oad-style cross-row self-answer join (a row's label operand count(M+2) is a feature window value of the row whose target is M+4).",
+    "sources": [
+     {
+      "licence": "Stats SA website 'Copyright and disclaimer': 'All Stats SA products are protected by copyright. Users may apply the information as they wish, provided that they acknowledge Stats SA as the source of the basic data wherever they process, apply, utilise, publish or distribute the data, and also that they specify that the relevant application and analysis (where applicable) result from their own processing of the data.' Publication copyright notices add: 'neither the basic data nor any reprocessed version or application thereof may be sold or offered for sale in any form whatsoever without prior permission from Stats SA' (observed on P0351/P0043 releases and Stats in Brief 2025).",
+      "name": "Stats SA ISIbalo Data Portal - Liquidations and Insolvencies (P0043.1) monthly time series export",
+      "url": "https://isibaloweb.statssa.gov.za/data/ETS/Monthly/Liquidations%20and%20InsolvenciesP0043_1/ASCII%20Liquidations.txt (ASCII, current vintage 'Release: 2026 09', 47 series blocks x 321 months 2000-01..2026-09; JSON variant P0043_1p.json in the same directory)"
+     },
+     {
+      "licence": "Same Stats SA copyright and disclaimer as above (the PDF releases carry the attribution + no-sale notice on their cover pages)",
+      "name": "Stats SA P0043.1 statistical release (monthly PDF) and publication page (embargo dates)",
+      "url": "https://www.statssa.gov.za/publications/P00431/P00431August2026.pdf (sha256 323fb9007c6e43815d721093d45f385115f9247dfe691a94ee12ed03a055009c); publication page https://www.statssa.gov.za/?page_id=1854&PPN=P0043.1&SCH=74348 states 'Publication date & time: 30 September 2026 @ 14:30' for the August 2026 issue; Wayback-archived older issues used as vintage evidence: P00431February2026.pdf (web.archive.org/web/20260402112827, sha256 36cf42ad0ab8b6a26c7bcb830a0e45126076006afb2a5c05cc026642b770da4e), P00431September2023.pdf (web.archive.org/web/20260711181608, sha256 833ec11d1e2f0749a29e56908fa7dfd893076077edb1a363be1731924bb0ffe6)"
+     }
+    ],
+    "split_strategy": "Temporal, by target month, computed from the fetched Release-2026-09 panel (command: python3 candidates/za-statsa-liquidations-exceedance/probe_base_rates.py, scratch 2026-10-27): population = 40 industry-level units (companies x compulsory/voluntary x 9 industries, close corporations x compulsory/voluntary x 9 industries) plus the 4 group totals; target month = reference month + 2 (M+2 frame). Median-exceedance label (trailing 12-month median > 0 filter): train target years 2002-2016 = 3,910 rows / 1,537 positives (39.3%), 30/40 units with positives; eval 2017-2020 = 992 / 426 (42.9%), 25/40; holdout 2021-2026 = 1,415 / 574 (40.6%), 24/40. YoY-direction label: train 4,748 / 1,980 (41.7%) 40/40 units, eval 1,206 / 568 (47.1%) 39/40, holdout 1,706 / 739 (43.3%) 39/40. Both classes present in every window and in every year 2001-2026 (positive months per year = 9-12 of 12). Clustering: the independence scale is the MONTH, not the row - 40 units share each month's macro shock, so ~306 scorable monthly instants over 26 years (2002-01..2026-09 minus warmup) are the effective sample; confidence intervals must be clustered by target month. No cross-split entity leakage: splits are by time; units repeat across months by design (panel task, runner id_columns carry the unit code).",
+    "status": "ready",
+    "target": "Binary: count of liquidations for unit u in month M+2 (LIQ series value, 'Actual figures', number) > median of u's counts over months M-11..M (both operands from the same current-basis vintage; label source column = the unit's monthly count series itself, which is also the feature source - a row's shipped features are lagged values only, months <= M, never the target month's value). Alternative measured formulation: YoY direction (M+2 count > M-10 count). Trailing-median rows with median 0 (sparse series, all-zero window) are excluded as unlabelable; measured exclusion ~32% of unit-months under the 40-unit population."
    }
   ],
   "release": {
    "awaiting": [
     {
-     "age_hours": 1.1,
+     "age_hours": 2.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8205,7 +8216,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 1.1,
+     "age_hours": 2.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8366,10 +8377,10 @@
    "TW": 2,
    "US": 12,
    "VN": 1,
-   "ZA": 3
+   "ZA": 4
   },
   "by_region": {
-   "Africa": 7,
+   "Africa": 8,
    "East Asia": 6,
    "Europe": 22,
    "International organisations": 7,
@@ -8379,14 +8390,14 @@
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 35,
-   "investigating": 14,
+   "dropped": 36,
+   "investigating": 13,
    "packaged": 1,
    "parked": 26,
    "published": 10,
-   "ready": 5
+   "ready": 6
   },
-  "candidates": 91,
+  "candidates": 92,
   "live": 30,
   "live_non_us": 24,
   "live_non_us_share": 0.8,
@@ -8411,10 +8422,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-27T15:50:01.455922+00:00",
+    "last_run_at": "2026-10-27T16:50:01.791742+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-27T16:00:00+00:00",
+    "next_run_at": "2026-10-27T17:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -8435,10 +8446,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-27T15:50:01.064435+00:00",
+    "last_run_at": "2026-10-27T16:50:00.968419+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-27T15:55:00+00:00",
+    "next_run_at": "2026-10-27T16:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -8459,10 +8470,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-27T15:45:57.987128+00:00",
+    "last_run_at": "2026-10-27T16:46:16.473205+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-27T15:50:57.987128+00:00",
+    "next_run_at": "2026-10-27T16:51:16.473205+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -8471,10 +8482,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-27T15:50:02.044736+00:00",
+    "last_run_at": "2026-10-27T16:50:02.220566+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-27T15:55:00+00:00",
+    "next_run_at": "2026-10-27T16:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -8495,10 +8506,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-27T14:50:42.172854+00:00",
+    "last_run_at": "2026-10-27T15:50:43.269306+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-27T16:50:00+00:00",
+    "next_run_at": "2026-10-27T17:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -8507,10 +8518,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-27T14:55:01.368940+00:00",
+    "last_run_at": "2026-10-27T15:55:01.026297+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-27T15:55:00+00:00",
+    "next_run_at": "2026-10-27T16:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -8551,29 +8562,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-27T15:50:02.045779+00:00"
+  "updated_at": "2026-10-27T16:50:02.221664+00:00"
  },
- "generated_at": "2026-10-27T15:50:01+00:00",
+ "generated_at": "2026-10-27T16:50:02+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 91
+   "passing": 92
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-27T15:16:23Z",
-   "head_sha": "ec8841d",
+   "created_at": "2026-10-27T16:33:47Z",
+   "head_sha": "d6c72a8",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40529320465"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40542124435"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 24/30 (80%)"
   },
   "head": {
-   "at": "2026-10-27T15:16:19Z",
-   "sha": "ec8841d",
-   "subject": "Worker-watch: suppress delivery entirely when nothing needs the operator"
+   "at": "2026-10-27T16:33:34Z",
+   "sha": "d6c72a8",
+   "subject": "Africa discovery: za-statsa-liquidations-exceedance ready (Stats SA P0043.1 panel, class B, restatement evidence recorde"
   },
   "tests": {
    "count": "672",
@@ -10052,13 +10063,21 @@
    "qualified": 0,
    "sessions_7d": 194,
    "tokens_7d": 19349470
+  },
+  {
+   "at": "2026-10-27T16:50:02+00:00",
+   "live": 13,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 194,
+   "tokens_7d": 19147551
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T15:50:01+00:00",
+   "as_of": "2026-10-27T16:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -10068,17 +10087,17 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T15:50:01+00:00",
+   "as_of": "2026-10-27T16:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 14
+   "value": 13
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T15:50:01+00:00",
+   "as_of": "2026-10-27T16:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -12007,7 +12026,7 @@
   "jobs_total": 113,
   "lifetime_eur": 3.3,
   "live": {
-   "checked_at": "2026-10-27T15:50:34+00:00",
+   "checked_at": "2026-10-27T16:50:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -12036,19 +12055,6 @@
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 2052.0,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "2c6612af68250581a932b378afe5edd196d239ab77c553e8a2ac95f9975bd474",
-    "ts": "2026-10-27T08:39:13.422272+00:00"
-   },
    {
     "elapsed_seconds": 1838.1,
     "event": "session",
@@ -12117,8 +12123,21 @@
     "run_budget": 900,
     "submitted_brief_sha256": "0896a50f6bfc0cfc48e294842c22ad27f0971e73caf19d518b4ba2bc447060d4",
     "ts": "2026-10-27T14:55:41.950128+00:00"
+   },
+   {
+    "elapsed_seconds": 2101.6,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "ec96e5a7e0d874ced434ba56f10436c719afba56c0d34c9aa438656be9a71097",
+    "ts": "2026-10-27T16:35:08.018705+00:00"
    }
   ],
-  "total": 6
+  "total": 7
  }
 }
