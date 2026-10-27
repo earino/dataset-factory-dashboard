@@ -1,5 +1,8 @@
 {
  "alarms": [
+  "scout-discovery-session missed its window (2026-10-27T20:15:00+00:00); last status ok",
+  "Research gate refused the next session: lock held for 2402s by scout-research; 196 research session(s) already ran in the last 7 days, 4 of which overshot the 600,000-token cap and count double (cap 200)",
+  "CI on d77e4f4 concluded failure",
   "Test suite is failing",
   "1 release(s) not fully verified"
  ],
@@ -18,15 +21,18 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-10-27T19:50:02.924904+00:00",
+   "allowed": false,
+   "moment": "2026-10-27T20:50:03.077860+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 2402s by scout-research",
+    "196 research session(s) already ran in the last 7 days, 4 of which overshot the 600,000-token cap and count double (cap 200)"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 19294972,
-   "runs_last_7_days": 195,
-   "runs_weighted_last_7_days": 199,
+   "research_tokens_last_7_days": 19474594,
+   "runs_last_7_days": 196,
+   "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 4,
    "usage": {
@@ -41,25 +47,25 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 5559,
+     "calls": 5581,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 27589056,
-     "output_tokens": 3115686,
+     "input_tokens": 29921769,
+     "output_tokens": 3145912,
      "pricing_available": false
     },
     "research": {
-     "calls": 6421,
+     "calls": 6476,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 17246331,
-     "output_tokens": 6123290,
+     "input_tokens": 17530260,
+     "output_tokens": 6179904,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -3065,7 +3071,7 @@
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
    },
    {
-    "age_hours": 5.1,
+    "age_hours": 6.1,
     "awaiting_operator": true,
     "baseline": {},
     "country": "EU",
@@ -3130,7 +3136,7 @@
       "train 1990-2013": "5,411 notified / 217 positive (4.01%) / 24 years, all carry both classes"
      }
     },
-    "next_action": "AWAITING OPERATOR FLIP (packaged 2026-10-27T14:44:34Z; awaiting_operator true) - the flip is the operator's single act and nothing is public. Both destinations ",
+    "next_action": "APPLY AUDIT CONDITIONS before the flip (auditor verdict PUBLISH WITH CONDITIONS, audits/2026-10-27-ec-merger-pre-flip-audit.md): (1) correct quality.json/meta.j",
     "packaged_at": "2026-10-27T14:44:34Z",
     "path": "candidates/ec-merger-phase2-opening/record.json",
     "prediction_time": "The notification date of the case (caseNotificationDate; date-only precision, Brussels local). All shipped features are case attributes fixed when the file is registered: caseTitle (the merging parties, an immutable historical fact), caseSectors (NACE codes of the parties' activities; current-vintage register coding, see revision_note), caseRegulation (4064/89 or 139/2004), caseNotificationDate. The label event - an Art. 6(1)(c) decision opening Phase II - is adopted after notification: measured 308/309 openers strictly follow the notification date (302/309 within 2 months; single documented exception M.3333, see anomalies). Fields that can change after notification are excluded from features and recorded below. No feature's target window precedes the instant.",
@@ -7386,7 +7392,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 0.1,
+    "age_hours": 1.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -8222,7 +8228,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 5.1,
+     "age_hours": 6.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8287,7 +8293,7 @@
        "train 1990-2013": "5,411 notified / 217 positive (4.01%) / 24 years, all carry both classes"
       }
      },
-     "next_action": "AWAITING OPERATOR FLIP (packaged 2026-10-27T14:44:34Z; awaiting_operator true) - the flip is the operator's single act and nothing is public. Both destinations ",
+     "next_action": "APPLY AUDIT CONDITIONS before the flip (auditor verdict PUBLISH WITH CONDITIONS, audits/2026-10-27-ec-merger-pre-flip-audit.md): (1) correct quality.json/meta.j",
      "packaged_at": "2026-10-27T14:44:34Z",
      "path": "candidates/ec-merger-phase2-opening/record.json",
      "prediction_time": "The notification date of the case (caseNotificationDate; date-only precision, Brussels local). All shipped features are case attributes fixed when the file is registered: caseTitle (the merging parties, an immutable historical fact), caseSectors (NACE codes of the parties' activities; current-vintage register coding, see revision_note), caseRegulation (4064/89 or 139/2004), caseNotificationDate. The label event - an Art. 6(1)(c) decision opening Phase II - is adopted after notification: measured 308/309 openers strictly follow the notification date (302/309 within 2 months; single documented exception M.3333, see anomalies). Fields that can change after notification are excluded from features and recorded below. No feature's target window precedes the instant.",
@@ -8349,7 +8355,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 5.1,
+     "age_hours": 6.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8414,7 +8420,7 @@
        "train 1990-2013": "5,411 notified / 217 positive (4.01%) / 24 years, all carry both classes"
       }
      },
-     "next_action": "AWAITING OPERATOR FLIP (packaged 2026-10-27T14:44:34Z; awaiting_operator true) - the flip is the operator's single act and nothing is public. Both destinations ",
+     "next_action": "APPLY AUDIT CONDITIONS before the flip (auditor verdict PUBLISH WITH CONDITIONS, audits/2026-10-27-ec-merger-pre-flip-audit.md): (1) correct quality.json/meta.j",
      "packaged_at": "2026-10-27T14:44:34Z",
      "path": "candidates/ec-merger-phase2-opening/record.json",
      "prediction_time": "The notification date of the case (caseNotificationDate; date-only precision, Brussels local). All shipped features are case attributes fixed when the file is registered: caseTitle (the merging parties, an immutable historical fact), caseSectors (NACE codes of the parties' activities; current-vintage register coding, see revision_note), caseRegulation (4064/89 or 139/2004), caseNotificationDate. The label event - an Art. 6(1)(c) decision opening Phase II - is adopted after notification: measured 308/309 openers strictly follow the notification date (302/309 within 2 months; single documented exception M.3333, see anomalies). Fields that can change after notification are excluded from features and recorded below. No feature's target window precedes the instant.",
@@ -8474,7 +8480,7 @@
      "target": "Binary: the case record carries at least one decision of type 'Art. 6(1)(c)' (the decision by which the Commission initiates proceedings because of serious doubts - the Phase II opener, same article number under Reg 4064/89 and Reg 139/2004). Label source: the decisions[] block of the register record (decisionTypes, decisionAdoptionDate), which is excluded wholesale from shipped features. Measured: 309 positives / 10,123 eligible cases = 3.05%. Measured alternative recorded for construction: any-intervention union (Phase II opener OR Phase I remedies 'Art. 6(1)(b) with conditions & obligations') = 673 / 10,123 = 6.65% (remedies-only 367 = 3.63%)."
     },
     {
-     "age_hours": 0.1,
+     "age_hours": 1.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -8676,7 +8682,7 @@
    ],
    "pending": [
     {
-     "age_hours": 0.1,
+     "age_hours": 1.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -8956,10 +8962,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-27T19:50:01.447043+00:00",
+    "last_run_at": "2026-10-27T20:50:01.513246+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-27T20:00:00+00:00",
+    "next_run_at": "2026-10-27T21:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -8980,10 +8986,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-27T19:50:01.484257+00:00",
+    "last_run_at": "2026-10-27T20:50:01.008751+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-27T19:55:00+00:00",
+    "next_run_at": "2026-10-27T20:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9004,10 +9010,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-27T19:47:02.764945+00:00",
+    "last_run_at": "2026-10-27T20:46:48.107387+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-27T19:52:02.764945+00:00",
+    "next_run_at": "2026-10-27T20:51:48.107387+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -9016,10 +9022,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-27T19:50:01.111000+00:00",
+    "last_run_at": "2026-10-27T20:05:00.864533+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-27T19:55:00+00:00",
+    "next_run_at": "2026-10-27T20:15:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9040,10 +9046,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-27T18:50:42.433942+00:00",
+    "last_run_at": "2026-10-27T19:50:42.330798+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-27T20:50:00+00:00",
+    "next_run_at": "2026-10-27T21:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -9052,10 +9058,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-27T18:55:00.930302+00:00",
+    "last_run_at": "2026-10-27T19:55:00.876932+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-27T19:55:00+00:00",
+    "next_run_at": "2026-10-27T20:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -9096,29 +9102,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-27T19:50:01.485312+00:00"
+  "updated_at": "2026-10-27T20:50:01.514238+00:00"
  },
- "generated_at": "2026-10-27T19:50:01+00:00",
+ "generated_at": "2026-10-27T20:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
    "passing": 92
   },
   "ci": {
-   "conclusion": "success",
-   "created_at": "2026-10-27T19:28:22Z",
-   "head_sha": "f90fd1b",
+   "conclusion": "failure",
+   "created_at": "2026-10-27T20:48:30Z",
+   "head_sha": "d77e4f4",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40569414770"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40581310741"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 24/30 (80%)"
   },
   "head": {
-   "at": "2026-10-27T18:55:05Z",
-   "sha": "f90fd1b",
-   "subject": "unhcr-refugee-data-finder qualified on the worker (unhcr-001): gate 1.5.0 45/45, exact-byte accepted (6fa7becd), post-ac"
+   "at": "2026-10-27T20:48:26Z",
+   "sha": "d77e4f4",
+   "subject": "ec-merger pre-flip audit: PUBLISH WITH CONDITIONS - verdict preserved, conditions recorded, flip held"
   },
   "tests": {
    "count": "672",
@@ -10629,13 +10635,21 @@
    "qualified": 0,
    "sessions_7d": 195,
    "tokens_7d": 19294972
+  },
+  {
+   "at": "2026-10-27T20:50:01+00:00",
+   "live": 13,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 196,
+   "tokens_7d": 19474594
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T19:50:01+00:00",
+   "as_of": "2026-10-27T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -10645,7 +10659,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T19:50:01+00:00",
+   "as_of": "2026-10-27T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -10655,7 +10669,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T19:50:01+00:00",
+   "as_of": "2026-10-27T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -12645,7 +12659,7 @@
   "jobs_total": 115,
   "lifetime_eur": 3.31,
   "live": {
-   "checked_at": "2026-10-27T19:50:33+00:00",
+   "checked_at": "2026-10-27T20:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -12674,19 +12688,6 @@
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 2030.9,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "bcb3cb92ad8fecad46a24fb04cd1b50d8e07ce60f880329e77ed5bd7031bc746",
-    "ts": "2026-10-27T12:38:52.255476+00:00"
-   },
    {
     "elapsed_seconds": 2755.8,
     "event": "session",
@@ -12755,8 +12756,22 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "80ff2bb5c65fce48895c19e6b8e86db6404b084430a0e4b82ae235ca46407e00",
     "ts": "2026-10-27T19:49:14.560385+00:00"
+   },
+   {
+    "elapsed_seconds": 872.7,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "acfc9e3d066ad86611d8e35f0037f1e77af890f1acbc1be5bfdd3ed5f217471b",
+    "ts": "2026-10-27T20:06:37.368579+00:00"
    }
   ],
-  "total": 9
+  "total": 10
  }
 }
