@@ -1,5 +1,7 @@
 {
- "alarms": [],
+ "alarms": [
+  "scout-research-session missed its window (2026-10-27T18:05:00+00:00); last status ok"
+ ],
  "budget": {
   "config": {
    "allowance_usd": 30.0,
@@ -15,13 +17,15 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-10-27T17:50:02.903766+00:00",
+   "allowed": false,
+   "moment": "2026-10-27T18:50:03.027920+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 3002s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 18963006,
+   "research_tokens_last_7_days": 19206438,
    "runs_last_7_days": 194,
    "runs_weighted_last_7_days": 198,
    "session_cap_per_week": 200,
@@ -49,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 6189,
+     "calls": 6278,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 16796212,
-     "output_tokens": 5980917,
+     "input_tokens": 16963236,
+     "output_tokens": 6058193,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -3062,7 +3066,7 @@
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
    },
    {
-    "age_hours": 3.1,
+    "age_hours": 4.1,
     "awaiting_operator": true,
     "baseline": {},
     "country": "EU",
@@ -8089,7 +8093,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 3.1,
+     "age_hours": 4.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8216,7 +8220,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 3.1,
+     "age_hours": 4.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8422,10 +8426,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-27T17:50:02.138402+00:00",
+    "last_run_at": "2026-10-27T18:50:01.685193+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-27T18:00:00+00:00",
+    "next_run_at": "2026-10-27T19:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -8446,10 +8450,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-27T17:50:01.040978+00:00",
+    "last_run_at": "2026-10-27T17:55:00.850652+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-27T17:55:00+00:00",
+    "next_run_at": "2026-10-27T18:05:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -8470,10 +8474,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-27T17:46:31.751707+00:00",
+    "last_run_at": "2026-10-27T18:46:46.743186+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-27T17:51:31.751707+00:00",
+    "next_run_at": "2026-10-27T18:51:46.743186+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -8482,10 +8486,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-27T17:50:00.735772+00:00",
+    "last_run_at": "2026-10-27T18:50:01.096143+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-27T17:55:00+00:00",
+    "next_run_at": "2026-10-27T18:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -8506,10 +8510,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-27T16:51:31.264690+00:00",
+    "last_run_at": "2026-10-27T17:50:42.307343+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-27T18:50:00+00:00",
+    "next_run_at": "2026-10-27T19:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -8518,10 +8522,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-27T16:55:01.159985+00:00",
+    "last_run_at": "2026-10-27T17:55:00.984168+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-27T17:55:00+00:00",
+    "next_run_at": "2026-10-27T18:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -8562,9 +8566,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-27T17:50:02.139564+00:00"
+  "updated_at": "2026-10-27T18:50:02.289673+00:00"
  },
- "generated_at": "2026-10-27T17:50:01+00:00",
+ "generated_at": "2026-10-27T18:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -10079,13 +10083,23 @@
    "qualified": 0,
    "sessions_7d": 194,
    "tokens_7d": 18963006
+  },
+  {
+   "at": "2026-10-27T18:50:01+00:00",
+   "live": 13,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 194,
+   "tokens_7d": 19206438
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 3002s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T17:50:01+00:00",
+   "as_of": "2026-10-27T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -10095,7 +10109,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T17:50:01+00:00",
+   "as_of": "2026-10-27T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -10105,7 +10119,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T17:50:01+00:00",
+   "as_of": "2026-10-27T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -10635,7 +10649,7 @@
      "lo": 0.005
     },
     {
-     "count": 33,
+     "count": 34,
      "hi": 0.02,
      "lo": 0.01
     },
@@ -10667,10 +10681,10 @@
    ],
    "max": 0.6296,
    "median": 0.014,
-   "n": 113,
+   "n": 114,
    "p90": 0.0542,
    "ref_rate": 0.06924,
-   "total": 3.8
+   "total": 3.82
   },
   "jobs": [
    {
@@ -11994,6 +12008,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-10-27T18:35:02.951631+00:00",
+    "deleted_at": "2026-10-27T18:50:10.237058+00:00",
+    "eur": 0.0029,
+    "hours": 0.252,
+    "id": "unhcr-001",
+    "location": "hel1",
+    "normalised_eur": 0.0174,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-10-22T22:17:34.060975+00:00",
     "deleted_at": "2026-10-22T22:26:31.549693+00:00",
     "eur": 0.0017,
@@ -12030,18 +12056,18 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 72,
-  "jobs_total": 113,
-  "lifetime_eur": 3.3,
+  "jobs_this_month": 73,
+  "jobs_total": 114,
+  "lifetime_eur": 3.31,
   "live": {
-   "checked_at": "2026-10-27T17:50:33+00:00",
+   "checked_at": "2026-10-27T18:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 21.1,
+  "month_hours": 21.3,
   "month_to_date": 0.86,
   "months": [
    {
@@ -12051,9 +12077,9 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.8588,
-    "hours": 21.07,
-    "jobs": 72,
+    "eur": 0.8617,
+    "hours": 21.32,
+    "jobs": 73,
     "month": "2026-10"
    }
   ],
