@@ -1,7 +1,7 @@
 {
  "alarms": [
-  "Research gate refused the next session: 196 research session(s) already ran in the last 7 days, 5 of which overshot the 600,000-token cap and count double (cap 200)",
-  "CI on 85c4c47 concluded failure",
+  "Research gate refused the next session: 195 research session(s) already ran in the last 7 days, 5 of which overshot the 600,000-token cap and count double (cap 200)",
+  "CI on 7d3d180 concluded failure",
   "Test suite is failing",
   "1 release(s) not fully verified"
  ],
@@ -21,38 +21,38 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-27T21:50:02.954989+00:00",
+   "moment": "2026-10-27T22:50:02.923200+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "196 research session(s) already ran in the last 7 days, 5 of which overshot the 600,000-token cap and count double (cap 200)"
+    "195 research session(s) already ran in the last 7 days, 5 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 20091587,
-   "runs_last_7_days": 196,
-   "runs_weighted_last_7_days": 201,
+   "research_tokens_last_7_days": 19902318,
+   "runs_last_7_days": 195,
+   "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 5,
    "usage": {
     "auxiliary": {
-     "calls": 681,
+     "calls": 683,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 1472109,
-     "output_tokens": 729409,
+     "input_tokens": 1473181,
+     "output_tokens": 729417,
      "pricing_available": false
     },
     "interactive": {
-     "calls": 5625,
+     "calls": 5644,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 31143983,
-     "output_tokens": 3171015,
+     "input_tokens": 32168714,
+     "output_tokens": 3184348,
      "pricing_available": false
     },
     "research": {
@@ -3071,7 +3071,7 @@
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
    },
    {
-    "age_hours": 7.1,
+    "age_hours": 8.1,
     "awaiting_operator": true,
     "baseline": {},
     "country": "EU",
@@ -3107,6 +3107,16 @@
       "at": null,
       "id": "ecm-hf-001",
       "status": null
+     },
+     {
+      "at": null,
+      "id": "ecm-requal-001",
+      "status": null
+     },
+     {
+      "at": null,
+      "id": "ecm-requal-002",
+      "status": null
      }
     ],
     "licence_summary": {
@@ -3136,7 +3146,7 @@
       "train 1990-2013": "5,411 notified / 217 positive (4.01%) / 24 years, all carry both classes"
      }
     },
-    "next_action": "APPLY AUDIT CONDITIONS before the flip (auditor verdict PUBLISH WITH CONDITIONS, audits/2026-10-27-ec-merger-pre-flip-audit.md): (1) correct quality.json/meta.j",
+    "next_action": "AUDIT CONDITIONS APPLIED AND RE-QUALIFIED (ecm-requal-002, artifact e96929ef\u2026): push the corrected docs to the dataset repo main, re-point the private v2026.10 ",
     "packaged_at": "2026-10-27T14:44:34Z",
     "path": "candidates/ec-merger-phase2-opening/record.json",
     "prediction_time": "The notification date of the case (caseNotificationDate; date-only precision, Brussels local). All shipped features are case attributes fixed when the file is registered: caseTitle (the merging parties, an immutable historical fact), caseSectors (NACE codes of the parties' activities; current-vintage register coding, see revision_note), caseRegulation (4064/89 or 139/2004), caseNotificationDate. The label event - an Art. 6(1)(c) decision opening Phase II - is adopted after notification: measured 308/309 openers strictly follow the notification date (302/309 within 2 months; single documented exception M.3333, see anomalies). Fields that can change after notification are excluded from features and recorded below. No feature's target window precedes the instant.",
@@ -7405,7 +7415,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 2.1,
+    "age_hours": 3.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -8241,7 +8251,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 7.1,
+     "age_hours": 8.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8277,6 +8287,16 @@
        "at": null,
        "id": "ecm-hf-001",
        "status": null
+      },
+      {
+       "at": null,
+       "id": "ecm-requal-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "ecm-requal-002",
+       "status": null
       }
      ],
      "licence_summary": {
@@ -8306,7 +8326,7 @@
        "train 1990-2013": "5,411 notified / 217 positive (4.01%) / 24 years, all carry both classes"
       }
      },
-     "next_action": "APPLY AUDIT CONDITIONS before the flip (auditor verdict PUBLISH WITH CONDITIONS, audits/2026-10-27-ec-merger-pre-flip-audit.md): (1) correct quality.json/meta.j",
+     "next_action": "AUDIT CONDITIONS APPLIED AND RE-QUALIFIED (ecm-requal-002, artifact e96929ef\u2026): push the corrected docs to the dataset repo main, re-point the private v2026.10 ",
      "packaged_at": "2026-10-27T14:44:34Z",
      "path": "candidates/ec-merger-phase2-opening/record.json",
      "prediction_time": "The notification date of the case (caseNotificationDate; date-only precision, Brussels local). All shipped features are case attributes fixed when the file is registered: caseTitle (the merging parties, an immutable historical fact), caseSectors (NACE codes of the parties' activities; current-vintage register coding, see revision_note), caseRegulation (4064/89 or 139/2004), caseNotificationDate. The label event - an Art. 6(1)(c) decision opening Phase II - is adopted after notification: measured 308/309 openers strictly follow the notification date (302/309 within 2 months; single documented exception M.3333, see anomalies). Fields that can change after notification are excluded from features and recorded below. No feature's target window precedes the instant.",
@@ -8368,7 +8388,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 7.1,
+     "age_hours": 8.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8404,6 +8424,16 @@
        "at": null,
        "id": "ecm-hf-001",
        "status": null
+      },
+      {
+       "at": null,
+       "id": "ecm-requal-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "ecm-requal-002",
+       "status": null
       }
      ],
      "licence_summary": {
@@ -8433,7 +8463,7 @@
        "train 1990-2013": "5,411 notified / 217 positive (4.01%) / 24 years, all carry both classes"
       }
      },
-     "next_action": "APPLY AUDIT CONDITIONS before the flip (auditor verdict PUBLISH WITH CONDITIONS, audits/2026-10-27-ec-merger-pre-flip-audit.md): (1) correct quality.json/meta.j",
+     "next_action": "AUDIT CONDITIONS APPLIED AND RE-QUALIFIED (ecm-requal-002, artifact e96929ef\u2026): push the corrected docs to the dataset repo main, re-point the private v2026.10 ",
      "packaged_at": "2026-10-27T14:44:34Z",
      "path": "candidates/ec-merger-phase2-opening/record.json",
      "prediction_time": "The notification date of the case (caseNotificationDate; date-only precision, Brussels local). All shipped features are case attributes fixed when the file is registered: caseTitle (the merging parties, an immutable historical fact), caseSectors (NACE codes of the parties' activities; current-vintage register coding, see revision_note), caseRegulation (4064/89 or 139/2004), caseNotificationDate. The label event - an Art. 6(1)(c) decision opening Phase II - is adopted after notification: measured 308/309 openers strictly follow the notification date (302/309 within 2 months; single documented exception M.3333, see anomalies). Fields that can change after notification are excluded from features and recorded below. No feature's target window precedes the instant.",
@@ -8493,7 +8523,7 @@
      "target": "Binary: the case record carries at least one decision of type 'Art. 6(1)(c)' (the decision by which the Commission initiates proceedings because of serious doubts - the Phase II opener, same article number under Reg 4064/89 and Reg 139/2004). Label source: the decisions[] block of the register record (decisionTypes, decisionAdoptionDate), which is excluded wholesale from shipped features. Measured: 309 positives / 10,123 eligible cases = 3.05%. Measured alternative recorded for construction: any-intervention union (Phase II opener OR Phase I remedies 'Art. 6(1)(b) with conditions & obligations') = 673 / 10,123 = 6.65% (remedies-only 367 = 3.63%)."
     },
     {
-     "age_hours": 2.1,
+     "age_hours": 3.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -8695,7 +8725,7 @@
    ],
    "pending": [
     {
-     "age_hours": 2.1,
+     "age_hours": 3.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -8975,10 +9005,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-27T21:50:01.797608+00:00",
+    "last_run_at": "2026-10-27T22:50:02.479468+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-27T22:00:00+00:00",
+    "next_run_at": "2026-10-27T23:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -8999,10 +9029,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-27T21:50:00.811785+00:00",
+    "last_run_at": "2026-10-27T22:45:01.779658+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-27T21:55:00+00:00",
+    "next_run_at": "2026-10-27T22:50:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9023,10 +9053,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-27T21:47:11.524804+00:00",
+    "last_run_at": "2026-10-27T22:47:38.136310+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-27T21:52:11.524804+00:00",
+    "next_run_at": "2026-10-27T22:52:38.136310+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -9035,10 +9065,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-27T21:50:01.841471+00:00",
+    "last_run_at": "2026-10-27T22:50:00.987955+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-27T21:55:00+00:00",
+    "next_run_at": "2026-10-27T22:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9059,10 +9089,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-27T20:50:41.920153+00:00",
+    "last_run_at": "2026-10-27T21:50:42.396584+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-27T22:50:00+00:00",
+    "next_run_at": "2026-10-27T23:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -9071,10 +9101,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-27T20:55:01.106011+00:00",
+    "last_run_at": "2026-10-27T21:55:01.279004+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-27T21:55:00+00:00",
+    "next_run_at": "2026-10-27T22:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -9115,9 +9145,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-27T21:50:01.842617+00:00"
+  "updated_at": "2026-10-27T22:50:02.480457+00:00"
  },
- "generated_at": "2026-10-27T21:50:01+00:00",
+ "generated_at": "2026-10-27T22:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -9125,19 +9155,19 @@
   },
   "ci": {
    "conclusion": "failure",
-   "created_at": "2026-10-27T21:25:13Z",
-   "head_sha": "85c4c47",
+   "created_at": "2026-10-27T22:43:33Z",
+   "head_sha": "7d3d180",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40586633384"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40596978585"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 24/30 (80%)"
   },
   "head": {
-   "at": "2026-10-27T21:24:31Z",
-   "sha": "85c4c47",
-   "subject": "South/South-East Asia discovery tick: Malaysia river API solved (7-day history only, operator decision), IMD free invent"
+   "at": "2026-10-27T22:43:29Z",
+   "sha": "7d3d180",
+   "subject": "ec-merger corrected package re-qualified: artifact e96929ef, manifest from the new accepted report"
   },
   "tests": {
    "count": "672",
@@ -10664,13 +10694,21 @@
    "qualified": 0,
    "sessions_7d": 196,
    "tokens_7d": 20091587
+  },
+  {
+   "at": "2026-10-27T22:50:01+00:00",
+   "live": 13,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 195,
+   "tokens_7d": 19902318
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T21:50:01+00:00",
+   "as_of": "2026-10-27T22:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -10680,7 +10718,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T21:50:01+00:00",
+   "as_of": "2026-10-27T22:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -10690,7 +10728,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-27T21:50:01+00:00",
+   "as_of": "2026-10-27T22:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -11267,7 +11305,7 @@
      "lo": 0.02
     },
     {
-     "count": 10,
+     "count": 11,
      "hi": 0.1,
      "lo": 0.05
     },
@@ -11289,10 +11327,10 @@
    ],
    "max": 0.6296,
    "median": 0.014,
-   "n": 115,
-   "p90": 0.0542,
+   "n": 116,
+   "p90": 0.0561,
    "ref_rate": 0.06924,
-   "total": 3.84
+   "total": 3.92
   },
   "jobs": [
    {
@@ -11741,10 +11779,22 @@
    },
    {
     "created_at": "2026-10-27T21:17:56.087130+00:00",
+    "deleted_at": "2026-10-27T22:27:21.097381+00:00",
+    "eur": 0.0133,
+    "hours": 1.157,
+    "id": "ecm-requal-001",
+    "location": "hel1",
+    "normalised_eur": 0.0801,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-27T22:27:21.618075+00:00",
     "deleted_at": null,
     "eur": null,
     "hours": null,
-    "id": "ecm-requal-001",
+    "id": "ecm-requal-002",
     "location": "hel1",
     "normalised_eur": null,
     "rate_eur": 0.01152,
@@ -12688,19 +12738,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 74,
-  "jobs_total": 116,
-  "lifetime_eur": 3.31,
+  "jobs_this_month": 75,
+  "jobs_total": 117,
+  "lifetime_eur": 3.32,
   "live": {
-   "checked_at": "2026-10-27T21:50:33+00:00",
+   "checked_at": "2026-10-27T22:50:33+00:00",
    "error": null,
    "primary_ips": 1,
    "primary_ips_total": 1,
    "servers": 1,
    "servers_total": 1
   },
-  "month_hours": 21.7,
-  "month_to_date": 0.87,
+  "month_hours": 22.8,
+  "month_to_date": 0.88,
   "months": [
    {
     "eur": 2.4452,
@@ -12709,13 +12759,13 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.8656,
-    "hours": 21.66,
-    "jobs": 74,
+    "eur": 0.8789,
+    "hours": 22.82,
+    "jobs": 75,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 0.99
+  "projected_month_eur": 1.01
  },
  "schema": 1,
  "sessions": {
@@ -12804,6 +12854,6 @@
     "ts": "2026-10-27T21:29:54.592093+00:00"
    }
   ],
-  "total": 11
+  "total": 9
  }
 }
