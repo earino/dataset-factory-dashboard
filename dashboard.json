@@ -1,9 +1,10 @@
 {
  "alarms": [
-  "Research gate refused the next session: 195 research session(s) already ran in the last 7 days, 5 of which overshot the 600,000-token cap and count double (cap 200)",
+  "scout-discovery-session missed its window (2026-10-28T02:10:00+00:00); last status ok",
+  "Research gate refused the next session: lock held for 2702s by scout-research; 195 research session(s) already ran in the last 7 days, 5 of which overshot the 600,000-token cap and count double (cap 200)",
   "CI on 1f2a59d concluded failure",
   "Test suite is failing",
-  "unhcr-refugee-data-finder has been packaged and actionable for 6.1h - shipping it outranks construction",
+  "unhcr-refugee-data-finder has been packaged and actionable for 7.1h - shipping it outranks construction",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -22,14 +23,15 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-28T01:50:03.104988+00:00",
+   "moment": "2026-10-28T02:50:02.558209+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
+    "lock held for 2702s by scout-research",
     "195 research session(s) already ran in the last 7 days, 5 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 19806106,
+   "research_tokens_last_7_days": 19746550,
    "runs_last_7_days": 195,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -57,14 +59,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 6554,
+     "calls": 6611,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 18188117,
-     "output_tokens": 6254579,
+     "input_tokens": 19220116,
+     "output_tokens": 6316459,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -93,13 +95,14 @@
    "DE": 1,
    "EU": 1,
    "GB": 3,
+   "JP": 1,
    "NZ": 1,
    "TW": 1,
    "US": 1
   },
   "counts": {
-   "dropped": 36,
-   "investigating": 13,
+   "dropped": 37,
+   "investigating": 14,
    "packaged": 2,
    "parked": 26,
    "published": 10,
@@ -809,6 +812,64 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "JP",
+    "domain": "public-health exposure / bioaerosol station-day exceedance prediction (Japan, MOE Hanako-san automatic pollen-counter archive, 2003-2021)",
+    "id": "jp-moe-pollen-exceedance",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "extraction_cost_2026_10_28": "Measured one season's pollen block: 7 requests / 1.74 MB / 4.0 s. Full-panel ESTIMATE (arithmetic, labelled): 223 requests, ~55 MB, ~2 min on the coordinator class; .xls parsing for 2008-2016 needs a worker with xlrd.",
+     "national_2021_2026_10_28": "7 requests, 1,736,797 bytes, 4.01 s (coordinator, 4 vCPU container). Per-region station-name estimates (conservative suffix heuristic, undercounts): Hokkaido 1, Tohoku 10, Kanto 18, Chubu 20, Kansai 13, Chugoku-Shikoku 19, Kyushu 13 = >=94; literature says ~120 sites nationally (Kawatsu et al 2019 PMC6685964; NBER w31593: '120 stations, averaging two to three per prefecture').",
+     "novelty_search_2026_10_28": "Web searches (recorded in notes.md s7): no packaged, split, scored ML-ready pollen benchmark on this panel or any national pollen panel found. Closest prior art: Krakow birch/grass category ML study (PMC12915917) - single city, minimal 2022-2023 dataset on OSF only, full data by email request; EUMETNET Munich low-cost sensor study (one campaign, 6,220 points); Luxembourg PolnPy on data.public.lu (scraped, 'License Not Specified'); Raleigh NC pollen (433 records, one sampler). Hanako data used academically for causal/descriptive work (NBER w31593 allergies-accidents; Tohoku DP TUPD-2026-010 pollen-suicide; Kawatsu et al 2019 phase synchronisations) - none ships a prediction task. Japan's live pollen FORECASTS are private operators (no forecast licence required under the Meteorological Service Act per watabi.org explainer), MOE supplies inputs only.",
+     "probe_archive_2026_10_28": "probe_archive.py (committed) -> evidence_2026-10-28.json: 16 anonymous requests total. Pollen block 113 files (2003: 1 region .. 2008-2021: 7 regions x 14 seasons); AMEDAS block 110 files (2005-2021). Kanto 2021: 3,600 hourly rows = 150 days x 24 h (2021-02-01 through 2021-06-30), 14-16 station columns, one count column per station, in-header missing codes (-9997 Asian dust, -9996 post-hoc removal, -9998 snow, blank unobserved)."
+    },
+    "next_action": "(1) Bulk measurement pass (worker or operator-authorized coordinator pass; NOT started this session): download all 113 pollen + 110 AMEDAS files (~55 MB, ~223 r",
+    "packaged_at": null,
+    "path": "candidates/jp-moe-pollen-exceedance/record.json",
+    "prediction_time": "Prediction instant: 00:00 JST on day t (equivalently the end of day t-1). Features: hourly pollen counts at the station and paired AMEDAS weather, all timestamps <= 23:59 JST day t-1; no same-day values. Historical real-time availability: while it ran, the system published hourly updates (MOE press 4673: '1\u6642\u9593\u3054\u3068\u306b\u66f4\u65b0', real-time web display), so an operational user at day t-1 23:59 had all feature values. VINTAGE CAVEAT (recorded, not resolved): the archive is a post-season cleaned vintage - the in-file code -9996 explicitly marks values removed after comparing '\u524d\u5f8c\u306e\u6642\u9593\u3084\u5468\u8fba\u89b3\u6e2c\u5024' (neighbouring hours/stations), i.e. post-hoc quality edits a real-time user would not have had; blank/-9997/-9998 mark comms outage/Asian dust/snow outages. The task therefore claims NO historical operational availability and is labelled retrospective; the as-of policy is 'archive vintage, as downloaded 2026-10-28'. Station-eligibility for scored rows must be computed from a trailing pre-instant window (e.g. valid days in the last 14 days before t), never from full-season validity, to avoid future-conditioned inclusion.",
+    "publisher": "Ministry of the Environment, Japan (\u74b0\u5883\u7701) - Hanako-san (\u306f\u306a\u3053\u3055\u3093) automatic pollen observation system archive, env.go.jp",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a Hanako-san automatic pollen-counter station (KH-3000 volumetric counter, hourly grains/m3), given that station's own hourly pollen counts through the end of day t-1 and the paired AMEDAS hourly weather through the same instant (plus calendar and station identity), will the station's day-t 24-hour total pollen count exceed a high-pollen threshold? RETROSPECTIVE BENCHMARK: the MOE terminated the automatic network on 2021-12-24, so this is a historical benchmark task on a closed archive, not an operational forecasting product; live pollen feeds are now private (tenki.jp, Weathernews) and are not used.",
+    "region": "East Asia",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Five-contract reconciliation at 2026-10-28 (investigating, not ready): (1) Redistribution SUPPORTED - PDL 1.0, class A, quoted from the publisher's own terms; archive pages carry no rights notice. (2) Timing SUPPORTED FOR RETROSPECTIVE USE ONLY - features <= t-1 are real-time-published historical values, but the archive vintage includes documented post-hoc clean-ups (-9996), so no operational-availability claim; eligibility must use a trailing pre-instant window. (3) Target SUPPORTED - daily sum of hourly counts, units and missing-value semantics documented in-file by the publisher; threshold ours, to be fixed with measured base rates; taxon semantics (sugi vs sugi+hinoki) to pin from MOE documentation. (4) Splits PARTIALLY SUPPORTED - 14 national seasons exist and a full-season sample is measured, but full per-season station-day and positive counts need the bulk parse (construction prerequisite; 2008-2016 are .xls); clustered effective sample is seasons. (5) Not a mirror SUPPORTED - no packaged pollen prediction benchmark found; closest prior art is single-city minimal datasets (notes s7). Family distance from the air-quality exceedance candidates (cpcb-aqi, defra-aurn, air4thai-parked): those are chemical-pollutant station-day tasks; this is a biological allergen with a strong annual pulse, a terminated publisher network, and a health-exposure framing the bench has no member for - the air-family precedent is recorded and the operator can veto. Blocking measurements before ready: full split-window counts, threshold + base rates, taxon semantics, trailing-window eligibility rule.",
+    "sources": [
+     {
+      "licence": "PDL 1.0 per MOE site terms (see license_evidence); archive pages carry no rights notice",
+      "name": "MOE Hanako-san archive: \u904e\u53bb\u30c7\u30fc\u30bf\u4e00\u89a7 (past data list)",
+      "url": "https://www.env.go.jp/page_00209.html"
+     },
+     {
+      "licence": "PDL 1.0 via the same MOE site terms; AMEDAS is JMA data republished by MOE (JMA's own terms also apply PDL 1.0 - see candidates/jma-typhoon-rapid-intensification record)",
+      "name": "MOE Hanako archive: paired AMEDAS weather block (\u30c0\u30a6\u30f3\u30ed\u30fc\u30c92\u3008\u30a2\u30e1\u30c0\u30b9\u30c7\u30fc\u30bf\u3009)",
+      "url": "https://www.env.go.jp/page_00209.html#amedas"
+     },
+     {
+      "licence": "PDL 1.0 (same site terms)",
+      "name": "System termination + current-era successor (instrument change)",
+      "url": "https://www.env.go.jp/press/110339.html"
+     }
+    ],
+    "split_strategy": "PROPOSED, not yet computed (this is the blocking measurement): chronological by season - national coverage exists 2008-2021 (14 seasons, 7 region files each); e.g. train 2008-2016 (9 seasons), eval 2017-2019 (3 seasons), holdout 2020-2021 (2 seasons); both classes expected in every season (early-season near-zero counts vs peak-season high counts observed in the sample). Positives cluster within seasons (pollen episodes) and annual totals alternate large/small production years - the clustered effective sample is seasons, not station-days; full per-season station-day counts and positive counts at the chosen threshold MUST be computed from the full archive before ready. Row-level eligibility: station-days with a valid day total and trailing-window station eligibility (see prediction_time). 2008-2016 files are binary .xls (need xlrd on a worker); 2017-2021 are .xlsx.",
+    "status": "investigating",
+    "target": "Binary: sum of the station's 24 hourly counts on day t (JST) >= threshold, with a censoring rule excluding day t from scored rows when fewer than 20 of 24 hourly values are valid (valid = non-missing per the in-file codes: blank = unobserved/comms outage, -9996 = other/unatural removed, -9997 = Asian-dust interference, -9998 = snow interference). Threshold OURS (construction decision): the archive publishes no daily category table for the automatic counters (the real-time site's 4-level colour scheme is not documented as numeric daily totals in the archive), so a base rate at a candidate threshold (e.g. a JWA-style daily-total level) is measured at construction, not asserted now. Units: grains/m3 (\u500b/m3), volumetric KH-3000 counts; the MOE labels the real-time display '\u30b9\u30ae\u82b1\u7c89\u6570' ('for the time being, sugi pollen count') per press 4673 - whether the archive column is sugi-only or sugi+hinoki total is a documentation check at construction (single count column per station per file; no taxon split in the files). Label source column (day-t counts) is excludable from features by construction (features are strictly <= t-1)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "CA",
     "domain": "industrial facility survival / environmental reporting compliance",
     "id": "npri-facility-reporting-exit",
@@ -1141,7 +1202,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 92.3,
+  "non_us_share": 92.9,
   "records": [
    {
     "awaiting_operator": false,
@@ -3072,7 +3133,7 @@
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
    },
    {
-    "age_hours": 11.1,
+    "age_hours": 12.1,
     "awaiting_operator": true,
     "baseline": {},
     "country": "EU",
@@ -4782,6 +4843,51 @@
     "awaiting_operator": false,
     "baseline": {},
     "country": "JP",
+    "domain": "national statistics portal (Japan) - assessed as a task source for the East Asia tick; no candidate task survived triage",
+    "id": "japan-estat-portal",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "probe_2026_10_28": "Two anonymous fetches: api-guide page (HTTP 200, appId/user-registration requirement text captured) and api terms-of-use (HTTP 200, \u7b2c2\u6761/\u7b2c3\u6761 quoted). Two guessed terms URLs returned 404 (bad guesses, recorded). No catalogue enumeration spent: the portal's product type (aggregate statistical tables) is its stated purpose, and no event-grain register exists on it; a task-level match with an uncovered family was not found, so the access question never became decisive."
+    },
+    "next_action": "Terminal for discovery. Reopening condition stated in rejection_reason; no further probe planned.",
+    "packaged_at": null,
+    "path": "candidates/japan-estat-portal/record.json",
+    "prediction_time": "Not applicable at portal level; monthly/annual statistical tables would state release calendar dates, but no task was formed.",
+    "publisher": "Statistics Bureau of Japan / National Statistics Center (\u7dcf\u52d9\u7701\u7d71\u8a08\u5c40\u30fb\u7d71\u8a08\u30bb\u30f3\u30bf\u30fc) via e-Stat portal",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "None formed. The portal's products are aggregate statistical tables (census, labour force, vital statistics, prices - survey outputs aggregated by publisher design); every candidate task shape they could carry (monthly panel exceedance, e.g. monthly deaths/liquidations/arrivals by region x category) is already a covered bench family with live members: za-statsa-liquidations-exceedance (ready), who-flunet-activity-exceedance (published), abs-visitor-arrivals-direction (published). No event-grain register is published on e-Stat (survey microdata requires a separate official application, not the portal).",
+    "region": "East Asia",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Cheapest-uncertainty-first worked as intended: the source was closed before any schema reading or volume measurement was spent. This is a portal-level drop recorded so a future East Asia tick does not re-open e-Stat blind: (a) it is a task-source mismatch for the bench's uncovered families, and (b) its programmatic access has the same personal-registration shape as KOSIS. Reopen only if the operator names a monthly/annual panel family member for Japan and provisions an e-Stat user registration per the KOSIS precedent, or if e-Stat starts publishing an event-grain register with an anonymous documented API.",
+    "sources": [
+     {
+      "licence": "e-Stat site/API terms require adherence to the portal's utilisation guide; government statistics are generally free to reuse with source attribution (\u51fa\u5178), but the API instrument itself is registration-gated for this pipeline's purposes",
+      "name": "\u653f\u5e9c\u7d71\u8a08\u306e\u7dcf\u5408\u7a93\u53e3 e-Stat (government statistics portal, Statistics Bureau / Statistics Center)",
+      "url": "https://www.e-stat.go.jp/"
+     }
+    ],
+    "split_strategy": "",
+    "status": "dropped",
+    "target": "Not applicable; no target formed. The drop is at the task level plus the access instrument, before any target was proposed."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "JP",
     "domain": "tropical cyclone best track (Japan Meteorological Agency, RSMC Tokyo-Typhoon Center, western North Pacific)",
     "id": "jma-typhoon-rapid-intensification",
     "jobs": [],
@@ -4834,6 +4940,64 @@
     "split_strategy": "",
     "status": "dropped",
     "target": "Binary RI: Vmax(t+24h) - Vmax(t) >= 30 kt. Unit/reference-frame caveat recorded before the rejection was reached: the 30 kt/24 h RI standard is defined on 1-minute sustained winds (Kaplan & DeMaria convention), while JMA best-track winds are 10-minute sustained, so a JMA-units task would need an explicit threshold decision and a known-event fixture; this question is moot because the task is a mirror."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "JP",
+    "domain": "public-health exposure / bioaerosol station-day exceedance prediction (Japan, MOE Hanako-san automatic pollen-counter archive, 2003-2021)",
+    "id": "jp-moe-pollen-exceedance",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "extraction_cost_2026_10_28": "Measured one season's pollen block: 7 requests / 1.74 MB / 4.0 s. Full-panel ESTIMATE (arithmetic, labelled): 223 requests, ~55 MB, ~2 min on the coordinator class; .xls parsing for 2008-2016 needs a worker with xlrd.",
+     "national_2021_2026_10_28": "7 requests, 1,736,797 bytes, 4.01 s (coordinator, 4 vCPU container). Per-region station-name estimates (conservative suffix heuristic, undercounts): Hokkaido 1, Tohoku 10, Kanto 18, Chubu 20, Kansai 13, Chugoku-Shikoku 19, Kyushu 13 = >=94; literature says ~120 sites nationally (Kawatsu et al 2019 PMC6685964; NBER w31593: '120 stations, averaging two to three per prefecture').",
+     "novelty_search_2026_10_28": "Web searches (recorded in notes.md s7): no packaged, split, scored ML-ready pollen benchmark on this panel or any national pollen panel found. Closest prior art: Krakow birch/grass category ML study (PMC12915917) - single city, minimal 2022-2023 dataset on OSF only, full data by email request; EUMETNET Munich low-cost sensor study (one campaign, 6,220 points); Luxembourg PolnPy on data.public.lu (scraped, 'License Not Specified'); Raleigh NC pollen (433 records, one sampler). Hanako data used academically for causal/descriptive work (NBER w31593 allergies-accidents; Tohoku DP TUPD-2026-010 pollen-suicide; Kawatsu et al 2019 phase synchronisations) - none ships a prediction task. Japan's live pollen FORECASTS are private operators (no forecast licence required under the Meteorological Service Act per watabi.org explainer), MOE supplies inputs only.",
+     "probe_archive_2026_10_28": "probe_archive.py (committed) -> evidence_2026-10-28.json: 16 anonymous requests total. Pollen block 113 files (2003: 1 region .. 2008-2021: 7 regions x 14 seasons); AMEDAS block 110 files (2005-2021). Kanto 2021: 3,600 hourly rows = 150 days x 24 h (2021-02-01 through 2021-06-30), 14-16 station columns, one count column per station, in-header missing codes (-9997 Asian dust, -9996 post-hoc removal, -9998 snow, blank unobserved)."
+    },
+    "next_action": "(1) Bulk measurement pass (worker or operator-authorized coordinator pass; NOT started this session): download all 113 pollen + 110 AMEDAS files (~55 MB, ~223 r",
+    "packaged_at": null,
+    "path": "candidates/jp-moe-pollen-exceedance/record.json",
+    "prediction_time": "Prediction instant: 00:00 JST on day t (equivalently the end of day t-1). Features: hourly pollen counts at the station and paired AMEDAS weather, all timestamps <= 23:59 JST day t-1; no same-day values. Historical real-time availability: while it ran, the system published hourly updates (MOE press 4673: '1\u6642\u9593\u3054\u3068\u306b\u66f4\u65b0', real-time web display), so an operational user at day t-1 23:59 had all feature values. VINTAGE CAVEAT (recorded, not resolved): the archive is a post-season cleaned vintage - the in-file code -9996 explicitly marks values removed after comparing '\u524d\u5f8c\u306e\u6642\u9593\u3084\u5468\u8fba\u89b3\u6e2c\u5024' (neighbouring hours/stations), i.e. post-hoc quality edits a real-time user would not have had; blank/-9997/-9998 mark comms outage/Asian dust/snow outages. The task therefore claims NO historical operational availability and is labelled retrospective; the as-of policy is 'archive vintage, as downloaded 2026-10-28'. Station-eligibility for scored rows must be computed from a trailing pre-instant window (e.g. valid days in the last 14 days before t), never from full-season validity, to avoid future-conditioned inclusion.",
+    "publisher": "Ministry of the Environment, Japan (\u74b0\u5883\u7701) - Hanako-san (\u306f\u306a\u3053\u3055\u3093) automatic pollen observation system archive, env.go.jp",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a Hanako-san automatic pollen-counter station (KH-3000 volumetric counter, hourly grains/m3), given that station's own hourly pollen counts through the end of day t-1 and the paired AMEDAS hourly weather through the same instant (plus calendar and station identity), will the station's day-t 24-hour total pollen count exceed a high-pollen threshold? RETROSPECTIVE BENCHMARK: the MOE terminated the automatic network on 2021-12-24, so this is a historical benchmark task on a closed archive, not an operational forecasting product; live pollen feeds are now private (tenki.jp, Weathernews) and are not used.",
+    "region": "East Asia",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Five-contract reconciliation at 2026-10-28 (investigating, not ready): (1) Redistribution SUPPORTED - PDL 1.0, class A, quoted from the publisher's own terms; archive pages carry no rights notice. (2) Timing SUPPORTED FOR RETROSPECTIVE USE ONLY - features <= t-1 are real-time-published historical values, but the archive vintage includes documented post-hoc clean-ups (-9996), so no operational-availability claim; eligibility must use a trailing pre-instant window. (3) Target SUPPORTED - daily sum of hourly counts, units and missing-value semantics documented in-file by the publisher; threshold ours, to be fixed with measured base rates; taxon semantics (sugi vs sugi+hinoki) to pin from MOE documentation. (4) Splits PARTIALLY SUPPORTED - 14 national seasons exist and a full-season sample is measured, but full per-season station-day and positive counts need the bulk parse (construction prerequisite; 2008-2016 are .xls); clustered effective sample is seasons. (5) Not a mirror SUPPORTED - no packaged pollen prediction benchmark found; closest prior art is single-city minimal datasets (notes s7). Family distance from the air-quality exceedance candidates (cpcb-aqi, defra-aurn, air4thai-parked): those are chemical-pollutant station-day tasks; this is a biological allergen with a strong annual pulse, a terminated publisher network, and a health-exposure framing the bench has no member for - the air-family precedent is recorded and the operator can veto. Blocking measurements before ready: full split-window counts, threshold + base rates, taxon semantics, trailing-window eligibility rule.",
+    "sources": [
+     {
+      "licence": "PDL 1.0 per MOE site terms (see license_evidence); archive pages carry no rights notice",
+      "name": "MOE Hanako-san archive: \u904e\u53bb\u30c7\u30fc\u30bf\u4e00\u89a7 (past data list)",
+      "url": "https://www.env.go.jp/page_00209.html"
+     },
+     {
+      "licence": "PDL 1.0 via the same MOE site terms; AMEDAS is JMA data republished by MOE (JMA's own terms also apply PDL 1.0 - see candidates/jma-typhoon-rapid-intensification record)",
+      "name": "MOE Hanako archive: paired AMEDAS weather block (\u30c0\u30a6\u30f3\u30ed\u30fc\u30c92\u3008\u30a2\u30e1\u30c0\u30b9\u30c7\u30fc\u30bf\u3009)",
+      "url": "https://www.env.go.jp/page_00209.html#amedas"
+     },
+     {
+      "licence": "PDL 1.0 (same site terms)",
+      "name": "System termination + current-era successor (instrument change)",
+      "url": "https://www.env.go.jp/press/110339.html"
+     }
+    ],
+    "split_strategy": "PROPOSED, not yet computed (this is the blocking measurement): chronological by season - national coverage exists 2008-2021 (14 seasons, 7 region files each); e.g. train 2008-2016 (9 seasons), eval 2017-2019 (3 seasons), holdout 2020-2021 (2 seasons); both classes expected in every season (early-season near-zero counts vs peak-season high counts observed in the sample). Positives cluster within seasons (pollen episodes) and annual totals alternate large/small production years - the clustered effective sample is seasons, not station-days; full per-season station-day counts and positive counts at the chosen threshold MUST be computed from the full archive before ready. Row-level eligibility: station-days with a valid day total and trailing-window station eligibility (see prediction_time). 2008-2016 files are binary .xls (need xlrd on a worker); 2017-2021 are .xlsx.",
+    "status": "investigating",
+    "target": "Binary: sum of the station's 24 hourly counts on day t (JST) >= threshold, with a censoring rule excluding day t from scored rows when fewer than 20 of 24 hourly values are valid (valid = non-missing per the in-file codes: blank = unobserved/comms outage, -9996 = other/unatural removed, -9997 = Asian-dust interference, -9998 = snow interference). Threshold OURS (construction decision): the archive publishes no daily category table for the automatic counters (the real-time site's 4-level colour scheme is not documented as numeric daily totals in the archive), so a base rate at a candidate threshold (e.g. a JWA-style daily-total level) is measured at construction, not asserted now. Units: grains/m3 (\u500b/m3), volumetric KH-3000 counts; the MOE labels the real-time display '\u30b9\u30ae\u82b1\u7c89\u6570' ('for the time being, sugi pollen count') per press 4673 - whether the archive column is sugi-only or sugi+hinoki total is a documentation check at construction (single count column per station per file; no taxon split in the files). Label source column (day-t counts) is excludable from features by construction (features are strictly <= t-1)."
    },
    {
     "awaiting_operator": false,
@@ -7416,7 +7580,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 6.1,
+    "age_hours": 7.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -8252,7 +8416,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 11.1,
+     "age_hours": 12.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8389,7 +8553,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 11.1,
+     "age_hours": 12.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8524,7 +8688,7 @@
      "target": "Binary: the case record carries at least one decision of type 'Art. 6(1)(c)' (the decision by which the Commission initiates proceedings because of serious doubts - the Phase II opener, same article number under Reg 4064/89 and Reg 139/2004). Label source: the decisions[] block of the register record (decisionTypes, decisionAdoptionDate), which is excluded wholesale from shipped features. Measured: 309 positives / 10,123 eligible cases = 3.05%. Measured alternative recorded for construction: any-intervention union (Phase II opener OR Phase I remedies 'Art. 6(1)(b) with conditions & obligations') = 673 / 10,123 = 6.65% (remedies-only 367 = 3.63%)."
     },
     {
-     "age_hours": 6.1,
+     "age_hours": 7.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -8726,7 +8890,7 @@
    ],
    "pending": [
     {
-     "age_hours": 6.1,
+     "age_hours": 7.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -8946,7 +9110,7 @@
    "HK": 2,
    "ID": 3,
    "IN": 3,
-   "JP": 1,
+   "JP": 3,
    "KE": 1,
    "KR": 1,
    "MA": 1,
@@ -8965,7 +9129,7 @@
   },
   "by_region": {
    "Africa": 8,
-   "East Asia": 6,
+   "East Asia": 8,
    "Europe": 22,
    "International organisations": 7,
    "Latin America": 8,
@@ -8974,17 +9138,17 @@
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 36,
-   "investigating": 13,
+   "dropped": 37,
+   "investigating": 14,
    "packaged": 2,
    "parked": 26,
    "published": 10,
    "ready": 5
   },
-  "candidates": 92,
-  "live": 30,
-  "live_non_us": 24,
-  "live_non_us_share": 0.8,
+  "candidates": 94,
+  "live": 31,
+  "live_non_us": 25,
+  "live_non_us_share": 0.806,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -9006,10 +9170,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-28T01:50:01.917361+00:00",
+    "last_run_at": "2026-10-28T02:50:01.532610+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-28T02:00:00+00:00",
+    "next_run_at": "2026-10-28T03:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -9030,10 +9194,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-28T01:50:01.316571+00:00",
+    "last_run_at": "2026-10-28T02:50:01.614351+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-28T01:55:00+00:00",
+    "next_run_at": "2026-10-28T02:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9054,10 +9218,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-28T01:49:48.158475+00:00",
+    "last_run_at": "2026-10-28T02:45:04.717303+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-28T01:54:48.158475+00:00",
+    "next_run_at": "2026-10-28T02:50:04.717303+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -9066,10 +9230,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-28T01:50:02.091503+00:00",
+    "last_run_at": "2026-10-28T02:00:02.162407+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-28T01:55:00+00:00",
+    "next_run_at": "2026-10-28T02:10:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9090,10 +9254,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-28T00:50:41.499442+00:00",
+    "last_run_at": "2026-10-28T01:50:42.181774+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-28T02:50:00+00:00",
+    "next_run_at": "2026-10-28T03:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -9102,10 +9266,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-28T00:55:00.924405+00:00",
+    "last_run_at": "2026-10-28T01:55:01.711160+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-28T01:55:00+00:00",
+    "next_run_at": "2026-10-28T02:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -9146,13 +9310,13 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-28T01:50:02.092562+00:00"
+  "updated_at": "2026-10-28T02:50:01.615379+00:00"
  },
- "generated_at": "2026-10-28T01:50:01+00:00",
+ "generated_at": "2026-10-28T02:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 92
+   "passing": 94
   },
   "ci": {
    "conclusion": "failure",
@@ -9163,7 +9327,7 @@
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 24/30 (80%)"
+   "summary": "live non-US: 25/31 (81%)"
   },
   "head": {
    "at": "2026-10-28T00:18:48Z",
@@ -10727,13 +10891,21 @@
    "qualified": 0,
    "sessions_7d": 195,
    "tokens_7d": 19806106
+  },
+  {
+   "at": "2026-10-28T02:50:01+00:00",
+   "live": 14,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 195,
+   "tokens_7d": 19746550
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T01:50:01+00:00",
+   "as_of": "2026-10-28T02:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -10743,17 +10915,17 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T01:50:01+00:00",
+   "as_of": "2026-10-28T02:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 13
+   "value": 14
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T01:50:01+00:00",
+   "as_of": "2026-10-28T02:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -12803,7 +12975,7 @@
   "jobs_total": 120,
   "lifetime_eur": 3.35,
   "live": {
-   "checked_at": "2026-10-28T01:50:34+00:00",
+   "checked_at": "2026-10-28T02:50:32+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
