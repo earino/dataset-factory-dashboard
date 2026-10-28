@@ -1,10 +1,9 @@
 {
  "alarms": [
-  "scout-discovery-session missed its window (2026-10-28T04:10:00+00:00); last status ok",
-  "Research gate refused the next session: lock held for 2702s by scout-research; 195 research session(s) already ran in the last 7 days, 6 of which overshot the 600,000-token cap and count double (cap 200)",
-  "CI on 03eeeac concluded failure",
+  "Research gate refused the next session: 195 research session(s) already ran in the last 7 days, 6 of which overshot the 600,000-token cap and count double (cap 200)",
+  "CI on f7e8299 concluded failure",
   "Test suite is failing",
-  "unhcr-refugee-data-finder has been packaged and actionable for 9.1h - shipping it outranks construction",
+  "unhcr-refugee-data-finder has been packaged and actionable for 10.1h - shipping it outranks construction",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -23,15 +22,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-28T04:50:03.214408+00:00",
+   "moment": "2026-10-28T05:50:41.490669+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 2702s by scout-research",
     "195 research session(s) already ran in the last 7 days, 6 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 23388042,
+   "research_tokens_last_7_days": 24028168,
    "runs_last_7_days": 195,
    "runs_weighted_last_7_days": 201,
    "session_cap_per_week": 200,
@@ -59,14 +57,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 6703,
+     "calls": 6725,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 22775498,
-     "output_tokens": 6403318,
+     "input_tokens": 23704701,
+     "output_tokens": 6413980,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -89,6 +87,7 @@
  },
  "candidates": {
   "countries": {
+   "AU": 1,
    "BR": 2,
    "CA": 2,
    "CO": 1,
@@ -102,7 +101,7 @@
   },
   "counts": {
    "dropped": 37,
-   "investigating": 14,
+   "investigating": 15,
    "packaged": 2,
    "parked": 26,
    "published": 10,
@@ -673,6 +672,58 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "AU",
+    "domain": "environmental regulation / referral screening outcome prediction",
+    "id": "epbc-referral-controlled-action",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "access_2026_10_28": "Portal list: anonymous, JS-rendered PCF grid, 10 rows/page, '5000 records' shown; XHR-driven pagination not reproducible by plain urllib (grid endpoint guesses 404); static per-project pages fetch anonymously. One decided project page read anonymously: EPBC 2024/10023 (Princes Highway upgrade program - Milton Ulladulla bypass) status 'Assessment Approach Determined' with the full stage timeline rendered in static HTML. Extraction is therefore browser-automation shaped (grid pagination ~500 XHR calls + optional per-project pages), feasible on a worker with a headless browser; no bulk CSV/JSON channel was found in the bounded sweep.",
+     "ecosystem_note_2026_10_28": "The EPBC Act is administered by Australia's National EPA (nationalepa.gov.au, portal still on environment.gov.au domain). No machine-readable bulk referral-decision dataset was found on data.gov.au in the bounded catalogue sweep (nearest: referrals spatial database, WMS-only).",
+     "portal_fields_2026_10_28": "List row fields (verified in browser): EPBC Number, Project, Proposer/Approval Holder, Location, Industry Type, Valid Date, Project Status (observed value 'Referral Decision - Open for Public Comment'), Primary Jurisdiction. Whether the terminal referral-decision outcome is exposed in the LIST (status string) or only on per-project pages is unresolved - the label-derivation cost differs by an order of magnitude between the two."
+    },
+    "next_action": "Cheapest-uncertainty order: (1) read the licence from the publisher's own instrument in the supported browser (dcceew/nationalepa copyright page or the portal's",
+    "packaged_at": null,
+    "path": "candidates/epbc-referral-controlled-action/record.json",
+    "prediction_time": "Instant = the referral's validation/publication on the EPBC Act Public Portal (per-project pages show a stage timeline Lodgement -> Validation -> Referral Decision -> Assessment -> Final Decision; the portal's list carries a 'Valid Date' column). Features fixed at that instant: project title, proponent name, industry type, location (address string and primary jurisdiction), and referral document metadata. The referral decision (the label) is published later on the same project page as a decision notice, within the statutory 20-business-day window - the outcome cannot exist at the instant.",
+    "publisher": "Department of Climate Change, Energy, the Environment and Water / National EPA (EPBC Act Public Portal)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a development referred under the Environment Protection and Biodiversity Conservation Act 1999 (EPBC Act), at the instant the referral is validated and published on the EPBC Act Public Portal (with its title, proponent, industry type, location and primary jurisdiction visible), will the delegate's referral decision (due within 20 business days of validation) declare the action a controlled action (requiring formal assessment and approval) rather than 'not a controlled action' or 'not a controlled action - particular manner'? Prospective users: proponents and their environmental consultants (screening and budgeting for assessment before lodging), and oversight researchers studying what drives regulatory thresholds. A useful prediction prices assessment risk at referral time instead of waiting the ~4 weeks for the decision.",
+    "region": "Oceania",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Investigating, opened 2026-10-28 (Oceania tick). Contracts status: (1) Redistribution UNRESOLVED - the register's own licence is unread (publisher pages time out from this host; browser read is the named next probe); the sibling spatial-database catalogue record is cc-by-4.0, which is suggestive, not evidence for the register. (2) Prediction timing SUPPORTED in structure - validation/publication instant, 20-business-day decision window, decision published later on the same page; per-project stage timelines observed. (3) Target SUPPORTED in structure - controlled-action decision observable per project; the open question is whether it is derivable from the list (cheap) or needs per-project fetches (expensive). (4) Split capacity UNMEASURED - the true referral population is unknown ('5000 records' may be a cap) and per-year outcome counts are unmeasured. (5) Contribution UNMEASURED - no novelty search yet; the task is unfamiliar to this bench (no EPBC benchmark known), but the rule is to check mechanically before any ready claim.",
+    "sources": [
+     {
+      "licence": "not yet read - see license_evidence and next_action",
+      "name": "EPBC Act Public Portal - All referrals list (Microsoft Dynamics/Power Apps portal, ~5000 records shown, 10 rows/page grid, filterable)",
+      "url": "https://epbcpublicportal.environment.gov.au/all-referrals/"
+     },
+     {
+      "licence": "cc-by-4.0 on the spatial-database catalogue record (NOT the register's own instrument; the portal task source remains unclassified)",
+      "name": "EPBC Referrals Spatial Database (DCCEEW on data.gov.au) - WMS only, no bulk attributes",
+      "url": "https://data.gov.au/data/dataset/referrals-spatial-database"
+     }
+    ],
+    "split_strategy": "Not yet computed - depends on measured referral volumes and outcome vocabulary. Prior expectation (labelled as such, not measured): ~500-800 referrals/year since 2000, controlled-action share historically a large minority (decisive construction measurement). Whether the portal's '5000 records' is the full historical population or a display cap is an OPEN measurement (grid XHR replay needed); per-year coverage must be established before split windows can be designed.",
+    "status": "investigating",
+    "target": "Binary: 1 if the referral decision declares a controlled action (assessment approach determined on the project page; decision notice 'Controlled Action'), 0 for 'Not a controlled action' / 'particular manner' decisions. Label source = the per-project decision field/notice on the portal, excludable from shipped features (features are referral-time fields only). Population: all referrals in the portal's All-referrals list; still-open referrals at the data edge are censored, not imputed."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "CO",
     "domain": "hydrological risk operations - river-station alert-threshold exceedance prediction (Colombia, IDEAM automatic-station telemetry)",
     "id": "ideam-rio-nivel-exceedance",
@@ -1202,7 +1253,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 92.9,
+  "non_us_share": 93.3,
   "records": [
    {
     "awaiting_operator": false,
@@ -3200,7 +3251,7 @@
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
    },
    {
-    "age_hours": 14.1,
+    "age_hours": 15.1,
     "awaiting_operator": true,
     "baseline": {},
     "country": "EU",
@@ -3581,6 +3632,58 @@
     "split_strategy": "not applicable - rejected before construction",
     "status": "dropped",
     "target": "Would be the qualitative detection result per (sample, parameter) row - the same label family as bvl-zoom-sample-positivity's ErgAlphaT. Not pinned this session; see rejection_reason."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "AU",
+    "domain": "environmental regulation / referral screening outcome prediction",
+    "id": "epbc-referral-controlled-action",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "access_2026_10_28": "Portal list: anonymous, JS-rendered PCF grid, 10 rows/page, '5000 records' shown; XHR-driven pagination not reproducible by plain urllib (grid endpoint guesses 404); static per-project pages fetch anonymously. One decided project page read anonymously: EPBC 2024/10023 (Princes Highway upgrade program - Milton Ulladulla bypass) status 'Assessment Approach Determined' with the full stage timeline rendered in static HTML. Extraction is therefore browser-automation shaped (grid pagination ~500 XHR calls + optional per-project pages), feasible on a worker with a headless browser; no bulk CSV/JSON channel was found in the bounded sweep.",
+     "ecosystem_note_2026_10_28": "The EPBC Act is administered by Australia's National EPA (nationalepa.gov.au, portal still on environment.gov.au domain). No machine-readable bulk referral-decision dataset was found on data.gov.au in the bounded catalogue sweep (nearest: referrals spatial database, WMS-only).",
+     "portal_fields_2026_10_28": "List row fields (verified in browser): EPBC Number, Project, Proposer/Approval Holder, Location, Industry Type, Valid Date, Project Status (observed value 'Referral Decision - Open for Public Comment'), Primary Jurisdiction. Whether the terminal referral-decision outcome is exposed in the LIST (status string) or only on per-project pages is unresolved - the label-derivation cost differs by an order of magnitude between the two."
+    },
+    "next_action": "Cheapest-uncertainty order: (1) read the licence from the publisher's own instrument in the supported browser (dcceew/nationalepa copyright page or the portal's",
+    "packaged_at": null,
+    "path": "candidates/epbc-referral-controlled-action/record.json",
+    "prediction_time": "Instant = the referral's validation/publication on the EPBC Act Public Portal (per-project pages show a stage timeline Lodgement -> Validation -> Referral Decision -> Assessment -> Final Decision; the portal's list carries a 'Valid Date' column). Features fixed at that instant: project title, proponent name, industry type, location (address string and primary jurisdiction), and referral document metadata. The referral decision (the label) is published later on the same project page as a decision notice, within the statutory 20-business-day window - the outcome cannot exist at the instant.",
+    "publisher": "Department of Climate Change, Energy, the Environment and Water / National EPA (EPBC Act Public Portal)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a development referred under the Environment Protection and Biodiversity Conservation Act 1999 (EPBC Act), at the instant the referral is validated and published on the EPBC Act Public Portal (with its title, proponent, industry type, location and primary jurisdiction visible), will the delegate's referral decision (due within 20 business days of validation) declare the action a controlled action (requiring formal assessment and approval) rather than 'not a controlled action' or 'not a controlled action - particular manner'? Prospective users: proponents and their environmental consultants (screening and budgeting for assessment before lodging), and oversight researchers studying what drives regulatory thresholds. A useful prediction prices assessment risk at referral time instead of waiting the ~4 weeks for the decision.",
+    "region": "Oceania",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Investigating, opened 2026-10-28 (Oceania tick). Contracts status: (1) Redistribution UNRESOLVED - the register's own licence is unread (publisher pages time out from this host; browser read is the named next probe); the sibling spatial-database catalogue record is cc-by-4.0, which is suggestive, not evidence for the register. (2) Prediction timing SUPPORTED in structure - validation/publication instant, 20-business-day decision window, decision published later on the same page; per-project stage timelines observed. (3) Target SUPPORTED in structure - controlled-action decision observable per project; the open question is whether it is derivable from the list (cheap) or needs per-project fetches (expensive). (4) Split capacity UNMEASURED - the true referral population is unknown ('5000 records' may be a cap) and per-year outcome counts are unmeasured. (5) Contribution UNMEASURED - no novelty search yet; the task is unfamiliar to this bench (no EPBC benchmark known), but the rule is to check mechanically before any ready claim.",
+    "sources": [
+     {
+      "licence": "not yet read - see license_evidence and next_action",
+      "name": "EPBC Act Public Portal - All referrals list (Microsoft Dynamics/Power Apps portal, ~5000 records shown, 10 rows/page grid, filterable)",
+      "url": "https://epbcpublicportal.environment.gov.au/all-referrals/"
+     },
+     {
+      "licence": "cc-by-4.0 on the spatial-database catalogue record (NOT the register's own instrument; the portal task source remains unclassified)",
+      "name": "EPBC Referrals Spatial Database (DCCEEW on data.gov.au) - WMS only, no bulk attributes",
+      "url": "https://data.gov.au/data/dataset/referrals-spatial-database"
+     }
+    ],
+    "split_strategy": "Not yet computed - depends on measured referral volumes and outcome vocabulary. Prior expectation (labelled as such, not measured): ~500-800 referrals/year since 2000, controlled-action share historically a large minority (decisive construction measurement). Whether the portal's '5000 records' is the full historical population or a display cap is an OPEN measurement (grid XHR replay needed); per-year coverage must be established before split windows can be designed.",
+    "status": "investigating",
+    "target": "Binary: 1 if the referral decision declares a controlled action (assessment approach determined on the project page; decision notice 'Controlled Action'), 0 for 'Not a controlled action' / 'particular manner' decisions. Label source = the per-project decision field/notice on the portal, excludable from shipped features (features are referral-time fields only). Population: all referrals in the portal's All-referrals list; still-open referrals at the data edge are censored, not imputed."
    },
    {
     "awaiting_operator": false,
@@ -7647,7 +7750,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 9.1,
+    "age_hours": 10.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -8483,7 +8586,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 14.1,
+     "age_hours": 15.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8620,7 +8723,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 14.1,
+     "age_hours": 15.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8755,7 +8858,7 @@
      "target": "Binary: the case record carries at least one decision of type 'Art. 6(1)(c)' (the decision by which the Commission initiates proceedings because of serious doubts - the Phase II opener, same article number under Reg 4064/89 and Reg 139/2004). Label source: the decisions[] block of the register record (decisionTypes, decisionAdoptionDate), which is excluded wholesale from shipped features. Measured: 309 positives / 10,123 eligible cases = 3.05%. Measured alternative recorded for construction: any-intervention union (Phase II opener OR Phase I remedies 'Art. 6(1)(b) with conditions & obligations') = 673 / 10,123 = 6.65% (remedies-only 367 = 3.63%)."
     },
     {
-     "age_hours": 9.1,
+     "age_hours": 10.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -8957,7 +9060,7 @@
    ],
    "pending": [
     {
-     "age_hours": 9.1,
+     "age_hours": 10.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9163,7 +9266,7 @@
   "by_country": {
    "AR": 1,
    "AT": 1,
-   "AU": 5,
+   "AU": 6,
    "BR": 2,
    "CA": 13,
    "CH": 3,
@@ -9201,21 +9304,21 @@
    "International organisations": 7,
    "Latin America": 8,
    "North America": 23,
-   "Oceania": 6,
+   "Oceania": 7,
    "South & South-East Asia": 13
   },
   "by_status": {
    "dropped": 37,
-   "investigating": 14,
+   "investigating": 15,
    "packaged": 2,
    "parked": 26,
    "published": 10,
    "ready": 6
   },
-  "candidates": 95,
-  "live": 32,
-  "live_non_us": 26,
-  "live_non_us_share": 0.812,
+  "candidates": 96,
+  "live": 33,
+  "live_non_us": 27,
+  "live_non_us_share": 0.818,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -9237,10 +9340,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-28T04:50:02.060442+00:00",
+    "last_run_at": "2026-10-28T05:40:02.719524+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-28T05:00:00+00:00",
+    "next_run_at": "2026-10-28T05:50:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -9261,10 +9364,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-28T04:50:01.087722+00:00",
+    "last_run_at": "2026-10-28T05:50:40.362560+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-28T04:55:00+00:00",
+    "next_run_at": "2026-10-28T05:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9285,10 +9388,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-28T04:45:42.049659+00:00",
+    "last_run_at": "2026-10-28T05:46:02.132707+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-28T04:50:42.049659+00:00",
+    "next_run_at": "2026-10-28T05:51:02.132707+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -9297,10 +9400,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-28T04:00:03.612289+00:00",
+    "last_run_at": "2026-10-28T05:45:01.037508+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-28T04:10:00+00:00",
+    "next_run_at": "2026-10-28T05:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9321,10 +9424,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-28T03:50:40.968811+00:00",
+    "last_run_at": "2026-10-28T04:51:29.382203+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-28T05:50:00+00:00",
+    "next_run_at": "2026-10-28T06:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -9333,10 +9436,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-28T03:55:00.787078+00:00",
+    "last_run_at": "2026-10-28T04:55:00.794999+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-28T04:55:00+00:00",
+    "next_run_at": "2026-10-28T05:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -9377,29 +9480,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-28T04:50:02.061446+00:00"
+  "updated_at": "2026-10-28T05:50:41.440955+00:00"
  },
- "generated_at": "2026-10-28T04:50:02+00:00",
+ "generated_at": "2026-10-28T05:50:40+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 95
+   "passing": 96
   },
   "ci": {
    "conclusion": "failure",
-   "created_at": "2026-10-28T03:03:43Z",
-   "head_sha": "03eeeac",
+   "created_at": "2026-10-28T05:01:10Z",
+   "head_sha": "f7e8299",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40624509346"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40635543935"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 26/32 (81%)"
+   "summary": "live non-US: 27/33 (82%)"
   },
   "head": {
-   "at": "2026-10-28T03:03:40Z",
-   "sha": "03eeeac",
-   "subject": "Record observed CI result for discovery commit 3f41b98 (failure at unittest on the pre-existing runtime-audit defect; la"
+   "at": "2026-10-28T05:01:07Z",
+   "sha": "f7e8299",
+   "subject": "Oceania discovery tick: austender-contract-amendment-occurrence ready (CC BY 3.0 AU, measured 10.96% 12-month amendment "
   },
   "tests": {
    "count": "672",
@@ -10982,13 +11085,21 @@
    "qualified": 0,
    "sessions_7d": 195,
    "tokens_7d": 23388042
+  },
+  {
+   "at": "2026-10-28T05:50:40+00:00",
+   "live": 15,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 195,
+   "tokens_7d": 24028168
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T04:50:02+00:00",
+   "as_of": "2026-10-28T05:50:40+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -10998,17 +11109,17 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T04:50:02+00:00",
+   "as_of": "2026-10-28T05:50:40+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 14
+   "value": 15
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T04:50:02+00:00",
+   "as_of": "2026-10-28T05:50:40+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -13058,7 +13169,7 @@
   "jobs_total": 120,
   "lifetime_eur": 3.35,
   "live": {
-   "checked_at": "2026-10-28T04:50:33+00:00",
+   "checked_at": "2026-10-28T05:51:12+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -13099,8 +13210,21 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "e3d98e238844899052efea0b61b17eb8761f112d73d291ad71d103169ca98ef8",
     "ts": "2026-10-28T03:07:13.016065+00:00"
+   },
+   {
+    "elapsed_seconds": 3441.7,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "6c5d6a8affa7c94a23f803eb2c278766d85ac89f879fb39584ab50e4ae57bad1",
+    "ts": "2026-10-28T05:02:23.244169+00:00"
    }
   ],
-  "total": 1
+  "total": 2
  }
 }
