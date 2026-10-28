@@ -1,9 +1,6 @@
 {
  "alarms": [
-  "Research gate refused the next session: 194 research session(s) already ran in the last 7 days, 6 of which overshot the 600,000-token cap and count double (cap 200)",
-  "Test suite is failing",
-  "unhcr-refugee-data-finder has been packaged and actionable for 18.1h - shipping it outranks construction",
-  "1 release(s) not fully verified"
+  "Research gate refused the next session: 194 research session(s) already ran in the last 7 days, 7 of which overshot the 600,000-token cap and count double (cap 200)"
  ],
  "budget": {
   "config": {
@@ -21,18 +18,18 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-28T13:50:03.218138+00:00",
+   "moment": "2026-10-28T14:50:02.832800+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "194 research session(s) already ran in the last 7 days, 6 of which overshot the 600,000-token cap and count double (cap 200)"
+    "194 research session(s) already ran in the last 7 days, 7 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 23688502,
+   "research_tokens_last_7_days": 26055399,
    "runs_last_7_days": 194,
-   "runs_weighted_last_7_days": 200,
+   "runs_weighted_last_7_days": 201,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 6,
+   "sessions_over_token_cap": 7,
    "usage": {
     "auxiliary": {
      "calls": 688,
@@ -56,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 6914,
+     "calls": 7032,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 23988119,
-     "output_tokens": 6603082,
+     "input_tokens": 26486050,
+     "output_tokens": 6660151,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -8047,8 +8044,8 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 18.1,
-    "awaiting_operator": false,
+    "age_hours": 19.1,
+    "awaiting_operator": true,
     "baseline": {},
     "country": "CH",
     "domain": "forced displacement - corridor-level asylum-application surge prediction (international organisation publisher)",
@@ -8062,6 +8059,16 @@
      {
       "at": null,
       "id": "unhcr-baseline-001",
+      "status": null
+     },
+     {
+      "at": null,
+      "id": "unhcr-publish-001",
+      "status": null
+     },
+     {
+      "at": null,
+      "id": "unhcr-hf-001",
       "status": null
      }
     ],
@@ -8174,7 +8181,7 @@
      "update_cadence_observed_2026_10_23": "HDX package activity (CKAN package_activity_list, 60 entries read 2026-10-23): resource/dataset updates on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22, 2026-08-20 - a several-times-a-year refresh pattern aligned with UNHCR's annual statistical cycle (Global Trends lands ~June of D+1). The 2026-08-20 applications resource carries complete data through 2025, so year-D data is machine-observable at latest ~August of D+1; the conservative instant is the first observed mid-year-or-later refresh carrying year D.",
      "waf_probe_2026_10_20": "curl https://www.unhcr.org/refugee-statistics/ -> HTTP 403, 182,520 B (challenge page); the same URL loads normally in a real browser (title 'Refugee Data Finder - Key Indicators'). In-page same-origin fetch of the export deep link -> HTTP 403, 222,964 B. Both measured from the coordinator."
     },
-    "next_action": "Private staging of release/unhcr-refugee-data-finder v2026.10 (both destinations), then the operator holds the flip. Mechanical steps, mirroring ec-merger-phase",
+    "next_action": "Private staging of release/unhcr-refugee-data-finder v2026.10 is COMPLETE on both destinations (GitHub release 426752344 and Hugging Face main 89485538, both ve",
     "packaged_at": "2026-10-27T19:44:51Z",
     "path": "candidates/unhcr-refugee-data-finder/record.json",
     "prediction_time": "Annual publication-lag NOWCAST - the accepted abs-visitor-arrivals-direction pattern, and it must not be described as a future-event forecast. The prediction instant is the publication of year-D complete annual data on the machine-fetchable channel: UNHCR's annual statistical cycle lands mid-year in D+1 (Global Trends), and the HDX distribution of this dataset was observed refreshing on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22 and 2026-08-20, with the 2026-08-20 resource carrying complete data through 2025. At that instant every feature is a corridor-year total for years <= D. The target year D+1 has PARTIALLY ELAPSED at the instant (the 2026-08-20 instant lies inside target year 2026, which started 2026-01-01) but its value is entirely UNPUBLISHED: on this channel no D+1 value exists until ~mid-D+2, and for most non-EU hosts no public monthly corridor data exists at all (Eurostat monthly data covers EU hosts only and is outside this channel's shipped features). So the claim recorded here is value-unavailability at the instant, not that the target window follows the instant. A strictly-future variant (at the same instant, predict year D+2 >= 2x the last PUBLISHED year D) was considered and rejected at discovery: the doubling baseline must be published at the instant, so a strict future window forces a two-year-back comparison, a different label and different measured base rates - a different task. The HDX archive is revised in place (current-vintage), so construction pins the fetched snapshot by sha256 and states values as construction-time vintage - the same documented posture as abs-visitor-arrivals-direction. Dated example in notes.md.",
@@ -8962,11 +8969,10 @@
    }
   ],
   "release": {
-   "awaiting": [],
-   "packaged": [
+   "awaiting": [
     {
-     "age_hours": 18.1,
-     "awaiting_operator": false,
+     "age_hours": 19.1,
+     "awaiting_operator": true,
      "baseline": {},
      "country": "CH",
      "domain": "forced displacement - corridor-level asylum-application surge prediction (international organisation publisher)",
@@ -8980,6 +8986,16 @@
       {
        "at": null,
        "id": "unhcr-baseline-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "unhcr-publish-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "unhcr-hf-001",
        "status": null
       }
      ],
@@ -9092,7 +9108,7 @@
       "update_cadence_observed_2026_10_23": "HDX package activity (CKAN package_activity_list, 60 entries read 2026-10-23): resource/dataset updates on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22, 2026-08-20 - a several-times-a-year refresh pattern aligned with UNHCR's annual statistical cycle (Global Trends lands ~June of D+1). The 2026-08-20 applications resource carries complete data through 2025, so year-D data is machine-observable at latest ~August of D+1; the conservative instant is the first observed mid-year-or-later refresh carrying year D.",
       "waf_probe_2026_10_20": "curl https://www.unhcr.org/refugee-statistics/ -> HTTP 403, 182,520 B (challenge page); the same URL loads normally in a real browser (title 'Refugee Data Finder - Key Indicators'). In-page same-origin fetch of the export deep link -> HTTP 403, 222,964 B. Both measured from the coordinator."
      },
-     "next_action": "Private staging of release/unhcr-refugee-data-finder v2026.10 (both destinations), then the operator holds the flip. Mechanical steps, mirroring ec-merger-phase",
+     "next_action": "Private staging of release/unhcr-refugee-data-finder v2026.10 is COMPLETE on both destinations (GitHub release 426752344 and Hugging Face main 89485538, both ve",
      "packaged_at": "2026-10-27T19:44:51Z",
      "path": "candidates/unhcr-refugee-data-finder/record.json",
      "prediction_time": "Annual publication-lag NOWCAST - the accepted abs-visitor-arrivals-direction pattern, and it must not be described as a future-event forecast. The prediction instant is the publication of year-D complete annual data on the machine-fetchable channel: UNHCR's annual statistical cycle lands mid-year in D+1 (Global Trends), and the HDX distribution of this dataset was observed refreshing on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22 and 2026-08-20, with the 2026-08-20 resource carrying complete data through 2025. At that instant every feature is a corridor-year total for years <= D. The target year D+1 has PARTIALLY ELAPSED at the instant (the 2026-08-20 instant lies inside target year 2026, which started 2026-01-01) but its value is entirely UNPUBLISHED: on this channel no D+1 value exists until ~mid-D+2, and for most non-EU hosts no public monthly corridor data exists at all (Eurostat monthly data covers EU hosts only and is outside this channel's shipped features). So the claim recorded here is value-unavailability at the instant, not that the target window follows the instant. A strictly-future variant (at the same instant, predict year D+2 >= 2x the last PUBLISHED year D) was considered and rejected at discovery: the doubling baseline must be published at the instant, so a strict future window forces a two-year-back comparison, a different label and different measured base rates - a different task. The HDX archive is revised in place (current-vintage), so construction pins the fetched snapshot by sha256 and states values as construction-time vintage - the same documented posture as abs-visitor-arrivals-direction. Dated example in notes.md.",
@@ -9165,10 +9181,10 @@
      "target": "Binary exceedance: label 1 iff the corridor-year (D+1, O, H) government-procedure persons total (sum of all application-type rows; a missing corridor row with the host still reporting counted as 0 applications) is >= 2 x the corridor-year (D, O, H) total. Label source: the same 'Number of Applications' column of the HDX CSV at year D+1; the year-D+1 value and everything derived from it are excluded from shipped features. Censoring: corridors whose host reports no G/P rows at all in D+1 (33 of 7,622 eligible rows, 0.43%) are excluded as unobserved targets, not counted as 0. Note what the target does NOT measure: temporary-protection registrations (e.g. Ukrainians in the EU from 2022) are not asylum applications and do not enter this stream."
     }
    ],
-   "pending": [
+   "packaged": [
     {
-     "age_hours": 18.1,
-     "awaiting_operator": false,
+     "age_hours": 19.1,
+     "awaiting_operator": true,
      "baseline": {},
      "country": "CH",
      "domain": "forced displacement - corridor-level asylum-application surge prediction (international organisation publisher)",
@@ -9182,6 +9198,16 @@
       {
        "at": null,
        "id": "unhcr-baseline-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "unhcr-publish-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "unhcr-hf-001",
        "status": null
       }
      ],
@@ -9294,7 +9320,7 @@
       "update_cadence_observed_2026_10_23": "HDX package activity (CKAN package_activity_list, 60 entries read 2026-10-23): resource/dataset updates on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22, 2026-08-20 - a several-times-a-year refresh pattern aligned with UNHCR's annual statistical cycle (Global Trends lands ~June of D+1). The 2026-08-20 applications resource carries complete data through 2025, so year-D data is machine-observable at latest ~August of D+1; the conservative instant is the first observed mid-year-or-later refresh carrying year D.",
       "waf_probe_2026_10_20": "curl https://www.unhcr.org/refugee-statistics/ -> HTTP 403, 182,520 B (challenge page); the same URL loads normally in a real browser (title 'Refugee Data Finder - Key Indicators'). In-page same-origin fetch of the export deep link -> HTTP 403, 222,964 B. Both measured from the coordinator."
      },
-     "next_action": "Private staging of release/unhcr-refugee-data-finder v2026.10 (both destinations), then the operator holds the flip. Mechanical steps, mirroring ec-merger-phase",
+     "next_action": "Private staging of release/unhcr-refugee-data-finder v2026.10 is COMPLETE on both destinations (GitHub release 426752344 and Hugging Face main 89485538, both ve",
      "packaged_at": "2026-10-27T19:44:51Z",
      "path": "candidates/unhcr-refugee-data-finder/record.json",
      "prediction_time": "Annual publication-lag NOWCAST - the accepted abs-visitor-arrivals-direction pattern, and it must not be described as a future-event forecast. The prediction instant is the publication of year-D complete annual data on the machine-fetchable channel: UNHCR's annual statistical cycle lands mid-year in D+1 (Global Trends), and the HDX distribution of this dataset was observed refreshing on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22 and 2026-08-20, with the 2026-08-20 resource carrying complete data through 2025. At that instant every feature is a corridor-year total for years <= D. The target year D+1 has PARTIALLY ELAPSED at the instant (the 2026-08-20 instant lies inside target year 2026, which started 2026-01-01) but its value is entirely UNPUBLISHED: on this channel no D+1 value exists until ~mid-D+2, and for most non-EU hosts no public monthly corridor data exists at all (Eurostat monthly data covers EU hosts only and is outside this channel's shipped features). So the claim recorded here is value-unavailability at the instant, not that the target window follows the instant. A strictly-future variant (at the same instant, predict year D+2 >= 2x the last PUBLISHED year D) was considered and rejected at discovery: the doubling baseline must be published at the instant, so a strict future window forces a two-year-back comparison, a different label and different measured base rates - a different task. The HDX archive is revised in place (current-vintage), so construction pins the fetched snapshot by sha256 and states values as construction-time vintage - the same documented posture as abs-visitor-arrivals-direction. Dated example in notes.md.",
@@ -9366,7 +9392,8 @@
      "status": "packaged",
      "target": "Binary exceedance: label 1 iff the corridor-year (D+1, O, H) government-procedure persons total (sum of all application-type rows; a missing corridor row with the host still reporting counted as 0 applications) is >= 2 x the corridor-year (D, O, H) total. Label source: the same 'Number of Applications' column of the HDX CSV at year D+1; the year-D+1 value and everything derived from it are excluded from shipped features. Censoring: corridors whose host reports no G/P rows at all in D+1 (33 of 7,622 eligible rows, 0.43%) are excluded as unobserved targets, not counted as 0. Note what the target does NOT measure: temporary-protection registrations (e.g. Ukrainians in the EU from 2022) are not asylum applications and do not enter this stream."
     }
-   ]
+   ],
+   "pending": []
   }
  },
  "coverage": {
@@ -9447,10 +9474,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-28T13:50:02.250510+00:00",
+    "last_run_at": "2026-10-28T14:50:02.397013+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-28T14:00:00+00:00",
+    "next_run_at": "2026-10-28T15:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -9471,10 +9498,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-28T13:50:01.605905+00:00",
+    "last_run_at": "2026-10-28T14:50:00.894709+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-28T13:55:00+00:00",
+    "next_run_at": "2026-10-28T14:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9495,10 +9522,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-28T13:47:40.850693+00:00",
+    "last_run_at": "2026-10-28T14:47:57.049515+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-28T13:52:40.850693+00:00",
+    "next_run_at": "2026-10-28T14:52:57.049515+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -9507,10 +9534,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-28T13:50:00.739275+00:00",
+    "last_run_at": "2026-10-28T14:50:01.562275+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-28T13:55:00+00:00",
+    "next_run_at": "2026-10-28T14:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9531,10 +9558,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-28T12:51:32.171167+00:00",
+    "last_run_at": "2026-10-28T13:50:44.262157+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-28T14:50:00+00:00",
+    "next_run_at": "2026-10-28T15:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -9543,10 +9570,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-28T12:55:00.756761+00:00",
+    "last_run_at": "2026-10-28T13:55:00.826279+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-28T13:55:00+00:00",
+    "next_run_at": "2026-10-28T14:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -9587,9 +9614,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-28T13:50:02.251629+00:00"
+  "updated_at": "2026-10-28T14:50:02.398099+00:00"
  },
- "generated_at": "2026-10-28T13:50:02+00:00",
+ "generated_at": "2026-10-28T14:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -9597,23 +9624,23 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-28T13:10:36Z",
-   "head_sha": "ba55f0d",
+   "created_at": "2026-10-28T14:46:46Z",
+   "head_sha": "23967af",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40694048864"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40709303498"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 30/37 (81%)"
   },
   "head": {
-   "at": "2026-10-28T12:39:18Z",
-   "sha": "ba55f0d",
-   "subject": "EU/EEA discovery tick: eu-transparency-register-removal ready (EU Transparency Register semi-annual snapshots 2015-2026,"
+   "at": "2026-10-28T14:46:41Z",
+   "sha": "23967af",
+   "subject": "unhcr-refugee-data-finder staged private on both destinations (unhcr-publish-001 + unhcr-hf-001 green, 5/5 assets at man"
   },
   "tests": {
    "count": "673",
-   "ok": false
+   "ok": true
   }
  },
  "history": [
@@ -11264,13 +11291,21 @@
    "qualified": 0,
    "sessions_7d": 194,
    "tokens_7d": 23688502
+  },
+  {
+   "at": "2026-10-28T14:50:01+00:00",
+   "live": 17,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 194,
+   "tokens_7d": 26055399
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T13:50:02+00:00",
+   "as_of": "2026-10-28T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -11280,7 +11315,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T13:50:02+00:00",
+   "as_of": "2026-10-28T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -11290,7 +11325,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T13:50:02+00:00",
+   "as_of": "2026-10-28T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -11792,11 +11827,11 @@
      }
     },
     "verified": {
-     "github": false,
-     "huggingface": false
+     "github": true,
+     "huggingface": true
     },
-    "verified_all": false,
-    "verified_at": null
+    "verified_all": true,
+    "verified_at": "2026-10-28T14:35:17Z"
    },
    {
     "assets": 5,
@@ -11853,7 +11888,7 @@
      "lo": 0.003
     },
     {
-     "count": 33,
+     "count": 35,
      "hi": 0.01,
      "lo": 0.005
     },
@@ -11890,10 +11925,10 @@
    ],
    "max": 0.6296,
    "median": 0.014,
-   "n": 121,
+   "n": 123,
    "p90": 0.0561,
    "ref_rate": 0.06924,
-   "total": 4.05
+   "total": 4.07
   },
   "jobs": [
    {
@@ -13313,6 +13348,30 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-10-28T14:25:33.681242+00:00",
+    "deleted_at": "2026-10-28T14:31:29.897529+00:00",
+    "eur": 0.0011,
+    "hours": 0.099,
+    "id": "unhcr-hf-001",
+    "location": "hel1",
+    "normalised_eur": 0.0069,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-28T14:09:22.255950+00:00",
+    "deleted_at": "2026-10-28T14:17:56.496359+00:00",
+    "eur": 0.0016,
+    "hours": 0.143,
+    "id": "unhcr-publish-001",
+    "location": "hel1",
+    "normalised_eur": 0.0099,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-10-22T22:17:34.060975+00:00",
     "deleted_at": "2026-10-22T22:26:31.549693+00:00",
     "eur": 0.0017,
@@ -13349,18 +13408,18 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 80,
-  "jobs_total": 121,
+  "jobs_this_month": 82,
+  "jobs_total": 123,
   "lifetime_eur": 3.35,
   "live": {
-   "checked_at": "2026-10-28T13:50:34+00:00",
+   "checked_at": "2026-10-28T14:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 24.7,
+  "month_hours": 25.0,
   "month_to_date": 0.9,
   "months": [
    {
@@ -13370,9 +13429,9 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.9007,
-    "hours": 24.71,
-    "jobs": 80,
+    "eur": 0.9034,
+    "hours": 24.95,
+    "jobs": 82,
     "month": "2026-10"
    }
   ],
@@ -13407,8 +13466,22 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "0f8df11b39bf1dea798e4df5aec63456644137cd2c941512c006e8c3b75a5a31",
     "ts": "2026-10-28T12:41:16.933251+00:00"
+   },
+   {
+    "elapsed_seconds": 2694.9,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "c9a03af8338c4e695c0dbaa251626c5bb7bb9e813cb7121e5e5d8628435b4a32",
+    "ts": "2026-10-28T14:49:56.268054+00:00"
    }
   ],
-  "total": 2
+  "total": 3
  }
 }
