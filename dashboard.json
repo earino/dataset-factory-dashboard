@@ -1,9 +1,10 @@
 {
  "alarms": [
-  "Research gate refused the next session: 195 research session(s) already ran in the last 7 days, 5 of which overshot the 600,000-token cap and count double (cap 200)",
+  "scout-discovery-session missed its window (2026-10-28T04:10:00+00:00); last status ok",
+  "Research gate refused the next session: lock held for 2702s by scout-research; 195 research session(s) already ran in the last 7 days, 6 of which overshot the 600,000-token cap and count double (cap 200)",
   "CI on 03eeeac concluded failure",
   "Test suite is failing",
-  "unhcr-refugee-data-finder has been packaged and actionable for 8.1h - shipping it outranks construction",
+  "unhcr-refugee-data-finder has been packaged and actionable for 9.1h - shipping it outranks construction",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -22,18 +23,19 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-28T03:50:02.690427+00:00",
+   "moment": "2026-10-28T04:50:03.214408+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "195 research session(s) already ran in the last 7 days, 5 of which overshot the 600,000-token cap and count double (cap 200)"
+    "lock held for 2702s by scout-research",
+    "195 research session(s) already ran in the last 7 days, 6 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 20730839,
+   "research_tokens_last_7_days": 23388042,
    "runs_last_7_days": 195,
-   "runs_weighted_last_7_days": 200,
+   "runs_weighted_last_7_days": 201,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 5,
+   "sessions_over_token_cap": 6,
    "usage": {
     "auxiliary": {
      "calls": 684,
@@ -57,14 +59,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 6640,
+     "calls": 6703,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 20192757,
-     "output_tokens": 6328107,
+     "input_tokens": 22775498,
+     "output_tokens": 6403318,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -104,7 +106,7 @@
    "packaged": 2,
    "parked": 26,
    "published": 10,
-   "ready": 5
+   "ready": 6
   },
   "errors": [],
   "live": [
@@ -1425,6 +1427,73 @@
     "split_strategy": "Not designed - source failed access/terms triage. (Would have needed temporal splits with occurrence-class mix measured per year; aviation occurrences cluster by year and reporting regime, e.g. the Oct-2014 taxonomy change the ATSB documents.)",
     "status": "dropped",
     "target": "Binary severity class (accident/serious incident vs incident) from the ATSB occurrence category taxonomy. Label source column: the occurrence severity/classification field, excluded from features."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "AU",
+    "domain": "public procurement / post-award contract lifecycle outcome prediction",
+    "id": "austender-contract-amendment-occurrence",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "channels_2026_10_28": "(1) data.gov.au FY files 2014-15..2019-20 (CSV/XLSX 'cn-parent-and-amendments'); (2) CnAndAmendmentsDownload: any anonymous date-window GET, XLSX with per-query statistics block (Sep-2023 week: 175,446 B, 1,735 sheet rows, statistics block 'Amendments Value (AUD) 758,567,364.78' - publisher's own aggregate, the cross-check fixture); (3) weekly export XLSX, 18-month rolling retention, 1,427 notices in the 2026-10-28 week file; (4) OCDS registry per-year 2007-2026 - NO amendment events (measured negative). Server latency on the report endpoint is high (35-50 s per window request); FY CSVs are much faster (31 MB in 4.2 s).",
+     "cohort_12m_rate_2026_10_28": "CnAndAmendmentsDownload windows '01-Jul-2017..31-Jul-2017' (722,303 B) and '01-Aug-2017..31-Jul-2018' (6,424,822 B): 6,285 parents published in Jul 2017; first-amendment rates 30d 24 (0.38%), 90d 150 (2.39%), 180d 353 (5.62%), 365d 689 (10.96%). 14,243 amendment rows across the two files. Dated examples with second-precision publication datetimes (report channel, Excel serial): CN3439382 (Austrade, 'Temporary Personnel: Marketing Advisor') parent 2017-07-07 15:48:21 -> CN3439382-A1 2017-09-06 16:10:18 (60.9 d); CN3441078 (ACIAR review) parent 2017-07-14 10:16:37 -> -A1 2017-09-01 09:37:22 (48.9 d); CN3444589 (ABS, Printing Services) parent 2017-07-25 11:44:26 -> -A1 2018-02-19 13:50:05 (208.9 d); CN3438465 (ACIAR, Temporary Employment Services) parent 2017-07-06 08:58:03 -> -A1 2018-03-27 15:57:59 (264.2 d).",
+     "extraction_cost_2026_10_28": "Measured from the coordinator: FY17-18 CSV 31.0 MB / 4.2 s (one GET); amendments-report windows 0.72 MB / 35.7-43.2 s (one month) and 6.4 MB / 49.8-50.2 s (12 months). Full harvest estimate (labelled estimate, not measured): FY CSVs give 2014-20 directly (~150-250 MB total); 2020-2026 amendment/parent stream via report windows needs ~80-150 requests at ~40-50 s each (order 1-2 h wall clock, order 30-80 MB) - a single worker job, EUR well inside the standard reservation.",
+     "fy_panel_2026_10_28": "17-18-fy-dataset.csv (data.gov.au): 30,999,835 bytes in 4.2 s, 73,458 rows = 60,590 Parent + 12,868 Amendment notices published in FY2017-18; 110 distinct agencies (top: Defence 29,135; Home Affairs 3,223; Human Services 3,013; Health 2,840; ATO 2,536); procurement methods Open tender 31,515 / Limited tender 36,944 / Prequalified tender 4,999; parents published Jul-Dec 2017 in-file: 29,190, of which 9.1% carry >=1 amendment row anywhere in the FY file and 6.4% amended within 6 months (lower bounds - later amendments sit in later FY files).",
+     "known_event_fixtures": "(1) CN3350299 'Provision of new air combat capability' (Department of Defence): parent published 14/06/2016; amendment CN3350299-A16 published 19/10/2017 with Amendments Value 6,284,067,617 and Amendment Reason '<p>Contract Variation = CN3462418</p>' - a 16-month follow-up TRUE at the 18-month horizon and FALSE at 12 months (boundary case, verified in the FY17-18 CSV fetch). (2) Cohort TRUE examples CN3439382/CN3441078/CN3444589/CN3438465 (see cohort_12m_rate). (3) The 2026-10-28 weekly file carries CN4203477 and CN4203477-A2 published the same week (immediate-amendment edge case; target window opens strictly after T).",
+     "measured_on": "2026-10-28 from the coordinator, anonymous HTTPS only; scripts: candidates/austender-contract-amendment-occurrence/probe_channels.py, probe_fy_panel.py, probe_cohort_rate.py (each reproduces the quoted numbers)",
+     "schema_2026_10_28": "Data dictionary PDF (202,757 B, data.gov.au) documents every field, quoting: CN ID ('Where a contract amendment has been reported, the CN ID will be used with an amendment reference immediately following the CN ID. For example, CN1234-A1 would represent the first reported amendment to CN1234'); Publish Date ('the date the CN was published on AusTender'); Contract Value ('total (AUD) $ value committed for the life of the contract including GST. The initial contract value should not include amendments'); Amendment Published Date; Limited Tender exemption taxonomy (Appendix A). FY CSV header verified: Agency Name, Contract Notice Type, Parent Contract ID, Contract ID, Publish Date, Amendment Date, Start Date, Amendment Start Date, End Date, Contract Value, Amendments Value, Description, Amendment Reason, Agency Ref ID, UNSPSC, UNSPSC Title, Procurement Method, ATM ID, SON ID, Panel Arrangement, Confidentiality Contract Flag/Reason, Confidentiality Outputs Flag/Reason, Consultancy Flag/Reason, Supplier Name/Address/Suburb/Postcode/State/Country/ABN Exempt/ABN, Contact, Branch, Division, Office Postcode.",
+     "vintage_caveats_2026_10_28": "Finance's statistics page: 'Contract data can be amended, varied and updated by entities over time.' OCP registry quality notes: cancelled amendments overwrite status/period/value in OCDS compilations; item identifiers differ between original and amendment rows; supplier renames create duplicate supplier parties. Consequence recorded for construction: labels must be derived from amendment NOTICE rows (events), never from compiled/overwritten contract properties, and the FY/report files must be pinned by sha256 at harvest. The report and FY channels are publication-stream snapshots (each row a notice as published), so event rows are as-of honest; corrections/deletions of already-published notices cannot be ruled out for the most recent window and the holdout cutoff must keep a documented tail. GaPS-sourced rows (1999-2006-07, different schema) are excluded from the task era."
+    },
+    "next_action": "Construction (worker job austender-amd-001): (1) harvest parent+amendment notice rows for parent publish dates 2014-07-01..2025-09-30 - FY CSVs from data.gov.au",
+    "packaged_at": null,
+    "path": "candidates/austender-contract-amendment-occurrence/record.json",
+    "prediction_time": "The instant is the parent Contract Notice's Publish Date (in-row, publisher-documented as 'the date the CN was published on AusTender'; the amendments-report channel carries it as a datetime with second precision, e.g. parent CN3439382 published 2017-07-07 15:48:21). Reporting follows the Commonwealth Procurement Rules: non-corporate entities must report contracts at or above $10,000 (inc. GST) and prescribed corporate entities at or above $400,000, within the ~42-day contract reporting window (Finance's statistics page states FY data is extracted after 42 days 'to allow for the 42-day contract reporting window'), so the award precedes the instant by at most ~6 weeks and every shipped feature is a published-notice field. The target window (T, T+365 days] begins strictly after the instant; amendment notices are separate later publication events with their own publish dates.",
+    "publisher": "AusTender / Department of Finance (Commonwealth of Australia)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For an Australian Government contract whose original Contract Notice is published on AusTender at instant T (the award-notice publication date, which follows the award itself within the ~42-day contract reporting window), will the contract receive its first published amendment notice (Contract Notice Type 'Amendment', CN ID suffix '-A<n>') within 12 months after T? Features are the published notice fields fixed at T: agency, supplier (name/ABN/location), committed value, UNSPSC category, procurement method, description text, planned start/end dates and derived duration, panel/SON/ATM linkage, consultancy and confidentiality flags.",
+    "region": "Oceania",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "All five discovery contracts reconciled against recorded evidence. (1) Redistribution: SUPPORTED - licence class A, CC BY 3.0 AU quoted from AusTender's own Terms of Use clause 5.1 (contract notices are not ATM material), attribution statement clause 6.1 recorded for LICENSE.md; data.gov.au dataset licence cc-by corroborates; third parties commercially republish under the same grant. (2) Prediction timing: SUPPORTED - instant = parent CN Publish Date (publisher-documented, second-precision timestamps in the report channel); all feature fields are published-notice fields documented in the publisher's data dictionary; target window strictly after the instant; award-to-publication lag bounded by the 42-day reporting window; vintage caveats recorded (late corrections, cancelled-amendment overwrite behaviour in OCDS, GaPS era excluded) and handled by pinning sha256 at harvest plus a documented holdout tail. (3) Obtainable target: SUPPORTED - the amendment event stream is published by the same source as the parents, anonymous, any window; label source columns excludable (ship parent-row fields only); reverse-history exposure (a parent's label is a later row in the same stream) must be probed and mitigated by construction protocol, as with unhcr/abs. (4) Split capacity: SUPPORTED by measurement - 60,590 parents in FY2017-18 alone, 12-month first-amendment rate 10.96% on a measured Jul-2017 cohort (689/6,285); windows spanning 2014-2025 with both classes are evidenced by volume x measured rate; exact per-window counts are the first construction step on the worker (sample here, no claimed totals). (5) Contribution beyond a mirror: SUPPORTED - novelty verdict differentiated (no ML-ready amendment-occurrence benchmark found; nearest prior art differs in stage, population or purpose). Residual uncertainties: the 12-month rate is measured on one cohort month (per-era variation is the construction measurement); report-endpoint latency makes the 2020+ harvest slow but cheap; publication-timestamp timezone is assumed Australia/Sydney (server time) and must be confirmed at construction; amendments published the same instant as the parent are excluded by the strict-inequality window (edge cases counted in-build).",
+    "sources": [
+     {
+      "licence": "CC BY 3.0 AU per AusTender Terms of Use clause 5.1",
+      "name": "AusTender Contract Notice and Amendments Published report (bulk download endpoint, any date window, anonymous)",
+      "url": "https://www.tenders.gov.au/Reports/CnAndAmendmentsDownload?AgencyStatus=0&DateType=Publish%20Date&DateStart=01-Jul-2017&DateEnd=31-Jul-2017"
+     },
+     {
+      "licence": "cc-by (data.gov.au dataset licence) and CC BY 3.0 AU (AusTender Terms of Use 5.1) - same data",
+      "name": "Historical Australian Government Contract Notice Data (Department of Finance on data.gov.au) - annual FY files 2014-15 to 2019-20, publication-stream CSV/XLSX with Parent/Amendment rows and full notice fields",
+      "url": "https://data.gov.au/data/dataset/historical-australian-government-contract-data"
+     },
+     {
+      "licence": "CC BY 3.0 AU per AusTender Terms of Use clause 5.1",
+      "name": "AusTender Contract Notice Export (weekly XLSX, rolling 18-month retention, anonymous GUID downloads)",
+      "url": "https://www.tenders.gov.au/Reports/CnWeeklyExportList"
+     },
+     {
+      "licence": "CC BY 4.0 per the OCP data registry publication page (publisher: Department of Finance)",
+      "name": "OCP Data Registry publication 19 - Department of Finance (AusTender in OCDS), per-year JSONL/CSV/XLSX 2007-2026",
+      "url": "https://data.open-contracting.org/en/publication/19"
+     }
+    ],
+    "split_strategy": "Temporal by parent publish date, all windows with both classes by construction from measured rates and volumes: train 2014-07-01..2018-06-30 (FY CSVs on data.gov.au; 60,590 parents in FY2017-18 alone, 110 agencies), eval 2018-07-01..2022-06-30 (data.gov.au FY files 2018-19/2019-20 + CnAndAmendmentsDownload windows for 2020-21..2021-22), holdout 2022-07-01..2025-09-30 (CnAndAmendmentsDownload windows + weekly export; every parent's 12-month label window closes by 2026-09-30, before the current data edge 2026-10-28). Measured basis (Jul-2017 cohort, n=6,285 parents published 01-31 Jul 2017, follow-up through 31-Jul-2018): first-amendment within 30d 0.38% / 90d 2.39% / 180d 5.62% / 365d 10.96% (689 positives in the cohort month). At ~5-6k parents/month and ~11% per year, each multi-year window carries tens of thousands of positives; per-window exact counts are the FIRST construction measurement on the worker (measured sample here, not extrapolated to a claimed total). Independence: contracts cluster by agency and publication month, so intervals must be clustered on (agency, publish-month); the independence scale is the publication month, not the row. Both channels (FY CSVs, amendments report) describe the same publication stream and cross-check each other; construction asserts channel-consistency in-build on overlapping windows.",
+    "status": "ready",
+    "target": "Binary: 1 if any Contract Notice with Parent Contract ID == this CN ID (equivalently CN ID == '<parent>-A<n>' per the publisher's documented convention) is published with Amendment Publish Date in (T, T+365d]; 0 otherwise. The label source columns are the parent/amendment linkage, Contract Notice Type and Amendment Publish Date - all excluded from shipped features (only parent-row fields plus strictly-earlier aggregates ship). Amendments of every published reason (value increase, end-date extension, supplier change, cancellation) count as events; the 'Amendment Reason' field allows construction to state and test reason-specific variants. Censoring: parents whose 12-month window extends past the data cutoff are excluded, not imputed (live-edge rows counted per window)."
    },
    {
     "awaiting_operator": false,
@@ -3131,7 +3200,7 @@
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
    },
    {
-    "age_hours": 13.1,
+    "age_hours": 14.1,
     "awaiting_operator": true,
     "baseline": {},
     "country": "EU",
@@ -7578,7 +7647,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 8.1,
+    "age_hours": 9.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -8414,7 +8483,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 13.1,
+     "age_hours": 14.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8551,7 +8620,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 13.1,
+     "age_hours": 14.1,
      "awaiting_operator": true,
      "baseline": {},
      "country": "EU",
@@ -8686,7 +8755,7 @@
      "target": "Binary: the case record carries at least one decision of type 'Art. 6(1)(c)' (the decision by which the Commission initiates proceedings because of serious doubts - the Phase II opener, same article number under Reg 4064/89 and Reg 139/2004). Label source: the decisions[] block of the register record (decisionTypes, decisionAdoptionDate), which is excluded wholesale from shipped features. Measured: 309 positives / 10,123 eligible cases = 3.05%. Measured alternative recorded for construction: any-intervention union (Phase II opener OR Phase I remedies 'Art. 6(1)(b) with conditions & obligations') = 673 / 10,123 = 6.65% (remedies-only 367 = 3.63%)."
     },
     {
-     "age_hours": 8.1,
+     "age_hours": 9.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -8888,7 +8957,7 @@
    ],
    "pending": [
     {
-     "age_hours": 8.1,
+     "age_hours": 9.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9094,7 +9163,7 @@
   "by_country": {
    "AR": 1,
    "AT": 1,
-   "AU": 4,
+   "AU": 5,
    "BR": 2,
    "CA": 13,
    "CH": 3,
@@ -9132,7 +9201,7 @@
    "International organisations": 7,
    "Latin America": 8,
    "North America": 23,
-   "Oceania": 5,
+   "Oceania": 6,
    "South & South-East Asia": 13
   },
   "by_status": {
@@ -9141,12 +9210,12 @@
    "packaged": 2,
    "parked": 26,
    "published": 10,
-   "ready": 5
+   "ready": 6
   },
-  "candidates": 94,
-  "live": 31,
-  "live_non_us": 25,
-  "live_non_us_share": 0.806,
+  "candidates": 95,
+  "live": 32,
+  "live_non_us": 26,
+  "live_non_us_share": 0.812,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -9168,10 +9237,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-28T03:50:01.744381+00:00",
+    "last_run_at": "2026-10-28T04:50:02.060442+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-28T04:00:00+00:00",
+    "next_run_at": "2026-10-28T05:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -9192,10 +9261,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-28T03:50:01.454052+00:00",
+    "last_run_at": "2026-10-28T04:50:01.087722+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-28T03:55:00+00:00",
+    "next_run_at": "2026-10-28T04:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9216,10 +9285,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-28T03:45:24.665774+00:00",
+    "last_run_at": "2026-10-28T04:45:42.049659+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-28T03:50:24.665774+00:00",
+    "next_run_at": "2026-10-28T04:50:42.049659+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -9228,10 +9297,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-28T03:50:00.819056+00:00",
+    "last_run_at": "2026-10-28T04:00:03.612289+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-28T03:55:00+00:00",
+    "next_run_at": "2026-10-28T04:10:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9252,10 +9321,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-28T02:51:28.458068+00:00",
+    "last_run_at": "2026-10-28T03:50:40.968811+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-28T04:50:00+00:00",
+    "next_run_at": "2026-10-28T05:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -9264,10 +9333,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-28T02:55:01.267067+00:00",
+    "last_run_at": "2026-10-28T03:55:00.787078+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-28T03:55:00+00:00",
+    "next_run_at": "2026-10-28T04:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -9308,13 +9377,13 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-28T03:50:01.745369+00:00"
+  "updated_at": "2026-10-28T04:50:02.061446+00:00"
  },
- "generated_at": "2026-10-28T03:50:01+00:00",
+ "generated_at": "2026-10-28T04:50:02+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 94
+   "passing": 95
   },
   "ci": {
    "conclusion": "failure",
@@ -9325,7 +9394,7 @@
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 25/31 (81%)"
+   "summary": "live non-US: 26/32 (81%)"
   },
   "head": {
    "at": "2026-10-28T03:03:40Z",
@@ -10905,13 +10974,21 @@
    "qualified": 0,
    "sessions_7d": 195,
    "tokens_7d": 20730839
+  },
+  {
+   "at": "2026-10-28T04:50:02+00:00",
+   "live": 14,
+   "published": 9,
+   "qualified": 0,
+   "sessions_7d": 195,
+   "tokens_7d": 23388042
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T03:50:01+00:00",
+   "as_of": "2026-10-28T04:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -10921,7 +10998,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T03:50:01+00:00",
+   "as_of": "2026-10-28T04:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -10931,7 +11008,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T03:50:01+00:00",
+   "as_of": "2026-10-28T04:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -12981,7 +13058,7 @@
   "jobs_total": 120,
   "lifetime_eur": 3.35,
   "live": {
-   "checked_at": "2026-10-28T03:50:32+00:00",
+   "checked_at": "2026-10-28T04:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
