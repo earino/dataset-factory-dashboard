@@ -1,9 +1,9 @@
 {
  "alarms": [
   "Research gate refused the next session: 194 research session(s) already ran in the last 7 days, 6 of which overshot the 600,000-token cap and count double (cap 200)",
-  "CI on a34b551 concluded failure",
+  "CI on ba55f0d concluded failure",
   "Test suite is failing",
-  "unhcr-refugee-data-finder has been packaged and actionable for 16.1h - shipping it outranks construction",
+  "unhcr-refugee-data-finder has been packaged and actionable for 17.1h - shipping it outranks construction",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -22,14 +22,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-28T11:50:03.559238+00:00",
+   "moment": "2026-10-28T12:50:02.993543+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "194 research session(s) already ran in the last 7 days, 6 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 23673728,
+   "research_tokens_last_7_days": 23688502,
    "runs_last_7_days": 194,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -57,14 +57,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 6800,
+     "calls": 6914,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 23861702,
-     "output_tokens": 6510138,
+     "input_tokens": 23988119,
+     "output_tokens": 6603082,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -92,7 +92,7 @@
    "CA": 2,
    "CO": 1,
    "DE": 1,
-   "EU": 1,
+   "EU": 3,
    "GB": 3,
    "JP": 1,
    "NZ": 1,
@@ -101,11 +101,11 @@
   },
   "counts": {
    "dropped": 38,
-   "investigating": 15,
+   "investigating": 17,
    "packaged": 1,
    "parked": 26,
    "published": 11,
-   "ready": 7
+   "ready": 8
   },
   "errors": [],
   "live": [
@@ -611,6 +611,96 @@
     "split_strategy": "Temporal, one row per eligible alert event: train 2006-2019, eval 2020-2022, holdout 2023-2026 Q2 (file ends 2026-06-30). Measured at label window [D+1,D+7]: train 28,864 events / 3,638 positives (12.60%); eval 9,623 / 1,560 (16.21%); holdout 14,561 / 2,408 (16.54%). Positives occur in every year 2006-2026. Positives cluster by storm: 458 distinct year-weeks carry at least one positive (top week 2020-W7, Storms Ciara/Dennis, 324 same-window positives at the [D,D+7] definition). Report per-year metrics: a reporting-system migration in April 2017 (Floodline Warnings Direct -> Flood Warning System, per the EA's dataset description) is a candidate structural break.",
     "status": "investigating",
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "EU",
+    "domain": "EU law enforcement / infringement procedures against Member States (case-level escalation)",
+    "id": "ec-infringement-case-escalation",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "what_is_measured": "Nothing in this tick beyond the channel search. Case volume context from the publisher's own monthly packages (read 2026-10-28): a typical monthly package opens and closes dozens of cases (e.g. the 2025-10-08 package closes 59 cases and opens multiple letters of formal notice per policy area; case numbers of the form INFR(2025)2129). Population per year is hundreds of new cases across 27 Member States - enough volume in principle for staged-escalation labels, IF a row-level channel exists."
+    },
+    "next_action": "Next probe (bounded, a later tick): in the supported browser, open https://ec.europa.eu/implementing-eu-law/home/en, trigger a register search, and record wheth",
+    "packaged_at": null,
+    "path": "candidates/ec-infringement-case-escalation/record.json",
+    "prediction_time": "The publication instant of the Commission's monthly infringement package / the register entry for the decision in question (to be pinned against the register's actual channel; the monthly packages are dated presscorner publications). Features would be the case's stage reached, policy area, topic, Member State, case age and the case's decision history - all published register fields; the future decisions are the label and must be excluded.",
+    "publisher": "European Commission (Secretariat-General infringement register; 'Implementing EU law' site)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For an open European Commission infringement case against a Member State at a decision instant (e.g. the date a letter of formal notice is decided), will the case escalate to the next procedural stage (reasoned opinion, then referral to the Court of Justice) or be closed without escalation within a stated horizon?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Institutional-decision task distinct from this bench's published ec-merger task (different procedure, population = Member States, staged labels). The single decisive uncertainty is ACCESS: everything observable this tick is a web application plus PDF packages. A PDF-only publisher is a park, not a go (geographic-coverage reference). Before parking, one bounded probe is owed: inspect the register application for a documented JSON/XHR endpoint or export control, in the supported browser. If none exists after a bounded attempt, park on the access blocker with the ec-tdi-case-outcome precedent (parked, not dropped, when the task shape is promising and only the channel is missing).",
+    "sources": [
+     {
+      "licence": "official Commission web content under the Commission reuse policy; per-case licence not yet read - classify only after the access channel is settled",
+      "name": "European Commission infringement register / 'Implementing EU law' site (interactive maps, graphs and per-case register search by decision, status, type, Member State, policy area)",
+      "url": "https://ec.europa.eu/implementing-eu-law/home/en"
+     }
+    ],
+    "split_strategy": "",
+    "status": "investigating",
+    "target": "Binary label derived from the case's decision history in the register: escalation to the next stage (or a named later stage) vs closure without escalation, within a stated horizon after the instant. Label source = later decision entries for the same case number (INFR(YYYY)NNNN), excludable from features."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "EU",
+    "domain": "EU competition policy / state aid control (DG COMP case register)",
+    "id": "ec-state-aid-investigation-opening",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "what_is_measured": "Nothing yet - this record was opened from the EU/EEA discovery tick's channel search only. No data was downloaded. The register's own long-standing web application (online since 2001, updated daily, per DG COMP's State aid Scoreboard documentation) is now additionally published as a machine-readable JSON dataset on data.europa.eu - that channel is the discovery."
+    },
+    "next_action": "Next probe (a later discovery/advancement tick, bounded): (1) pull the JSON distribution URL from the portal record and measure per-case schema, per-year case c",
+    "packaged_at": null,
+    "path": "candidates/ec-state-aid-investigation-opening/record.json",
+    "prediction_time": "The case's notification/registration date as published in the case record (to be verified in the JSON distribution's schema at the next probe). Features would be the fields fixed at notification: Member State, legal basis, aid instrument, sector, title text - all documented register fields; the decision-type/-date fields are post-hoc and must be excluded from features.",
+    "publisher": "European Commission, Directorate-General for Competition (state aid register), republished via data.europa.eu",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the instant the European Commission registers a state aid case (SA case number assigned on notification/registration, per the register's documented case fields), will the measure be handled under the ordinary/simplified procedure or will the Commission open a formal investigation under Article 108(2) TFEU before deciding?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Promising institutional-decision task in a procedure family this bench knows well (ec-merger-phase2-opening is published for merger control; state aid control is a different procedure, different population (SA.xxxxx cases, ~2 decades, tens of thousands of measures) and a different label). The cheapest unresolved fact that could change the verdict: whether the JSON distribution actually carries per-case row-level fields (registration date, legal basis, instrument, decision type/dates) with usable coverage, and what the Article 108(2)-opening base rate per year is. Second: the publisher's own licence instrument. A third check, novel to this family: the register is a live database, so historical vintages/as-of evidence for the case fields must be stated (case records carry their own decision dates, which mitigates, but feature-vintage claims need evidence).",
+    "sources": [
+     {
+      "licence": "not yet verified on the publisher's own page (competition-cases.ec.europa.eu); the portal record states public access; classify only after reading the publisher's reuse notice",
+      "name": "EU Competition: State Aid case publications (DG COMP state aid register republished as a data.europa.eu dataset; JSON)",
+      "url": "https://data.europa.eu/data/datasets/fa8d67be-d050-42a4-97ff-9e849805acf9~~1"
+     }
+    ],
+    "split_strategy": "",
+    "status": "investigating",
+    "target": "Binary label derived from the case's decision record: a decision opening proceedings under Article 108(2) TFEU (formal investigation) vs decisions taken without opening (no-objection, block-exemption compatibility). Label source = the case's decision fields, excludable from features. Base rate unknown until the distribution is measured."
    },
    {
     "awaiting_operator": false,
@@ -1253,7 +1343,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 93.3,
+  "non_us_share": 94.1,
   "records": [
    {
     "awaiting_operator": false,
@@ -3254,6 +3344,51 @@
     "awaiting_operator": false,
     "baseline": {},
     "country": "EU",
+    "domain": "EU law enforcement / infringement procedures against Member States (case-level escalation)",
+    "id": "ec-infringement-case-escalation",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "what_is_measured": "Nothing in this tick beyond the channel search. Case volume context from the publisher's own monthly packages (read 2026-10-28): a typical monthly package opens and closes dozens of cases (e.g. the 2025-10-08 package closes 59 cases and opens multiple letters of formal notice per policy area; case numbers of the form INFR(2025)2129). Population per year is hundreds of new cases across 27 Member States - enough volume in principle for staged-escalation labels, IF a row-level channel exists."
+    },
+    "next_action": "Next probe (bounded, a later tick): in the supported browser, open https://ec.europa.eu/implementing-eu-law/home/en, trigger a register search, and record wheth",
+    "packaged_at": null,
+    "path": "candidates/ec-infringement-case-escalation/record.json",
+    "prediction_time": "The publication instant of the Commission's monthly infringement package / the register entry for the decision in question (to be pinned against the register's actual channel; the monthly packages are dated presscorner publications). Features would be the case's stage reached, policy area, topic, Member State, case age and the case's decision history - all published register fields; the future decisions are the label and must be excluded.",
+    "publisher": "European Commission (Secretariat-General infringement register; 'Implementing EU law' site)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For an open European Commission infringement case against a Member State at a decision instant (e.g. the date a letter of formal notice is decided), will the case escalate to the next procedural stage (reasoned opinion, then referral to the Court of Justice) or be closed without escalation within a stated horizon?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Institutional-decision task distinct from this bench's published ec-merger task (different procedure, population = Member States, staged labels). The single decisive uncertainty is ACCESS: everything observable this tick is a web application plus PDF packages. A PDF-only publisher is a park, not a go (geographic-coverage reference). Before parking, one bounded probe is owed: inspect the register application for a documented JSON/XHR endpoint or export control, in the supported browser. If none exists after a bounded attempt, park on the access blocker with the ec-tdi-case-outcome precedent (parked, not dropped, when the task shape is promising and only the channel is missing).",
+    "sources": [
+     {
+      "licence": "official Commission web content under the Commission reuse policy; per-case licence not yet read - classify only after the access channel is settled",
+      "name": "European Commission infringement register / 'Implementing EU law' site (interactive maps, graphs and per-case register search by decision, status, type, Member State, policy area)",
+      "url": "https://ec.europa.eu/implementing-eu-law/home/en"
+     }
+    ],
+    "split_strategy": "",
+    "status": "investigating",
+    "target": "Binary label derived from the case's decision history in the register: escalation to the next stage (or a named later stage) vs closure without escalation, within a stated horizon after the instant. Label source = later decision entries for the same case number (INFR(YYYY)NNNN), excludable from features."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "EU",
     "domain": "EU competition policy / merger-control procedure outcomes (EU institution publisher, DG COMP open data)",
     "id": "ec-merger-phase2-opening",
     "jobs": [
@@ -3383,6 +3518,51 @@
     "split_strategy": "Temporal splits on notification year, measured from the full register. Candidate partitions (both classes present in every window): full-era thirds train 1990-2013 (5,411 cases / 217 Phase II), eval 2014-2018 (1,770 / 46), holdout 2019-2026 (2,942 / 46); or post-reform (Reg 139/2004 from 2005-09): train 2005-2015 (3,451 / 101), eval 2016-2020 (1,876 / 42), holdout 2021-2026 (2,207 / 30). Construction picks one and documents it; the Art. 6(1)(c) label is the same legal instrument under both regulations. Positive cases cluster weakly by acquisition wave; intervals on any score use notification-year clusters (positives per notification year measured 1-22, median ~8). Pending cases (41 live investigation-phase cases at fetch, concentrated 2025-2026) are censored like the ABS live-month rows: scorable when their procedure concludes.",
     "status": "published",
     "target": "Binary: the case record carries at least one decision of type 'Art. 6(1)(c)' (the decision by which the Commission initiates proceedings because of serious doubts - the Phase II opener, same article number under Reg 4064/89 and Reg 139/2004). Label source: the decisions[] block of the register record (decisionTypes, decisionAdoptionDate), which is excluded wholesale from shipped features. Measured: 309 positives / 10,123 eligible cases = 3.05%. Measured alternative recorded for construction: any-intervention union (Phase II opener OR Phase I remedies 'Art. 6(1)(b) with conditions & obligations') = 673 / 10,123 = 6.65% (remedies-only 367 = 3.63%)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "EU",
+    "domain": "EU competition policy / state aid control (DG COMP case register)",
+    "id": "ec-state-aid-investigation-opening",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "what_is_measured": "Nothing yet - this record was opened from the EU/EEA discovery tick's channel search only. No data was downloaded. The register's own long-standing web application (online since 2001, updated daily, per DG COMP's State aid Scoreboard documentation) is now additionally published as a machine-readable JSON dataset on data.europa.eu - that channel is the discovery."
+    },
+    "next_action": "Next probe (a later discovery/advancement tick, bounded): (1) pull the JSON distribution URL from the portal record and measure per-case schema, per-year case c",
+    "packaged_at": null,
+    "path": "candidates/ec-state-aid-investigation-opening/record.json",
+    "prediction_time": "The case's notification/registration date as published in the case record (to be verified in the JSON distribution's schema at the next probe). Features would be the fields fixed at notification: Member State, legal basis, aid instrument, sector, title text - all documented register fields; the decision-type/-date fields are post-hoc and must be excluded from features.",
+    "publisher": "European Commission, Directorate-General for Competition (state aid register), republished via data.europa.eu",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the instant the European Commission registers a state aid case (SA case number assigned on notification/registration, per the register's documented case fields), will the measure be handled under the ordinary/simplified procedure or will the Commission open a formal investigation under Article 108(2) TFEU before deciding?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Promising institutional-decision task in a procedure family this bench knows well (ec-merger-phase2-opening is published for merger control; state aid control is a different procedure, different population (SA.xxxxx cases, ~2 decades, tens of thousands of measures) and a different label). The cheapest unresolved fact that could change the verdict: whether the JSON distribution actually carries per-case row-level fields (registration date, legal basis, instrument, decision type/dates) with usable coverage, and what the Article 108(2)-opening base rate per year is. Second: the publisher's own licence instrument. A third check, novel to this family: the register is a live database, so historical vintages/as-of evidence for the case fields must be stated (case records carry their own decision dates, which mitigates, but feature-vintage claims need evidence).",
+    "sources": [
+     {
+      "licence": "not yet verified on the publisher's own page (competition-cases.ec.europa.eu); the portal record states public access; classify only after reading the publisher's reuse notice",
+      "name": "EU Competition: State Aid case publications (DG COMP state aid register republished as a data.europa.eu dataset; JSON)",
+      "url": "https://data.europa.eu/data/datasets/fa8d67be-d050-42a4-97ff-9e849805acf9~~1"
+     }
+    ],
+    "split_strategy": "",
+    "status": "investigating",
+    "target": "Binary label derived from the case's decision record: a decision opening proceedings under Article 108(2) TFEU (formal investigation) vs decisions taken without opening (no-objection, block-exemption compatibility). Label source = the case's decision fields, excludable from features. Base rate unknown until the distribution is measured."
    },
    {
     "awaiting_operator": false,
@@ -3683,6 +3863,75 @@
     "split_strategy": "Not yet computed - depends on measured referral volumes and outcome vocabulary. Prior expectation (labelled as such, not measured): ~500-800 referrals/year since 2000, controlled-action share historically a large minority (decisive construction measurement). Whether the portal's '5000 records' is the full historical population or a display cap is an OPEN measurement (grid XHR replay needed); per-year coverage must be established before split windows can be designed.",
     "status": "investigating",
     "target": "Binary: 1 if the referral decision declares a controlled action (assessment approach determined on the project page; decision notice 'Controlled Action'), 0 for 'Not a controlled action' / 'particular manner' decisions. Label source = the per-project decision field/notice on the portal, excludable from shipped features (features are referral-time fields only). Population: all referrals in the portal's All-referrals list; still-open referrals at the data edge are censored, not imputed."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "EU",
+    "domain": "EU lobbying regulation / interest-representative register lifecycle (semi-annual snapshot panel)",
+    "id": "eu-transparency-register-removal",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "data_quality_quirks": "the 2024-12-31 export has 1916/13119 (14.6%) entries with EMPTY lastUpdateDate; among orgs removed by 2026-06, 593 had empty lastUpdateDate (31% removal vs 15.6% overall - missingness itself is predictive and must be a first-class feature, not dropped rows). Two snapshot files (2025-01-labelled, 2026-06) contain XML character references to control characters (e.g. &#x1d;) invalid under XML 1.0; the retained probe scripts sanitise these; 2026-06 uses an XML 1.1 declaration.",
+     "fetch_cost_measured_on_coordinator": "6 XML snapshots downloaded 2026-10-28 (51.7-112.7 MB each; ~5-40 s per file over https); streaming parse of one 80 MB file with stdlib XMLPullParser: 40-90 s on the 4-vCPU coordinator. Full 24-snapshot series is ~1.8 GB in ~24 requests (~15 min sequential) - a small worker job. Requests counted per file: 1 GET (+1 for the portal API record enumeration).",
+     "known_event_fixtures": "dated worked example in notes.md: 'Hope For Children' CRC Policy Center (REG 483924815151-12) present at the 2023-01-21 19:30 CET instant with lastUpdateDate 2022-04-26 (annual-update deadline ~2023-04-26 under the documented rule), absent at 2023-06-21 19:30 CEST -> positive; contrast CloudFerro (REG 095284146845-67) present at both -> negative. Regime event: 2021 IIA transition (old -> new register mid-2021) is a construction-level discontinuity to verify via cross-era join.",
+     "label_mechanics": "Practically all survivors updated within a 12-month window (10116/10124 and 7647/7649), so survival == 'performed at least one update in the window'. Removals occur at every lastUpdateDate age (21 removals even with lastUpdate 0-60 days before the 2023-01 instant), so the label is NOT mechanically derivable from lastUpdateDate: the documented deadline keys off the last ANNUAL update while lastUpdateDate is bumped by any update (partial updates do not move the deadline; a full update does). Deadline proximity is an informative feature, not a shortcut.",
+     "measured_windows_positive_rate_absent_next_snapshot": {
+      "2016-01-21 -> 2017-01-21 (365d, old era)": "1471/9120 removed (16.1%); reactivations 13; survivors updated 7647/7649",
+      "2023-01-21 -> 2023-06-21 (150d, new era)": "1212/12418 removed (9.76%); reactivations 99",
+      "2023-01-21 -> 2024-01-21 (365d, new era)": "2294/12418 removed (18.5%); reactivations 92",
+      "2024-01-21 -> 2024-12-31 (345d, new era; file labelled '2025 - JANUARY', in-file export 2024-12-31)": "1722/12430 removed (13.85%); reactivations 118",
+      "2024-12-31 -> 2026-06-30 (545d, new era)": "2051/13119 removed (15.6%); reactivations 200"
+     },
+     "probe_scripts": "probe_portal_dataset.py (enumerate all 49 distributions), probe_snapshot_parse.py (field inventory), probe_snapshot_transitions.py (window joins, removal/reactivation/update counts; includes XML control-char sanitiser), probe_examples.py (worked dated examples), probe_lu_missingness.py (empty-lastUpdateDate count). All retained in this candidate directory; commands and outputs in notes.md.",
+     "publisher_cross_check": "Secretariat of the Transparency Register, 'Mapping of the implementation of the 2021 interinstitutional agreement' (register website, read 2026-10-28): 'requirements resulting from the IIA (with 87% thereof complying timely with that requirement and 1 496 registrants removed)' and 'more than 14 000 registrants' (2025). Annual report 2021: '13 366 registrants on 31 December 2021'. Measured snapshot sizes: 9120 (2016-01), 11010 (2017-01), 12418 (2023-01), 12430 (2024-01), 13119 (2024-12-31), 17424 (2026-06-30), 18050 (live 2026-10-27) - consistent growth trajectory.",
+     "schema_inventory": "per-organisation elements (all 12430 rows in the 2024-01 file): identificationCode, registrationDate, lastUpdateDate, name/originalName, acronym, entityForm, webSiteURL, registrationCategory, headOffice{address,postCode,city,country,phone}, EUOffice{...}, goals, levelsOfInterest (50918 entries), interests (125167 entries), isMemberOf, members (bands 100/75/50/25/10 percent + membersFTE), organisationMembers, interOrUnofficalGroupings, financialData{costs/absoluteCost+ranges, closedYear, currentYear, amount, fundingSource(s), grant(s), contribution(s), revenue, representationCosts, totalBudget, totalAnnualRevenue, source}, interestRepresented/clients/intermediaries (consultancies), EULegislativeProposals (3148), EUSupportedForumsAndPlatforms, communicationActivities, infoMembers, EPAccreditedNumber, newOrganisation, complementaryInformation, structure. Old-era files (20141104 namespace) additionally carry <status>active</status> and category mainCategory/subCategory; every exported row in parsed old-era files is status=active. Column meanings are documented by the register's Guidelines and IIPA Annex I (registration form).",
+     "snapshot_inventory": "portal API enumerates 49 distributions: semi-annual 'Organisations in Transparency Register' snapshots 2015-01 .. 2026-06 in XML + XLS, live daily exports (XML/XLS organisations, XML accredited persons). In-file metaData exportDate + numberOfIR match parsed rows exactly in all six files parsed (e.g. 2024-01 file: declared 12430 = parsed 12430)."
+    },
+    "next_action": "Hand to advancement for construction on a worker: (1) download all 24 snapshots (euodp URLs for 2015-01..2024-06; Referer recipe for 2025-01..2026-06, see sourc",
+    "packaged_at": null,
+    "path": "candidates/eu-transparency-register-removal/record.json",
+    "prediction_time": "The export instant of semi-annual snapshot t, i.e. the <exportDate> timestamp carried inside the snapshot XML (observed exports 2015-01-21T19:30 CET ... 2026-06-30T20:00 UTC; the publisher states the organisation lists are 'published twice a year' and the live register lists are 'updated daily'). Features are the organisation's fields as published in snapshot t only (identity, registration category, country, declared goals/interests, members and FTEs, declared financial data for the closed financial year, EP-accredited-person count, networking, EU legislative proposals listed, lastUpdateDate as at t). The target window is (t, t+1] where t+1 is the next snapshot's export instant, strictly after the prediction instant.",
+    "publisher": "Secretariat of the Transparency Register - European Parliament, Council of the European Union and European Commission (data published via the EU Open Data Portal, data.europa.eu, publisher authority 'Secretariat-General')",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For an organisation listed as registered in the EU Transparency Register at the instant of a semi-annual register snapshot (the export timestamp stamped inside the snapshot file), will it still be listed in the next semi-annual snapshot, or will it have been removed from the register by then?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Five contracts reconciled on 2026-10-28 against written evidence. (1) Redistribution SUPPORTED - publisher's own instruments: per-distribution licence Decision 2011/833/EU (Art. 4 reuse for commercial/non-commercial purposes, without charge, no individual application; Art. 6 attribution-style conditions) plus the EU-wide CC BY 4.0 default notice; registrants declared their information public; class A, attribution carried to a future LICENSE.md. (2) Timing SUPPORTED - the prediction instant is the in-file snapshot export timestamp (exact, named timezone); features are snapshot-t fields documented by the register's Guidelines/IIPA Annex I; the label is presence in the strictly-later snapshot t+1; each snapshot is the publisher's own dated vintage (no back-revision of past files observed: the 2016 file still carries only pre-2016 lastUpdateDates); recorded caveat: the historical series' first-publication dates on the portal are batch upload dates (2023-05-11 for 2015-2022, 2024-05-14 for 2023-01..2024-01, per-distribution for later files), so operational claims are stated against the snapshot instants and the live daily channel, not per-file historical downloadability. (3) Target SUPPORTED - absence from t+1 is fully obtainable from the archive; label source (a different file) excludable; censoring handled: absence is state-based, reactivation within 2 years is documented and measured (92-200/window); eligibility = presence in snapshot t, no future knowledge. (4) Split capacity SUPPORTED - 24 semi-annual snapshots 2015-2026, all anonymously downloadable (2025/2026 with the Referer recipe); measured positive rates 9.8-18.5% across eras and horizons; three disjoint windows train/eval/holdout each carry hundreds-to-thousands of positives; both classes in every measured window; panel-level clustering (repeated orgs, deadline-position clustering) recorded for construction. (5) Not a mirror SUPPORTED - mechanical catalogue sweep (Hugging Face, Zenodo, arXiv) plus literature search recorded in novelty_check: no ML-ready formulation of this prediction task exists; nearest items are data extracts (EU-LOB consolidated database; a 2023 meta-organisations extract) and descriptive political-science survival studies (Berkhout & Lowery 2011 EU interest-community vital rates; a Bundestag-register event-history study), none with splits and a scored contract. Honest open risks recorded for construction: deadline-proximity (lastUpdateDate age) may be a strong single feature - headroom over a deadline-only baseline is the deciding check; the 2021 IIA transition may break identificationCode continuity across the mid-2021 windows; empty-lastUpdateDate entries in some snapshots; label mixes compliance removal (majority), voluntary exit and enforcement.",
+    "sources": [
+     {
+      "licence": "each distribution carries licence http://data.europa.eu/eli/dec/2011/833/oj (Commission Decision 2011/833/EU)",
+      "name": "EU Open Data Portal dataset 'Transparency Register' (publisher: Secretariat-General of the European Commission; register operated jointly by the European Parliament, the Council of the EU and the European Commission under the Interinstitutional Agreement of 20 May 2021, OJ L 207, 11.6.2021, p. 1)",
+      "url": "https://data.europa.eu/data/datasets/transparency-register"
+     },
+     {
+      "licence": "official europa.eu site under the Commission reuse policy (Decision 2011/833/EU) and the EU-wide CC BY 4.0 default notice",
+      "name": "Transparency Register live daily exports (current-state edge used for deployment; same schema as the semi-annual snapshots)",
+      "url": "https://transparency-register.europa.eu/odplastorganisationxml_en"
+     },
+     {
+      "licence": "official europa.eu content",
+      "name": "Transparency Register guidelines and FAQs (documented rule mechanics and every form field's meaning)",
+      "url": "https://transparency-register.europa.eu/guidelines_en"
+     }
+    ],
+    "split_strategy": "Temporal windows on the semi-annual snapshot panel (24 snapshots 2015-01..2026-06, all verified downloadable; 2025/2026 files need the Referer recipe recorded in sources). Candidate partition: train = windows starting 2015-01..2019-06 (10 windows), eval = 2020-01..2022-06 (6 windows), holdout = 2023-01..2026-06 (7 windows); every measured window carries both classes at 9.8-18.5% positive rate. Windows that straddle the 2021 IIA transition (old -> new register migration, mid-2021) must be checked for identificationCode continuity at construction; measured here only within-era windows. Repeated organisations across windows are the panel's clustering structure; positives additionally cluster by annual-deadline position (measured lastUpdate-age bucket distribution in notes.md).",
+    "status": "ready",
+    "target": "Binary label: identificationCode of the organisation is ABSENT from the next semi-annual snapshot's export (removed from the register) vs PRESENT. Label source is presence in a different file (snapshot t+1), which is excludable from features by construction. Removal mixes automatic removal for a missed compulsory annual update (documented rule: deadline one year after registration and then one year after each annual update; missed deadline -> suspended, then 'automatically removed two weeks after the deadline'), voluntary deregistration, and rare enforcement removals; the publisher's own mapping report counts '87% complying timely ... and 1 496 registrants removed' for its reporting period. The label is state-based, not absorbing: a small measured share (92-200 per measured window, some of it validation-lagged new registrations) reappears in later snapshots; the label stays 'absent at t+1' regardless of later reactivation."
    },
    {
     "awaiting_operator": false,
@@ -7799,7 +8048,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 16.1,
+    "age_hours": 17.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -8717,7 +8966,7 @@
    "awaiting": [],
    "packaged": [
     {
-     "age_hours": 16.1,
+     "age_hours": 17.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -8919,7 +9168,7 @@
    ],
    "pending": [
     {
-     "age_hours": 16.1,
+     "age_hours": 17.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9132,7 +9381,7 @@
    "CL": 2,
    "CO": 1,
    "DE": 2,
-   "EU": 8,
+   "EU": 11,
    "FR": 1,
    "GB": 11,
    "GH": 1,
@@ -9159,7 +9408,7 @@
   "by_region": {
    "Africa": 8,
    "East Asia": 8,
-   "Europe": 22,
+   "Europe": 25,
    "International organisations": 9,
    "Latin America": 8,
    "North America": 23,
@@ -9168,16 +9417,16 @@
   },
   "by_status": {
    "dropped": 38,
-   "investigating": 15,
+   "investigating": 17,
    "packaged": 1,
    "parked": 26,
    "published": 11,
-   "ready": 7
+   "ready": 8
   },
-  "candidates": 98,
-  "live": 34,
-  "live_non_us": 27,
-  "live_non_us_share": 0.794,
+  "candidates": 101,
+  "live": 37,
+  "live_non_us": 30,
+  "live_non_us_share": 0.811,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -9199,10 +9448,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-28T11:50:02.095484+00:00",
+    "last_run_at": "2026-10-28T12:50:01.537779+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-28T12:00:00+00:00",
+    "next_run_at": "2026-10-28T13:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -9223,10 +9472,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-28T11:50:01.732973+00:00",
+    "last_run_at": "2026-10-28T12:50:01.392574+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-28T11:55:00+00:00",
+    "next_run_at": "2026-10-28T12:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9247,10 +9496,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-28T11:47:04.239214+00:00",
+    "last_run_at": "2026-10-28T12:47:21.117131+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-28T11:52:04.239214+00:00",
+    "next_run_at": "2026-10-28T12:52:21.117131+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -9259,10 +9508,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-28T11:50:00.793282+00:00",
+    "last_run_at": "2026-10-28T12:50:00.801840+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-28T11:55:00+00:00",
+    "next_run_at": "2026-10-28T12:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9283,10 +9532,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-28T10:51:31.679449+00:00",
+    "last_run_at": "2026-10-28T11:50:43.010692+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-28T12:50:00+00:00",
+    "next_run_at": "2026-10-28T13:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -9295,10 +9544,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-28T10:55:00.740327+00:00",
+    "last_run_at": "2026-10-28T11:55:01.460084+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-28T11:55:00+00:00",
+    "next_run_at": "2026-10-28T12:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -9339,29 +9588,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-28T11:50:02.096674+00:00"
+  "updated_at": "2026-10-28T12:50:01.538746+00:00"
  },
- "generated_at": "2026-10-28T11:50:02+00:00",
+ "generated_at": "2026-10-28T12:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 98
+   "passing": 101
   },
   "ci": {
    "conclusion": "failure",
-   "created_at": "2026-10-28T10:30:53Z",
-   "head_sha": "a34b551",
+   "created_at": "2026-10-28T12:39:30Z",
+   "head_sha": "ba55f0d",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40672719288"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40689618675"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 27/34 (79%)"
+   "summary": "live non-US: 30/37 (81%)"
   },
   "head": {
-   "at": "2026-10-28T10:30:49Z",
-   "sha": "a34b551",
-   "subject": "International-organisations discovery tick: wb-loan-disbursement-completion ready (World Bank IBRD Statement of Loans, C"
+   "at": "2026-10-28T12:39:18Z",
+   "sha": "ba55f0d",
+   "subject": "EU/EEA discovery tick: eu-transparency-register-removal ready (EU Transparency Register semi-annual snapshots 2015-2026,"
   },
   "tests": {
    "count": "673",
@@ -11000,13 +11249,21 @@
    "qualified": 0,
    "sessions_7d": 194,
    "tokens_7d": 23673728
+  },
+  {
+   "at": "2026-10-28T12:50:01+00:00",
+   "live": 17,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 194,
+   "tokens_7d": 23688502
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T11:50:02+00:00",
+   "as_of": "2026-10-28T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -11016,17 +11273,17 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T11:50:02+00:00",
+   "as_of": "2026-10-28T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 15
+   "value": 17
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-28T11:50:02+00:00",
+   "as_of": "2026-10-28T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -13089,7 +13346,7 @@
   "jobs_total": 121,
   "lifetime_eur": 3.35,
   "live": {
-   "checked_at": "2026-10-28T11:50:33+00:00",
+   "checked_at": "2026-10-28T12:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -13130,8 +13387,21 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "ceac67da0bcb661b41698b2bf0b7e045bc1f0b91dc86e3a031dd6544777feb17",
     "ts": "2026-10-28T10:32:23.545016+00:00"
+   },
+   {
+    "elapsed_seconds": 2175.7,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "0f8df11b39bf1dea798e4df5aec63456644137cd2c941512c006e8c3b75a5a31",
+    "ts": "2026-10-28T12:41:16.933251+00:00"
    }
   ],
-  "total": 1
+  "total": 2
  }
 }
