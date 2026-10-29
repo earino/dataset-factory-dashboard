@@ -1,7 +1,7 @@
 {
  "alarms": [
   "Research gate refused the next session: 192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)",
-  "unhcr-refugee-data-finder has been packaged and actionable for 38.1h - shipping it outranks construction"
+  "unhcr-refugee-data-finder has been packaged and actionable for 39.1h - shipping it outranks construction"
  ],
  "budget": {
   "config": {
@@ -19,14 +19,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-29T09:50:03.365322+00:00",
+   "moment": "2026-10-29T10:50:02.798268+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 28218444,
+   "research_tokens_last_7_days": 28076695,
    "runs_last_7_days": 192,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -54,14 +54,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 7508,
+     "calls": 7534,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 30136215,
-     "output_tokens": 7045740,
+     "input_tokens": 30197495,
+     "output_tokens": 7069449,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -1085,6 +1085,29 @@
      "status": null
     },
     "measurements": {
+     "baseline_2026_10_29": {
+      "command": "runner-contract baseline through the benchmark's own train.py + validate.sh, unmodified (bundled digests match the read-only clone: train.py a3c6bcf1, validate.py b597e7f8, validate.sh 3f06ca48), on the accepted artifact fetched from private staging release 427616218 (5/5 files, digests match; failures: 0)",
+      "comparison_on_identical_eval_rows": {
+       "calendar_county_month": 0.5075,
+       "full_model": 0.5086,
+       "majority_class_accuracy": 0.6048,
+       "model_minus_calendar": 0.0011,
+       "model_minus_persistence": -0.1038,
+       "paired_interval_note": "the paired bootstrap from job ns-bwa-001 covers persistence vs calendar (+0.1014 [0.0144, 0.1739], 1000 resamples, seed 23) but NOT model vs persistence: the runner contract emits only the aggregate AUC and per-row model scores were not preserved. The -0.1038 gap is an observed difference; its precision and generality are uncertain and no interval is claimed.",
+       "persistence_site_prior": 0.6124,
+       "reason_prior": 0.4307
+      },
+      "contract": "train.py exit 0, validate.sh exit 0, '[validate] CONTRACT OK'; both eval AUCs agree exactly (train.py print 0.5086, validate.py's independent predict_proba recompute 0.5086)",
+      "dependencies": "python 3.13.18, pandas 2.3.3, numpy 2.5.4, xgboost 3.4.1, scikit-learn 1.9.1",
+      "evidence": ".factory/ns-bwa-baseline-001/reports/ (all 10 staging assets fetched and digest-verified 2026-10-29) and private staging release 427629948; inputs from release 427616218",
+      "finding": "NO demonstrated headroom under this protocol. The runner's own baseline does not beat the best simple reference - it trails the one-line site-persistence rule (a shipped feature) by 0.1038 AUC and sits exactly at the calendar/identity control (+0.0011). Per dataset-qualification, a model below persistence is a recorded defect, not an encouraging result. This does not prove every competent model must lose: an agent that follows the shipped site-persistence feature starts at ~0.61, so the benchmark's baseline-to-reference gap is agent-visible - but the task's discriminative claim above simple references is not demonstrated.",
+      "full_model_eval_auc": 0.5086,
+      "job": "ns-bwa-baseline-001",
+      "model": "benchmark template XGBClassifier, n_estimators=30, max_depth=6, lr=0.1, seed 42, categorical encoding for object columns with <=1000 train levels; every non-id column is input, per the runner contract",
+      "order": "re-accept BEFORE scoring: qualify_dataset.py --accept against the bundled report (byte-identical to the collected ns-bwa-001 gate report, sha256 a6f0090d...) -> ACCEPTED for artifact e8ed2a53eaf0453c8ed52aea336edb994d888ad11e7b76f7898b663f017180a8; only then materialize (public train+eval only, the private holdout was never copied into a workdir) and run the contract",
+      "rows": "the same 372 eval rows as every reference (n=372, eval positive rate 0.604839); holdout sealed, not scored",
+      "worker": "server 173309283, elapsed 51.7 s, reservation EUR 0.06; destroyed 2026-10-29T10:08:32Z, provider read-back 0 servers / 0 primary IPs at 2026-10-29T10:08:41Z"
+     },
      "censoring_by_issue_year": "73 unresolved: 2013:1, 2017:1, 2020:1, 2021:4, 2022:1, 2024:5, 2025:11, 2026:19 + 30 rows with missing issue date (unknown vintage exposure). Publisher documents the semantics: blanks are advisories currently in effect.",
      "construction_2026_10_29": {
       "cross_row_exposure_measured": "the gate executed both declared probes on the full artifact: site-level reverse-history covers 369 train / 56 eval / 217 holdout rows (a later same-site row's site_prior_lift30_rate equals the earlier row's label when that prior is its only resolved one; 1 mismatch in train), county-level covers 109/18/3 with more mismatches. Covered rows are why evaluation_contract declares access=isolated_rows; the descriptor states it as the row-wise design intent, NOT a runtime-enforced protocol (the shipped validator passes the whole table - the unhcr audit lesson is applied here at construction time, before any packaging claim exists)",
@@ -1170,7 +1193,7 @@
      "register_totals": "2,649 advisories; 2,576 resolved (removal date present); 73 active/censored (removal blank); 1,116 distinct site names; facility types: Registered 2,491, Municipal 101, missing 57; reasons: Total Coliform Present 1,816, Chemical Exceedance 389, Other 186, E. Coli Present 83 + E.Coli Present 52 (spelling variants - same category), Lack of Disinfection 50, Failure of Treatment Processes 42, Ineffective Disinfection 14, others 13, missing 5.",
      "sibling_channels_checked_2026_10_27": "Newfoundland & Labrador 'Boil Water Advisories' (opendata.gov.nl.ca file-id=17146, nl-oglnl, 53,342 bytes, bounded header+rows sample read): carries BOIL_ADVISORY_ISSUE_DATE and rich system features (SUPPLY_TYPE, SOURCE_TYPE, NUM_OF_WELLS, CHLORINATION, POPULATION_SERVICED, REGION_*) but NO lift/rescinded date column - cannot support the duration task (measured negative). Manitoba 'Current BWAPWS' (mb-omb): current advisories only, no lifts. Quebec (donneesquebec.ca, qc-cc-by): one city (Repentigny). ECCC/CESI 'Boil water advisories' (ca-ogl-lgo): national aggregate indicator CSVs only. The NS register is the only per-advisory machine-readable channel with lift dates found this tick - the provincial municipal-water channel the isc-ltdwa record named as its reopening condition."
     },
-    "next_action": "QUALIFIED 2026-10-29 (job ns-bwa-001): construct -> gate 1.5.0 PASSED (46/46) -> --accept ACCEPTED for artifact e8ed2a53eaf0453c8ed52aea336edb994d888ad11e7b76f7",
+    "next_action": "BASELINE MEASURED 2026-10-29 (job ns-bwa-baseline-001): full runner-contract model 0.5086 eval AUC vs site persistence 0.6124 / calendar-identity 0.5075 on the ",
     "packaged_at": null,
     "path": "candidates/ns-bwa-advisory-lift-duration/record.json",
     "prediction_time": "The advisory issue date (register column 'Date Advisory Issued', calendar day, America/Halifax). Every shipped feature must be a value fixed at or before that day: the issuing row's own site name, county, facility type, reason for the report, and derived calendar features; site/county history features may only use rows with an earlier issue date. The label window is the 30 days that follow the issue date. No part of the target window precedes the instant.",
@@ -7062,6 +7085,29 @@
      "status": null
     },
     "measurements": {
+     "baseline_2026_10_29": {
+      "command": "runner-contract baseline through the benchmark's own train.py + validate.sh, unmodified (bundled digests match the read-only clone: train.py a3c6bcf1, validate.py b597e7f8, validate.sh 3f06ca48), on the accepted artifact fetched from private staging release 427616218 (5/5 files, digests match; failures: 0)",
+      "comparison_on_identical_eval_rows": {
+       "calendar_county_month": 0.5075,
+       "full_model": 0.5086,
+       "majority_class_accuracy": 0.6048,
+       "model_minus_calendar": 0.0011,
+       "model_minus_persistence": -0.1038,
+       "paired_interval_note": "the paired bootstrap from job ns-bwa-001 covers persistence vs calendar (+0.1014 [0.0144, 0.1739], 1000 resamples, seed 23) but NOT model vs persistence: the runner contract emits only the aggregate AUC and per-row model scores were not preserved. The -0.1038 gap is an observed difference; its precision and generality are uncertain and no interval is claimed.",
+       "persistence_site_prior": 0.6124,
+       "reason_prior": 0.4307
+      },
+      "contract": "train.py exit 0, validate.sh exit 0, '[validate] CONTRACT OK'; both eval AUCs agree exactly (train.py print 0.5086, validate.py's independent predict_proba recompute 0.5086)",
+      "dependencies": "python 3.13.18, pandas 2.3.3, numpy 2.5.4, xgboost 3.4.1, scikit-learn 1.9.1",
+      "evidence": ".factory/ns-bwa-baseline-001/reports/ (all 10 staging assets fetched and digest-verified 2026-10-29) and private staging release 427629948; inputs from release 427616218",
+      "finding": "NO demonstrated headroom under this protocol. The runner's own baseline does not beat the best simple reference - it trails the one-line site-persistence rule (a shipped feature) by 0.1038 AUC and sits exactly at the calendar/identity control (+0.0011). Per dataset-qualification, a model below persistence is a recorded defect, not an encouraging result. This does not prove every competent model must lose: an agent that follows the shipped site-persistence feature starts at ~0.61, so the benchmark's baseline-to-reference gap is agent-visible - but the task's discriminative claim above simple references is not demonstrated.",
+      "full_model_eval_auc": 0.5086,
+      "job": "ns-bwa-baseline-001",
+      "model": "benchmark template XGBClassifier, n_estimators=30, max_depth=6, lr=0.1, seed 42, categorical encoding for object columns with <=1000 train levels; every non-id column is input, per the runner contract",
+      "order": "re-accept BEFORE scoring: qualify_dataset.py --accept against the bundled report (byte-identical to the collected ns-bwa-001 gate report, sha256 a6f0090d...) -> ACCEPTED for artifact e8ed2a53eaf0453c8ed52aea336edb994d888ad11e7b76f7898b663f017180a8; only then materialize (public train+eval only, the private holdout was never copied into a workdir) and run the contract",
+      "rows": "the same 372 eval rows as every reference (n=372, eval positive rate 0.604839); holdout sealed, not scored",
+      "worker": "server 173309283, elapsed 51.7 s, reservation EUR 0.06; destroyed 2026-10-29T10:08:32Z, provider read-back 0 servers / 0 primary IPs at 2026-10-29T10:08:41Z"
+     },
      "censoring_by_issue_year": "73 unresolved: 2013:1, 2017:1, 2020:1, 2021:4, 2022:1, 2024:5, 2025:11, 2026:19 + 30 rows with missing issue date (unknown vintage exposure). Publisher documents the semantics: blanks are advisories currently in effect.",
      "construction_2026_10_29": {
       "cross_row_exposure_measured": "the gate executed both declared probes on the full artifact: site-level reverse-history covers 369 train / 56 eval / 217 holdout rows (a later same-site row's site_prior_lift30_rate equals the earlier row's label when that prior is its only resolved one; 1 mismatch in train), county-level covers 109/18/3 with more mismatches. Covered rows are why evaluation_contract declares access=isolated_rows; the descriptor states it as the row-wise design intent, NOT a runtime-enforced protocol (the shipped validator passes the whole table - the unhcr audit lesson is applied here at construction time, before any packaging claim exists)",
@@ -7147,7 +7193,7 @@
      "register_totals": "2,649 advisories; 2,576 resolved (removal date present); 73 active/censored (removal blank); 1,116 distinct site names; facility types: Registered 2,491, Municipal 101, missing 57; reasons: Total Coliform Present 1,816, Chemical Exceedance 389, Other 186, E. Coli Present 83 + E.Coli Present 52 (spelling variants - same category), Lack of Disinfection 50, Failure of Treatment Processes 42, Ineffective Disinfection 14, others 13, missing 5.",
      "sibling_channels_checked_2026_10_27": "Newfoundland & Labrador 'Boil Water Advisories' (opendata.gov.nl.ca file-id=17146, nl-oglnl, 53,342 bytes, bounded header+rows sample read): carries BOIL_ADVISORY_ISSUE_DATE and rich system features (SUPPLY_TYPE, SOURCE_TYPE, NUM_OF_WELLS, CHLORINATION, POPULATION_SERVICED, REGION_*) but NO lift/rescinded date column - cannot support the duration task (measured negative). Manitoba 'Current BWAPWS' (mb-omb): current advisories only, no lifts. Quebec (donneesquebec.ca, qc-cc-by): one city (Repentigny). ECCC/CESI 'Boil water advisories' (ca-ogl-lgo): national aggregate indicator CSVs only. The NS register is the only per-advisory machine-readable channel with lift dates found this tick - the provincial municipal-water channel the isc-ltdwa record named as its reopening condition."
     },
-    "next_action": "QUALIFIED 2026-10-29 (job ns-bwa-001): construct -> gate 1.5.0 PASSED (46/46) -> --accept ACCEPTED for artifact e8ed2a53eaf0453c8ed52aea336edb994d888ad11e7b76f7",
+    "next_action": "BASELINE MEASURED 2026-10-29 (job ns-bwa-baseline-001): full runner-contract model 0.5086 eval AUC vs site persistence 0.6124 / calendar-identity 0.5075 on the ",
     "packaged_at": null,
     "path": "candidates/ns-bwa-advisory-lift-duration/record.json",
     "prediction_time": "The advisory issue date (register column 'Date Advisory Issued', calendar day, America/Halifax). Every shipped feature must be a value fixed at or before that day: the issuing row's own site name, county, facility type, reason for the report, and derived calendar features; site/county history features may only use rows with an earlier issue date. The label window is the 30 days that follow the issue date. No part of the target window precedes the instant.",
@@ -8277,7 +8323,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 38.1,
+    "age_hours": 39.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -9362,7 +9408,7 @@
    "awaiting": [],
    "packaged": [
     {
-     "age_hours": 38.1,
+     "age_hours": 39.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9574,7 +9620,7 @@
    ],
    "pending": [
     {
-     "age_hours": 38.1,
+     "age_hours": 39.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9865,10 +9911,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-29T09:50:01.581439+00:00",
+    "last_run_at": "2026-10-29T10:50:02.178626+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-29T10:00:00+00:00",
+    "next_run_at": "2026-10-29T11:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -9889,10 +9935,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-29T09:50:01.600454+00:00",
+    "last_run_at": "2026-10-29T10:50:01.393008+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-29T09:55:00+00:00",
+    "next_run_at": "2026-10-29T10:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9913,10 +9959,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-29T09:49:00.214835+00:00",
+    "last_run_at": "2026-10-29T10:48:39.932996+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-29T09:54:00.214835+00:00",
+    "next_run_at": "2026-10-29T10:53:39.932996+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -9925,10 +9971,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-29T09:50:01.123755+00:00",
+    "last_run_at": "2026-10-29T10:50:01.012152+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-29T09:55:00+00:00",
+    "next_run_at": "2026-10-29T10:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9949,10 +9995,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-29T08:50:43.591905+00:00",
+    "last_run_at": "2026-10-29T09:50:43.725174+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-29T10:50:00+00:00",
+    "next_run_at": "2026-10-29T11:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -9961,10 +10007,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-29T08:55:01.092279+00:00",
+    "last_run_at": "2026-10-29T09:55:01.499515+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-29T09:55:00+00:00",
+    "next_run_at": "2026-10-29T10:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -10005,9 +10051,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-29T09:50:01.601533+00:00"
+  "updated_at": "2026-10-29T10:50:02.179658+00:00"
  },
- "generated_at": "2026-10-29T09:50:02+00:00",
+ "generated_at": "2026-10-29T10:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -10015,19 +10061,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-29T08:41:39Z",
-   "head_sha": "f8ba545",
+   "created_at": "2026-10-29T10:10:24Z",
+   "head_sha": "318fa19",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40843983778"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40855426238"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 31/37 (84%)"
   },
   "head": {
-   "at": "2026-10-29T08:41:35Z",
-   "sha": "f8ba545",
-   "subject": "ns-bwa-advisory-lift-duration qualified: ns-bwa-001 green (gate 1.5.0 46/46, accept e8ed2a53eaf0453c, references measure"
+   "at": "2026-10-29T10:10:20Z",
+   "sha": "318fa19",
+   "subject": "ns-bwa-baseline-001 close-out: runner-contract model 0.5086 eval AUC vs site persistence 0.6124 on the same 372 rows - n"
   },
   "tests": {
    "count": "674",
@@ -11842,13 +11888,21 @@
    "qualified": 1,
    "sessions_7d": 192,
    "tokens_7d": 28218444
+  },
+  {
+   "at": "2026-10-29T10:50:01+00:00",
+   "live": 18,
+   "published": 11,
+   "qualified": 1,
+   "sessions_7d": 192,
+   "tokens_7d": 28076695
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T09:50:02+00:00",
+   "as_of": "2026-10-29T10:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -11858,7 +11912,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T09:50:02+00:00",
+   "as_of": "2026-10-29T10:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -11868,7 +11922,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T09:50:02+00:00",
+   "as_of": "2026-10-29T10:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -12446,7 +12500,7 @@
      "lo": 0.02
     },
     {
-     "count": 12,
+     "count": 13,
      "hi": 0.1,
      "lo": 0.05
     },
@@ -12467,11 +12521,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0127,
-   "n": 131,
-   "p90": 0.0542,
+   "median": 0.0131,
+   "n": 132,
+   "p90": 0.0561,
    "ref_rate": 0.06924,
-   "total": 4.13
+   "total": 4.22
   },
   "jobs": [
    {
@@ -13688,15 +13742,15 @@
    },
    {
     "created_at": "2026-10-29T08:45:17.728775+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-10-29T10:08:32.047108+00:00",
+    "eur": 0.016,
+    "hours": 1.387,
     "id": "ns-bwa-baseline-001",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.096,
     "rate_eur": 0.01152,
     "server_type": "cx23",
-    "status": "collected"
+    "status": "deleted"
    },
    {
     "created_at": "2026-10-23T10:14:37.485318+00:00",
@@ -14059,19 +14113,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 90,
+  "jobs_this_month": 91,
   "jobs_total": 132,
-  "lifetime_eur": 3.36,
+  "lifetime_eur": 3.37,
   "live": {
-   "checked_at": "2026-10-29T09:50:34+00:00",
+   "checked_at": "2026-10-29T10:50:33+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 25.7,
-  "month_to_date": 0.91,
+  "month_hours": 27.1,
+  "month_to_date": 0.93,
   "months": [
    {
     "eur": 2.4452,
@@ -14080,31 +14134,18 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.9125,
-    "hours": 25.74,
-    "jobs": 90,
+    "eur": 0.9285,
+    "hours": 27.12,
+    "jobs": 91,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 0.98
+  "projected_month_eur": 0.99
  },
  "schema": 1,
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 2153.7,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "b59da8fc0c47e8f63fc33b2de4e98821be27f9a5c82a45d9a41122be6807cd01",
-    "ts": "2026-10-29T06:40:55.109093+00:00"
-   },
    {
     "elapsed_seconds": 3600.6,
     "event": "session",
@@ -14118,6 +14159,20 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "a42f9ffa102e21ddf4e38ecbffa15fb4792c461c985a0928715765167e009e38",
     "ts": "2026-10-29T09:05:02.218363+00:00"
+   },
+   {
+    "elapsed_seconds": 564.2,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "f1d91404d5a72383464fa04e7a94d1e206e0c03ef694f8f303e83407d28ec432",
+    "ts": "2026-10-29T10:13:31.128282+00:00"
    }
   ],
   "total": 2
