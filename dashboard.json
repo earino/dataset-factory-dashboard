@@ -1,7 +1,7 @@
 {
  "alarms": [
   "Research gate refused the next session: 192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)",
-  "unhcr-refugee-data-finder has been packaged and actionable for 30.1h - shipping it outranks construction"
+  "unhcr-refugee-data-finder has been packaged and actionable for 31.1h - shipping it outranks construction"
  ],
  "budget": {
   "config": {
@@ -19,14 +19,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-29T01:50:02.665276+00:00",
+   "moment": "2026-10-29T02:50:02.757665+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 28108644,
+   "research_tokens_last_7_days": 28265197,
    "runs_last_7_days": 192,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -54,14 +54,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 7183,
+     "calls": 7278,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 29392278,
-     "output_tokens": 6807984,
+     "input_tokens": 29757145,
+     "output_tokens": 6836147,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -94,15 +94,14 @@
    "JP": 1,
    "NZ": 1,
    "TW": 1,
-   "US": 2
+   "US": 1
   },
   "counts": {
-   "dropped": 38,
+   "dropped": 39,
    "investigating": 17,
    "packaged": 1,
    "parked": 26,
    "published": 11,
-   "qualified": 1,
    "ready": 7
   },
   "errors": [],
@@ -1339,125 +1338,9 @@
     "split_strategy": "",
     "status": "investigating",
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
-   },
-   {
-    "awaiting_operator": false,
-    "baseline": {},
-    "country": "US",
-    "domain": "sovereign lending / loan-lifecycle execution outcome prediction (World Bank Group)",
-    "id": "wb-loan-disbursement-completion",
-    "jobs": [
-     {
-      "at": null,
-      "id": "wb-sol-001",
-      "status": "failed (deleted)"
-     },
-     {
-      "at": null,
-      "id": "wb-sol-002",
-      "status": "succeeded (deleted)"
-     }
-    ],
-    "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
-    },
-    "measurements": {
-     "construction_2026_10_28": {
-      "base_rate_90": "5,457/7,929 = 68.82% before entity isolation",
-      "censored_open_within_2017": "13 rows (2011:1, 2014:2, 2015:1, 2016:3, 2017:6)",
-      "currency_of_commitment": "empty on 100% of scoped rows - not shipped",
-      "entity_isolation": "83 projects / 172 rows straddle split windows and are dropped whole; expected shipped splits ~5,862 train / 1,046 eval / 831 holdout minus the unverified-zero rows below",
-      "fixtures_pinned": "IBRD00010 ratio 1.0 positive; IBRD00130 Mexico ratio 0 genuine negative (cancelled == original); IBRD00230 ratio 0.903811 boundary positive; IBRD00550 ratio 0.897798 just-below negative",
-      "labeled_population_recorded_rule": "7,929 matured rows approved<=2017 (6,880 terminal-status + 998 repaying + 51 closed-by-date pathways)",
-      "source": "full API fetch on the coordinator (10 pages, 12.8 MB, same channel the recorded discovery probe used) plus worker run wb-sol-001's fetch log",
-      "zero_disbursement_unverified": "18 rows (disbursed=0, cancelled != original, terminal status with all amount fields zero - succession-era records; e.g. IBRD14699 Croatia 1977) excluded as unverified outcomes, never labeled; found during pre-launch verification, recorded as an outcome-observability rule in quality.json"
-     },
-     "extraction_cost_2026_10_28": {
-      "latest_snapshot_ibrd": "10 API requests, 12,797,416 bytes, 5.5 s wall for the full 9,538-row snapshot (hosted coordinator, 4 vCPU, Python urllib with a descriptive User-Agent; the default Python UA is refused with HTTP 403)",
-      "latest_snapshot_ida": "12 requests, 15,082,010 bytes, 9.1 s for 11,486 rows",
-      "worker_scale_note": "a full build needs only the IBRD snapshot (bulk CSV 2.85 MB or the 10 API pages); the historical archive (>300 MB) is needed only for the optional as-of cohort and is worker-scope"
-     },
-     "probe_2026_10_28": {
-      "command": "python3 candidates/wb-loan-disbursement-completion/probe_statement_of_loans.py (coordinator, 2026-10-28; output in probe_output.json beside it)",
-      "ibrd_censoring_per_year": "approvals 2010-2017 are essentially all closed (open per year: 0,0,0,0,2,1,3,6); 2018: 13 open; 2019: 44; 2020: 45; 2021: 61; 2022: 77; 2023: 113; 2024: 110; 2025: 142; 2026: 135 - labeled population is censored at 2017 approvals",
-      "ibrd_consistency": "disbursed+undisbursed+cancelled == original within 1 USD/1e-6 on 7,711/8,474 closed rows; 763 mismatches concentrate in sold_3rd_party / Fully Transferred instruments (e.g. IBRD00010 France 1947: 250M disbursed, 249.962M sold 3rd party) - not label-affecting since the label uses disbursed/original directly, but construction must document the accounting identities",
-      "ibrd_label_base_rates_closed": ">=50%: 87.51%; >=70%: 81.10%; >=80%: 76.12%; >=90%: 68.72% (5,823/8,474); >=99%: 51.52% (4,366/8,474); ratio 0 (fully cancelled/terminated): 312 rows (3.7%)",
-      "ibrd_loan_type_mix": "FSL 2,936; CPL 2,345; NPL 2,013; SCL 1,255; SCPD 691; SCPM 172; GURB 84; BLNR 18; SCPY 13; GUBF 9; BLNC 2",
-      "ibrd_snapshot": "9,538 rows / 9,538 distinct loan numbers (matches the page's 'Rows: 9,538' and the API server count), approvals 1947-2026; 8,785 disbursement-closed, 753 still open; 314 rows with original_principal_amount = 0 (excluded); 8,474 closed rows with positive original carry the label",
-      "ibrd_status_mix": "Fully Repaid 6,634; Repaying 1,209; Disbursing 531; Fully Disbursed 265; Fully Cancelled 220; Fully Transferred 210; Disbursing&Repaying 204; Terminated 79; Approved 74; Effective 61; Signed 51",
-      "ida_extension_findings": "DS00001: 11,486 instruments (8,739 credits, 2,686 grants, 61 guarantees), 9,396 closed; base rates among closed >=90%: 74.77%, >=99%: 45.21%; BUT disbursed+undisbursed+cancelled != original on 7,575/9,298 closed rows - IDA grant/credit accounting (and the *_us_ exchange semantics) needs its own verification before IDA can join the task; recorded as an extension prerequisite, not a v1 blocker",
-      "vintage_archive_finding": "DS00975 monthly snapshots exist (1,585,498 rows per metadata; licence CC BY 4.0) but the apiservice GET ignored every end_of_period filter format tried (count unchanged, rows unsorted) - per-month slicing syntax UNCONFIRMED; if construction wants genuine as-of vintages for a 2011+ cohort it must first establish the supported filter or use the >300MB bulk on a worker"
-     },
-     "references_2026_10_28_eval_rows": {
-      "command": "worker job wb-sol-002 score.py --data /output/extract --accepted-report qualification-wb-loan-disbursement-completion.json (post-acceptance only)",
-      "country_prior_auc": 0.536428,
-      "global_rate_brier": 0.218505,
-      "interpretation": "every simple reference sits near the AUC null on eval; the full model (harness baseline job) has NOT been run yet, so no headroom claim is made in either direction. The IEG-family headroom risk recorded at review stays open until the full-model figure exists beside these references.",
-      "loan_type_prior_auc": 0.515553,
-      "majority_class_accuracy": 0.67795,
-      "paired_bootstrap_1000_seed23": {
-       "country_prior_vs_loan_type_prior": "mean 0.022545, ci95 [-0.021048, 0.064545] - inconclusive, not parity",
-       "persistence_vs_country_prior": "mean -0.059062, ci95 [-0.106581, -0.011679] - the country identity prior beats the persistence analogue; interval excludes zero"
-      },
-      "persistence_country_last_auc": 0.477083,
-      "rows": "identical eval rows: train 5,874 / eval 1,034 (holdout sealed, not read)"
-     },
-     "worked_dated_example_2026_10_28": {
-      "eligibility_cutoff": "IBRD instruments with board_approval_date <= instant and original_principal_amount > 0; not guarantees/B-loans",
-      "feature_event_window": "attributes fixed at approval: borrower CREDIT NATIONAL, country France, guarantor France, type NPL, original principal USD 250,000,000",
-      "instrument": "IBRD00010 - France, 'RECONSTRUCTION' (P037383), the first IBRD loan",
-      "label_operands": "disbursed_amount 250,000,000 / original 250,000,000 = 100% -> positive at both thresholds; verified in the fetched snapshot row (agreement_signing_date 09-May-1947, last_repayment_date 01-May-1977, status Fully Repaid)",
-      "no_external_threshold_fixture_note": "the label is an internal ratio of two publisher columns, so the known-event fixture requirement for external thresholds does not apply; IBRD00010 is recorded as the named worked example and its values were read back from the fetched data",
-      "prediction_instant": "1947-05-09 (board_approval_date; the approval instant, US Eastern)",
-      "target_end": "1947-12-31 (closed_date_most_recent; disbursement window closes)",
-      "target_start": "1947-06-09 (effective date - first day the loan can disburse)",
-      "timezone_convention": "all dates are the publisher's calendar dates (World Bank Board records, Washington DC, US Eastern Time)"
-     }
-    },
-    "next_action": "Run the harness baseline worker job on the accepted artifact c9ac51b846f7b1ee (assemble the baseline bundle: harness train.py/validate.py/validate.sh verbatim p",
-    "packaged_at": null,
-    "path": "candidates/wb-loan-disbursement-completion/record.json",
-    "prediction_time": "The instant is the Board Approval Date, published by the World Bank at approval time (the same-day press release and projects.worldbank.org record carry it; the dataset column is documented as 'The date the World Bank approves the loan'). Features are the approval-time attributes documented by the publisher: country/economy + code, borrower, guarantor, loan_type, original_principal_amount, currency_of_commitment, project_id/project_name, board approval fiscal/calendar year. CAVEAT (documented by the publisher itself): the `region` column description reads 'Country/Economy lending is grouped into regions based on the current World Bank administrative (rather than geographic) region' - i.e. current-vintage coding, so for pre-2011 approvals region may be back-coded; the shipped task must either drop `region` or carry this as a disclosed current-vintage limitation (both options stated; construction decides, qualification enforces). All other shipped features are static attributes fixed at approval. The label resolves later, at the end of the loan's disbursement window (closed_date_most_recent / terminal loan_status), so the whole target window follows the prediction instant. Censoring is measured: approvals through 2017 are >=94% disbursement-closed by the 2026-09-30 snapshot (2010-2017: 0-6 open per approval year), so the labeled population is censored at 2017 approvals and this cutoff is recorded in the shipped rows.",
-    "publisher": "World Bank Group (IBRD lending records via WBG Finances One), headquartered in Washington, DC, United States",
-    "qualification": {
-     "artifact_version": "c9ac51b846f7b1ee",
-     "result": "PASSED - 44 checks, 0 failed, on the full artifact on the worker (job wb-sol-002); --accept re-verified the report against the exact bytes",
-     "splits": null
-    },
-    "question": "At the instant the World Bank Board approves an IBRD loan (board_approval_date, a documented column: 'The date the World Bank approves the loan'), will that loan disburse at least 90% of its original principal amount over its life? (Alternative near-balanced threshold >=99% is measured and recorded; construction picks one and documents it.) A useful prediction enables disbursement-risk scoring at commitment time for portfolio management, borrower-side planning and development-finance research: roughly a third of IBRD lending historically fails to move 90% of its commitment, and that gap is the operational quantity WB cash planning and aid-delivery studies care about.",
-    "region": "International organisations",
-    "release_baseline": {
-     "auc": null,
-     "display": null,
-     "reference": null
-    },
-    "release_splits": {},
-    "review": "All five discovery contracts have measured evidence. (1) Redistribution: CC BY 4.0 stated on the dataset page and metadata API - class A. (2) Prediction timing: instant is the documented board_approval_date; all shipped features are static approval-time attributes, with one disclosed current-vintage caveat (region, flagged in the publisher's own column description) that construction must either drop or carry as a limitation; the whole label window follows the instant; censoring is measured and the population cutoff at 2017 approvals is explicit. (3) Target: ratio of two in-row columns, label sources excludable, zero-ratio instruments are genuine negatives (cancelled_amount documents them), not missing data. (4) Split capacity: both classes in all three windows with hundreds of independent country-year clusters; clustering by project_id and country-year is measured and the split rule accounts for it. (5) Not a mirror: no ML-ready disbursement-completion benchmark exists; prior art targets IEG ratings (different target, different table, already measured as no-headroom by our own dropped wb-ieg candidate). Headroom is the known open risk of this source family (the IEG task failed it) - that is a construction/qualification measurement, and the near-balanced >=99% variant plus the approval-time-only feature contract are the mitigations; the honest posture is to build and let the measured baselines decide, not to claim headroom now.",
-    "sources": [
-     {
-      "licence": "Creative Commons Attribution 4.0 International (stated on the dataset page and in the metadata API response)",
-      "name": "WBG Finances One - IBRD Statement of Loans and Guarantees, Latest Available Snapshot (DS00047)",
-      "url": "https://financesone.worldbank.org/ibrd-statement-of-loans-and-guarantees-latest-available-snapshot/DS00047"
-     },
-     {
-      "licence": "Creative Commons Attribution 4.0 International (dataset page + metadata API)",
-      "name": "WBG Finances One - IBRD Statement Of Loans and Guarantees, Historical Data (DS00975) - monthly vintages for an optional as-of-cohort",
-      "url": ""
-     },
-     {
-      "licence": "Creative Commons Attribution 4.0 International",
-      "name": "WBG Finances One - IDA Statement of Credits, Grants and Guarantees, Latest Available Snapshot (DS00001) - optional extension, NOT in v1 scope",
-      "url": ""
-     }
-    ],
-    "split_strategy": "Temporal splits on board_approval calendar year, labeled population censored at 2017 approvals (measured: >=94% of 2010-2017 approvals are disbursement-closed in the 2026-09-30 snapshot, 0-6 open rows per year; 2018+ approvals are 12-96% still open and are excluded as censored, per-year counts recorded in measurements). Candidate windows at the >=90% label, all three carrying both classes with hundreds of independent country-year clusters: train approvals <=1999: 6,180 rows (4,086 pos / 1,855 neg; 1,611 distinct country-year positives across 129 countries), eval 2000-2009: 1,166 rows (774 / 369; 319 country-year clusters), holdout 2010-2017: 934 rows (614 / 303; 271 country-year clusters). Positives cluster by project (a project_id can carry several loans: 3,302 distinct projects behind 4,086 train positives) and by country-year; construction must keep multiple loans of one project_id on one side of every split boundary and report both row and cluster counts.",
-    "status": "qualified",
-    "target": "Binary completion label: final_disbursed_ratio = disbursed_amount / original_principal_amount >= 0.90 (primary) or >= 0.99 (near-balanced alternative, base rate 51.5%), computed only on instruments whose disbursement phase is closed (terminal loan_status - Fully Repaid/Cancelled/Disbursed/Transferred, Terminated - or Repaying, or closed_date <= data-as-of; 'Repaying' with undisbursed>0 occurs on 2/9538 rows and is excluded by construction). Label source columns (disbursed_amount, undisbursed_amount, cancelled_amount, closed_date_most_recent, last_disbursement_date, loan_status, all repayment fields) are excluded from shipped features. Zero ratio (312 IBRD rows, fully cancelled/terminated with cancelled_amount = original) is a genuine negative (no disbursement ever made), distinguished from missing data by the in-row cancelled_amount. Population: IBRD instruments from DS00047 with original_principal_amount > 0, excluding guarantees (loan_number prefixes IBRDB/IBRDG, 113 rows) and B-loan/guarantee-facility types (BLNR 18, BLNC 2, GURB 84, GUBF 9); the type mix is recorded so construction can scope further with evidence."
    }
   ],
-  "non_us_share": 88.9,
+  "non_us_share": 94.1,
   "records": [
    {
     "awaiting_operator": false,
@@ -8162,7 +8045,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 30.1,
+    "age_hours": 31.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -8628,6 +8511,11 @@
       "at": null,
       "id": "wb-sol-002",
       "status": "succeeded (deleted)"
+     },
+     {
+      "at": "2026-10-29T02:13:07Z",
+      "id": "wb-sol-baseline-001",
+      "status": "deleted"
      }
     ],
     "licence_summary": {
@@ -8636,6 +8524,24 @@
      "status": null
     },
     "measurements": {
+     "baseline_2026_10_29": {
+      "artifact_version": "c9ac51b846f7b1eef7693129514290e837446cc8e72dbdacf562b43d5e1b4c1f",
+      "command": "worker job wb-sol-baseline-001 (cx23, 45-min timeout) - fetched the accepted artifact from staging release 427207251, re-ran gate 1.5.0 --accept against the bundled report (ACCEPTED c9ac51b846f7b1ee), materialized the runner workdir (public train+eval only) and ran the harness task_template train.py + validate.sh unmodified",
+      "eval_rows": 1034,
+      "evidence": ".factory/wb-sol-baseline-001/reports/{baseline_result.json,train.log,validate.log,accept.log,manifest.json}; staging release 427393678 (tag job-wb-sol-baseline-001)",
+      "full_model_eval_auc": 0.5452,
+      "full_model_eval_auc_validate_recompute": 0.5452,
+      "gate_report_sha256": "cad5d763c34a9a5938193c58bc03375fa194a01bb5946c5a04320781cea4c644",
+      "observed_gap_model_minus_country_prior": 0.0088,
+      "references_same_rows": {
+       "country_prior": 0.5364280114636748,
+       "loan_type_prior": 0.5155526425141261,
+       "majority_class_accuracy": 0.6779497098646035,
+       "persistence_country_last": 0.47708336010761115
+      },
+      "scope": "Eval split only (2000-2009). The sealed holdout was not evaluated and no holdout figure exists or is implied. Runner contract only, no agent harness loop.",
+      "uncertainty": "NOT a paired test. Per-row model scores were not written by the runner contract, so no paired bootstrap on identical rows is possible from this run. Marginal Hanley-McNeil AUC standard errors are 0.0189 (model) and 0.0190 (country prior) at 701 positives / 333 negatives; a conservative independent-sum difference SE is 0.0268, giving gap/SE = 0.33. Label it an inconclusive difference."
+     },
      "construction_2026_10_28": {
       "base_rate_90": "5,457/7,929 = 68.82% before entity isolation",
       "censored_open_within_2017": "13 rows (2011:1, 2014:2, 2015:1, 2016:3, 2017:6)",
@@ -8666,7 +8572,7 @@
       "command": "worker job wb-sol-002 score.py --data /output/extract --accepted-report qualification-wb-loan-disbursement-completion.json (post-acceptance only)",
       "country_prior_auc": 0.536428,
       "global_rate_brier": 0.218505,
-      "interpretation": "every simple reference sits near the AUC null on eval; the full model (harness baseline job) has NOT been run yet, so no headroom claim is made in either direction. The IEG-family headroom risk recorded at review stays open until the full-model figure exists beside these references.",
+      "interpretation": "every simple reference sits near the AUC null on eval. SUPERSEDED by measurements.baseline_2026_10_29 (2026-10-29): the harness baseline reached 0.5452 on these same rows, +0.0088 over the country prior with a conservative difference SE of 0.0268 - an inconclusive difference, so no headroom is claimed in either direction and the candidate is dropped with the negative finding preserved.",
       "loan_type_prior_auc": 0.515553,
       "majority_class_accuracy": 0.67795,
       "paired_bootstrap_1000_seed23": {
@@ -8688,7 +8594,7 @@
       "timezone_convention": "all dates are the publisher's calendar dates (World Bank Board records, Washington DC, US Eastern Time)"
      }
     },
-    "next_action": "Run the harness baseline worker job on the accepted artifact c9ac51b846f7b1ee (assemble the baseline bundle: harness train.py/validate.py/validate.sh verbatim p",
+    "next_action": "None (dropped 2026-10-29). Negative finding preserved in measurements.baseline_2026_10_29 and in staging release 427393678. Reopen only as a NEW task instance w",
     "packaged_at": null,
     "path": "candidates/wb-loan-disbursement-completion/record.json",
     "prediction_time": "The instant is the Board Approval Date, published by the World Bank at approval time (the same-day press release and projects.worldbank.org record carry it; the dataset column is documented as 'The date the World Bank approves the loan'). Features are the approval-time attributes documented by the publisher: country/economy + code, borrower, guarantor, loan_type, original_principal_amount, currency_of_commitment, project_id/project_name, board approval fiscal/calendar year. CAVEAT (documented by the publisher itself): the `region` column description reads 'Country/Economy lending is grouped into regions based on the current World Bank administrative (rather than geographic) region' - i.e. current-vintage coding, so for pre-2011 approvals region may be back-coded; the shipped task must either drop `region` or carry this as a disclosed current-vintage limitation (both options stated; construction decides, qualification enforces). All other shipped features are static attributes fixed at approval. The label resolves later, at the end of the loan's disbursement window (closed_date_most_recent / terminal loan_status), so the whole target window follows the prediction instant. Censoring is measured: approvals through 2017 are >=94% disbursement-closed by the 2026-09-30 snapshot (2010-2017: 0-6 open per approval year), so the labeled population is censored at 2017 approvals and this cutoff is recorded in the shipped rows.",
@@ -8725,7 +8631,7 @@
      }
     ],
     "split_strategy": "Temporal splits on board_approval calendar year, labeled population censored at 2017 approvals (measured: >=94% of 2010-2017 approvals are disbursement-closed in the 2026-09-30 snapshot, 0-6 open rows per year; 2018+ approvals are 12-96% still open and are excluded as censored, per-year counts recorded in measurements). Candidate windows at the >=90% label, all three carrying both classes with hundreds of independent country-year clusters: train approvals <=1999: 6,180 rows (4,086 pos / 1,855 neg; 1,611 distinct country-year positives across 129 countries), eval 2000-2009: 1,166 rows (774 / 369; 319 country-year clusters), holdout 2010-2017: 934 rows (614 / 303; 271 country-year clusters). Positives cluster by project (a project_id can carry several loans: 3,302 distinct projects behind 4,086 train positives) and by country-year; construction must keep multiple loans of one project_id on one side of every split boundary and report both row and cluster counts.",
-    "status": "qualified",
+    "status": "dropped",
     "target": "Binary completion label: final_disbursed_ratio = disbursed_amount / original_principal_amount >= 0.90 (primary) or >= 0.99 (near-balanced alternative, base rate 51.5%), computed only on instruments whose disbursement phase is closed (terminal loan_status - Fully Repaid/Cancelled/Disbursed/Transferred, Terminated - or Repaying, or closed_date <= data-as-of; 'Repaying' with undisbursed>0 occurs on 2/9538 rows and is excluded by construction). Label source columns (disbursed_amount, undisbursed_amount, cancelled_amount, closed_date_most_recent, last_disbursement_date, loan_status, all repayment fields) are excluded from shipped features. Zero ratio (312 IBRD rows, fully cancelled/terminated with cancelled_amount = original) is a genuine negative (no disbursement ever made), distinguished from missing data by the in-row cancelled_amount. Population: IBRD instruments from DS00047 with original_principal_amount > 0, excluding guarantees (loan_number prefixes IBRDB/IBRDG, 113 rows) and B-loan/guarantee-facility types (BLNR 18, BLNC 2, GURB 84, GUBF 9); the type mix is recorded so construction can scope further with evidence."
    },
    {
@@ -9125,7 +9031,7 @@
    "awaiting": [],
    "packaged": [
     {
-     "age_hours": 30.1,
+     "age_hours": 31.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9337,7 +9243,7 @@
    ],
    "pending": [
     {
-     "age_hours": 30.1,
+     "age_hours": 31.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9595,18 +9501,17 @@
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 38,
+   "dropped": 39,
    "investigating": 17,
    "packaged": 1,
    "parked": 26,
    "published": 11,
-   "qualified": 1,
    "ready": 7
   },
   "candidates": 101,
-  "live": 37,
+  "live": 36,
   "live_non_us": 30,
-  "live_non_us_share": 0.811,
+  "live_non_us_share": 0.833,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -9628,10 +9533,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-29T01:50:02.258689+00:00",
+    "last_run_at": "2026-10-29T02:50:02.318491+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-29T02:00:00+00:00",
+    "next_run_at": "2026-10-29T03:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -9652,10 +9557,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-29T01:50:01.356673+00:00",
+    "last_run_at": "2026-10-29T02:50:01.122384+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-29T01:55:00+00:00",
+    "next_run_at": "2026-10-29T02:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9676,10 +9581,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-29T01:45:43.561626+00:00",
+    "last_run_at": "2026-10-29T02:46:06.293062+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-29T01:50:43.561626+00:00",
+    "next_run_at": "2026-10-29T02:51:06.293062+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -9688,10 +9593,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-29T01:50:01.286082+00:00",
+    "last_run_at": "2026-10-29T02:50:01.642508+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-29T01:55:00+00:00",
+    "next_run_at": "2026-10-29T02:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9712,10 +9617,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-29T00:50:42.690680+00:00",
+    "last_run_at": "2026-10-29T01:50:43.035238+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-29T02:50:00+00:00",
+    "next_run_at": "2026-10-29T03:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -9724,10 +9629,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-29T00:55:01.311151+00:00",
+    "last_run_at": "2026-10-29T01:55:01.242054+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-29T01:55:00+00:00",
+    "next_run_at": "2026-10-29T02:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -9768,9 +9673,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-29T01:50:02.259732+00:00"
+  "updated_at": "2026-10-29T02:50:02.319519+00:00"
  },
- "generated_at": "2026-10-29T01:50:01+00:00",
+ "generated_at": "2026-10-29T02:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -9778,19 +9683,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-29T00:18:30Z",
-   "head_sha": "e051bf0",
+   "created_at": "2026-10-29T02:29:32Z",
+   "head_sha": "f0743d3",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40793192693"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40806656378"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 30/37 (81%)"
+   "summary": "live non-US: 30/36 (83%)"
   },
   "head": {
-   "at": "2026-10-29T00:18:26Z",
-   "sha": "e051bf0",
-   "subject": "worker follow-up: verify six watched job outcomes (wb-sol-001/002, unhcr requal/publish/hf), confirm provider cleanup, r"
+   "at": "2026-10-29T02:29:28Z",
+   "sha": "f0743d3",
+   "subject": "STATE: correct the collect note - worker collect verifies assets and writes result.json but never downloads report files"
   },
   "tests": {
    "count": "674",
@@ -11541,13 +11446,21 @@
    "qualified": 1,
    "sessions_7d": 192,
    "tokens_7d": 28108644
+  },
+  {
+   "at": "2026-10-29T02:50:01+00:00",
+   "live": 17,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 192,
+   "tokens_7d": 28265197
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T01:50:01+00:00",
+   "as_of": "2026-10-29T02:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -11557,17 +11470,17 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T01:50:01+00:00",
+   "as_of": "2026-10-29T02:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 18
+   "value": 17
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T01:50:01+00:00",
+   "as_of": "2026-10-29T02:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -12121,7 +12034,7 @@
  "resources": {
   "ceiling_eur": 20.0,
   "errors": [],
-  "eur_per_release": 0.3,
+  "eur_per_release": 0.31,
   "histogram": {
    "bins": [
     {
@@ -12135,7 +12048,7 @@
      "lo": 0.005
     },
     {
-     "count": 35,
+     "count": 36,
      "hi": 0.02,
      "lo": 0.01
     },
@@ -12166,11 +12079,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0136,
-   "n": 129,
+   "median": 0.0131,
+   "n": 130,
    "p90": 0.0561,
    "ref_rate": 0.06924,
-   "total": 4.11
+   "total": 4.12
   },
   "jobs": [
    {
@@ -13720,20 +13633,32 @@
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-29T02:13:07.956115+00:00",
+    "deleted_at": "2026-10-29T02:23:39.093636+00:00",
+    "eur": 0.002,
+    "hours": 0.175,
+    "id": "wb-sol-baseline-001",
+    "location": "hel1",
+    "normalised_eur": 0.0121,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
    }
   ],
-  "jobs_this_month": 88,
-  "jobs_total": 129,
-  "lifetime_eur": 3.35,
+  "jobs_this_month": 89,
+  "jobs_total": 130,
+  "lifetime_eur": 3.36,
   "live": {
-   "checked_at": "2026-10-29T01:50:33+00:00",
+   "checked_at": "2026-10-29T02:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 25.4,
+  "month_hours": 25.6,
   "month_to_date": 0.91,
   "months": [
    {
@@ -13743,9 +13668,9 @@
     "month": "2026-09"
    },
    {
-    "eur": 0.9091,
-    "hours": 25.45,
-    "jobs": 88,
+    "eur": 0.9111,
+    "hours": 25.62,
+    "jobs": 89,
     "month": "2026-10"
    }
   ],
@@ -13768,8 +13693,22 @@
     "run_budget": 900,
     "submitted_brief_sha256": "7d6d467cf8fde6a01fee73c61b027521f7f247c170de813d128ea89fa2a41ef8",
     "ts": "2026-10-29T00:20:18.311800+00:00"
+   },
+   {
+    "elapsed_seconds": 1538.0,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "40d4f9f079d8fc67d83a27272be0131c6ddd7c00a258cad7fa90ee4936f269c8",
+    "ts": "2026-10-29T02:30:39.196100+00:00"
    }
   ],
-  "total": 1
+  "total": 2
  }
 }
