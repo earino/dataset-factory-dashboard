@@ -1,9 +1,10 @@
 {
  "alarms": [
   "Research gate refused the next session: 192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)",
+  "CI on b64655b concluded failure",
   "Test suite is failing",
   "check-candidate --all is failing",
-  "unhcr-refugee-data-finder has been packaged and actionable for 46.1h - shipping it outranks construction",
+  "unhcr-refugee-data-finder has been packaged and actionable for 47.1h - shipping it outranks construction",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -22,14 +23,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-29T17:50:02.708844+00:00",
+   "moment": "2026-10-29T18:50:04.776258+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 27973942,
+   "research_tokens_last_7_days": 27935506,
    "runs_last_7_days": 192,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -57,14 +58,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 7744,
+     "calls": 7832,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 30519163,
-     "output_tokens": 7233670,
+     "input_tokens": 30606476,
+     "output_tokens": 7295967,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -87,7 +88,6 @@
  },
  "candidates": {
   "countries": {
-   "AU": 1,
    "BR": 2,
    "CA": 2,
    "CO": 1,
@@ -100,8 +100,8 @@
    "US": 1
   },
   "counts": {
-   "dropped": 39,
-   "investigating": 17,
+   "dropped": 41,
+   "investigating": 16,
    "packaged": 2,
    "parked": 28,
    "published": 11,
@@ -762,58 +762,6 @@
    {
     "awaiting_operator": false,
     "baseline": {},
-    "country": "AU",
-    "domain": "environmental regulation / referral screening outcome prediction",
-    "id": "epbc-referral-controlled-action",
-    "jobs": [],
-    "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
-    },
-    "measurements": {
-     "access_2026_10_28": "Portal list: anonymous, JS-rendered PCF grid, 10 rows/page, '5000 records' shown; XHR-driven pagination not reproducible by plain urllib (grid endpoint guesses 404); static per-project pages fetch anonymously. One decided project page read anonymously: EPBC 2024/10023 (Princes Highway upgrade program - Milton Ulladulla bypass) status 'Assessment Approach Determined' with the full stage timeline rendered in static HTML. Extraction is therefore browser-automation shaped (grid pagination ~500 XHR calls + optional per-project pages), feasible on a worker with a headless browser; no bulk CSV/JSON channel was found in the bounded sweep.",
-     "ecosystem_note_2026_10_28": "The EPBC Act is administered by Australia's National EPA (nationalepa.gov.au, portal still on environment.gov.au domain). No machine-readable bulk referral-decision dataset was found on data.gov.au in the bounded catalogue sweep (nearest: referrals spatial database, WMS-only).",
-     "portal_fields_2026_10_28": "List row fields (verified in browser): EPBC Number, Project, Proposer/Approval Holder, Location, Industry Type, Valid Date, Project Status (observed value 'Referral Decision - Open for Public Comment'), Primary Jurisdiction. Whether the terminal referral-decision outcome is exposed in the LIST (status string) or only on per-project pages is unresolved - the label-derivation cost differs by an order of magnitude between the two."
-    },
-    "next_action": "Cheapest-uncertainty order: (1) read the licence from the publisher's own instrument in the supported browser (dcceew/nationalepa copyright page or the portal's",
-    "packaged_at": null,
-    "path": "candidates/epbc-referral-controlled-action/record.json",
-    "prediction_time": "Instant = the referral's validation/publication on the EPBC Act Public Portal (per-project pages show a stage timeline Lodgement -> Validation -> Referral Decision -> Assessment -> Final Decision; the portal's list carries a 'Valid Date' column). Features fixed at that instant: project title, proponent name, industry type, location (address string and primary jurisdiction), and referral document metadata. The referral decision (the label) is published later on the same project page as a decision notice, within the statutory 20-business-day window - the outcome cannot exist at the instant.",
-    "publisher": "Department of Climate Change, Energy, the Environment and Water / National EPA (EPBC Act Public Portal)",
-    "qualification": {
-     "artifact_version": null,
-     "result": null,
-     "splits": null
-    },
-    "question": "For a development referred under the Environment Protection and Biodiversity Conservation Act 1999 (EPBC Act), at the instant the referral is validated and published on the EPBC Act Public Portal (with its title, proponent, industry type, location and primary jurisdiction visible), will the delegate's referral decision (due within 20 business days of validation) declare the action a controlled action (requiring formal assessment and approval) rather than 'not a controlled action' or 'not a controlled action - particular manner'? Prospective users: proponents and their environmental consultants (screening and budgeting for assessment before lodging), and oversight researchers studying what drives regulatory thresholds. A useful prediction prices assessment risk at referral time instead of waiting the ~4 weeks for the decision.",
-    "region": "Oceania",
-    "release_baseline": {
-     "auc": null,
-     "display": null,
-     "reference": null
-    },
-    "release_splits": {},
-    "review": "Investigating, opened 2026-10-28 (Oceania tick). Contracts status: (1) Redistribution UNRESOLVED - the register's own licence is unread (publisher pages time out from this host; browser read is the named next probe); the sibling spatial-database catalogue record is cc-by-4.0, which is suggestive, not evidence for the register. (2) Prediction timing SUPPORTED in structure - validation/publication instant, 20-business-day decision window, decision published later on the same page; per-project stage timelines observed. (3) Target SUPPORTED in structure - controlled-action decision observable per project; the open question is whether it is derivable from the list (cheap) or needs per-project fetches (expensive). (4) Split capacity UNMEASURED - the true referral population is unknown ('5000 records' may be a cap) and per-year outcome counts are unmeasured. (5) Contribution UNMEASURED - no novelty search yet; the task is unfamiliar to this bench (no EPBC benchmark known), but the rule is to check mechanically before any ready claim.",
-    "sources": [
-     {
-      "licence": "not yet read - see license_evidence and next_action",
-      "name": "EPBC Act Public Portal - All referrals list (Microsoft Dynamics/Power Apps portal, ~5000 records shown, 10 rows/page grid, filterable)",
-      "url": "https://epbcpublicportal.environment.gov.au/all-referrals/"
-     },
-     {
-      "licence": "cc-by-4.0 on the spatial-database catalogue record (NOT the register's own instrument; the portal task source remains unclassified)",
-      "name": "EPBC Referrals Spatial Database (DCCEEW on data.gov.au) - WMS only, no bulk attributes",
-      "url": "https://data.gov.au/data/dataset/referrals-spatial-database"
-     }
-    ],
-    "split_strategy": "Not yet computed - depends on measured referral volumes and outcome vocabulary. Prior expectation (labelled as such, not measured): ~500-800 referrals/year since 2000, controlled-action share historically a large minority (decisive construction measurement). Whether the portal's '5000 records' is the full historical population or a display cap is an OPEN measurement (grid XHR replay needed); per-year coverage must be established before split windows can be designed.",
-    "status": "investigating",
-    "target": "Binary: 1 if the referral decision declares a controlled action (assessment approach determined on the project page; decision notice 'Controlled Action'), 0 for 'Not a controlled action' / 'particular manner' decisions. Label source = the per-project decision field/notice on the portal, excludable from shipped features (features are referral-time fields only). Population: all referrals in the portal's All-referrals list; still-open referrals at the data edge are censored, not imputed."
-   },
-   {
-    "awaiting_operator": false,
-    "baseline": {},
     "country": "CO",
     "domain": "hydrological risk operations - river-station alert-threshold exceedance prediction (Colombia, IDEAM automatic-station telemetry)",
     "id": "ideam-rio-nivel-exceedance",
@@ -1343,7 +1291,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 94.1,
+  "non_us_share": 93.8,
   "records": [
    {
     "awaiting_operator": false,
@@ -3827,9 +3775,12 @@
     "measurements": {
      "access_2026_10_28": "Portal list: anonymous, JS-rendered PCF grid, 10 rows/page, '5000 records' shown; XHR-driven pagination not reproducible by plain urllib (grid endpoint guesses 404); static per-project pages fetch anonymously. One decided project page read anonymously: EPBC 2024/10023 (Princes Highway upgrade program - Milton Ulladulla bypass) status 'Assessment Approach Determined' with the full stage timeline rendered in static HTML. Extraction is therefore browser-automation shaped (grid pagination ~500 XHR calls + optional per-project pages), feasible on a worker with a headless browser; no bulk CSV/JSON channel was found in the bounded sweep.",
      "ecosystem_note_2026_10_28": "The EPBC Act is administered by Australia's National EPA (nationalepa.gov.au, portal still on environment.gov.au domain). No machine-readable bulk referral-decision dataset was found on data.gov.au in the bounded catalogue sweep (nearest: referrals spatial database, WMS-only).",
+     "label_channel_2026_10_29": "The list's Project Status column carries project-level status, not the decision outcome. Vocabulary observed in filtered samples: 'Referral Decision - Open for Public Comment' (open), 'Referral Decision Made', 'Advice Not Required', 'Approval Decision made', 'Condition variation being considered', 'Project Withdrawn' - the list tells whether a decision exists and whether the referral was withdrawn (censored), but the controlled-action outcome itself is not in list rows. The per-project summary page is static-fetchable anonymously (223,247 bytes, 3.23 s, project 2019/8566) and renders the stage timeline (Lodgement -> Validation -> Referral Decision -> Assessment -> Final Decision -> Post Approval -> Completed), but the 'Decision notices' and 'Decisions related with this referral' sections load via XHR grids, so the decision value itself still needs the JS-rendered notices grid or the notice PDFs. Label-derivation cost would therefore be per-project (~8,296 projects) had the licence been clean.",
+     "list_grid_channel_2026_10_29": "Grid mechanics confirmed: the PCF grid pages via POST /_services/entity-grid-data.json/2ab10dab-d681-4911-b881-cc99413f07b6 with an opaque base64SecureConfiguration body (captured by hooking XHR in page context), so pagination cannot be replayed with arbitrary offsets by a plain client; but the date filters + Apply Filter drive the same grid server-side and give true per-window counts. Row links expose per-project GUIDs: /all-referrals/project-referral-summary/?id=<guid>. An 'Export' button exists on the list; clicking it produced no download in a bounded attempt (2026-10-29), untested further.",
+     "population_2026_10_29": "True population measured via the list's Valid Date From/To filters + Apply Filter (each filter is honored server-side and reports a true count; the unfiltered list is capped). Valid Date windows and 'N records found': 2000-01-01..2009-12-31 = 3,403; 2010-01-01..2019-12-31 = 3,067; 2020-01-01..2026-12-31 = 1,826; 2019 single year = 177. Sum over the three windows = 8,296 referrals since 2000, while the unfiltered list shows exactly '5000 records found' with 500 pages x 10 rows - the 5,000 is a confirmed portal display cap, not the population. Filters applied anonymously in the supported browser; counts read from the rendered 'records found' text.",
      "portal_fields_2026_10_28": "List row fields (verified in browser): EPBC Number, Project, Proposer/Approval Holder, Location, Industry Type, Valid Date, Project Status (observed value 'Referral Decision - Open for Public Comment'), Primary Jurisdiction. Whether the terminal referral-decision outcome is exposed in the LIST (status string) or only on per-project pages is unresolved - the label-derivation cost differs by an order of magnitude between the two."
     },
-    "next_action": "Cheapest-uncertainty order: (1) read the licence from the publisher's own instrument in the supported browser (dcceew/nationalepa copyright page or the portal's",
+    "next_action": "Closed. Reopen ONLY on new licence evidence: (a) an explicit open-licence instrument for the referral register from the publisher (data.gov.au catalogue record ",
     "packaged_at": null,
     "path": "candidates/epbc-referral-controlled-action/record.json",
     "prediction_time": "Instant = the referral's validation/publication on the EPBC Act Public Portal (per-project pages show a stage timeline Lodgement -> Validation -> Referral Decision -> Assessment -> Final Decision; the portal's list carries a 'Valid Date' column). Features fixed at that instant: project title, proponent name, industry type, location (address string and primary jurisdiction), and referral document metadata. The referral decision (the label) is published later on the same project page as a decision notice, within the statutory 20-business-day window - the outcome cannot exist at the instant.",
@@ -3847,10 +3798,10 @@
      "reference": null
     },
     "release_splits": {},
-    "review": "Investigating, opened 2026-10-28 (Oceania tick). Contracts status: (1) Redistribution UNRESOLVED - the register's own licence is unread (publisher pages time out from this host; browser read is the named next probe); the sibling spatial-database catalogue record is cc-by-4.0, which is suggestive, not evidence for the register. (2) Prediction timing SUPPORTED in structure - validation/publication instant, 20-business-day decision window, decision published later on the same page; per-project stage timelines observed. (3) Target SUPPORTED in structure - controlled-action decision observable per project; the open question is whether it is derivable from the list (cheap) or needs per-project fetches (expensive). (4) Split capacity UNMEASURED - the true referral population is unknown ('5000 records' may be a cap) and per-year outcome counts are unmeasured. (5) Contribution UNMEASURED - no novelty search yet; the task is unfamiliar to this bench (no EPBC benchmark known), but the rule is to check mechanically before any ready claim.",
+    "review": "DROPPED on licence (2026-10-29), with population and access measurements preserved for any reopening. Contracts at close: (1) Redistribution FAILED - the only licence information linked from the register's own pages (list and per-project footers) is the Online Services terms that prohibit reproducing/distributing 'Our Material' and allow download 'solely for your own use'; the department's CC BY 4.0 default is expressly displaced by 'some other licence terms' and its own no-circumvention clause. Both scope readings of the linked terms fail: governed -> prohibited; not governed -> no instrument at all (unstated). (2) Prediction timing SUPPORTED in structure (validation instant, 20-business-day statutory decision window, decision published later on the same project page) - unchanged from 2026-10-28. (3) Target obtainable in principle but EXPENSIVE: the list carries decision-exists and withdrawn statuses only; the outcome needs per-project notice grids/PDFs (~8,296 projects measured). (4) Split capacity: population measured (3,403 referrals 2000-2009, 3,067 2010-2019, 1,826 2020-2026, 2019 = 177) - ample volume for disjoint windows had the label channel been open; outcome mix unmeasured (licence veto came first). (5) Contribution: novelty never run - the licence veto is decisive and cheaper; a reopened lead must still run check-novelty.py.",
     "sources": [
      {
-      "licence": "not yet read - see license_evidence and next_action",
+      "licence": "Class D (read 2026-10-29): the register's own pages link onlineservices.environment.gov.au/terms-and-conditions in the footer; those terms prohibit reproducing and distributing 'Our Material' and permit download 'solely for your own use'. No open licence appears in the linked terms.",
       "name": "EPBC Act Public Portal - All referrals list (Microsoft Dynamics/Power Apps portal, ~5000 records shown, 10 rows/page grid, filterable)",
       "url": "https://epbcpublicportal.environment.gov.au/all-referrals/"
      },
@@ -3861,7 +3812,7 @@
      }
     ],
     "split_strategy": "Not yet computed - depends on measured referral volumes and outcome vocabulary. Prior expectation (labelled as such, not measured): ~500-800 referrals/year since 2000, controlled-action share historically a large minority (decisive construction measurement). Whether the portal's '5000 records' is the full historical population or a display cap is an OPEN measurement (grid XHR replay needed); per-year coverage must be established before split windows can be designed.",
-    "status": "investigating",
+    "status": "dropped",
     "target": "Binary: 1 if the referral decision declares a controlled action (assessment approach determined on the project page; decision notice 'Controlled Action'), 0 for 'Not a controlled action' / 'particular manner' decisions. Label source = the per-project decision field/notice on the portal, excludable from shipped features (features are referral-time fields only). Population: all referrals in the portal's All-referrals list; still-open referrals at the data edge are censored, not imputed."
    },
    {
@@ -4219,6 +4170,63 @@
     "split_strategy": "",
     "status": "dropped",
     "target": "Binary: the establishment's next inspection produces a different rating band than its last recorded one. Not derivable from the publisher's data (see rejection_reason)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "AU",
+    "domain": "employment relations / regulatory approval timing",
+    "id": "fwc-enterprise-agreement-approval-duration",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "channel_2026_10_29": "Bulk channel identified before the licence veto: direct .xlsx URLs on fwc.gov.au - agreementsfrom1994.xlsx (all agreements 1994-2026), agreements2017..2026.xlsx by year (2026 list updated weekly per the publisher), terminated_agreements_list.xlsx (updated monthly). Plain-client HTTP GET to fwc.gov.au returns 403 (one bounded attempt, 2026-10-29); the supported browser loads pages normally. Excel files were NOT downloaded: the licence veto made their contents moot for this tick.",
+     "population_caveat_2026_10_29": "The bulk lists are the approved-agreements register; the FWC 'find a decision' service covers 'approved or refused' but refused/withdrawn applications are not in the bulk Excel lists, and the in-progress list is live-only. Any duration task from bulk lists is conditioned on eventual approval unless non-approved applications are recovered from decision records (unmeasured cost).",
+     "volume_2026_10_29": "Publisher-quoted volumes (FWC statistical report, fortnight ending 2022-12-16, fetched from fwc.gov.au search snippet): 199 and 238 agreement approval applications lodged in two successive fortnights (i.e. roughly 5-6k/year at that time); median approval time 15 days for agreements approved in 2021-22; standard approval timing '20 days for simple agreements, 45 days if they are complex' (FWC approval page). 30+ years of history since 1994. Split capacity NOT computed - the licence veto came first."
+    },
+    "next_action": "Closed. Reopen ONLY if FWC publishes these materials under an open licence (their stated progressive CC review, or an open channel such as data.gov.au), or a wr",
+    "packaged_at": null,
+    "path": "candidates/fwc-enterprise-agreement-approval-duration/record.json",
+    "prediction_time": "Instant = the application's publication in the FWC 'Agreements in progress' list (per the publisher: 'When you apply to us to approve an enterprise agreement or a section 210 variation... we add details to Agreements in progress. This is usually 2 business days after we receive the application.'). Features visible then: agreement title, industry, application type (new approval vs s.210 variation), status. The approval decision is published later - the agreement register records an approval date, and FWC statistics report approval-time distributions, so the outcome cannot exist at the instant. NOT ASSESSED beyond structure: the licence veto (class D) came first, and no historical archive of the in-progress list was verified.",
+    "publisher": "Fair Work Commission (Commonwealth of Australia)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For an enterprise agreement approval application lodged with the Fair Work Commission (FWC) - published in the FWC 'Agreements in progress' list about 2 business days after lodgement, with agreement title, industry and application type visible - will the Commission approve it within a fixed window of lodgement (e.g. the 21-day standard timeframe; the publisher's own statistics report a 15-day median for 2021-22 approvals) rather than later? Prospective users: employers, unions and bargaining consultants timing pay-increase commencement (agreements start 7 days after approval unless a later date is set) and IR researchers studying administrative approval friction. A useful prediction prices the delay at lodgement instead of waiting the ~2-6 weeks for the decision.",
+    "region": "Oceania",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "DROPPED on licence (2026-10-29), first discovery pass; no novelty search run because the licence veto is cheaper and decisive. Contracts at close: (1) Redistribution FAILED - class D instrument quoted above; no alternative open channel found in a bounded sweep. (2) Prediction timing SUPPORTED in structure only (in-progress publication ~2 business days after lodgement; approval published later) - no historical archive of the in-progress list verified. (3) Target obtainable in principle with a measured survivorship caveat: bulk lists cover approved agreements only; refusals/withdrawals need decision records. (4) Split capacity UNMEASURED (licence veto first); volume signals ample. (5) Contribution UNMEASURED - no novelty search; note the bench already carries one regulatory duration task (ns-bwa-advisory-lift-duration, packaged) as a family comparator, and IR economists study WAD aggregates, so a reopened lead must run check-novelty.py before any ready claim.",
+    "sources": [
+     {
+      "licence": "Class D (read 2026-10-29): FWC site copyright permits reproduction 'in unaltered form only... for your personal, non-commercial use or use within your organisation' with 'all other rights are reserved'; the dataset page carries no Creative Commons or other licence marking (verified in the supported browser 2026-10-29).",
+      "name": "FWC Find an enterprise agreement - bulk agreement lists (Excel)",
+      "url": "https://www.fwc.gov.au/work-conditions/enterprise-agreements/find-enterprise-agreement"
+     },
+     {
+      "licence": "Same restrictive FWC site copyright (class D).",
+      "name": "FWC Agreements in progress (live applications list)",
+      "url": "https://www.fwc.gov.au/work-conditions/enterprise-agreements/find-enterprise-agreement/agreements-progress"
+     },
+     {
+      "licence": "Other (unpublished) on the catalogue record - not an open channel.",
+      "name": "Workplace Agreements Database: Trends in Enterprise Bargaining (DEWR, data.gov.au)",
+      "url": "https://data.gov.au/data/dataset/workplace-agreements-database-trends-enterprise-bargaining"
+     }
+    ],
+    "split_strategy": "Not computed - licence veto came first. Volume signals (publisher-quoted ~5-6k applications per year around 2022, 30+ years of history) suggest ample temporal split capacity, but per-year counts, latency distribution and outcome mix were never measured.",
+    "status": "dropped",
+    "target": "Binary on approval latency: 1 if approval date is within N days of lodgement (N fixed from the measured latency distribution), 0 if later; withdrawn/refused applications would be censored, not negative. Label source: approval date and lodgement date in the FWC bulk agreement Excel lists. POPULATION CAVEAT measured at discovery: the bulk lists are the approved-agreements register ('Search by agreement title to find all agreements approved by the Fair Work Commission'); the in-progress list is live-only; refused/withdrawn applications surface only through decision records. A duration task built from the bulk lists alone is therefore conditioned on eventual approval (survivorship) unless non-approved applications are recovered from decisions - a design problem for any reopening, on top of the licence blocker."
    },
    {
     "awaiting_operator": false,
@@ -6897,7 +6905,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 3.5,
+    "age_hours": 4.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -8306,7 +8314,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 46.1,
+    "age_hours": 47.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -9391,7 +9399,7 @@
    "awaiting": [],
    "packaged": [
     {
-     "age_hours": 3.5,
+     "age_hours": 4.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -9662,7 +9670,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 46.1,
+     "age_hours": 47.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9874,7 +9882,7 @@
    ],
    "pending": [
     {
-     "age_hours": 3.5,
+     "age_hours": 4.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -10145,7 +10153,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 46.1,
+     "age_hours": 47.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -10361,7 +10369,7 @@
   "by_country": {
    "AR": 1,
    "AT": 2,
-   "AU": 6,
+   "AU": 7,
    "BR": 2,
    "CA": 13,
    "CH": 3,
@@ -10399,21 +10407,21 @@
    "International organisations": 9,
    "Latin America": 8,
    "North America": 23,
-   "Oceania": 7,
+   "Oceania": 8,
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 39,
-   "investigating": 17,
+   "dropped": 41,
+   "investigating": 16,
    "packaged": 2,
    "parked": 28,
    "published": 11,
    "ready": 7
   },
-  "candidates": 104,
-  "live": 37,
-  "live_non_us": 31,
-  "live_non_us_share": 0.838,
+  "candidates": 105,
+  "live": 36,
+  "live_non_us": 30,
+  "live_non_us_share": 0.833,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -10435,10 +10443,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-29T17:50:01.578314+00:00",
+    "last_run_at": "2026-10-29T18:50:04.018038+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-29T18:00:00+00:00",
+    "next_run_at": "2026-10-29T19:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -10459,10 +10467,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-29T17:50:01.394412+00:00",
+    "last_run_at": "2026-10-29T18:50:01.445961+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-29T17:55:00+00:00",
+    "next_run_at": "2026-10-29T18:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10483,10 +10491,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-29T17:49:51.788040+00:00",
+    "last_run_at": "2026-10-29T18:45:08.059952+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-29T17:54:51.788040+00:00",
+    "next_run_at": "2026-10-29T18:50:08.059952+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -10495,10 +10503,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-29T17:50:02.152776+00:00",
+    "last_run_at": "2026-10-29T18:50:01.535017+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-29T17:55:00+00:00",
+    "next_run_at": "2026-10-29T18:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10519,10 +10527,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-29T16:50:45.319506+00:00",
+    "last_run_at": "2026-10-29T17:50:44.183259+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-29T18:50:00+00:00",
+    "next_run_at": "2026-10-29T19:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -10531,10 +10539,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-29T16:55:00.823526+00:00",
+    "last_run_at": "2026-10-29T17:55:00.865520+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-29T17:55:00+00:00",
+    "next_run_at": "2026-10-29T18:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -10575,29 +10583,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-29T17:50:02.153886+00:00"
+  "updated_at": "2026-10-29T18:50:04.019207+00:00"
  },
- "generated_at": "2026-10-29T17:50:01+00:00",
+ "generated_at": "2026-10-29T18:50:03+00:00",
  "health": {
   "checks": {
    "ok": false,
-   "passing": 103
+   "passing": 104
   },
   "ci": {
-   "conclusion": "success",
-   "created_at": "2026-10-29T16:11:36Z",
-   "head_sha": "7711202",
+   "conclusion": "failure",
+   "created_at": "2026-10-29T18:36:30Z",
+   "head_sha": "b64655b",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40909127618"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40932407823"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 31/37 (84%)"
+   "summary": "live non-US: 30/36 (83%)"
   },
   "head": {
-   "at": "2026-10-29T16:11:32Z",
-   "sha": "7711202",
-   "subject": "ns-bwa-diag-001 close-out: per-row diagnostic verified from collected bytes (accept-before-scoring ACCEPTED e8ed2a53eaf0"
+   "at": "2026-10-29T18:36:22Z",
+   "sha": "b64655b",
+   "subject": "Oceania discovery tick: close epbc-referral-controlled-action on licence class D (portal's own footer terms at onlineser"
   },
   "tests": {
    "count": "674",
@@ -12476,13 +12484,21 @@
    "qualified": 0,
    "sessions_7d": 192,
    "tokens_7d": 27973942
+  },
+  {
+   "at": "2026-10-29T18:50:03+00:00",
+   "live": 16,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 192,
+   "tokens_7d": 27935506
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T17:50:01+00:00",
+   "as_of": "2026-10-29T18:50:03+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -12492,17 +12508,17 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T17:50:01+00:00",
+   "as_of": "2026-10-29T18:50:03+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 17
+   "value": 16
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T17:50:01+00:00",
+   "as_of": "2026-10-29T18:50:03+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -14746,7 +14762,7 @@
   "jobs_total": 133,
   "lifetime_eur": 3.37,
   "live": {
-   "checked_at": "2026-10-29T17:50:33+00:00",
+   "checked_at": "2026-10-29T18:50:36+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -14788,8 +14804,21 @@
     "run_budget": 900,
     "submitted_brief_sha256": "4ecafd5ef28a54d6276e5626b5b837cf563789156211cf4424cdf0e84fe0da15",
     "ts": "2026-10-29T16:14:24.017039+00:00"
+   },
+   {
+    "elapsed_seconds": 2117.0,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "fa2eeca1b6d75a5b1b8e6490ed23a2ef3b7d3b5433319bcde43df6cba9e8dd35",
+    "ts": "2026-10-29T18:40:18.886251+00:00"
    }
   ],
-  "total": 1
+  "total": 2
  }
 }
