@@ -3,7 +3,7 @@
   "Research gate refused the next session: 192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)",
   "Test suite is failing",
   "check-candidate --all is failing",
-  "unhcr-refugee-data-finder has been packaged and actionable for 44.1h - shipping it outranks construction",
+  "unhcr-refugee-data-finder has been packaged and actionable for 45.1h - shipping it outranks construction",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -22,14 +22,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-29T15:50:03.469780+00:00",
+   "moment": "2026-10-29T16:50:02.981380+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 28033774,
+   "research_tokens_last_7_days": 27973942,
    "runs_last_7_days": 192,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -57,14 +57,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 7728,
+     "calls": 7744,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 30447085,
-     "output_tokens": 7196941,
+     "input_tokens": 30519163,
+     "output_tokens": 7233670,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -6897,7 +6897,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 1.5,
+    "age_hours": 2.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -8306,7 +8306,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 44.1,
+    "age_hours": 45.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -9391,7 +9391,7 @@
    "awaiting": [],
    "packaged": [
     {
-     "age_hours": 1.5,
+     "age_hours": 2.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -9662,7 +9662,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 44.1,
+     "age_hours": 45.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9874,7 +9874,7 @@
    ],
    "pending": [
     {
-     "age_hours": 1.5,
+     "age_hours": 2.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -10145,7 +10145,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 44.1,
+     "age_hours": 45.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -10435,10 +10435,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-29T15:50:01.492195+00:00",
+    "last_run_at": "2026-10-29T16:50:02.034316+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-29T16:00:00+00:00",
+    "next_run_at": "2026-10-29T17:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -10459,10 +10459,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-29T15:50:00.865911+00:00",
+    "last_run_at": "2026-10-29T16:50:00.943106+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-29T15:55:00+00:00",
+    "next_run_at": "2026-10-29T16:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10483,10 +10483,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-29T15:45:12.482456+00:00",
+    "last_run_at": "2026-10-29T16:49:34.760231+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-29T15:50:12.482456+00:00",
+    "next_run_at": "2026-10-29T16:54:34.760231+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -10495,10 +10495,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-29T15:50:01.281731+00:00",
+    "last_run_at": "2026-10-29T16:50:01.941995+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-29T15:55:00+00:00",
+    "next_run_at": "2026-10-29T16:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10519,10 +10519,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-29T14:50:43.928762+00:00",
+    "last_run_at": "2026-10-29T15:50:45.357330+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-29T16:50:00+00:00",
+    "next_run_at": "2026-10-29T17:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -10531,10 +10531,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-29T14:55:01.384727+00:00",
+    "last_run_at": "2026-10-29T15:55:01.298279+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-29T15:55:00+00:00",
+    "next_run_at": "2026-10-29T16:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -10575,9 +10575,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-29T15:50:01.597302+00:00"
+  "updated_at": "2026-10-29T16:50:02.035367+00:00"
  },
- "generated_at": "2026-10-29T15:50:02+00:00",
+ "generated_at": "2026-10-29T16:50:01+00:00",
  "health": {
   "checks": {
    "ok": false,
@@ -10585,19 +10585,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-29T13:17:15Z",
-   "head_sha": "6c5083f",
+   "created_at": "2026-10-29T16:11:36Z",
+   "head_sha": "7711202",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40880543334"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40909127618"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 31/37 (84%)"
   },
   "head": {
-   "at": "2026-10-29T12:29:32Z",
-   "sha": "6c5083f",
-   "subject": "East Asia discovery tick: park tw-taipower-major-outage-register (measured 2-year content depth, yearly replacement publ"
+   "at": "2026-10-29T16:11:32Z",
+   "sha": "7711202",
+   "subject": "ns-bwa-diag-001 close-out: per-row diagnostic verified from collected bytes (accept-before-scoring ACCEPTED e8ed2a53eaf0"
   },
   "tests": {
    "count": "674",
@@ -12460,13 +12460,21 @@
    "qualified": 0,
    "sessions_7d": 192,
    "tokens_7d": 28033774
+  },
+  {
+   "at": "2026-10-29T16:50:01+00:00",
+   "live": 17,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 192,
+   "tokens_7d": 27973942
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T15:50:02+00:00",
+   "as_of": "2026-10-29T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -12476,7 +12484,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T15:50:02+00:00",
+   "as_of": "2026-10-29T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -12486,7 +12494,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T15:50:02+00:00",
+   "as_of": "2026-10-29T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -14730,7 +14738,7 @@
   "jobs_total": 133,
   "lifetime_eur": 3.37,
   "live": {
-   "checked_at": "2026-10-29T15:50:35+00:00",
+   "checked_at": "2026-10-29T16:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -14760,19 +14768,6 @@
   "failed_last_three": 1,
   "recent": [
    {
-    "elapsed_seconds": 1613.8,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "ca54d85269d88c0e143c967a7dcb13b9caa468182267a1e85a62a3937b8f0a3a",
-    "ts": "2026-10-29T12:31:55.099144+00:00"
-   },
-   {
     "elapsed_seconds": 773.3,
     "event": "session",
     "max_turns": 120,
@@ -14785,6 +14780,20 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "c43a3a1979af61cabf8b7123917d1e73170361cfd252a997723ff1ec1e260fd7",
     "ts": "2026-10-29T14:17:54.748679+00:00"
+   },
+   {
+    "elapsed_seconds": 845.7,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "4ecafd5ef28a54d6276e5626b5b837cf563789156211cf4424cdf0e84fe0da15",
+    "ts": "2026-10-29T16:14:24.017039+00:00"
    }
   ],
   "total": 2
