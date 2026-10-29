@@ -1,9 +1,12 @@
 {
  "alarms": [
-  "Research gate refused the next session: 192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)",
+  "scout-discovery-session missed its window (2026-10-29T20:10:00+00:00); last status ok",
+  "Research gate refused the next session: lock held for 2702s by scout-research; 192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)",
+  "CI on a844da8 concluded failure",
   "Test suite is failing",
   "check-candidate --all is failing",
-  "unhcr-refugee-data-finder has been packaged and actionable for 48.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration has been packaged and actionable for 6.5h - shipping it outranks construction",
+  "unhcr-refugee-data-finder has been packaged and actionable for 49.1h - shipping it outranks construction",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -22,14 +25,15 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-29T19:50:03.120829+00:00",
+   "moment": "2026-10-29T20:50:03.076063+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
+    "lock held for 2702s by scout-research",
     "192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 27935506,
+   "research_tokens_last_7_days": 27888994,
    "runs_last_7_days": 192,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -57,14 +61,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 7832,
+     "calls": 7908,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 30606476,
-     "output_tokens": 7295967,
+     "input_tokens": 30704615,
+     "output_tokens": 7365559,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -99,12 +103,12 @@
    "US": 1
   },
   "counts": {
-   "dropped": 41,
+   "dropped": 42,
    "investigating": 16,
    "packaged": 2,
    "parked": 28,
    "published": 11,
-   "ready": 7
+   "ready": 8
   },
   "errors": [],
   "live": [
@@ -4873,6 +4877,67 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "US",
+    "domain": "international macro-financial statistics / IMF publisher-coverage record for the International-organisations tick - the one named publisher in the region with no prior candidate",
+    "id": "imf-statistical-catalogue",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "coverage_2026_10_29": "Bounded catalogue scan, not a per-dataset probe: data.imf.org lists 108 datasets (search page read 2026-10-29); flagship products are country-year/quarter macro panels. The one row-level register (lending arrangements) measured for scale via the IMF's own per-member pages and the third-party compilation: 1,693 arrangements 1952-2025 (~23/year, 162 members) - too thin for disjoint multi-year windows with both classes at the WB-sibling task shape, on top of the twice-measured family defect.",
+     "family_evidence_on_bench": "Aggregate-panel family: oecd-sdmx-aggregate-family (class A, dropped 2026-10 - persistence-dominated levels, shock-clustered changes, national mirrors) and itu-datahub-ict-panels (class B, dropped - same shape plus an existing mirror). Instrument-outcome family: wb-ieg-project-outcome and wb-loan-disbursement-completion (both class A, built and dropped on measured holdout evidence - identity-dominated labels, no demonstrated headroom over country rate-table/persistence references)."
+    },
+    "next_action": "None for discovery - publisher covered. If the operator requests the IMF program-completion task despite the WB-sibling negatives, reopen with the lending-arran",
+    "packaged_at": null,
+    "path": "candidates/imf-statistical-catalogue/record.json",
+    "prediction_time": "Not applicable - no task taken forward. For completeness: the lending-arrangement analog would predict at Board approval (the WB-sibling instant), already measured unfavourable.",
+    "publisher": "International Monetary Fund, Washington DC",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "No task formulated: the IMF's publishable products fall into two families, and both carry measured bench evidence of unsuitability. (a) The statistical catalogue (IFS, BOP, DOT, GFS, WEO, commodity prices, exchange rates, AREAER, Financial Data - 108 datasets on data.imf.org) is country-year/quarter macro panels: a level target is persistence-dominated and a change target's positives cluster into a few global shock periods, the exact family closed on measured evidence at oecd-sdmx-aggregate-family (class A) and itu-datahub-ict-panels (class B), with the same numbers mirrored by originating national offices and the WDI/FRED/Eurostat ecosystem. (b) The one row-level register - the lending-arrangements history (1,693 arrangements 1952-2025 per the IMF-derived IMF Monitor compilation; the IMF's own History of Lending Commitments pages publish facility, arrangement date, expiration, amount agreed/drawn/outstanding per member) - supports only a program-outcome task (completion/cancellation/interruption), the family measured twice at the World Bank sibling and dropped both times for identity-dominated labels with no headroom over a country rate-table (wb-ieg-project-outcome, wb-loan-disbursement-completion), here at a thinner population (~23 arrangements/year, clustered by member country) with an existing econometric literature on program interruption.",
+    "region": "International organisations",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Five contracts, for the record: redistribution SUPPORTED (Special Terms for statistical Data); prediction timing, target and split capacity NOT APPLIED (no task formulated); contribution NOT SUPPORTABLE within the scanned families (mirrors + twice-measured negative sibling). Licence class recorded so a future session does not re-read the terms; jurisdiction recorded (US, Washington DC HQ).",
+    "sources": [
+     {
+      "licence": "open for IMF statistical Data: 'Users may download, extract, copy, create derivative works, publish, distribute, and use Data obtained from IMF Sites' with attribution and data-integrity conditions (read 2026-10-29)",
+      "name": "IMF Copyright and Usage (Special Terms for Statistical Data)",
+      "url": "https://www.imf.org/en/about/copyright-and-terms"
+     },
+     {
+      "licence": "108 datasets; country-year/quarter macro panels (IFS, BOP, DOT, GFS, WEO, commodity prices, exchange rates, Financial Data)",
+      "name": "IMF data catalogue",
+      "url": "https://data.imf.org/datasets"
+     },
+     {
+      "licence": "IMF statistical/data material under the Special Terms (attribution + integrity)",
+      "name": "IMF History of Lending Commitments (per-member arrangement register)",
+      "url": "https://www.imf.org/external/np/fin/Tad/extarr2.aspx"
+     },
+     {
+      "licence": "third-party; cited for the measured population count, not as a data source",
+      "name": "IMF Monitor Programs dataset (third-party compilation of the same register, for scale evidence only)",
+      "url": "https://imfmonitor.org/programs/"
+     }
+    ],
+    "split_strategy": "",
+    "status": "dropped",
+    "target": "None constructed. The candidate register's target-relevant facts, for any reopening: arrangements carry Date of Arrangement, Expiration Date, Amount Agreed, Amount Drawn, Amount Outstanding (TSV download per member; read 2026-10-29) - a drawdown/completion label is derivable in principle, but the WB-sibling measurements (two drops, no headroom over identity priors) make it the third attempt in a family with two measured negatives."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "IN",
     "domain": "national open-data catalog (multi-domain; no task could be selected)",
     "id": "india-datagovin-portal",
@@ -6904,7 +6969,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 5.5,
+    "age_hours": 6.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -7385,6 +7450,79 @@
     "split_strategy": "Temporal windows on the 1996-10..2026-10 daily panel, e.g. train 1996-10..2015-12 / eval 2016-01..2020-12 / holdout 2021-01..2026-10; each window contains at least one measured high-price episode (train: 2008-07 measured 9/31 days >$200; eval: 2020-06 measured 5/30 days >$200 with mid-month means to $287; holdout: 2024-08 measured 25/31 days >$200). Positives cluster into multi-day weather/storage episodes, so split capacity is counted per episode-week, not per day; sampled episode weeks measured, exact counts computed at construction over the full files. The 2022-11-01 real-time-pricing regime change (ex-post -> real-time pricing, documented by the publisher) is a structural break: either bound all windows inside one regime or ship a regime indicator; decided and documented at construction.",
     "status": "investigating",
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "CH",
+    "domain": "humanitarian financing / per-plan-year appeal funding coverage (UN OCHA Financial Tracking Service) - funding-outcome task family; first humanitarian-appeal financing register assessed on the bench",
+    "id": "ocha-fts-appeal-funding-trajectory",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "class_balance_orig_basis_2026_10_29": "probe_split_counts.py on the sweep: >=50% of orig by window: 2000-2013: 347 rows 237/110 (68.3%); 2014-2018: 153 rows 80/73 (52.3%); 2019-2022: 152 rows 97/55 (63.8%); 2023-2025: 106 rows 45/61 (42.5%). Threshold chosen for interpretability (half the launch ask) and global balance (funding/orig over all closed windows: 459 pos / 299 neg = 60.5%).",
+     "extraction_cost_2026_10_29": "HDX CSV: 1 request, 279,849 bytes, 2.0 s (coordinator). Plan sweep: 877 requests, 401 s, 296 KB output (coordinator, acceptable). Flow endpoint: ~383 KB/page, first page carries the plan-year fundingTotal (YEM 2023 full flow list = 5 pages = 1.9 MB); a full-panel harvest needs ~900 flow requests ~= 340 MB -> worker job, never the coordinator. Machine class: hosted coordinator (4 vCPU, ~1.9 GiB RAM).",
+     "flow_schema_2026_10_29": "YEM country-year sample (first page, n=200): decisionDate present 189/200 (94.5%), firstReportedDate 200/200; status: commitment 125 / paid 75; flowType: Standard 129 / Parked 68 / Pass through 2 / Carryover 1; multiyear parked flows span usage years (one 2018-decision flow covers 2019-2023). Plan-level attribution is the publisher's own (report3 boundary handling): planId 1116 year 2023 -> 986 flows, incoming.fundingTotal 1,774,327,599, exactly equal to the HDX CSV single-country row; AFG 1117 year 2023 -> 683 flows, 1,678,347,238, exactly equal to CSV.",
+     "plan_endpoint_sweep_2026_10_29": "probe_plan_sweep.py: 877 plan-record fetches, 0 errors, 401 s, 296 KB jsonl (candidates/ocha-fts-appeal-funding-trajectory/plan_orig_sweep.jsonl). Revisions measured on 836 plans with orig>0: 286 revised up, 166 revised down, 384 unchanged (54% revised) - the CSV requirements column matches the revised value in revised cases (2016 cohort: matches orig 21 / revised 14; 2023 cohort: matches orig 23 / revised 15, with 8 country-slice mismatches), so the CSV column is unusable as a launch feature.",
+     "population_2026_10_29": "HDX CSV: 3,874 rows 1999-2031 (future-dated rows are multiyear-plan usage-year extensions); 2,678 rows without requirements (country funding outside appeals - outside the task population); 1,196 rows with plan id + requirements = plan x country attribution; 877 distinct (plan, plan-year) pairs; 782 primary single-country plan-years with origRequirements>0 (2000-2025), 60 multi-country regional plans, 41 plan-years with no recorded original requirements (excluded, counted).",
+     "provenance_mix_2026_10_29": "Primary population by typeName: Humanitarian response plan 212, Consolidated appeals process 152, Flash appeal 122, Other 117, Consolidated inter-agency appeal 69, Humanitarian needs and response plan 49, Strategic response plan 45, Regional response plan 16; isPartOfGHO true 703/782. Type is a documented feature, not a population shift: all types share the appeal-launch contract.",
+     "publisher_summary_crosscheck_2026_10_29": "GHO 2023 December update (publisher's snapshot): requirements $56.7B, funding $21.8B, coverage 38% at 2023-12-31; launch ask was $51.5B (2022-12-01). My CSV-basis 2023 aggregate (55.8B requirements / 25.2B funding / 45.1%) differs because it includes non-GHO plans and mixed-vintage requirements - composition, explained; per-plan origRequirements + isPartOfGHO reconcile at construction.",
+     "regional_slice_gap_2026_10_29": "Burundi RRP 2021 (plan 1017): HDX CSV country slices sum to 14,978,233 funding vs API plan total 19,282,778 (ratio 0.78) - regional plans excluded from the primary population; the flow endpoint carries the authoritative plan total.",
+     "vintage_flip_fixture_2026_10_29": "Afghanistan HRP 2023: origRequirements 4,627,363,573 (launch ask, matches GHO 2022-12-01 '$4.6 billion' and UNICEF sitrep 'US$4.62 billion is required'); final funding 1,678,347,238 = 36.3% of orig -> label 0. The same plan in today's HDX CSV: requirements 3,227,372,908 (down-revised post-launch) and percentFunded 52 -> using the CSV column would flip the label to 1 and leak the post-launch revision. Recorded as the construction's forbidden-column fixture."
+    },
+    "next_action": "Construction (worker job fts-appeal-001), after the current advancement pipeline frees capacity: (1) harvest plan records for all plan-years (origRequirements, ",
+    "packaged_at": null,
+    "path": "candidates/ocha-fts-appeal-funding-trajectory/record.json",
+    "prediction_time": "The plan's public launch: the instant its requirements are first published (GHO publication in early December for the following plan year, or the plan's own release for late-launched plans). Dated example (all UTC): Afghanistan HRP 2023 (plan id 1117) - GHO 2023 launched 2022-12-01 with Afghanistan at $4.6B; the HRP itself launched end of December 2022 / early January 2023; prediction instant pinned at 2023-01-01T00:00Z. Every feature is fixed by that instant: original requirements (plan endpoint origRequirements = 4,627,363,573, matching the December 2022 GHO ask), plan type, country, and strictly-prior plan-years (all closed years, final values). The target window is the plan year 2023-01-01..2023-12-31, strictly after the instant. VINTAGE POLICY (the decisive timing finding): the HDX CSV 'requirements' column is CURRENT-vintage - of 836 plans with requirements, 286 were revised up and 166 down after launch, and the CSV shows the revised value in revised cases - so it must never be used as a launch feature; the plan endpoint's origRequirements is the launch-vintage denominator, verified against the December 2022 GHO on the Afghanistan fixture. Prior-year funding totals used as features are current-vintage final values for closed years, approximating what was knowable at launch (late-reported flows are the measured gap - flow records carry firstReportedDate and decisionDate; 94.5% decisionDate coverage in a 200-flow sample); this retrospective approximation is declared as the restricted protocol and probed at gate 1.5, not assumed to be operational forecasting.",
+    "publisher": "UN OCHA - Financial Tracking Service (FTS), a UN Secretariat office administered from Geneva",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a UN-coordinated humanitarian appeal or response plan (HRP/CAP/flash appeal/HNRP/SRP and similar single-country plans) at its public launch instant (requirements first published - GHO early December for the following year, or the plan's own release, whichever the record dates), will the plan receive funding equal to at least 50% of its ORIGINAL (launch-vintage) requirements by the close of its plan year? Features are launch-time attributes (original requirements, plan type, GHO membership, country/region, emergency linkage) plus strictly-prior-year history for the same country (prior-year plan coverage, funding levels, series length). A useful prediction identifies, months ahead, which appeals will end the year underfunded - the quantity GHO gap analysis reports after the fact - enabling donor advocacy and fundraising prioritization.",
+    "region": "International organisations",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "All five discovery contracts reconciled against recorded evidence (2026-10-29). (1) Redistribution: SUPPORTED - the dataset's own page grants use/republish with citation (quote in license_evidence), and the publisher's HDX distribution of the same data is CC BY-IGO; licence_class A; attribution and no-endorsement conditions carry into LICENSE.md. (2) Prediction timing: SUPPORTED with a declared restricted retrospective protocol - launch instant dated and verified on the Afghanistan fixture (GHO 2022-12-01 ask == origRequirements to 3 significant figures); the decisive vintage finding is measured (54% of plans revised post-launch; HDX CSV column carries revised values; the flip demonstrator is recorded); construction uses origRequirements only; prior-year features are current-vintage finals for closed years with the late-reporting gap measured on flows (firstReportedDate lags decisionDate; 94.5% decisionDate coverage); gate-1.5 reverse-history probes on the exact artifact are mandatory in the handoff - the label is a later aggregation of the same stream, so the retrospective posture must be declared, exactly as on unhcr/abs. (3) Obtainable target: SUPPORTED - per-plan-year funding totals from the publisher's API, equal to its own HDX distribution on measured single-country fixtures; label source columns excludable; censoring rule and zero-funding rows pinned; regional-plan slices excluded with the measured 0.78 gap. (4) Split capacity: SUPPORTED by full-population measurement - 782 primary plan-years, three disjoint windows with both classes (table in split_strategy), clustered count recorded (83 country series; year-clustered prevalence drift 68%->43% is a measured phenomenon property, not a defect). (5) Contribution beyond a mirror: SUPPORTED - novelty verdict differentiated (recorded by check-novelty): the publisher and third parties distribute the raw requirements/funding tables (HDX, HAPI, HF per-country mirrors), but no ML-ready per-plan-year coverage task with an instant, splits and a scored contract exists; our contribution is the launch-vintage-denominator formulation, the vintage trap evidence, the dated fixture set and the persistence-referenced evaluation. Residual uncertainties, stated: (a) the WB instrument-outcome drops (identity-dominated, no headroom over persistence) are the named risk for this family - the prior-year same-country coverage rule is the primary reference and decides whether headroom stands; (b) origRequirements is verified launch-vintage on one external December source (Afghanistan 2023) plus internal orig/revised separation on 836 plans - construction asserts the GHO cross-check on sampled cohorts; (c) the ~6% of flows lacking decisionDate only affects the optional within-year trajectory variant, not the primary launch-instant formulation; (d) exact per-window counts on final construction data may shift slightly when empty-funding rows are pinned.",
+    "sources": [
+     {
+      "licence": "cc-by-igo (publisher's HDX record, read 2026-10-29)",
+      "name": "HDX: Global - Requirements and Funding Data (FTS bulk distribution)",
+      "url": "https://data.humdata.org/dataset/global-requirements-and-funding-data"
+     },
+     {
+      "licence": "FTS republish permission (see license_evidence)",
+      "name": "OCHA HPC API v2 (public, anonymous) - plan records with origRequirements/revisedRequirements",
+      "url": ""
+     },
+     {
+      "licence": "FTS republish permission (see license_evidence)",
+      "name": "OCHA HPC API v1 FTS flow endpoint (public, anonymous) - dated flows and per-plan-year funding totals",
+      "url": ""
+     },
+     {
+      "licence": "publisher permission text (quoted in license_evidence)",
+      "name": "FTS 'About FTS / Using FTS data' (publisher's own use-and-republish instrument)",
+      "url": "https://fts.unocha.org/content/about-fts-using-fts-data"
+     },
+     {
+      "licence": "",
+      "name": "GHO 2023 (publisher's own summary product; external cross-check source)",
+      "url": "https://reliefweb.int/report/world/un-launches-record-515-billion-humanitarian-appeal-2023-enar (1 December 2022) and https://reliefweb.int/report/world/global-humanitarian-overview-2023-december-update-snapshot-31-december-2023"
+     }
+    ],
+    "split_strategy": "Temporal, on the primary population (782 single-country plan-years with origRequirements>0, 2000-2025), measured from the source on 2026-10-29 at the >=50%-of-ORIGINAL-requirements threshold: train 2000-2016: 437 rows, pos 282 / neg 155 (64.5%), 78 distinct countries; eval 2017-2020: 139 rows, pos 81 / neg 58 (58.3%), 51 countries; holdout 2021-2025: 182 rows, pos 96 / neg 86 (52.7%), 43 countries. Both classes present in every window. 2026 live-edge rows (24) excluded until their year closes. CLUSTERED COUNT (the honest sample size): 83 distinct country series in the primary population, max 28 plan-years for one country; positives also cluster by year through global funding cycles - measured positive rate at the 50% threshold drifts 68.3% (2000-2013) -> 52.3% (2014-2018) -> 63.8% (2019-2022) -> 42.5% (2023-2025), and GHO coverage fell from ~50% (2022) to 38% (2023) per the publisher's own snapshot; intervals and baselines must be country-clustered and year-aware. The final window cut is construction's choice; these three windows are the measured default.",
+    "status": "ready",
+    "target": "Binary: the plan's FTS funding total for its plan year (usage year = plan year; commitments + paid contributions, pledges excluded, USD, publisher's own attribution including boundary flows) divided by its ORIGINAL requirements (launch vintage) is >= 0.50 -> 1, else 0. Label source: per-plan-year funding totals (FTS flow endpoint incoming.fundingTotal with planId+year filter; equal to the publisher's HDX distribution on single-country rows - measured: Yemen HRP 2023 1,774,327,599, Afghanistan HRP 2023 1,678,347,238, both API==CSV to the dollar) and origRequirements from the plan endpoint; both excludable from features by construction (features carry launch attributes and strictly-prior years only). Censoring: plan-years whose year has not closed are excluded and counted (2026 live edge: 24 primary rows), never imputed. Zero-funding rows are the publisher's recorded outcome (empty funding fields in the HDX CSV counted at construction, not dropped silently). Population: PRIMARY = single-country plan-years with origRequirements > 0, 2000-2025 (782 rows; 60 multi-country regional plans excluded from the primary task because the HDX CSV splits them into country slices whose funding sum covers only ~78% of the plan total - measured on Burundi RRP 2021: slices 14,978,233 vs API plan total 19,282,778; regional plans can be a secondary population with flow-endpoint totals if construction wants them). Appeal-linked funding only; the country rows without plan linkage (2,678 HDX CSV rows, 'Not specified' plans) are outside the task population, so the label's meaning is single-population throughout."
    },
    {
     "awaiting_operator": false,
@@ -8313,7 +8451,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 48.1,
+    "age_hours": 49.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -9398,7 +9536,7 @@
    "awaiting": [],
    "packaged": [
     {
-     "age_hours": 5.5,
+     "age_hours": 6.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -9669,7 +9807,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 48.1,
+     "age_hours": 49.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9881,7 +10019,7 @@
    ],
    "pending": [
     {
-     "age_hours": 5.5,
+     "age_hours": 6.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -10152,7 +10290,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 48.1,
+     "age_hours": 49.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -10371,7 +10509,7 @@
    "AU": 7,
    "BR": 2,
    "CA": 13,
-   "CH": 3,
+   "CH": 4,
    "CL": 2,
    "CO": 1,
    "DE": 2,
@@ -10395,7 +10533,7 @@
    "SG": 1,
    "TH": 1,
    "TW": 3,
-   "US": 13,
+   "US": 14,
    "VN": 1,
    "ZA": 6
   },
@@ -10403,24 +10541,24 @@
    "Africa": 10,
    "East Asia": 9,
    "Europe": 25,
-   "International organisations": 9,
+   "International organisations": 11,
    "Latin America": 8,
    "North America": 23,
    "Oceania": 8,
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 41,
+   "dropped": 42,
    "investigating": 16,
    "packaged": 2,
    "parked": 28,
    "published": 11,
-   "ready": 7
+   "ready": 8
   },
-  "candidates": 105,
-  "live": 36,
-  "live_non_us": 30,
-  "live_non_us_share": 0.833,
+  "candidates": 107,
+  "live": 37,
+  "live_non_us": 31,
+  "live_non_us_share": 0.838,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -10442,10 +10580,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-29T19:50:02.158288+00:00",
+    "last_run_at": "2026-10-29T20:50:01.610950+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-29T20:00:00+00:00",
+    "next_run_at": "2026-10-29T21:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -10466,10 +10604,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-29T19:50:01.243139+00:00",
+    "last_run_at": "2026-10-29T20:50:00.891766+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-29T19:55:00+00:00",
+    "next_run_at": "2026-10-29T20:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10490,10 +10628,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-29T19:45:27.129003+00:00",
+    "last_run_at": "2026-10-29T20:45:45.896234+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-29T19:50:27.129003+00:00",
+    "next_run_at": "2026-10-29T20:50:45.896234+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -10502,10 +10640,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-29T19:50:01.746371+00:00",
+    "last_run_at": "2026-10-29T20:00:04.711643+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-29T19:55:00+00:00",
+    "next_run_at": "2026-10-29T20:10:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10526,10 +10664,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-29T18:50:45.821513+00:00",
+    "last_run_at": "2026-10-29T19:50:44.634315+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-29T20:50:00+00:00",
+    "next_run_at": "2026-10-29T21:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -10538,10 +10676,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-29T18:55:00.781107+00:00",
+    "last_run_at": "2026-10-29T19:55:00.741834+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-29T19:55:00+00:00",
+    "next_run_at": "2026-10-29T20:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -10582,29 +10720,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-29T19:50:02.159315+00:00"
+  "updated_at": "2026-10-29T20:50:01.612070+00:00"
  },
- "generated_at": "2026-10-29T19:50:01+00:00",
+ "generated_at": "2026-10-29T20:50:01+00:00",
  "health": {
   "checks": {
    "ok": false,
-   "passing": 104
+   "passing": 106
   },
   "ci": {
-   "conclusion": "success",
-   "created_at": "2026-10-29T19:42:18Z",
-   "head_sha": "b64655b",
+   "conclusion": "failure",
+   "created_at": "2026-10-29T20:49:39Z",
+   "head_sha": "a844da8",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40942471786"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40952464634"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 30/36 (83%)"
+   "summary": "live non-US: 31/37 (84%)"
   },
   "head": {
-   "at": "2026-10-29T18:36:22Z",
-   "sha": "b64655b",
-   "subject": "Oceania discovery tick: close epbc-referral-controlled-action on licence class D (portal's own footer terms at onlineser"
+   "at": "2026-10-29T20:49:28Z",
+   "sha": "a844da8",
+   "subject": "International-organisations discovery tick: ocha-fts-appeal-funding-trajectory READY (UN OCHA FTS per-plan-year appeal f"
   },
   "tests": {
    "count": "674",
@@ -12499,13 +12637,21 @@
    "qualified": 0,
    "sessions_7d": 192,
    "tokens_7d": 27935506
+  },
+  {
+   "at": "2026-10-29T20:50:01+00:00",
+   "live": 16,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 192,
+   "tokens_7d": 27888994
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T19:50:01+00:00",
+   "as_of": "2026-10-29T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -12515,7 +12661,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T19:50:01+00:00",
+   "as_of": "2026-10-29T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -12525,7 +12671,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T19:50:01+00:00",
+   "as_of": "2026-10-29T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -14769,7 +14915,7 @@
   "jobs_total": 133,
   "lifetime_eur": 3.37,
   "live": {
-   "checked_at": "2026-10-29T19:50:33+00:00",
+   "checked_at": "2026-10-29T20:50:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -14799,20 +14945,6 @@
   "failed_last_three": 0,
   "recent": [
    {
-    "elapsed_seconds": 845.7,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "4ecafd5ef28a54d6276e5626b5b837cf563789156211cf4424cdf0e84fe0da15",
-    "ts": "2026-10-29T16:14:24.017039+00:00"
-   },
-   {
     "elapsed_seconds": 2117.0,
     "event": "session",
     "max_turns": 120,
@@ -14826,6 +14958,6 @@
     "ts": "2026-10-29T18:40:18.886251+00:00"
    }
   ],
-  "total": 2
+  "total": 1
  }
 }
