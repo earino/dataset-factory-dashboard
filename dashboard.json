@@ -1,8 +1,7 @@
 {
  "alarms": [
-  "scout-research-session missed its window (2026-10-29T08:10:00+00:00); last status ok",
-  "Research gate refused the next session: lock held for 2702s by scout-research; 192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)",
-  "unhcr-refugee-data-finder has been packaged and actionable for 37.1h - shipping it outranks construction"
+  "Research gate refused the next session: 192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)",
+  "unhcr-refugee-data-finder has been packaged and actionable for 38.1h - shipping it outranks construction"
  ],
  "budget": {
   "config": {
@@ -20,15 +19,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-29T08:50:03.036031+00:00",
+   "moment": "2026-10-29T09:50:03.365322+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 2702s by scout-research",
     "192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 28208065,
+   "research_tokens_last_7_days": 28218444,
    "runs_last_7_days": 192,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -56,14 +54,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 7496,
+     "calls": 7508,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 30133144,
-     "output_tokens": 7038432,
+     "input_tokens": 30136215,
+     "output_tokens": 7045740,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -8279,7 +8277,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 37.1,
+    "age_hours": 38.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -9364,7 +9362,7 @@
    "awaiting": [],
    "packaged": [
     {
-     "age_hours": 37.1,
+     "age_hours": 38.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9576,7 +9574,7 @@
    ],
    "pending": [
     {
-     "age_hours": 37.1,
+     "age_hours": 38.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9867,10 +9865,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-29T08:50:01.773325+00:00",
+    "last_run_at": "2026-10-29T09:50:01.581439+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-29T09:00:00+00:00",
+    "next_run_at": "2026-10-29T10:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -9891,10 +9889,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-29T08:00:02.131402+00:00",
+    "last_run_at": "2026-10-29T09:50:01.600454+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-29T08:10:00+00:00",
+    "next_run_at": "2026-10-29T09:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9915,10 +9913,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-29T08:48:37.842195+00:00",
+    "last_run_at": "2026-10-29T09:49:00.214835+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-29T08:53:37.842195+00:00",
+    "next_run_at": "2026-10-29T09:54:00.214835+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -9927,10 +9925,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-29T08:50:00.864849+00:00",
+    "last_run_at": "2026-10-29T09:50:01.123755+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-29T08:55:00+00:00",
+    "next_run_at": "2026-10-29T09:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9951,10 +9949,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-29T07:50:42.573494+00:00",
+    "last_run_at": "2026-10-29T08:50:43.591905+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-29T09:50:00+00:00",
+    "next_run_at": "2026-10-29T10:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -9963,10 +9961,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-29T07:55:00.825505+00:00",
+    "last_run_at": "2026-10-29T08:55:01.092279+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-29T08:55:00+00:00",
+    "next_run_at": "2026-10-29T09:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -10007,9 +10005,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-29T08:50:01.774344+00:00"
+  "updated_at": "2026-10-29T09:50:01.601533+00:00"
  },
- "generated_at": "2026-10-29T08:50:01+00:00",
+ "generated_at": "2026-10-29T09:50:02+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -11836,13 +11834,21 @@
    "qualified": 1,
    "sessions_7d": 192,
    "tokens_7d": 28208065
+  },
+  {
+   "at": "2026-10-29T09:50:02+00:00",
+   "live": 18,
+   "published": 11,
+   "qualified": 1,
+   "sessions_7d": 192,
+   "tokens_7d": 28218444
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T08:50:01+00:00",
+   "as_of": "2026-10-29T09:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -11852,7 +11858,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T08:50:01+00:00",
+   "as_of": "2026-10-29T09:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -11862,7 +11868,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T08:50:01+00:00",
+   "as_of": "2026-10-29T09:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -13690,7 +13696,7 @@
     "normalised_eur": null,
     "rate_eur": 0.01152,
     "server_type": "cx23",
-    "status": "running"
+    "status": "collected"
    },
    {
     "created_at": "2026-10-23T10:14:37.485318+00:00",
@@ -14057,7 +14063,7 @@
   "jobs_total": 132,
   "lifetime_eur": 3.36,
   "live": {
-   "checked_at": "2026-10-29T08:50:33+00:00",
+   "checked_at": "2026-10-29T09:50:34+00:00",
    "error": null,
    "primary_ips": 1,
    "primary_ips_total": 1,
@@ -14084,7 +14090,7 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 0,
+  "failed_last_three": 1,
   "recent": [
    {
     "elapsed_seconds": 2153.7,
@@ -14098,8 +14104,22 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "b59da8fc0c47e8f63fc33b2de4e98821be27f9a5c82a45d9a41122be6807cd01",
     "ts": "2026-10-29T06:40:55.109093+00:00"
+   },
+   {
+    "elapsed_seconds": 3600.6,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "exit 1",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "a42f9ffa102e21ddf4e38ecbffa15fb4792c461c985a0928715765167e009e38",
+    "ts": "2026-10-29T09:05:02.218363+00:00"
    }
   ],
-  "total": 1
+  "total": 2
  }
 }
