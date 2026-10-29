@@ -1,7 +1,7 @@
 {
  "alarms": [
   "Research gate refused the next session: 192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)",
-  "unhcr-refugee-data-finder has been packaged and actionable for 40.1h - shipping it outranks construction"
+  "unhcr-refugee-data-finder has been packaged and actionable for 41.1h - shipping it outranks construction"
  ],
  "budget": {
   "config": {
@@ -19,14 +19,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-29T11:50:03.502089+00:00",
+   "moment": "2026-10-29T12:50:03.281519+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "192 research session(s) already ran in the last 7 days, 8 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 28076695,
+   "research_tokens_last_7_days": 28023068,
    "runs_last_7_days": 192,
    "runs_weighted_last_7_days": 200,
    "session_cap_per_week": 200,
@@ -54,14 +54,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 7534,
+     "calls": 7607,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 30197495,
-     "output_tokens": 7069449,
+     "input_tokens": 30282352,
+     "output_tokens": 7123176,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -100,7 +100,7 @@
    "dropped": 39,
    "investigating": 17,
    "packaged": 1,
-   "parked": 27,
+   "parked": 28,
    "published": 11,
    "qualified": 1,
    "ready": 7
@@ -8264,6 +8264,60 @@
     "awaiting_operator": false,
     "baseline": {},
     "country": "TW",
+    "domain": "utility outage / per-incident major distribution outage register (Taiwan Power Company) - restoration-duration task family; first utility-outage register assessed on the bench",
+    "id": "tw-taipower-major-outage-register",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "fetch_cost_measured": "1 request, 9,559 bytes, 1.00 s for the live CSV via the quality mirror (coordinator, 2026-10-29); Wayback vintages 8,847 / 9,665 bytes; front API metadata 5,351 bytes. Extraction cost is negligible - the blocker is content depth, not transfer.",
+     "history_depth_decisive": "Obtainable event-grain history = 2 years (2023 via Wayback, 2024 live). The 2022 publisher reply said the file then contained 2019-2021, but the current file replaces rather than accumulates, and CDX shows no capture of the 2019-2022 vintages at this URL. Taipower's own portal page claims 186 open datasets as of 2026-04-09 (service.taipower.com.tw/smartgrid/DataAnalytics/Index) - unenumerated from this host (DNS), recorded as the named worker-side next probe.",
+     "register_content_archived_2023_vintage": "91 rows, all 2023 (ISO datetime format); >60 min 51/91 (56.0%); 6/91 rows with restoration earlier than occurrence (all same-date, ~11-12 h apart - register clock-entry defects listed in notes.md); all 12 months present, October max (14).",
+     "register_content_live_2026_10_29": "102 rows, \u767c\u751f\u6642\u9593 all within 2024; 0 missing occurrence, 0 missing restoration, 0 negative durations; households 1..22,421 (median 1,153), 0 missing; category mix by incident-name keywords: substation/feeder 60, water-utility 16, park/industrial 13, hospital 6, transport 3, other 4; by month, September max (17); >30 min 70.6%, >60 min 49.0%, >120 min 22.5%, >240 min 7.8%.",
+     "sibling_dataset_check": "data.gov.tw search rft=\u4e8b\u6545\u505c\u96fb returns only dataset 122741; rft=\u901f\u5831 returns no other per-incident outage register; the related 166643 \u53f0\u7063\u96fb\u529b\u516c\u53f8\u914d\u96fb\u7dda\u8def\u4e8b\u6545\u5206\u6790 resolves to a single annual PDF report (its file-listing CSV fetched: one row, pointing to 001.pdf, which has no Wayback capture). No multi-year per-incident sibling exists on the portal."
+    },
+    "next_action": "Two concrete reopen paths, cheapest first. (a) Standing vintage collector: fetch the register monthly (quality-mirror URL, 1 request ~9.6 KB, or the service.tai",
+    "packaged_at": null,
+    "path": "candidates/tw-taipower-major-outage-register/record.json",
+    "prediction_time": "NOT SUPPORTED as an operational instant - the decisive timing finding. The publisher's own dataset-page replies state the register is updated once a year with the previous year's data, deliberately delayed to limit reuse (quote in license_evidence and notes.md). Within a clearly-labelled retrospective formulation the instant is the row's \u767c\u751f\u6642\u9593 (occurrence) itself: features are the register fields fixed at occurrence (occurrence datetime, \u4e8b\u6545\u540d\u7a31 incident name, \u505c\u96fb\u6236\u6578 households as final-register vintage values - a documented-vintage caveat), and the target window is (occurrence, restoration]. Measured publication evidence: resource last updated 2025-06-16 carrying 2024 events only; a Wayback capture from 2026-09-29 still carried the 2024 vintage, so the 2025 update had not landed 15 months after year end - the yearly channel is not dependable either.",
+    "publisher": "Taiwan Power Company (\u53f0\u7063\u96fb\u529b\u80a1\u4efd\u6709\u9650\u516c\u53f8) via data.gov.tw (\u6578\u4f4d\u767c\u5c55\u90e8 Government Data Open Platform)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a major distribution outage in the Taipower flash-report register (occurrence time t, Asia/Taipei), will restoration (\u5fa9\u96fb\u6642\u9593) take more than 60 minutes from t? Retrospective only: the register is published yearly, months after the events, so no operational real-time claim is possible.",
+    "region": "East Asia",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "The five contracts: redistribution SUPPORTED (ODDL 1.0, class B, quoted); prediction timing UNSUPPORTED for operational claims and only retrospectively stateable (publisher's own yearly-prior-year statement, plus the measured 15-month slip) - an essential unresolved contract, hence not ready; target DERIVABLE (restoration datetime) with measured register defects (6/91 in the 2023 vintage) and a censored negative population (four published major-incident inclusion criteria); split capacity UNSUPPORTED on 2 obtainable years; not-a-mirror SUPPORTED for this exact source/task but the family is crowded (Taipower 2018 challenge, public US outage datasets, active restoration-prediction literature). Park, with the standing collector as the only route to more history.",
+    "sources": [
+     {
+      "licence": "\u653f\u5e9c\u8cc7\u6599\u958b\u653e\u6388\u6b0a\u689d\u6b3e-\u7b2c1\u7248 (Open Government Data License 1.0), stated on the dataset page and in the front-API metadata; \u514d\u8cbb (free).",
+      "name": "data.gov.tw dataset 122741 \u53f0\u7063\u96fb\u529b\u516c\u53f8\u914d\u96fb\u7cfb\u7d71\u91cd\u5927\u4e8b\u6545\u505c\u96fb\u901f\u5831\u6848\u4ef6\u8a18\u9304 (Taipower distribution-system major outage flash-report case records)",
+      "url": "https://data.gov.tw/dataset/122741"
+     },
+     {
+      "licence": "The same ODDL 1.0 dataset licence covers the data; the copies are archived fetches of Taipower's own open-data file.",
+      "name": "Wayback Machine vintages of the same register file",
+      "url": "http://web.archive.org/cdx/search/cdx?url=service.taipower.com.tw/data/opendata/apply/file/d077011*"
+     }
+    ],
+    "split_strategy": "Not computable defensibly on available content: the register is a single-year replacement file (live = 2024 only, 102 events; archived 2023 vintage = 91 events). Three disjoint multi-month windows cannot be filled from 2 years of events, and future years depend on the slipped yearly channel. Class balance is fine (49-56% at >60 min in both vintages) - volume is the blocker, and positives cluster (2024: 17 in September, typhoon season).",
+    "status": "parked",
+    "target": "Binary: restoration duration = \u5fa9\u96fb\u6642\u9593 - \u767c\u751f\u6642\u9593 > 60 minutes (2024 vintage class balance at that threshold: 50/102 = 49.0%; 2023 archived vintage: 51/91 = 56.0%). Label source columns \u5fa9\u96fb\u6642\u9593 (and \u767c\u751f\u6642\u9593), excludable from features by construction. Register-level defect measured in the 2023 archived vintage: 6/91 rows have \u5fa9\u96fb\u6642\u9593 earlier than \u767c\u751f\u6642\u9593 (systematic ~12-hour clock misentries on the same date, listed in notes.md); the 2024 vintage has 0. Population censoring: the register is not all outages - it carries only cases meeting the four published major-incident criteria (quoted in notes.md), so an occurrence formulation has no enumerable negative population from this source; duration on reported cases is the only derivable label."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "TW",
     "domain": "emergency management / government decision prediction",
     "id": "tw-typhoon-day-closure",
     "jobs": [],
@@ -8323,7 +8377,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 40.1,
+    "age_hours": 41.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -9408,7 +9462,7 @@
    "awaiting": [],
    "packaged": [
     {
-     "age_hours": 40.1,
+     "age_hours": 41.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9620,7 +9674,7 @@
    ],
    "pending": [
     {
-     "age_hours": 40.1,
+     "age_hours": 41.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -9862,14 +9916,14 @@
    "PH": 2,
    "SG": 1,
    "TH": 1,
-   "TW": 2,
+   "TW": 3,
    "US": 13,
    "VN": 1,
    "ZA": 6
   },
   "by_region": {
    "Africa": 10,
-   "East Asia": 8,
+   "East Asia": 9,
    "Europe": 25,
    "International organisations": 9,
    "Latin America": 8,
@@ -9881,12 +9935,12 @@
    "dropped": 39,
    "investigating": 17,
    "packaged": 1,
-   "parked": 27,
+   "parked": 28,
    "published": 11,
    "qualified": 1,
    "ready": 7
   },
-  "candidates": 103,
+  "candidates": 104,
   "live": 37,
   "live_non_us": 31,
   "live_non_us_share": 0.838,
@@ -9911,10 +9965,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-29T11:50:01.587838+00:00",
+    "last_run_at": "2026-10-29T12:50:02.428342+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-29T12:00:00+00:00",
+    "next_run_at": "2026-10-29T13:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -9935,10 +9989,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-29T11:50:01.026703+00:00",
+    "last_run_at": "2026-10-29T12:50:01.545660+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-29T11:55:00+00:00",
+    "next_run_at": "2026-10-29T12:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9959,10 +10013,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-29T11:48:58.864184+00:00",
+    "last_run_at": "2026-10-29T12:49:13.786051+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-29T11:53:58.864184+00:00",
+    "next_run_at": "2026-10-29T12:54:13.786051+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -9971,10 +10025,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-29T11:50:01.321917+00:00",
+    "last_run_at": "2026-10-29T12:50:01.487111+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-29T11:55:00+00:00",
+    "next_run_at": "2026-10-29T12:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -9995,10 +10049,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-29T10:50:42.980482+00:00",
+    "last_run_at": "2026-10-29T11:50:44.065779+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-29T12:50:00+00:00",
+    "next_run_at": "2026-10-29T13:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -10007,10 +10061,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-29T10:55:01.457132+00:00",
+    "last_run_at": "2026-10-29T11:55:01.500082+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-29T11:55:00+00:00",
+    "next_run_at": "2026-10-29T12:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -10051,29 +10105,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-29T11:50:01.700006+00:00"
+  "updated_at": "2026-10-29T12:50:02.429545+00:00"
  },
- "generated_at": "2026-10-29T11:50:02+00:00",
+ "generated_at": "2026-10-29T12:50:02+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 103
+   "passing": 104
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-29T10:10:24Z",
-   "head_sha": "318fa19",
+   "created_at": "2026-10-29T12:29:35Z",
+   "head_sha": "6c5083f",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40855426238"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40873691209"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 31/37 (84%)"
   },
   "head": {
-   "at": "2026-10-29T10:10:20Z",
-   "sha": "318fa19",
-   "subject": "ns-bwa-baseline-001 close-out: runner-contract model 0.5086 eval AUC vs site persistence 0.6124 on the same 372 rows - n"
+   "at": "2026-10-29T12:29:32Z",
+   "sha": "6c5083f",
+   "subject": "East Asia discovery tick: park tw-taipower-major-outage-register (measured 2-year content depth, yearly replacement publ"
   },
   "tests": {
    "count": "674",
@@ -11904,13 +11958,21 @@
    "qualified": 1,
    "sessions_7d": 192,
    "tokens_7d": 28076695
+  },
+  {
+   "at": "2026-10-29T12:50:02+00:00",
+   "live": 18,
+   "published": 11,
+   "qualified": 1,
+   "sessions_7d": 192,
+   "tokens_7d": 28023068
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T11:50:02+00:00",
+   "as_of": "2026-10-29T12:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -11920,7 +11982,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T11:50:02+00:00",
+   "as_of": "2026-10-29T12:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -11930,7 +11992,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T11:50:02+00:00",
+   "as_of": "2026-10-29T12:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -14125,7 +14187,7 @@
   "jobs_total": 132,
   "lifetime_eur": 3.37,
   "live": {
-   "checked_at": "2026-10-29T11:50:34+00:00",
+   "checked_at": "2026-10-29T12:50:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -14167,8 +14229,21 @@
     "run_budget": 900,
     "submitted_brief_sha256": "f1d91404d5a72383464fa04e7a94d1e206e0c03ef694f8f303e83407d28ec432",
     "ts": "2026-10-29T10:13:31.128282+00:00"
+   },
+   {
+    "elapsed_seconds": 1613.8,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "ca54d85269d88c0e143c967a7dcb13b9caa468182267a1e85a62a3937b8f0a3a",
+    "ts": "2026-10-29T12:31:55.099144+00:00"
    }
   ],
-  "total": 1
+  "total": 2
  }
 }
