@@ -1,6 +1,6 @@
 {
  "alarms": [
-  "unhcr-refugee-data-finder has been packaged and actionable for 60.1h - shipping it outranks construction"
+  "unhcr-refugee-data-finder has been packaged and actionable for 61.1h - shipping it outranks construction"
  ],
  "budget": {
   "config": {
@@ -18,16 +18,16 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-30T07:50:02.430543+00:00",
+   "moment": "2026-10-30T08:50:02.478263+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 28151422,
-   "runs_last_7_days": 71,
-   "runs_weighted_last_7_days": 82,
+   "research_tokens_last_7_days": 27982600,
+   "runs_last_7_days": 64,
+   "runs_weighted_last_7_days": 74,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 11,
+   "sessions_over_token_cap": 10,
    "usage": {
     "auxiliary": {
      "calls": 693,
@@ -51,14 +51,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 8419,
+     "calls": 8514,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 34438878,
-     "output_tokens": 7722862,
+     "input_tokens": 34531752,
+     "output_tokens": 7795625,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -82,7 +82,7 @@
  "candidates": {
   "countries": {
    "BR": 2,
-   "CA": 2,
+   "CA": 3,
    "CO": 1,
    "DE": 1,
    "EU": 3,
@@ -94,7 +94,7 @@
   },
   "counts": {
    "dropped": 42,
-   "investigating": 16,
+   "investigating": 17,
    "packaged": 2,
    "parked": 28,
    "published": 11,
@@ -755,6 +755,66 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "CA",
+    "domain": "environmental regulation - federal impact-assessment lifecycle outcome (Canadian Impact Assessment Registry)",
+    "id": "iaac-registry-assessment-termination",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "cost_unknown_page_extraction": "Per-page extraction cost at cohort scale (6,600 pages) NOT yet measured - named as the next bounded measurement before any ready verdict.",
+     "full_layer_fetch_2026_10_30": "All 6,600 attribute rows (project_id, project_cat_en, province_codes, start_date, project_state_en; no geometry): 9 requests, 1,010,024 bytes, 6.58 s wall clock on the coordinator container. Retained probe script probe/iaac_layer_probe.py.",
+     "mapserver_probe_2026_10_30": "Service info + per-layer counts + 8-record samples per layer (fields listed in sources). Total 6,600 projects: Completed 5,079, In progress 1,173, Terminated 348 (5.3%).",
+     "novelty_search_preliminary_2026_10_30": "Web search (queries: 'machine learning predicting environmental impact assessment outcome Canada decisions dataset', plus browsing of top results): no ML-ready benchmark or dataset found for predicting Canadian Impact Assessment Registry outcomes; results were CO2-emissions/LCA ML noise plus one Tandfonline review of AI-in-EIA literature (no registry-outcome task). A 2024 review of AI in EIA surfaced no outcome-prediction benchmark. Formal check-novelty.py with recorded verdict deferred until the bounded page-sample resolves extraction feasibility (investigating status).",
+     "registry_page_samples_2026_10_30": "4 pages via extraction backend: 81027 Terminated (dated termination line 2022-01-18; non-designated project on federal lands), 84411 Completed (dated determination 2023-08-29, outcome wording 'not likely to cause significant adverse environmental effects'; clean text 149.8 KB mostly 'nearby assessments' nav noise), 80175 Completed designated CEAA-2012 project (key-documents table: Notice of Commencement 2019-07-05, EA Decision Statement 2021-01-11; 8.6 KB), 87425 In progress (dated latest update 2024-04-17, key-documents table with dates; 12.2 KB). Dated terminal events verified for 3/3 terminal-or-completed samples; sample size too small to generalize - the share of pages with parseable dated terminal events across the full cohort is the named next measurement.",
+     "start_year_histogram": "By start year (Completed/InProg/Terminated): 2006 2/0/0, 2007 0/0/1, 2009 1/0/0, 2010 12/1/5, 2011 10/0/7, 2012 24/1/22, 2013 22/2/7, 2014 12/3/8, 2015 14/1/6, 2016 11/3/4, 2017 7/0/3, 2018 10/1/7, 2019 188/11/16, 2020 717/71/48, 2021 826/91/51, 2022 749/111/47, 2023 758/150/48, 2024 724/161/32, 2025 707/208/29, 2026 285/358/7. Category mix (top): Construction 2,593, Transport Industry 1,879, Water Management 440, Tourism 331, Waste Management 286, Environmental Management 281, Petroleum Industry 279, Energy 149, Mining Industry 144. Province mix (top): ON 1,322, BC 1,232, AB 1,038, QC 886, SK 566, NS 373, MB 355, NL 306."
+    },
+    "next_action": "Bounded stratified sample of ~60-100 registry pages (states x start-years 2019-2026) on the coordinator or a worker: measure (a) share of pages exposing a dated",
+    "packaged_at": null,
+    "path": "candidates/iaac-registry-assessment-termination/record.json",
+    "prediction_time": "The assessment's registry start date (published per project on the registry page and in the MapServer layer as start_date). Features available at that instant: the inventory attributes published with the posting (project category, province, responsible authority(ies), location type, coordinates, description text, start date). The terminal state and its dated event (Latest update line: termination date, or Notice-of-Determination date + outcome wording) and the layer's current project_state_en/updated_at are post-hoc label sources and never ship as features. The registry is a live current archive: no historical vintages of pages are published, so the task is retrospective-within-current-archive, anchored on the dated events the current pages preserve; it cannot claim historical operational availability.",
+    "publisher": "Impact Assessment Agency of Canada / Agence d'evaluation d'impact du Canada (registry + MapServer served under open.canada.ca package f4c51eaa)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a project assessment posted to the Canadian Impact Assessment Registry, at its registry start date, will the assessment process terminate before any determination or decision is issued (proponent withdrawal / process termination), rather than run to a determination?",
+    "region": "North America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "ca-ogl-lgo (Open Government Licence - Canada 2.0) per the package record",
+      "name": "Canadian Impact Assessment Registry - Assessment Inventory (open.canada.ca package f4c51eaa-a6ca-48b9-a1fc-b0651da20509)",
+      "url": "https://open.canada.ca/data/en/dataset/f4c51eaa-a6ca-48b9-a1fc-b0651da20509"
+     },
+     {
+      "licence": "ca-ogl-lgo per the parent package record",
+      "name": "IAAC assessment_inventory_en MapServer (live ESRI REST service)",
+      "url": "https://maps-cartes.services.geo.ca/server_serveur/rest/services/IAAC/assessment_inventory_en/MapServer"
+     },
+     {
+      "licence": "Open web publication of the Impact Assessment Agency of Canada; registry content falls under the OGL-Canada family per the package record that serves this registry inventory",
+      "name": "Canadian Impact Assessment Registry per-project pages (dated lifecycle events)",
+      "url": "https://iaac-aeic.gc.ca/050/evaluations/proj/<project_id>?culture=en-CA"
+     }
+    ],
+    "split_strategy": "Temporal by registry start year. Volume era measured 2019+ (the IAA came into force 2019-08; pre-2019 rows in the layer are sparse backfill: 2006-2018 totals about 200 rows across 13 years). Measured starts/terminal counts per start year (state at 2026-10-30): 2019 215/16, 2020 836/48, 2021 968/51, 2022 907/47, 2023 956/48, 2024 917/32, 2025 944/29, 2026 650/7 (in-progress shares 5%, 8.5%, 9.4%, 12.2%, 15.7%, 17.6%, 22.0%, 55.1% - recent cohorts heavily right-censored). Candidate windows train 2019-2022 (2,926 starts / 162 terminal, 5.5%), eval 2023-2024 (1,873 / 80, 4.3%), holdout 2025-2026 (1,594 / 36, 2.3% BUT censored) - a holdout this recent needs an explicit censoring rule (e.g. fixed horizon from start date with unresolved rows excluded by rule, or push the holdout back once terminal-event lag is measured); pre-2019 rows usable only as documented partial backfill. Both classes present every year 2019-2026.",
+    "status": "investigating",
+    "target": "Binary: the assessment's terminal state is 'Terminated' (MapServer layer 2 membership; registry page 'Assessment status: Terminated' plus a dated termination line in 'Latest update', e.g. proj 81027 'January 18, 2022 - The assessment process has been terminated') vs 'Completed' with a dated determination (e.g. proj 84411 'August 29, 2023 - ... determined that the project is not likely to cause significant adverse environmental effects'). Label source columns: project_state_en, the page Latest-update text/date and Assessment status - all excluded from shipped features. Assessments still 'In progress' at fetch time are censored and must be handled by an explicit censoring rule, not dropped silently."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "CO",
     "domain": "hydrological risk operations - river-station alert-threshold exceedance prediction (Colombia, IDEAM automatic-station telemetry)",
     "id": "ideam-rio-nivel-exceedance",
@@ -1284,7 +1344,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 93.8,
+  "non_us_share": 94.1,
   "records": [
    {
     "awaiting_operator": false,
@@ -4338,10 +4398,11 @@
     },
     "measurements": {
      "access_probe_2026_10_21": "CKAN package_show x3: at that time only 98cad9a3 was successfully shown (2 HTML links); the recorded claim that 'both packages' were HTML-only is now corrected by the 2026-10-27 package_show of 9cbaef00 (ZIP + JSON + XML + HTML resources, created 2016-09-25, resources dated 2016-12-01/2018-04-13, metadata_modified 2025-12-19 - i.e. the bulk channel predates the park measurement and was missed by it, not newly added since).",
+     "reopen_path_closure_2026_10_30": "Full-archive pass over reports.txt (the entire 422,306,974-byte member) via bounded range fetches - 8 requests x 4 MiB covering the member's whole 32,884,931-byte compressed span plus a 128 KiB central-directory tail and a HEAD; output discarded, aggregate counters only, nothing retained. Measured 2026-10-30: 1,154,017 rows, all 42 fields, 0 bad rows; 0 duplicate-adjacent REPORT_ID rows and 0 non-increasing ID transitions (file strictly sorted by REPORT_ID), i.e. exactly ONE row per REPORT_ID across the whole archive - the extract carries NO per-version rows, so the recorded reopen condition ('multiple VERSION_NO rows per REPORT_ID -> follow-up/outcome-revision task') is measured FALSE. VERSION_NO is a per-report version/follow-up count: 0=810,975 (70.3%), 1=178,622 (15.5%), 2=63,226, 3=29,751, 4=17,157, 5=11,213, tail to 16+. Follow-up (VERSION>=1) rate by DATINTRECEIVED year: 0% pre-2000, 1-2% 2001-2006, 26-43% from 2008 (system change), 2024 35.8% (right-censored; 2022 43.8%, 2023 42.3%). Seriousness col25 mix: 01=781,425 / 02=372,592. Same session: extracts page (modified 2026-10-23, via extraction backend) confirms monthly update cadence, coverage 1965 to 2026-06-30, current ZIP ~344 MB at www.canada.ca/content/dam/hc-sc/migration/hc-sc/dhp-mps/alt_formats/zip/medeff/databasdon/extract_extrait.zip; the CKAN resource remains the 20241130 vintage. Probe scripts retained at probe/ (vig_probe1.py central-directory + grain preview, vig_probe2.py prefix sample, vig_probe3.py full-archive aggregate pass).",
      "reopen_probe_2026_10_27": "One package_show (9cbaef00), one 128 KiB ZIP tail range fetch (HTTP 206; 13 members parsed, sizes above), four lookup-API GETs (outcome/reporttype/gender 200; severity 404), one ZIP HEAD (313,578,432 bytes; Last-Modified 2025-05-28), plus the extracts/structure pages via the extraction backend. No bulk download; the coordinator never held more than 128 KiB of the ZIP.",
      "task_family_comparison": "Carried over and now decisive: the US counterpart (FDA FAERS via openFDA) ships event-level ADR data through a documented anonymous API, and the exact task shapes are published and mirrored - see rejection_reason."
     },
-    "next_action": "None - dropped (mirror). Reopen only with a formulation that does not exist on the FAERS/openFDA ecosystem and names its own novelty case as a NEW candidate: e.",
+    "next_action": "None - dropped (mirror), and the recorded reopen path is now CLOSED by measurement (2026-10-30): the full-archive pass above shows reports.txt carries one row p",
     "packaged_at": null,
     "path": "candidates/hc-canada-vigilance-adverse-reactions/record.json",
     "prediction_time": "Would be the report's initial receipt by the Canada Vigilance Program (DATINTRECEIVED), with seriousness/outcome as resolved in a pinned extract vintage - stateable on the reopen evidence below, but moot given the drop reason.",
@@ -4657,6 +4718,66 @@
     "split_strategy": "Time-based by report year, computed from the source (rows / distinct sighting numbers / distinct locations): train 1975-2010 = 1,108 / 987 / 329; eval 2011-2018 = 488 / 446 / 236; holdout 2019-2026 = 335 / 324 / 166. Yearly report counts 1975-2026 never fall to zero (recent range 12-114), so every window carries both classes. Positives cluster: 1,615 of 1,757 sighting numbers occupy one row, 111 occupy two, 30 occupy three and 1 occupies four, so the clustered unit is the sighting number, not the row.",
     "status": "parked",
     "target": "Binary: at least one red tide sighting report whose 'Date of Report' falls in (instant, instant+7] at a location within the monitored network. Label source columns 'Date of Report' and 'Location' in the AFCD red tide CSV, excluded from features by the window construction. Censoring is material: 'no report' conflates absence of a bloom with absence of observation. AFCD documents a monitoring programme (weekly sampling at 6 core fish culture zones, fortnightly at 5 more plus 5 offshore stations, quarterly at the remaining 15 fish culture zones) but publishes no per-day monitoring log, so the eligible negative population cannot be enumerated from the source."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "CA",
+    "domain": "environmental regulation - federal impact-assessment lifecycle outcome (Canadian Impact Assessment Registry)",
+    "id": "iaac-registry-assessment-termination",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "cost_unknown_page_extraction": "Per-page extraction cost at cohort scale (6,600 pages) NOT yet measured - named as the next bounded measurement before any ready verdict.",
+     "full_layer_fetch_2026_10_30": "All 6,600 attribute rows (project_id, project_cat_en, province_codes, start_date, project_state_en; no geometry): 9 requests, 1,010,024 bytes, 6.58 s wall clock on the coordinator container. Retained probe script probe/iaac_layer_probe.py.",
+     "mapserver_probe_2026_10_30": "Service info + per-layer counts + 8-record samples per layer (fields listed in sources). Total 6,600 projects: Completed 5,079, In progress 1,173, Terminated 348 (5.3%).",
+     "novelty_search_preliminary_2026_10_30": "Web search (queries: 'machine learning predicting environmental impact assessment outcome Canada decisions dataset', plus browsing of top results): no ML-ready benchmark or dataset found for predicting Canadian Impact Assessment Registry outcomes; results were CO2-emissions/LCA ML noise plus one Tandfonline review of AI-in-EIA literature (no registry-outcome task). A 2024 review of AI in EIA surfaced no outcome-prediction benchmark. Formal check-novelty.py with recorded verdict deferred until the bounded page-sample resolves extraction feasibility (investigating status).",
+     "registry_page_samples_2026_10_30": "4 pages via extraction backend: 81027 Terminated (dated termination line 2022-01-18; non-designated project on federal lands), 84411 Completed (dated determination 2023-08-29, outcome wording 'not likely to cause significant adverse environmental effects'; clean text 149.8 KB mostly 'nearby assessments' nav noise), 80175 Completed designated CEAA-2012 project (key-documents table: Notice of Commencement 2019-07-05, EA Decision Statement 2021-01-11; 8.6 KB), 87425 In progress (dated latest update 2024-04-17, key-documents table with dates; 12.2 KB). Dated terminal events verified for 3/3 terminal-or-completed samples; sample size too small to generalize - the share of pages with parseable dated terminal events across the full cohort is the named next measurement.",
+     "start_year_histogram": "By start year (Completed/InProg/Terminated): 2006 2/0/0, 2007 0/0/1, 2009 1/0/0, 2010 12/1/5, 2011 10/0/7, 2012 24/1/22, 2013 22/2/7, 2014 12/3/8, 2015 14/1/6, 2016 11/3/4, 2017 7/0/3, 2018 10/1/7, 2019 188/11/16, 2020 717/71/48, 2021 826/91/51, 2022 749/111/47, 2023 758/150/48, 2024 724/161/32, 2025 707/208/29, 2026 285/358/7. Category mix (top): Construction 2,593, Transport Industry 1,879, Water Management 440, Tourism 331, Waste Management 286, Environmental Management 281, Petroleum Industry 279, Energy 149, Mining Industry 144. Province mix (top): ON 1,322, BC 1,232, AB 1,038, QC 886, SK 566, NS 373, MB 355, NL 306."
+    },
+    "next_action": "Bounded stratified sample of ~60-100 registry pages (states x start-years 2019-2026) on the coordinator or a worker: measure (a) share of pages exposing a dated",
+    "packaged_at": null,
+    "path": "candidates/iaac-registry-assessment-termination/record.json",
+    "prediction_time": "The assessment's registry start date (published per project on the registry page and in the MapServer layer as start_date). Features available at that instant: the inventory attributes published with the posting (project category, province, responsible authority(ies), location type, coordinates, description text, start date). The terminal state and its dated event (Latest update line: termination date, or Notice-of-Determination date + outcome wording) and the layer's current project_state_en/updated_at are post-hoc label sources and never ship as features. The registry is a live current archive: no historical vintages of pages are published, so the task is retrospective-within-current-archive, anchored on the dated events the current pages preserve; it cannot claim historical operational availability.",
+    "publisher": "Impact Assessment Agency of Canada / Agence d'evaluation d'impact du Canada (registry + MapServer served under open.canada.ca package f4c51eaa)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a project assessment posted to the Canadian Impact Assessment Registry, at its registry start date, will the assessment process terminate before any determination or decision is issued (proponent withdrawal / process termination), rather than run to a determination?",
+    "region": "North America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "ca-ogl-lgo (Open Government Licence - Canada 2.0) per the package record",
+      "name": "Canadian Impact Assessment Registry - Assessment Inventory (open.canada.ca package f4c51eaa-a6ca-48b9-a1fc-b0651da20509)",
+      "url": "https://open.canada.ca/data/en/dataset/f4c51eaa-a6ca-48b9-a1fc-b0651da20509"
+     },
+     {
+      "licence": "ca-ogl-lgo per the parent package record",
+      "name": "IAAC assessment_inventory_en MapServer (live ESRI REST service)",
+      "url": "https://maps-cartes.services.geo.ca/server_serveur/rest/services/IAAC/assessment_inventory_en/MapServer"
+     },
+     {
+      "licence": "Open web publication of the Impact Assessment Agency of Canada; registry content falls under the OGL-Canada family per the package record that serves this registry inventory",
+      "name": "Canadian Impact Assessment Registry per-project pages (dated lifecycle events)",
+      "url": "https://iaac-aeic.gc.ca/050/evaluations/proj/<project_id>?culture=en-CA"
+     }
+    ],
+    "split_strategy": "Temporal by registry start year. Volume era measured 2019+ (the IAA came into force 2019-08; pre-2019 rows in the layer are sparse backfill: 2006-2018 totals about 200 rows across 13 years). Measured starts/terminal counts per start year (state at 2026-10-30): 2019 215/16, 2020 836/48, 2021 968/51, 2022 907/47, 2023 956/48, 2024 917/32, 2025 944/29, 2026 650/7 (in-progress shares 5%, 8.5%, 9.4%, 12.2%, 15.7%, 17.6%, 22.0%, 55.1% - recent cohorts heavily right-censored). Candidate windows train 2019-2022 (2,926 starts / 162 terminal, 5.5%), eval 2023-2024 (1,873 / 80, 4.3%), holdout 2025-2026 (1,594 / 36, 2.3% BUT censored) - a holdout this recent needs an explicit censoring rule (e.g. fixed horizon from start date with unresolved rows excluded by rule, or push the holdout back once terminal-event lag is measured); pre-2019 rows usable only as documented partial backfill. Both classes present every year 2019-2026.",
+    "status": "investigating",
+    "target": "Binary: the assessment's terminal state is 'Terminated' (MapServer layer 2 membership; registry page 'Assessment status: Terminated' plus a dated termination line in 'Latest update', e.g. proj 81027 'January 18, 2022 - The assessment process has been terminated') vs 'Completed' with a dated determination (e.g. proj 84411 'August 29, 2023 - ... determined that the project is not likely to cause significant adverse environmental effects'). Label source columns: project_state_en, the page Latest-update text/date and Assessment status - all excluded from shipped features. Assessments still 'In progress' at fetch time are censored and must be handled by an explicit censoring rule, not dropped silently."
    },
    {
     "awaiting_operator": false,
@@ -6992,7 +7113,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 17.5,
+    "age_hours": 18.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8142,6 +8263,7 @@
      "status": null
     },
     "measurements": {
+     "canada_tick_recheck_2026_10_30": "Both named unpark checks re-run on this Canada tick (partially duplicating the 2026-10-22 and 2026-10-27 runs recorded in notes.md, which the record's next_action had not been updated to reflect): (1) WDS getChangedCubeList ANSWERS at https://www150.statcan.gc.ca/t1/wds/rest/getChangedCubeList/<ISO date> - CORRECTING the 2026-10-27 note that recorded the method as missing/404: measured 2026-10-29 -> 99 changed products (productId+releaseTime), 2026-10-28 -> 36, 2026-10-30 -> empty (not yet posted). The feed's grain is the aggregate table/cube (productId), so this channel cannot surface a case/event-grain release; the correction changes the endpoint record, not the verdict. (2) open.canada.ca StatCan feed: 10,268 packages in org 'statcan' (CKAN q=organization:statcan); the 500 most recently modified packages (2026-09-23 to 2026-10-22) scanned - every 'case'/'incident'/'claim'/'licence' title hit is an aggregate cross-tab (youth/adult criminal court case-count tables, police-reported cybercrime/hate-crime counts, EI claims by province, cyber-security-incident survey aggregates, vehicles entering Canada by licence-plate type). No case/event-grain release. Conclusion: unpark condition still not met; the source-class park stands.",
      "probes_2026_10_21": "WDS docs page: HTTP 200, 22,322 bytes, 15 documented REST methods + SDMX, no API key, anonymous. Catalogue page: HTTP 200, 135,545 bytes, 13,356 data tables plus a distinct 'Public use microdata (158)' class (Labour Force Survey PUMF among them). Microdata index page: HTTP 500 (measured failure, recorded). No table was downloaded; no cost was incurred beyond three page fetches.",
      "source_class_analysis": "Every open StatCan product found by these probes falls into one of two classes: (a) aggregate time series (13,356-table catalogue; daily/monthly/annual series by province/industry/etc.) whose natural task is a direction-forecast on the series' own history - the family already served by M4/Monash-style macro benchmarks, thinned further by the fact that the publisher's own seasonal adjustment and commentary ship with the table; or (b) cross-sectional survey PUMF snapshots (e.g. National Travel Survey 24-25-0001) whose natural task is a same-survey outcome prediction - the census-income/adult-data family, the most mirrored task class in public ML. Same-shape verdict as the ONS park of 2026-10-21 (ons-la-claimant-count-direction): an aggregate-statistics publisher with registration-gated microdata."
     },
@@ -8553,7 +8675,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 60.1,
+    "age_hours": 61.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -9637,7 +9759,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 17.5,
+     "age_hours": 18.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -9925,7 +10047,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 17.5,
+     "age_hours": 18.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -10211,7 +10333,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 60.1,
+     "age_hours": 61.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -10423,7 +10545,7 @@
    ],
    "pending": [
     {
-     "age_hours": 60.1,
+     "age_hours": 61.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -10641,7 +10763,7 @@
    "AT": 2,
    "AU": 7,
    "BR": 2,
-   "CA": 13,
+   "CA": 14,
    "CH": 4,
    "CL": 2,
    "CO": 1,
@@ -10676,22 +10798,22 @@
    "Europe": 26,
    "International organisations": 11,
    "Latin America": 8,
-   "North America": 23,
+   "North America": 24,
    "Oceania": 8,
    "South & South-East Asia": 13
   },
   "by_status": {
    "dropped": 42,
-   "investigating": 16,
+   "investigating": 17,
    "packaged": 2,
    "parked": 28,
    "published": 11,
    "ready": 9
   },
-  "candidates": 108,
-  "live": 38,
-  "live_non_us": 32,
-  "live_non_us_share": 0.842,
+  "candidates": 109,
+  "live": 39,
+  "live_non_us": 33,
+  "live_non_us_share": 0.846,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -10713,10 +10835,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-30T07:50:01.658237+00:00",
+    "last_run_at": "2026-10-30T08:50:01.999943+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-30T08:00:00+00:00",
+    "next_run_at": "2026-10-30T09:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -10737,10 +10859,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-30T07:50:01.201769+00:00",
+    "last_run_at": "2026-10-30T08:50:00.847347+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-30T07:55:00+00:00",
+    "next_run_at": "2026-10-30T08:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10761,10 +10883,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-30T07:45:23.562906+00:00",
+    "last_run_at": "2026-10-30T08:45:39.885740+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-30T07:50:23.562906+00:00",
+    "next_run_at": "2026-10-30T08:50:39.885740+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -10773,10 +10895,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-30T07:50:00.966263+00:00",
+    "last_run_at": "2026-10-30T08:50:00.916272+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-30T07:55:00+00:00",
+    "next_run_at": "2026-10-30T08:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10797,10 +10919,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-30T06:50:44.575179+00:00",
+    "last_run_at": "2026-10-30T07:50:42.787870+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-30T08:50:00+00:00",
+    "next_run_at": "2026-10-30T09:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -10809,10 +10931,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-30T06:55:00.653388+00:00",
+    "last_run_at": "2026-10-30T07:55:00.878211+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-30T07:55:00+00:00",
+    "next_run_at": "2026-10-30T08:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -10853,29 +10975,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-30T07:50:01.659338+00:00"
+  "updated_at": "2026-10-30T08:50:02.001009+00:00"
  },
- "generated_at": "2026-10-30T07:50:01+00:00",
+ "generated_at": "2026-10-30T08:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 108
+   "passing": 109
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-30T07:18:02Z",
-   "head_sha": "c10ff8e",
+   "created_at": "2026-10-30T08:31:33Z",
+   "head_sha": "c14fa68",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41019238591"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41027025915"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 32/38 (84%)"
+   "summary": "live non-US: 33/39 (85%)"
   },
   "head": {
-   "at": "2026-10-30T07:17:59Z",
-   "sha": "c10ff8e",
-   "subject": "ipo-tm-002 watcher re-fire close-out: outcome already recorded at ed6151a (CI green, run 41018471189); report digests re"
+   "at": "2026-10-30T08:31:25Z",
+   "sha": "c14fa68",
+   "subject": "discovery (Canada tick): vigilance reopen path closed by measurement; statcan park re-checked; iaac-registry-assessment-"
   },
   "tests": {
    "count": "678",
@@ -12866,13 +12988,21 @@
    "qualified": 0,
    "sessions_7d": 71,
    "tokens_7d": 28151422
+  },
+  {
+   "at": "2026-10-30T08:50:01+00:00",
+   "live": 17,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 64,
+   "tokens_7d": 27982600
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-30T07:50:01+00:00",
+   "as_of": "2026-10-30T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -12882,17 +13012,17 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-30T07:50:01+00:00",
+   "as_of": "2026-10-30T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 16
+   "value": 17
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-30T07:50:01+00:00",
+   "as_of": "2026-10-30T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -15196,7 +15326,7 @@
   "jobs_total": 138,
   "lifetime_eur": 3.49,
   "live": {
-   "checked_at": "2026-10-30T07:50:33+00:00",
+   "checked_at": "2026-10-30T08:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -15225,19 +15355,6 @@
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 1094.8,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "exit 1",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "f367b43b3e8b29bb736fe8fb71b55beaa0bd75fcf37b0f9fd505797c3e60413b",
-    "ts": "2026-10-30T00:18:16.411522+00:00"
-   },
    {
     "elapsed_seconds": 5700.1,
     "event": "session",
@@ -15306,6 +15423,19 @@
     "run_budget": 900,
     "submitted_brief_sha256": "bc2e79670c233b0ba3f6968c98eb6f471fbe0c177d15c2462e71748da33a688e",
     "ts": "2026-10-30T07:20:16.811696+00:00"
+   },
+   {
+    "elapsed_seconds": 2034.1,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "bd8a0fed1e0c9799728d2cf2944152948f673820ca0264993acabdf78328ba23",
+    "ts": "2026-10-30T08:33:55.698860+00:00"
    }
   ],
   "total": 10
