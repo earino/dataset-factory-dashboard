@@ -1,6 +1,7 @@
 {
  "alarms": [
-  "unhcr-refugee-data-finder has been packaged and actionable for 52.1h - shipping it outranks construction"
+  "unhcr-refugee-data-finder has been packaged and actionable for 53.1h - shipping it outranks construction",
+  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
  ],
  "budget": {
   "config": {
@@ -17,17 +18,15 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-10-29T23:50:02.914283+00:00",
+   "allowed": true,
+   "moment": "2026-10-30T00:50:02.459511+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 809s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 27854471,
-   "runs_last_7_days": 124,
-   "runs_weighted_last_7_days": 133,
+   "research_tokens_last_7_days": 27379964,
+   "runs_last_7_days": 82,
+   "runs_weighted_last_7_days": 91,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 9,
    "usage": {
@@ -53,14 +52,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 8026,
+     "calls": 8153,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 32057227,
-     "output_tokens": 7417893,
+     "input_tokens": 32209357,
+     "output_tokens": 7491590,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -6961,7 +6960,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 9.5,
+    "age_hours": 10.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8458,7 +8457,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 52.1,
+    "age_hours": 53.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -9542,7 +9541,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 9.5,
+     "age_hours": 10.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -9830,7 +9829,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 9.5,
+     "age_hours": 10.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -10116,7 +10115,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 52.1,
+     "age_hours": 53.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -10328,7 +10327,7 @@
    ],
    "pending": [
     {
-     "age_hours": 52.1,
+     "age_hours": 53.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -10618,10 +10617,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-29T23:50:02.459015+00:00",
+    "last_run_at": "2026-10-30T00:50:02.137037+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-30T00:00:00+00:00",
+    "next_run_at": "2026-10-30T01:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -10642,10 +10641,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-29T23:50:02.738510+00:00",
+    "last_run_at": "2026-10-30T00:50:01.261052+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-29T23:55:00+00:00",
+    "next_run_at": "2026-10-30T00:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10666,10 +10665,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-29T23:31:32.363344+00:00",
+    "last_run_at": "2026-10-30T00:46:40.895411+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-29T23:41:33.773811+00:00",
+    "next_run_at": "2026-10-30T00:51:40.895411+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -10678,10 +10677,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-29T23:50:01.816172+00:00",
+    "last_run_at": "2026-10-30T00:50:01.433491+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-29T23:55:00+00:00",
+    "next_run_at": "2026-10-30T00:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10702,10 +10701,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-29T22:50:42.988388+00:00",
+    "last_run_at": "2026-10-29T23:50:42.944515+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-30T00:50:00+00:00",
+    "next_run_at": "2026-10-30T01:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -10714,10 +10713,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-29T22:55:01.203987+00:00",
+    "last_run_at": "2026-10-29T23:55:00.687276+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-29T23:55:00+00:00",
+    "next_run_at": "2026-10-30T00:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -10758,9 +10757,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-29T23:50:02.739636+00:00"
+  "updated_at": "2026-10-30T00:50:02.138098+00:00"
  },
- "generated_at": "2026-10-29T23:50:01+00:00",
+ "generated_at": "2026-10-30T00:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -10768,19 +10767,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-29T23:37:19Z",
-   "head_sha": "dcbd324",
+   "created_at": "2026-10-29T23:59:04Z",
+   "head_sha": "1e3a9ac",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40974382176"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40976724203"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 31/37 (84%)"
   },
   "head": {
-   "at": "2026-10-29T23:37:16Z",
-   "sha": "dcbd324",
-   "subject": "ns-bwa-advisory-lift-duration staged private on both destinations (ns-bwa-publish-001 + ns-bwa-hf-002 green: 5/5 assets "
+   "at": "2026-10-29T23:54:23Z",
+   "sha": "1e3a9ac",
+   "subject": "ns-bwa worker-event close-out: publish-001 + hf-002 verified green from records, hf-001 loading failure classified (veri"
   },
   "tests": {
    "count": "674",
@@ -12707,15 +12706,21 @@
    "qualified": 0,
    "sessions_7d": 124,
    "tokens_7d": 27854471
+  },
+  {
+   "at": "2026-10-30T00:50:01+00:00",
+   "live": 16,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 82,
+   "tokens_7d": 27379964
   }
  ],
- "notices": [
-  "A research session is running: lock held for 809s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T23:50:01+00:00",
+   "as_of": "2026-10-30T00:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -12725,7 +12730,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T23:50:01+00:00",
+   "as_of": "2026-10-30T00:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -12735,7 +12740,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-29T23:50:01+00:00",
+   "as_of": "2026-10-30T00:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -15015,7 +15020,7 @@
   "jobs_total": 136,
   "lifetime_eur": 3.38,
   "live": {
-   "checked_at": "2026-10-29T23:50:33+00:00",
+   "checked_at": "2026-10-30T00:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -15038,11 +15043,11 @@
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 1.0
+  "projected_month_eur": 0.97
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 1,
+  "failed_last_three": 2,
   "recent": [
    {
     "elapsed_seconds": 2117.0,
@@ -15083,8 +15088,35 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "c9cd9eece343917cd729791325d7d82261e0806bfb0bf2b50e3ac50a2fe38eec",
     "ts": "2026-10-29T23:35:02.638233+00:00"
+   },
+   {
+    "elapsed_seconds": 1190.9,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "b510dad9c53c042e3c2e7f5a7c87250c381c9e39b8d92b32176b20a48f28e38c",
+    "ts": "2026-10-29T23:56:25.357706+00:00"
+   },
+   {
+    "elapsed_seconds": 1094.8,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "exit 1",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "f367b43b3e8b29bb736fe8fb71b55beaa0bd75fcf37b0f9fd505797c3e60413b",
+    "ts": "2026-10-30T00:18:16.411522+00:00"
    }
   ],
-  "total": 3
+  "total": 5
  }
 }
