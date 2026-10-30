@@ -1,7 +1,6 @@
 {
  "alarms": [
-  "scout-research-session missed its window (2026-10-30T02:05:00+00:00); last status ok",
-  "unhcr-refugee-data-finder has been packaged and actionable for 55.1h - shipping it outranks construction",
+  "unhcr-refugee-data-finder has been packaged and actionable for 56.1h - shipping it outranks construction",
   "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
  ],
  "budget": {
@@ -20,18 +19,18 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-10-30T02:50:03.040422+00:00",
+   "moment": "2026-10-30T03:50:02.551854+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 3001s by scout-research"
+    "lock held for 749s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 27083767,
-   "runs_last_7_days": 71,
-   "runs_weighted_last_7_days": 80,
+   "research_tokens_last_7_days": 27817534,
+   "runs_last_7_days": 72,
+   "runs_weighted_last_7_days": 82,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 9,
+   "sessions_over_token_cap": 10,
    "usage": {
     "auxiliary": {
      "calls": 693,
@@ -55,14 +54,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 8198,
+     "calls": 8253,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 32506756,
-     "output_tokens": 7510640,
+     "input_tokens": 33346987,
+     "output_tokens": 7581718,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -5123,7 +5122,13 @@
     "country": "GB",
     "domain": "intellectual-property / administrative-outcome prediction",
     "id": "ipo-trademark-registration-outcome",
-    "jobs": [],
+    "jobs": [
+     {
+      "at": null,
+      "id": "ipo-tm-001",
+      "status": "running"
+     }
+    ],
     "licence_summary": {
      "compilation_spdx": null,
      "source_spdx": null,
@@ -5134,6 +5139,28 @@
       "coverage_note_stale": "The explained-document's coverage section says filings earlier than 31 August 2016; the measured max filing date in the Feb-2018 file is January 2018 (2017 cohort n=75,024; 2018 January n=6,221) - the published cutoff is stale, the file is richer. Eligibility still ends at 2016-12-31 filings because 2017+ cohorts are too censored to score (16,386/75,024).",
       "feature_vintage_caveat": "Owner Name/Postcode/Region/Country and the class columns are snapshot-vintage (assignment can change ownership post-filing; classes can be narrowed). Declared limitation; robustness variant = drop owner fields, recorded as a construction decision.",
       "vintage": "Single frozen snapshot, Last-Modified 2018-02-13, sha256-pinned. The publisher's own documentation warns: 'Online registers are dynamic and alter as the trade marks' status changes. As this data is a snapshot, it may not be directly comparable with official publications' - the record applies the stricter reading and claims only snapshot-vintage features."
+     },
+     "dedup_key_reconciliation_2026_10_30": {
+      "blank_or_bad_filed_data_rows": 52,
+      "consequence": "construction dedups on the stripped mark-number string (first occurrence); all in-build assertions target the string-key numbers, which equal the recorded cohort table",
+      "data_rows": 1189004,
+      "distinct_marks_integer_key": 1149248,
+      "distinct_marks_string_key": 1172043,
+      "dup_rows_integer_key": 16892,
+      "dup_rows_string_key": 16909,
+      "field_count_distribution_data_rows": {
+       "62": 1188910,
+       "63": 76,
+       "64": 15,
+       "65": 3
+      },
+      "finding": "raw-string dedup key (stripped mark number) reproduces the discovery cohort table exactly: per-year n/pos/neg/cens 2010-2016 identical to full_file_aggregate_2026_10_27; the discovery probe deduped by parsed integer, which silently skipped the 22,812 letter-suffixed series sub-marks (e.g. UK0000000052A/B) out of dedup/distinct counting",
+      "letter_suffix_dup_rows": 17,
+      "letter_suffix_rows": 22812,
+      "neg_with_regdate_eligible_2010_2016": 8,
+      "neg_with_regdate_post2010_population": 10,
+      "probe": "coordinator source-metadata pass over the pinned snapshot (full-file counts only; no panel, no labels, no model)",
+      "wall_s": 5.0
      },
      "extraction_cost": {
       "bytes": 63238846,
@@ -5219,7 +5246,7 @@
       "url": "https://assets.publishing.service.gov.uk/media/5a82e5f4e5274a2e87dc387d/opendatadomestic.zip"
      }
     },
-    "next_action": "Advancement owns construction: build on a worker per construction_handoff (pin sha256 3b6063be..., freeze the eligibility and censoring rules exactly as recorde",
+    "next_action": "Construction IN FLIGHT: worker job ipo-tm-001 (server 173462544, launched 2026-10-30T03:17Z) runs the frozen handoff on the worker - construct from the sha256-p",
     "packaged_at": null,
     "path": "candidates/ipo-trademark-registration-outcome/record.json",
     "prediction_time": "The application's filing date (Europe/London). This is a clearly-labelled RETROSPECTIVE, single-snapshot task: every feature is a filing-time field AS RECORDED IN the one frozen 2018-02-13 snapshot (sha256 3b6063bed36a78e8a04f10a5383f2881f4072a1be13e706a81ab097fb56ee571). No claim of historical operational availability is made. Recorded vintage limitation: owner name/postcode/region/country are snapshot-vintage (assignment can move ownership after filing, and classes can be narrowed post-filing); the as-of policy is uniform for every row because there is exactly one vintage.",
@@ -6963,7 +6990,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 12.5,
+    "age_hours": 13.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8460,7 +8487,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 55.1,
+    "age_hours": 56.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -9544,7 +9571,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 12.5,
+     "age_hours": 13.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -9832,7 +9859,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 12.5,
+     "age_hours": 13.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -10118,7 +10145,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 55.1,
+     "age_hours": 56.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -10330,7 +10357,7 @@
    ],
    "pending": [
     {
-     "age_hours": 55.1,
+     "age_hours": 56.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -10620,10 +10647,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-30T02:50:02.464767+00:00",
+    "last_run_at": "2026-10-30T03:50:02.488467+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-30T03:00:00+00:00",
+    "next_run_at": "2026-10-30T04:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -10644,10 +10671,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-30T01:55:01.511546+00:00",
+    "last_run_at": "2026-10-30T03:50:01.279593+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-30T02:05:00+00:00",
+    "next_run_at": "2026-10-30T03:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10668,10 +10695,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-30T02:47:15.044948+00:00",
+    "last_run_at": "2026-10-30T03:32:29.096660+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-30T02:52:15.044948+00:00",
+    "next_run_at": "2026-10-30T03:42:30.492612+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -10680,10 +10707,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-30T02:50:01.517821+00:00",
+    "last_run_at": "2026-10-30T03:50:00.834191+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-30T02:55:00+00:00",
+    "next_run_at": "2026-10-30T03:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10704,10 +10731,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-30T01:50:43.381954+00:00",
+    "last_run_at": "2026-10-30T02:50:43.039535+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-30T03:50:00+00:00",
+    "next_run_at": "2026-10-30T04:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -10716,10 +10743,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-30T01:55:00.754109+00:00",
+    "last_run_at": "2026-10-30T02:55:00.678918+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-30T02:55:00+00:00",
+    "next_run_at": "2026-10-30T03:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -10760,9 +10787,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-30T02:50:02.465861+00:00"
+  "updated_at": "2026-10-30T03:50:02.489701+00:00"
  },
- "generated_at": "2026-10-30T02:50:01+00:00",
+ "generated_at": "2026-10-30T03:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -10770,19 +10797,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-29T23:59:04Z",
-   "head_sha": "1e3a9ac",
+   "created_at": "2026-10-30T03:36:00Z",
+   "head_sha": "89da315",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/40976724203"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/40998283193"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 31/37 (84%)"
   },
   "head": {
-   "at": "2026-10-29T23:54:23Z",
-   "sha": "1e3a9ac",
-   "subject": "ns-bwa worker-event close-out: publish-001 + hf-002 verified green from records, hf-001 loading failure classified (veri"
+   "at": "2026-10-30T03:35:57Z",
+   "sha": "89da315",
+   "subject": "ipo-trademark-registration-outcome construction launched (ipo-tm-001): builder/score/run bundle from the frozen handoff,"
   },
   "tests": {
    "count": "674",
@@ -12733,15 +12760,23 @@
    "qualified": 0,
    "sessions_7d": 71,
    "tokens_7d": 27083767
+  },
+  {
+   "at": "2026-10-30T03:50:01+00:00",
+   "live": 16,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 72,
+   "tokens_7d": 27817534
   }
  ],
  "notices": [
-  "A research session is running: lock held for 3001s by scout-research"
+  "A research session is running: lock held for 749s by scout-research"
  ],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-30T02:50:01+00:00",
+   "as_of": "2026-10-30T03:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -12751,7 +12786,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-30T02:50:01+00:00",
+   "as_of": "2026-10-30T03:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -12761,7 +12796,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-30T02:50:01+00:00",
+   "as_of": "2026-10-30T03:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -14209,6 +14244,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-10-30T03:17:20.858427+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "ipo-tm-001",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "collected"
+   },
+   {
     "created_at": "2026-10-12T09:34:49.133713+00:00",
     "deleted_at": "2026-10-12T10:05:37.321738+00:00",
     "eur": 0.0355,
@@ -15038,15 +15085,15 @@
    }
   ],
   "jobs_this_month": 95,
-  "jobs_total": 136,
+  "jobs_total": 137,
   "lifetime_eur": 3.38,
   "live": {
-   "checked_at": "2026-10-30T02:50:33+00:00",
+   "checked_at": "2026-10-30T03:50:33+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
   "month_hours": 27.7,
   "month_to_date": 0.94,
@@ -15136,8 +15183,22 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "f367b43b3e8b29bb736fe8fb71b55beaa0bd75fcf37b0f9fd505797c3e60413b",
     "ts": "2026-10-30T00:18:16.411522+00:00"
+   },
+   {
+    "elapsed_seconds": 5700.1,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "killed by the wrapper after the run budget elapsed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "8524a020a04fbfca8ca44c04f5eec59293a14ae11d885f122dc32febf675cdd4",
+    "ts": "2026-10-30T03:35:02.201461+00:00"
    }
   ],
-  "total": 5
+  "total": 6
  }
 }
