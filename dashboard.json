@@ -1,6 +1,7 @@
 {
  "alarms": [
-  "unhcr-refugee-data-finder has been packaged and actionable for 62.1h - shipping it outranks construction"
+  "scout-research-session missed its window (2026-10-30T10:05:00+00:00); last status ok",
+  "unhcr-refugee-data-finder has been packaged and actionable for 63.1h - shipping it outranks construction"
  ],
  "budget": {
   "config": {
@@ -17,17 +18,19 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-10-30T09:50:02.878895+00:00",
+   "allowed": false,
+   "moment": "2026-10-30T10:50:02.433521+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 3001s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 26798407,
+   "research_tokens_last_7_days": 27957893,
    "runs_last_7_days": 63,
-   "runs_weighted_last_7_days": 73,
+   "runs_weighted_last_7_days": 74,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 10,
+   "sessions_over_token_cap": 11,
    "usage": {
     "auxiliary": {
      "calls": 693,
@@ -51,14 +54,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 8514,
+     "calls": 8615,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 34531752,
-     "output_tokens": 7795625,
+     "input_tokens": 35589765,
+     "output_tokens": 7897627,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -5339,6 +5342,14 @@
       "239 rows have a Registered date with a status outside the registered-then-lapsed set - counted bucket, rule asserted in-build.",
       "Statuses Deleted (196 marks 2010-2016), Deemed Not Filed (2), Appealed/Appealable (306 in 2017, few earlier) are NOT in the publisher's documented 16-value status table - all fall in the censored bucket by the label rule; construction asserts the per-cohort counts."
      ],
+     "pipe_row_reconciliation_2026_10_30": {
+      "correctness_evidence": "All 94 recovered rows: Status in the publisher's documented vocabulary 94/94 (shifted status reads: 0/94 - they read Country/Mark-Type values); recovered Filed dates parse 94/94; class columns binary 94/94. Corrected cohorts 2013 (46,362) and 2016 (61,681) now equal the IPO workbook's published National applications EXACTLY (old table was low by exactly the mis-read pipe rows).",
+      "evidence": "candidates/ipo-trademark-registration-outcome/ipo_tm_reconciliation.json",
+      "probe": "candidates/ipo-trademark-registration-outcome/probe_reconcile_pipe_rows.py",
+      "scope": "Aggregate counts only; no feature panel, no aligned labels, no model, no AUC.",
+      "verdict": "RECONCILIATION CLOSED; the build's right-anchored recovery is the correct reading; the frozen EXPECTED table was a probe-measurement error",
+      "what_was_measured": "Over the same sha256-pinned snapshot (3b6063be...): pass A reproduces the frozen ipo_tm_aggregates.json exactly (all numeric keys), proving the old table's provenance; pass C (build.py's exact pipeline, cross-checked against an imported build.iter_records) matches every number the ipo-tm-002 worker measured: data rows 1,189,004, distinct 1,172,095, dup 16,909, letter-suffixed 22,812/17, blank/bad-filed 34, neg_with_regdate 8 eligible / 10 post2010, per-year cohorts. Per-row attribution closes every delta exactly: +58 scored rows = the 58 recovered pipe rows filed 2013-2016 (2013 +5 pos +2 neg; 2014 +5 pos +4 neg; 2015 +9 pos; 2016 +31 pos +2 neg); -18 blank/bad-filed = pipe rows whose shifted read ('No'x11/'Yes'x4/'Word'x2/'Figurative'x1) failed the 4-digit check; the remaining pipe rows were excluded via bogus year keys ('0'x67, '2'x6, '3'x2, '5'x1) or int-key dups (x2); 17 non-pipe diffs are letter-suffixed repeated-owner rows filed 1928-2003 (out of window, zero cohort effect). The handoff's '3 unparseable (3/5) filed rows' was the same shifted-read artifact (UK00003033672/UK00003112662/UK00003154878, all recovered with parseable dates); the correct-column unparseable count is 0."
+     },
      "publisher_crosscheck": {
       "measured_distinct_marks": {
        "2012": 40275,
@@ -5369,7 +5380,7 @@
       "url": "https://assets.publishing.service.gov.uk/media/5a82e5f4e5274a2e87dc387d/opendatadomestic.zip"
      }
     },
-    "next_action": "CONSTRUCTION FAILED AGAIN, NEW DEFECT (ipo-tm-002, 2026-10-30; parent ipo-tm-001): assert_expectations refused the artifact - the build scores 58 more rows than",
+    "next_action": "RECONCILIATION COMPLETE 2026-10-30 (probe_reconcile_pipe_rows.py, RECONCILIATION CLOSED): the build's right-anchored pipe-row recovery is measured correct and t",
     "packaged_at": null,
     "path": "candidates/ipo-trademark-registration-outcome/record.json",
     "prediction_time": "The application's filing date (Europe/London). This is a clearly-labelled RETROSPECTIVE, single-snapshot task: every feature is a filing-time field AS RECORDED IN the one frozen 2018-02-13 snapshot (sha256 3b6063bed36a78e8a04f10a5383f2881f4072a1be13e706a81ab097fb56ee571). No claim of historical operational availability is made. Recorded vintage limitation: owner name/postcode/region/country are snapshot-vintage (assignment can move ownership after filing, and classes can be narrowed post-filing); the as-of policy is uniform for every row because there is exactly one vintage.",
@@ -5405,7 +5416,7 @@
       "url": "https://assets.publishing.service.gov.uk/media/5a82e5f4e5274a2e87dc387d/opendatadomestic.zip"
      }
     ],
-    "split_strategy": "Cohort split on filing year (disjoint calendar-year windows, both classes in every window; scored rows exclude censored marks): train 2010-2012, eval 2013-2014, holdout 2015-2016. Computed from the full source by probe_aggregate.py (candidates/ipo-trademark-registration-outcome/probe_aggregate.py), run 2026-10-27 on the coordinator.",
+    "split_strategy": "Cohort split on filing year (disjoint calendar-year windows, both classes in every window; scored rows exclude censored marks): train 2010-2012, eval 2013-2014, holdout 2015-2016. Counts CORRECTED 2026-10-30 by probe_reconcile_pipe_rows.py (see measurements.pipe_row_reconciliation_2026_10_30): train 106,990 scored rows / 92,668 pos / 14,322 neg / 21 censored; eval 97,274 / 81,699 pos / 15,575 neg / 172 censored; holdout 115,172 / 99,385 pos / 15,787 neg / 809 censored. The original 2026-10-27 table (eval 97,258 / 81,689; holdout 115,130 / 99,345) was a probe-measurement error: probe_aggregate.py read the 94 embedded-pipe rows at shifted positions and under-counted cohorts 2013-2016 by exactly the 58 recovered in-window pipe rows.",
     "status": "ready",
     "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
    },
@@ -7113,7 +7124,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 19.5,
+    "age_hours": 20.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8675,7 +8686,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 62.1,
+    "age_hours": 63.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -9759,7 +9770,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 19.5,
+     "age_hours": 20.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -10047,7 +10058,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 19.5,
+     "age_hours": 20.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -10333,7 +10344,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 62.1,
+     "age_hours": 63.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -10545,7 +10556,7 @@
    ],
    "pending": [
     {
-     "age_hours": 62.1,
+     "age_hours": 63.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -10835,10 +10846,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-30T09:50:02.432720+00:00",
+    "last_run_at": "2026-10-30T10:50:02.201274+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-30T10:00:00+00:00",
+    "next_run_at": "2026-10-30T11:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -10859,10 +10870,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-30T09:50:01.399892+00:00",
+    "last_run_at": "2026-10-30T09:55:01.322271+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-30T09:55:00+00:00",
+    "next_run_at": "2026-10-30T10:05:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10883,10 +10894,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-30T09:46:00.303102+00:00",
+    "last_run_at": "2026-10-30T10:46:18.759494+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-30T09:51:00.303102+00:00",
+    "next_run_at": "2026-10-30T10:51:18.759494+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -10895,10 +10906,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-30T09:50:00.964192+00:00",
+    "last_run_at": "2026-10-30T10:50:01.489793+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-30T09:55:00+00:00",
+    "next_run_at": "2026-10-30T10:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -10919,10 +10930,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-30T08:51:32.731229+00:00",
+    "last_run_at": "2026-10-30T09:50:44.960070+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-30T10:50:00+00:00",
+    "next_run_at": "2026-10-30T11:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -10931,10 +10942,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-30T08:55:00.824248+00:00",
+    "last_run_at": "2026-10-30T09:55:00.846239+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-30T09:55:00+00:00",
+    "next_run_at": "2026-10-30T10:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -10975,9 +10986,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-30T09:50:02.433786+00:00"
+  "updated_at": "2026-10-30T10:50:02.202461+00:00"
  },
- "generated_at": "2026-10-30T09:50:01+00:00",
+ "generated_at": "2026-10-30T10:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -10985,22 +10996,22 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-30T08:31:33Z",
-   "head_sha": "c14fa68",
+   "created_at": "2026-10-30T10:31:07Z",
+   "head_sha": "4aa684f",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41027025915"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41041332194"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 33/39 (85%)"
   },
   "head": {
-   "at": "2026-10-30T08:31:25Z",
-   "sha": "c14fa68",
-   "subject": "discovery (Canada tick): vigilance reopen path closed by measurement; statcan park re-checked; iaac-registry-assessment-"
+   "at": "2026-10-30T10:31:00Z",
+   "sha": "4aa684f",
+   "subject": "ipo-tm pipe-row reconciliation CLOSED (probe_reconcile_pipe_rows.py): the build's right-anchored recovery is correct, th"
   },
   "tests": {
-   "count": "678",
+   "count": "679",
    "ok": true
   }
  },
@@ -13004,13 +13015,23 @@
    "qualified": 0,
    "sessions_7d": 63,
    "tokens_7d": 26798407
+  },
+  {
+   "at": "2026-10-30T10:50:01+00:00",
+   "live": 17,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 63,
+   "tokens_7d": 27957893
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 3001s by scout-research"
+ ],
  "panels": {
   "budget": {
-   "age_minutes": 0.6,
-   "as_of": "2026-10-30T09:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-30T10:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -13019,8 +13040,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.6,
-   "as_of": "2026-10-30T09:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-30T10:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -13029,8 +13050,8 @@
    "value": 17
   },
   "releases": {
-   "age_minutes": 0.6,
-   "as_of": "2026-10-30T09:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-30T10:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -13635,7 +13656,7 @@
      "lo": 0.005
     },
     {
-     "count": 39,
+     "count": 40,
      "hi": 0.02,
      "lo": 0.01
     },
@@ -13667,10 +13688,10 @@
    ],
    "max": 0.6296,
    "median": 0.0128,
-   "n": 138,
+   "n": 139,
    "p90": 0.0611,
    "ref_rate": 0.06924,
-   "total": 4.37
+   "total": 4.39
   },
   "jobs": [
    {
@@ -14497,6 +14518,18 @@
     "id": "ipo-tm-002",
     "location": "hel1",
     "normalised_eur": 0.0663,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-30T10:29:07.029861+00:00",
+    "deleted_at": "2026-10-30T10:43:43.797353+00:00",
+    "eur": 0.0169,
+    "hours": 0.244,
+    "id": "ipo-tm-003",
+    "location": "hel1",
+    "normalised_eur": 0.0169,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -15330,19 +15363,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 97,
-  "jobs_total": 138,
-  "lifetime_eur": 3.49,
+  "jobs_this_month": 98,
+  "jobs_total": 139,
+  "lifetime_eur": 3.51,
   "live": {
-   "checked_at": "2026-10-30T09:50:34+00:00",
+   "checked_at": "2026-10-30T10:50:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 29.3,
-  "month_to_date": 1.04,
+  "month_hours": 29.5,
+  "month_to_date": 1.06,
   "months": [
    {
     "eur": 2.4452,
@@ -15351,13 +15384,13 @@
     "month": "2026-09"
    },
    {
-    "eur": 1.0443,
-    "hours": 29.28,
-    "jobs": 97,
+    "eur": 1.0612,
+    "hours": 29.52,
+    "jobs": 98,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 1.08
+  "projected_month_eur": 1.1
  },
  "schema": 1,
  "sessions": {
