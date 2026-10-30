@@ -2014,5 +2014,13 @@
   "tokens_7d": 28051108,
   "sessions_7d": 63,
   "qualified": 1
+ },
+ {
+  "at": "2026-10-30T12:50:01+00:00",
+  "published": 11,
+  "live": 19,
+  "tokens_7d": 28226570,
+  "sessions_7d": 63,
+  "qualified": 1
  }
 ]

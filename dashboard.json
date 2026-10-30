@@ -1,6 +1,6 @@
 {
  "alarms": [
-  "unhcr-refugee-data-finder has been packaged and actionable for 64.1h - shipping it outranks construction"
+  "unhcr-refugee-data-finder has been packaged and actionable for 65.1h - shipping it outranks construction"
  ],
  "budget": {
   "config": {
@@ -18,12 +18,12 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-30T11:50:02.606894+00:00",
+   "moment": "2026-10-30T12:50:02.526058+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 28051108,
+   "research_tokens_last_7_days": 28226570,
    "runs_last_7_days": 63,
    "runs_weighted_last_7_days": 74,
    "session_cap_per_week": 200,
@@ -51,14 +51,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 8665,
+     "calls": 8725,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 35888787,
-     "output_tokens": 7946895,
+     "input_tokens": 35994379,
+     "output_tokens": 8017292,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -81,7 +81,7 @@
  },
  "candidates": {
   "countries": {
-   "BR": 2,
+   "BR": 3,
    "CA": 3,
    "CO": 1,
    "DE": 1,
@@ -94,9 +94,9 @@
   },
   "counts": {
    "dropped": 42,
-   "investigating": 17,
+   "investigating": 18,
    "packaged": 2,
-   "parked": 28,
+   "parked": 29,
    "published": 11,
    "qualified": 1,
    "ready": 8
@@ -812,6 +812,61 @@
     "split_strategy": "Temporal by registry start year. Volume era measured 2019+ (the IAA came into force 2019-08; pre-2019 rows in the layer are sparse backfill: 2006-2018 totals about 200 rows across 13 years). Measured starts/terminal counts per start year (state at 2026-10-30): 2019 215/16, 2020 836/48, 2021 968/51, 2022 907/47, 2023 956/48, 2024 917/32, 2025 944/29, 2026 650/7 (in-progress shares 5%, 8.5%, 9.4%, 12.2%, 15.7%, 17.6%, 22.0%, 55.1% - recent cohorts heavily right-censored). Candidate windows train 2019-2022 (2,926 starts / 162 terminal, 5.5%), eval 2023-2024 (1,873 / 80, 4.3%), holdout 2025-2026 (1,594 / 36, 2.3% BUT censored) - a holdout this recent needs an explicit censoring rule (e.g. fixed horizon from start date with unresolved rows excluded by rule, or push the holdout back once terminal-event lag is measured); pre-2019 rows usable only as documented partial backfill. Both classes present every year 2019-2026.",
     "status": "investigating",
     "target": "Binary: the assessment's terminal state is 'Terminated' (MapServer layer 2 membership; registry page 'Assessment status: Terminated' plus a dated termination line in 'Latest update', e.g. proj 81027 'January 18, 2022 - The assessment process has been terminated') vs 'Completed' with a dated determination (e.g. proj 84411 'August 29, 2023 - ... determined that the project is not likely to cause significant adverse environmental effects'). Label source columns: project_state_en, the page Latest-update text/date and Assessment status - all excluded from shipped features. Assessments still 'In progress' at fetch time are censored and must be handled by an explicit censoring rule, not dropped silently."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "BR",
+    "domain": "environmental enforcement / infractor-level re-autuacao (repeat-offense) prediction",
+    "id": "ibama-auto-infracao-recidivism",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "access_cost_measured": "HEAD probes 2026-10-30 from the coordinator: auto_infracao_csv.zip 123,283,033 bytes (HTTP 200, anonymous, Azure blob); auto_infracao_json.zip 171,573,685; enquadramento_csv.zip 8,182,013; especime.csv 5,337,755; coordenada.csv 9,906,264; bioma.csv 14,326,751; AIE_MOB aie_enquadramento.csv 34,363,213. Range requests honored on plain CSVs (sampled first 32 KB without bulk download). Full-table row counts, per-year volumes and base rates are pending the worker-side aggregate probe; no sample has been turned into a full count.",
+     "literature_anchor_counts": "ANPEC 2018 paper and Journal of Quantitative Criminology 2023 (vol 39) both use IBAMA flora infractions 2000-2010 at individual level: 127,873 records, 98,006 violators; recidivism cases 23.36% of infringements; 15.1% of violators are recidivists (their flora-only subset). These are literature figures for design context, NOT measurements of the current full table; the current table (all infraction types, 1980-2026) is larger and must be measured on the worker.",
+     "measured_on": "2026-10-30, coordinator container, scripts in session scratch (probe_ibama_schema.py, probe_ibama_vol.py, probe_ibama_sample.py); commands and outputs in notes.md",
+     "publisher_duplication_warning": "Publisher resource note (read 2026-10-30): from October 2019 some autos appear more than once when associated with more than one autuacao polygon or other attributes, so counts in that period can be overestimated - dedupe on SEQ_AUTO_INFRACAO required before any aggregate.",
+     "regime_change_note": "SICAFI (analogue, series-numbered autos) ended 2019-10-07; AIe (electronic, alphanumeric) from 2019-10-08. Feature semantics for form-era fields (SER_AUTO_INFRACAO, UNID_ARRECADACAO) change across the boundary; construction must not treat the two series as one population without checking.",
+     "served_schema_measured": "Publisher data dictionary captured in full (read in the supported browser 2026-10-30; dictionary dated 2025-08-08 by the publisher). Key documented fields: SEQ_AUTO_INFRACAO (PK), NUM_AUTO_INFRACAO + SER_AUTO_INFRACAO (SICAFI analogue series up to 2019-10-07; alphanumeric AI-e series from 2019-10-08), DES_STATUS_FORMULARIO (Lavrado/Cancelado/Danificado/Extraviado/Substituido por outro/Impresso/Excluido), SIT_CANCELADO (S/N), TIPO_AUTO (multa simples/multa diaria/advertencia), TIPO_MULTA (aberta/fechada), VAL_AUTO_INFRACAO (initial value proposed by the agent), PATRIMONIO_APURACAO, GRAVIDADE_INFRACAO (Leve/Media/Grave), MOTIVACAO_CONDUTA, EFEITO_MEIO_AMBIENTE, EFEITO_SAUDE_PUBLICA, PASSIVEL_RECUPERACAO, DAT_HORA_AUTO_INFRACAO (lavratura), DAT_CIENCIA_AUTUACAO, DT_FATO_INFRACIONAL, COD_MUNICIPIO/MUNICIPIO/UF, NUM_PROCESSO/NU_PROCESSO_FORMATADO, COD_INFRACAO/DES_INFRACAO/TIPO_INFRACAO (fauna/flora/pesca/controle ambiental/etc.), NOME_INFRATOR, CPF_CNPJ_INFRATOR, QT_AREA, longitude/latitude/WKT, UNIDADE_CONSERVACAO, DS_BIOMAS_ATINGIDOS, SEQ_ACAO_FISCALIZATORIA, TIPO_ACAO (operacao/fortuito/rotina/demanda juridica/linha verde), OPERACAO, DT_LANCAMENTO, DT_ULT_ALTERACAO, TP_ULT_ALTERACAO, JUSTIFICATIVA_ALTERACAO, ULTIMA_ATUALIZACAO_RELATORIO. Aux tables confirmed served semicolon-separated UTF-8-BOM CSV keyed on SEQ_AUTO_INFRACAO (Range sample 2026-10-30)."
+    },
+    "next_action": "Bounded next probes, in order (discovery remains owner until the worker probe): (1) WORKER-SIDE AGGREGATE PROBE (bulk data stays off the coordinator): stream au",
+    "packaged_at": null,
+    "path": "candidates/ibama-auto-infracao-recidivism/record.json",
+    "prediction_time": "The prediction instant is the lavratura instant: DAT_HORA_AUTO_INFRACAO of the current auto de infracao, the earliest documented moment the enforcement act exists (recorded by the electronic AI-e form since 2019-10-08, and by the launch date DT_LANCAMENTO for the pre-2019 analogue SICAFI series). Features are restricted to (a) the current auto's issuance-time attributes (infraction type/code, proposed sanction TIPO_AUTO, initial value VAL_AUTO_INFRACAO, gravity classification GRAVIDADE_INFRACAO, conduct MOTIVACAO_CONDUTA, UF/municipio, bioma, action motivation TIPO_ACAO, operation name) and (b) the entity's PRIOR autos only (DAT_HORA_AUTO_INFRACAO strictly earlier than the instant). Post-instant process events defined by IN Ibama 19/2023 (ciencia of the auto, defense, julgamento in first instance ~30 days from file receipt, appeal ~20 days, second instance, Cadin inclusion) are label-window events of the current auto's lifecycle, never features. LIMITATION, recorded: the daily export is current-vintage only (no publisher archive of past exports); prior-history features are therefore current-vintage rows with per-row DT_ULT_ALTERACAO / TP_ULT_ALTERACAO / JUSTIFICATIVA_ALTERACAO available to quantify how much history was revised. The 12-month target window follows the prediction instant entirely.",
+    "publisher": "Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renovaveis (IBAMA), federal Executive branch (autarquia federal), Federative Republic of Brazil",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the instant IBAMA issues a new environmental infraction notice (auto de infracao, lavratura) against an entity, will the same entity (CPF/CNPJ) receive another IBAMA infraction notice within the following 12 months?",
+    "region": "Latin America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Brazil federal environmental enforcement table, per-auto detail from 1980, machine-readable, daily export, attribution-only federal open-data regime (class A with credit-the-source duty). The natural adjudication task (fine sustained at julgamento) is NOT buildable: the published julgamentos dataset is a per-state volume summary and per-process outcomes live only in SEI (per-process manual access) - recorded as a negative probe. The viable task is infractor-level re-autuacao within 12 months of a new auto, whose label needs only the autos table itself (CPF_CNPJ_INFRATOR + lavratura dates), features are documented-by-publisher, and the prediction instant (lavratura) precedes all post-instant process events. Prior art is econometrics/criminology (survival analysis of IBAMA recidivism, flora 2000-2010) with no ML-ready benchmark, splits or scored contract located - differentiation recorded via check-novelty. Strongest remaining uncertainties: split capacity with clustered counts and entity-key coverage per year on the FULL table (worker probe required), the current-vintage feature policy (measurable via DT_ULT_ALTERACAO rates), and LGPD-safe entity-key shipping.",
+    "sources": [
+     {
+      "licence": "Brazilian federal Executive open-data regime: Decreto 8.777/2016 (as amended by Decreto 9.903/2019) - see license_evidence; dataset itself marked 'Outra (Aberta)' / Other (Open) on the publisher's catalog.",
+      "name": "IBAMA Dados Abertos - Fiscalizacao: auto de infracao (full per-auto table, CSV/XML/JSON, daily export)",
+      "url": "https://dadosabertos.ibama.gov.br/dataset/fiscalizacao-auto-de-infracao"
+     },
+     {
+      "licence": "same federal open-data regime",
+      "name": "IBAMA Dados Abertos - Julgamentos de Auto de Infra\u00e7\u00e3o (per-state SICAFI volume reports) - NEGATIVE probe for the adjudication label",
+      "url": "https://dadosabertos.ibama.gov.br/dataset/julgamentos-de-auto-de-infracao-realizado-no-ambito-do-ibama"
+     }
+    ],
+    "split_strategy": "Entity-instant panel over all autos 1980-2026: one row per (entity, auto) with the entity's prior history at lavratura. Candidate temporal windows on lavratura year, boundaries avoiding the SICAFI->AIe form regime change (2019-10-08) and the 2020-21 enforcement dip: train 2005-2015 / eval 2016-2019 / holdout 2022-2025. Both classes per window are expected but NOT yet measured on the full table - the decisive worker probe must compute per-window positives/negatives AND clustered counts: positives cluster at least by entity (a recidivist contributes many positives) and by fiscalizacao operation (SEQ_ACAO_FISCALIZATORIA sweeps autuam many entities at once) and by municipality. UNRESOLVED until measured: split capacity, per-window class counts, clustered (independent) positive counts, and the share of rows with a usable entity key (CPF_CNPJ_INFRATOR non-empty, valid) per year.",
+    "status": "investigating",
+    "target": "Binary label: exists another auto de infracao in the same published table with identical CPF_CNPJ_INFRATOR and DAT_HORA_AUTO_INFRACAO in (T, T+365 days], where T is the current auto's lavratura instant. Label source columns: CPF_CNPJ_INFRATOR and DAT_HORA_AUTO_INFRACAO; both excludable from shipped features (entity keys shipped hashed). Censoring: right-censoring at the last observed lavratura date in the extract; entities leaving enforcement attention are treated as no re-autuacao observed (this is a re-AUTUACAO task, not a reoffense task - enforcement effort confound stated in the task card, not hidden)."
    },
    {
     "awaiting_operator": false,
@@ -1572,7 +1627,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    }
   ],
-  "non_us_share": 94.4,
+  "non_us_share": 94.7,
   "records": [
    {
     "awaiting_operator": false,
@@ -5060,6 +5115,61 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "BR",
+    "domain": "environmental enforcement / infractor-level re-autuacao (repeat-offense) prediction",
+    "id": "ibama-auto-infracao-recidivism",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "access_cost_measured": "HEAD probes 2026-10-30 from the coordinator: auto_infracao_csv.zip 123,283,033 bytes (HTTP 200, anonymous, Azure blob); auto_infracao_json.zip 171,573,685; enquadramento_csv.zip 8,182,013; especime.csv 5,337,755; coordenada.csv 9,906,264; bioma.csv 14,326,751; AIE_MOB aie_enquadramento.csv 34,363,213. Range requests honored on plain CSVs (sampled first 32 KB without bulk download). Full-table row counts, per-year volumes and base rates are pending the worker-side aggregate probe; no sample has been turned into a full count.",
+     "literature_anchor_counts": "ANPEC 2018 paper and Journal of Quantitative Criminology 2023 (vol 39) both use IBAMA flora infractions 2000-2010 at individual level: 127,873 records, 98,006 violators; recidivism cases 23.36% of infringements; 15.1% of violators are recidivists (their flora-only subset). These are literature figures for design context, NOT measurements of the current full table; the current table (all infraction types, 1980-2026) is larger and must be measured on the worker.",
+     "measured_on": "2026-10-30, coordinator container, scripts in session scratch (probe_ibama_schema.py, probe_ibama_vol.py, probe_ibama_sample.py); commands and outputs in notes.md",
+     "publisher_duplication_warning": "Publisher resource note (read 2026-10-30): from October 2019 some autos appear more than once when associated with more than one autuacao polygon or other attributes, so counts in that period can be overestimated - dedupe on SEQ_AUTO_INFRACAO required before any aggregate.",
+     "regime_change_note": "SICAFI (analogue, series-numbered autos) ended 2019-10-07; AIe (electronic, alphanumeric) from 2019-10-08. Feature semantics for form-era fields (SER_AUTO_INFRACAO, UNID_ARRECADACAO) change across the boundary; construction must not treat the two series as one population without checking.",
+     "served_schema_measured": "Publisher data dictionary captured in full (read in the supported browser 2026-10-30; dictionary dated 2025-08-08 by the publisher). Key documented fields: SEQ_AUTO_INFRACAO (PK), NUM_AUTO_INFRACAO + SER_AUTO_INFRACAO (SICAFI analogue series up to 2019-10-07; alphanumeric AI-e series from 2019-10-08), DES_STATUS_FORMULARIO (Lavrado/Cancelado/Danificado/Extraviado/Substituido por outro/Impresso/Excluido), SIT_CANCELADO (S/N), TIPO_AUTO (multa simples/multa diaria/advertencia), TIPO_MULTA (aberta/fechada), VAL_AUTO_INFRACAO (initial value proposed by the agent), PATRIMONIO_APURACAO, GRAVIDADE_INFRACAO (Leve/Media/Grave), MOTIVACAO_CONDUTA, EFEITO_MEIO_AMBIENTE, EFEITO_SAUDE_PUBLICA, PASSIVEL_RECUPERACAO, DAT_HORA_AUTO_INFRACAO (lavratura), DAT_CIENCIA_AUTUACAO, DT_FATO_INFRACIONAL, COD_MUNICIPIO/MUNICIPIO/UF, NUM_PROCESSO/NU_PROCESSO_FORMATADO, COD_INFRACAO/DES_INFRACAO/TIPO_INFRACAO (fauna/flora/pesca/controle ambiental/etc.), NOME_INFRATOR, CPF_CNPJ_INFRATOR, QT_AREA, longitude/latitude/WKT, UNIDADE_CONSERVACAO, DS_BIOMAS_ATINGIDOS, SEQ_ACAO_FISCALIZATORIA, TIPO_ACAO (operacao/fortuito/rotina/demanda juridica/linha verde), OPERACAO, DT_LANCAMENTO, DT_ULT_ALTERACAO, TP_ULT_ALTERACAO, JUSTIFICATIVA_ALTERACAO, ULTIMA_ATUALIZACAO_RELATORIO. Aux tables confirmed served semicolon-separated UTF-8-BOM CSV keyed on SEQ_AUTO_INFRACAO (Range sample 2026-10-30)."
+    },
+    "next_action": "Bounded next probes, in order (discovery remains owner until the worker probe): (1) WORKER-SIDE AGGREGATE PROBE (bulk data stays off the coordinator): stream au",
+    "packaged_at": null,
+    "path": "candidates/ibama-auto-infracao-recidivism/record.json",
+    "prediction_time": "The prediction instant is the lavratura instant: DAT_HORA_AUTO_INFRACAO of the current auto de infracao, the earliest documented moment the enforcement act exists (recorded by the electronic AI-e form since 2019-10-08, and by the launch date DT_LANCAMENTO for the pre-2019 analogue SICAFI series). Features are restricted to (a) the current auto's issuance-time attributes (infraction type/code, proposed sanction TIPO_AUTO, initial value VAL_AUTO_INFRACAO, gravity classification GRAVIDADE_INFRACAO, conduct MOTIVACAO_CONDUTA, UF/municipio, bioma, action motivation TIPO_ACAO, operation name) and (b) the entity's PRIOR autos only (DAT_HORA_AUTO_INFRACAO strictly earlier than the instant). Post-instant process events defined by IN Ibama 19/2023 (ciencia of the auto, defense, julgamento in first instance ~30 days from file receipt, appeal ~20 days, second instance, Cadin inclusion) are label-window events of the current auto's lifecycle, never features. LIMITATION, recorded: the daily export is current-vintage only (no publisher archive of past exports); prior-history features are therefore current-vintage rows with per-row DT_ULT_ALTERACAO / TP_ULT_ALTERACAO / JUSTIFICATIVA_ALTERACAO available to quantify how much history was revised. The 12-month target window follows the prediction instant entirely.",
+    "publisher": "Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renovaveis (IBAMA), federal Executive branch (autarquia federal), Federative Republic of Brazil",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the instant IBAMA issues a new environmental infraction notice (auto de infracao, lavratura) against an entity, will the same entity (CPF/CNPJ) receive another IBAMA infraction notice within the following 12 months?",
+    "region": "Latin America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Brazil federal environmental enforcement table, per-auto detail from 1980, machine-readable, daily export, attribution-only federal open-data regime (class A with credit-the-source duty). The natural adjudication task (fine sustained at julgamento) is NOT buildable: the published julgamentos dataset is a per-state volume summary and per-process outcomes live only in SEI (per-process manual access) - recorded as a negative probe. The viable task is infractor-level re-autuacao within 12 months of a new auto, whose label needs only the autos table itself (CPF_CNPJ_INFRATOR + lavratura dates), features are documented-by-publisher, and the prediction instant (lavratura) precedes all post-instant process events. Prior art is econometrics/criminology (survival analysis of IBAMA recidivism, flora 2000-2010) with no ML-ready benchmark, splits or scored contract located - differentiation recorded via check-novelty. Strongest remaining uncertainties: split capacity with clustered counts and entity-key coverage per year on the FULL table (worker probe required), the current-vintage feature policy (measurable via DT_ULT_ALTERACAO rates), and LGPD-safe entity-key shipping.",
+    "sources": [
+     {
+      "licence": "Brazilian federal Executive open-data regime: Decreto 8.777/2016 (as amended by Decreto 9.903/2019) - see license_evidence; dataset itself marked 'Outra (Aberta)' / Other (Open) on the publisher's catalog.",
+      "name": "IBAMA Dados Abertos - Fiscalizacao: auto de infracao (full per-auto table, CSV/XML/JSON, daily export)",
+      "url": "https://dadosabertos.ibama.gov.br/dataset/fiscalizacao-auto-de-infracao"
+     },
+     {
+      "licence": "same federal open-data regime",
+      "name": "IBAMA Dados Abertos - Julgamentos de Auto de Infra\u00e7\u00e3o (per-state SICAFI volume reports) - NEGATIVE probe for the adjudication label",
+      "url": "https://dadosabertos.ibama.gov.br/dataset/julgamentos-de-auto-de-infracao-realizado-no-ambito-do-ibama"
+     }
+    ],
+    "split_strategy": "Entity-instant panel over all autos 1980-2026: one row per (entity, auto) with the entity's prior history at lavratura. Candidate temporal windows on lavratura year, boundaries avoiding the SICAFI->AIe form regime change (2019-10-08) and the 2020-21 enforcement dip: train 2005-2015 / eval 2016-2019 / holdout 2022-2025. Both classes per window are expected but NOT yet measured on the full table - the decisive worker probe must compute per-window positives/negatives AND clustered counts: positives cluster at least by entity (a recidivist contributes many positives) and by fiscalizacao operation (SEQ_ACAO_FISCALIZATORIA sweeps autuam many entities at once) and by municipality. UNRESOLVED until measured: split capacity, per-window class counts, clustered (independent) positive counts, and the share of rows with a usable entity key (CPF_CNPJ_INFRATOR non-empty, valid) per year.",
+    "status": "investigating",
+    "target": "Binary label: exists another auto de infracao in the same published table with identical CPF_CNPJ_INFRATOR and DAT_HORA_AUTO_INFRACAO in (T, T+365 days], where T is the current auto's lavratura instant. Label source columns: CPF_CNPJ_INFRATOR and DAT_HORA_AUTO_INFRACAO; both excludable from shipped features (entity keys shipped hashed). Censoring: right-censoring at the last observed lavratura date in the extract; entities leaving enforcement attention are treated as no re-autuacao observed (this is a re-AUTUACAO task, not a reoffense task - enforcement effort confound stated in the task card, not hidden)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "ID",
     "domain": "financial-sector supervision / bank soundness",
     "id": "id-ojk-bank-supervision",
@@ -7393,7 +7503,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 21.5,
+    "age_hours": 22.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8585,6 +8695,54 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "BR",
+    "domain": "infrastructure delivery / public-works stall prediction",
+    "id": "tcu-obra-paralisacao",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "access_measured": "2026-10-30: portal.tcu.gov.br/obras-paralisadas -> browser page title 'Acesso Bloqueado' (security block page) in the supported browser; same host's JS cookie-wall prevented plain-text rendering of portal.tcu.gov.br/paineis-de-informacoes via the text extractor; sites.tcu.gov.br pages (Lista de Alto Risco: gestao das obras paralisadas) are reachable via search-engine text. No data file from the panel was downloaded.",
+     "measured_on": "2026-10-30, coordinator container; commands and outputs in notes.md",
+     "panel_scale_from_publisher_communications": "TCU press releases and reports (read via search results 2026-10-30): 2020: 27,126 obras mapeadas / 7,862 paralisadas (29%); 2023: 21,007 / 8,603 (41%); 2022-2024: growth to 11,944 empreendimentos paralisadas; April 2025: 22,621 mapped / 11,469 paralisadas (50.7%), educacao+saude ~70% of paralizations; ~1,200 of 5,505 works initiated April 2024-April 2025 already stalled (22%); panel launched 2020 (acordao context: TC 021.731/2019-5, Levantamento 2018 -> Acordao 1.079/2019).",
+     "prior_art_measured": "Web search 2026-10-30 found target-level prior art: UnB (Universidade de Brasilia) master's dissertation (repositorio.unb.br, 10482/52676) 'Machine Learning na Prevencao de Paralisacoes em Obras Publicas: Estudo de Caso em Infraestrutura Educacional' - Proinfancia/FNDE school-construction works, CRISP-DM, 205 models tested, best deep-learning model 94.79% accuracy predicting suspension risk; uses FNDE program data, not the TCU panel, and ships no public benchmark/splits. TCU's own monitoring (Fiscobras, painel) publishes status and risk communication. No ML-ready public-works stall benchmark with splits was located, but the prediction target itself is proven in the literature."
+    },
+    "next_action": "Reopen trigger (not scheduled work): (a) reach the panel from an unblocked egress (the supported browser with a different network path, or an official open-data",
+    "packaged_at": null,
+    "path": "candidates/tcu-obra-paralisacao/record.json",
+    "prediction_time": "Would have been the publication instant of a TCU levantamento vintage (the panel documents 2018, 2020, 2022 levantamentos and more frequent updates from 2023 through April 2025: TCU press releases quote snapshots 'ate abril 2025', '2023', '2022', '2020', '2018'). NOT ESTABLISHED from this environment: whether per-work dated status history (e.g. data de paralizacao, cronograma milestones) or multiple downloadable vintages are exposed in machine-readable form - the panel application was unreachable (see sources.access). This is a recorded open question, not a satisfied contract.",
+    "publisher": "Tribunal de Contas da Uniao (TCU), federative audit court, Federative Republic of Brazil",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "Given a federally funded public work recorded in execution at a TCU Painel de Obras Paralisadas levantamento vintage, will the same work be recorded paralisada (stalled/inacabada) in the next published vintage?",
+    "region": "Latin America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Latin America tick lead (Brazil, named in the regional rotation). Conceptually attractive - infrastructure-delivery stall prediction is a genuinely useful task genre absent from the bench - but this session could not establish the three contracts that matter: machine-readable access (host blocks our egress), label construction (few vintages, unstable base composition, unknown per-work history fields), and licence (terms unread). The lead is parked with exact reopening conditions rather than dropped: the access failure is environment-specific, and TCU's press archive documents the panel's scale and vintage cadence well enough to re-attempt cheaply once access exists. Prior art note: target-level ML on Brazilian public-works stall risk already exists as a dissertation on FNDE/Proinfancia data (94.79% acc, no public benchmark); a TCU-panel task would need a stated formulation contribution.",
+    "sources": [
+     {
+      "licence": "UNKNOWN - not classifiable from here: TCU's terms could not be read from this egress. Recorded as unread, NOT as absent or permissive.",
+      "name": "TCU - Painel de Obras Paralisadas (Painel Acompanhamento de Obras) and press/report pages describing its vintages",
+      "url": "https://portal.tcu.gov.br/obras-paralisadas/"
+     }
+    ],
+    "split_strategy": "UNBUILDABLE FROM WHAT WAS REACHABLE: TCU documents a handful of vintages (2018, 2020, 2022, updates to April 2025). A vintage-to-vintage transition design yields at most ~4 labeled transition windows before entity-identity questions, and the mapped base composition changes between vintages (27,126 obras 2020 vs 21,007 in 2023 vs 22,621 in April 2025), so cross-vintage work identity is unproven. Per-work dated status history inside the panel (if it exists, e.g. a paralizacao date field) could rescue a single-vintage design, but that could not be verified: the panel app is unreachable from this egress. No split counts are claimed.",
+    "status": "parked",
+    "target": "Would have been: obra transitions from 'em execucao' in vintage V1 to 'paralisada' in the next vintage V2, identified by a stable work/contract key across vintages. UNVERIFIED: cross-vintage work identity (TCU's own numbers show the mapped base changes composition between vintages: 27,126 obras mapeadas in 2020 vs 21,007 in 2023, 22,621 in April 2025), and whether historical vintages are downloadable at all. No label count is claimed."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "EU",
     "domain": "EU public procurement / tender competition prediction",
     "id": "ted-procurement-single-bid",
@@ -8955,7 +9113,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 64.1,
+    "age_hours": 65.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -10039,7 +10197,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 21.5,
+     "age_hours": 22.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -10327,7 +10485,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 21.5,
+     "age_hours": 22.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -10613,7 +10771,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 64.1,
+     "age_hours": 65.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -10825,7 +10983,7 @@
    ],
    "pending": [
     {
-     "age_hours": 64.1,
+     "age_hours": 65.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -11042,7 +11200,7 @@
    "AR": 1,
    "AT": 2,
    "AU": 7,
-   "BR": 2,
+   "BR": 4,
    "CA": 14,
    "CH": 4,
    "CL": 2,
@@ -11077,24 +11235,24 @@
    "East Asia": 9,
    "Europe": 26,
    "International organisations": 11,
-   "Latin America": 8,
+   "Latin America": 10,
    "North America": 24,
    "Oceania": 8,
    "South & South-East Asia": 13
   },
   "by_status": {
    "dropped": 42,
-   "investigating": 17,
+   "investigating": 18,
    "packaged": 2,
-   "parked": 28,
+   "parked": 29,
    "published": 11,
    "qualified": 1,
    "ready": 8
   },
-  "candidates": 109,
-  "live": 39,
-  "live_non_us": 33,
-  "live_non_us_share": 0.846,
+  "candidates": 111,
+  "live": 40,
+  "live_non_us": 34,
+  "live_non_us_share": 0.85,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -11116,10 +11274,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-30T11:50:01.990213+00:00",
+    "last_run_at": "2026-10-30T12:50:01.597221+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-30T12:00:00+00:00",
+    "next_run_at": "2026-10-30T13:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -11140,10 +11298,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-30T11:50:01.040489+00:00",
+    "last_run_at": "2026-10-30T12:50:01.446551+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-30T11:55:00+00:00",
+    "next_run_at": "2026-10-30T12:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -11164,10 +11322,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-30T11:47:15.013865+00:00",
+    "last_run_at": "2026-10-30T12:47:33.804277+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-30T11:52:15.013865+00:00",
+    "next_run_at": "2026-10-30T12:52:33.804277+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -11176,10 +11334,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-30T11:50:00.991414+00:00",
+    "last_run_at": "2026-10-30T12:50:00.907169+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-30T11:55:00+00:00",
+    "next_run_at": "2026-10-30T12:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -11200,10 +11358,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-30T10:50:43.711023+00:00",
+    "last_run_at": "2026-10-30T11:50:43.622049+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-30T12:50:00+00:00",
+    "next_run_at": "2026-10-30T13:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -11212,10 +11370,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-30T10:55:00.822391+00:00",
+    "last_run_at": "2026-10-30T11:55:01.369323+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-30T11:55:00+00:00",
+    "next_run_at": "2026-10-30T12:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -11256,29 +11414,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-30T11:50:01.991379+00:00"
+  "updated_at": "2026-10-30T12:50:01.598354+00:00"
  },
- "generated_at": "2026-10-30T11:50:01+00:00",
+ "generated_at": "2026-10-30T12:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 109
+   "passing": 111
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-30T11:14:41Z",
-   "head_sha": "e529eab",
+   "created_at": "2026-10-30T12:28:29Z",
+   "head_sha": "bc8534c",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41046677741"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41055605108"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 33/39 (85%)"
+   "summary": "live non-US: 34/40 (85%)"
   },
   "head": {
-   "at": "2026-10-30T11:14:38Z",
-   "sha": "e529eab",
-   "subject": "ipo-tm-003/004 close-out: 004 ran the full pipeline green (construct -> gate 1.5.0 ok, 45 results, 0 failed -> exact-byt"
+   "at": "2026-10-30T12:28:21Z",
+   "sha": "bc8534c",
+   "subject": "discovery (LatAm tick): open ibama-auto-infracao-recidivism (investigating; class-A reasoning from Decreto 8.777/2016; j"
   },
   "tests": {
    "count": "679",
@@ -13301,13 +13459,21 @@
    "qualified": 1,
    "sessions_7d": 63,
    "tokens_7d": 28051108
+  },
+  {
+   "at": "2026-10-30T12:50:01+00:00",
+   "live": 19,
+   "published": 11,
+   "qualified": 1,
+   "sessions_7d": 63,
+   "tokens_7d": 28226570
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.5,
-   "as_of": "2026-10-30T11:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-10-30T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -13316,18 +13482,18 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.5,
-   "as_of": "2026-10-30T11:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-10-30T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 18
+   "value": 19
   },
   "releases": {
-   "age_minutes": 0.5,
-   "as_of": "2026-10-30T11:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-10-30T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -15655,7 +15821,7 @@
   "jobs_total": 140,
   "lifetime_eur": 3.51,
   "live": {
-   "checked_at": "2026-10-30T11:50:33+00:00",
+   "checked_at": "2026-10-30T12:50:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -15684,19 +15850,6 @@
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 4368.7,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "2809d9e173897aaa704283e5a55675e8ef4d38c68f7a666f90947c4664a027b6",
-    "ts": "2026-10-30T05:12:53.113845+00:00"
-   },
    {
     "elapsed_seconds": 4335.3,
     "event": "session",
@@ -15765,8 +15918,21 @@
     "run_budget": 900,
     "submitted_brief_sha256": "2500425d4a8535de8710adaf37d632a589c81a21aef3c19416746f03692e4bc3",
     "ts": "2026-10-30T11:17:03.686019+00:00"
+   },
+   {
+    "elapsed_seconds": 1791.6,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "8b77daf41c6030bc741b124710aa23a5a2e6e106d756b0ddb2eb624c1345124f",
+    "ts": "2026-10-30T12:29:54.033336+00:00"
    }
   ],
-  "total": 12
+  "total": 13
  }
 }
