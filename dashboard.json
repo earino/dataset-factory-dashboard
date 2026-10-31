@@ -1,8 +1,9 @@
 {
  "alarms": [
-  "Token use at 90% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 92.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (49.5h)"
+  "scout-research-session missed its window (2026-10-31T16:35:00+00:00); last status ok",
+  "Token use at 91% of the weekly ceiling",
+  "unhcr-refugee-data-finder has been packaged and actionable for 93.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (50.5h)"
  ],
  "budget": {
   "config": {
@@ -19,15 +20,17 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-10-31T15:50:02.492350+00:00",
+   "allowed": false,
+   "moment": "2026-10-31T16:50:03.173569+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 1199s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 35903725,
-   "runs_last_7_days": 72,
-   "runs_weighted_last_7_days": 87,
+   "research_tokens_last_7_days": 36201476,
+   "runs_last_7_days": 74,
+   "runs_weighted_last_7_days": 89,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 15,
    "usage": {
@@ -53,14 +56,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 10236,
+     "calls": 10322,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 45032821,
-     "output_tokens": 9220059,
+     "input_tokens": 45219117,
+     "output_tokens": 9331514,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -93,12 +96,12 @@
    "US": 1
   },
   "counts": {
-   "dropped": 46,
+   "dropped": 47,
    "investigating": 16,
    "packaged": 3,
    "parked": 29,
    "published": 11,
-   "ready": 11
+   "ready": 12
   },
   "errors": [],
   "live": [
@@ -3537,6 +3540,49 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "GB",
+    "domain": "environmental regulation / permit compliance breach prediction",
+    "id": "ea-permit-compliance-breach",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {},
+    "next_action": "None. Closed; reopen only on new licence evidence per rejection_reason.",
+    "packaged_at": null,
+    "path": "candidates/ea-permit-compliance-breach/record.json",
+    "prediction_time": "Would have been start of the assessment year (site features + prior breach history); never fully framed because the licence veto came first.",
+    "publisher": "Environment Agency (England, United Kingdom)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "Would a permitted waste/installation site incur at least one recorded permit condition breach in a given year, from permit/site features? (Lead closed at licence triage before the task was fully framed, per the cheapest-first rule.)",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "Environment Agency Conditional Licence (NOT OGL) - see licence_note",
+      "name": "Compliance Classification Scheme (condition breaches on EPR waste and installation permits)",
+      "url": "https://environment.data.gov.uk/dataset/5f2149c0-d465-11e4-b632-f0def148f590"
+     }
+    ],
+    "split_strategy": "",
+    "status": "dropped",
+    "target": "Would have been a derived binary from EA Compliance Classification Scheme breach records; the dataset itself carries the licence veto below."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "EU",
     "domain": "EU law enforcement / infringement procedures against Member States (case-level escalation)",
     "id": "ec-infringement-case-escalation",
@@ -5604,7 +5650,7 @@
     "target": "Binary. Positive: >=1 reference-satellite detection with event timestamp in [D+1 00:00, D+8 00:00) located in municipality m; negative: zero such detections. Label source: the same detection rows (data_pas timestamp + municipio/estado name) that feed the feature history - construction derives the label from event-time windows and must not ship any row with event time > D in feature columns (the label column is a derived aggregate, never a carried source column). Population: all Brazilian municipalities (5570 IBGE codes; ref-era files key by name - construction maps names to IBGE codes and asserts the mapping is total over the detection rows). Conditioning: evaluated pairs are municipality-days with zero detections in [D-13, D] (onset-conditioned; raw-pair variant recorded for comparison)."
    },
    {
-    "age_hours": 12.5,
+    "age_hours": 13.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -7726,7 +7772,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 49.5,
+    "age_hours": 50.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8712,6 +8758,195 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "GB",
+    "domain": "planning law and land-use adjudication / regulatory appeal outcomes",
+    "id": "pins-planning-appeal-outcome",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "extraction_cost": "Measured 2026-10-31 on the coordinator (4 vCPU, 1.9 GiB class): 2 anonymous HTTP GETs, 34,532,981 bytes total (22,207,115 + 12,325,866), 0.63 s + 0.58 s download wall clock; stdlib streaming parse of both files 26-33 s. Construction is worker-trivial: the complete source is 34.5 MB. sha256 recorded per file in sources.",
+     "probe_2026_10_31": {
+      "5yr_file": {
+       "casework_type_top": {
+        "Commercial Appeal Service (CAS)": 2043,
+        "Enforcement Notice": 9119,
+        "Householder (HAS)": 21694,
+        "Lawful Development Certificate": 2850,
+        "Listed Building Consent & Conservation Area Consent Appeal": 2038,
+        "Planning Appeal": 47757,
+        "Tree Preservation Order": 1690
+       },
+       "data_rows": 91216,
+       "decision_years": {
+        "2021": 4277,
+        "2022": 17559,
+        "2023": 18330,
+        "2024": 18066,
+        "2025": 19941,
+        "2026": 13043
+       },
+       "decisions": {
+        "Allowed": 24326,
+        "Appeal Withdrawn": 243,
+        "Dismissed": 53525,
+        "Invalid": 237,
+        "No Decision Code Associated": 148,
+        "Notice upheld": 2933,
+        "Notice varied and upheld": 3175,
+        "Planning permission granted": 987,
+        "Quashed On Legal Grounds": 885,
+        "Split Decision": 1350,
+        "Unknown": 3186,
+        "missing": 178,
+        "other": 31
+       },
+       "distinct_case_number": 91216,
+       "distinct_lpa": 376,
+       "duplicate_refs": 0,
+       "empty_rows": 957218,
+       "lag_received_valid_days": {
+        "0-30": 78236,
+        "181-365": 910,
+        "31-90": 8915,
+        "366-inf": 313,
+        "91-180": 2384
+       },
+       "lag_valid_decision_days": {
+        "0-30": 125,
+        "181-365": 33471,
+        "31-90": 10624,
+        "366-inf": 12314,
+        "91-180": 34624
+       },
+       "missing_received_valid_decision_dates": [
+        0,
+        0,
+        0
+       ],
+       "procedure": {
+        "Hearing": 3846,
+        "Inquiry": 2213,
+        "No Procedure Associated": 1048,
+        "Schedule 14": 178,
+        "Written Representations": 83910,
+        "Written representation (Part 1)": 16
+       },
+       "s78_core_allowed_by_year": {
+        "2021": 1035,
+        "2022": 3982,
+        "2023": 4353,
+        "2024": 4219,
+        "2025": 4757,
+        "2026": 2944
+       },
+       "s78_core_by_year": {
+        "2021": 3442,
+        "2022": 13538,
+        "2023": 14271,
+        "2024": 14063,
+        "2025": 14897,
+        "2026": 9240
+       }
+      },
+      "command": "probe_count.py on both xlsx (stdlib zipfile+iterparse; full JSON at candidates/pins-planning-appeal-outcome/probe_results_2026-10-31.json)",
+      "cross_check_publisher_summary": "PINS Annual Report 2022-23: 'In the last year three out of every ten appeals were allowed' - measured s78_core allow rate 29.0% (Planning Appeal) / 34.3% (Householder) in the 5-yr file, 29.9%/32.4% older; measured per-year s78_core allow rate 27.0%-34.6%, consistent with the publisher's published ~30% figure and stable across 11 years.",
+      "older_file": {
+       "data_rows": 95569,
+       "decision_years": {
+        "2016": 4761,
+        "2017": 19529,
+        "2018": 19045,
+        "2019": 21888,
+        "2020": 17676,
+        "2021": 12670
+       },
+       "decisions": {
+        "Allowed": 25354,
+        "Dismissed": 57759,
+        "Notice upheld": 3678,
+        "Notice varied and upheld": 2587,
+        "Planning permission granted": 889,
+        "Quashed On Legal Grounds": 871,
+        "Split Decision": 1440,
+        "Unknown": 1969,
+        "missing": 600,
+        "other": 202
+       },
+       "distinct_lpa": 379,
+       "distinct_ref": 95569,
+       "duplicate_refs": 0,
+       "empty_rows": 1,
+       "missing_received_valid_decision_dates": [
+        0,
+        0,
+        0
+       ],
+       "s78_core_allowed_by_year": {
+        "2016": 1309,
+        "2017": 5049,
+        "2018": 4821,
+        "2019": 4773,
+        "2020": 3625,
+        "2021": 3027
+       },
+       "s78_core_by_year": {
+        "2016": 3786,
+        "2017": 15587,
+        "2018": 15112,
+        "2019": 17581,
+        "2020": 13417,
+        "2021": 10199
+       }
+      }
+     }
+    },
+    "next_action": "GO to construction (advancement session owns it). Construction step: on a worker, re-download both Excel files by exact recorded URL (sha256-pinned), parse with",
+    "packaged_at": null,
+    "path": "candidates/pins-planning-appeal-outcome/record.json",
+    "prediction_time": "00:00 Europe/London on the appeal's Valid Date (the date PINS validated the case; present on 100% of the 186,785 measured decided rows). All outcome events (case start, allocation, hearing/inquiry, decision) postdate the instant; measured valid->decision lag is 91-365 days for 74% of cases. Every feature field is recorded from the appeal submission/registration and is documented by the publisher with a per-field data-quality grade (Appeals Data: Data notes and guidance). Post-instant fields are excluded by contract: Inspector Name (allocation after validation; publisher also warns apparent per-inspector outcome patterns are allocation artefacts), Start Date, Jurisdiction (mutable by recovery/derecovery), Date Recovered / Date Not Recovered / Call In Date, Redetermined, Bespoke, and the Decision/Decision Date columns themselves. Costs Applied for Indicator is treated as verify-at-construction (a costs application can be lodged after validation). This is a fixed RETROSPECTIVE benchmark over the current published files: the publisher revises the rolling database between editions ('data can change between different publications of this data set'), so historical operational as-of claims would need vintage evidence beyond this record (the update log documents monthly-to-quarterly publication since March 2018, so web-archive vintages are provable if a historical-availability claim is ever wanted).",
+    "publisher": "Planning Inspectorate (executive agency of the Ministry of Housing, Communities and Local Government), England, United Kingdom",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a planning-permission-family appeal (PINS casework type 'Planning Appeal' or 'Householder (HAS)') validated by the Planning Inspectorate, will the final decision be 'Allowed' rather than 'Dismissed', given only what is known at validation: casework type, LPA name and ONS code, LPA decision date, received date, procedure (written representations / hearing / inquiry), development type, appeal type reason and type-detail, site descriptors (area, floorspace, number of residences, green belt, agricultural holding, listed-building setting, conservation area, flooding issue, AONB, SSSI indicators), LPA application reference, and enforcement grounds where applicable?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "Open Government Licence v3.0 (stated on the publication's data-notes page and OGL emblem on the publication page, read 2026-10-31)",
+      "name": "Planning Inspectorate Casework Database (GOV.UK publication)",
+      "url": "https://www.gov.uk/government/publications/planning-inspectorate-appeals-database"
+     },
+     {
+      "licence": "Open Government Licence v3.0 (same publication)",
+      "name": "Appeals Data: Data notes and guidance (field list with data-quality grades)",
+      "url": "https://www.gov.uk/government/publications/planning-inspectorate-appeals-database/appeals-data-data-notes-and-guidance"
+     },
+     {
+      "licence": "OGL (harvested listing; the authoritative instrument is the GOV.UK publication)",
+      "name": "Planning Inspectorate - Planning Appeals Casework (data.gov.uk National Data Library listing)",
+      "url": "https://www.data.gov.uk/dataset/a8ae664e-f73d-4e43-8d72-93b2199482d8/planning-inspectorate-planning-appeals-casework"
+     }
+    ],
+    "split_strategy": "Temporal by decision year, counts computed from the source (probe_count.py, 2026-10-31 files, s78_core = Planning Appeal + Householder (HAS)): train 2016-2020 (older file) 65,483 rows, 19,577 allowed (29.9%); eval 2021-2022 (complementary halves of 2021 from both files: 10,199+3,442) 27,179 rows, 8,044 allowed (29.6%); holdout 2023-2026 (5-yr file, 2026 through October) 52,471 rows, 16,273 allowed (31.0%). Both classes present in every one of the 11 decision years (yearly allow rate 27.0%-34.6%, no drift). Positives are independent appeal events; the main clustering is by LPA (376-379 distinct) and by linked cases (Link Status/Lead Case present, 0 duplicate case numbers within each file) - an LPA-clustered bootstrap interval is planned for the reference comparison. Cross-file dedup must key on the composite (Type of Casework, LPA Name, Received/Valid/Decision dates, Decision) because the Older Casework Data reference numbers are explicitly NOT linkable to Casework Database case numbers (publisher-documented).",
+    "status": "ready",
+    "target": "Binary from the publisher's Decision field (documented data quality 'Good'): positive = 'Allowed', negative = 'Dismissed'. Pre-specified eligibility rule: labelled population = s78_core casework types with Decision in {Allowed, Dismissed}; 'Split Decision' (1,350 5-yr / 1,440 older, all types) and 'Allowed in part' rows are excluded from the core task rather than coerced (recorded masses; a variant may map split->positive). Excluded outcomes (measured, all types): Unknown 3,186+1,969, No Decision Code Associated 148+72, Invalid 237+136, Turned Away 9+11, Appeal Withdrawn 243+169, missing 178+600. Enforcement/RoW/TPO/high-hedges casework uses a different outcome vocabulary (Notice upheld / varied and upheld / quashed) and is out of scope. Censoring is stated: the database contains DECIDED cases only (publisher: in-progress, withdrawn and turned-away cases are not included), so the population is outcome-conditioned by construction; the task is 'among validated appeals that reach a PINS decision, which succeed', not 'among all validated appeals'. Decision and Decision Date columns are excluded from shipped features."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "EU",
     "domain": "EU food and feed safety rapid alerts / notification risk classification",
     "id": "rasff-notification-risk-decision",
@@ -9398,7 +9633,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 92.1,
+    "age_hours": 93.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -10535,7 +10770,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 12.5,
+     "age_hours": 13.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -10949,7 +11184,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 49.5,
+     "age_hours": 50.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11237,7 +11472,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 12.5,
+     "age_hours": 13.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -11651,7 +11886,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 49.5,
+     "age_hours": 50.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11937,7 +12172,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 92.1,
+     "age_hours": 93.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12149,7 +12384,7 @@
    ],
    "pending": [
     {
-     "age_hours": 92.1,
+     "age_hours": 93.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12374,7 +12609,7 @@
    "DE": 2,
    "EU": 12,
    "FR": 2,
-   "GB": 12,
+   "GB": 14,
    "GH": 1,
    "HK": 2,
    "ID": 3,
@@ -12399,7 +12634,7 @@
   "by_region": {
    "Africa": 11,
    "East Asia": 9,
-   "Europe": 27,
+   "Europe": 29,
    "International organisations": 13,
    "Latin America": 10,
    "North America": 24,
@@ -12407,17 +12642,17 @@
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 46,
+   "dropped": 47,
    "investigating": 16,
    "packaged": 3,
    "parked": 29,
    "published": 11,
-   "ready": 11
+   "ready": 12
   },
-  "candidates": 116,
-  "live": 41,
-  "live_non_us": 35,
-  "live_non_us_share": 0.854,
+  "candidates": 118,
+  "live": 42,
+  "live_non_us": 36,
+  "live_non_us_share": 0.857,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -12439,10 +12674,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-31T15:50:02.118400+00:00",
+    "last_run_at": "2026-10-31T16:50:02.067688+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-31T16:00:00+00:00",
+    "next_run_at": "2026-10-31T17:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -12463,10 +12698,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-31T15:50:01.035257+00:00",
+    "last_run_at": "2026-10-31T16:25:01.012670+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-31T15:55:00+00:00",
+    "next_run_at": "2026-10-31T16:35:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12487,10 +12722,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-31T15:49:27.832481+00:00",
+    "last_run_at": "2026-10-31T16:49:47.130094+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-31T15:54:27.832481+00:00",
+    "next_run_at": "2026-10-31T16:54:47.130094+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -12499,10 +12734,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-31T15:50:01.279666+00:00",
+    "last_run_at": "2026-10-31T16:50:01.168309+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-31T15:55:00+00:00",
+    "next_run_at": "2026-10-31T16:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12523,10 +12758,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-31T14:50:43.738643+00:00",
+    "last_run_at": "2026-10-31T15:50:43.367953+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-31T16:50:00+00:00",
+    "next_run_at": "2026-10-31T17:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -12535,10 +12770,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-31T14:55:01.006179+00:00",
+    "last_run_at": "2026-10-31T15:55:00.738222+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-31T15:55:00+00:00",
+    "next_run_at": "2026-10-31T16:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -12579,29 +12814,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-31T15:50:02.119554+00:00"
+  "updated_at": "2026-10-31T16:50:02.068663+00:00"
  },
- "generated_at": "2026-10-31T15:50:01+00:00",
+ "generated_at": "2026-10-31T16:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 116
+   "passing": 118
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-31T15:46:23Z",
-   "head_sha": "ff1b408",
+   "created_at": "2026-10-31T16:24:25Z",
+   "head_sha": "5c1bc3f",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41216438351"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41219531886"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 35/41 (85%)"
+   "summary": "live non-US: 36/42 (86%)"
   },
   "head": {
-   "at": "2026-10-31T14:57:16Z",
-   "sha": "ff1b408",
-   "subject": "acnc diag-002 follow-up: corrected the record job entry's elapsed_seconds 172.5 -> 152.2 to match the collected result.j"
+   "at": "2026-10-31T16:24:14Z",
+   "sha": "5c1bc3f",
+   "subject": "UK discovery tick 2026-10-31: pins-planning-appeal-outcome READY (OGL v3.0, 186,785 measured decided appeals 2016-2026, "
   },
   "tests": {
    "count": "690",
@@ -14848,13 +15083,23 @@
    "qualified": 0,
    "sessions_7d": 72,
    "tokens_7d": 35903725
+  },
+  {
+   "at": "2026-10-31T16:50:01+00:00",
+   "live": 16,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 74,
+   "tokens_7d": 36201476
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 1199s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T15:50:01+00:00",
+   "as_of": "2026-10-31T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -14864,7 +15109,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T15:50:01+00:00",
+   "as_of": "2026-10-31T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -14874,7 +15119,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T15:50:01+00:00",
+   "as_of": "2026-10-31T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -17419,7 +17664,7 @@
   "jobs_total": 155,
   "lifetime_eur": 3.58,
   "live": {
-   "checked_at": "2026-10-31T15:50:33+00:00",
+   "checked_at": "2026-10-31T16:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -17446,22 +17691,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 1,
+  "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 1537.9,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "exit 1",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "2617a8c101600f67fc2b3112d1cdf8651d2c3f55eb03475b54041873afb69467",
-    "ts": "2026-10-31T10:25:39.443791+00:00"
-   },
    {
     "elapsed_seconds": 617.0,
     "event": "session",
@@ -17530,8 +17761,21 @@
     "run_budget": 900,
     "submitted_brief_sha256": "89f8ff31cbe792435f0abafe6bc3b989cb28fce67f9c4e05ff06c0d3ddd91db6",
     "ts": "2026-10-31T14:59:12.737722+00:00"
+   },
+   {
+    "elapsed_seconds": 1608.7,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "9ebd9d643b4b7b8defb38c06de9d84c0d8bef76f45a75f72d757502913d47cd2",
+    "ts": "2026-10-31T16:26:51.404232+00:00"
    }
   ],
-  "total": 36
+  "total": 37
  }
 }
