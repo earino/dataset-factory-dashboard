@@ -1,8 +1,8 @@
 {
  "alarms": [
-  "Token use at 91% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 94.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (51.5h)"
+  "Token use at 92% of the weekly ceiling",
+  "unhcr-refugee-data-finder has been packaged and actionable for 95.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (52.5h)"
  ],
  "budget": {
   "config": {
@@ -20,14 +20,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-31T17:50:03.085776+00:00",
+   "moment": "2026-10-31T18:50:02.861951+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 36365459,
-   "runs_last_7_days": 75,
-   "runs_weighted_last_7_days": 90,
+   "research_tokens_last_7_days": 36654798,
+   "runs_last_7_days": 77,
+   "runs_weighted_last_7_days": 92,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 15,
    "usage": {
@@ -53,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 10427,
+     "calls": 10538,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 45294853,
-     "output_tokens": 9419761,
+     "input_tokens": 45499932,
+     "output_tokens": 9504021,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -5647,7 +5647,7 @@
     "target": "Binary. Positive: >=1 reference-satellite detection with event timestamp in [D+1 00:00, D+8 00:00) located in municipality m; negative: zero such detections. Label source: the same detection rows (data_pas timestamp + municipio/estado name) that feed the feature history - construction derives the label from event-time windows and must not ship any row with event time > D in feature columns (the label column is a derived aggregate, never a carried source column). Population: all Brazilian municipalities (5570 IBGE codes; ref-era files key by name - construction maps names to IBGE codes and asserts the mapping is total over the detection rows). Conditioning: evaluated pairs are municipality-days with zero detections in [D-13, D] (onset-conditioned; raw-pair variant recorded for comparison)."
    },
    {
-    "age_hours": 14.5,
+    "age_hours": 15.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -7769,7 +7769,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 51.5,
+    "age_hours": 52.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8768,6 +8768,16 @@
       "at": null,
       "id": "pins-planning-baseline-001",
       "status": "failed"
+     },
+     {
+      "at": null,
+      "id": "pins-planning-002",
+      "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": "pins-planning-baseline-002",
+      "status": "succeeded"
      }
     ],
     "licence_summary": {
@@ -8776,6 +8786,60 @@
      "status": null
     },
     "measurements": {
+     "baseline_2026_10_31_pins_planning_baseline_002": {
+      "command": "sh scripts/scout-factory worker plan/launch .factory/jobs/pins-planning-baseline-002/job.json (bundle pins-planning-baseline, qualification.json replaced with the 002 report)",
+      "contract": {
+       "runner_unmodified": true,
+       "train_py_eval_auc": 0.6108,
+       "validate_sh": "CONTRACT OK, same 0.6108"
+      },
+      "headroom_reading": "every paired interval excludes zero on both row-level and LPA-clustered protocols: demonstrated headroom over every measured simple reference under this protocol (persistence 0.5045, identity/LPA rate 0.5414, procedure rate 0.5551, degenerate calendar control). The model AUC may not be quoted without these comparisons beside it",
+      "holdout_opened": false,
+      "model_eval_auc": 0.6108489948647478,
+      "paired_vs_lpa_hist": {
+       "diff": 0.06940797852218739,
+       "lpa_cluster_ci95": [
+        0.0597079992007401,
+        0.079216870767996
+       ],
+       "row_ci95": [
+        0.06221382066459791,
+        0.07659881935671231
+       ]
+      },
+      "paired_vs_procedure_type": {
+       "diff": 0.05578827415421772,
+       "lpa_cluster_ci95": [
+        0.04621657112389288,
+        0.06537236597230933
+       ],
+       "row_ci95": [
+        0.046661949591588536,
+        0.06261963717752905
+       ]
+      },
+      "paired_vs_shipped_rate_feature": {
+       "diff": 0.06860682121043438,
+       "lpa_cluster_ci95": [
+        0.05963823748448373,
+        0.07997558183755316
+       ],
+       "row_ci95": [
+        0.061863579560411885,
+        0.07555217878137621
+       ]
+      },
+      "references_eval_auc": {
+       "calendar_identity": "0.5414410163425604 - degenerate: collapsed onto lpa_hist_rate exactly (eval years have no train-era support), recorded as such",
+       "lpa_hist_rate": 0.5414410163425604,
+       "majority_class_accuracy_this_split": 0.6986549957301452,
+       "persistence_last_outcome": 0.504458138089444,
+       "procedure_type_rate": 0.55506072071053,
+       "shipped_rate_feature": 0.5422421736543134
+      },
+      "staging_release": 430112422,
+      "what": "runner-contract baseline + paired model-vs-reference intervals, identical 28,104 eval rows"
+     },
      "build_2026_10_31_pins_planning_001": {
       "artifact_bytes": {
        "meta.json": 2518,
@@ -9002,9 +9066,47 @@
         "2021": 10199
        }
       }
+     },
+     "rebuild_2026_10_31_pins_planning_002": {
+      "artifact_version": "c861bd8f4acd9bbe267bdb58e1168996fdb359c540aaf4030030a632d693c527",
+      "byte_delta_vs_001": "train.csv + holdout.csv sha256-identical; eval.csv differs only in the 6 prose cells (now missing); quality.json + categorical_coding block; meta.json identical",
+      "command": "sh scripts/scout-factory worker plan/launch .factory/jobs/pins-planning-002/job.json (assemble-job.py bundle, commit d6a51a0 pre-launch)",
+      "gate": "1.5.0, failed_checks empty, --accept ACCEPTED on the worker over the full artifact",
+      "probe": {
+       "predict_on_category_dtype": "ok",
+       "reading": "001's rejection message listed the nine category columns, but category dtypes are accepted at predict; the object-dtype floor_space_sqm column was the only breaker, fixed by num() mapping prose to missing",
+       "subtests": {
+        "fit": "fit ok",
+        "predict_seen_levels": "ok",
+        "predict_unseen_level_nan": "ok"
+       },
+       "versions": {
+        "numpy": "2.5.4",
+        "pandas": "2.3.3",
+        "python": "3.13.18",
+        "xgboost": "3.4.1"
+       }
+      },
+      "references_reproduce_001_exactly": true,
+      "split_stats": {
+       "eval": [
+        28104,
+        8469
+       ],
+       "holdout": [
+        56326,
+        17705
+       ],
+       "train": [
+        54834,
+        17048
+       ]
+      },
+      "staging_release": 430108320,
+      "what": "the single permitted rebuild; worker-side category-predict probe + rebuilt artifact"
      }
     },
-    "next_action": "BASELINE FAILED AT THE RUNNER CONTRACT 2026-10-31 (job pins-planning-baseline-001, diagnosed, receipts preserved in staging release 430077841): the accepted art",
+    "next_action": "RUNNER CONTRACT VERIFIED 2026-10-31 (jobs pins-planning-002 + pins-planning-baseline-002, both succeeded, both destroyed with provider 404 read-back): the singl",
     "packaged_at": null,
     "path": "candidates/pins-planning-appeal-outcome/record.json",
     "prediction_time": "00:00 Europe/London on the appeal's Valid Date (the date PINS validated the case; present on 100% of the 186,785 measured decided rows). All outcome events (case start, allocation, hearing/inquiry, decision) postdate the instant; measured valid->decision lag is 91-365 days for 74% of cases. Every feature field is recorded from the appeal submission/registration and is documented by the publisher with a per-field data-quality grade (Appeals Data: Data notes and guidance). Post-instant fields are excluded by contract: Inspector Name (allocation after validation; publisher also warns apparent per-inspector outcome patterns are allocation artefacts), Start Date, Jurisdiction (mutable by recovery/derecovery), Date Recovered / Date Not Recovered / Call In Date, Redetermined, Bespoke, and the Decision/Decision Date columns themselves. Costs Applied for Indicator is treated as verify-at-construction (a costs application can be lodged after validation). This is a fixed RETROSPECTIVE benchmark over the current published files: the publisher revises the rolling database between editions ('data can change between different publications of this data set'), so historical operational as-of claims would need vintage evidence beyond this record (the update log documents monthly-to-quarterly publication since March 2018, so web-archive vintages are provable if a historical-availability claim is ever wanted).",
@@ -9733,7 +9835,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 94.1,
+    "age_hours": 95.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -10870,7 +10972,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 14.5,
+     "age_hours": 15.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -11284,7 +11386,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 51.5,
+     "age_hours": 52.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11572,7 +11674,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 14.5,
+     "age_hours": 15.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -11986,7 +12088,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 51.5,
+     "age_hours": 52.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12272,7 +12374,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 94.1,
+     "age_hours": 95.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12484,7 +12586,7 @@
    ],
    "pending": [
     {
-     "age_hours": 94.1,
+     "age_hours": 95.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12774,10 +12876,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-31T17:50:01.650585+00:00",
+    "last_run_at": "2026-10-31T18:50:02.392278+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-31T18:00:00+00:00",
+    "next_run_at": "2026-10-31T19:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -12798,10 +12900,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-31T17:50:01.594224+00:00",
+    "last_run_at": "2026-10-31T18:50:01.222635+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-31T17:55:00+00:00",
+    "next_run_at": "2026-10-31T18:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12822,10 +12924,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-31T17:45:42.115329+00:00",
+    "last_run_at": "2026-10-31T18:46:43.283899+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-31T17:50:42.115329+00:00",
+    "next_run_at": "2026-10-31T18:51:43.283899+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -12834,10 +12936,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-31T17:50:00.971892+00:00",
+    "last_run_at": "2026-10-31T18:50:01.464938+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-31T17:55:00+00:00",
+    "next_run_at": "2026-10-31T18:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12858,10 +12960,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-31T16:51:34.922316+00:00",
+    "last_run_at": "2026-10-31T17:50:44.771083+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-31T18:50:00+00:00",
+    "next_run_at": "2026-10-31T19:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -12870,10 +12972,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-31T16:55:01.620262+00:00",
+    "last_run_at": "2026-10-31T17:55:00.782662+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-31T17:55:00+00:00",
+    "next_run_at": "2026-10-31T18:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -12914,9 +13016,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-31T17:50:01.651594+00:00"
+  "updated_at": "2026-10-31T18:50:02.393345+00:00"
  },
- "generated_at": "2026-10-31T17:50:01+00:00",
+ "generated_at": "2026-10-31T18:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -12924,22 +13026,22 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-31T17:31:28Z",
-   "head_sha": "f35352b",
+   "created_at": "2026-10-31T18:36:19Z",
+   "head_sha": "05b5025",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41224937720"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41230230370"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 36/42 (86%)"
   },
   "head": {
-   "at": "2026-10-31T17:31:25Z",
-   "sha": "f35352b",
-   "subject": "worker ledger: pins-planning-001 (succeeded, server 173804615, EUR 0.04 reserved) and pins-planning-baseline-001 (failed"
+   "at": "2026-10-31T18:36:16Z",
+   "sha": "05b5025",
+   "subject": "pins runner contract verified end to end (jobs pins-planning-002 + pins-planning-baseline-002, both succeeded and destro"
   },
   "tests": {
-   "count": "690",
+   "count": "697",
    "ok": true
   }
  },
@@ -15199,13 +15301,21 @@
    "qualified": 0,
    "sessions_7d": 75,
    "tokens_7d": 36365459
+  },
+  {
+   "at": "2026-10-31T18:50:01+00:00",
+   "live": 16,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 77,
+   "tokens_7d": 36654798
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T17:50:01+00:00",
+   "as_of": "2026-10-31T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -15215,7 +15325,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T17:50:01+00:00",
+   "as_of": "2026-10-31T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -15225,7 +15335,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T17:50:01+00:00",
+   "as_of": "2026-10-31T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -15862,7 +15972,7 @@
      "lo": 0.002
     },
     {
-     "count": 44,
+     "count": 46,
      "hi": 0.01,
      "lo": 0.005
     },
@@ -15898,11 +16008,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0139,
-   "n": 157,
+   "median": 0.0136,
+   "n": 159,
    "p90": 0.0569,
    "ref_rate": 0.06924,
-   "total": 4.78
+   "total": 4.79
   },
   "jobs": [
    {
@@ -17514,6 +17624,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-10-31T18:20:31.099725+00:00",
+    "deleted_at": "2026-10-31T18:26:05.386179+00:00",
+    "eur": 0.0011,
+    "hours": 0.093,
+    "id": "pins-planning-002",
+    "location": "hel1",
+    "normalised_eur": 0.0064,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-10-31T17:20:53.680614+00:00",
     "deleted_at": "2026-10-31T17:29:55.753411+00:00",
     "eur": 0.0017,
@@ -17521,6 +17643,18 @@
     "id": "pins-planning-baseline-001",
     "location": "hel1",
     "normalised_eur": 0.0105,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-31T18:26:52.128725+00:00",
+    "deleted_at": "2026-10-31T18:33:08.438656+00:00",
+    "eur": 0.0012,
+    "hours": 0.105,
+    "id": "pins-planning-baseline-002",
+    "location": "hel1",
+    "normalised_eur": 0.0073,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -17790,18 +17924,18 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 116,
-  "jobs_total": 157,
+  "jobs_this_month": 118,
+  "jobs_total": 159,
   "lifetime_eur": 3.59,
   "live": {
-   "checked_at": "2026-10-31T17:50:33+00:00",
+   "checked_at": "2026-10-31T18:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 35.1,
+  "month_hours": 35.3,
   "month_to_date": 1.15,
   "months": [
    {
@@ -17811,9 +17945,9 @@
     "month": "2026-09"
    },
    {
-    "eur": 1.1455,
-    "hours": 35.14,
-    "jobs": 116,
+    "eur": 1.1478,
+    "hours": 35.34,
+    "jobs": 118,
     "month": "2026-10"
    }
   ],
@@ -17823,33 +17957,6 @@
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 2880.8,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "exit 1",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "6bd3c17101d13ac06b0fb58dd84a965dc286e0c10dd15034319dfce75b802484",
-    "ts": "2026-10-31T12:48:01.972669+00:00"
-   },
-   {
-    "elapsed_seconds": 3097.2,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "4e32b1fabfda25c86959759344b2b3c6a0a3bc7d23262143e294e8402f4db0bd",
-    "ts": "2026-10-31T14:51:40.474447+00:00"
-   },
    {
     "elapsed_seconds": 344.1,
     "event": "session",
@@ -17904,8 +18011,36 @@
     "run_budget": 900,
     "submitted_brief_sha256": "c98e1e74f805a44a062e30001390bfad69d1239954d55d11a1a4ba6d2707bfae",
     "ts": "2026-10-31T17:40:40.458712+00:00"
+   },
+   {
+    "elapsed_seconds": 2249.6,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "60d56880c6212801c25b103b297c4c9c3773f314be53a8a35091b10b419669ed",
+    "ts": "2026-10-31T18:37:34.501609+00:00"
+   },
+   {
+    "elapsed_seconds": 347.1,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "126c3078c3df112eea33910eb171c7449f6b9bc2c29111fedb98c3392be4a362",
+    "ts": "2026-10-31T18:46:43.237926+00:00"
    }
   ],
-  "total": 39
+  "total": 40
  }
 }
