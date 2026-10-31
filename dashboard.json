@@ -1,11 +1,8 @@
 {
  "alarms": [
-  "scout-worker-watch last status error (streak 1)",
   "Token use at 94% of the weekly ceiling",
-  "Test suite is failing",
-  "check-candidate --all is failing",
-  "unhcr-refugee-data-finder has been packaged and actionable for 99.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (56.5h)",
+  "unhcr-refugee-data-finder has been packaged and actionable for 100.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (57.5h)",
   "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
  ],
  "budget": {
@@ -23,15 +20,13 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-10-31T22:50:03.267359+00:00",
+   "allowed": true,
+   "moment": "2026-10-31T23:50:02.967906+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 131s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 37596001,
+   "research_tokens_last_7_days": 37631330,
    "runs_last_7_days": 81,
    "runs_weighted_last_7_days": 96,
    "session_cap_per_week": 200,
@@ -59,14 +54,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 10749,
+     "calls": 10773,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 46261971,
-     "output_tokens": 9683185,
+     "input_tokens": 46277602,
+     "output_tokens": 9702883,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -5793,7 +5788,7 @@
     "target": "Binary. Positive: >=1 reference-satellite detection with event timestamp in [D+1 00:00, D+8 00:00) located in municipality m; negative: zero such detections. Label source: the same detection rows (data_pas timestamp + municipio/estado name) that feed the feature history - construction derives the label from event-time windows and must not ship any row with event time > D in feature columns (the label column is a derived aggregate, never a carried source column). Population: all Brazilian municipalities (5570 IBGE codes; ref-era files key by name - construction maps names to IBGE codes and asserts the mapping is total over the detection rows). Conditioning: evaluated pairs are municipality-days with zero detections in [D-13, D] (onset-conditioned; raw-pair variant recorded for comparison)."
    },
    {
-    "age_hours": 19.5,
+    "age_hours": 20.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -7915,7 +7910,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 56.5,
+    "age_hours": 57.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8899,7 +8894,7 @@
     "target": "Not applicable - no task exists for this source."
    },
    {
-    "age_hours": 0.2,
+    "age_hours": 1.2,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -10005,7 +10000,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 99.1,
+    "age_hours": 100.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -11142,7 +11137,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 19.5,
+     "age_hours": 20.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -11556,7 +11551,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 56.5,
+     "age_hours": 57.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11844,7 +11839,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 19.5,
+     "age_hours": 20.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -12258,7 +12253,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 56.5,
+     "age_hours": 57.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12544,7 +12539,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 0.2,
+     "age_hours": 1.2,
      "awaiting_operator": false,
      "baseline": {},
      "country": "GB",
@@ -12962,7 +12957,7 @@
      "target": "Binary from the publisher's Decision field (documented data quality 'Good'): positive = 'Allowed', negative = 'Dismissed'. Pre-specified eligibility rule: labelled population = s78_core casework types with Decision in {Allowed, Dismissed}; 'Split Decision' (1,350 5-yr / 1,440 older, all types) and 'Allowed in part' rows are excluded from the core task rather than coerced (recorded masses; a variant may map split->positive). Excluded outcomes (measured, all types): Unknown 3,186+1,969, No Decision Code Associated 148+72, Invalid 237+136, Turned Away 9+11, Appeal Withdrawn 243+169, missing 178+600. Enforcement/RoW/TPO/high-hedges casework uses a different outcome vocabulary (Notice upheld / varied and upheld / quashed) and is out of scope. Censoring is stated: the database contains DECIDED cases only (publisher: in-progress, withdrawn and turned-away cases are not included), so the population is outcome-conditioned by construction; the task is 'among validated appeals that reach a PINS decision, which succeed', not 'among all validated appeals'. Decision and Decision Date columns are excluded from shipped features."
     },
     {
-     "age_hours": 99.1,
+     "age_hours": 100.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13174,7 +13169,7 @@
    ],
    "pending": [
     {
-     "age_hours": 0.2,
+     "age_hours": 1.2,
      "awaiting_operator": false,
      "baseline": {},
      "country": "GB",
@@ -13592,7 +13587,7 @@
      "target": "Binary from the publisher's Decision field (documented data quality 'Good'): positive = 'Allowed', negative = 'Dismissed'. Pre-specified eligibility rule: labelled population = s78_core casework types with Decision in {Allowed, Dismissed}; 'Split Decision' (1,350 5-yr / 1,440 older, all types) and 'Allowed in part' rows are excluded from the core task rather than coerced (recorded masses; a variant may map split->positive). Excluded outcomes (measured, all types): Unknown 3,186+1,969, No Decision Code Associated 148+72, Invalid 237+136, Turned Away 9+11, Appeal Withdrawn 243+169, missing 178+600. Enforcement/RoW/TPO/high-hedges casework uses a different outcome vocabulary (Notice upheld / varied and upheld / quashed) and is out of scope. Censoring is stated: the database contains DECIDED cases only (publisher: in-progress, withdrawn and turned-away cases are not included), so the population is outcome-conditioned by construction; the task is 'among validated appeals that reach a PINS decision, which succeed', not 'among all validated appeals'. Decision and Decision Date columns are excluded from shipped features."
     },
     {
-     "age_hours": 99.1,
+     "age_hours": 100.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13882,10 +13877,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-31T22:50:02.403298+00:00",
+    "last_run_at": "2026-10-31T23:50:02.498525+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-31T23:00:00+00:00",
+    "next_run_at": "2026-11-01T00:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -13906,10 +13901,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-31T22:50:00.834990+00:00",
+    "last_run_at": "2026-10-31T23:50:02.140030+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-31T22:55:00+00:00",
+    "next_run_at": "2026-10-31T23:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13927,13 +13922,13 @@
    },
    {
     "enabled": true,
-    "failure_streak": 1,
+    "failure_streak": 0,
     "id": "98b45d983280",
-    "last_error": "Script exited with code 124\nstdout:\nScout research session killed by the wrapper after the run budget elapsed after 1200.1s",
-    "last_run_at": "2026-10-31T22:42:50.262155+00:00",
-    "last_status": "error",
+    "last_error": "",
+    "last_run_at": "2026-10-31T23:48:01.068881+00:00",
+    "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-31T22:52:51.790890+00:00",
+    "next_run_at": "2026-10-31T23:53:01.068881+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -13942,10 +13937,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-31T22:50:01.597833+00:00",
+    "last_run_at": "2026-10-31T23:50:02.724351+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-31T22:55:00+00:00",
+    "next_run_at": "2026-10-31T23:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13966,10 +13961,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-31T21:50:44.082529+00:00",
+    "last_run_at": "2026-10-31T22:50:44.418762+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-31T23:50:00+00:00",
+    "next_run_at": "2026-11-01T00:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -13978,10 +13973,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-31T21:55:01.396666+00:00",
+    "last_run_at": "2026-10-31T22:55:01.225177+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-31T22:55:00+00:00",
+    "next_run_at": "2026-10-31T23:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14022,33 +14017,33 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-31T22:50:02.404346+00:00"
+  "updated_at": "2026-10-31T23:50:02.725625+00:00"
  },
- "generated_at": "2026-10-31T22:50:02+00:00",
+ "generated_at": "2026-10-31T23:50:01+00:00",
  "health": {
   "checks": {
-   "ok": false,
-   "passing": 118
+   "ok": true,
+   "passing": 119
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-31T20:30:55Z",
-   "head_sha": "83350bd",
+   "created_at": "2026-10-31T23:27:33Z",
+   "head_sha": "730ec11",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41239251114"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41252612765"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 37/43 (86%)"
   },
   "head": {
-   "at": "2026-10-31T20:30:52Z",
-   "sha": "83350bd",
-   "subject": "canadabuys-tender-cancellation opened (Canada discovery tick): pre-award solicitation-cancellation task on PSPC CanadaBu"
+   "at": "2026-10-31T22:59:44Z",
+   "sha": "730ec11",
+   "subject": "pins close-out CI fix: artifacts[0] gained the machine-readable destination (destination github, repo earino/pins-planni"
   },
   "tests": {
    "count": "697",
-   "ok": false
+   "ok": true
   }
  },
  "history": [
@@ -16347,15 +16342,21 @@
    "qualified": 0,
    "sessions_7d": 81,
    "tokens_7d": 37596001
+  },
+  {
+   "at": "2026-10-31T23:50:01+00:00",
+   "live": 17,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 81,
+   "tokens_7d": 37631330
   }
  ],
- "notices": [
-  "A research session is running: lock held for 131s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T22:50:02+00:00",
+   "as_of": "2026-10-31T23:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -16365,7 +16366,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T22:50:02+00:00",
+   "as_of": "2026-10-31T23:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -16375,7 +16376,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T22:50:02+00:00",
+   "as_of": "2026-10-31T23:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -19028,7 +19029,7 @@
   "jobs_total": 161,
   "lifetime_eur": 3.62,
   "live": {
-   "checked_at": "2026-10-31T22:50:34+00:00",
+   "checked_at": "2026-10-31T23:50:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -19057,20 +19058,6 @@
  "sessions": {
   "failed_last_three": 2,
   "recent": [
-   {
-    "elapsed_seconds": 339.2,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "c98e1e74f805a44a062e30001390bfad69d1239954d55d11a1a4ba6d2707bfae",
-    "ts": "2026-10-31T17:40:40.458712+00:00"
-   },
    {
     "elapsed_seconds": 2249.6,
     "event": "session",
@@ -19139,6 +19126,20 @@
     "run_budget": 900,
     "submitted_brief_sha256": "0dbaab0c0593e224922c2a0587c4af65c63917a5cc65bf1a1e35971454eb4b32",
     "ts": "2026-10-31T22:42:50.216221+00:00"
+   },
+   {
+    "elapsed_seconds": 895.3,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "0dbaab0c0593e224922c2a0587c4af65c63917a5cc65bf1a1e35971454eb4b32",
+    "ts": "2026-10-31T23:02:47.705334+00:00"
    }
   ],
   "total": 40
