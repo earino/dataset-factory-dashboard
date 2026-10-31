@@ -1,8 +1,9 @@
 {
  "alarms": [
-  "Token use at 89% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 90.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (47.5h)",
+  "scout-research-session missed its window (2026-10-31T14:05:00+00:00); last status ok",
+  "Token use at 90% of the weekly ceiling",
+  "unhcr-refugee-data-finder has been packaged and actionable for 91.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (48.5h)",
   "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
  ],
  "budget": {
@@ -20,15 +21,17 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-10-31T13:50:03.079817+00:00",
+   "allowed": false,
+   "moment": "2026-10-31T14:50:02.596632+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 3000s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 35702496,
-   "runs_last_7_days": 70,
-   "runs_weighted_last_7_days": 85,
+   "research_tokens_last_7_days": 35867230,
+   "runs_last_7_days": 71,
+   "runs_weighted_last_7_days": 86,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 15,
    "usage": {
@@ -54,14 +57,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 10129,
+     "calls": 10214,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 44902370,
-     "output_tokens": 9149281,
+     "input_tokens": 45009293,
+     "output_tokens": 9207092,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -1456,6 +1459,11 @@
       "at": null,
       "id": "acnc-diag-001",
       "status": "failed"
+     },
+     {
+      "at": null,
+      "id": "acnc-diag-002",
+      "status": "succeeded"
      }
     ],
     "licence_summary": {
@@ -1480,6 +1488,13 @@
       "eval_references_post_acceptance": "scope: eval rows only (80,298), holdout sealed; every figure measured on the accepted bytes after --accept by score.py, whose invocation is in container.log (lines 703-714 of the fetched copy): persistence_momentum AUC 0.70061 (Brier 4,485.08 - not meaningful, the momentum score is on a days scale, not a probability), persistence_flag AUC 0.67102 (Brier 0.24598), identity/history rate AUC 0.68907 (Brier 0.21747), calendar/size rate AUC 0.56768 (Brier 0.19111), majority-class accuracy 0.74180 (fitted on train, measured against this split's labels), global_rate recorded as a degenerate constant control (AUC null, no ranking information). Paired differences on the same rows (150 resamples, resampler_alignment_ok on all three): momentum vs calendar +0.13293 [0.12746, 0.13909]; flag vs calendar +0.10334 [0.09810, 0.10870]; flag vs identity -0.01805 [-0.02228, -0.01428]. Per-target-year: momentum 0.69264 (2022) / 0.70832 (2023); both years carry both classes.",
       "triad_status": "persistence and the simple controls are measured; the full model is NOT computed yet. No headroom may be interpreted until the harness runner baseline job (train.py/validate.py verbatim, eval-only, holdout sealed) supplies the third leg, and it must be reported beside persistence_momentum 0.70061 - a model below it is a recorded defect, not a finding.",
       "verified_artifact": "accepted artifact 70b7e7175ad45c8ad831c6246c3f33291e4874d0471094b4e183979ab295cabd (gate 1.5.0, 45 checks 0 failed; exact-byte acceptance printed on the worker before any figure existed). Splits as built: train 2020-2021 76,747 rows / 22,989 positives (29.95%), eval 2022-2023 80,298 / 20,733 (25.82%), holdout 2024 42,519 / 10,936 (25.72%); exclusions: group heads 1,375, group members 317, prior-missing-dates 43,248, prior-received-after-T 16,415. Evidence: .factory/acnc-002/reports/ and private staging release 429782089."
+     },
+     "diag_2026_10_31_acnc_diag_002": {
+      "decisive_comparison": "on the identical 80,298 eval rows (target years 2022-2023, 20,733 positives): full model 0.68619 vs persistence_momentum 0.70061, observed difference -0.014423, paired row-level bootstrap CI [-0.018278, -0.010296] and charity-cluster (whole-abn, 44,003 charities) CI [-0.018129, -0.010103], BOTH excluding zero on the deficit side - the model is significantly WORSE than the dominant simple reference under both the row-level and the dependence-aware protocols. Model vs identity/history rate -0.002884, CI [-0.007222, 0.002286] contains zero: inconclusive, not parity. Model vs persistence_flag +0.015170, CI [0.010673, 0.018333]; model vs calendar/size rate +0.118511, CI [0.11268, 0.12399]. 150 resamples, seed 31, the construction references' own protocol; the resampler canary reproduced acnc-002's momentum-vs-calendar interval (recomputed [0.127233, 0.138315] vs recorded [0.12746, 0.13909]).",
+      "figures_are": "measured on the worker against the accepted bytes; commands are run.sh + diag.py in candidates/acnc-charity-ais-deadline-compliance/diag/, outputs in .factory/acnc-diag-002/reports/ and the collected result.json; per-row bulk evidence in private staging release 429980362.",
+      "per_target_year": "model AUC/Brier 2022: 0.61938/0.22456 vs momentum 0.69264 (model trails); 2023: 0.75859/0.16735 vs momentum 0.70832 (model leads). The pooled deficit conceals opposite-signed per-year gaps - recorded as a structural observation (no post-hoc re-scoring; the pooled comparison on identical rows was pre-specified and stands).",
+      "verdict": "NO demonstrated headroom under this protocol, now interval-supported: the model significantly trails the dominant simple reference (persistence_momentum) on the same rows under both the row-level and the dependence-aware charity-cluster protocols. The model AUC may never be quoted without this comparison. Remaining paths per dataset-qualification: drop the candidate preserving this negative finding, or re-scope to a substantively useful change/onset target as a NEW task instance with its own discovery, novelty sweep, qualification and triad - persistence dominance does not guarantee headroom there either; a rebuild of this construction is not among the paths (the one rebuild was spent on acnc-002, the one recovery on acnc-diag-002).",
+      "verified_artifact": "the same accepted artifact 70b7e7175ad45c8a... (gate 1.5.0): re-accepted on the worker from the fetched staging bytes before any number existed (accept.log ACCEPTED); materialize public-only, the holdout was never read; runner files bundled sha256 == expected (unmodified benchmark checkout)."
      },
      "due_date_policy_measured": "Offset from period end to recorded due date: 2024 file +7 months for 31,454 rows (all June-end periods, Commissioner-extended 31 January deadline) and +6 months for 14,127 (December-end, 30 June deadline); 2019 file +7 for 25,042 and +8 for 10,794 (May-end periods). The publisher's own 'ais due date' field is the operative deadline and varies with announced extensions - the label must use the recorded field, never a fixed rule",
      "eligible_frame_and_label_counts_2026_10_31": {
@@ -1520,7 +1535,7 @@
       "Schema drift: 2019 file has 167 columns including address/state and activity/beneficiary flags; 2020-2024 files (91-97 columns) drop address - location features for recent years come only from the register (current-vintage) or must be dropped; per-year 'Explanatory notes' PDFs are the publisher's column documentation"
      ]
     },
-    "next_action": "BASELINE TRIAD LEG DONE, MODEL TRAILS PERSISTENCE (follow-up runner 2026-10-31 10:35Z, watcher events acnc-baseline-001 + acnc-diag-001, same research mutex). a",
+    "next_action": "TRIAD COMPLETE WITH INTERVAL-SUPPORTED NEGATIVE FINDING (advancement session 2026-10-31, job acnc-diag-002, the single permitted recovery of acnc-diag-001): the",
     "packaged_at": null,
     "path": "candidates/acnc-charity-ais-deadline-compliance/record.json",
     "prediction_time": "Per-charity instant T = (the publisher-recorded 'ais due date' for the charity's period-Y AIS) minus 90 days. The due date is fixed by policy at six months after the reporting-period end (ACNC due-dates page), with the Commissioner's standing extension for standard 1 July-30 June periods to the following 31 January recorded in-file (measured: period ends 30/06/2023 carry due date 31/01/2024; 31/12/2024 carry 30/06/2025). Eligibility: the charity's period-(Y-1) AIS row exists with 'date ais received' <= T, and the charity is not listed as a member of an ACNC reporting group for period Y (group members lodge via their head entity; measured 2024: only 5 of 1,315 group-member ABNs also carry an individual period-2024 AIS row). All features come from the period-(Y-1) and earlier AIS datasets (finances, staffing, charity size, reporting-period structure, past lodgment timing including prior lateness) and the ACNC Register dataset; the target period-Y 'date ais received' (and row absence) is the label source and is excluded from features. Example instant (Australia/Sydney, AEDT): T = 2 November 2024 for a charity with FY ending 30/06/2024 (due 31/01/2025).",
@@ -5593,7 +5608,7 @@
     "target": "Binary. Positive: >=1 reference-satellite detection with event timestamp in [D+1 00:00, D+8 00:00) located in municipality m; negative: zero such detections. Label source: the same detection rows (data_pas timestamp + municipio/estado name) that feed the feature history - construction derives the label from event-time windows and must not ship any row with event time > D in feature columns (the label column is a derived aggregate, never a carried source column). Population: all Brazilian municipalities (5570 IBGE codes; ref-era files key by name - construction maps names to IBGE codes and asserts the mapping is total over the detection rows). Conditioning: evaluated pairs are municipality-days with zero detections in [D-13, D] (onset-conditioned; raw-pair variant recorded for comparison)."
    },
    {
-    "age_hours": 10.5,
+    "age_hours": 11.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -7715,7 +7730,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 47.5,
+    "age_hours": 48.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -9387,7 +9402,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 90.1,
+    "age_hours": 91.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -10524,7 +10539,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 10.5,
+     "age_hours": 11.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -10938,7 +10953,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 47.5,
+     "age_hours": 48.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11226,7 +11241,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 10.5,
+     "age_hours": 11.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -11640,7 +11655,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 47.5,
+     "age_hours": 48.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11926,7 +11941,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 90.1,
+     "age_hours": 91.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12138,7 +12153,7 @@
    ],
    "pending": [
     {
-     "age_hours": 90.1,
+     "age_hours": 91.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12428,10 +12443,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-31T13:50:02.370474+00:00",
+    "last_run_at": "2026-10-31T14:50:02.175531+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-31T14:00:00+00:00",
+    "next_run_at": "2026-10-31T15:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -12452,10 +12467,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-31T13:50:01.004491+00:00",
+    "last_run_at": "2026-10-31T13:55:01.420664+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-31T13:55:00+00:00",
+    "next_run_at": "2026-10-31T14:05:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12476,10 +12491,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-31T13:48:07.061957+00:00",
+    "last_run_at": "2026-10-31T14:48:26.499893+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-31T13:53:07.061957+00:00",
+    "next_run_at": "2026-10-31T14:53:26.499893+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -12488,10 +12503,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-31T13:50:01.541738+00:00",
+    "last_run_at": "2026-10-31T14:50:00.970977+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-31T13:55:00+00:00",
+    "next_run_at": "2026-10-31T14:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12512,10 +12527,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-31T12:51:56.403690+00:00",
+    "last_run_at": "2026-10-31T13:50:45.618895+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-31T14:50:00+00:00",
+    "next_run_at": "2026-10-31T15:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -12524,10 +12539,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-31T12:55:01.776267+00:00",
+    "last_run_at": "2026-10-31T13:55:01.082494+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-31T13:55:00+00:00",
+    "next_run_at": "2026-10-31T14:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -12568,9 +12583,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-31T13:50:02.371562+00:00"
+  "updated_at": "2026-10-31T14:50:02.176521+00:00"
  },
- "generated_at": "2026-10-31T13:50:01+00:00",
+ "generated_at": "2026-10-31T14:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -12578,22 +12593,22 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-31T10:50:03Z",
-   "head_sha": "e7ac24b",
+   "created_at": "2026-10-31T14:50:10Z",
+   "head_sha": "8c282d2",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41194346595"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41211969715"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 35/41 (85%)"
   },
   "head": {
-   "at": "2026-10-31T10:50:00Z",
-   "sha": "e7ac24b",
-   "subject": "acnc baseline+diag follow-up: triad third leg verified from collected reports (gate --accept ACCEPTED for 70b7e717... be"
+   "at": "2026-10-31T14:49:56Z",
+   "sha": "8c282d2",
+   "subject": "acnc diag-002 verified: recovery relaunch succeeded on the worker (server 173772460, EUR 0.06, destroyed and provider-co"
   },
   "tests": {
-   "count": "687",
+   "count": "690",
    "ok": true
   }
  },
@@ -14821,13 +14836,23 @@
    "qualified": 0,
    "sessions_7d": 70,
    "tokens_7d": 35702496
+  },
+  {
+   "at": "2026-10-31T14:50:01+00:00",
+   "live": 16,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 71,
+   "tokens_7d": 35867230
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 3000s by scout-research"
+ ],
  "panels": {
   "budget": {
-   "age_minutes": 0.6,
-   "as_of": "2026-10-31T13:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-31T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -14836,8 +14861,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.6,
-   "as_of": "2026-10-31T13:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-31T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -14846,8 +14871,8 @@
    "value": 16
   },
   "releases": {
-   "age_minutes": 0.6,
-   "as_of": "2026-10-31T13:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-10-31T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -15494,7 +15519,7 @@
      "lo": 0.01
     },
     {
-     "count": 30,
+     "count": 31,
      "hi": 0.05,
      "lo": 0.02
     },
@@ -15520,11 +15545,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0137,
-   "n": 154,
+   "median": 0.0139,
+   "n": 155,
    "p90": 0.0569,
    "ref_rate": 0.06924,
-   "total": 4.7
+   "total": 4.74
   },
   "jobs": [
    {
@@ -15595,6 +15620,18 @@
     "id": "acnc-diag-001",
     "location": "hel1",
     "normalised_eur": 0.0159,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-10-31T14:14:24.820159+00:00",
+    "deleted_at": "2026-10-31T14:45:24.431749+00:00",
+    "eur": 0.006,
+    "hours": 0.517,
+    "id": "acnc-diag-002",
+    "location": "hel1",
+    "normalised_eur": 0.0358,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -17376,19 +17413,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 113,
-  "jobs_total": 154,
+  "jobs_this_month": 114,
+  "jobs_total": 155,
   "lifetime_eur": 3.58,
   "live": {
-   "checked_at": "2026-10-31T13:50:34+00:00",
+   "checked_at": "2026-10-31T14:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 34.1,
-  "month_to_date": 1.13,
+  "month_hours": 34.6,
+  "month_to_date": 1.14,
   "months": [
    {
     "eur": 2.4452,
@@ -17397,13 +17434,13 @@
     "month": "2026-09"
    },
    {
-    "eur": 1.1332,
-    "hours": 34.08,
-    "jobs": 113,
+    "eur": 1.1392,
+    "hours": 34.6,
+    "jobs": 114,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 1.13
+  "projected_month_eur": 1.14
  },
  "schema": 1,
  "sessions": {
