@@ -1,8 +1,8 @@
 {
  "alarms": [
   "Token use at 86% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 81.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (38.5h)"
+  "unhcr-refugee-data-finder has been packaged and actionable for 82.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (39.5h)"
  ],
  "budget": {
   "config": {
@@ -20,12 +20,12 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-31T04:50:02.620609+00:00",
+   "moment": "2026-10-31T05:50:03.430240+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 34387534,
+   "research_tokens_last_7_days": 34421611,
    "runs_last_7_days": 62,
    "runs_weighted_last_7_days": 77,
    "session_cap_per_week": 200,
@@ -53,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 9593,
+     "calls": 9617,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 44085215,
-     "output_tokens": 8651474,
+     "input_tokens": 44095565,
+     "output_tokens": 8675201,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -90,56 +90,18 @@
    "EU": 3,
    "GB": 3,
    "NZ": 1,
-   "US": 1,
-   "unknown": 1
+   "US": 1
   },
   "counts": {
    "dropped": 43,
-   "investigating": 17,
+   "investigating": 16,
    "packaged": 3,
    "parked": 29,
    "published": 11,
-   "ready": 10
+   "ready": 11
   },
   "errors": [],
   "live": [
-   {
-    "awaiting_operator": false,
-    "baseline": {},
-    "country": "unknown",
-    "domain": "",
-    "id": "acnc-charity-ais-deadline-compliance",
-    "jobs": [],
-    "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
-    },
-    "measurements": {},
-    "next_action": "Investigate source and observable target",
-    "packaged_at": null,
-    "path": "candidates/acnc-charity-ais-deadline-compliance/record.json",
-    "prediction_time": "",
-    "publisher": "",
-    "qualification": {
-     "artifact_version": null,
-     "result": null,
-     "splits": null
-    },
-    "question": "",
-    "region": "unknown",
-    "release_baseline": {
-     "auc": null,
-     "display": null,
-     "reference": null
-    },
-    "release_splits": {},
-    "review": "",
-    "sources": [],
-    "split_strategy": "",
-    "status": "investigating",
-    "target": ""
-   },
    {
     "awaiting_operator": false,
     "baseline": {},
@@ -1317,7 +1279,7 @@
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
    }
   ],
-  "non_us_share": 88.2,
+  "non_us_share": 93.8,
   "records": [
    {
     "awaiting_operator": false,
@@ -1405,8 +1367,8 @@
    {
     "awaiting_operator": false,
     "baseline": {},
-    "country": "unknown",
-    "domain": "",
+    "country": "AU",
+    "domain": "charity regulation / annual reporting deadline compliance (per-charity lodgment timeliness)",
     "id": "acnc-charity-ais-deadline-compliance",
     "jobs": [],
     "licence_summary": {
@@ -1414,30 +1376,85 @@
      "source_spdx": null,
      "status": null
     },
-    "measurements": {},
-    "next_action": "Investigate source and observable target",
+    "measurements": {
+     "due_date_policy_measured": "Offset from period end to recorded due date: 2024 file +7 months for 31,454 rows (all June-end periods, Commissioner-extended 31 January deadline) and +6 months for 14,127 (December-end, 30 June deadline); 2019 file +7 for 25,042 and +8 for 10,794 (May-end periods). The publisher's own 'ais due date' field is the operative deadline and varies with announced extensions - the label must use the recorded field, never a fixed rule",
+     "eligible_frame_and_label_counts_2026_10_31": {
+      "definition": "eligible = period-(Y-1) row with 'date ais received' <= (period-Y due date - 90 days); label 1 = period-Y 'date ais received' > due date or no period-Y row",
+      "target_2020": "eligible 37,970; on-time 26,196; late-positive 10,355; never-positive 1,419; positive rate 31.01%",
+      "target_2021": "eligible 39,387; on-time 27,956; late-positive 9,829; never-positive 1,602; positive rate 29.02%",
+      "target_2022": "eligible 39,432; on-time 29,190; late-positive 9,041; never-positive 1,201; positive rate 25.97%",
+      "target_2023": "eligible 41,545; on-time 30,829; late-positive 9,163; never-positive 1,553; positive rate 25.79%",
+      "target_2024": "eligible 42,885; on-time 31,850; late-positive 9,418; never-positive 1,617; positive rate 25.73%",
+      "windows": "train 2020-2021 77,357 rows / 23,205 positives (30.00%); eval 2022-2023 80,977 / 20,958 (25.88%); holdout 2024 42,885 / 11,035 (25.73%) - both classes in every window and year"
+     },
+     "fetch_cost_measured": "One anonymous HTTPS GET per file, no auth: register CSV 15,156,962 B in 3.0 s; AIS CSVs: 2019 44,462,950 B / 4.4 s, 2020 32,540,058 / 4.1, 2021 32,983,235 / 4.2, 2022 35,588,791 / 4.1, 2023 36,881,236 / 4.0, 2024 38,072,279 / 4.2; 2024 group-members XLSX 66,137 B. All CSV years 2019-2024 total ~220 MB in ~25 s; adding XLSX years 2013-2018 (~170 MB) is a worker-sized, not coordinator-sized, job.",
+     "group_reporting_measured": "2024 group-members file: 1,315 member ABNs (columns: ACNC group name, member ABN, member name, membership start/end dates); only 5 of them also carry an individual period-2024 AIS row (60 in the 2023 file, 242 in 2019 - members that once lodged individually). Group members must be excluded from the eligible frame; the exclusion is derivable from the published per-year group-members files",
+     "known_event_fixtures": [
+      "Deadline-extension fixture (verified in-file): charities with period ending 30/06/2023 carry 'ais due date' 31/01/2024 (seven months, the Commissioner's standing 31 January extension for standard-FY charities announced on the ACNC due-dates page), while period ending 31/12/2024 carries 30/06/2025 (six months, the nominal rule)",
+      "Dated example (real, verified from the fetched files; instants in Australia/Sydney, AEDT UTC+11): Integricare Limited, ABN 11000073870, FY 1 July-30 June. Feature row: period 01/07/2022-30/06/2023, recorded due date 31/01/2024, 'date ais received' 18/01/2024 (on time, lodgment observable before the instant). Target period: 01/07/2023-30/06/2024, recorded due date 31/01/2025. Prediction instant T = 31/01/2025 minus 90 days = 02/11/2024 (eligibility satisfied: prior AIS received 18/01/2024 <= T). Target window: lodgment in (02/11/2024, 31/01/2025]. Observed outcome: 'date ais received' 03/02/2025 > 31/01/2025 -> label 1 (failed to lodge by the due date, by 3 days). No part of the target window precedes T"
+     ],
+     "measured_on": "2026-10-31, hosted coordinator, bounded anonymous HTTPS fetches into /opt/data/cache/scratch (24h-pruned), aggregate analysis only (no labeled rows written); commands and outputs in notes.md; retained probe script probe_ais_metrics.py",
+     "per_year_rows_and_lateness": {
+      "2019": "51,040 rows / 51,040 unique ABN; on-time 36,670 (71.85%), late 14,327 (28.07%), undated 43",
+      "2020": "51,438 rows; on-time 34,914 (67.88%), late 16,505 (32.09%), undated 19",
+      "2021": "51,841 rows / 51,840 ABN; on-time 36,339 (70.10%), late 15,494 (29.89%)",
+      "2022": "53,053 rows; on-time 38,326 (72.24%), late 14,722 (27.75%)",
+      "2023": "53,548 rows; on-time 39,604 (73.96%), late 13,940 (26.03%)",
+      "2024": "54,145 rows / 54,144 ABN; on-time 40,581 (74.95%), late 13,561 (25.05%)",
+      "late_lag_days_2024": "median 57 days, p90 376, max 950 (a 2024-period AIS can be received up to ~2.6 years late; the 'failed by due date' label is unchanged by later trickle)"
+     },
+     "prior_filer_absence_transitions": "2021->2022: 1,439/51,840 absent (2.78%); 2022->2023: 1,808/53,053 (3.41%); 2023->2024: 1,935/53,548 (3.61%) - the never-lodger component of the positive class",
+     "publisher_cross_checks": [
+      "ACNC Annual Report 2025-26 KPI 1.3 'Percentage of 2025 Annual Information Statements submitted by the due date (Target: 75%, Result: 76%)'; 'At 30 June 2026, 76% of charities had submitted their Annual Information Statement by the due date, a significant improvement compared to 73% in the previous year' - consistent with measured on-time shares 74.95% (2024 file) and 73.96% (2023 file), small differences explained by the ACNC's fixed census date vs the final weekly-updated file",
+      "Australian Charities Report 11th edition: '52,627 Annual Information Statements ... for the 2023 reporting period ... 52,314 statements submitted by individual charities' and '313 Group Annual Information Statements submitted on behalf of 1,281 registered charities' vs 53,548 rows in the final 2023 file - a measured +1,234 rows after the report's census, quantifying the weekly trickle channel (late lodgers keep being added); the label is stable under trickle because a later-received period-Y AIS still has 'date ais received' after the past due date"
+     ],
+     "status_coding_measured": "The AIS datasets carry a reason-coded 'registration status' on every historical row, distinguishing compliance outcomes from voluntary exit: 2024 mix (54,145 rows): Registered 52,274; 'Voluntarily Revoked No Longer Operating' 1,500; 'Voluntarily Revoked Merged' 175; 'Revoked Double Defaulter' 126; other revoked codes 70. Of the 1,935 prior-year filers absent from the 2024 file, 1,035 (53.5%) carry a 'Voluntarily Revoked*' code, 49+ are 'Revoked Double Defaulter' (the ACNC's own non-lodgment outcome), and 812 were still 'Registered' in the 2023-file snapshot (FY-end changes, pending extreme-late lodgment, or later revocation) - the frame-defining mixture at construction",
+     "vintage_caveats": [
+      "AIS datasets are 'updated weekly' (ACNC download page) and the register 'regularly updated': the files fetched 2026-10-31 are one vintage per year, not archived snapshots; a construction snapshot date must be pinned and recorded. The 2023->2024 trickle is measured (+1,234 post-census rows via the Charities Report cross-check)",
+      "Withheld records are removed 'from the date of approval onwards' (ACNC register page): a charity that lodged on time but later won withholding would show as absent -> false positive. Mechanism recorded; rate not measurable from the current files; direction bounded (can only add positives, never remove them). publicdata.au rehosts the register dataset with version history (HF 'National-Digital/acnc-register' card) - a possible historical-vintage channel for register attributes, unverified for the AIS files",
+      "'registration status' on historical rows is current-vintage (status as of the last weekly update), not status-at-lodgment; using it for eligibility must be done at construction under the prediction-contract gate (a 'Voluntarily Revoked*' exclusion is post-hoc and must be declared; a 'Revoked Double Defaulter' exclusion would remove true positives and must not be used as an exclusion)",
+      "Schema drift: 2019 file has 167 columns including address/state and activity/beneficiary flags; 2020-2024 files (91-97 columns) drop address - location features for recent years come only from the register (current-vintage) or must be dropped; per-year 'Explanatory notes' PDFs are the publisher's column documentation"
+     ]
+    },
+    "next_action": "CONSTRUCTION (advancement owns it; handoff order: construction -> full-worker qualification -> exact-byte acceptance -> reference/model scoring -> reporting). C",
     "packaged_at": null,
     "path": "candidates/acnc-charity-ais-deadline-compliance/record.json",
-    "prediction_time": "",
-    "publisher": "",
+    "prediction_time": "Per-charity instant T = (the publisher-recorded 'ais due date' for the charity's period-Y AIS) minus 90 days. The due date is fixed by policy at six months after the reporting-period end (ACNC due-dates page), with the Commissioner's standing extension for standard 1 July-30 June periods to the following 31 January recorded in-file (measured: period ends 30/06/2023 carry due date 31/01/2024; 31/12/2024 carry 30/06/2025). Eligibility: the charity's period-(Y-1) AIS row exists with 'date ais received' <= T, and the charity is not listed as a member of an ACNC reporting group for period Y (group members lodge via their head entity; measured 2024: only 5 of 1,315 group-member ABNs also carry an individual period-2024 AIS row). All features come from the period-(Y-1) and earlier AIS datasets (finances, staffing, charity size, reporting-period structure, past lodgment timing including prior lateness) and the ACNC Register dataset; the target period-Y 'date ais received' (and row absence) is the label source and is excluded from features. Example instant (Australia/Sydney, AEDT): T = 2 November 2024 for a charity with FY ending 30/06/2024 (due 31/01/2025).",
+    "publisher": "Australian Charities and Not-for-profits Commission (Commonwealth of Australia)",
     "qualification": {
      "artifact_version": null,
      "result": null,
      "splits": null
     },
-    "question": "",
-    "region": "unknown",
+    "question": "For an Australian charity registered with the ACNC that lodged its Annual Information Statement (AIS) for the reporting period ending in year Y-1 early enough that the lodgment was already recorded 90 days before its next deadline, will the charity FAIL to lodge its period-Y AIS by the ACNC-recorded due date for that period (the AIS 'date ais received' falls after the 'ais due date', or the charity never lodges a period-Y AIS and no row exists in the period-Y AIS dataset)?",
+    "region": "Oceania",
     "release_baseline": {
      "auc": null,
      "display": null,
      "reference": null
     },
     "release_splits": {},
-    "review": "",
-    "sources": [],
-    "split_strategy": "",
-    "status": "investigating",
-    "target": ""
+    "review": "Five contracts reconciled on measured evidence. (1) Redistribution: every input dataset carries an explicit CC BY licence (per-year variants recorded) - class A; attribution conditions carried to LICENSE.md. (2) Prediction timing: per-charity instant T = recorded due date - 90 days, example worked in Australia/Sydney with real timestamps (Integricare: T 02/11/2024, due 31/01/2025, received 03/02/2025); features are prior-period AIS content whose lodgment (hence observability) predates T by the eligibility rule; label columns excluded; vintage caveats (weekly updates, withheld-record removal, current-vintage status) recorded with the measured trickle and the bounded direction of the withheld channel - the as-of policy is current-vintage retrospective with pinned snapshot dates, to be probed at construction per the prediction-contract gate. (3) Target: publisher-recorded ('date ais received' vs 'ais due date' + absence), matching the ACNC's own KPI definition; censoring channels are publisher-coded (voluntary revocation status codes, group-membership files) and the residual mixture is measured (812 'Registered'-status absentees of 1,935 in 2023->2024) and declared part of the definition. (4) Split capacity: measured eligible-frame counts for disjoint windows train 2020-2021 (77,357 rows, 30.00% positive), eval 2022-2023 (80,977, 25.88%), holdout 2024 (42,885, 25.73%), both classes everywhere, positives spread over tens of thousands of charities. (5) Not a mirror: mechanical novelty search recorded; no ML-ready formulation of this or a sibling target exists externally; internal siblings target different outcomes (filing-population exit) in other jurisdictions. Uncertainty that remains: the withheld-record false-positive rate is unmeasured (mechanism recorded, direction bounded) and the 2013-2018 XLSX backfill for a longer train window is untested - both are construction-time, non-blocking.",
+    "sources": [
+     {
+      "licence": "Creative Commons Attribution 3.0 Australia (dataset page 'Licence' field and per-resource labels)",
+      "name": "ACNC Registered Charities (Charity Register bulk dataset, updated weekly)",
+      "url": "https://data.gov.au/data/dataset/acnc-register"
+     },
+     {
+      "licence": "Per-year CC BY variant (package metadata): 2023+2024 CC BY 3.0 Australia; 2019-2022 CC BY 2.5 Australia; 2015 CC BY 4.0 International; register CC BY 3.0 Australia - all permit redistribution with attribution",
+      "name": "ACNC Annual Information Statement (AIS) datasets, one per reporting-period year 2013-2024 (CSV for 2019-2024; XLSX-only 2013-2018; each with programs and group-members files plus per-year explanatory notes PDF)",
+      "url": "https://www.acnc.gov.au/charity/about-charity-register/download-charity-register-data"
+     },
+     {
+      "licence": "ABS-style CC BY 4.0 does not apply; acnc.gov.au material is published under the site's copyright statement - the datasets above carry their own per-dataset CC BY licences, which govern the rows we would ship",
+      "name": "ACNC policy and summary pages: AIS due dates, the AIS itself, Annual Report 2025-26 (KPI cross-check), Australian Charities Report 11th edition (census cross-check)",
+      "url": "https://www.acnc.gov.au/for-charities/annual-information-statement/annual-information-statement-due-dates"
+     }
+    ],
+    "split_strategy": "Temporal windows on the target reporting-period year Y (periods ending in that calendar year; windows disjoint by Y). Candidate partition measured on the eligibility frame (prior AIS received <= T, group members excluded in construction): train Y in {2020, 2021}: 77,357 eligible rows / 23,205 positives (30.0%) / 54,152 negatives; eval {2022, 2023}: 80,977 / 20,958 (25.9%) / 60,019; holdout {2024}: 42,885 / 11,035 (25.7%) / 31,850. Both classes present in every window and every single year (per-year positive rates 25.7%-31.0%). Positives are spread across tens of thousands of distinct charities per year (eligible frames 37,970-42,885), not event clusters; a charity can appear in multiple target years, so per-charity clustering is a documented property for interval construction. XLSX-only years 2013-2018 can extend the train window at construction (worker parses XLSX; schema differences documented).",
+    "status": "ready",
+    "target": "Binary label 1 = charity fails to lodge its period-Y AIS by the due date, computed from the publisher's own recorded fields in the period-Y AIS dataset: label 1 iff ('date ais received' > 'ais due date') OR (no row for the ABN in the period-Y dataset as of the snapshot). Label 0 iff 'date ais received' <= 'ais due date'. Label source columns: 'date ais received' and row presence (both excluded from shipped features; 'ais due date' is a legitimate feature because it is determined by the period end and announced deadline policy, known before T). The label matches the ACNC's own compliance KPI ('Percentage of ... Annual Information Statements submitted by the due date', Annual Report 2025-26 KPI 1.3: 76% for 2025, 73% for 2024) against measured on-time shares of 73.96% (2023 file) and 74.95% (2024 file)."
    },
    {
     "awaiting_operator": false,
@@ -5353,7 +5370,7 @@
     "target": "Binary. Positive: >=1 reference-satellite detection with event timestamp in [D+1 00:00, D+8 00:00) located in municipality m; negative: zero such detections. Label source: the same detection rows (data_pas timestamp + municipio/estado name) that feed the feature history - construction derives the label from event-time windows and must not ship any row with event time > D in feature columns (the label column is a derived aggregate, never a carried source column). Population: all Brazilian municipalities (5570 IBGE codes; ref-era files key by name - construction maps names to IBGE codes and asserts the mapping is total over the detection rows). Conditioning: evaluated pairs are municipality-days with zero detections in [D-13, D] (onset-conditioned; raw-pair variant recorded for comparison)."
    },
    {
-    "age_hours": 1.5,
+    "age_hours": 2.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -7475,7 +7492,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 38.5,
+    "age_hours": 39.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -9100,7 +9117,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 81.1,
+    "age_hours": 82.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -10186,7 +10203,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 1.5,
+     "age_hours": 2.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -10600,7 +10617,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 38.5,
+     "age_hours": 39.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -10888,7 +10905,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 1.5,
+     "age_hours": 2.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -11302,7 +11319,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 38.5,
+     "age_hours": 39.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11588,7 +11605,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 81.1,
+     "age_hours": 82.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -11800,7 +11817,7 @@
    ],
    "pending": [
     {
-     "age_hours": 81.1,
+     "age_hours": 82.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12016,7 +12033,7 @@
   "by_country": {
    "AR": 1,
    "AT": 2,
-   "AU": 7,
+   "AU": 8,
    "BR": 4,
    "CA": 14,
    "CH": 4,
@@ -12043,7 +12060,6 @@
    "SG": 1,
    "TH": 1,
    "TW": 3,
-   "UNKNOWN": 1,
    "US": 14,
    "VN": 1,
    "ZA": 6
@@ -12055,25 +12071,22 @@
    "International organisations": 11,
    "Latin America": 10,
    "North America": 24,
-   "Oceania": 8,
-   "South & South-East Asia": 13,
-   "UNKNOWN": 1
+   "Oceania": 9,
+   "South & South-East Asia": 13
   },
   "by_status": {
    "dropped": 43,
-   "investigating": 17,
+   "investigating": 16,
    "packaged": 3,
    "parked": 29,
    "published": 11,
-   "ready": 10
+   "ready": 11
   },
   "candidates": 113,
   "live": 41,
-  "live_non_us": 34,
-  "live_non_us_share": 0.829,
-  "unknown_jurisdiction": [
-   "acnc-charity-ais-deadline-compliance"
-  ]
+  "live_non_us": 35,
+  "live_non_us_share": 0.854,
+  "unknown_jurisdiction": []
  },
  "cron": {
   "jobs": [
@@ -12094,10 +12107,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-31T04:50:01.944733+00:00",
+    "last_run_at": "2026-10-31T05:50:02.255218+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-31T05:00:00+00:00",
+    "next_run_at": "2026-10-31T06:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -12118,10 +12131,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-31T04:50:01.321074+00:00",
+    "last_run_at": "2026-10-31T05:50:00.897246+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-31T04:55:00+00:00",
+    "next_run_at": "2026-10-31T05:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12142,10 +12155,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-31T04:48:55.792304+00:00",
+    "last_run_at": "2026-10-31T05:49:13.088951+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-31T04:53:55.792304+00:00",
+    "next_run_at": "2026-10-31T05:54:13.088951+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -12154,10 +12167,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-31T04:50:01.378651+00:00",
+    "last_run_at": "2026-10-31T05:50:01.212533+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-31T04:55:00+00:00",
+    "next_run_at": "2026-10-31T05:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12178,10 +12191,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-31T03:50:43.164643+00:00",
+    "last_run_at": "2026-10-31T04:51:32.707589+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-31T05:50:00+00:00",
+    "next_run_at": "2026-10-31T06:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -12190,10 +12203,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-31T03:55:00.952027+00:00",
+    "last_run_at": "2026-10-31T04:55:01.224945+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-31T04:55:00+00:00",
+    "next_run_at": "2026-10-31T05:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -12234,29 +12247,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-31T04:50:01.946029+00:00"
+  "updated_at": "2026-10-31T05:50:02.256199+00:00"
  },
- "generated_at": "2026-10-31T04:50:01+00:00",
+ "generated_at": "2026-10-31T05:50:02+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 112
+   "passing": 113
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-31T03:41:32Z",
-   "head_sha": "96b31de",
+   "created_at": "2026-10-31T05:06:55Z",
+   "head_sha": "3ef38c1",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41165455870"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41171275691"
   },
   "coverage": {
-   "ok": false,
-   "summary": "live non-US: 34/41 (83%)"
+   "ok": true,
+   "summary": "live non-US: 35/41 (85%)"
   },
   "head": {
-   "at": "2026-10-31T03:41:28Z",
-   "sha": "96b31de",
-   "subject": "ipo-trademark-registration-outcome v2026.10 packaged + privately staged on both destinations: GitHub release 429672426 ("
+   "at": "2026-10-31T05:06:33Z",
+   "sha": "3ef38c1",
+   "subject": "discovery (Oceania): acnc-charity-ais-deadline-compliance opened and READY - per-charity ACNC AIS deadline-compliance pr"
   },
   "tests": {
    "count": "683",
@@ -14415,13 +14428,21 @@
    "qualified": 0,
    "sessions_7d": 62,
    "tokens_7d": 34387534
+  },
+  {
+   "at": "2026-10-31T05:50:02+00:00",
+   "live": 16,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 62,
+   "tokens_7d": 34421611
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T04:50:01+00:00",
+   "as_of": "2026-10-31T05:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -14431,17 +14452,17 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T04:50:01+00:00",
+   "as_of": "2026-10-31T05:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 17
+   "value": 16
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T04:50:01+00:00",
+   "as_of": "2026-10-31T05:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -16926,7 +16947,7 @@
   "jobs_total": 150,
   "lifetime_eur": 3.56,
   "live": {
-   "checked_at": "2026-10-31T04:50:33+00:00",
+   "checked_at": "2026-10-31T05:50:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
