@@ -1,8 +1,8 @@
 {
  "alarms": [
-  "Token use at 92% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 96.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (53.5h)"
+  "Token use at 93% of the weekly ceiling",
+  "unhcr-refugee-data-finder has been packaged and actionable for 97.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (54.5h)"
  ],
  "budget": {
   "config": {
@@ -20,14 +20,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-31T19:50:02.576135+00:00",
+   "moment": "2026-10-31T20:50:02.455764+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 36654798,
-   "runs_last_7_days": 77,
-   "runs_weighted_last_7_days": 92,
+   "research_tokens_last_7_days": 37217605,
+   "runs_last_7_days": 78,
+   "runs_weighted_last_7_days": 93,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 15,
    "usage": {
@@ -53,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 10538,
+     "calls": 10591,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 45499932,
-     "output_tokens": 9504021,
+     "input_tokens": 46000710,
+     "output_tokens": 9566050,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -84,7 +84,7 @@
  "candidates": {
   "countries": {
    "BR": 3,
-   "CA": 3,
+   "CA": 4,
    "CO": 1,
    "DE": 1,
    "EU": 3,
@@ -94,7 +94,7 @@
   },
   "counts": {
    "dropped": 47,
-   "investigating": 16,
+   "investigating": 17,
    "packaged": 3,
    "parked": 29,
    "published": 11,
@@ -245,6 +245,76 @@
     "split_strategy": "Cohorts by dataApresentacao over the union of the 35 year files (1991-2025; files processed descending, first id wins so re-numbered bills contribute their current row), windows by presentation date: train 1991-01..2014-12, eval 2015-01..2018-12, holdout 2019-01..2022-12. RIGHT-CENSORING CORRECTED 2026-10-23: Brazilian propositions carry across legislatures (bills presented 2019 still show live statuses with 2024-2026 timestamps, file and API agree), so 'closed legislature' does not settle labels; the scored population is bills whose status is terminal at the current file vintage, and the unobserved share (no-status + non-terminal) is measured per window and recorded as a property - it rises with recency. Sampled positive rates drift strongly downward by cohort (1991 whole file 311/4,436 = 7.0%; 2005 sampled ~2.2%; 2019-2022 sampled ~0.4-0.8%), a measured phenomenon property. Grain: one proposition = one row, keyed by id (unique across the union; construction asserts uniqueness).",
     "status": "investigating",
     "target": "Binary from the publisher's own situation vocabulary in the bulk CSV's ultimoStatus (current status at the file vintage; file and live API agree, measured 2026-10-23): positive = situation code 1140 'Transformado em Norma Jur\u00eddica' (CORRECTED 2026-10-23: the discovery sample's 'idSituacao 251' was a positional indexing defect - column 25 is ultimoStatus_idTipoTramitacao, not idSituacao; the header-name-keyed parse shows 1140 with a consistent code->description table, e.g. 923 Arquivada, 1230 Transformado em nova proposi\u00e7\u00e3o, 937 Vetado totalmente). Terminal negative = Arquivada* codes plus the other settled non-enactment states (Vetado totalmente, Retirado pelo(a) Autor(a), Devolvida ao(\u00e0) Autor(a), Tramita\u00e7\u00e3o Finalizada, Enviada ao Arquivo). Merged rows (1230 'Transformado em nova proposi\u00e7\u00e3o') are EXCLUDED from the scored population - the outcome is carried by the merged-into bill (decision recorded; share measured per window). Rows with a non-terminal status, and the 25-53% of rows (by year, measured) whose idSituacao is empty - the API confirms genuinely no tramita\u00e7\u00e3o on record, not a file gap - are unobserved targets, excluded and counted per window, never membership decisions on future data. Label source columns: all ultimoStatus_* fields and urnFinal, excluded from shipped features."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "CA",
+    "domain": "public procurement - pre-award solicitation lifecycle outcome prediction (federal tenders, Canada)",
+    "id": "canadabuys-tender-cancellation",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "award_join_2026_10_31": "FY2023-24 + FY2024-25 award-notice files (19,723,305 + 23,972,751 B): 12,089 rows, 9,294 distinct award solicitationNumbers, 80 columns. 3,146/6,829 (46.07%) FY2023-24 solicitations have an award notice in these two files; by current status: Expired 48.1% vs Cancelled 14.5% (status and award records are largely consistent - cancelled solicitations rarely produce awards); by type: RFP 50.3%, RFP-SA 45.3%, RFSO 53.2%, ITQ 55.3%, ACAN 37.3%, RFI 3.2% (RFIs do not produce awards by design - excluded from the task population). Recorded optional variant, not the primary label: among Expired RFP-like solicitations ~47.6% have no award notice in the follow-up files.",
+     "catalogue_2026_10_31": "open.canada.ca CKAN search q='CanadaBuys tender' (17 results) and q='contract history' (13 results) via /data/en/api/3/action/package_search: identified the three OGL-Canada datasets (tender notices 6abd20d4, award notices a1acb126, contract history 4fe645a1) plus the archived 2009-2023 buy-and-sell datasets; all license_id=ca-ogl-lgo, org pwgsc-tpsgc.",
+     "dated_examples_2026_10_31": "All timestamps below as published (closing times documented UTC-0500/EST). CANCELLED: WS3864736193 (PWGSC, 'RFP - HVAC Maintenance Services Contract - Connaught Range...') published 2023-04-14, closing 2023-04-17T14:00:00, terminal status Cancelled - feature window at instant 2023-04-14: 3-day posting duration, notice type RFP, entity PWGSC; the cancellation is a state change strictly after the instant. CANCELLED: WS3765771658 (PWGSC, 'EV385-231411. Loading Docks Assessment and Repair, Prince...') published 2023-04-20, closing 2023-05-16T14:00:00, Cancelled. Contrast (negative class): BPM020594/25224 (Shared Services Canada) published 2024-01-22, closing 2024-02-06T14:00:00, Expired (closed normally). Legacy-era CANCELLED: 5P420-17-5210/A (Parks Canada) published 2017-07-17, closing 2017-08-08T16:00:00, Cancelled.",
+     "extraction_cost_2026_10_31": "Measured from the coordinator, anonymous HTTPS: 3 whole-FY files totalling 88,413,309 bytes (FY23-24 tender 45.3 MB ~8 s; FY23-24 awards 19.7 MB ~4 s; FY24-25 awards 24.0 MB ~4 s) + 4 range slices of 400 KB + 2 header slices. Full harvest (worker, one job): tender complete 188,290,269 B + tender legacy 558,413,231 B + award complete 104,817,598 B (+ award legacy 270,603,514 B only if the variant is built) = ~851 MB across 3-4 GETs; a single standard worker job.",
+     "fy2023_24_panel_2026_10_31": "2023-2024-TenderNotice-AvisAppelOffres.csv: 45,318,253 B in ~8 s (one anonymous GET, coordinator). 7,430 rows = 6,829 distinct solicitationNumbers + 601 amendment/re-publication rows. publicationDate range 2023-04-01..2024-03-29 (per-FY bucketing by publication date confirmed); year mix 2023: 5,247 / 2024: 1,582 (Jan-Mar 2024). tenderClosingDate present 6,829/6,829 (100%); publication->closing days n=6,752 median 26 (p10 14, p90 53). Current-status mix of distinct solicitations: Expired 6,414, Cancelled 415, Open 0 (closed-FY file carries only terminal states).",
+     "legacy_slices_2026_10_31": "Four bounded 400,000-byte range slices of the 558,413,231-byte legacy file at byte offsets 3M / 150M / 330M / 520M (HTTP Range, anonymous): same 67-column schema; tenderStatus populated in every slice; Cancelled rows present in the 3M slice (2017, 2018 - Parks Canada 'Cancelled-' re-publications) and the 520M slice (2021 - PWGSC WS3010378161, NRCan-5000059348/B); slices span publication years 2012-2022. Establishes: the label exists across the legacy era; per-year exact counts need the bulk download (worker).",
+     "measured_on": "2026-10-31 from the coordinator, anonymous HTTPS only; scripts: candidates/canadabuys-tender-cancellation/probe/ (probe_fy2023_24_panel.py, probe_row_model.py, probe_legacy_slices.py - each reproduces the quoted numbers from the recorded URLs; catalogue and dictionary fetches recorded as curl commands in notes.md)",
+     "provenance_mix_2026_10_31": "Distinct-solicitation notice-type mix (FY2023-24): Request for Proposal 3,893 (Cancelled 268), RFP against Supply Arrangement 848 (47), Request for Standing Offer 598 (50), Advance Contract Award Notice 459 (7), Invitation to Qualify 331 (21), blank 321 (6), Request for Information 219 (4), Request for Supply Arrangement 79 (11), Not Applicable 76 (1), Directed Contract 5 (0). Procurement-method mix: Competitive-Open bidding 4,597; Competitive-Selective tendering 1,425; ACAN 412; Competitive-Traditional 341; Non-competitive 30; Competitive-Limited tendering 22; blank 2. RFP-like eligibility set (RFP, RFP-SA, RFSO, RFSA, ITQ): 5,749 solicitations, 397 Cancelled (6.90%) - the task population; both classes present in this FY.",
+     "refresh_and_vintage_2026_10_31": "FY2026-27 tender file Last-Modified: Sat, 31 Oct 2026 10:30:31 GMT (daily refresh measured); FY2025-26 and older per-FY files Last-Modified 2026-10-28. Complete file carries live Open rows (sample row published 2026-01-23 with closing 2029-03-31, status Open). Current-vintage caveat recorded: bulk files re-state current status; cancellation dates are not in the bulk data; the as-of policy is terminal-state-from-pinned-archive with Open-row censoring, plus a bounded construction-time verification against notice pages.",
+     "row_model_2026_10_31": "499 solicitations carry >1 row; amendment rows have their own LATER publication dates (e.g. 24-246305: amendment-0 pub 2023-10-23, amendment-3 pub 2023-11-01; WS3952365869: amendment-0 pub 2023-04-05, amendment-4 pub 2023-07-12). 144 multi-row solicitations show differing tenderStatus across rows (e.g. S4384520: amendment-5 row pub 2023-04-11 Cancelled, amendment-1 row pub 2023-04-18 Expired) - construction applies solicitation-level precedence (any-row-Cancelled) with bounded notice-page verification. 81 solicitations where the amendment-000 row's publicationDate is not the earliest row's publicationDate - the earliest-publication row is the original-notice rule of record. 12 FY2023-24 rows have titles prefixed 'Cancelled-' (legacy-era convention also measured: cancelled solicitations re-published with 'Cancelled-' title prefix, e.g. 5P420-17-5210/A Parks Canada, in the 2009-2022 archive).",
+     "schema_2026_10_31": "67 columns, bilingual eng/fra, identical header in the FY files, the complete file and the 2009-2022 legacy file (range-slice verified). Publisher data dictionary documents every column; key documented semantics quoted: tenderStatus ('Open (ie: accepting bids), Expired (no longer accepting bids) or Cancelled'); tenderClosingDate ('The date of closing for a tender notice, after which no new submissions will be accepted... displayed are all in UTC-0500... EASTERN STANDARD TIME'); amendmentNumber ('The number of amendments against a tender notice and/or a related awarded contract' - a running counter, so amendment counts on original rows are NOT as-of-T facts and are excluded from features); noticeType taxonomy (RFP, ACAN, ITQ, RFI, RFSO, RFSA, RFP against SA, Directed Contract, Not Applicable); procurementMethod taxonomy (competitive open bidding / selective tendering / traditional, non-competitive, ACAN, limited tendering); selectionCriteria taxonomy; GSIN/UNSPSC + descriptions; regionsOfOpportunity/Delivery; contracting entity + end-user entity fields; expectedContractStart/EndDate; tradeAgreements; noticeURL; tenderDescription (full text)."
+    },
+    "next_action": "One bounded worker measurement pass (advancement owns it), then ready/drop decision on measured criteria. Job: download tender complete (188,290,269 B) + tender",
+    "packaged_at": null,
+    "path": "candidates/canadabuys-tender-cancellation/record.json",
+    "prediction_time": "The instant is the original tender notice's publicationDate (the row with amendmentNumber 000; amendment rows are separate later publication events and are excluded from features and from the instant). Every shipped feature is a field of the notice as published at T, each documented in the publisher's own XML data dictionary (fetched 2026-10-31, 60,478 bytes). The label is a later state change of the same notice: the publisher's data dictionary defines tenderStatus as 'A status that indicates whether a tender is Open (ie: accepting bids), Expired (no longer accepting bids) or Cancelled', and the publisher's support page states the files 'will include information on new, open, cancelled and expired notices that are published on the CanadaBuys website' and that 'Tender notice closing times will be displayed in Universal Time Coordinated minus 5 hours (UTC-0500)'. As-of policy: the open-data files re-state the CURRENT status of each notice (the complete file carries live Open rows; the closed-FY files carry only terminal statuses - measured FY2023-24 file: 6,414 Expired / 415 Cancelled, zero Open). Historical cancellation DATES are not published in the bulk files, so labels are read as terminal states from an archive snapshot pinned by sha256 at harvest; still-Open solicitations are censored (excluded, not imputed). Cancellation is operationally observable in real time on the CanadaBuys site and the files refresh at least daily (2026-2027 tender file Last-Modified measured Sat, 31 Oct 2026 10:30:31 GMT). Residual limitation, recorded not resolved: rare late reversions of already-published statuses cannot be excluded for the most recent window; construction runs a bounded notice-page verification on a sample of Cancelled rows.",
+    "publisher": "Public Services and Procurement Canada (PSPC) - CanadaBuys open data via open.canada.ca",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a Government of Canada competitive solicitation (noticeType in the RFP-like set: Request for Proposal, RFP against Supply Arrangement, Request for Standing Offer, Request for Supply Arrangement, Invitation to Qualify) whose original tender notice is published on CanadaBuys at instant T (publicationDate of the original notice row), will the solicitation be cancelled before award - i.e. its terminal tenderStatus is 'Cancelled' rather than 'Expired'? Features are the original-notice fields fixed at T: title and description text, contracting entity and its city/province, GSIN/UNSPSC and descriptions, procurement category, procurement method, selection criteria, trade agreements, regions of opportunity and delivery, expected contract start/end dates, and the closing date (documented UTC-0500) which with publicationDate gives the posting duration.",
+    "region": "North America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Five contracts at probe time: (1) Redistribution - SUPPORTED: OGL-Canada 2.0, explicit copy/modify/publish/adapt/distribute grant incl. commercial use, attribution statement required and carried to LICENSE.md; class A. (2) Prediction timing - SUPPORTED with recorded limitation: instant = original-notice publicationDate; every shipped feature is an original-notice field documented in the publisher's own data dictionary; the label is a post-instant terminal state from the publisher's own refreshed archive; cancellation dates are not in the bulk data, so the as-of policy is pinned-archive terminal-state with Open-row censoring + bounded notice-page verification at construction (weaker than dated-event labels like austender's; recorded as such). (3) Target - SUPPORTED: tenderStatus is a publisher-maintained column with documented three-value semantics; 'Expired' is observed absence (closed normally), 'Cancelled' the event; label column excludable; eligibility defined from information at the instant (notice type, competitive methods) not from outcomes. (4) Split capacity - PARTIALLY MEASURED: whole-FY2023-24 measured (5,749 eligible, 397 positives, 6.90%); legacy archive measured to carry the label across 2012-2022 via bounded slices; per-window exact counts need one bulk worker pass (recorded as the prerequisite to ready; never extrapolated to a claimed total). (5) Not a mirror - differentiated (novelty check recorded): no ML-ready cancellation task for any jurisdiction found; EU TED outcome-prediction literature studies different targets on a different jurisdiction and is not shipped ML-ready; the nearest bench sibling austender-contract-amendment-occurrence is the same domain but a different task contract (post-award contract amendments vs pre-award solicitation cancellation; different instant, population and label source).",
+    "sources": [
+     {
+      "licence": "Open Government Licence - Canada 2.0 (license_id ca-ogl-lgo on the open.canada.ca dataset record)",
+      "name": "CanadaBuys tender notices (Public Services and Procurement Canada), open.canada.ca dataset 6abd20d4-7a1c-4b38-baa2-9525d0bb2fd2",
+      "url": "https://open.canada.ca/data/en/dataset/6abd20d4-7a1c-4b38-baa2-9525d0bb2fd2"
+     },
+     {
+      "licence": "No separate licence instrument is stated on the XML file itself; it is the publisher's supporting documentation for the OGL-Canada-2.0-licensed CanadaBuys datasets (open.canada.ca records above). Recorded absence, not a grant; the shipped dataset rows come from the tender/award CSVs, whose instrument is quoted in license_evidence.",
+      "name": "CanadaBuys data dictionary (publisher's XML column documentation, shared by tender notices / award notices / contract history)",
+      "url": "https://donnees-data.tpsgc-pwgsc.gc.ca/ba2/ac-cb/achatscanada-canadabuys-dd.xml"
+     },
+     {
+      "licence": "Open Government Licence - Canada 2.0 (license_id ca-ogl-lgo)",
+      "name": "CanadaBuys award notices (PSPC), open.canada.ca dataset a1acb126-9ce8-40a9-b889-5da2b1dd20cb - secondary cross-check and optional variant only",
+      "url": "https://open.canada.ca/data/en/dataset/a1acb126-9ce8-40a9-b889-5da2b1dd20cb"
+     },
+     {
+      "licence": "No separate licence instrument is stated on the page itself; it is the publisher's supporting documentation for the OGL-Canada-2.0-licensed CanadaBuys datasets. Recorded absence, not a grant; used only as documentation evidence, not as a data source.",
+      "name": "PSPC supporting documentation: Understanding the new CanadaBuys tender and award notices datasets (status semantics, file organization, refresh)",
+      "url": "https://donnees-data.tpsgc-pwgsc.gc.ca/ba2/ac-cb/soutien-support-eng.html"
+     }
+    ],
+    "split_strategy": "Temporal on the original notice publicationDate over 2009-2026 (legacy archive 2009-2022 measured to carry the SAME 67-column schema including tenderStatus; cancellation present in bounded slices from 2017, 2018 and 2021). Indicative windows pending the bulk count pass: train 2009-2019, eval 2020-2023, holdout 2024-2026, each multi-year with both classes expected from the measured per-FY rate. Measured basis (FY2023-24, whole-FY bounded sample): RFP-like population 5,749 solicitations with 397 Cancelled (6.90%); all-solicitations 6,829 with 415 Cancelled (6.08%); both classes present. Per-window exact counts are the FIRST construction measurement on the worker (the ~746 MB tender archive download is bulk work and stays off the coordinator); no sampled number is claimed as a total. Cancellations cluster by contracting entity and publication month, so intervals must be clustered on (entity, publication-month); clustered counts are reported beside raw counts.",
+    "status": "investigating",
+    "target": "Binary: 1 if the solicitation's terminal tenderStatus (current archive) is 'Cancelled'; 0 if 'Expired'. Label source column: tenderStatus-appelOffresStatut-eng/-fra, excluded from shipped features. Population restricted to the RFP-like notice types above; excluded: Request for Information (measured 3.2% award-notice rate - no award by design), Advance Contract Award Notice (award pre-decided), Directed Contract and Not Applicable (non-competitive instruments). Observed absence vs no-event: 'Expired' is an observed terminal state (closed without cancellation), not missing data. Multi-row rule: 499/6,829 FY2023-24 solicitations carry amendment rows with their own later publication dates, and 144 of those show differing statuses across rows - construction defines precedence as any-row-Cancelled (solicitation-level label), verified on a bounded sample against the notice pages; measured FY2023-24 impact of the precedence choice is small (base rate 6.08% under max-amendment-row vs 6.1-6.9% band). Censoring: solicitations still Open at harvest are excluded. Optional recorded variant (NOT the primary label): no award notice published among Expired RFP-like solicitations (measured ~48% in the FY2023-24 + FY2024-25 award files) - ambiguous because award-notice publication is not guaranteed for every award."
    },
    {
     "awaiting_operator": false,
@@ -1344,7 +1414,7 @@
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
    }
   ],
-  "non_us_share": 93.8,
+  "non_us_share": 94.1,
   "records": [
    {
     "awaiting_operator": false,
@@ -2163,6 +2233,76 @@
     "split_strategy": "Cohorts by dataApresentacao over the union of the 35 year files (1991-2025; files processed descending, first id wins so re-numbered bills contribute their current row), windows by presentation date: train 1991-01..2014-12, eval 2015-01..2018-12, holdout 2019-01..2022-12. RIGHT-CENSORING CORRECTED 2026-10-23: Brazilian propositions carry across legislatures (bills presented 2019 still show live statuses with 2024-2026 timestamps, file and API agree), so 'closed legislature' does not settle labels; the scored population is bills whose status is terminal at the current file vintage, and the unobserved share (no-status + non-terminal) is measured per window and recorded as a property - it rises with recency. Sampled positive rates drift strongly downward by cohort (1991 whole file 311/4,436 = 7.0%; 2005 sampled ~2.2%; 2019-2022 sampled ~0.4-0.8%), a measured phenomenon property. Grain: one proposition = one row, keyed by id (unique across the union; construction asserts uniqueness).",
     "status": "investigating",
     "target": "Binary from the publisher's own situation vocabulary in the bulk CSV's ultimoStatus (current status at the file vintage; file and live API agree, measured 2026-10-23): positive = situation code 1140 'Transformado em Norma Jur\u00eddica' (CORRECTED 2026-10-23: the discovery sample's 'idSituacao 251' was a positional indexing defect - column 25 is ultimoStatus_idTipoTramitacao, not idSituacao; the header-name-keyed parse shows 1140 with a consistent code->description table, e.g. 923 Arquivada, 1230 Transformado em nova proposi\u00e7\u00e3o, 937 Vetado totalmente). Terminal negative = Arquivada* codes plus the other settled non-enactment states (Vetado totalmente, Retirado pelo(a) Autor(a), Devolvida ao(\u00e0) Autor(a), Tramita\u00e7\u00e3o Finalizada, Enviada ao Arquivo). Merged rows (1230 'Transformado em nova proposi\u00e7\u00e3o') are EXCLUDED from the scored population - the outcome is carried by the merged-into bill (decision recorded; share measured per window). Rows with a non-terminal status, and the 25-53% of rows (by year, measured) whose idSituacao is empty - the API confirms genuinely no tramita\u00e7\u00e3o on record, not a file gap - are unobserved targets, excluded and counted per window, never membership decisions on future data. Label source columns: all ultimoStatus_* fields and urnFinal, excluded from shipped features."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "CA",
+    "domain": "public procurement - pre-award solicitation lifecycle outcome prediction (federal tenders, Canada)",
+    "id": "canadabuys-tender-cancellation",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "award_join_2026_10_31": "FY2023-24 + FY2024-25 award-notice files (19,723,305 + 23,972,751 B): 12,089 rows, 9,294 distinct award solicitationNumbers, 80 columns. 3,146/6,829 (46.07%) FY2023-24 solicitations have an award notice in these two files; by current status: Expired 48.1% vs Cancelled 14.5% (status and award records are largely consistent - cancelled solicitations rarely produce awards); by type: RFP 50.3%, RFP-SA 45.3%, RFSO 53.2%, ITQ 55.3%, ACAN 37.3%, RFI 3.2% (RFIs do not produce awards by design - excluded from the task population). Recorded optional variant, not the primary label: among Expired RFP-like solicitations ~47.6% have no award notice in the follow-up files.",
+     "catalogue_2026_10_31": "open.canada.ca CKAN search q='CanadaBuys tender' (17 results) and q='contract history' (13 results) via /data/en/api/3/action/package_search: identified the three OGL-Canada datasets (tender notices 6abd20d4, award notices a1acb126, contract history 4fe645a1) plus the archived 2009-2023 buy-and-sell datasets; all license_id=ca-ogl-lgo, org pwgsc-tpsgc.",
+     "dated_examples_2026_10_31": "All timestamps below as published (closing times documented UTC-0500/EST). CANCELLED: WS3864736193 (PWGSC, 'RFP - HVAC Maintenance Services Contract - Connaught Range...') published 2023-04-14, closing 2023-04-17T14:00:00, terminal status Cancelled - feature window at instant 2023-04-14: 3-day posting duration, notice type RFP, entity PWGSC; the cancellation is a state change strictly after the instant. CANCELLED: WS3765771658 (PWGSC, 'EV385-231411. Loading Docks Assessment and Repair, Prince...') published 2023-04-20, closing 2023-05-16T14:00:00, Cancelled. Contrast (negative class): BPM020594/25224 (Shared Services Canada) published 2024-01-22, closing 2024-02-06T14:00:00, Expired (closed normally). Legacy-era CANCELLED: 5P420-17-5210/A (Parks Canada) published 2017-07-17, closing 2017-08-08T16:00:00, Cancelled.",
+     "extraction_cost_2026_10_31": "Measured from the coordinator, anonymous HTTPS: 3 whole-FY files totalling 88,413,309 bytes (FY23-24 tender 45.3 MB ~8 s; FY23-24 awards 19.7 MB ~4 s; FY24-25 awards 24.0 MB ~4 s) + 4 range slices of 400 KB + 2 header slices. Full harvest (worker, one job): tender complete 188,290,269 B + tender legacy 558,413,231 B + award complete 104,817,598 B (+ award legacy 270,603,514 B only if the variant is built) = ~851 MB across 3-4 GETs; a single standard worker job.",
+     "fy2023_24_panel_2026_10_31": "2023-2024-TenderNotice-AvisAppelOffres.csv: 45,318,253 B in ~8 s (one anonymous GET, coordinator). 7,430 rows = 6,829 distinct solicitationNumbers + 601 amendment/re-publication rows. publicationDate range 2023-04-01..2024-03-29 (per-FY bucketing by publication date confirmed); year mix 2023: 5,247 / 2024: 1,582 (Jan-Mar 2024). tenderClosingDate present 6,829/6,829 (100%); publication->closing days n=6,752 median 26 (p10 14, p90 53). Current-status mix of distinct solicitations: Expired 6,414, Cancelled 415, Open 0 (closed-FY file carries only terminal states).",
+     "legacy_slices_2026_10_31": "Four bounded 400,000-byte range slices of the 558,413,231-byte legacy file at byte offsets 3M / 150M / 330M / 520M (HTTP Range, anonymous): same 67-column schema; tenderStatus populated in every slice; Cancelled rows present in the 3M slice (2017, 2018 - Parks Canada 'Cancelled-' re-publications) and the 520M slice (2021 - PWGSC WS3010378161, NRCan-5000059348/B); slices span publication years 2012-2022. Establishes: the label exists across the legacy era; per-year exact counts need the bulk download (worker).",
+     "measured_on": "2026-10-31 from the coordinator, anonymous HTTPS only; scripts: candidates/canadabuys-tender-cancellation/probe/ (probe_fy2023_24_panel.py, probe_row_model.py, probe_legacy_slices.py - each reproduces the quoted numbers from the recorded URLs; catalogue and dictionary fetches recorded as curl commands in notes.md)",
+     "provenance_mix_2026_10_31": "Distinct-solicitation notice-type mix (FY2023-24): Request for Proposal 3,893 (Cancelled 268), RFP against Supply Arrangement 848 (47), Request for Standing Offer 598 (50), Advance Contract Award Notice 459 (7), Invitation to Qualify 331 (21), blank 321 (6), Request for Information 219 (4), Request for Supply Arrangement 79 (11), Not Applicable 76 (1), Directed Contract 5 (0). Procurement-method mix: Competitive-Open bidding 4,597; Competitive-Selective tendering 1,425; ACAN 412; Competitive-Traditional 341; Non-competitive 30; Competitive-Limited tendering 22; blank 2. RFP-like eligibility set (RFP, RFP-SA, RFSO, RFSA, ITQ): 5,749 solicitations, 397 Cancelled (6.90%) - the task population; both classes present in this FY.",
+     "refresh_and_vintage_2026_10_31": "FY2026-27 tender file Last-Modified: Sat, 31 Oct 2026 10:30:31 GMT (daily refresh measured); FY2025-26 and older per-FY files Last-Modified 2026-10-28. Complete file carries live Open rows (sample row published 2026-01-23 with closing 2029-03-31, status Open). Current-vintage caveat recorded: bulk files re-state current status; cancellation dates are not in the bulk data; the as-of policy is terminal-state-from-pinned-archive with Open-row censoring, plus a bounded construction-time verification against notice pages.",
+     "row_model_2026_10_31": "499 solicitations carry >1 row; amendment rows have their own LATER publication dates (e.g. 24-246305: amendment-0 pub 2023-10-23, amendment-3 pub 2023-11-01; WS3952365869: amendment-0 pub 2023-04-05, amendment-4 pub 2023-07-12). 144 multi-row solicitations show differing tenderStatus across rows (e.g. S4384520: amendment-5 row pub 2023-04-11 Cancelled, amendment-1 row pub 2023-04-18 Expired) - construction applies solicitation-level precedence (any-row-Cancelled) with bounded notice-page verification. 81 solicitations where the amendment-000 row's publicationDate is not the earliest row's publicationDate - the earliest-publication row is the original-notice rule of record. 12 FY2023-24 rows have titles prefixed 'Cancelled-' (legacy-era convention also measured: cancelled solicitations re-published with 'Cancelled-' title prefix, e.g. 5P420-17-5210/A Parks Canada, in the 2009-2022 archive).",
+     "schema_2026_10_31": "67 columns, bilingual eng/fra, identical header in the FY files, the complete file and the 2009-2022 legacy file (range-slice verified). Publisher data dictionary documents every column; key documented semantics quoted: tenderStatus ('Open (ie: accepting bids), Expired (no longer accepting bids) or Cancelled'); tenderClosingDate ('The date of closing for a tender notice, after which no new submissions will be accepted... displayed are all in UTC-0500... EASTERN STANDARD TIME'); amendmentNumber ('The number of amendments against a tender notice and/or a related awarded contract' - a running counter, so amendment counts on original rows are NOT as-of-T facts and are excluded from features); noticeType taxonomy (RFP, ACAN, ITQ, RFI, RFSO, RFSA, RFP against SA, Directed Contract, Not Applicable); procurementMethod taxonomy (competitive open bidding / selective tendering / traditional, non-competitive, ACAN, limited tendering); selectionCriteria taxonomy; GSIN/UNSPSC + descriptions; regionsOfOpportunity/Delivery; contracting entity + end-user entity fields; expectedContractStart/EndDate; tradeAgreements; noticeURL; tenderDescription (full text)."
+    },
+    "next_action": "One bounded worker measurement pass (advancement owns it), then ready/drop decision on measured criteria. Job: download tender complete (188,290,269 B) + tender",
+    "packaged_at": null,
+    "path": "candidates/canadabuys-tender-cancellation/record.json",
+    "prediction_time": "The instant is the original tender notice's publicationDate (the row with amendmentNumber 000; amendment rows are separate later publication events and are excluded from features and from the instant). Every shipped feature is a field of the notice as published at T, each documented in the publisher's own XML data dictionary (fetched 2026-10-31, 60,478 bytes). The label is a later state change of the same notice: the publisher's data dictionary defines tenderStatus as 'A status that indicates whether a tender is Open (ie: accepting bids), Expired (no longer accepting bids) or Cancelled', and the publisher's support page states the files 'will include information on new, open, cancelled and expired notices that are published on the CanadaBuys website' and that 'Tender notice closing times will be displayed in Universal Time Coordinated minus 5 hours (UTC-0500)'. As-of policy: the open-data files re-state the CURRENT status of each notice (the complete file carries live Open rows; the closed-FY files carry only terminal statuses - measured FY2023-24 file: 6,414 Expired / 415 Cancelled, zero Open). Historical cancellation DATES are not published in the bulk files, so labels are read as terminal states from an archive snapshot pinned by sha256 at harvest; still-Open solicitations are censored (excluded, not imputed). Cancellation is operationally observable in real time on the CanadaBuys site and the files refresh at least daily (2026-2027 tender file Last-Modified measured Sat, 31 Oct 2026 10:30:31 GMT). Residual limitation, recorded not resolved: rare late reversions of already-published statuses cannot be excluded for the most recent window; construction runs a bounded notice-page verification on a sample of Cancelled rows.",
+    "publisher": "Public Services and Procurement Canada (PSPC) - CanadaBuys open data via open.canada.ca",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a Government of Canada competitive solicitation (noticeType in the RFP-like set: Request for Proposal, RFP against Supply Arrangement, Request for Standing Offer, Request for Supply Arrangement, Invitation to Qualify) whose original tender notice is published on CanadaBuys at instant T (publicationDate of the original notice row), will the solicitation be cancelled before award - i.e. its terminal tenderStatus is 'Cancelled' rather than 'Expired'? Features are the original-notice fields fixed at T: title and description text, contracting entity and its city/province, GSIN/UNSPSC and descriptions, procurement category, procurement method, selection criteria, trade agreements, regions of opportunity and delivery, expected contract start/end dates, and the closing date (documented UTC-0500) which with publicationDate gives the posting duration.",
+    "region": "North America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Five contracts at probe time: (1) Redistribution - SUPPORTED: OGL-Canada 2.0, explicit copy/modify/publish/adapt/distribute grant incl. commercial use, attribution statement required and carried to LICENSE.md; class A. (2) Prediction timing - SUPPORTED with recorded limitation: instant = original-notice publicationDate; every shipped feature is an original-notice field documented in the publisher's own data dictionary; the label is a post-instant terminal state from the publisher's own refreshed archive; cancellation dates are not in the bulk data, so the as-of policy is pinned-archive terminal-state with Open-row censoring + bounded notice-page verification at construction (weaker than dated-event labels like austender's; recorded as such). (3) Target - SUPPORTED: tenderStatus is a publisher-maintained column with documented three-value semantics; 'Expired' is observed absence (closed normally), 'Cancelled' the event; label column excludable; eligibility defined from information at the instant (notice type, competitive methods) not from outcomes. (4) Split capacity - PARTIALLY MEASURED: whole-FY2023-24 measured (5,749 eligible, 397 positives, 6.90%); legacy archive measured to carry the label across 2012-2022 via bounded slices; per-window exact counts need one bulk worker pass (recorded as the prerequisite to ready; never extrapolated to a claimed total). (5) Not a mirror - differentiated (novelty check recorded): no ML-ready cancellation task for any jurisdiction found; EU TED outcome-prediction literature studies different targets on a different jurisdiction and is not shipped ML-ready; the nearest bench sibling austender-contract-amendment-occurrence is the same domain but a different task contract (post-award contract amendments vs pre-award solicitation cancellation; different instant, population and label source).",
+    "sources": [
+     {
+      "licence": "Open Government Licence - Canada 2.0 (license_id ca-ogl-lgo on the open.canada.ca dataset record)",
+      "name": "CanadaBuys tender notices (Public Services and Procurement Canada), open.canada.ca dataset 6abd20d4-7a1c-4b38-baa2-9525d0bb2fd2",
+      "url": "https://open.canada.ca/data/en/dataset/6abd20d4-7a1c-4b38-baa2-9525d0bb2fd2"
+     },
+     {
+      "licence": "No separate licence instrument is stated on the XML file itself; it is the publisher's supporting documentation for the OGL-Canada-2.0-licensed CanadaBuys datasets (open.canada.ca records above). Recorded absence, not a grant; the shipped dataset rows come from the tender/award CSVs, whose instrument is quoted in license_evidence.",
+      "name": "CanadaBuys data dictionary (publisher's XML column documentation, shared by tender notices / award notices / contract history)",
+      "url": "https://donnees-data.tpsgc-pwgsc.gc.ca/ba2/ac-cb/achatscanada-canadabuys-dd.xml"
+     },
+     {
+      "licence": "Open Government Licence - Canada 2.0 (license_id ca-ogl-lgo)",
+      "name": "CanadaBuys award notices (PSPC), open.canada.ca dataset a1acb126-9ce8-40a9-b889-5da2b1dd20cb - secondary cross-check and optional variant only",
+      "url": "https://open.canada.ca/data/en/dataset/a1acb126-9ce8-40a9-b889-5da2b1dd20cb"
+     },
+     {
+      "licence": "No separate licence instrument is stated on the page itself; it is the publisher's supporting documentation for the OGL-Canada-2.0-licensed CanadaBuys datasets. Recorded absence, not a grant; used only as documentation evidence, not as a data source.",
+      "name": "PSPC supporting documentation: Understanding the new CanadaBuys tender and award notices datasets (status semantics, file organization, refresh)",
+      "url": "https://donnees-data.tpsgc-pwgsc.gc.ca/ba2/ac-cb/soutien-support-eng.html"
+     }
+    ],
+    "split_strategy": "Temporal on the original notice publicationDate over 2009-2026 (legacy archive 2009-2022 measured to carry the SAME 67-column schema including tenderStatus; cancellation present in bounded slices from 2017, 2018 and 2021). Indicative windows pending the bulk count pass: train 2009-2019, eval 2020-2023, holdout 2024-2026, each multi-year with both classes expected from the measured per-FY rate. Measured basis (FY2023-24, whole-FY bounded sample): RFP-like population 5,749 solicitations with 397 Cancelled (6.90%); all-solicitations 6,829 with 415 Cancelled (6.08%); both classes present. Per-window exact counts are the FIRST construction measurement on the worker (the ~746 MB tender archive download is bulk work and stays off the coordinator); no sampled number is claimed as a total. Cancellations cluster by contracting entity and publication month, so intervals must be clustered on (entity, publication-month); clustered counts are reported beside raw counts.",
+    "status": "investigating",
+    "target": "Binary: 1 if the solicitation's terminal tenderStatus (current archive) is 'Cancelled'; 0 if 'Expired'. Label source column: tenderStatus-appelOffresStatut-eng/-fra, excluded from shipped features. Population restricted to the RFP-like notice types above; excluded: Request for Information (measured 3.2% award-notice rate - no award by design), Advance Contract Award Notice (award pre-decided), Directed Contract and Not Applicable (non-competitive instruments). Observed absence vs no-event: 'Expired' is an observed terminal state (closed without cancellation), not missing data. Multi-row rule: 499/6,829 FY2023-24 solicitations carry amendment rows with their own later publication dates, and 144 of those show differing statuses across rows - construction defines precedence as any-row-Cancelled (solicitation-level label), verified on a bounded sample against the notice pages; measured FY2023-24 impact of the precedence choice is small (base rate 6.08% under max-amendment-row vs 6.1-6.9% band). Censoring: solicitations still Open at harvest are excluded. Optional recorded variant (NOT the primary label): no award notice published among Expired RFP-like solicitations (measured ~48% in the FY2023-24 + FY2024-25 award files) - ambiguous because award-notice publication is not guaranteed for every award."
    },
    {
     "awaiting_operator": false,
@@ -5647,7 +5787,7 @@
     "target": "Binary. Positive: >=1 reference-satellite detection with event timestamp in [D+1 00:00, D+8 00:00) located in municipality m; negative: zero such detections. Label source: the same detection rows (data_pas timestamp + municipio/estado name) that feed the feature history - construction derives the label from event-time windows and must not ship any row with event time > D in feature columns (the label column is a derived aggregate, never a carried source column). Population: all Brazilian municipalities (5570 IBGE codes; ref-era files key by name - construction maps names to IBGE codes and asserts the mapping is total over the detection rows). Conditioning: evaluated pairs are municipality-days with zero detections in [D-13, D] (onset-conditioned; raw-pair variant recorded for comparison)."
    },
    {
-    "age_hours": 16.5,
+    "age_hours": 17.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -7769,7 +7909,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 53.5,
+    "age_hours": 54.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -9835,7 +9975,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 96.1,
+    "age_hours": 97.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -10972,7 +11112,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 16.5,
+     "age_hours": 17.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -11386,7 +11526,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 53.5,
+     "age_hours": 54.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11674,7 +11814,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 16.5,
+     "age_hours": 17.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -12088,7 +12228,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 53.5,
+     "age_hours": 54.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12374,7 +12514,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 96.1,
+     "age_hours": 97.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12586,7 +12726,7 @@
    ],
    "pending": [
     {
-     "age_hours": 96.1,
+     "age_hours": 97.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12804,7 +12944,7 @@
    "AT": 2,
    "AU": 8,
    "BR": 4,
-   "CA": 14,
+   "CA": 15,
    "CH": 5,
    "CL": 2,
    "CO": 1,
@@ -12839,22 +12979,22 @@
    "Europe": 29,
    "International organisations": 13,
    "Latin America": 10,
-   "North America": 24,
+   "North America": 25,
    "Oceania": 9,
    "South & South-East Asia": 13
   },
   "by_status": {
    "dropped": 47,
-   "investigating": 16,
+   "investigating": 17,
    "packaged": 3,
    "parked": 29,
    "published": 11,
    "ready": 12
   },
-  "candidates": 118,
-  "live": 42,
-  "live_non_us": 36,
-  "live_non_us_share": 0.857,
+  "candidates": 119,
+  "live": 43,
+  "live_non_us": 37,
+  "live_non_us_share": 0.86,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -12876,10 +13016,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-31T19:50:02.465338+00:00",
+    "last_run_at": "2026-10-31T20:50:02.115017+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-31T20:00:00+00:00",
+    "next_run_at": "2026-10-31T21:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -12900,10 +13040,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-31T19:50:01.757901+00:00",
+    "last_run_at": "2026-10-31T20:50:00.934271+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-31T19:55:00+00:00",
+    "next_run_at": "2026-10-31T20:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12924,10 +13064,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-31T19:46:58.958054+00:00",
+    "last_run_at": "2026-10-31T20:47:14.921678+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-31T19:51:58.958054+00:00",
+    "next_run_at": "2026-10-31T20:52:14.921678+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -12936,10 +13076,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-31T19:50:00.844026+00:00",
+    "last_run_at": "2026-10-31T20:50:01.148301+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-31T19:55:00+00:00",
+    "next_run_at": "2026-10-31T20:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12960,10 +13100,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-31T18:50:44.589325+00:00",
+    "last_run_at": "2026-10-31T19:50:44.167848+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-31T20:50:00+00:00",
+    "next_run_at": "2026-10-31T21:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -12972,10 +13112,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-31T18:55:00.816096+00:00",
+    "last_run_at": "2026-10-31T19:55:01.703531+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-31T19:55:00+00:00",
+    "next_run_at": "2026-10-31T20:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -13016,29 +13156,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-31T19:50:02.466375+00:00"
+  "updated_at": "2026-10-31T20:50:02.116014+00:00"
  },
- "generated_at": "2026-10-31T19:50:01+00:00",
+ "generated_at": "2026-10-31T20:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 118
+   "passing": 119
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-31T18:36:19Z",
-   "head_sha": "05b5025",
+   "created_at": "2026-10-31T20:30:55Z",
+   "head_sha": "83350bd",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41230230370"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41239251114"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 36/42 (86%)"
+   "summary": "live non-US: 37/43 (86%)"
   },
   "head": {
-   "at": "2026-10-31T18:36:16Z",
-   "sha": "05b5025",
-   "subject": "pins runner contract verified end to end (jobs pins-planning-002 + pins-planning-baseline-002, both succeeded and destro"
+   "at": "2026-10-31T20:30:52Z",
+   "sha": "83350bd",
+   "subject": "canadabuys-tender-cancellation opened (Canada discovery tick): pre-award solicitation-cancellation task on PSPC CanadaBu"
   },
   "tests": {
    "count": "697",
@@ -15317,13 +15457,21 @@
    "qualified": 0,
    "sessions_7d": 77,
    "tokens_7d": 36654798
+  },
+  {
+   "at": "2026-10-31T20:50:01+00:00",
+   "live": 17,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 78,
+   "tokens_7d": 37217605
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T19:50:01+00:00",
+   "as_of": "2026-10-31T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -15333,17 +15481,17 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T19:50:01+00:00",
+   "as_of": "2026-10-31T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 16
+   "value": 17
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T19:50:01+00:00",
+   "as_of": "2026-10-31T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -17936,7 +18084,7 @@
   "jobs_total": 159,
   "lifetime_eur": 3.59,
   "live": {
-   "checked_at": "2026-10-31T19:50:33+00:00",
+   "checked_at": "2026-10-31T20:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -17965,20 +18113,6 @@
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 344.1,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "89f8ff31cbe792435f0abafe6bc3b989cb28fce67f9c4e05ff06c0d3ddd91db6",
-    "ts": "2026-10-31T14:59:12.737722+00:00"
-   },
    {
     "elapsed_seconds": 1608.7,
     "event": "session",
@@ -18047,6 +18181,19 @@
     "run_budget": 900,
     "submitted_brief_sha256": "126c3078c3df112eea33910eb171c7449f6b9bc2c29111fedb98c3392be4a362",
     "ts": "2026-10-31T18:46:43.237926+00:00"
+   },
+   {
+    "elapsed_seconds": 1948.6,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "2fdda1a00ebb139f203c47a723c448b9a574bc8f99da2120a23ae50b4daaecb0",
+    "ts": "2026-10-31T20:32:30.446380+00:00"
    }
   ],
   "total": 40
