@@ -1,10 +1,8 @@
 {
  "alarms": [
-  "scout-research-session missed its window (2026-10-31T14:05:00+00:00); last status ok",
   "Token use at 90% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 91.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (48.5h)",
-  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
+  "unhcr-refugee-data-finder has been packaged and actionable for 92.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (49.5h)"
  ],
  "budget": {
   "config": {
@@ -21,17 +19,15 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-10-31T14:50:02.596632+00:00",
+   "allowed": true,
+   "moment": "2026-10-31T15:50:02.492350+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 3000s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 35867230,
-   "runs_last_7_days": 71,
-   "runs_weighted_last_7_days": 86,
+   "research_tokens_last_7_days": 35903725,
+   "runs_last_7_days": 72,
+   "runs_weighted_last_7_days": 87,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 15,
    "usage": {
@@ -57,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 10214,
+     "calls": 10236,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 45009293,
-     "output_tokens": 9207092,
+     "input_tokens": 45032821,
+     "output_tokens": 9220059,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -5608,7 +5604,7 @@
     "target": "Binary. Positive: >=1 reference-satellite detection with event timestamp in [D+1 00:00, D+8 00:00) located in municipality m; negative: zero such detections. Label source: the same detection rows (data_pas timestamp + municipio/estado name) that feed the feature history - construction derives the label from event-time windows and must not ship any row with event time > D in feature columns (the label column is a derived aggregate, never a carried source column). Population: all Brazilian municipalities (5570 IBGE codes; ref-era files key by name - construction maps names to IBGE codes and asserts the mapping is total over the detection rows). Conditioning: evaluated pairs are municipality-days with zero detections in [D-13, D] (onset-conditioned; raw-pair variant recorded for comparison)."
    },
    {
-    "age_hours": 11.5,
+    "age_hours": 12.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -7730,7 +7726,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 48.5,
+    "age_hours": 49.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -9402,7 +9398,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 91.1,
+    "age_hours": 92.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -10539,7 +10535,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 11.5,
+     "age_hours": 12.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -10953,7 +10949,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 48.5,
+     "age_hours": 49.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11241,7 +11237,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 11.5,
+     "age_hours": 12.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -11655,7 +11651,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 48.5,
+     "age_hours": 49.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11941,7 +11937,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 91.1,
+     "age_hours": 92.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12153,7 +12149,7 @@
    ],
    "pending": [
     {
-     "age_hours": 91.1,
+     "age_hours": 92.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12443,10 +12439,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-31T14:50:02.175531+00:00",
+    "last_run_at": "2026-10-31T15:50:02.118400+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-31T15:00:00+00:00",
+    "next_run_at": "2026-10-31T16:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -12467,10 +12463,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-31T13:55:01.420664+00:00",
+    "last_run_at": "2026-10-31T15:50:01.035257+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-31T14:05:00+00:00",
+    "next_run_at": "2026-10-31T15:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12491,10 +12487,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-31T14:48:26.499893+00:00",
+    "last_run_at": "2026-10-31T15:49:27.832481+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-31T14:53:26.499893+00:00",
+    "next_run_at": "2026-10-31T15:54:27.832481+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -12503,10 +12499,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-31T14:50:00.970977+00:00",
+    "last_run_at": "2026-10-31T15:50:01.279666+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-31T14:55:00+00:00",
+    "next_run_at": "2026-10-31T15:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12527,10 +12523,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-31T13:50:45.618895+00:00",
+    "last_run_at": "2026-10-31T14:50:43.738643+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-31T15:50:00+00:00",
+    "next_run_at": "2026-10-31T16:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -12539,10 +12535,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-31T13:55:01.082494+00:00",
+    "last_run_at": "2026-10-31T14:55:01.006179+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-31T14:55:00+00:00",
+    "next_run_at": "2026-10-31T15:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -12583,9 +12579,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-31T14:50:02.176521+00:00"
+  "updated_at": "2026-10-31T15:50:02.119554+00:00"
  },
- "generated_at": "2026-10-31T14:50:01+00:00",
+ "generated_at": "2026-10-31T15:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -12593,19 +12589,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-31T14:50:10Z",
-   "head_sha": "8c282d2",
+   "created_at": "2026-10-31T15:46:23Z",
+   "head_sha": "ff1b408",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41211969715"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41216438351"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 35/41 (85%)"
   },
   "head": {
-   "at": "2026-10-31T14:49:56Z",
-   "sha": "8c282d2",
-   "subject": "acnc diag-002 verified: recovery relaunch succeeded on the worker (server 173772460, EUR 0.06, destroyed and provider-co"
+   "at": "2026-10-31T14:57:16Z",
+   "sha": "ff1b408",
+   "subject": "acnc diag-002 follow-up: corrected the record job entry's elapsed_seconds 172.5 -> 152.2 to match the collected result.j"
   },
   "tests": {
    "count": "690",
@@ -14844,15 +14840,21 @@
    "qualified": 0,
    "sessions_7d": 71,
    "tokens_7d": 35867230
+  },
+  {
+   "at": "2026-10-31T15:50:01+00:00",
+   "live": 16,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 72,
+   "tokens_7d": 35903725
   }
  ],
- "notices": [
-  "A research session is running: lock held for 3000s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T14:50:01+00:00",
+   "as_of": "2026-10-31T15:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -14862,7 +14864,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T14:50:01+00:00",
+   "as_of": "2026-10-31T15:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -14872,7 +14874,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T14:50:01+00:00",
+   "as_of": "2026-10-31T15:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -17417,7 +17419,7 @@
   "jobs_total": 155,
   "lifetime_eur": 3.58,
   "live": {
-   "checked_at": "2026-10-31T14:50:33+00:00",
+   "checked_at": "2026-10-31T15:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -17444,35 +17446,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 2,
+  "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 723.6,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "756cf349b5fc582d4ff23ccd49deb4672fc6f363e1beaebf80fa028ab23a5450",
-    "ts": "2026-10-31T07:46:00.696855+00:00"
-   },
-   {
-    "elapsed_seconds": 646.2,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "3ab123ab4f964804fa3f5dd0affaba39eb3066b7b548b7134ab70549e2f00489",
-    "ts": "2026-10-31T08:10:52.189533+00:00"
-   },
    {
     "elapsed_seconds": 1537.9,
     "event": "session",
@@ -17527,8 +17502,36 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "6bd3c17101d13ac06b0fb58dd84a965dc286e0c10dd15034319dfce75b802484",
     "ts": "2026-10-31T12:48:01.972669+00:00"
+   },
+   {
+    "elapsed_seconds": 3097.2,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "4e32b1fabfda25c86959759344b2b3c6a0a3bc7d23262143e294e8402f4db0bd",
+    "ts": "2026-10-31T14:51:40.474447+00:00"
+   },
+   {
+    "elapsed_seconds": 344.1,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "89f8ff31cbe792435f0abafe6bc3b989cb28fce67f9c4e05ff06c0d3ddd91db6",
+    "ts": "2026-10-31T14:59:12.737722+00:00"
    }
   ],
-  "total": 34
+  "total": 36
  }
 }
