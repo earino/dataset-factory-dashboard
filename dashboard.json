@@ -1,8 +1,9 @@
 {
  "alarms": [
-  "Token use at 82% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 78.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (35.5h)",
+  "scout-research-session missed its window (2026-10-31T02:05:00+00:00); last status ok",
+  "Token use at 83% of the weekly ceiling",
+  "unhcr-refugee-data-finder has been packaged and actionable for 79.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (36.5h)",
   "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report",
   "1 release(s) not fully verified"
  ],
@@ -21,15 +22,17 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-10-31T01:50:03.322126+00:00",
+   "allowed": false,
+   "moment": "2026-10-31T02:50:03.159725+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 3002s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 32960630,
-   "runs_last_7_days": 59,
-   "runs_weighted_last_7_days": 73,
+   "research_tokens_last_7_days": 33335115,
+   "runs_last_7_days": 60,
+   "runs_weighted_last_7_days": 74,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 14,
    "usage": {
@@ -55,14 +58,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 9421,
+     "calls": 9477,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 42812794,
-     "output_tokens": 8496991,
+     "input_tokens": 43140891,
+     "output_tokens": 8543379,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -7805,7 +7808,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 35.5,
+    "age_hours": 36.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -9430,7 +9433,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 78.1,
+    "age_hours": 79.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -10516,7 +10519,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 35.5,
+     "age_hours": 36.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -10804,7 +10807,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 35.5,
+     "age_hours": 36.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11090,7 +11093,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 78.1,
+     "age_hours": 79.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -11302,7 +11305,7 @@
    ],
    "pending": [
     {
-     "age_hours": 78.1,
+     "age_hours": 79.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -11593,10 +11596,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-31T01:50:01.964581+00:00",
+    "last_run_at": "2026-10-31T02:50:02.481607+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-31T02:00:00+00:00",
+    "next_run_at": "2026-10-31T03:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -11617,10 +11620,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-31T01:50:01.217955+00:00",
+    "last_run_at": "2026-10-31T01:55:00.823495+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-31T01:55:00+00:00",
+    "next_run_at": "2026-10-31T02:05:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -11641,10 +11644,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-31T01:48:50.133898+00:00",
+    "last_run_at": "2026-10-31T02:49:08.089120+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-31T01:53:50.133898+00:00",
+    "next_run_at": "2026-10-31T02:54:08.089120+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -11653,10 +11656,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-31T01:50:01.072060+00:00",
+    "last_run_at": "2026-10-31T02:50:00.734146+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-31T01:55:00+00:00",
+    "next_run_at": "2026-10-31T02:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -11677,10 +11680,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-31T00:50:44.515924+00:00",
+    "last_run_at": "2026-10-31T01:50:43.646133+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-31T02:50:00+00:00",
+    "next_run_at": "2026-10-31T03:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -11689,10 +11692,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-31T00:55:00.734746+00:00",
+    "last_run_at": "2026-10-31T01:55:01.495196+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-31T01:55:00+00:00",
+    "next_run_at": "2026-10-31T02:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -11733,9 +11736,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-31T01:50:01.965791+00:00"
+  "updated_at": "2026-10-31T02:50:02.482706+00:00"
  },
- "generated_at": "2026-10-31T01:50:02+00:00",
+ "generated_at": "2026-10-31T02:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -11743,10 +11746,10 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-31T01:06:01Z",
+   "created_at": "2026-10-31T02:29:34Z",
    "head_sha": "20428e2",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41153643057"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41160239722"
   },
   "coverage": {
    "ok": true,
@@ -13890,13 +13893,23 @@
    "qualified": 1,
    "sessions_7d": 59,
    "tokens_7d": 32960630
+  },
+  {
+   "at": "2026-10-31T02:50:01+00:00",
+   "live": 17,
+   "published": 11,
+   "qualified": 1,
+   "sessions_7d": 60,
+   "tokens_7d": 33335115
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 3002s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T01:50:02+00:00",
+   "as_of": "2026-10-31T02:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -13906,7 +13919,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T01:50:02+00:00",
+   "as_of": "2026-10-31T02:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -13916,7 +13929,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T01:50:02+00:00",
+   "as_of": "2026-10-31T02:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -14550,7 +14563,7 @@
      "lo": 0.002
     },
     {
-     "count": 42,
+     "count": 43,
      "hi": 0.01,
      "lo": 0.005
     },
@@ -14586,11 +14599,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0136,
-   "n": 147,
+   "median": 0.0132,
+   "n": 148,
    "p90": 0.0573,
    "ref_rate": 0.06924,
-   "total": 4.55
+   "total": 4.56
   },
   "jobs": [
    {
@@ -15518,6 +15531,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-10-31T02:39:02.167364+00:00",
+    "deleted_at": "2026-10-31T02:43:52.123535+00:00",
+    "eur": 0.0009,
+    "hours": 0.081,
+    "id": "ipo-tm-publish-001",
+    "location": "hel1",
+    "normalised_eur": 0.0056,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-10-12T09:34:49.133713+00:00",
     "deleted_at": "2026-10-12T10:05:37.321738+00:00",
     "eur": 0.0355,
@@ -16358,19 +16383,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 106,
-  "jobs_total": 147,
+  "jobs_this_month": 107,
+  "jobs_total": 148,
   "lifetime_eur": 3.54,
   "live": {
-   "checked_at": "2026-10-31T01:50:34+00:00",
+   "checked_at": "2026-10-31T02:50:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 31.9,
-  "month_to_date": 1.09,
+  "month_hours": 32.0,
+  "month_to_date": 1.1,
   "months": [
    {
     "eur": 2.4452,
@@ -16379,13 +16404,13 @@
     "month": "2026-09"
    },
    {
-    "eur": 1.0946,
-    "hours": 31.9,
-    "jobs": 106,
+    "eur": 1.0955,
+    "hours": 31.98,
+    "jobs": 107,
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 1.09
+  "projected_month_eur": 1.1
  },
  "schema": 1,
  "sessions": {
