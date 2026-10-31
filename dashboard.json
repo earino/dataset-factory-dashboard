@@ -1,8 +1,8 @@
 {
  "alarms": [
-  "Token use at 87% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 84.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (41.5h)"
+  "Token use at 88% of the weekly ceiling",
+  "unhcr-refugee-data-finder has been packaged and actionable for 85.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (42.5h)"
  ],
  "budget": {
   "config": {
@@ -20,14 +20,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-31T07:50:02.516277+00:00",
+   "moment": "2026-10-31T08:50:02.598344+00:00",
    "period_start": "2026-10-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 34918846,
-   "runs_last_7_days": 65,
-   "runs_weighted_last_7_days": 80,
+   "research_tokens_last_7_days": 35113918,
+   "runs_last_7_days": 66,
+   "runs_weighted_last_7_days": 81,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 15,
    "usage": {
@@ -53,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 9781,
+     "calls": 9835,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 44396058,
-     "output_tokens": 8871943,
+     "input_tokens": 44534570,
+     "output_tokens": 8928503,
      "pricing_available": false
     },
     "scheduled-other": {
@@ -93,7 +93,7 @@
    "US": 1
   },
   "counts": {
-   "dropped": 43,
+   "dropped": 45,
    "investigating": 16,
    "packaged": 3,
    "parked": 29,
@@ -5392,7 +5392,7 @@
     "target": "Binary. Positive: >=1 reference-satellite detection with event timestamp in [D+1 00:00, D+8 00:00) located in municipality m; negative: zero such detections. Label source: the same detection rows (data_pas timestamp + municipio/estado name) that feed the feature history - construction derives the label from event-time windows and must not ship any row with event time > D in feature columns (the label column is a derived aggregate, never a carried source column). Population: all Brazilian municipalities (5570 IBGE codes; ref-era files key by name - construction maps names to IBGE codes and asserts the mapping is total over the detection rows). Conditioning: evaluated pairs are municipality-days with zero detections in [D-13, D] (onset-conditioned; raw-pair variant recorded for comparison)."
    },
    {
-    "age_hours": 4.5,
+    "age_hours": 5.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -7514,7 +7514,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 41.5,
+    "age_hours": 42.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8083,6 +8083,53 @@
     "split_strategy": "Temporal, on the primary population (782 single-country plan-years with origRequirements>0, 2000-2025), measured from the source on 2026-10-29 at the >=50%-of-ORIGINAL-requirements threshold: train 2000-2016: 437 rows, pos 282 / neg 155 (64.5%), 78 distinct countries; eval 2017-2020: 139 rows, pos 81 / neg 58 (58.3%), 51 countries; holdout 2021-2025: 182 rows, pos 96 / neg 86 (52.7%), 43 countries. Both classes present in every window. 2026 live-edge rows (24) excluded until their year closes. CLUSTERED COUNT (the honest sample size): 83 distinct country series in the primary population, max 28 plan-years for one country; positives also cluster by year through global funding cycles - measured positive rate at the 50% threshold drifts 68.3% (2000-2013) -> 52.3% (2014-2018) -> 63.8% (2019-2022) -> 42.5% (2023-2025), and GHO coverage fell from ~50% (2022) to 38% (2023) per the publisher's own snapshot; intervals and baselines must be country-clustered and year-aware. The final window cut is construction's choice; these three windows are the measured default.",
     "status": "ready",
     "target": "Binary: the plan's FTS funding total for its plan year (usage year = plan year; commitments + paid contributions, pledges excluded, USD, publisher's own attribution including boundary flows) divided by its ORIGINAL requirements (launch vintage) is >= 0.50 -> 1, else 0. Label source: per-plan-year funding totals (FTS flow endpoint incoming.fundingTotal with planId+year filter; equal to the publisher's HDX distribution on single-country rows - measured: Yemen HRP 2023 1,774,327,599, Afghanistan HRP 2023 1,678,347,238, both API==CSV to the dollar) and origRequirements from the plan endpoint; both excludable from features by construction (features carry launch attributes and strictly-prior years only). Censoring: plan-years whose year has not closed are excluded and counted (2026 live edge: 24 primary rows), never imputed. Zero-funding rows are the publisher's recorded outcome (empty funding fields in the HDX CSV counted at construction, not dropped silently). Population: PRIMARY = single-country plan-years with origRequirements > 0, 2000-2025 (782 rows; 60 multi-country regional plans excluded from the primary task because the HDX CSV splits them into country slices whose funding sum covers only ~78% of the plan total - measured on Burundi RRP 2021: slices 14,978,233 vs API plan total 19,282,778; regional plans can be a secondary population with flow-endpoint totals if construction wants them). Appeal-linked funding only; the country rows without plan linkage (2,678 HDX CSV rows, 'Not specified' plans) are outside the task population, so the label's meaning is single-population throughout."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "FR",
+    "domain": "consumer product safety / cross-jurisdiction recall propagation prediction (OECD GlobalRecalls compilation)",
+    "id": "oecd-global-recalls-propagation",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "portal_aggregates_2026_10_31": "Two anonymous GETs to the SPA's own dashboard/search endpoints (the calls the public UI issues on load; no bulk transfer, 16,806 B + 246,490 B): Total recalls 57,807; country facet lists 50 jurisdictions; measured mix (reproduced by probe/probe_aggregates.py): EEA 15,002 / US 8,421 / AU 6,620 / CA 5,759 / DE 4,507 / IT 3,403 / GB 3,245 / KR 2,976 / HU 2,754 / FR 2,585 / CZ 1,363 / PL 1,350 / ES 1,230 / CY 1,076 / JP 1,063 / SE 1,060 / FI 1,054 / BG 993 / LT 863 / NL 767 / CO 699 / SK 640 / IE 510 / DK 494 / RO 473 / BE 442 / PT 416 / AT 355 / AE 289 / ASEAN 275 / LV 274 / GR 268 / MT 257 / LU 255 / HR 214 / EE 211 / NO 172 / SI 167 / VN 89 / PH 82 / SG 70 / IS 69 / ID 67 / CR 54 / TW 47 / TH 33 / BN 31 / IL 19 / MY 19 / LI 1. Top-5 channels hold 40,309 of 57,807 (69.7%); 12 of the 50 jurisdictions hold fewer than 100 lifetime notices (Liechtenstein holds 1). Facet keys measured: country-were-recalled, country-were-made, gs1-gpc-brick/class/family/segment, concepts-from-query, best-tags, related-concepts.",
+     "sample_rows_2026_10_31": "search.xqy sample (start=1&end=5, orderby date-asc) returned 4 rows; fields measured: countryId, countryName, date, extUrl (link to the originating national portal record), id, imageUri, index, language, languageId, manufacturer.country, product.name, tags, uri, plus a url field pointing at an INTERNAL OECD hostname (dmz-ml-2.main.oecd.org:8120/service/getrecall.xqy) for the detail. No GTIN/model/product-identity field in the payload; the GS1 GPC facets are category-level. Data-quality signal: 2 of the 4 sample rows carry date 1900-01-01, i.e. a missing/unparsed date sentinel in a timing-critical field (reproduced by probe/probe_aggregates.py).",
+     "task_probes_deliberately_not_run": "No full-schema crawl, no year-distribution extraction, no product-linkage probe, no split or cost measurement - the coverage mix plus the publisher's own scope caveat settled the target contract, and the licence posture settled publishability, so further probing would spend budget on a closed lead. Cost of this rejection: 4 HTTP fetches to the portal + 1 OECD report PDF + 1 OECD statistics PDF + 1 OECD ToU page."
+    },
+    "next_action": "None - closed. Re-open only if (a) the OECD publishes a documented public read API or bulk export for GlobalRecalls AND an explicit dataset-level open licence c",
+    "packaged_at": null,
+    "path": "candidates/oecd-global-recalls-propagation/record.json",
+    "prediction_time": "Would have been the publication instant of the first-seen recall of a product in jurisdiction A (the portal's recall record date), with features from that record (product category via GS1 GPC, hazard, country of manufacture, description) - closed after aggregate measurement, before any full-schema or split work, because the target contract fails on measured coverage.",
+    "publisher": "Organisation for Economic Co-operation and Development (OECD), headquartered in Paris, France",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "The lead probed was the OECD GlobalRecalls portal (globalrecalls.oecd.org), the OECD Working Party on Consumer Product Safety's compilation of consumer product recalls contributed by ~47-50 national and regional authorities (launched 2012). The natural differentiated task was cross-jurisdiction propagation: at the portal publication of a product recall in jurisdiction A at instant T, will the same product be recalled in jurisdiction B within a fixed window? That is the one task shape this compilation could carry that no single national recalls portal can (in-house comparators hc-recalls-classification, openfda-food-recall-classification and rasff-notification-risk-decision are single-portal classification tasks on food/health products, not propagation). The session measured the source's coverage and closed the lead: the propagation target's negative class is censoring-dominated by heterogeneous contributor coverage, and the compilation adds no clean licence or unique access over the four reliably-contributing national portals.",
+    "region": "International organisations",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "No dataset-level open licence found anywhere on the portal; the OECD general Terms and Conditions Data section (updated 1 July 2024, https://www.oecd.org/en/about/terms-conditions.html, fetched 2026-10-31) permits reuse of OECD-owned Data with attribution but is explicitly conditional on third-party ownership being cleared by the user.",
+      "name": "OECD GlobalRecalls portal (globalrecalls.oecd.org), consumer product recalls contributed by national/regional authorities",
+      "url": "https://globalrecalls.oecd.org/"
+     }
+    ],
+    "split_strategy": "Not reached - the aggregate coverage measurement (below) closed the lead before split work. For the propagation target, split capacity is not the binding failure: the target itself is uninterpretable at the measured coverage mix (negatives are censoring-dominated; the four reliably-contributing channels - US CPSC, Canada, Australia, EU Safety Gate - are exactly the national portals a consumer can already download, and EU Safety Gate natively publishes follow-up alerts by member states, covering the EU part of the propagation signal).",
+    "status": "dropped",
+    "target": "Would have been binary: a later portal record for the same product in a different jurisdiction within N days, label source = a later recall record linked to the same product. Two blockers measured/verified: (1) no recorded second-jurisdiction recall cannot be read as absence, because contributor coverage is radically heterogeneous (measured: ~20 of 50 jurisdictions carry fewer than 100 lifetime notices; the OECD's own documentation states 'The scope of the recalls depends on the mandate of the particular government authority providing the information'); (2) the 4-row sample carries no product identity field (GTIN/model) beyond product.name and GS1 GPC category facets, which identify a category, not a product - the same-product link the label depends on is not visibly present in the public search payload."
    },
    {
     "awaiting_operator": false,
@@ -9139,7 +9186,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 84.1,
+    "age_hours": 85.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -9940,6 +9987,57 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "CH",
+    "domain": "international trademark examination / designation-level refusal outcome prediction (WIPO Madrid System)",
+    "id": "wipo-madrid-designation-refusal",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "licence_triage_2026_10_31": "Madrid Monitor Terms of Use (terms.jsp) HTTP 200, full text read; Madrid Monitor help/FAQ (via live-page extraction): no public API ('Not currently'), complete backfile 'available for a fee', per-page download limits only, >10 searches/min and automated queries disallowed; Gazette portal (gazette.jsp) HTTP 200: weekly issues listed (No. 42 - 29/10/2026 back to No. 01 - 15/01/2026 for 2026; years 2009-2026 + All; 1997-2010 archive at wipo.int/madrid/en/madridgazette/year.html), chapters enumerated incl. 'Notifications of provisional refusals', 'Confirmations of total provisional refusal (Rule 18ter(3))', 'Statements of grant of protection (Rule 18ter(1))', 'Possible opposition beyond the 18-month time limit (Rule 16)', 'Invalidations'; GBD Terms of Use HTTP 200, sections 2.1-3.2 quoted in license_evidence. WIPO general ToU: CC BY 4.0 default explicitly conditional on absence of service-specific terms.",
+     "task_probes_deliberately_not_run": "Under the standing licence-first order of work, no schema, volume, base-rate, split or cost probing was spent on this source after the class D instrument was read. The cost of this rejection was five page fetches plus one search sweep. Relevance note: the uncommitted ipo-trademark-registration-outcome work (UK IPO, a parallel session's output) shows the operator already has a national trademark-examination task in flight; this lead would have been the multi-member sibling."
+    },
+    "next_action": "None - closed on licence grounds. Re-open only if (a) WIPO attaches an explicit dataset-level open licence (e.g. CC BY) to a Madrid registry data channel - the ",
+    "packaged_at": null,
+    "path": "candidates/wipo-madrid-designation-refusal/record.json",
+    "prediction_time": "Would have been the Thursday publication of the international registration in the WIPO Gazette of International Marks (weekly, official publication), with the prediction made at that publication instant using the published registration attributes (mark, Nice classes, holder, office of origin, designated members and their notification dates) - never reached: licence triage (first, cheapest) vetoed the source before schema, volume or split probing, per the standing order of work.",
+    "publisher": "World Intellectual Property Organization (WIPO), headquartered in Geneva, Switzerland",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "The lead probed was the WIPO Madrid System's international trademark registry: a new international registration (or subsequent designation) designates one or more Madrid members, and each designated office examines the mark and may issue a notification of provisional refusal within its treaty time limit, or a statement of grant of protection. The natural task was designation-level: at the Gazette publication of a new international registration, for designation (registration, member M) with notification date T, predict whether the office of M will publish a notification of provisional refusal (total or partial) within the applicable 12/18-month window from T. The task shape was attractive: a treaty-documented censoring window (Article 5(2) Agreement / 5(2)(a)-(c) Protocol; Rule 16 'possible opposition beyond the 18-month time limit' entries exist as a separate Gazette chapter), a weekly official publication carrying both the new registrations and the outcome events (refusal, confirmation, grant), large volume (~60k+ international registrations per year in recent years, each with several designations), and no known ML-ready precedent. The session closed the lead on licence grounds before any row-level probing: every free machine-readable channel for this registry carries service-specific terms that prohibit exactly what a published derived dataset is.",
+    "region": "International organisations",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "Madrid Monitor Database Terms of Use (July 2025), https://www3.wipo.int/madrid/monitor/en/terms.jsp - class D clauses quoted in license_evidence.",
+      "name": "WIPO Madrid Monitor database (www3.wipo.int/madrid/monitor/en/), the search service over international applications and registrations under the Madrid System",
+      "url": "https://www3.wipo.int/madrid/monitor/en/"
+     },
+     {
+      "licence": "Same Madrid Monitor service terms (the Gazette is a view of the Madrid Monitor database within that application); the WIPO website-general open-access policy applies only 'unless service-specific terms of use apply' (https://www.wipo.int/en/web/terms-of-use).",
+      "name": "WIPO Gazette of International Marks (official weekly publication of the Madrid System)",
+      "url": "https://www3.wipo.int/madrid/monitor/en/gazette.jsp"
+     }
+    ],
+    "split_strategy": "Not reached - licence class D stops the order of work at step 1 (licence and terms), before aggregates, schema or split probing. No volume, base rate, split capacity or cost was measured, by design. (Only the publication structure was read: the Gazette chapter list that would have carried the label events, and the Monitor's per-page download limits.)",
+    "status": "dropped",
+    "target": "Would have been binary: at least one Gazette 'Notifications of provisional refusals' entry (or 'Confirmations of total provisional refusal (Rule 18ter(3))') for (registration, member M) inside the window vs no such entry, with the no-refusal negative class bounded by the treaty window (a documented censoring boundary, which is what made the lead worth probing) - never reached. The label source would have been the refusal/grant chapters of the Gazette and the Madrid Monitor designation-status history; recorded here only so the shape of the closed lead is documented; the verdict is a licence rejection, not a task finding."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "ZA",
     "domain": "country/portal coverage record - City of Cape Town Open Data Portal (Africa tick)",
     "id": "za-capetown-odp-coverage",
@@ -10225,7 +10323,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 4.5,
+     "age_hours": 5.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -10639,7 +10737,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 41.5,
+     "age_hours": 42.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -10927,7 +11025,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 4.5,
+     "age_hours": 5.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -11341,7 +11439,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 41.5,
+     "age_hours": 42.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11627,7 +11725,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 84.1,
+     "age_hours": 85.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -11839,7 +11937,7 @@
    ],
    "pending": [
     {
-     "age_hours": 84.1,
+     "age_hours": 85.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12058,12 +12156,12 @@
    "AU": 8,
    "BR": 4,
    "CA": 14,
-   "CH": 4,
+   "CH": 5,
    "CL": 2,
    "CO": 1,
    "DE": 2,
    "EU": 11,
-   "FR": 1,
+   "FR": 2,
    "GB": 12,
    "GH": 1,
    "HK": 2,
@@ -12090,21 +12188,21 @@
    "Africa": 11,
    "East Asia": 9,
    "Europe": 26,
-   "International organisations": 11,
+   "International organisations": 13,
    "Latin America": 10,
    "North America": 24,
    "Oceania": 9,
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 43,
+   "dropped": 45,
    "investigating": 16,
    "packaged": 3,
    "parked": 29,
    "published": 11,
    "ready": 11
   },
-  "candidates": 113,
+  "candidates": 115,
   "live": 41,
   "live_non_us": 35,
   "live_non_us_share": 0.854,
@@ -12129,10 +12227,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-31T07:50:02.050843+00:00",
+    "last_run_at": "2026-10-31T08:50:01.431314+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-10-31T08:00:00+00:00",
+    "next_run_at": "2026-10-31T09:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -12153,10 +12251,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-31T07:50:01.358846+00:00",
+    "last_run_at": "2026-10-31T08:50:00.890093+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-31T07:55:00+00:00",
+    "next_run_at": "2026-10-31T08:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12177,10 +12275,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-31T07:46:00.745263+00:00",
+    "last_run_at": "2026-10-31T08:46:18.987680+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-31T07:51:00.745263+00:00",
+    "next_run_at": "2026-10-31T08:51:18.987680+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -12189,10 +12287,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-31T07:50:00.798868+00:00",
+    "last_run_at": "2026-10-31T08:50:00.896325+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-31T07:55:00+00:00",
+    "next_run_at": "2026-10-31T08:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12213,10 +12311,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-31T06:50:43.714692+00:00",
+    "last_run_at": "2026-10-31T07:50:42.876576+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-10-31T08:50:00+00:00",
+    "next_run_at": "2026-10-31T09:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -12225,10 +12323,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-31T06:55:01.213186+00:00",
+    "last_run_at": "2026-10-31T07:55:00.551521+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-31T07:55:00+00:00",
+    "next_run_at": "2026-10-31T08:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -12269,29 +12367,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-31T07:50:02.051966+00:00"
+  "updated_at": "2026-10-31T08:50:01.432316+00:00"
  },
- "generated_at": "2026-10-31T07:50:01+00:00",
+ "generated_at": "2026-10-31T08:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 113
+   "passing": 115
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-31T07:44:27Z",
-   "head_sha": "19902c4",
+   "created_at": "2026-10-31T08:10:00Z",
+   "head_sha": "11035bc",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41181784235"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41183469958"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 35/41 (85%)"
   },
   "head": {
-   "at": "2026-10-31T07:44:24Z",
-   "sha": "19902c4",
-   "subject": "acnc-002 follow-up: rebuild succeeded, every stage verified first-hand from collected reports (build pins match discover"
+   "at": "2026-10-31T08:09:55Z",
+   "sha": "11035bc",
+   "subject": "intl-orgs discovery tick: wipo-madrid-designation-refusal dropped at the class D licence gate (Madrid Monitor ToU July 2"
   },
   "tests": {
    "count": "683",
@@ -14474,13 +14572,21 @@
    "qualified": 0,
    "sessions_7d": 65,
    "tokens_7d": 34918846
+  },
+  {
+   "at": "2026-10-31T08:50:01+00:00",
+   "live": 16,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 66,
+   "tokens_7d": 35113918
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T07:50:01+00:00",
+   "as_of": "2026-10-31T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -14490,7 +14596,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T07:50:01+00:00",
+   "as_of": "2026-10-31T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -14500,7 +14606,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T07:50:01+00:00",
+   "as_of": "2026-10-31T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -17009,7 +17115,7 @@
   "jobs_total": 152,
   "lifetime_eur": 3.57,
   "live": {
-   "checked_at": "2026-10-31T07:50:33+00:00",
+   "checked_at": "2026-10-31T08:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -17036,22 +17142,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 1,
+  "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 5700.1,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "killed by the wrapper after the run budget elapsed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "2402670b26531b49ca6ba6a50039f97806ccb23e7f308cdf72d74a25747f4889",
-    "ts": "2026-10-31T03:35:01.532805+00:00"
-   },
    {
     "elapsed_seconds": 761.5,
     "event": "session",
@@ -17120,8 +17212,21 @@
     "run_budget": 900,
     "submitted_brief_sha256": "756cf349b5fc582d4ff23ccd49deb4672fc6f363e1beaebf80fa028ab23a5450",
     "ts": "2026-10-31T07:46:00.696855+00:00"
+   },
+   {
+    "elapsed_seconds": 646.2,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "3ab123ab4f964804fa3f5dd0affaba39eb3066b7b548b7134ab70549e2f00489",
+    "ts": "2026-10-31T08:10:52.189533+00:00"
    }
   ],
-  "total": 29
+  "total": 30
  }
 }
