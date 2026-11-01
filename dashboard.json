@@ -1,9 +1,8 @@
 {
  "alarms": [
-  "Token use at 94% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 100.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (57.5h)",
-  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
+  "Token use at 95% of the weekly ceiling",
+  "unhcr-refugee-data-finder has been packaged and actionable for 101.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (58.5h)"
  ],
  "budget": {
   "config": {
@@ -21,58 +20,25 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-10-31T23:50:02.967906+00:00",
-   "period_start": "2026-10-01T00:00:00+00:00",
+   "moment": "2026-11-01T00:50:02.637062+00:00",
+   "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 37631330,
-   "runs_last_7_days": 81,
-   "runs_weighted_last_7_days": 96,
+   "research_tokens_last_7_days": 37951434,
+   "runs_last_7_days": 82,
+   "runs_weighted_last_7_days": 97,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 15,
    "usage": {
-    "auxiliary": {
-     "calls": 693,
-     "cost_status": [
-      "unknown"
-     ],
-     "cost_usd": null,
-     "input_tokens": 1476962,
-     "output_tokens": 734735,
-     "pricing_available": false
-    },
-    "interactive": {
-     "calls": 5873,
-     "cost_status": [
-      "estimated",
-      "unknown"
-     ],
-     "cost_usd": null,
-     "input_tokens": 36788419,
-     "output_tokens": 3401868,
-     "pricing_available": false
-    },
     "research": {
-     "calls": 10773,
+     "calls": 75,
      "cost_status": [
-      "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 46277602,
-     "output_tokens": 9702883,
-     "pricing_available": false
-    },
-    "scheduled-other": {
-     "calls": 2067,
-     "cost_status": [
-      "estimated",
-      "unknown"
-     ],
-     "cost_usd": null,
-     "input_tokens": 2824529,
-     "output_tokens": 1612084,
+     "input_tokens": 215017,
+     "output_tokens": 105087,
      "pricing_available": false
     }
    },
@@ -86,7 +52,7 @@
   "countries": {
    "BR": 3,
    "CA": 4,
-   "CO": 1,
+   "CO": 2,
    "DE": 1,
    "EU": 3,
    "GB": 3,
@@ -95,7 +61,7 @@
   },
   "counts": {
    "dropped": 47,
-   "investigating": 17,
+   "investigating": 18,
    "packaged": 4,
    "parked": 29,
    "published": 11,
@@ -1007,6 +973,102 @@
     "awaiting_operator": false,
     "baseline": {},
     "country": "CO",
+    "domain": "education - school-aggregate outcome dynamics on Colombia's national exit exam (Saber 11, ICFES): next-school-year outcome decline early warning",
+    "id": "icfes-saber11-school-outcome-decline",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "extraction_cost_2026_11_01": {
+      "construction_scale": "unified table = 7,109,704 rows x 51 columns (bulk CSV export measured streaming, Content-Length 0; estimated >1.5 GB CSV) + rnvb-vnyh 504,872 x 81 - worker-class harvest, never coordinator; note the Socrata legacy export endpoint carries Deprecation/Sunset headers (Sunset: 2026-12-22, support link 43491231777047) so construction should use the resource API with $limit paging (SoQL count(distinct) and group-by measured working) or the new export path; DataIcfes period files (registration channel) are pipe-delimited .txt per sitting per the publisher FAQ",
+      "discovery_probes": "~40 anonymous HTTPS GETs to datos.gov.co (view metadata 5-100 KB each; SoQL aggregates ~9 s per query, ~8 MB total); machine class: hosted coordinator (4 vCPU, 1.9 GiB)"
+     },
+     "period_coverage_2026_11_01": {
+      "calendario_mix": "Cal-A sittings (periodo *2/*4): 542,466-1,087,902 scored rows Cal-A per school-year; Cal-B sittings (periodo *1): 11,865-25,829 scored rows; a few hundred Cal-A schools also test in -1 sittings from 2018",
+      "method": "probe_period_coverage.py - 3 SoQL aggregate queries (rows per periodo; punt_global non-null per periodo; calendar mix among scored rows), anonymous HTTPS",
+      "rows_per_periodo": "20101 41,656; 20102 628,374; 20111 32,978; 20112 617,442; 20112-era sittings carry no PUNT_GLOBAL (old scale); 20141 24,910; 20142 546,727; 20151 25,973; 20152 544,491; 20161 13,095; 20162 550,275; 20171 13,018; 20172 548,269; 20181 32,348; NO 20182; 20191 12,561; 20194 1,096,524; 20201 15,435; NO 20202 in this table (exists as rnvb-vnyh, 504,872 rows); 20211 15,528; NO 20212; 20221 20,049; 20224 1,065,888",
+      "scored_rows": "PUNT_GLOBAL populated from 20142 onward: 546,727 / (20151) 25,973 / 544,491 / 13,095 / 550,275 / 13,018 / 548,269 / 32,348 / 12,561 / 1,096,524 / 15,435 / 15,528 / 20,049 / 1,065,888; global-score era starts 2014-2 (matches third-party guide: 'The exam took its current form in the second sitting of 2014')"
+     },
+     "row_model_2026_11_01": {
+      "consent_column": "ESTU_ESTADOINVESTIGACION measured values on 20224: 'PUBLICAR' 1,065,436, 'VALIDEZ OFICINA JURIDICA' 452 - publication-consent status governed by ICFES, rows shipped are the publisher's own cleared-for-publication release",
+      "duplication": "periodo 20194: 1,096,524 rows vs 546,211 distinct consecutivos (SoQL count(distinct)) - the 2019-2 sitting is loaded twice; periodo 20224 sample shows no systematic duplication (1,000/1,000 distinct); 20172 sample 995/1,000 (rare genuine repeats)",
+      "unit": "one row per (student, sitting); ESTU_CONSECUTIVO is the unique examinee-sitting id and embeds the period code (SB1120194..., SB1120224..., SB1120201...)"
+     },
+     "school_counts_per_sitting_2026_11_01": {
+      "calendario_A_schools": "20142 11,906 (11,793 Cal-A); 20152 12,097 (11,980); 20162 12,209 (12,134); 20172 13,073 (12,972); 20194 13,297 (13,189); 20224 13,748 (13,654); 20202 (rnvb-vnyh) 13,395; n>=10 filter keeps 10,701-12,778",
+      "calendario_B_schools": "20151 381; 20161 348; 20171 350; 20181 390; 20191 348; 20201 377; 20211 386; 20221 405 (n>=10 keeps 306-394)",
+      "method": "probe_per_school.py - per-sitting SoQL group-by on (cole_calendario, cole_codigo_icfes, cole_cod_dane_establecimiento) with count(*) and avg(punt_global::number); 16 queries, ~8 MB total transferred; per_school/*.csv retained",
+      "score_sanity": "school means 102-415 on the 0-500 scale; Cal-A sitting averages 238.5-247.5; Cal-B 306.9-315.2 (private-heavy population scores higher) - plausible and consistent with published national results"
+     },
+     "timing_calendar_2026_11_01": {
+      "calendario_A_2025": "exam applied Sunday 2025-08-10 (reprogramed 2025-08-31 for some municipalities); individual results published Friday 2025-10-10 (official calendar PDFs 2025_Calendario11A_V01/V03)",
+      "calendario_B": "2025: exam 2025-04-06 (moved from 2025-03-23), results 2025-06-06; 2026: exam 2026-03-15, results 2026-05-15 (official PDFs/news)",
+      "microdata_lag": "open microdata lags the results by months-to-a-year (measured: unified table rowsUpdatedAt 2023-08-23 with data through the 2022 school-year; per-year 2020 datasets createdAt 2021-03-15) - the reason the panel is recorded as current-vintage retrospective"
+     },
+     "transition_capacity_2026_11_01": {
+      "calendario_A": "2014->15: n_both 9,925, decline 52.42% (>=5pt 31.98%, >=10pt 16.08%); 2015->16: 9,883, 20.66% (9.87%, 4.45%), mean school delta +8.35; 2016->17: 9,092, 62.54% (42.23%, 24.01%), delta -2.97; 2019->20: 9,091, 51.04% (33.55%, 19.69%), delta -0.24. Both classes present in all four; only four transitions exist on the anonymous channel (2018/2021 school-years absent).",
+      "calendario_B": "2015->16: 289 schools, decline 34.26%; 2016->17: 290, 77.24%; 2017->18: 293, 33.79%; 2018->19: 304, 49.34%; 2019->20: 283, 76.68%; 2020->21: 288, 37.85%; 2021->22: 308, 48.38%. Complete consecutive series; small population.",
+      "identity_stability": "COLE_CODIGO_ICFES joins cleanly across adjacent sittings (9,025-10,952 of ~11.9-13.7k schools) and across datasets (the 2019->20 transition joins kgxf-xxbe 20194 to rnvb-vnyh 20202 with sensible deltas); school-code changes/renumbering across 11 years must be checked at construction (known risk, not measured).",
+      "method": "probe_transitions.py - joins the per-school aggregates for adjacent sittings (n>=10 both sides); transition_stats.json retained"
+     }
+    },
+    "next_action": "Resolve the one decisive uncertainty: whether the renovated DataIcfes repository (registration via the public Microsoft Forms link at icfes.gov.co/investigacion",
+    "packaged_at": null,
+    "path": "candidates/icfes-saber11-school-outcome-decline/record.json",
+    "prediction_time": "Prediction instant = the official publication date of the sitting's individual results (dated example, Colombia Time COT=UTC-05:00, no DST): sitting T = Calendario A school-year 2025, exam applied Sunday 2025-08-10 (ICFES calendar PDF 2025_Calendario11A_V03.pdf; ICFES news 2025-08-08 '640 mil personas presentaran las pruebas Saber 11 calendario A' este domingo 10 de agosto; some municipalities reprogrammed to 2025-08-31 per news 2025-08-12), individual results published Friday 2025-10-10 (calendar PDF row 'Publicacion de resultados individuales Saber 11 en pagina web: viernes 10 de octubre de 2025'). INSTANT = 2025-10-10 COT (hour not stated by the publisher; date-level instant). Feature event window closes at the instant: school aggregates for sittings <= T are published (with sitting T's results, ICFES also publishes its per-school aggregate reports - 'Otros resultados examen Saber 11': Clasificacion de Planteles, Reportes de Resultados Agregados). Eligibility at instant: school has >=10 scored examinees with valid PUNT_GLOBAL in sitting T (measured school counts per sitting: 10,701-12,778 at n>=10 of 11,906-13,748 raw). Target window = Calendario A school-year T+1 sitting: exam applied ~August T+1 (2026 Cal-A sitting: results-publication news dated 2026-09-22), results published ~Sept/Oct T+1 - the whole target window (exam, scoring, publication) falls ~11-13 months AFTER the instant; no part of it precedes the instant. AS-OF / VINTAGE POLICY (recorded limitation, not resolved): the open MICRODATA for a sitting is published on datos.gov.co with a long lag (measured: per-year 2020 datasets uploaded 2021-03-15; unified table's 2022 sitting appears at rowsUpdatedAt 2023-08-23), so the constructed panel is a CURRENT-VINTAGE RETROSPECTIVE panel: an operational system at the historical instant would have used ICFES's same-day aggregate reports, not the open microdata; no point-in-time operational claim is made for the microdata channel, and microdata revisions between snapshots are not excluded (the 'Resultados unicos' table is itself a publisher curation; ESTU_ESTADOINVESTIGACION is a publication-consent status, measured values 'PUBLICAR' 1,065,436 / 'VALIDEZ OFICINA JURIDICA' 452 for 20224). Label-definition caveat (measured): national sitting-level mean shifts between adjacent sittings are large (school-mean deltas: +8.35 (2015->2016), -2.97 (2016->2017), -8.83/-9.54 on Calendario B pairs) because ICFES equates scores per sitting, so an absolute-points decline label partially reflects national equating drift; construction must either define the label relative to the sitting's school-mean distribution (percentile-rank drop, equating-invariant) or ship sitting-level national aggregates as history features and state the conflation explicitly.",
+    "publisher": "Instituto Colombiano para la Evaluacion de la Educacion (ICFES), Bogota D.C. - national standardized exit exam (Saber 11); distribution channels: Portal Nacional de Datos Abiertos datos.gov.co (MinTIC Socrata, publisher account 'ICFES DATOS ABIERTOS') and the ICFES DataIcfes repository",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a Colombian Calendario A secondary school whose Saber 11 school-year T sitting results are published (individual results are published on a dated official calendar, e.g. sitting 2025: exam applied 2025-08-10, individual results published 2025-10-10), predict whether the school's mean global score (PUNT_GLOBAL, 0-500 scale, school-year T+1 sitting) falls below its school-year T mean by at least a fixed margin. Features are the school's own published history up to and including sitting T: per-subject school means and cohort sizes for sittings <= T, school registry attributes (calendar, naturaleza oficial/no oficial, genero, jornada, bilingue, area, DANE department/municipality codes), and cohort context shares from the publisher's own questionnaire fields (FAMI_*: estrato, parental education, household assets), all documented in the publisher's 51-column schema with descriptions.",
+    "region": "Latin America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Five contracts reconciled against recorded evidence. (1) REDISTRIBUTION: supported for the anonymous channel - CC BY-SA 4.0 (licenceId CC_40_BY_SA) on the publisher's own official datasets with ICFES attribution (class B; attribution + share-alike carried into LICENSE.md); UNRESOLVED for the registration-gated DataIcfes bytes that the missing school-years (2018, 2021) and fresh tail (2023, 2024) would come from - terms unread, no grant assumed. (2) TIMING: supported - the instant is the publisher's own dated results-publication calendar (worked dated example 2025-10-10 COT; target window ~11-13 months after the instant, no part precedes it), with the current-vintage retrospective posture recorded explicitly (open microdata lags the instant by months-to-a-year; an operational system would have used the same-day aggregate reports) and the equating year-shift caveat recorded for the label definition. (3) TARGET: supported - label from the next school-year's published sitting aggregate; source column excludable by shipping only sittings <= T; eligibility from information at the instant; school non-persistence (no T+1 sitting) is observed absence, excluded and to be quantified at construction. (4) SPLIT CAPACITY: UNRESOLVED - the decisive blocker: the anonymous channel yields only 4 Cal-A transitions (2018-2/2021-2 absent from every published open copy, measured; third-party guide independently states the same), which cannot fill three disjoint windows; the complete Cal-B fallback (7 transitions, 283-308 schools) is viable but ~20x smaller and population-narrow - an explicit redesign decision, not a silent one; the publisher's own renovated-platform inventory claims Saber 11 1996-2024, and one bounded registration+listing probe settles either the full 2014-2024 Cal-A panel (10-11 transitions) or the fallback/park decision. (5) NOT A MIRROR: supported - mechanical novelty check recorded verdict 'differentiated' (HF/zenodo/arxiv queries in novelty_check); published Saber 11 ML work is student-level cross-sectional same-exam prediction (CRISP-DM Saber 11 models; Saber Pro level prediction from Saber 11; a linked Saber11/SaberPro Mendeley dataset; a Kaggle microdata mirror) - none ships a school-aggregate next-school-year outcome task with temporal splits; nearest bench sibling ofsted-childrens-home-next-rating is a regulatory inspection rating (different population, label and instant). Conclusion: a promising lead one bounded probe from a ready/drop decision; kept investigating - split capacity must not be assumed from an inventory image.",
+    "sources": [
+     {
+      "licence": "CC BY-SA 4.0 (licenceId CC_40_BY_SA), attribution ICFES - measured from https://www.datos.gov.co/api/views/kgxf-xxbe.json 2026-11-01",
+      "name": "Resultados unicos Saber 11 (student-level anonymized microdata, sittings 2010-2022), datos.gov.co, published by ICFES DATOS ABIERTOS",
+      "url": "https://www.datos.gov.co/Educaci-n/Resultados-nicos-Saber-11/kgxf-xxbe"
+     },
+     {
+      "licence": "CC BY-SA 4.0 (licenceId CC_40_BY_SA), attribution ICFES - measured from https://www.datos.gov.co/api/views/rnvb-vnyh.json 2026-11-01",
+      "name": "Saber 11 2020-2 (Calendario A 2020 sitting, richer 81-column schema incl. ESTU_INSE_INDIVIDUAL/percentiles), datos.gov.co, ICFES DATOS ABIERTOS",
+      "url": "https://www.datos.gov.co/Educaci-n/Saber-11-2020-2/rnvb-vnyh"
+     },
+     {
+      "licence": "CC BY-SA 4.0 (licenceId CC_40_BY_SA), attribution ICFES - measured from https://www.datos.gov.co/api/views/a8xr-en99.json 2026-11-01",
+      "name": "Saber 11 2020-1 (Calendario B 2020 sitting), datos.gov.co, ICFES DATOS ABIERTOS",
+      "url": "https://www.datos.gov.co/Educaci-n/Saber-11-2020-1/a8xr-en99"
+     },
+     {
+      "licence": "UNKNOWN (registration-gated DataIcfes repository; terms unread - the recorded next probe classifies them; no grant assumed)",
+      "name": "DataIcfes portal (renovated 2025; registration-gated repository of all ICFES exam microdata)",
+      "url": "https://www.icfes.gov.co/investigaciones/data-icfes/"
+     },
+     {
+      "licence": "Not a data distribution - official exam/result calendar pages (timing evidence)",
+      "name": "ICFES official exam/result calendars (timing evidence)",
+      "url": "https://www.icfes.gov.co/evaluaciones-icfes/cronograma-de-evaluaciones/cronograma-examen-saber-11/"
+     }
+    ],
+    "split_strategy": "PROPOSED (blocked, measured): panel unit = (school, transition T->T+1); windows disjoint by TARGET school-year. If the DataIcfes channel fills the gaps (2018, 2021) and adds 2023/2024: Calendario A school-years 2014-2024 give 10-11 transitions -> e.g. train targets 2015-2019 (4-5 transitions), eval targets 2020-2022 (2-3), holdout targets 2023-2024 (2); per-transition rows measured at 9,025-10,952 (n>=10 both sides) with both classes present in every measured transition. MEASURED BLOCKER on the anonymous channel: only 4 consecutive Cal-A transitions exist (2014->15, 2015->16, 2016->17, 2019->20; 2018-2/2021-2 absent from all published open data, nothing after the 2022 school-year) - a 1-transition holdout is not a defensible window, so the anonymous channel alone cannot fill three windows. MEASURED FALLBACK (not chosen): Calendario B sittings 2015-1..2022-1 are complete and consecutive (7 transitions; 283-308 schools per pair, both classes in every pair) but the population is ~20x smaller and private/Atlantic-coast concentrated - a redesign decision to make explicitly, not silently. Cluster structure: positives within a transition share the cohort-year shock (equating drift measured above) - the independence scale is the transition, and any reference comparison must use transition-clustered intervals.",
+    "status": "investigating",
+    "target": "Binary label per (school, transition T->T+1): 1 if the school's mean PUNT_GLOBAL over its scored examinees in the Calendario A school-year T+1 sitting is lower than its school-year T mean by at least the fixed margin (margin or a percentile-rank variant chosen at construction; both measured feasible). Label source columns: PUNT_GLOBAL of sitting T+1 (and the sitting T+1 rows generally) - excluded from shipped features by construction (features use sittings <= T only). Measured base rates (schools with n>=10 examinees on both sides, server-side aggregates): any decline 52.42% / 20.66% / 62.54% / 51.04%; decline >=5 points 31.98% / 9.87% / 42.23% / 33.55%; decline >=10 points 16.08% / 4.45% / 24.01% / 19.69% for the four available Cal-A transitions 2014->15, 2015->16, 2016->17, 2019->20. Censoring: a school with no sitting-T results is not eligible (excluded, not imputed); a school with no T+1 sitting (closed/merged/moved to another calendar) is observed absence of an outcome and is excluded from the scored panel - construction must record the non-random-exit rate as part of the definition (school persistence measured: 9,025-10,952 of ~11.9-13.7k schools appear in adjacent sittings)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "CO",
     "domain": "hydrological risk operations - river-station alert-threshold exceedance prediction (Colombia, IDEAM automatic-station telemetry)",
     "id": "ideam-rio-nivel-exceedance",
     "jobs": [],
@@ -1415,7 +1477,7 @@
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
    }
   ],
-  "non_us_share": 94.1,
+  "non_us_share": 94.4,
   "records": [
    {
     "awaiting_operator": false,
@@ -5384,6 +5446,102 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "CO",
+    "domain": "education - school-aggregate outcome dynamics on Colombia's national exit exam (Saber 11, ICFES): next-school-year outcome decline early warning",
+    "id": "icfes-saber11-school-outcome-decline",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "extraction_cost_2026_11_01": {
+      "construction_scale": "unified table = 7,109,704 rows x 51 columns (bulk CSV export measured streaming, Content-Length 0; estimated >1.5 GB CSV) + rnvb-vnyh 504,872 x 81 - worker-class harvest, never coordinator; note the Socrata legacy export endpoint carries Deprecation/Sunset headers (Sunset: 2026-12-22, support link 43491231777047) so construction should use the resource API with $limit paging (SoQL count(distinct) and group-by measured working) or the new export path; DataIcfes period files (registration channel) are pipe-delimited .txt per sitting per the publisher FAQ",
+      "discovery_probes": "~40 anonymous HTTPS GETs to datos.gov.co (view metadata 5-100 KB each; SoQL aggregates ~9 s per query, ~8 MB total); machine class: hosted coordinator (4 vCPU, 1.9 GiB)"
+     },
+     "period_coverage_2026_11_01": {
+      "calendario_mix": "Cal-A sittings (periodo *2/*4): 542,466-1,087,902 scored rows Cal-A per school-year; Cal-B sittings (periodo *1): 11,865-25,829 scored rows; a few hundred Cal-A schools also test in -1 sittings from 2018",
+      "method": "probe_period_coverage.py - 3 SoQL aggregate queries (rows per periodo; punt_global non-null per periodo; calendar mix among scored rows), anonymous HTTPS",
+      "rows_per_periodo": "20101 41,656; 20102 628,374; 20111 32,978; 20112 617,442; 20112-era sittings carry no PUNT_GLOBAL (old scale); 20141 24,910; 20142 546,727; 20151 25,973; 20152 544,491; 20161 13,095; 20162 550,275; 20171 13,018; 20172 548,269; 20181 32,348; NO 20182; 20191 12,561; 20194 1,096,524; 20201 15,435; NO 20202 in this table (exists as rnvb-vnyh, 504,872 rows); 20211 15,528; NO 20212; 20221 20,049; 20224 1,065,888",
+      "scored_rows": "PUNT_GLOBAL populated from 20142 onward: 546,727 / (20151) 25,973 / 544,491 / 13,095 / 550,275 / 13,018 / 548,269 / 32,348 / 12,561 / 1,096,524 / 15,435 / 15,528 / 20,049 / 1,065,888; global-score era starts 2014-2 (matches third-party guide: 'The exam took its current form in the second sitting of 2014')"
+     },
+     "row_model_2026_11_01": {
+      "consent_column": "ESTU_ESTADOINVESTIGACION measured values on 20224: 'PUBLICAR' 1,065,436, 'VALIDEZ OFICINA JURIDICA' 452 - publication-consent status governed by ICFES, rows shipped are the publisher's own cleared-for-publication release",
+      "duplication": "periodo 20194: 1,096,524 rows vs 546,211 distinct consecutivos (SoQL count(distinct)) - the 2019-2 sitting is loaded twice; periodo 20224 sample shows no systematic duplication (1,000/1,000 distinct); 20172 sample 995/1,000 (rare genuine repeats)",
+      "unit": "one row per (student, sitting); ESTU_CONSECUTIVO is the unique examinee-sitting id and embeds the period code (SB1120194..., SB1120224..., SB1120201...)"
+     },
+     "school_counts_per_sitting_2026_11_01": {
+      "calendario_A_schools": "20142 11,906 (11,793 Cal-A); 20152 12,097 (11,980); 20162 12,209 (12,134); 20172 13,073 (12,972); 20194 13,297 (13,189); 20224 13,748 (13,654); 20202 (rnvb-vnyh) 13,395; n>=10 filter keeps 10,701-12,778",
+      "calendario_B_schools": "20151 381; 20161 348; 20171 350; 20181 390; 20191 348; 20201 377; 20211 386; 20221 405 (n>=10 keeps 306-394)",
+      "method": "probe_per_school.py - per-sitting SoQL group-by on (cole_calendario, cole_codigo_icfes, cole_cod_dane_establecimiento) with count(*) and avg(punt_global::number); 16 queries, ~8 MB total transferred; per_school/*.csv retained",
+      "score_sanity": "school means 102-415 on the 0-500 scale; Cal-A sitting averages 238.5-247.5; Cal-B 306.9-315.2 (private-heavy population scores higher) - plausible and consistent with published national results"
+     },
+     "timing_calendar_2026_11_01": {
+      "calendario_A_2025": "exam applied Sunday 2025-08-10 (reprogramed 2025-08-31 for some municipalities); individual results published Friday 2025-10-10 (official calendar PDFs 2025_Calendario11A_V01/V03)",
+      "calendario_B": "2025: exam 2025-04-06 (moved from 2025-03-23), results 2025-06-06; 2026: exam 2026-03-15, results 2026-05-15 (official PDFs/news)",
+      "microdata_lag": "open microdata lags the results by months-to-a-year (measured: unified table rowsUpdatedAt 2023-08-23 with data through the 2022 school-year; per-year 2020 datasets createdAt 2021-03-15) - the reason the panel is recorded as current-vintage retrospective"
+     },
+     "transition_capacity_2026_11_01": {
+      "calendario_A": "2014->15: n_both 9,925, decline 52.42% (>=5pt 31.98%, >=10pt 16.08%); 2015->16: 9,883, 20.66% (9.87%, 4.45%), mean school delta +8.35; 2016->17: 9,092, 62.54% (42.23%, 24.01%), delta -2.97; 2019->20: 9,091, 51.04% (33.55%, 19.69%), delta -0.24. Both classes present in all four; only four transitions exist on the anonymous channel (2018/2021 school-years absent).",
+      "calendario_B": "2015->16: 289 schools, decline 34.26%; 2016->17: 290, 77.24%; 2017->18: 293, 33.79%; 2018->19: 304, 49.34%; 2019->20: 283, 76.68%; 2020->21: 288, 37.85%; 2021->22: 308, 48.38%. Complete consecutive series; small population.",
+      "identity_stability": "COLE_CODIGO_ICFES joins cleanly across adjacent sittings (9,025-10,952 of ~11.9-13.7k schools) and across datasets (the 2019->20 transition joins kgxf-xxbe 20194 to rnvb-vnyh 20202 with sensible deltas); school-code changes/renumbering across 11 years must be checked at construction (known risk, not measured).",
+      "method": "probe_transitions.py - joins the per-school aggregates for adjacent sittings (n>=10 both sides); transition_stats.json retained"
+     }
+    },
+    "next_action": "Resolve the one decisive uncertainty: whether the renovated DataIcfes repository (registration via the public Microsoft Forms link at icfes.gov.co/investigacion",
+    "packaged_at": null,
+    "path": "candidates/icfes-saber11-school-outcome-decline/record.json",
+    "prediction_time": "Prediction instant = the official publication date of the sitting's individual results (dated example, Colombia Time COT=UTC-05:00, no DST): sitting T = Calendario A school-year 2025, exam applied Sunday 2025-08-10 (ICFES calendar PDF 2025_Calendario11A_V03.pdf; ICFES news 2025-08-08 '640 mil personas presentaran las pruebas Saber 11 calendario A' este domingo 10 de agosto; some municipalities reprogrammed to 2025-08-31 per news 2025-08-12), individual results published Friday 2025-10-10 (calendar PDF row 'Publicacion de resultados individuales Saber 11 en pagina web: viernes 10 de octubre de 2025'). INSTANT = 2025-10-10 COT (hour not stated by the publisher; date-level instant). Feature event window closes at the instant: school aggregates for sittings <= T are published (with sitting T's results, ICFES also publishes its per-school aggregate reports - 'Otros resultados examen Saber 11': Clasificacion de Planteles, Reportes de Resultados Agregados). Eligibility at instant: school has >=10 scored examinees with valid PUNT_GLOBAL in sitting T (measured school counts per sitting: 10,701-12,778 at n>=10 of 11,906-13,748 raw). Target window = Calendario A school-year T+1 sitting: exam applied ~August T+1 (2026 Cal-A sitting: results-publication news dated 2026-09-22), results published ~Sept/Oct T+1 - the whole target window (exam, scoring, publication) falls ~11-13 months AFTER the instant; no part of it precedes the instant. AS-OF / VINTAGE POLICY (recorded limitation, not resolved): the open MICRODATA for a sitting is published on datos.gov.co with a long lag (measured: per-year 2020 datasets uploaded 2021-03-15; unified table's 2022 sitting appears at rowsUpdatedAt 2023-08-23), so the constructed panel is a CURRENT-VINTAGE RETROSPECTIVE panel: an operational system at the historical instant would have used ICFES's same-day aggregate reports, not the open microdata; no point-in-time operational claim is made for the microdata channel, and microdata revisions between snapshots are not excluded (the 'Resultados unicos' table is itself a publisher curation; ESTU_ESTADOINVESTIGACION is a publication-consent status, measured values 'PUBLICAR' 1,065,436 / 'VALIDEZ OFICINA JURIDICA' 452 for 20224). Label-definition caveat (measured): national sitting-level mean shifts between adjacent sittings are large (school-mean deltas: +8.35 (2015->2016), -2.97 (2016->2017), -8.83/-9.54 on Calendario B pairs) because ICFES equates scores per sitting, so an absolute-points decline label partially reflects national equating drift; construction must either define the label relative to the sitting's school-mean distribution (percentile-rank drop, equating-invariant) or ship sitting-level national aggregates as history features and state the conflation explicitly.",
+    "publisher": "Instituto Colombiano para la Evaluacion de la Educacion (ICFES), Bogota D.C. - national standardized exit exam (Saber 11); distribution channels: Portal Nacional de Datos Abiertos datos.gov.co (MinTIC Socrata, publisher account 'ICFES DATOS ABIERTOS') and the ICFES DataIcfes repository",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a Colombian Calendario A secondary school whose Saber 11 school-year T sitting results are published (individual results are published on a dated official calendar, e.g. sitting 2025: exam applied 2025-08-10, individual results published 2025-10-10), predict whether the school's mean global score (PUNT_GLOBAL, 0-500 scale, school-year T+1 sitting) falls below its school-year T mean by at least a fixed margin. Features are the school's own published history up to and including sitting T: per-subject school means and cohort sizes for sittings <= T, school registry attributes (calendar, naturaleza oficial/no oficial, genero, jornada, bilingue, area, DANE department/municipality codes), and cohort context shares from the publisher's own questionnaire fields (FAMI_*: estrato, parental education, household assets), all documented in the publisher's 51-column schema with descriptions.",
+    "region": "Latin America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Five contracts reconciled against recorded evidence. (1) REDISTRIBUTION: supported for the anonymous channel - CC BY-SA 4.0 (licenceId CC_40_BY_SA) on the publisher's own official datasets with ICFES attribution (class B; attribution + share-alike carried into LICENSE.md); UNRESOLVED for the registration-gated DataIcfes bytes that the missing school-years (2018, 2021) and fresh tail (2023, 2024) would come from - terms unread, no grant assumed. (2) TIMING: supported - the instant is the publisher's own dated results-publication calendar (worked dated example 2025-10-10 COT; target window ~11-13 months after the instant, no part precedes it), with the current-vintage retrospective posture recorded explicitly (open microdata lags the instant by months-to-a-year; an operational system would have used the same-day aggregate reports) and the equating year-shift caveat recorded for the label definition. (3) TARGET: supported - label from the next school-year's published sitting aggregate; source column excludable by shipping only sittings <= T; eligibility from information at the instant; school non-persistence (no T+1 sitting) is observed absence, excluded and to be quantified at construction. (4) SPLIT CAPACITY: UNRESOLVED - the decisive blocker: the anonymous channel yields only 4 Cal-A transitions (2018-2/2021-2 absent from every published open copy, measured; third-party guide independently states the same), which cannot fill three disjoint windows; the complete Cal-B fallback (7 transitions, 283-308 schools) is viable but ~20x smaller and population-narrow - an explicit redesign decision, not a silent one; the publisher's own renovated-platform inventory claims Saber 11 1996-2024, and one bounded registration+listing probe settles either the full 2014-2024 Cal-A panel (10-11 transitions) or the fallback/park decision. (5) NOT A MIRROR: supported - mechanical novelty check recorded verdict 'differentiated' (HF/zenodo/arxiv queries in novelty_check); published Saber 11 ML work is student-level cross-sectional same-exam prediction (CRISP-DM Saber 11 models; Saber Pro level prediction from Saber 11; a linked Saber11/SaberPro Mendeley dataset; a Kaggle microdata mirror) - none ships a school-aggregate next-school-year outcome task with temporal splits; nearest bench sibling ofsted-childrens-home-next-rating is a regulatory inspection rating (different population, label and instant). Conclusion: a promising lead one bounded probe from a ready/drop decision; kept investigating - split capacity must not be assumed from an inventory image.",
+    "sources": [
+     {
+      "licence": "CC BY-SA 4.0 (licenceId CC_40_BY_SA), attribution ICFES - measured from https://www.datos.gov.co/api/views/kgxf-xxbe.json 2026-11-01",
+      "name": "Resultados unicos Saber 11 (student-level anonymized microdata, sittings 2010-2022), datos.gov.co, published by ICFES DATOS ABIERTOS",
+      "url": "https://www.datos.gov.co/Educaci-n/Resultados-nicos-Saber-11/kgxf-xxbe"
+     },
+     {
+      "licence": "CC BY-SA 4.0 (licenceId CC_40_BY_SA), attribution ICFES - measured from https://www.datos.gov.co/api/views/rnvb-vnyh.json 2026-11-01",
+      "name": "Saber 11 2020-2 (Calendario A 2020 sitting, richer 81-column schema incl. ESTU_INSE_INDIVIDUAL/percentiles), datos.gov.co, ICFES DATOS ABIERTOS",
+      "url": "https://www.datos.gov.co/Educaci-n/Saber-11-2020-2/rnvb-vnyh"
+     },
+     {
+      "licence": "CC BY-SA 4.0 (licenceId CC_40_BY_SA), attribution ICFES - measured from https://www.datos.gov.co/api/views/a8xr-en99.json 2026-11-01",
+      "name": "Saber 11 2020-1 (Calendario B 2020 sitting), datos.gov.co, ICFES DATOS ABIERTOS",
+      "url": "https://www.datos.gov.co/Educaci-n/Saber-11-2020-1/a8xr-en99"
+     },
+     {
+      "licence": "UNKNOWN (registration-gated DataIcfes repository; terms unread - the recorded next probe classifies them; no grant assumed)",
+      "name": "DataIcfes portal (renovated 2025; registration-gated repository of all ICFES exam microdata)",
+      "url": "https://www.icfes.gov.co/investigaciones/data-icfes/"
+     },
+     {
+      "licence": "Not a data distribution - official exam/result calendar pages (timing evidence)",
+      "name": "ICFES official exam/result calendars (timing evidence)",
+      "url": "https://www.icfes.gov.co/evaluaciones-icfes/cronograma-de-evaluaciones/cronograma-examen-saber-11/"
+     }
+    ],
+    "split_strategy": "PROPOSED (blocked, measured): panel unit = (school, transition T->T+1); windows disjoint by TARGET school-year. If the DataIcfes channel fills the gaps (2018, 2021) and adds 2023/2024: Calendario A school-years 2014-2024 give 10-11 transitions -> e.g. train targets 2015-2019 (4-5 transitions), eval targets 2020-2022 (2-3), holdout targets 2023-2024 (2); per-transition rows measured at 9,025-10,952 (n>=10 both sides) with both classes present in every measured transition. MEASURED BLOCKER on the anonymous channel: only 4 consecutive Cal-A transitions exist (2014->15, 2015->16, 2016->17, 2019->20; 2018-2/2021-2 absent from all published open data, nothing after the 2022 school-year) - a 1-transition holdout is not a defensible window, so the anonymous channel alone cannot fill three windows. MEASURED FALLBACK (not chosen): Calendario B sittings 2015-1..2022-1 are complete and consecutive (7 transitions; 283-308 schools per pair, both classes in every pair) but the population is ~20x smaller and private/Atlantic-coast concentrated - a redesign decision to make explicitly, not silently. Cluster structure: positives within a transition share the cohort-year shock (equating drift measured above) - the independence scale is the transition, and any reference comparison must use transition-clustered intervals.",
+    "status": "investigating",
+    "target": "Binary label per (school, transition T->T+1): 1 if the school's mean PUNT_GLOBAL over its scored examinees in the Calendario A school-year T+1 sitting is lower than its school-year T mean by at least the fixed margin (margin or a percentile-rank variant chosen at construction; both measured feasible). Label source columns: PUNT_GLOBAL of sitting T+1 (and the sitting T+1 rows generally) - excluded from shipped features by construction (features use sittings <= T only). Measured base rates (schools with n>=10 examinees on both sides, server-side aggregates): any decline 52.42% / 20.66% / 62.54% / 51.04%; decline >=5 points 31.98% / 9.87% / 42.23% / 33.55%; decline >=10 points 16.08% / 4.45% / 24.01% / 19.69% for the four available Cal-A transitions 2014->15, 2015->16, 2016->17, 2019->20. Censoring: a school with no sitting-T results is not eligible (excluded, not imputed); a school with no T+1 sitting (closed/merged/moved to another calendar) is observed absence of an outcome and is excluded from the scored panel - construction must record the non-random-exit rate as part of the definition (school persistence measured: 9,025-10,952 of ~11.9-13.7k schools appear in adjacent sittings)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "ID",
     "domain": "financial-sector supervision / bank soundness",
     "id": "id-ojk-bank-supervision",
@@ -5788,7 +5946,7 @@
     "target": "Binary. Positive: >=1 reference-satellite detection with event timestamp in [D+1 00:00, D+8 00:00) located in municipality m; negative: zero such detections. Label source: the same detection rows (data_pas timestamp + municipio/estado name) that feed the feature history - construction derives the label from event-time windows and must not ship any row with event time > D in feature columns (the label column is a derived aggregate, never a carried source column). Population: all Brazilian municipalities (5570 IBGE codes; ref-era files key by name - construction maps names to IBGE codes and asserts the mapping is total over the detection rows). Conditioning: evaluated pairs are municipality-days with zero detections in [D-13, D] (onset-conditioned; raw-pair variant recorded for comparison)."
    },
    {
-    "age_hours": 20.5,
+    "age_hours": 21.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -7910,7 +8068,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 57.5,
+    "age_hours": 58.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8894,7 +9052,7 @@
     "target": "Not applicable - no task exists for this source."
    },
    {
-    "age_hours": 1.2,
+    "age_hours": 2.2,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -10000,7 +10158,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 100.1,
+    "age_hours": 101.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -11137,7 +11295,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 20.5,
+     "age_hours": 21.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -11551,7 +11709,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 57.5,
+     "age_hours": 58.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11839,7 +11997,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 20.5,
+     "age_hours": 21.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -12253,7 +12411,7 @@
      "target": "Label = registered-by-snapshot. Positive: Registered date non-empty (statuses Registered, Merged, Dead, Removed, Expired, Cancelled, Surrendered all imply the mark reached registration; Merged has Registered date set in-file). Negative: Registered date empty AND status in {Refused, Withdrawn}. Censored (excluded from scoring, counted per cohort): Registered date empty AND any other status - Application Received, Examination, Pre-Publication, Application Published, Opposed, Appealed, Appealable, Registration Pending, and the undocumented Deleted / Deemed Not Filed / blank. Source columns for the label (Status, Registered, Published, Expired, Renewal Due Date) are excluded from the shipped features."
     },
     {
-     "age_hours": 57.5,
+     "age_hours": 58.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12539,7 +12697,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 1.2,
+     "age_hours": 2.2,
      "awaiting_operator": false,
      "baseline": {},
      "country": "GB",
@@ -12957,7 +13115,7 @@
      "target": "Binary from the publisher's Decision field (documented data quality 'Good'): positive = 'Allowed', negative = 'Dismissed'. Pre-specified eligibility rule: labelled population = s78_core casework types with Decision in {Allowed, Dismissed}; 'Split Decision' (1,350 5-yr / 1,440 older, all types) and 'Allowed in part' rows are excluded from the core task rather than coerced (recorded masses; a variant may map split->positive). Excluded outcomes (measured, all types): Unknown 3,186+1,969, No Decision Code Associated 148+72, Invalid 237+136, Turned Away 9+11, Appeal Withdrawn 243+169, missing 178+600. Enforcement/RoW/TPO/high-hedges casework uses a different outcome vocabulary (Notice upheld / varied and upheld / quashed) and is out of scope. Censoring is stated: the database contains DECIDED cases only (publisher: in-progress, withdrawn and turned-away cases are not included), so the population is outcome-conditioned by construction; the task is 'among validated appeals that reach a PINS decision, which succeed', not 'among all validated appeals'. Decision and Decision Date columns are excluded from shipped features."
     },
     {
-     "age_hours": 100.1,
+     "age_hours": 101.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13169,7 +13327,7 @@
    ],
    "pending": [
     {
-     "age_hours": 1.2,
+     "age_hours": 2.2,
      "awaiting_operator": false,
      "baseline": {},
      "country": "GB",
@@ -13587,7 +13745,7 @@
      "target": "Binary from the publisher's Decision field (documented data quality 'Good'): positive = 'Allowed', negative = 'Dismissed'. Pre-specified eligibility rule: labelled population = s78_core casework types with Decision in {Allowed, Dismissed}; 'Split Decision' (1,350 5-yr / 1,440 older, all types) and 'Allowed in part' rows are excluded from the core task rather than coerced (recorded masses; a variant may map split->positive). Excluded outcomes (measured, all types): Unknown 3,186+1,969, No Decision Code Associated 148+72, Invalid 237+136, Turned Away 9+11, Appeal Withdrawn 243+169, missing 178+600. Enforcement/RoW/TPO/high-hedges casework uses a different outcome vocabulary (Notice upheld / varied and upheld / quashed) and is out of scope. Censoring is stated: the database contains DECIDED cases only (publisher: in-progress, withdrawn and turned-away cases are not included), so the population is outcome-conditioned by construction; the task is 'among validated appeals that reach a PINS decision, which succeed', not 'among all validated appeals'. Decision and Decision Date columns are excluded from shipped features."
     },
     {
-     "age_hours": 100.1,
+     "age_hours": 101.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13808,7 +13966,7 @@
    "CA": 15,
    "CH": 5,
    "CL": 2,
-   "CO": 1,
+   "CO": 2,
    "DE": 2,
    "EU": 12,
    "FR": 2,
@@ -13839,23 +13997,23 @@
    "East Asia": 9,
    "Europe": 29,
    "International organisations": 13,
-   "Latin America": 10,
+   "Latin America": 11,
    "North America": 25,
    "Oceania": 9,
    "South & South-East Asia": 13
   },
   "by_status": {
    "dropped": 47,
-   "investigating": 17,
+   "investigating": 18,
    "packaged": 4,
    "parked": 29,
    "published": 11,
    "ready": 11
   },
-  "candidates": 119,
-  "live": 43,
-  "live_non_us": 37,
-  "live_non_us_share": 0.86,
+  "candidates": 120,
+  "live": 44,
+  "live_non_us": 38,
+  "live_non_us_share": 0.864,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -13877,10 +14035,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-10-31T23:50:02.498525+00:00",
+    "last_run_at": "2026-11-01T00:50:01.897819+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-01T00:00:00+00:00",
+    "next_run_at": "2026-11-01T01:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -13901,10 +14059,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-10-31T23:50:02.140030+00:00",
+    "last_run_at": "2026-11-01T00:50:01.595159+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-10-31T23:55:00+00:00",
+    "next_run_at": "2026-11-01T00:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13925,10 +14083,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-10-31T23:48:01.068881+00:00",
+    "last_run_at": "2026-11-01T00:48:21.190596+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-10-31T23:53:01.068881+00:00",
+    "next_run_at": "2026-11-01T00:53:21.190596+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -13937,10 +14095,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-10-31T23:50:02.724351+00:00",
+    "last_run_at": "2026-11-01T00:50:01.854833+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-10-31T23:55:00+00:00",
+    "next_run_at": "2026-11-01T00:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13961,10 +14119,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-10-31T22:50:44.418762+00:00",
+    "last_run_at": "2026-10-31T23:50:44.759511+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-01T00:50:00+00:00",
+    "next_run_at": "2026-11-01T01:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -13973,10 +14131,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-10-31T22:55:01.225177+00:00",
+    "last_run_at": "2026-10-31T23:55:00.778165+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-10-31T23:55:00+00:00",
+    "next_run_at": "2026-11-01T00:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14017,29 +14175,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-10-31T23:50:02.725625+00:00"
+  "updated_at": "2026-11-01T00:50:01.899124+00:00"
  },
- "generated_at": "2026-10-31T23:50:01+00:00",
+ "generated_at": "2026-11-01T00:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 119
+   "passing": 120
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-10-31T23:27:33Z",
-   "head_sha": "730ec11",
+   "created_at": "2026-11-01T00:31:39Z",
+   "head_sha": "46209df",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41252612765"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41257130992"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 37/43 (86%)"
+   "summary": "live non-US: 38/44 (86%)"
   },
   "head": {
-   "at": "2026-10-31T22:59:44Z",
-   "sha": "730ec11",
-   "subject": "pins close-out CI fix: artifacts[0] gained the machine-readable destination (destination github, repo earino/pins-planni"
+   "at": "2026-11-01T00:31:33Z",
+   "sha": "46209df",
+   "subject": "icfes-saber11-school-outcome-decline opened (LatAm discovery tick): school-aggregate next-school-year outcome decline on"
   },
   "tests": {
    "count": "697",
@@ -16350,13 +16508,21 @@
    "qualified": 0,
    "sessions_7d": 81,
    "tokens_7d": 37631330
+  },
+  {
+   "at": "2026-11-01T00:50:01+00:00",
+   "live": 18,
+   "published": 11,
+   "qualified": 0,
+   "sessions_7d": 82,
+   "tokens_7d": 37951434
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T23:50:01+00:00",
+   "as_of": "2026-11-01T00:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -16366,17 +16532,17 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T23:50:01+00:00",
+   "as_of": "2026-11-01T00:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 17
+   "value": 18
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-10-31T23:50:01+00:00",
+   "as_of": "2026-11-01T00:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -19025,19 +19191,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 120,
+  "jobs_this_month": 0,
   "jobs_total": 161,
   "lifetime_eur": 3.62,
   "live": {
-   "checked_at": "2026-10-31T23:50:34+00:00",
+   "checked_at": "2026-11-01T00:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 36.2,
-  "month_to_date": 1.18,
+  "month_hours": 0.0,
+  "month_to_date": 0.0,
   "months": [
    {
     "eur": 2.4452,
@@ -19052,26 +19218,12 @@
     "month": "2026-10"
    }
   ],
-  "projected_month_eur": 1.18
+  "projected_month_eur": 0.0
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 2,
+  "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 2249.6,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "60d56880c6212801c25b103b297c4c9c3773f314be53a8a35091b10b419669ed",
-    "ts": "2026-10-31T18:37:34.501609+00:00"
-   },
    {
     "elapsed_seconds": 347.1,
     "event": "session",
@@ -19140,6 +19292,19 @@
     "run_budget": 900,
     "submitted_brief_sha256": "0dbaab0c0593e224922c2a0587c4af65c63917a5cc65bf1a1e35971454eb4b32",
     "ts": "2026-10-31T23:02:47.705334+00:00"
+   },
+   {
+    "elapsed_seconds": 1988.9,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "e20e4aa2d0cb051713ad42f1fe47b1fadb956d8befe21bf624fd4a8a676f74e0",
+    "ts": "2026-11-01T00:33:10.522622+00:00"
    }
   ],
   "total": 40
