@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#07080a">
+<title>za-cct-substation-evening-peak-exceedance · Scout</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="top"><div class="wrap"><span class="brand"><span class="mark"></span>Scout</span>
+<nav class="topnav"><a href="index.html" class="on">Overview</a><a href="cost.html" class="">Cost</a><a href="resources.html" class="">Resources</a><a href="reliability.html" class="">Ops</a></nav>
+<span class="live"><span class="dot"></span>live 05:50 UTC</span></div></header>
+<main class="wrap">
+<section class="hero compact">
+  <div class="eyebrow"><a href="index.html" style="color:inherit;text-decoration:none">← all datasets</a>
+    · electricity distribution operations / substation-day peak-stress excee</div>
+  <h1>za-cct-substation-evening-peak-exceedance</h1>
+  <div class="statusline ok">
+    <span class="dot" style="background:var(--blue)"></span>
+    <span><b>ready</b> · ZA
+    
+    </span>
+    <time>05:50 UTC</time>
+  </div>
+</section>
+<div class="grid">
+  <div class="col-12"><section class="card "><h3>The question</h3><div class="sub">what a model is asked to predict</div><div class="body"><p style="margin:0;line-height:1.6">For each City of Cape Town switching substation, at 06:00 SAST on day D, predict whether that substation&#x27;s evening peak apparent-power load (maximum half-hourly MVA reading over 16:00-22:00 SAST on day D) will exceed the trailing-90-evening 95th percentile of its own evening peaks (evenings ending strictly before the instant).</p></div></section></div>
+  <div class="col-6"><section class="card "><h3>What you predict</h3><div class="sub">target definition</div><div class="body"><p style="margin:0;line-height:1.6">Binary: evening-peak exceedance. Label = (max half-hourly MVA over 16:00-22:00 SAST on day D for substation S) &gt; (95th percentile of the same substation&#x27;s evening peaks over the trailing 90 evenings ending strictly before the instant, minimum 30 prior evenings for eligibility). Label source columns: the target day&#x27;s 16:00-22:00 MVA readings, plus the same substation&#x27;s prior evening peaks; these are sealed (private label matrix) and never shipped in any solver-visible feature frame. The baseline operand (trailing p95) is computed from feature-side readings &lt;= the instant and may ship as a numeric feature; the target evening readings cannot.</p></div></section></div>
+  <div class="col-6"><section class="card "><h3>When the prediction is made</h3><div class="sub">the information cut-off</div><div class="body"><p style="margin:0;line-height:1.6">06:00 Africa/Johannesburg (SAST, UTC+2) on day D, within the artifact&#x27;s history. Features are the substation&#x27;s half-hourly MVA readings with timestamps &lt;= the instant (including day D&#x27;s 00:00-06:00 readings), trailing aggregates computed only from readings &lt;= the instant, plus calendar fields and substation identity. The evening target window 16:00-22:00 SAST lies entirely after the instant. RETROSPECTIVE USE: the publisher released the entire 2022-01-01..2024-12-31 window as one closed table (item created 2026-02-28, last modified 2026-03-02, hasStaticData), so this is a retrospective_research task per docs/PREDICTION-CONTRACT.md: no historical-operational-availability claim is made, label timing is unverified at any historical instant outside the artifact&#x27;s own timestamp order.</p></div></section></div>
+
+  <div class="col-6"><section class="card "><h3>Where the data comes from</h3><div class="sub">sources and their stated licence</div><div class="body"><div class="list"><div class="item"><div class="meta"><div class="name">City of Cape Town Open Data Portal - Switching Substation Load Profile (half-hourly MVA per switching substation, 2022-2024)</div><div class="desc">Item licenseInfo links the City of Cape Town Open Data Terms of Use; Council-approved Open Data Policy 27781 defines open data as freely used, shared and built-on by anyone, anywhere, for any purpose (see license_evidence)</div></div><div class="side"><a class="pill blue" href="https://odp-cctegis.opendata.arcgis.com/documents/cctegis::switching-substation-load-profile" target="_blank" rel="noopener">open</a></div></div></div></div></section></div>
+  <div class="col-6"><section class="card "><h3>How it is split</h3><div class="sub">Temporal splits on station-days: train = 2022 (13,735 label-bearing station-days</div><div class="body"><div class="tablewrap"><table><thead><tr><th class="">Split</th><th class="num">Rows</th><th class="num">Positive</th></tr></thead><tbody><tr><td colspan=3>splits not recorded yet</td></tr></tbody></table></div></div></section></div>
+
+  <div class="col-6"><section class="card "><h3>Measured</h3><div class="sub">from the released bytes</div><div class="body"><p class="sub">Not measured yet. A baseline runs on the released bytes before packaging.</p></div></section></div>
+  <div class="col-6"><section class="card "><h3>Licence</h3><div class="sub">recorded in the candidate&#x27;s license.json</div><div class="body"><div class="list"><div class="item"><div class="meta"><div class="name">Source</div><div class="desc">no licence decision recorded</div></div><div class="side"><span class="pill warn">undeclared</span></div></div><div class="item"><div class="meta"><div class="name">Our compilation</div><div class="desc">code and derived feature work</div></div><div class="side"><span class="pill warn">undeclared</span></div></div></div></div></section></div>
+
+  <div class="col-6"><section class="card "><h3>History</h3><div class="sub">worker jobs</div><div class="body"><div class="list"><p class="sub">no jobs recorded</p></div></div></section></div>
+  <div class="col-6"><section class="card "><h3>Next</h3><div class="sub">what unblocks it</div><div class="body"><p style="margin:0;line-height:1.6">Advancement owns construction on a worker: re-fetch all 52,608 rows and pin sha256; build station-day rows with features &lt;= 06:00 instant and a sealed evening l</p></div></section></div>
+</div>
+<footer>Generated from repository state at 2026-11-01T05:50:01+00:00. Every figure carries its source in the
+snapshot (<code>dashboard.json</code>); a missing input reads &ldquo;no data&rdquo; rather than zero.
+Source: candidates/za-cct-substation-evening-peak-exceedance/record.json. Generated from the record, not retyped.</footer></main>
+<nav class="bottomnav"><a href="index.html" class="on"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2.5-7 4 14 2.5-7H21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Overview</a><a href="cost.html" class=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Cost</a><a href="resources.html" class=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="13" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7" cy="7.5" r="1" fill="currentColor"/><circle cx="7" cy="16.5" r="1" fill="currentColor"/></svg>Resources</a><a href="reliability.html" class=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v6c0 4.4-3.4 7.4-8 8-4.6-.6-8-3.6-8-8V7l8-4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Ops</a></nav>
+</body></html>
