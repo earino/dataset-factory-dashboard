@@ -1,8 +1,11 @@
 {
  "alarms": [
-  "Token use at 99% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 139.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (96.5h)"
+  "scout-research-session missed its window (2026-11-02T14:55:00+00:00); last status ok",
+  "Research gate refused the next session: research used 40,665,815 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; lock held for 3601s by scout-research",
+  "Token use at 102% of the weekly ceiling",
+  "Test suite is failing",
+  "unhcr-refugee-data-finder has been packaged and actionable for 140.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (97.5h)"
  ],
  "budget": {
   "config": {
@@ -20,18 +23,19 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-11-02T14:50:03.262687+00:00",
+   "moment": "2026-11-02T15:50:02.812421+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 1s by scout-research"
+    "research used 40,665,815 tokens in the last 7 days, at or over the 40,000,000-token weekly budget",
+    "lock held for 3601s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 39542166,
-   "runs_last_7_days": 88,
-   "runs_weighted_last_7_days": 103,
+   "research_tokens_last_7_days": 40665815,
+   "runs_last_7_days": 89,
+   "runs_weighted_last_7_days": 105,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 15,
+   "sessions_over_token_cap": 16,
    "usage": {
     "auxiliary": {
      "calls": 3,
@@ -54,13 +58,13 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 635,
+     "calls": 700,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 2620405,
-     "output_tokens": 589277,
+     "input_tokens": 3700004,
+     "output_tokens": 633327,
      "pricing_available": false
     }
    },
@@ -1526,12 +1530,17 @@
       "at": null,
       "id": null,
       "status": "succeeded"
+     },
+     {
+      "at": "2026-11-02T14:56:29.862693+00:00",
+      "id": "fts-baseline-002",
+      "status": null
      }
     ],
     "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
+     "compilation_spdx": "CC0-1.0",
+     "source_spdx": "CC-BY-IGO",
+     "status": "OCHA Financial Tracking Service data (HPC API plan/flow records; HDX bulk CSV 'Global - Requirements and Funding Data') under the FTS use-and-republish terms plus CC BY-IGO on the HDX record for the bulk distribution. Redistribution and derivatives are permitted with attribution; the no-endorsement condition carries through. The required attribution follows FTS's own suggested form for derived data and names FTS, the publication date and the source URL. The derived dataset is labelled as such throughout and is not an OCHA or FTS product; FTS has not reviewed or endorsed it."
     },
     "measurements": {
      "baseline_triad_2026_11_01": {
@@ -1542,6 +1551,40 @@
       "observed_gap": "the stock runner model TRAILS the persistence reference by 0.0873 AUC (0.6298 vs 0.71711) on identical rows",
       "persistence_last_coverage_auc": 0.7171136653895275,
       "verdict": "NO DEMONSTRATED HEADROOM UNDER THIS PROTOCOL (stock runner): the full-model figure is quoted beside persistence as the skill requires. This does not prove every competent model must lose; it is a recorded defect of this run, not a property of the task"
+     },
+     "baseline_triad_2026_11_02_fts_baseline_002": {
+      "accepted_before_scoring": "exact-byte gate --accept on the fetched bytes inside the job before any score exists (accept.log: ACCEPTED, matches the qualified artifact ac529cd4e9d4da90)",
+      "dependencies": {
+       "numpy": "2.5.4",
+       "pandas": "2.3.3",
+       "python": "3.13.18",
+       "scikit-learn": "1.9.1",
+       "xgboost": "3.4.1"
+      },
+      "evidence": {
+       "collected_result": "candidates/ocha-fts-appeal-funding-trajectory/baseline/baseline_result.json (sha256 3367077b2a8f99e895a3cccf43e9c8cd516d36520533fd16bf507bebbf233e6e)",
+       "staging_manifest": "staging release 431595358 manifest.json entry output/baseline_result.json",
+       "staging_release": 431595358
+      },
+      "finding": "no demonstrated headroom under this protocol: the stock runner's full model (eval AUC 0.6452) trails the persistence reference (0.7171136653895275) by 0.0719 AUC on the identical 139 eval rows, and also trails every measured simple reference except the majority-class rate; a solver must beat persistence_last_coverage for any headroom claim on this task",
+      "full_model_eval_auc_train_py": 0.6452,
+      "full_model_eval_auc_validate_py": 0.6452,
+      "information_asymmetry": "the model's shipped information set deliberately omits the last prior same-country outcome (the country_prior_* features were the 2026-11-01 queue audit's P0 label-recovery channel and are unshippable under the operator's standard), while the persistence reference reads prior-in-time outcomes scorer-side (train+eval labels only, holdout never opened); the model-vs-persistence gap is therefore quoted with this note and is not read as model failure against an equal information set",
+      "job": "fts-baseline-002",
+      "measured_at": "2026-11-02T15:21:36Z",
+      "positives": 81,
+      "predecessor_comparison": "the same stock runner measured 0.6298 on the pre-rebuild 12-column artifact e7441e1f (job fts-baseline-001, 2026-11-01); removing the P0 prior-outcome features slightly improved the runner (0.6298 -> 0.6452) while closing the label-recovery channel",
+      "references_same_eval_rows": {
+       "ask_size_rate": 0.7126436781609196,
+       "country_hist_rate": 0.6729459344401874,
+       "majority_class_accuracy": 0.5827338129496403,
+       "persistence_last_coverage": 0.7171136653895275,
+       "plan_type_rate": 0.669220945083014,
+       "prior_mean_rate": 0.7143465304384845
+      },
+      "rows": 139,
+      "scope": "stock runner (harness benchmark's own train.py + validate.sh, bundled verbatim, digests equal the read-only clone) on the accepted rebuilt artifact ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0; eval rows only; holdout never copied into any workdir",
+      "two_implementations_agree": true
      },
      "class_balance_orig_basis_2026_10_29": "probe_split_counts.py on the sweep: >=50% of orig by window: 2000-2013: 347 rows 237/110 (68.3%); 2014-2018: 153 rows 80/73 (52.3%); 2019-2022: 152 rows 97/55 (63.8%); 2023-2025: 106 rows 45/61 (42.5%). Threshold chosen for interpretability (half the launch ask) and global balance (funding/orig over all closed windows: 459 pos / 299 neg = 60.5%).",
      "extraction_cost_2026_10_29": "HDX CSV: 1 request, 279,849 bytes, 2.0 s (coordinator). Plan sweep: 877 requests, 401 s, 296 KB output (coordinator, acceptable). Flow endpoint: ~383 KB/page, first page carries the plan-year fundingTotal (YEM 2023 full flow list = 5 pages = 1.9 MB); a full-panel harvest needs ~900 flow requests ~= 340 MB -> worker job, never the coordinator. Machine class: hosted coordinator (4 vCPU, ~1.9 GiB RAM).",
@@ -1657,7 +1700,7 @@
      "regional_slice_gap_2026_10_29": "Burundi RRP 2021 (plan 1017): HDX CSV country slices sum to 14,978,233 funding vs API plan total 19,282,778 (ratio 0.78) - regional plans excluded from the primary population; the flow endpoint carries the authoritative plan total.",
      "vintage_flip_fixture_2026_10_29": "Afghanistan HRP 2023: origRequirements 4,627,363,573 (launch ask, matches GHO 2022-12-01 '$4.6 billion' and UNICEF sitrep 'US$4.62 billion is required'); final funding 1,678,347,238 = 36.3% of orig -> label 0. The same plan in today's HDX CSV: requirements 3,227,372,908 (down-revised post-launch) and percentFunded 52 -> using the CSV column would flip the label to 1 and leak the post-launch revision. Recorded as the construction's forbidden-column fixture."
     },
-    "next_action": "REBUILT, QUALIFIED AND ACCEPTED (fts-appeal-003, artifact ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0, gate 1.5.0 failed_checks empty on th",
+    "next_action": "BASELINE COMPLETE (fts-baseline-002, 2026-11-02): the stock runner scores eval AUC 0.6452 on the accepted rebuilt artifact ac529cd4 (exact-byte re-accept before",
     "packaged_at": null,
     "path": "candidates/ocha-fts-appeal-funding-trajectory/record.json",
     "prediction_time": "The plan's public launch: the instant its requirements are first published (GHO publication in early December for the following plan year, or the plan's own release for late-launched plans). Dated example (all UTC): Afghanistan HRP 2023 (plan id 1117) - GHO 2023 launched 2022-12-01 with Afghanistan at $4.6B; the HRP itself launched end of December 2022 / early January 2023; prediction instant pinned at 2023-01-01T00:00Z. Every feature is fixed by that instant: original requirements (plan endpoint origRequirements = 4,627,363,573, matching the December 2022 GHO ask), plan type, country, and strictly-prior plan-years (all closed years, final values). The target window is the plan year 2023-01-01..2023-12-31, strictly after the instant. VINTAGE POLICY (the decisive timing finding): the HDX CSV 'requirements' column is CURRENT-vintage - of 836 plans with requirements, 286 were revised up and 166 down after launch, and the CSV shows the revised value in revised cases - so it must never be used as a launch feature; the plan endpoint's origRequirements is the launch-vintage denominator, verified against the December 2022 GHO on the Afghanistan fixture. Prior-year funding totals used as features are current-vintage final values for closed years, approximating what was knowable at launch (late-reported flows are the measured gap - flow records carry firstReportedDate and decisionDate; 94.5% decisionDate coverage in a 200-flow sample); this retrospective approximation is declared as the restricted protocol and probed at gate 1.5, not assumed to be operational forecasting.",
@@ -8642,7 +8685,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 96.5,
+    "age_hours": 97.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -9165,12 +9208,17 @@
       "at": null,
       "id": null,
       "status": "succeeded"
+     },
+     {
+      "at": "2026-11-02T14:56:29.862693+00:00",
+      "id": "fts-baseline-002",
+      "status": null
      }
     ],
     "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
+     "compilation_spdx": "CC0-1.0",
+     "source_spdx": "CC-BY-IGO",
+     "status": "OCHA Financial Tracking Service data (HPC API plan/flow records; HDX bulk CSV 'Global - Requirements and Funding Data') under the FTS use-and-republish terms plus CC BY-IGO on the HDX record for the bulk distribution. Redistribution and derivatives are permitted with attribution; the no-endorsement condition carries through. The required attribution follows FTS's own suggested form for derived data and names FTS, the publication date and the source URL. The derived dataset is labelled as such throughout and is not an OCHA or FTS product; FTS has not reviewed or endorsed it."
     },
     "measurements": {
      "baseline_triad_2026_11_01": {
@@ -9181,6 +9229,40 @@
       "observed_gap": "the stock runner model TRAILS the persistence reference by 0.0873 AUC (0.6298 vs 0.71711) on identical rows",
       "persistence_last_coverage_auc": 0.7171136653895275,
       "verdict": "NO DEMONSTRATED HEADROOM UNDER THIS PROTOCOL (stock runner): the full-model figure is quoted beside persistence as the skill requires. This does not prove every competent model must lose; it is a recorded defect of this run, not a property of the task"
+     },
+     "baseline_triad_2026_11_02_fts_baseline_002": {
+      "accepted_before_scoring": "exact-byte gate --accept on the fetched bytes inside the job before any score exists (accept.log: ACCEPTED, matches the qualified artifact ac529cd4e9d4da90)",
+      "dependencies": {
+       "numpy": "2.5.4",
+       "pandas": "2.3.3",
+       "python": "3.13.18",
+       "scikit-learn": "1.9.1",
+       "xgboost": "3.4.1"
+      },
+      "evidence": {
+       "collected_result": "candidates/ocha-fts-appeal-funding-trajectory/baseline/baseline_result.json (sha256 3367077b2a8f99e895a3cccf43e9c8cd516d36520533fd16bf507bebbf233e6e)",
+       "staging_manifest": "staging release 431595358 manifest.json entry output/baseline_result.json",
+       "staging_release": 431595358
+      },
+      "finding": "no demonstrated headroom under this protocol: the stock runner's full model (eval AUC 0.6452) trails the persistence reference (0.7171136653895275) by 0.0719 AUC on the identical 139 eval rows, and also trails every measured simple reference except the majority-class rate; a solver must beat persistence_last_coverage for any headroom claim on this task",
+      "full_model_eval_auc_train_py": 0.6452,
+      "full_model_eval_auc_validate_py": 0.6452,
+      "information_asymmetry": "the model's shipped information set deliberately omits the last prior same-country outcome (the country_prior_* features were the 2026-11-01 queue audit's P0 label-recovery channel and are unshippable under the operator's standard), while the persistence reference reads prior-in-time outcomes scorer-side (train+eval labels only, holdout never opened); the model-vs-persistence gap is therefore quoted with this note and is not read as model failure against an equal information set",
+      "job": "fts-baseline-002",
+      "measured_at": "2026-11-02T15:21:36Z",
+      "positives": 81,
+      "predecessor_comparison": "the same stock runner measured 0.6298 on the pre-rebuild 12-column artifact e7441e1f (job fts-baseline-001, 2026-11-01); removing the P0 prior-outcome features slightly improved the runner (0.6298 -> 0.6452) while closing the label-recovery channel",
+      "references_same_eval_rows": {
+       "ask_size_rate": 0.7126436781609196,
+       "country_hist_rate": 0.6729459344401874,
+       "majority_class_accuracy": 0.5827338129496403,
+       "persistence_last_coverage": 0.7171136653895275,
+       "plan_type_rate": 0.669220945083014,
+       "prior_mean_rate": 0.7143465304384845
+      },
+      "rows": 139,
+      "scope": "stock runner (harness benchmark's own train.py + validate.sh, bundled verbatim, digests equal the read-only clone) on the accepted rebuilt artifact ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0; eval rows only; holdout never copied into any workdir",
+      "two_implementations_agree": true
      },
      "class_balance_orig_basis_2026_10_29": "probe_split_counts.py on the sweep: >=50% of orig by window: 2000-2013: 347 rows 237/110 (68.3%); 2014-2018: 153 rows 80/73 (52.3%); 2019-2022: 152 rows 97/55 (63.8%); 2023-2025: 106 rows 45/61 (42.5%). Threshold chosen for interpretability (half the launch ask) and global balance (funding/orig over all closed windows: 459 pos / 299 neg = 60.5%).",
      "extraction_cost_2026_10_29": "HDX CSV: 1 request, 279,849 bytes, 2.0 s (coordinator). Plan sweep: 877 requests, 401 s, 296 KB output (coordinator, acceptable). Flow endpoint: ~383 KB/page, first page carries the plan-year fundingTotal (YEM 2023 full flow list = 5 pages = 1.9 MB); a full-panel harvest needs ~900 flow requests ~= 340 MB -> worker job, never the coordinator. Machine class: hosted coordinator (4 vCPU, ~1.9 GiB RAM).",
@@ -9296,7 +9378,7 @@
      "regional_slice_gap_2026_10_29": "Burundi RRP 2021 (plan 1017): HDX CSV country slices sum to 14,978,233 funding vs API plan total 19,282,778 (ratio 0.78) - regional plans excluded from the primary population; the flow endpoint carries the authoritative plan total.",
      "vintage_flip_fixture_2026_10_29": "Afghanistan HRP 2023: origRequirements 4,627,363,573 (launch ask, matches GHO 2022-12-01 '$4.6 billion' and UNICEF sitrep 'US$4.62 billion is required'); final funding 1,678,347,238 = 36.3% of orig -> label 0. The same plan in today's HDX CSV: requirements 3,227,372,908 (down-revised post-launch) and percentFunded 52 -> using the CSV column would flip the label to 1 and leak the post-launch revision. Recorded as the construction's forbidden-column fixture."
     },
-    "next_action": "REBUILT, QUALIFIED AND ACCEPTED (fts-appeal-003, artifact ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0, gate 1.5.0 failed_checks empty on th",
+    "next_action": "BASELINE COMPLETE (fts-baseline-002, 2026-11-02): the stock runner scores eval AUC 0.6452 on the accepted rebuilt artifact ac529cd4 (exact-byte re-accept before",
     "packaged_at": null,
     "path": "candidates/ocha-fts-appeal-funding-trajectory/record.json",
     "prediction_time": "The plan's public launch: the instant its requirements are first published (GHO publication in early December for the following plan year, or the plan's own release for late-launched plans). Dated example (all UTC): Afghanistan HRP 2023 (plan id 1117) - GHO 2023 launched 2022-12-01 with Afghanistan at $4.6B; the HRP itself launched end of December 2022 / early January 2023; prediction instant pinned at 2023-01-01T00:00Z. Every feature is fixed by that instant: original requirements (plan endpoint origRequirements = 4,627,363,573, matching the December 2022 GHO ask), plan type, country, and strictly-prior plan-years (all closed years, final values). The target window is the plan year 2023-01-01..2023-12-31, strictly after the instant. VINTAGE POLICY (the decisive timing finding): the HDX CSV 'requirements' column is CURRENT-vintage - of 836 plans with requirements, 286 were revised up and 166 down after launch, and the CSV shows the revised value in revised cases - so it must never be used as a launch feature; the plan endpoint's origRequirements is the launch-vintage denominator, verified against the December 2022 GHO on the Afghanistan fixture. Prior-year funding totals used as features are current-vintage final values for closed years, approximating what was knowable at launch (late-reported flows are the measured gap - flow records carry firstReportedDate and decisionDate; 94.5% decisionDate coverage in a 200-flow sample); this retrospective approximation is declared as the restricted protocol and probed at gate 1.5, not assumed to be operational forecasting.",
@@ -10870,7 +10952,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 139.1,
+    "age_hours": 140.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -12061,7 +12143,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 96.5,
+     "age_hours": 97.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12349,7 +12431,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 96.5,
+     "age_hours": 97.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12635,7 +12717,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 139.1,
+     "age_hours": 140.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12847,7 +12929,7 @@
    ],
    "pending": [
     {
-     "age_hours": 139.1,
+     "age_hours": 140.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13138,10 +13220,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-02T14:50:01.782642+00:00",
+    "last_run_at": "2026-11-02T15:50:02.448304+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-02T15:00:00+00:00",
+    "next_run_at": "2026-11-02T16:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -13186,10 +13268,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-02T14:45:37.278236+00:00",
+    "last_run_at": "2026-11-02T15:45:53.726638+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-02T14:50:37.278236+00:00",
+    "next_run_at": "2026-11-02T15:50:53.726638+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -13198,10 +13280,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-02T14:50:00.867079+00:00",
+    "last_run_at": "2026-11-02T15:50:01.009414+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-02T14:55:00+00:00",
+    "next_run_at": "2026-11-02T15:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13222,10 +13304,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-02T13:50:45.125532+00:00",
+    "last_run_at": "2026-11-02T14:51:38.605307+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-02T15:50:00+00:00",
+    "next_run_at": "2026-11-02T16:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -13234,10 +13316,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-02T13:55:01.064678+00:00",
+    "last_run_at": "2026-11-02T14:55:00.633627+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-02T14:55:00+00:00",
+    "next_run_at": "2026-11-02T15:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -13278,9 +13360,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-02T14:50:01.783815+00:00"
+  "updated_at": "2026-11-02T15:50:02.846870+00:00"
  },
- "generated_at": "2026-11-02T14:50:02+00:00",
+ "generated_at": "2026-11-02T15:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -13304,7 +13386,7 @@
   },
   "tests": {
    "count": "697",
-   "ok": true
+   "ok": false
   }
  },
  "history": [
@@ -15923,15 +16005,21 @@
    "qualified": 1,
    "sessions_7d": 88,
    "tokens_7d": 39542166
+  },
+  {
+   "at": "2026-11-02T15:50:01+00:00",
+   "live": 19,
+   "published": 13,
+   "qualified": 1,
+   "sessions_7d": 89,
+   "tokens_7d": 40665815
   }
  ],
- "notices": [
-  "A research session is running: lock held for 1s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-11-02T14:50:02+00:00",
+   "as_of": "2026-11-02T15:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -15941,7 +16029,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-11-02T14:50:02+00:00",
+   "as_of": "2026-11-02T15:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -15951,7 +16039,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-11-02T14:50:02+00:00",
+   "as_of": "2026-11-02T15:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -16627,7 +16715,7 @@
      "lo": 0.002
     },
     {
-     "count": 47,
+     "count": 48,
      "hi": 0.01,
      "lo": 0.005
     },
@@ -16664,7 +16752,7 @@
    ],
    "max": 0.6296,
    "median": 0.0139,
-   "n": 166,
+   "n": 167,
    "p90": 0.0569,
    "ref_rate": 0.06924,
    "total": 5.03
@@ -17554,6 +17642,18 @@
     "id": "fts-baseline-001",
     "location": "hel1",
     "normalised_eur": 0.0082,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-02T14:56:29.862693+00:00",
+    "deleted_at": "2026-11-02T15:02:30.333306+00:00",
+    "eur": 0.0012,
+    "hours": 0.1,
+    "id": "fts-baseline-002",
+    "location": "hel1",
+    "normalised_eur": 0.0069,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -18663,18 +18763,18 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 5,
-  "jobs_total": 166,
+  "jobs_this_month": 6,
+  "jobs_total": 167,
   "lifetime_eur": 3.65,
   "live": {
-   "checked_at": "2026-11-02T14:50:34+00:00",
+   "checked_at": "2026-11-02T15:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 2.5,
+  "month_hours": 2.6,
   "month_to_date": 0.03,
   "months": [
    {
@@ -18690,13 +18790,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.029,
-    "hours": 2.51,
-    "jobs": 5,
+    "eur": 0.0302,
+    "hours": 2.61,
+    "jobs": 6,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 0.43
+  "projected_month_eur": 0.45
  },
  "schema": 1,
  "sessions": {
