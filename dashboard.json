@@ -1,9 +1,8 @@
 {
  "alarms": [
-  "scout-research-session missed its window (2026-11-02T12:30:00+00:00); last status ok",
   "Token use at 98% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 137.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (94.5h)"
+  "unhcr-refugee-data-finder has been packaged and actionable for 138.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (95.5h)"
  ],
  "budget": {
   "config": {
@@ -21,16 +20,16 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-11-02T12:50:02.633419+00:00",
+   "moment": "2026-11-02T13:50:02.667571+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 1501s by scout-research"
+    "lock held for 301s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 39002435,
-   "runs_last_7_days": 86,
-   "runs_weighted_last_7_days": 101,
+   "research_tokens_last_7_days": 39129210,
+   "runs_last_7_days": 87,
+   "runs_weighted_last_7_days": 102,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 15,
    "usage": {
@@ -55,13 +54,13 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 483,
+     "calls": 561,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 2234246,
-     "output_tokens": 435705,
+     "input_tokens": 2306949,
+     "output_tokens": 489777,
      "pricing_available": false
     }
    },
@@ -1522,6 +1521,11 @@
       "at": null,
       "id": null,
       "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": null,
+      "status": "succeeded"
      }
     ],
     "licence_summary": {
@@ -1633,17 +1637,34 @@
        "train_positive_rate": 0.638444
       }
      },
+     "references_reproduced_2026_11_02_fts_appeal_003": {
+      "ask_size_rate": 0.7126436781609196,
+      "country_hist_rate": 0.6729459344401874,
+      "equality_note": "every reference equals the e7441e1f measurement to the last digit: the rebuild changed the shipped feature set, not the panel, and score.py's scorer-side recompute (prior-in-time labels from train+eval only; the persistence feature form is unshippable under the operator's P0 standard) is verified correct by the exact equality",
+      "full_model": "PENDING - the stock runner's figure on the rebuilt 9-column information set comes from job fts-baseline-002 (bundle filled and ready); the e7441e1f-era stock figure was 0.6298 trailing persistence by 0.0873, recorded then as no demonstrated headroom under the stock runner - it MUST be re-measured on these bytes before any comparison is quoted, with the information-asymmetry note (the model is not given the last outcome; persistence reads it scorer-side)",
+      "majority_class_accuracy_this_split": 0.5827338129496403,
+      "measured_on": "the accepted rebuilt artifact ac529cd4 (job fts-appeal-003, post-acceptance on the worker), same 139 eval rows as every earlier figure",
+      "per_eval_year_persistence_auc": {
+       "2017": 0.7361111111111112,
+       "2018": 0.6657894736842105,
+       "2019": 0.7471590909090909,
+       "2020": 0.7272727272727273
+      },
+      "persistence_last_coverage": 0.7171136653895275,
+      "plan_type_rate": 0.669220945083014,
+      "prior_mean_rate": 0.7143465304384845
+     },
      "regional_slice_gap_2026_10_29": "Burundi RRP 2021 (plan 1017): HDX CSV country slices sum to 14,978,233 funding vs API plan total 19,282,778 (ratio 0.78) - regional plans excluded from the primary population; the flow endpoint carries the authoritative plan total.",
      "vintage_flip_fixture_2026_10_29": "Afghanistan HRP 2023: origRequirements 4,627,363,573 (launch ask, matches GHO 2022-12-01 '$4.6 billion' and UNICEF sitrep 'US$4.62 billion is required'); final funding 1,678,347,238 = 36.3% of orig -> label 0. The same plan in today's HDX CSV: requirements 3,227,372,908 (down-revised post-launch) and percentFunded 52 -> using the CSV column would flip the label to 1 and leak the post-launch revision. Recorded as the construction's forbidden-column fixture."
     },
-    "next_action": "DO NOT STAGE OR PACKAGE - the 2026-11-01 independent queue audit found P0 label recovery on the constructed artifact e7441e1f (country-history count arithmetic ",
+    "next_action": "REBUILT, QUALIFIED AND ACCEPTED (fts-appeal-003, artifact ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0, gate 1.5.0 failed_checks empty on th",
     "packaged_at": null,
     "path": "candidates/ocha-fts-appeal-funding-trajectory/record.json",
     "prediction_time": "The plan's public launch: the instant its requirements are first published (GHO publication in early December for the following plan year, or the plan's own release for late-launched plans). Dated example (all UTC): Afghanistan HRP 2023 (plan id 1117) - GHO 2023 launched 2022-12-01 with Afghanistan at $4.6B; the HRP itself launched end of December 2022 / early January 2023; prediction instant pinned at 2023-01-01T00:00Z. Every feature is fixed by that instant: original requirements (plan endpoint origRequirements = 4,627,363,573, matching the December 2022 GHO ask), plan type, country, and strictly-prior plan-years (all closed years, final values). The target window is the plan year 2023-01-01..2023-12-31, strictly after the instant. VINTAGE POLICY (the decisive timing finding): the HDX CSV 'requirements' column is CURRENT-vintage - of 836 plans with requirements, 286 were revised up and 166 down after launch, and the CSV shows the revised value in revised cases - so it must never be used as a launch feature; the plan endpoint's origRequirements is the launch-vintage denominator, verified against the December 2022 GHO on the Afghanistan fixture. Prior-year funding totals used as features are current-vintage final values for closed years, approximating what was knowable at launch (late-reported flows are the measured gap - flow records carry firstReportedDate and decisionDate; 94.5% decisionDate coverage in a 200-flow sample); this retrospective approximation is declared as the restricted protocol and probed at gate 1.5, not assumed to be operational forecasting.",
     "publisher": "UN OCHA - Financial Tracking Service (FTS), a UN Secretariat office administered from Geneva",
     "qualification": {
-     "artifact_version": "e7441e1fd868522d1fae1d5d2efca3733ca47c85f8cd612402f89b445c9e9a63",
-     "result": "passed; 0 failed checks of the full artifact on the worker (ok=true, failed_checks=[])",
+     "artifact_version": "ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0",
+     "result": "passed; 0 failed checks of the full artifact on the worker (ok=true; leakage incl. declared high-cardinality country_iso3; timing event_time launch instant; evaluation_contract retrospective_research/isolated_rows with training_label_timing unverified; cross_row_audit with probes=[] and a rationale documenting the removed prior-outcome join; splits disjoint and both-classed; runner layout/meta agreement with all 8 TASK_KEYS)",
      "splits": null
     },
     "question": "For a UN-coordinated humanitarian appeal or response plan (HRP/CAP/flash appeal/HNRP/SRP and similar single-country plans) at its public launch instant (requirements first published - GHO early December for the following year, or the plan's own release, whichever the record dates), will the plan receive funding equal to at least 50% of its ORIGINAL (launch-vintage) requirements by the close of its plan year? Features are launch-time attributes (original requirements, plan type, GHO membership, country/region, emergency linkage) plus strictly-prior-year history for the same country (prior-year plan coverage, funding levels, series length). A useful prediction identifies, months ahead, which appeals will end the year underfunded - the quantity GHO gap analysis reports after the fact - enabling donor advocacy and fundraising prioritization.",
@@ -8277,7 +8298,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 94.5,
+    "age_hours": 95.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8795,6 +8816,11 @@
       "at": null,
       "id": null,
       "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": null,
+      "status": "succeeded"
      }
     ],
     "licence_summary": {
@@ -8906,17 +8932,34 @@
        "train_positive_rate": 0.638444
       }
      },
+     "references_reproduced_2026_11_02_fts_appeal_003": {
+      "ask_size_rate": 0.7126436781609196,
+      "country_hist_rate": 0.6729459344401874,
+      "equality_note": "every reference equals the e7441e1f measurement to the last digit: the rebuild changed the shipped feature set, not the panel, and score.py's scorer-side recompute (prior-in-time labels from train+eval only; the persistence feature form is unshippable under the operator's P0 standard) is verified correct by the exact equality",
+      "full_model": "PENDING - the stock runner's figure on the rebuilt 9-column information set comes from job fts-baseline-002 (bundle filled and ready); the e7441e1f-era stock figure was 0.6298 trailing persistence by 0.0873, recorded then as no demonstrated headroom under the stock runner - it MUST be re-measured on these bytes before any comparison is quoted, with the information-asymmetry note (the model is not given the last outcome; persistence reads it scorer-side)",
+      "majority_class_accuracy_this_split": 0.5827338129496403,
+      "measured_on": "the accepted rebuilt artifact ac529cd4 (job fts-appeal-003, post-acceptance on the worker), same 139 eval rows as every earlier figure",
+      "per_eval_year_persistence_auc": {
+       "2017": 0.7361111111111112,
+       "2018": 0.6657894736842105,
+       "2019": 0.7471590909090909,
+       "2020": 0.7272727272727273
+      },
+      "persistence_last_coverage": 0.7171136653895275,
+      "plan_type_rate": 0.669220945083014,
+      "prior_mean_rate": 0.7143465304384845
+     },
      "regional_slice_gap_2026_10_29": "Burundi RRP 2021 (plan 1017): HDX CSV country slices sum to 14,978,233 funding vs API plan total 19,282,778 (ratio 0.78) - regional plans excluded from the primary population; the flow endpoint carries the authoritative plan total.",
      "vintage_flip_fixture_2026_10_29": "Afghanistan HRP 2023: origRequirements 4,627,363,573 (launch ask, matches GHO 2022-12-01 '$4.6 billion' and UNICEF sitrep 'US$4.62 billion is required'); final funding 1,678,347,238 = 36.3% of orig -> label 0. The same plan in today's HDX CSV: requirements 3,227,372,908 (down-revised post-launch) and percentFunded 52 -> using the CSV column would flip the label to 1 and leak the post-launch revision. Recorded as the construction's forbidden-column fixture."
     },
-    "next_action": "DO NOT STAGE OR PACKAGE - the 2026-11-01 independent queue audit found P0 label recovery on the constructed artifact e7441e1f (country-history count arithmetic ",
+    "next_action": "REBUILT, QUALIFIED AND ACCEPTED (fts-appeal-003, artifact ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0, gate 1.5.0 failed_checks empty on th",
     "packaged_at": null,
     "path": "candidates/ocha-fts-appeal-funding-trajectory/record.json",
     "prediction_time": "The plan's public launch: the instant its requirements are first published (GHO publication in early December for the following plan year, or the plan's own release for late-launched plans). Dated example (all UTC): Afghanistan HRP 2023 (plan id 1117) - GHO 2023 launched 2022-12-01 with Afghanistan at $4.6B; the HRP itself launched end of December 2022 / early January 2023; prediction instant pinned at 2023-01-01T00:00Z. Every feature is fixed by that instant: original requirements (plan endpoint origRequirements = 4,627,363,573, matching the December 2022 GHO ask), plan type, country, and strictly-prior plan-years (all closed years, final values). The target window is the plan year 2023-01-01..2023-12-31, strictly after the instant. VINTAGE POLICY (the decisive timing finding): the HDX CSV 'requirements' column is CURRENT-vintage - of 836 plans with requirements, 286 were revised up and 166 down after launch, and the CSV shows the revised value in revised cases - so it must never be used as a launch feature; the plan endpoint's origRequirements is the launch-vintage denominator, verified against the December 2022 GHO on the Afghanistan fixture. Prior-year funding totals used as features are current-vintage final values for closed years, approximating what was knowable at launch (late-reported flows are the measured gap - flow records carry firstReportedDate and decisionDate; 94.5% decisionDate coverage in a 200-flow sample); this retrospective approximation is declared as the restricted protocol and probed at gate 1.5, not assumed to be operational forecasting.",
     "publisher": "UN OCHA - Financial Tracking Service (FTS), a UN Secretariat office administered from Geneva",
     "qualification": {
-     "artifact_version": "e7441e1fd868522d1fae1d5d2efca3733ca47c85f8cd612402f89b445c9e9a63",
-     "result": "passed; 0 failed checks of the full artifact on the worker (ok=true, failed_checks=[])",
+     "artifact_version": "ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0",
+     "result": "passed; 0 failed checks of the full artifact on the worker (ok=true; leakage incl. declared high-cardinality country_iso3; timing event_time launch instant; evaluation_contract retrospective_research/isolated_rows with training_label_timing unverified; cross_row_audit with probes=[] and a rationale documenting the removed prior-outcome join; splits disjoint and both-classed; runner layout/meta agreement with all 8 TASK_KEYS)",
      "splits": null
     },
     "question": "For a UN-coordinated humanitarian appeal or response plan (HRP/CAP/flash appeal/HNRP/SRP and similar single-country plans) at its public launch instant (requirements first published - GHO early December for the following year, or the plan's own release, whichever the record dates), will the plan receive funding equal to at least 50% of its ORIGINAL (launch-vintage) requirements by the close of its plan year? Features are launch-time attributes (original requirements, plan type, GHO membership, country/region, emergency linkage) plus strictly-prior-year history for the same country (prior-year plan coverage, funding levels, series length). A useful prediction identifies, months ahead, which appeals will end the year underfunded - the quantity GHO gap analysis reports after the fact - enabling donor advocacy and fundraising prioritization.",
@@ -10483,7 +10526,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 137.1,
+    "age_hours": 138.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -10620,7 +10663,7 @@
      "update_cadence_observed_2026_10_23": "HDX package activity (CKAN package_activity_list, 60 entries read 2026-10-23): resource/dataset updates on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22, 2026-08-20 - a several-times-a-year refresh pattern aligned with UNHCR's annual statistical cycle (Global Trends lands ~June of D+1). The 2026-08-20 applications resource carries complete data through 2025, so year-D data is machine-observable at latest ~August of D+1; the conservative instant is the first observed mid-year-or-later refresh carrying year D.",
      "waf_probe_2026_10_20": "curl https://www.unhcr.org/refugee-statistics/ -> HTTP 403, 182,520 B (challenge page); the same URL loads normally in a real browser (title 'Refugee Data Finder - Key Indicators'). In-page same-origin fetch of the export deep link -> HTTP 403, 222,964 B. Both measured from the coordinator."
     },
-    "next_action": "SECOND INDEPENDENT VERDICT 2026-11-01 (Codex, queue audit): DO NOT PUBLISH - the 2026-10-28 corrections were verified real, complete and honest (377 exclusions,",
+    "next_action": "OPERATOR DECISION REQUIRED (unchanged flag), now with a decision-grade analysis (2026-11-02 session). The operator's 2026-11-02 task list names this candidate a",
     "packaged_at": "2026-10-27T19:44:51Z",
     "path": "candidates/unhcr-refugee-data-finder/record.json",
     "prediction_time": "Annual publication-lag NOWCAST - the accepted abs-visitor-arrivals-direction pattern, and it must not be described as a future-event forecast. The prediction instant is the publication of year-D complete annual data on the machine-fetchable channel: UNHCR's annual statistical cycle lands mid-year in D+1 (Global Trends), and the HDX distribution of this dataset was observed refreshing on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22 and 2026-08-20, with the 2026-08-20 resource carrying complete data through 2025. At that instant every feature is a corridor-year total for years <= D. The target year D+1 has PARTIALLY ELAPSED at the instant (the 2026-08-20 instant lies inside target year 2026, which started 2026-01-01) but its value is entirely UNPUBLISHED: on this channel no D+1 value exists until ~mid-D+2, and for most non-EU hosts no public monthly corridor data exists at all (Eurostat monthly data covers EU hosts only and is outside this channel's shipped features). So the claim recorded here is value-unavailability at the instant, not that the target window follows the instant. A strictly-future variant (at the same instant, predict year D+2 >= 2x the last PUBLISHED year D) was considered and rejected at discovery: the doubling baseline must be published at the instant, so a strict future window forces a two-year-back comparison, a different label and different measured base rates - a different task. The HDX archive is revised in place (current-vintage), so construction pins the fetched snapshot by sha256 and states values as construction-time vintage - the same documented posture as abs-visitor-arrivals-direction. Dated example in notes.md.",
@@ -11674,7 +11717,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 94.5,
+     "age_hours": 95.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -11962,7 +12005,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 94.5,
+     "age_hours": 95.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12248,7 +12291,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 137.1,
+     "age_hours": 138.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12385,7 +12428,7 @@
       "update_cadence_observed_2026_10_23": "HDX package activity (CKAN package_activity_list, 60 entries read 2026-10-23): resource/dataset updates on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22, 2026-08-20 - a several-times-a-year refresh pattern aligned with UNHCR's annual statistical cycle (Global Trends lands ~June of D+1). The 2026-08-20 applications resource carries complete data through 2025, so year-D data is machine-observable at latest ~August of D+1; the conservative instant is the first observed mid-year-or-later refresh carrying year D.",
       "waf_probe_2026_10_20": "curl https://www.unhcr.org/refugee-statistics/ -> HTTP 403, 182,520 B (challenge page); the same URL loads normally in a real browser (title 'Refugee Data Finder - Key Indicators'). In-page same-origin fetch of the export deep link -> HTTP 403, 222,964 B. Both measured from the coordinator."
      },
-     "next_action": "SECOND INDEPENDENT VERDICT 2026-11-01 (Codex, queue audit): DO NOT PUBLISH - the 2026-10-28 corrections were verified real, complete and honest (377 exclusions,",
+     "next_action": "OPERATOR DECISION REQUIRED (unchanged flag), now with a decision-grade analysis (2026-11-02 session). The operator's 2026-11-02 task list names this candidate a",
      "packaged_at": "2026-10-27T19:44:51Z",
      "path": "candidates/unhcr-refugee-data-finder/record.json",
      "prediction_time": "Annual publication-lag NOWCAST - the accepted abs-visitor-arrivals-direction pattern, and it must not be described as a future-event forecast. The prediction instant is the publication of year-D complete annual data on the machine-fetchable channel: UNHCR's annual statistical cycle lands mid-year in D+1 (Global Trends), and the HDX distribution of this dataset was observed refreshing on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22 and 2026-08-20, with the 2026-08-20 resource carrying complete data through 2025. At that instant every feature is a corridor-year total for years <= D. The target year D+1 has PARTIALLY ELAPSED at the instant (the 2026-08-20 instant lies inside target year 2026, which started 2026-01-01) but its value is entirely UNPUBLISHED: on this channel no D+1 value exists until ~mid-D+2, and for most non-EU hosts no public monthly corridor data exists at all (Eurostat monthly data covers EU hosts only and is outside this channel's shipped features). So the claim recorded here is value-unavailability at the instant, not that the target window follows the instant. A strictly-future variant (at the same instant, predict year D+2 >= 2x the last PUBLISHED year D) was considered and rejected at discovery: the doubling baseline must be published at the instant, so a strict future window forces a two-year-back comparison, a different label and different measured base rates - a different task. The HDX archive is revised in place (current-vintage), so construction pins the fetched snapshot by sha256 and states values as construction-time vintage - the same documented posture as abs-visitor-arrivals-direction. Dated example in notes.md.",
@@ -12460,7 +12503,7 @@
    ],
    "pending": [
     {
-     "age_hours": 137.1,
+     "age_hours": 138.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12597,7 +12640,7 @@
       "update_cadence_observed_2026_10_23": "HDX package activity (CKAN package_activity_list, 60 entries read 2026-10-23): resource/dataset updates on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22, 2026-08-20 - a several-times-a-year refresh pattern aligned with UNHCR's annual statistical cycle (Global Trends lands ~June of D+1). The 2026-08-20 applications resource carries complete data through 2025, so year-D data is machine-observable at latest ~August of D+1; the conservative instant is the first observed mid-year-or-later refresh carrying year D.",
       "waf_probe_2026_10_20": "curl https://www.unhcr.org/refugee-statistics/ -> HTTP 403, 182,520 B (challenge page); the same URL loads normally in a real browser (title 'Refugee Data Finder - Key Indicators'). In-page same-origin fetch of the export deep link -> HTTP 403, 222,964 B. Both measured from the coordinator."
      },
-     "next_action": "SECOND INDEPENDENT VERDICT 2026-11-01 (Codex, queue audit): DO NOT PUBLISH - the 2026-10-28 corrections were verified real, complete and honest (377 exclusions,",
+     "next_action": "OPERATOR DECISION REQUIRED (unchanged flag), now with a decision-grade analysis (2026-11-02 session). The operator's 2026-11-02 task list names this candidate a",
      "packaged_at": "2026-10-27T19:44:51Z",
      "path": "candidates/unhcr-refugee-data-finder/record.json",
      "prediction_time": "Annual publication-lag NOWCAST - the accepted abs-visitor-arrivals-direction pattern, and it must not be described as a future-event forecast. The prediction instant is the publication of year-D complete annual data on the machine-fetchable channel: UNHCR's annual statistical cycle lands mid-year in D+1 (Global Trends), and the HDX distribution of this dataset was observed refreshing on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22 and 2026-08-20, with the 2026-08-20 resource carrying complete data through 2025. At that instant every feature is a corridor-year total for years <= D. The target year D+1 has PARTIALLY ELAPSED at the instant (the 2026-08-20 instant lies inside target year 2026, which started 2026-01-01) but its value is entirely UNPUBLISHED: on this channel no D+1 value exists until ~mid-D+2, and for most non-EU hosts no public monthly corridor data exists at all (Eurostat monthly data covers EU hosts only and is outside this channel's shipped features). So the claim recorded here is value-unavailability at the instant, not that the target window follows the instant. A strictly-future variant (at the same instant, predict year D+2 >= 2x the last PUBLISHED year D) was considered and rejected at discovery: the doubling baseline must be published at the instant, so a strict future window forces a two-year-back comparison, a different label and different measured base rates - a different task. The HDX archive is revised in place (current-vintage), so construction pins the fetched snapshot by sha256 and states values as construction-time vintage - the same documented posture as abs-visitor-arrivals-direction. Dated example in notes.md.",
@@ -12751,10 +12794,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-02T12:50:02.346024+00:00",
+    "last_run_at": "2026-11-02T13:50:02.070739+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-02T13:00:00+00:00",
+    "next_run_at": "2026-11-02T14:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -12775,10 +12818,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-02T12:20:01.534574+00:00",
+    "last_run_at": "2026-11-02T13:50:01.606129+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-02T12:30:00+00:00",
+    "next_run_at": "2026-11-02T13:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12799,10 +12842,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-02T12:47:24.221875+00:00",
+    "last_run_at": "2026-11-02T13:47:41.019118+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-02T12:52:24.221875+00:00",
+    "next_run_at": "2026-11-02T13:52:41.019118+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -12811,10 +12854,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-02T12:50:01.509809+00:00",
+    "last_run_at": "2026-11-02T13:40:01.037352+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-02T12:55:00+00:00",
+    "next_run_at": "2026-11-02T13:50:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -12835,10 +12878,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-02T11:50:45.616704+00:00",
+    "last_run_at": "2026-11-02T12:50:44.485585+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-02T13:50:00+00:00",
+    "next_run_at": "2026-11-02T14:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -12847,10 +12890,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-02T11:55:00.764582+00:00",
+    "last_run_at": "2026-11-02T12:55:01.022740+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-02T12:55:00+00:00",
+    "next_run_at": "2026-11-02T13:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -12891,9 +12934,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-02T12:50:02.347407+00:00"
+  "updated_at": "2026-11-02T13:50:02.071750+00:00"
  },
- "generated_at": "2026-11-02T12:50:01+00:00",
+ "generated_at": "2026-11-02T13:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -12901,19 +12944,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-02T06:23:11Z",
-   "head_sha": "5fe48f5",
+   "created_at": "2026-11-02T13:43:06Z",
+   "head_sha": "ac11b88",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41399569433"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41455383861"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 39/45 (87%)"
   },
   "head": {
-   "at": "2026-11-01T22:54:19Z",
-   "sha": "5fe48f5",
-   "subject": "queue audit verdicts applied: ipo + pins licence-description corrected (OGL 3.0 imposes no same-licence condition) and P"
+   "at": "2026-11-02T13:43:02Z",
+   "sha": "ac11b88",
+   "subject": "fts-appeal-003 P0-recovery rebuild accepted (ac529cd4): prior-outcome features unshipped, rows unchanged vs e7441e1f, ev"
   },
   "tests": {
    "count": "697",
@@ -15520,15 +15563,23 @@
    "qualified": 1,
    "sessions_7d": 86,
    "tokens_7d": 39002435
+  },
+  {
+   "at": "2026-11-02T13:50:01+00:00",
+   "live": 19,
+   "published": 13,
+   "qualified": 1,
+   "sessions_7d": 87,
+   "tokens_7d": 39129210
   }
  ],
  "notices": [
-  "A research session is running: lock held for 1501s by scout-research"
+  "A research session is running: lock held for 301s by scout-research"
  ],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-11-02T12:50:01+00:00",
+   "as_of": "2026-11-02T13:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -15538,7 +15589,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-11-02T12:50:01+00:00",
+   "as_of": "2026-11-02T13:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -15548,7 +15599,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-11-02T12:50:01+00:00",
+   "as_of": "2026-11-02T13:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -16234,7 +16285,7 @@
      "lo": 0.01
     },
     {
-     "count": 36,
+     "count": 37,
      "hi": 0.05,
      "lo": 0.02
     },
@@ -16261,10 +16312,10 @@
    ],
    "max": 0.6296,
    "median": 0.0139,
-   "n": 165,
+   "n": 166,
    "p90": 0.0569,
    "ref_rate": 0.06924,
-   "total": 4.98
+   "total": 5.03
   },
   "jobs": [
    {
@@ -17127,6 +17178,18 @@
     "id": "fts-appeal-002",
     "location": "hel1",
     "normalised_eur": 0.0274,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-02T13:01:28.620434+00:00",
+    "deleted_at": "2026-11-02T13:38:57.415271+00:00",
+    "eur": 0.0072,
+    "hours": 0.625,
+    "id": "fts-appeal-003",
+    "location": "hel1",
+    "normalised_eur": 0.0433,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -18248,19 +18311,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 4,
-  "jobs_total": 165,
+  "jobs_this_month": 5,
+  "jobs_total": 166,
   "lifetime_eur": 3.65,
   "live": {
-   "checked_at": "2026-11-02T12:50:33+00:00",
+   "checked_at": "2026-11-02T13:50:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 1.9,
-  "month_to_date": 0.02,
+  "month_hours": 2.5,
+  "month_to_date": 0.03,
   "months": [
    {
     "eur": 2.4452,
@@ -18275,18 +18338,33 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.0218,
-    "hours": 1.88,
-    "jobs": 4,
+    "eur": 0.029,
+    "hours": 2.51,
+    "jobs": 5,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 0.33
+  "projected_month_eur": 0.43
  },
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
-  "recent": [],
-  "total": 0
+  "recent": [
+   {
+    "elapsed_seconds": 4792.4,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "9105f21a38f188fdfe3111cd1ea4aaa7d3287349d36516ceb1e09aefaae516e8",
+    "ts": "2026-11-02T13:44:54.290834+00:00"
+   }
+  ],
+  "total": 1
  }
 }
