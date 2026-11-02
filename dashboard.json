@@ -2,8 +2,8 @@
  "alarms": [
   "Research gate refused the next session: research used 41,402,256 tokens in the last 7 days, at or over the 40,000,000-token weekly budget",
   "Token use at 104% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 147.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (104.5h)"
+  "unhcr-refugee-data-finder has been packaged and actionable for 148.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (105.5h)"
  ],
  "budget": {
   "config": {
@@ -21,7 +21,7 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-11-02T22:50:03.218056+00:00",
+   "moment": "2026-11-02T23:50:02.971172+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
@@ -45,13 +45,13 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 287,
+     "calls": 297,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 9473397,
-     "output_tokens": 269046,
+     "input_tokens": 10279845,
+     "output_tokens": 278419,
      "pricing_available": false
     },
     "research": {
@@ -75,7 +75,6 @@
   "countries": {
    "BR": 3,
    "CA": 4,
-   "CH": 1,
    "CO": 2,
    "DE": 1,
    "EU": 3,
@@ -86,10 +85,9 @@
   "counts": {
    "dropped": 47,
    "investigating": 18,
-   "packaged": 2,
+   "packaged": 3,
    "parked": 29,
    "published": 13,
-   "qualified": 1,
    "ready": 12
   },
   "errors": [],
@@ -1500,268 +1498,9 @@
     "split_strategy": "Temporal windows on the 1996-10..2026-10 daily panel, e.g. train 1996-10..2015-12 / eval 2016-01..2020-12 / holdout 2021-01..2026-10; each window contains at least one measured high-price episode (train: 2008-07 measured 9/31 days >$200; eval: 2020-06 measured 5/30 days >$200 with mid-month means to $287; holdout: 2024-08 measured 25/31 days >$200). Positives cluster into multi-day weather/storage episodes, so split capacity is counted per episode-week, not per day; sampled episode weeks measured, exact counts computed at construction over the full files. The 2022-11-01 real-time-pricing regime change (ex-post -> real-time pricing, documented by the publisher) is a structural break: either bound all windows inside one regime or ship a regime indicator; decided and documented at construction.",
     "status": "investigating",
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
-   },
-   {
-    "awaiting_operator": false,
-    "baseline": {},
-    "country": "CH",
-    "domain": "humanitarian financing / per-plan-year appeal funding coverage (UN OCHA Financial Tracking Service) - funding-outcome task family; first humanitarian-appeal financing register assessed on the bench",
-    "id": "ocha-fts-appeal-funding-trajectory",
-    "jobs": [
-     {
-      "at": null,
-      "id": null,
-      "status": "succeeded"
-     },
-     {
-      "at": null,
-      "id": null,
-      "status": "succeeded"
-     },
-     {
-      "at": null,
-      "id": null,
-      "status": "succeeded"
-     },
-     {
-      "at": null,
-      "id": null,
-      "status": "succeeded"
-     },
-     {
-      "at": "2026-11-02T14:56:29.862693+00:00",
-      "id": "fts-baseline-002",
-      "status": null
-     }
-    ],
-    "licence_summary": {
-     "compilation_spdx": "CC0-1.0",
-     "source_spdx": "CC-BY-IGO",
-     "status": "OCHA Financial Tracking Service data (HPC API plan/flow records; HDX bulk CSV 'Global - Requirements and Funding Data') under the FTS use-and-republish terms plus CC BY-IGO on the HDX record for the bulk distribution. Redistribution and derivatives are permitted with attribution; the no-endorsement condition carries through. The required attribution follows FTS's own suggested form for derived data and names FTS, the publication date and the source URL. The derived dataset is labelled as such throughout and is not an OCHA or FTS product; FTS has not reviewed or endorsed it."
-    },
-    "measurements": {
-     "baseline_triad_2026_11_01": {
-      "concrete_diagnosis_candidates": "(a) the stock train.py is an untuned XGBClassifier(n_estimators=30, max_depth=6) on 437 train rows with country_iso3 as a high-cardinality categorical (78 train levels) - noise-heavy for this panel size; (b) prevalence shift is mild (train 0.638 vs eval 0.583) and does not explain the gap alone; (c) no misalignment: both AUCs computed by the runner's own two implementations on the same accepted bytes; (d) persistence_last_coverage is a legitimate at-instant feature (the country's last strictly-prior plan-year outcome is known at launch), not post-hoc. Bounded repair options (ONE, pre-registered, next session's call): a categorical-handling fix is a runner-side change, NOT a construction rebuild - do not rebuild the artifact for it; the paired bootstrap already shows persistence's edge over every other simple reference is inconclusive on 139 rows",
-      "full_model_eval_auc": 0.6298,
-      "interpretation_rule": "any later model figure must still be quoted beside persistence 0.71711; keep fitting until a score wins is forbidden",
-      "measured_on": "the accepted artifact e7441e1f (job fts-baseline-001, after --accept, on the same 139 eval rows as the references)",
-      "observed_gap": "the stock runner model TRAILS the persistence reference by 0.0873 AUC (0.6298 vs 0.71711) on identical rows",
-      "persistence_last_coverage_auc": 0.7171136653895275,
-      "verdict": "NO DEMONSTRATED HEADROOM UNDER THIS PROTOCOL (stock runner): the full-model figure is quoted beside persistence as the skill requires. This does not prove every competent model must lose; it is a recorded defect of this run, not a property of the task"
-     },
-     "baseline_triad_2026_11_02_fts_baseline_002": {
-      "accepted_before_scoring": "exact-byte gate --accept on the fetched bytes inside the job before any score exists (accept.log: ACCEPTED, matches the qualified artifact ac529cd4e9d4da90)",
-      "dependencies": {
-       "numpy": "2.5.4",
-       "pandas": "2.3.3",
-       "python": "3.13.18",
-       "scikit-learn": "1.9.1",
-       "xgboost": "3.4.1"
-      },
-      "evidence": {
-       "collected_result": "candidates/ocha-fts-appeal-funding-trajectory/baseline/baseline_result.json (sha256 3367077b2a8f99e895a3cccf43e9c8cd516d36520533fd16bf507bebbf233e6e)",
-       "staging_manifest": "staging release 431595358 manifest.json entry output/baseline_result.json",
-       "staging_release": 431595358
-      },
-      "finding": "no demonstrated headroom under this protocol: the stock runner's full model (eval AUC 0.6452) trails the persistence reference (0.7171136653895275) by 0.0719 AUC on the identical 139 eval rows, and also trails every measured simple reference except the majority-class rate; a solver must beat persistence_last_coverage for any headroom claim on this task",
-      "full_model_eval_auc_train_py": 0.6452,
-      "full_model_eval_auc_validate_py": 0.6452,
-      "information_asymmetry": "the model's shipped information set deliberately omits the last prior same-country outcome (the country_prior_* features were the 2026-11-01 queue audit's P0 label-recovery channel and are unshippable under the operator's standard), while the persistence reference reads prior-in-time outcomes scorer-side (train+eval labels only, holdout never opened); the model-vs-persistence gap is therefore quoted with this note and is not read as model failure against an equal information set",
-      "job": "fts-baseline-002",
-      "measured_at": "2026-11-02T15:21:36Z",
-      "positives": 81,
-      "predecessor_comparison": "the same stock runner measured 0.6298 on the pre-rebuild 12-column artifact e7441e1f (job fts-baseline-001, 2026-11-01); removing the P0 prior-outcome features slightly improved the runner (0.6298 -> 0.6452) while closing the label-recovery channel",
-      "references_same_eval_rows": {
-       "ask_size_rate": 0.7126436781609196,
-       "country_hist_rate": 0.6729459344401874,
-       "majority_class_accuracy": 0.5827338129496403,
-       "persistence_last_coverage": 0.7171136653895275,
-       "plan_type_rate": 0.669220945083014,
-       "prior_mean_rate": 0.7143465304384845
-      },
-      "rows": 139,
-      "scope": "stock runner (harness benchmark's own train.py + validate.sh, bundled verbatim, digests equal the read-only clone) on the accepted rebuilt artifact ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0; eval rows only; holdout never copied into any workdir",
-      "two_implementations_agree": true
-     },
-     "class_balance_orig_basis_2026_10_29": "probe_split_counts.py on the sweep: >=50% of orig by window: 2000-2013: 347 rows 237/110 (68.3%); 2014-2018: 153 rows 80/73 (52.3%); 2019-2022: 152 rows 97/55 (63.8%); 2023-2025: 106 rows 45/61 (42.5%). Threshold chosen for interpretability (half the launch ask) and global balance (funding/orig over all closed windows: 459 pos / 299 neg = 60.5%).",
-     "extraction_cost_2026_10_29": "HDX CSV: 1 request, 279,849 bytes, 2.0 s (coordinator). Plan sweep: 877 requests, 401 s, 296 KB output (coordinator, acceptable). Flow endpoint: ~383 KB/page, first page carries the plan-year fundingTotal (YEM 2023 full flow list = 5 pages = 1.9 MB); a full-panel harvest needs ~900 flow requests ~= 340 MB -> worker job, never the coordinator. Machine class: hosted coordinator (4 vCPU, ~1.9 GiB RAM).",
-     "flow_schema_2026_10_29": "YEM country-year sample (first page, n=200): decisionDate present 189/200 (94.5%), firstReportedDate 200/200; status: commitment 125 / paid 75; flowType: Standard 129 / Parked 68 / Pass through 2 / Carryover 1; multiyear parked flows span usage years (one 2018-decision flow covers 2019-2023). Plan-level attribution is the publisher's own (report3 boundary handling): planId 1116 year 2023 -> 986 flows, incoming.fundingTotal 1,774,327,599, exactly equal to the HDX CSV single-country row; AFG 1117 year 2023 -> 683 flows, 1,678,347,238, exactly equal to CSV.",
-     "plan_endpoint_sweep_2026_10_29": "probe_plan_sweep.py: 877 plan-record fetches, 0 errors, 401 s, 296 KB jsonl (candidates/ocha-fts-appeal-funding-trajectory/plan_orig_sweep.jsonl). Revisions measured on 836 plans with orig>0: 286 revised up, 166 revised down, 384 unchanged (54% revised) - the CSV requirements column matches the revised value in revised cases (2016 cohort: matches orig 21 / revised 14; 2023 cohort: matches orig 23 / revised 15, with 8 country-slice mismatches), so the CSV column is unusable as a launch feature.",
-     "population_2026_10_29": "HDX CSV: 3,874 rows 1999-2031 (future-dated rows are multiyear-plan usage-year extensions); 2,678 rows without requirements (country funding outside appeals - outside the task population); 1,196 rows with plan id + requirements = plan x country attribution; 877 distinct (plan, plan-year) pairs; 782 primary single-country plan-years with origRequirements>0 (2000-2025), 60 multi-country regional plans, 41 plan-years with no recorded original requirements (excluded, counted).",
-     "provenance_mix_2026_10_29": "Primary population by typeName: Humanitarian response plan 212, Consolidated appeals process 152, Flash appeal 122, Other 117, Consolidated inter-agency appeal 69, Humanitarian needs and response plan 49, Strategic response plan 45, Regional response plan 16; isPartOfGHO true 703/782. Type is a documented feature, not a population shift: all types share the appeal-launch contract.",
-     "publisher_summary_crosscheck_2026_10_29": "GHO 2023 December update (publisher's snapshot): requirements $56.7B, funding $21.8B, coverage 38% at 2023-12-31; launch ask was $51.5B (2022-12-01). My CSV-basis 2023 aggregate (55.8B requirements / 25.2B funding / 45.1%) differs because it includes non-GHO plans and mixed-vintage requirements - composition, explained; per-plan origRequirements + isPartOfGHO reconcile at construction.",
-     "references_2026_11_01_fts_appeal_001": {
-      "brier": {
-       "ask_size_rate": 0.22545387995752264,
-       "country_hist_rate": 0.25021941248042434,
-       "persistence_last_coverage": 0.2787769784172662,
-       "plan_type_rate": 0.25080408668973475,
-       "prior_mean_rate": 0.2212567383762087
-      },
-      "collected_evidence": ".factory/fts-appeal-001/reports/{acceptance.txt, qualification.json, references.json, summary.json, container.log} each re-hashed at its staging ledger digest from release 430422823; bulk CSVs stay in staging (train 35,621 B / eval 11,268 B / holdout 15,419 B at the ledger digests)",
-      "interpretation_rule": "persistence_last_coverage 0.7171 is the headroom reference; any full-model figure from the runner baseline job must be quoted beside it, and a model below it is a recorded defect; no full-model figure exists yet (the baseline job on the accepted 002 artifact is the next step)",
-      "majority_class": {
-       "accuracy_this_split": 0.5827338129496403,
-       "note": "majority fitted on train (positive rate 0.6384), measured against eval labels"
-      },
-      "measured_on": "artifact 893b2e78a4812dcc (job fts-appeal-001, post-acceptance score.py on the worker; eval rows only, holdout never opened)",
-      "paired_bootstrap_150": {
-       "note": "every interval contains zero: persistence's edge over the other simple references is inconclusive on 139 eval rows; an interval containing zero is an inconclusive difference, not parity",
-       "persistence_vs_ask_size": {
-        "ci95": [
-         -0.1230496453900709,
-         0.08506493506493507
-        ],
-        "observed_difference": 0.004469987228607919
-       },
-       "persistence_vs_country_hist": {
-        "ci95": [
-         -0.05893246187363832,
-         0.1466581524052788
-        ],
-        "observed_difference": 0.04416773094934012
-       },
-       "persistence_vs_plan_type": {
-        "ci95": [
-         -0.06977225672877851,
-         0.16033755274261607
-        ],
-        "observed_difference": 0.04789272030651348
-       },
-       "persistence_vs_prior_mean": {
-        "ci95": [
-         -0.07012987012987015,
-         0.10370051635111877
-        ],
-        "observed_difference": 0.002767134951042971
-       }
-      },
-      "per_eval_year_persistence_auc": {
-       "2017": 0.7361111111111112,
-       "2018": 0.6657894736842105,
-       "2019": 0.7471590909090909,
-       "2020": 0.7272727272727273
-      },
-      "per_eval_year_rows_positives": {
-       "2017": [
-        34,
-        16
-       ],
-       "2018": [
-        29,
-        19
-       ],
-       "2019": [
-        30,
-        22
-       ],
-       "2020": [
-        46,
-        24
-       ]
-      },
-      "re_measured_on_002": "job fts-appeal-002 re-ran score.py post-acceptance on the corrected artifact e7441e1f... over the same 139 eval rows: every reference figure identical to the 001 measurement (persistence_last_coverage 0.7171136653895275, prior_mean 0.71435, ask_size 0.71264, majority accuracy 0.58273) - the CSVs are byte-identical between the attempts, so this is expected, not independent confirmation",
-      "references_eval_auc": {
-       "ask_size_rate": 0.7126436781609196,
-       "country_hist_rate": 0.6729459344401874,
-       "global_rate": "degenerate (constant score; no ranking information)",
-       "persistence_last_coverage": 0.7171136653895275,
-       "plan_type_rate": 0.669220945083014,
-       "prior_mean_rate": 0.7143465304384845,
-       "year_rate": "degenerate by construction (eval plan years 2017-2020 outside train range 2000-2016; falls back to the constant global train rate)"
-      },
-      "rows": {
-       "eval": 139,
-       "eval_positives": 81,
-       "train": 437,
-       "train_positive_rate": 0.638444
-      }
-     },
-     "references_reproduced_2026_11_02_fts_appeal_003": {
-      "ask_size_rate": 0.7126436781609196,
-      "country_hist_rate": 0.6729459344401874,
-      "equality_note": "every reference equals the e7441e1f measurement to the last digit: the rebuild changed the shipped feature set, not the panel, and score.py's scorer-side recompute (prior-in-time labels from train+eval only; the persistence feature form is unshippable under the operator's P0 standard) is verified correct by the exact equality",
-      "full_model": "PENDING - the stock runner's figure on the rebuilt 9-column information set comes from job fts-baseline-002 (bundle filled and ready); the e7441e1f-era stock figure was 0.6298 trailing persistence by 0.0873, recorded then as no demonstrated headroom under the stock runner - it MUST be re-measured on these bytes before any comparison is quoted, with the information-asymmetry note (the model is not given the last outcome; persistence reads it scorer-side)",
-      "majority_class_accuracy_this_split": 0.5827338129496403,
-      "measured_on": "the accepted rebuilt artifact ac529cd4 (job fts-appeal-003, post-acceptance on the worker), same 139 eval rows as every earlier figure",
-      "per_eval_year_persistence_auc": {
-       "2017": 0.7361111111111112,
-       "2018": 0.6657894736842105,
-       "2019": 0.7471590909090909,
-       "2020": 0.7272727272727273
-      },
-      "persistence_last_coverage": 0.7171136653895275,
-      "plan_type_rate": 0.669220945083014,
-      "prior_mean_rate": 0.7143465304384845
-     },
-     "regional_slice_gap_2026_10_29": "Burundi RRP 2021 (plan 1017): HDX CSV country slices sum to 14,978,233 funding vs API plan total 19,282,778 (ratio 0.78) - regional plans excluded from the primary population; the flow endpoint carries the authoritative plan total.",
-     "vintage_flip_fixture_2026_10_29": "Afghanistan HRP 2023: origRequirements 4,627,363,573 (launch ask, matches GHO 2022-12-01 '$4.6 billion' and UNICEF sitrep 'US$4.62 billion is required'); final funding 1,678,347,238 = 36.3% of orig -> label 0. The same plan in today's HDX CSV: requirements 3,227,372,908 (down-revised post-launch) and percentFunded 52 -> using the CSV column would flip the label to 1 and leak the post-launch revision. Recorded as the construction's forbidden-column fixture."
-    },
-    "next_action": "PACKAGE BUILT AND VERIFIED (2026-11-02): release/ocha-fts-appeal-funding-trajectory/ carries the v2026.11 package - the accepted artifact ac529cd4 bytes (meta.j",
-    "packaged_at": null,
-    "path": "candidates/ocha-fts-appeal-funding-trajectory/record.json",
-    "prediction_time": "The plan's public launch: the instant its requirements are first published (GHO publication in early December for the following plan year, or the plan's own release for late-launched plans). Dated example (all UTC): Afghanistan HRP 2023 (plan id 1117) - GHO 2023 launched 2022-12-01 with Afghanistan at $4.6B; the HRP itself launched end of December 2022 / early January 2023; prediction instant pinned at 2023-01-01T00:00Z. Every feature is fixed by that instant: original requirements (plan endpoint origRequirements = 4,627,363,573, matching the December 2022 GHO ask), plan type, country, and strictly-prior plan-years (all closed years, final values). The target window is the plan year 2023-01-01..2023-12-31, strictly after the instant. VINTAGE POLICY (the decisive timing finding): the HDX CSV 'requirements' column is CURRENT-vintage - of 836 plans with requirements, 286 were revised up and 166 down after launch, and the CSV shows the revised value in revised cases - so it must never be used as a launch feature; the plan endpoint's origRequirements is the launch-vintage denominator, verified against the December 2022 GHO on the Afghanistan fixture. Prior-year funding totals used as features are current-vintage final values for closed years, approximating what was knowable at launch (late-reported flows are the measured gap - flow records carry firstReportedDate and decisionDate; 94.5% decisionDate coverage in a 200-flow sample); this retrospective approximation is declared as the restricted protocol and probed at gate 1.5, not assumed to be operational forecasting.",
-    "publisher": "UN OCHA - Financial Tracking Service (FTS), a UN Secretariat office administered from Geneva",
-    "qualification": {
-     "artifact_version": "ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0",
-     "result": "passed; 0 failed checks of the full artifact on the worker (ok=true; leakage incl. declared high-cardinality country_iso3; timing event_time launch instant; evaluation_contract retrospective_research/isolated_rows with training_label_timing unverified; cross_row_audit with probes=[] and a rationale documenting the removed prior-outcome join; splits disjoint and both-classed; runner layout/meta agreement with all 8 TASK_KEYS)",
-     "splits": null
-    },
-    "question": "For a UN-coordinated humanitarian appeal or response plan (HRP/CAP/flash appeal/HNRP/SRP and similar single-country plans) at its public launch instant (requirements first published - GHO early December for the following year, or the plan's own release, whichever the record dates), will the plan receive funding equal to at least 50% of its ORIGINAL (launch-vintage) requirements by the close of its plan year? Features are launch-time attributes (original requirements, plan type, GHO membership, country/region, emergency linkage) plus strictly-prior-year history for the same country (prior-year plan coverage, funding levels, series length). A useful prediction identifies, months ahead, which appeals will end the year underfunded - the quantity GHO gap analysis reports after the fact - enabling donor advocacy and fundraising prioritization.",
-    "region": "International organisations",
-    "release_baseline": {
-     "auc": 0.6452,
-     "display": "0.6452",
-     "reference": null
-    },
-    "release_splits": {
-     "eval": {
-      "positives": 81,
-      "rows": 139
-     },
-     "holdout": {
-      "positives": 96,
-      "rows": 182
-     },
-     "train": {
-      "positives": 279,
-      "rows": 437
-     }
-    },
-    "review": "All five discovery contracts reconciled against recorded evidence (2026-10-29). (1) Redistribution: SUPPORTED - the dataset's own page grants use/republish with citation (quote in license_evidence), and the publisher's HDX distribution of the same data is CC BY-IGO; licence_class A; attribution and no-endorsement conditions carry into LICENSE.md. (2) Prediction timing: SUPPORTED with a declared restricted retrospective protocol - launch instant dated and verified on the Afghanistan fixture (GHO 2022-12-01 ask == origRequirements to 3 significant figures); the decisive vintage finding is measured (54% of plans revised post-launch; HDX CSV column carries revised values; the flip demonstrator is recorded); construction uses origRequirements only; prior-year features are current-vintage finals for closed years with the late-reporting gap measured on flows (firstReportedDate lags decisionDate; 94.5% decisionDate coverage); gate-1.5 reverse-history probes on the exact artifact are mandatory in the handoff - the label is a later aggregation of the same stream, so the retrospective posture must be declared, exactly as on unhcr/abs. (3) Obtainable target: SUPPORTED - per-plan-year funding totals from the publisher's API, equal to its own HDX distribution on measured single-country fixtures; label source columns excludable; censoring rule and zero-funding rows pinned; regional-plan slices excluded with the measured 0.78 gap. (4) Split capacity: SUPPORTED by full-population measurement - 782 primary plan-years, three disjoint windows with both classes (table in split_strategy), clustered count recorded (83 country series; year-clustered prevalence drift 68%->43% is a measured phenomenon property, not a defect). (5) Contribution beyond a mirror: SUPPORTED - novelty verdict differentiated (recorded by check-novelty): the publisher and third parties distribute the raw requirements/funding tables (HDX, HAPI, HF per-country mirrors), but no ML-ready per-plan-year coverage task with an instant, splits and a scored contract exists; our contribution is the launch-vintage-denominator formulation, the vintage trap evidence, the dated fixture set and the persistence-referenced evaluation. Residual uncertainties, stated: (a) the WB instrument-outcome drops (identity-dominated, no headroom over persistence) are the named risk for this family - the prior-year same-country coverage rule is the primary reference and decides whether headroom stands; (b) origRequirements is verified launch-vintage on one external December source (Afghanistan 2023) plus internal orig/revised separation on 836 plans - construction asserts the GHO cross-check on sampled cohorts; (c) the ~6% of flows lacking decisionDate only affects the optional within-year trajectory variant, not the primary launch-instant formulation; (d) exact per-window counts on final construction data may shift slightly when empty-funding rows are pinned.",
-    "sources": [
-     {
-      "licence": "cc-by-igo (publisher's HDX record, read 2026-10-29)",
-      "name": "HDX: Global - Requirements and Funding Data (FTS bulk distribution)",
-      "url": "https://data.humdata.org/dataset/global-requirements-and-funding-data"
-     },
-     {
-      "licence": "FTS republish permission (see license_evidence)",
-      "name": "OCHA HPC API v2 (public, anonymous) - plan records with origRequirements/revisedRequirements",
-      "url": ""
-     },
-     {
-      "licence": "FTS republish permission (see license_evidence)",
-      "name": "OCHA HPC API v1 FTS flow endpoint (public, anonymous) - dated flows and per-plan-year funding totals",
-      "url": ""
-     },
-     {
-      "licence": "publisher permission text (quoted in license_evidence)",
-      "name": "FTS 'About FTS / Using FTS data' (publisher's own use-and-republish instrument)",
-      "url": "https://fts.unocha.org/content/about-fts-using-fts-data"
-     },
-     {
-      "licence": "",
-      "name": "GHO 2023 (publisher's own summary product; external cross-check source)",
-      "url": "https://reliefweb.int/report/world/un-launches-record-515-billion-humanitarian-appeal-2023-enar (1 December 2022) and https://reliefweb.int/report/world/global-humanitarian-overview-2023-december-update-snapshot-31-december-2023"
-     }
-    ],
-    "split_strategy": "Temporal, on the primary population (782 single-country plan-years with origRequirements>0, 2000-2025), measured from the source on 2026-10-29 at the >=50%-of-ORIGINAL-requirements threshold: train 2000-2016: 437 rows, pos 282 / neg 155 (64.5%), 78 distinct countries; eval 2017-2020: 139 rows, pos 81 / neg 58 (58.3%), 51 countries; holdout 2021-2025: 182 rows, pos 96 / neg 86 (52.7%), 43 countries. Both classes present in every window. 2026 live-edge rows (24) excluded until their year closes. CLUSTERED COUNT (the honest sample size): 83 distinct country series in the primary population, max 28 plan-years for one country; positives also cluster by year through global funding cycles - measured positive rate at the 50% threshold drifts 68.3% (2000-2013) -> 52.3% (2014-2018) -> 63.8% (2019-2022) -> 42.5% (2023-2025), and GHO coverage fell from ~50% (2022) to 38% (2023) per the publisher's own snapshot; intervals and baselines must be country-clustered and year-aware. The final window cut is construction's choice; these three windows are the measured default.",
-    "status": "qualified",
-    "target": "Binary: the plan's FTS funding total for its plan year (usage year = plan year; commitments + paid contributions, pledges excluded, USD, publisher's own attribution including boundary flows) divided by its ORIGINAL requirements (launch vintage) is >= 0.50 -> 1, else 0. Label source: per-plan-year funding totals (FTS flow endpoint incoming.fundingTotal with planId+year filter; equal to the publisher's HDX distribution on single-country rows - measured: Yemen HRP 2023 1,774,327,599, Afghanistan HRP 2023 1,678,347,238, both API==CSV to the dollar) and origRequirements from the plan endpoint; both excludable from features by construction (features carry launch attributes and strictly-prior years only). Censoring: plan-years whose year has not closed are excluded and counted (2026 live edge: 24 primary rows), never imputed. Zero-funding rows are the publisher's recorded outcome (empty funding fields in the HDX CSV counted at construction, not dropped silently). Population: PRIMARY = single-country plan-years with origRequirements > 0, 2000-2025 (782 rows; 60 multi-country regional plans excluded from the primary task because the HDX CSV splits them into country slices whose funding sum covers only ~78% of the plan total - measured on Burundi RRP 2021: slices 14,978,233 vs API plan total 19,282,778; regional plans can be a secondary population with flow-endpoint totals if construction wants them). Appeal-linked funding only; the country rows without plan linkage (2,678 HDX CSV rows, 'Not specified' plans) are outside the task population, so the label's meaning is single-population throughout."
    }
   ],
-  "non_us_share": 94.7,
+  "non_us_share": 94.4,
   "records": [
    {
     "awaiting_operator": false,
@@ -8695,7 +8434,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 104.5,
+    "age_hours": 105.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8903,7 +8642,7 @@
      "register_totals": "2,649 advisories; 2,576 resolved (removal date present); 73 active/censored (removal blank); 1,116 distinct site names; facility types: Registered 2,491, Municipal 101, missing 57; reasons: Total Coliform Present 1,816, Chemical Exceedance 389, Other 186, E. Coli Present 83 + E.Coli Present 52 (spelling variants - same category), Lack of Disinfection 50, Failure of Treatment Processes 42, Ineffective Disinfection 14, others 13, missing 5.",
      "sibling_channels_checked_2026_10_27": "Newfoundland & Labrador 'Boil Water Advisories' (opendata.gov.nl.ca file-id=17146, nl-oglnl, 53,342 bytes, bounded header+rows sample read): carries BOIL_ADVISORY_ISSUE_DATE and rich system features (SUPPLY_TYPE, SOURCE_TYPE, NUM_OF_WELLS, CHLORINATION, POPULATION_SERVICED, REGION_*) but NO lift/rescinded date column - cannot support the duration task (measured negative). Manitoba 'Current BWAPWS' (mb-omb): current advisories only, no lifts. Quebec (donneesquebec.ca, qc-cc-by): one city (Repentigny). ECCC/CESI 'Boil water advisories' (ca-ogl-lgo): national aggregate indicator CSVs only. The NS register is the only per-advisory machine-readable channel with lift dates found this tick - the provincial municipal-water channel the isc-ltdwa record named as its reopening condition."
     },
-    "next_action": "FLIP BLOCKED by the 2026-11-01 independent queue audit (P0 label recovery - the cumulative-history count arithmetic is a same-class defect to nz-ea/unhcr). Stay",
+    "next_action": "REBUILD QUEUED 2026-11-02 (operator accepted the recommendation; session decision: rebuild, the fix is cheap and the task stays clean). Design, executable by th",
     "packaged_at": "2026-10-29T14:17:14Z",
     "path": "candidates/ns-bwa-advisory-lift-duration/record.json",
     "prediction_time": "The advisory issue date (register column 'Date Advisory Issued', calendar day, America/Halifax). Every shipped feature must be a value fixed at or before that day: the issuing row's own site name, county, facility type, reason for the report, and derived calendar features; site/county history features may only use rows with an earlier issue date. The label window is the 30 days that follow the issue date. No part of the target window precedes the instant.",
@@ -9193,7 +8932,8 @@
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
    },
    {
-    "awaiting_operator": false,
+    "age_hours": 1.0,
+    "awaiting_operator": true,
     "baseline": {},
     "country": "CH",
     "domain": "humanitarian financing / per-plan-year appeal funding coverage (UN OCHA Financial Tracking Service) - funding-outcome task family; first humanitarian-appeal financing register assessed on the bench",
@@ -9388,8 +9128,8 @@
      "regional_slice_gap_2026_10_29": "Burundi RRP 2021 (plan 1017): HDX CSV country slices sum to 14,978,233 funding vs API plan total 19,282,778 (ratio 0.78) - regional plans excluded from the primary population; the flow endpoint carries the authoritative plan total.",
      "vintage_flip_fixture_2026_10_29": "Afghanistan HRP 2023: origRequirements 4,627,363,573 (launch ask, matches GHO 2022-12-01 '$4.6 billion' and UNICEF sitrep 'US$4.62 billion is required'); final funding 1,678,347,238 = 36.3% of orig -> label 0. The same plan in today's HDX CSV: requirements 3,227,372,908 (down-revised post-launch) and percentFunded 52 -> using the CSV column would flip the label to 1 and leak the post-launch revision. Recorded as the construction's forbidden-column fixture."
     },
-    "next_action": "PACKAGE BUILT AND VERIFIED (2026-11-02): release/ocha-fts-appeal-funding-trajectory/ carries the v2026.11 package - the accepted artifact ac529cd4 bytes (meta.j",
-    "packaged_at": null,
+    "next_action": "V2026.11 STAGED PRIVATE ON BOTH DESTINATIONS 2026-11-02T22:50Z, awaiting the fresh independent audit before the operator's flip. GitHub: private repo earino/och",
+    "packaged_at": "2026-11-02T22:50:00Z",
     "path": "candidates/ocha-fts-appeal-funding-trajectory/record.json",
     "prediction_time": "The plan's public launch: the instant its requirements are first published (GHO publication in early December for the following plan year, or the plan's own release for late-launched plans). Dated example (all UTC): Afghanistan HRP 2023 (plan id 1117) - GHO 2023 launched 2022-12-01 with Afghanistan at $4.6B; the HRP itself launched end of December 2022 / early January 2023; prediction instant pinned at 2023-01-01T00:00Z. Every feature is fixed by that instant: original requirements (plan endpoint origRequirements = 4,627,363,573, matching the December 2022 GHO ask), plan type, country, and strictly-prior plan-years (all closed years, final values). The target window is the plan year 2023-01-01..2023-12-31, strictly after the instant. VINTAGE POLICY (the decisive timing finding): the HDX CSV 'requirements' column is CURRENT-vintage - of 836 plans with requirements, 286 were revised up and 166 down after launch, and the CSV shows the revised value in revised cases - so it must never be used as a launch feature; the plan endpoint's origRequirements is the launch-vintage denominator, verified against the December 2022 GHO on the Afghanistan fixture. Prior-year funding totals used as features are current-vintage final values for closed years, approximating what was knowable at launch (late-reported flows are the measured gap - flow records carry firstReportedDate and decisionDate; 94.5% decisionDate coverage in a 200-flow sample); this retrospective approximation is declared as the restricted protocol and probed at gate 1.5, not assumed to be operational forecasting.",
     "publisher": "UN OCHA - Financial Tracking Service (FTS), a UN Secretariat office administered from Geneva",
@@ -9448,7 +9188,7 @@
      }
     ],
     "split_strategy": "Temporal, on the primary population (782 single-country plan-years with origRequirements>0, 2000-2025), measured from the source on 2026-10-29 at the >=50%-of-ORIGINAL-requirements threshold: train 2000-2016: 437 rows, pos 282 / neg 155 (64.5%), 78 distinct countries; eval 2017-2020: 139 rows, pos 81 / neg 58 (58.3%), 51 countries; holdout 2021-2025: 182 rows, pos 96 / neg 86 (52.7%), 43 countries. Both classes present in every window. 2026 live-edge rows (24) excluded until their year closes. CLUSTERED COUNT (the honest sample size): 83 distinct country series in the primary population, max 28 plan-years for one country; positives also cluster by year through global funding cycles - measured positive rate at the 50% threshold drifts 68.3% (2000-2013) -> 52.3% (2014-2018) -> 63.8% (2019-2022) -> 42.5% (2023-2025), and GHO coverage fell from ~50% (2022) to 38% (2023) per the publisher's own snapshot; intervals and baselines must be country-clustered and year-aware. The final window cut is construction's choice; these three windows are the measured default.",
-    "status": "qualified",
+    "status": "packaged",
     "target": "Binary: the plan's FTS funding total for its plan year (usage year = plan year; commitments + paid contributions, pledges excluded, USD, publisher's own attribution including boundary flows) divided by its ORIGINAL requirements (launch vintage) is >= 0.50 -> 1, else 0. Label source: per-plan-year funding totals (FTS flow endpoint incoming.fundingTotal with planId+year filter; equal to the publisher's HDX distribution on single-country rows - measured: Yemen HRP 2023 1,774,327,599, Afghanistan HRP 2023 1,678,347,238, both API==CSV to the dollar) and origRequirements from the plan endpoint; both excludable from features by construction (features carry launch attributes and strictly-prior years only). Censoring: plan-years whose year has not closed are excluded and counted (2026 live edge: 24 primary rows), never imputed. Zero-funding rows are the publisher's recorded outcome (empty funding fields in the HDX CSV counted at construction, not dropped silently). Population: PRIMARY = single-country plan-years with origRequirements > 0, 2000-2025 (782 rows; 60 multi-country regional plans excluded from the primary task because the HDX CSV splits them into country slices whose funding sum covers only ~78% of the plan total - measured on Burundi RRP 2021: slices 14,978,233 vs API plan total 19,282,778; regional plans can be a secondary population with flow-endpoint totals if construction wants them). Appeal-linked funding only; the country rows without plan linkage (2,678 HDX CSV rows, 'Not specified' plans) are outside the task population, so the label's meaning is single-population throughout."
    },
    {
@@ -10975,7 +10715,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 147.1,
+    "age_hours": 148.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -11112,7 +10852,7 @@
      "update_cadence_observed_2026_10_23": "HDX package activity (CKAN package_activity_list, 60 entries read 2026-10-23): resource/dataset updates on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22, 2026-08-20 - a several-times-a-year refresh pattern aligned with UNHCR's annual statistical cycle (Global Trends lands ~June of D+1). The 2026-08-20 applications resource carries complete data through 2025, so year-D data is machine-observable at latest ~August of D+1; the conservative instant is the first observed mid-year-or-later refresh carrying year D.",
      "waf_probe_2026_10_20": "curl https://www.unhcr.org/refugee-statistics/ -> HTTP 403, 182,520 B (challenge page); the same URL loads normally in a real browser (title 'Refugee Data Finder - Key Indicators'). In-page same-origin fetch of the export deep link -> HTTP 403, 222,964 B. Both measured from the coordinator."
     },
-    "next_action": "OPERATOR DECISION REQUIRED (unchanged flag), now with a decision-grade analysis (2026-11-02 session). The operator's 2026-11-02 task list names this candidate a",
+    "next_action": "OPERATOR DECISION APPLIED 2026-11-02 (session, per the recommendation the operator accepted): the v2026.10 panel package 6bd0c307 is DROPPED - never to be flipp",
     "packaged_at": "2026-10-27T19:44:51Z",
     "path": "candidates/unhcr-refugee-data-finder/record.json",
     "prediction_time": "Annual publication-lag NOWCAST - the accepted abs-visitor-arrivals-direction pattern, and it must not be described as a future-event forecast. The prediction instant is the publication of year-D complete annual data on the machine-fetchable channel: UNHCR's annual statistical cycle lands mid-year in D+1 (Global Trends), and the HDX distribution of this dataset was observed refreshing on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22 and 2026-08-20, with the 2026-08-20 resource carrying complete data through 2025. At that instant every feature is a corridor-year total for years <= D. The target year D+1 has PARTIALLY ELAPSED at the instant (the 2026-08-20 instant lies inside target year 2026, which started 2026-01-01) but its value is entirely UNPUBLISHED: on this channel no D+1 value exists until ~mid-D+2, and for most non-EU hosts no public monthly corridor data exists at all (Eurostat monthly data covers EU hosts only and is outside this channel's shipped features). So the claim recorded here is value-unavailability at the instant, not that the target window follows the instant. A strictly-future variant (at the same instant, predict year D+2 >= 2x the last PUBLISHED year D) was considered and rejected at discovery: the doubling baseline must be published at the instant, so a strict future window forces a two-year-back comparison, a different label and different measured base rates - a different task. The HDX archive is revised in place (current-vintage), so construction pins the fetched snapshot by sha256 and states values as construction-time vintage - the same documented posture as abs-visitor-arrivals-direction. Dated example in notes.md.",
@@ -12166,7 +11906,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 104.5,
+     "age_hours": 105.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12374,295 +12114,7 @@
       "register_totals": "2,649 advisories; 2,576 resolved (removal date present); 73 active/censored (removal blank); 1,116 distinct site names; facility types: Registered 2,491, Municipal 101, missing 57; reasons: Total Coliform Present 1,816, Chemical Exceedance 389, Other 186, E. Coli Present 83 + E.Coli Present 52 (spelling variants - same category), Lack of Disinfection 50, Failure of Treatment Processes 42, Ineffective Disinfection 14, others 13, missing 5.",
       "sibling_channels_checked_2026_10_27": "Newfoundland & Labrador 'Boil Water Advisories' (opendata.gov.nl.ca file-id=17146, nl-oglnl, 53,342 bytes, bounded header+rows sample read): carries BOIL_ADVISORY_ISSUE_DATE and rich system features (SUPPLY_TYPE, SOURCE_TYPE, NUM_OF_WELLS, CHLORINATION, POPULATION_SERVICED, REGION_*) but NO lift/rescinded date column - cannot support the duration task (measured negative). Manitoba 'Current BWAPWS' (mb-omb): current advisories only, no lifts. Quebec (donneesquebec.ca, qc-cc-by): one city (Repentigny). ECCC/CESI 'Boil water advisories' (ca-ogl-lgo): national aggregate indicator CSVs only. The NS register is the only per-advisory machine-readable channel with lift dates found this tick - the provincial municipal-water channel the isc-ltdwa record named as its reopening condition."
      },
-     "next_action": "FLIP BLOCKED by the 2026-11-01 independent queue audit (P0 label recovery - the cumulative-history count arithmetic is a same-class defect to nz-ea/unhcr). Stay",
-     "packaged_at": "2026-10-29T14:17:14Z",
-     "path": "candidates/ns-bwa-advisory-lift-duration/record.json",
-     "prediction_time": "The advisory issue date (register column 'Date Advisory Issued', calendar day, America/Halifax). Every shipped feature must be a value fixed at or before that day: the issuing row's own site name, county, facility type, reason for the report, and derived calendar features; site/county history features may only use rows with an earlier issue date. The label window is the 30 days that follow the issue date. No part of the target window precedes the instant.",
-     "publisher": "Open Data Nova Scotia / Nova Scotia Department of Environment and Climate Change (Environment and Energy portal category)",
-     "qualification": {
-      "artifact_version": "e8ed2a53eaf0453c8ed52aea336edb994d888ad11e7b76f7898b663f017180a8",
-      "result": "PASSED - 46 checks, 0 failed, on the full artifact on the worker (job ns-bwa-001); --accept re-verified the report against the exact bytes",
-      "splits": {
-       "eval": {
-        "distinct_sites": 286,
-        "positive_rate": 0.604839,
-        "positives": 225,
-        "rows": 372
-       },
-       "holdout": {
-        "distinct_sites": 547,
-        "positive_rate": 0.581448,
-        "positives": 514,
-        "rows": 884
-       },
-       "train": {
-        "distinct_sites": 585,
-        "positive_rate": 0.668849,
-        "positives": 715,
-        "rows": 1069
-       }
-      }
-     },
-     "question": "At the moment a boil water advisory is issued for a public registered or municipal drinking water supply in Nova Scotia - known then: site name, county, facility type, reason for the report, calendar season, and the prior advisory history of the same site/county computed only from earlier advisories - will the advisory be lifted within 30 days?",
-     "region": "North America",
-     "release_baseline": {
-      "auc": 0.5086,
-      "display": "0.5086",
-      "reference": null
-     },
-     "release_splits": {
-      "eval": {
-       "positives": 225,
-       "rows": 372
-      },
-      "holdout": {
-       "positives": 514,
-       "rows": 884
-      },
-      "train": {
-       "positives": 715,
-       "rows": 1069
-      }
-     },
-     "review": "",
-     "sources": [
-      {
-       "licence": "Nova Scotia Open Government Licence v1.1 (ns-oglns), linked from the dataset page.",
-       "name": "Boil Water Advisories - Open Data Nova Scotia (Socrata 7t68-9xmm)",
-       "url": "https://data.novascotia.ca/datasets/7t68-9xmm"
-      },
-      {
-       "licence": "License row on the page: 'Nova Scotia Open Government Licence' -> http://novascotia.ca/opendata/licence.asp",
-       "name": "Dataset page metadata (publisher's own instrument for grain, coverage, censoring)",
-       "url": "https://data.novascotia.ca/datasets/7t68-9xmm"
-      },
-      {
-       "licence": "'The Information Provider grants you a worldwide, royalty-free, perpetual, non-exclusive licence to use the Information, including for commercial purposes'; 'You are free to: Copy, modify, publish, translate, adapt, distribute or otherwise use the Information in any medium, mode or format for any lawful purpose'; attribution required: 'Contains information licensed under the Open Government Licence - Nova Scotia'. Versioning: v1.1, governed by the laws of Nova Scotia and Canada.",
-       "name": "Open Government Licence - Nova Scotia v1.1 (the publisher's own licence instrument)",
-       "url": "https://novascotia.ca/opendata/licence.asp"
-      },
-      {
-       "licence": "ns-oglns per the CKAN record.",
-       "name": "open.canada.ca federated record (where the lead was found; confirms licence id ns-oglns)",
-       "url": "https://open.canada.ca/data/en/dataset/cc06d839-c26a-19f1-2428-4b5464670f8a"
-      }
-     ],
-     "split_strategy": "Cohort split on advisory issue year (disjoint calendar-year windows, both classes in every window). Computed from the full fetched CSV (sha256 60f77ac4...) and cross-checked against independent SoQL aggregates run against the live API (identical numbers). Censored rows excluded from scored sets with per-window counts. Clustered (site-repeat) counts recorded because advisories cluster by site: 586 / 286 / 551 distinct sites per window.",
-     "status": "packaged",
-     "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
-    }
-   ],
-   "packaged": [
-    {
-     "age_hours": 104.5,
-     "awaiting_operator": true,
-     "baseline": {},
-     "country": "CA",
-     "domain": "drinking water regulation - boil water advisory duration to lift (Nova Scotia, Canada)",
-     "id": "ns-bwa-advisory-lift-duration",
-     "jobs": [
-      {
-       "at": null,
-       "id": "ns-bwa-001",
-       "status": "succeeded (deleted)"
-      },
-      {
-       "at": null,
-       "id": "ns-bwa-diag-001",
-       "status": "succeeded (deleted)"
-      },
-      {
-       "at": null,
-       "id": "ns-bwa-publish-001",
-       "status": "succeeded (deleted)"
-      },
-      {
-       "at": null,
-       "id": "ns-bwa-hf-002",
-       "status": "succeeded (deleted)"
-      },
-      {
-       "at": null,
-       "id": "ns-bwa-hf-001",
-       "status": "failed (deleted)"
-      }
-     ],
-     "licence_summary": {
-      "compilation_spdx": "CC0-1.0",
-      "source_spdx": "OGL-NS-1.1",
-      "status": "Boil Water Advisories register (Nova Scotia Department of Environment and Climate Change, distributed by Open Data Nova Scotia, Socrata dataset 7t68-9xmm) under the Open Government Licence - Nova Scotia v1.1: free to copy, modify, publish, adapt and distribute for any lawful purpose, including commercially, with the required attribution statement. OGL-NS exempts personal information, third-party rights and official symbols; the register's columns carry none beyond PID-style site addresses. The derived dataset is labelled as such throughout and is not the province's official product."
-     },
-     "measurements": {
-      "baseline_2026_10_29": {
-       "command": "runner-contract baseline through the benchmark's own train.py + validate.sh, unmodified (bundled digests match the read-only clone: train.py a3c6bcf1, validate.py b597e7f8, validate.sh 3f06ca48), on the accepted artifact fetched from private staging release 427616218 (5/5 files, digests match; failures: 0)",
-       "comparison_on_identical_eval_rows": {
-        "calendar_county_month": 0.5075,
-        "full_model": 0.5086,
-        "majority_class_accuracy": 0.6048,
-        "model_minus_calendar": 0.0011,
-        "model_minus_persistence": -0.1038,
-        "paired_interval_note": "the paired bootstrap from job ns-bwa-001 covers persistence vs calendar (+0.1014 [0.0144, 0.1739], 1000 resamples, seed 23) but NOT model vs persistence: the runner contract emits only the aggregate AUC and per-row model scores were not preserved. The -0.1038 gap is an observed difference; its precision and generality are uncertain and no interval is claimed.",
-        "persistence_site_prior": 0.6124,
-        "reason_prior": 0.4307
-       },
-       "contract": "train.py exit 0, validate.sh exit 0, '[validate] CONTRACT OK'; both eval AUCs agree exactly (train.py print 0.5086, validate.py's independent predict_proba recompute 0.5086)",
-       "dependencies": "python 3.13.18, pandas 2.3.3, numpy 2.5.4, xgboost 3.4.1, scikit-learn 1.9.1",
-       "evidence": ".factory/ns-bwa-baseline-001/reports/ (all 10 staging assets fetched and digest-verified 2026-10-29) and private staging release 427629948; inputs from release 427616218",
-       "finding": "NO demonstrated headroom under this protocol. The runner's own baseline does not beat the best simple reference - it trails the one-line site-persistence rule (a shipped feature) by 0.1038 AUC and sits exactly at the calendar/identity control (+0.0011). Per dataset-qualification, a model below persistence is a recorded defect, not an encouraging result. This does not prove every competent model must lose: an agent that follows the shipped site-persistence feature starts at ~0.61, so the benchmark's baseline-to-reference gap is agent-visible - but the task's discriminative claim above simple references is not demonstrated.",
-       "full_model_eval_auc": 0.5086,
-       "job": "ns-bwa-baseline-001",
-       "model": "benchmark template XGBClassifier, n_estimators=30, max_depth=6, lr=0.1, seed 42, categorical encoding for object columns with <=1000 train levels; every non-id column is input, per the runner contract",
-       "order": "re-accept BEFORE scoring: qualify_dataset.py --accept against the bundled report (byte-identical to the collected ns-bwa-001 gate report, sha256 a6f0090d...) -> ACCEPTED for artifact e8ed2a53eaf0453c8ed52aea336edb994d888ad11e7b76f7898b663f017180a8; only then materialize (public train+eval only, the private holdout was never copied into a workdir) and run the contract",
-       "rows": "the same 372 eval rows as every reference (n=372, eval positive rate 0.604839); holdout sealed, not scored",
-       "worker": "server 173309283, elapsed 51.7 s, reservation EUR 0.06; destroyed 2026-10-29T10:08:32Z, provider read-back 0 servers / 0 primary IPs at 2026-10-29T10:08:41Z"
-      },
-      "censoring_by_issue_year": "73 unresolved: 2013:1, 2017:1, 2020:1, 2021:4, 2022:1, 2024:5, 2025:11, 2026:19 + 30 rows with missing issue date (unknown vintage exposure). Publisher documents the semantics: blanks are advisories currently in effect.",
-      "construction_2026_10_29": {
-       "cross_row_exposure_measured": "the gate executed both declared probes on the full artifact: site-level reverse-history covers 369 train / 56 eval / 217 holdout rows (a later same-site row's site_prior_lift30_rate equals the earlier row's label when that prior is its only resolved one; 1 mismatch in train), county-level covers 109/18/3 with more mismatches. Covered rows are why evaluation_contract declares access=isolated_rows; the descriptor states it as the row-wise design intent, NOT a runtime-enforced protocol (the shipped validator passes the whole table - the unhcr audit lesson is applied here at construction time, before any packaging claim exists)",
-       "exclusions": "censored (blank removal, active at vintage): 2/1/10 per window; negative-duration invalid outcomes: 3 total (the known McIntyre's / PID 50323732 / Naugler's rows, asserted by site+date); 30 blank issue dates; 279 out-of-window (2025: 208, 2026: 71)",
-       "job": "ns-bwa-001 (worker, 12.0 s, EUR 0.04 reservation)",
-       "newly_measured_hazards": "113 rows with blank county (shipped as the explicit \"unknown\" level; never pooled into county history); 19 same-(site, issue date) row pairs + 1 triple, of which 16 pairs have two valid durations (scored as separate register records with identical features - label noise, counted); 16 rows at duration exactly 30 (label 1) and 6 at 31 (label 0); 5 zero-duration rows; 0 disagreements between the register Length column and the recomputed duration; reason merge measured: \"e. coli present\" 135 = 83 \"E. Coli Present\" + 52 \"E.Coli Present\"",
-       "register": "byte-identical to discovery: sha256 60f77ac4945ca824700f5bcd3eaf564f4e5c5d4ec3f08496e8dd796e7184a30a, 283,987 bytes, Last-Modified 2026-06-16; every recorded window count and lift30 rate reproduced exactly",
-       "scored": "train 1,069 (66.88% lift30, 715 positives, 569 positive issue dates), eval 372 (60.48%, 225, 176), holdout 884 (58.14%, 514, 367); 2,325 scored rows total"
-      },
-      "cross_check": "Publisher's own dataset page reports 'Rows: 2,649, Columns: 7' - exactly matches the fetched CSV (no missing rows). Page documents grain, 2006-current coverage, quarterly frequency and the blank-means-active censoring rule that the 73 measured censored rows follow. Changelog shows dated full refreshes (2025-10-14, 2026-06-16 'Inserted 2649 rows, Deleted 0'); whether Socrata restore points/revisions expose prior vintages is a construction-time check that would strengthen (not rescue) the as-of story - the task is declared retrospective on the pinned vintage regardless.",
-      "dated_example": "Named timezone America/Halifax (register records calendar days). Prediction instant 2024-08-31 (Maple Meadows Campground Inc, INVERNESS COUNTY, Registered, 'Total Coliform Present' - row verified in the pinned CSV: issued August 31 2024). Feature event window: all register rows with issue date < 2024-08-31 (site's and county's earlier advisories only). First-available version: the single pinned vintage, content current as of 2026-06-16, fetched 2026-10-27, sha256 60f77ac4.... Target window: the 30 days following 2024-08-31, i.e. through 2024-09-30 (no part precedes the instant). Measured outcome: Date Advisory Removed = July 04 2025, 307 days -> lift30 label NEGATIVE. Second fixture (positive class): 'Canning, NS' (Municipal, Total Coliform Present), issued October 02 2025, removed October 03 2025, 1 day -> lift30 POSITIVE. Both rows verified in-file; fixture commands in notes.md.",
-      "diagnostic_2026_10_29": {
-       "evidence": ".factory/ns-bwa-diag-001/reports/ (all report assets fetched digest-verified 2026-10-29; per-row scores preserved in diag_result.json) and private staging release 427950656",
-       "finding_confirmed": "NO demonstrated headroom, now with intervals excluding zero: the model trails site persistence by 0.1038 with row-level CI [-0.1693, -0.0357] and site-clustered CI [-0.1706, -0.0383] (both exclude zero); model-vs-calendar +0.0011 with CI containing zero (inconclusive, not parity); persistence dominates every issue year and the model's Brier degrades 0.23 -> 0.52 across the prevalence shift while persistence holds 0.22-0.36. Recorded defect per dataset-qualification; the comparison is carried in the package beside every figure.",
-       "job": "ns-bwa-diag-001 (server 173363866, 40.5 s, reservation EUR 0.06; destroyed 2026-10-29T14:13:28Z, provider read-back 0 servers / 0 primary IPs at 2026-10-29T14:13:48Z; staging release 427950656)",
-       "model_eval_auc": 0.5086,
-       "model_eval_auc_detail": "sklearn 0.508617 / midrank 0.5086168 / train.py print 0.5086 / validate.py recompute 0.5086; Brier 0.3609; dependencies identical to ns-bwa-baseline-001 (python 3.13.18, pandas 2.3.3, numpy 2.5.4, xgboost 3.4.1, scikit-learn 1.9.1)",
-       "observed_gaps": {
-        "model_minus_calendar": 0.001119,
-        "model_minus_persistence": -0.103825
-       },
-       "order": "fetch the 5 accepted assets from staging 427616218 (digests verified, 0 failures) -> gate --accept ACCEPTED for e8ed2a53eaf0453c BEFORE any score -> validate.sh re-run: CONTRACT OK, both AUC prints 0.5086 -> diag.py per-row predict_proba (validate.py's exact call) -> intervals; holdout never copied into the workdir; nothing re-tuned (label, threshold, splits, model config frozen)",
-       "paired_intervals_bootstrap1000_seed23": {
-        "model_vs_calendar_row": {
-         "ci95": [
-          -0.086631,
-          0.072312
-         ],
-         "mean": -0.00207
-        },
-        "model_vs_persistence_row": {
-         "ci95": [
-          -0.169273,
-          -0.035679
-         ],
-         "mean": -0.103464
-        },
-        "model_vs_persistence_site_cluster": {
-         "ci95": [
-          -0.170629,
-          -0.038288
-         ],
-         "clusters": 286,
-         "mean": -0.102819
-        }
-       },
-       "per_issue_year_model": {
-        "2018": {
-         "model_auc": 0.5554,
-         "model_brier": 0.2298,
-         "persistence_auc": 0.6084,
-         "rate": 0.7442,
-         "rows": 129
-        },
-        "2019": {
-         "model_auc": 0.5018,
-         "model_brier": 0.3479,
-         "persistence_auc": 0.6203,
-         "rate": 0.64,
-         "rows": 125
-        },
-        "2020": {
-         "model_auc": 0.4886,
-         "model_brier": 0.5178,
-         "persistence_auc": 0.5991,
-         "rate": 0.4153,
-         "rows": 118
-        }
-       },
-       "purpose": "the per-row diagnostic the record's next_action prescribed: preserve per-row model scores so model-vs-persistence gets dependence-aware intervals and per-year model AUCs (the aggregate-only runner contract could not carry them)",
-       "replication": "a second implementation (pandas-based diag.py, independent of the construction score.py) recomputed every reference from the shipped bytes: persistence 0.6124, calendar 0.5075, reason 0.4307, majority 0.6048 and the model 0.5086 all match the recorded figures to 4 dp"
-      },
-      "extraction_cost": "One 284 KB CSV GET plus 12 small SoQL calls; full local aggregate pass < 5 s on the coordinator. Construction needs no worker for the fetch; qualification runs on a worker per the standing order.",
-      "fetch_2026_10_27": "Full CSV: one GET, 283,987 bytes, sha256 60f77ac4945ca824700f5bcd3eaf564f4e5c5d4ec3f08496e8dd796e7184a30a, 2,649 rows x 7 columns. Machine class: hosted coordinator (2 vCPU container). Local parse + all aggregates: < 5 s. SoQL aggregates: 12 anonymous calls, ~1-2 s each. No API key. Probe scripts retained in this directory and re-runnable.",
-      "hazards_measured": "CSV dates are month-name text ('October 02 2025'), not ISO. 3 rows have NEGATIVE duration (removal date before issue): McIntyre's H. Cottages (Baddeck) -1, PID 50323732 -52, Naugler's Ultramar - Italy Cross -7 (construction must define the handling rule and record the row counts). 5 rows have 0-day duration. 30 rows have no parseable issue date. 57 rows missing facility type. 5 rows missing reason. Duration range -52 to 1,668 days. Site identity is messy by design (name variants for the same facility, PID-addressed sites) - no clean entity key; site-history features must be built with an as-of filter and a stated identity rule.",
-      "references_2026_10_29_post_acceptance": {
-       "artifact_version_echo_gap": "score.py echoed report.artifact.version, which does not exist in the 1.5.0 report schema (the digest lives at report.artifact.artifact_version.digest), so the staged references JSON prints artifact_version: null; fixed in source for future runs, numbers unaffected, artifact identity recorded from the qualification + acceptance reports",
-       "calendar_county_month": {
-        "auc": 0.5075,
-        "brier": 0.3101,
-        "definition": "train-estimated (county, month) rate with backoffs"
-       },
-       "facility_prior": {
-        "auc": null,
-        "brier": 0.2429,
-        "definition": "train-estimated rate per facility type - constant scores on eval, no ranking information"
-       },
-       "full_model": "NOT computed in this job; the harness runner baseline job (a separate worker job on the staged artifact, as with wb-sol-baseline-001) is the next measured step; no headroom claim exists until it is compared against persistence on identical rows",
-       "global_rate_brier": 0.2431,
-       "majority_class_accuracy": 0.6048,
-       "paired_bootstrap_1000_seed23": {
-        "calendar_vs_reason": {
-         "ci95": [
-          0.0072,
-          0.1492
-         ],
-         "mean_auc_diff": 0.0779
-        },
-        "persistence_vs_calendar": {
-         "ci95": [
-          0.0144,
-          0.1739
-         ],
-         "mean_auc_diff": 0.1014
-        },
-        "persistence_vs_reason": {
-         "ci95": [
-          0.1136,
-          0.2482
-         ],
-         "mean_auc_diff": 0.1793
-        }
-       },
-       "per_issue_year_eval": {
-        "2018": {
-         "persistence_auc": 0.6084,
-         "rate": 0.7442,
-         "rows": 129
-        },
-        "2019": {
-         "persistence_auc": 0.6203,
-         "rate": 0.64,
-         "rows": 125
-        },
-        "2020": {
-         "persistence_auc": 0.5991,
-         "rate": 0.4153,
-         "rows": 118
-        }
-       },
-       "persistence_site_prior": {
-        "auc": 0.6124,
-        "brier": 0.2819,
-        "definition": "the site's as-of lift30 rate over earlier same-site advisories resolved strictly before the instant (shipped feature)"
-       },
-       "prevalence_shift": "within-eval prevalence falls 0.7442 (2018) -> 0.4153 (2020), the measured COVID-era duration regime shift; per-year figures are the mandatory reading beside the pooled AUC; prevalence drift does not by itself determine AUC",
-       "reason_prior": {
-        "auc": 0.4307,
-        "brier": 0.244,
-        "definition": "train-estimated rate per normalised reason"
-       },
-       "scope": "identical eval rows (n=372), computed after gate PASS + exact-byte --accept; holdout sealed"
-      },
-      "register_totals": "2,649 advisories; 2,576 resolved (removal date present); 73 active/censored (removal blank); 1,116 distinct site names; facility types: Registered 2,491, Municipal 101, missing 57; reasons: Total Coliform Present 1,816, Chemical Exceedance 389, Other 186, E. Coli Present 83 + E.Coli Present 52 (spelling variants - same category), Lack of Disinfection 50, Failure of Treatment Processes 42, Ineffective Disinfection 14, others 13, missing 5.",
-      "sibling_channels_checked_2026_10_27": "Newfoundland & Labrador 'Boil Water Advisories' (opendata.gov.nl.ca file-id=17146, nl-oglnl, 53,342 bytes, bounded header+rows sample read): carries BOIL_ADVISORY_ISSUE_DATE and rich system features (SUPPLY_TYPE, SOURCE_TYPE, NUM_OF_WELLS, CHLORINATION, POPULATION_SERVICED, REGION_*) but NO lift/rescinded date column - cannot support the duration task (measured negative). Manitoba 'Current BWAPWS' (mb-omb): current advisories only, no lifts. Quebec (donneesquebec.ca, qc-cc-by): one city (Repentigny). ECCC/CESI 'Boil water advisories' (ca-ogl-lgo): national aggregate indicator CSVs only. The NS register is the only per-advisory machine-readable channel with lift dates found this tick - the provincial municipal-water channel the isc-ltdwa record named as its reopening condition."
-     },
-     "next_action": "FLIP BLOCKED by the 2026-11-01 independent queue audit (P0 label recovery - the cumulative-history count arithmetic is a same-class defect to nz-ea/unhcr). Stay",
+     "next_action": "REBUILD QUEUED 2026-11-02 (operator accepted the recommendation; session decision: rebuild, the fix is cheap and the task stays clean). Design, executable by th",
      "packaged_at": "2026-10-29T14:17:14Z",
      "path": "candidates/ns-bwa-advisory-lift-duration/record.json",
      "prediction_time": "The advisory issue date (register column 'Date Advisory Issued', calendar day, America/Halifax). Every shipped feature must be a value fixed at or before that day: the issuing row's own site name, county, facility type, reason for the report, and derived calendar features; site/county history features may only use rows with an earlier issue date. The label window is the 30 days that follow the issue date. No part of the target window precedes the instant.",
@@ -12740,7 +12192,815 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 147.1,
+     "age_hours": 1.0,
+     "awaiting_operator": true,
+     "baseline": {},
+     "country": "CH",
+     "domain": "humanitarian financing / per-plan-year appeal funding coverage (UN OCHA Financial Tracking Service) - funding-outcome task family; first humanitarian-appeal financing register assessed on the bench",
+     "id": "ocha-fts-appeal-funding-trajectory",
+     "jobs": [
+      {
+       "at": null,
+       "id": null,
+       "status": "succeeded"
+      },
+      {
+       "at": null,
+       "id": null,
+       "status": "succeeded"
+      },
+      {
+       "at": null,
+       "id": null,
+       "status": "succeeded"
+      },
+      {
+       "at": null,
+       "id": null,
+       "status": "succeeded"
+      },
+      {
+       "at": "2026-11-02T14:56:29.862693+00:00",
+       "id": "fts-baseline-002",
+       "status": null
+      }
+     ],
+     "licence_summary": {
+      "compilation_spdx": "CC0-1.0",
+      "source_spdx": "CC-BY-IGO",
+      "status": "OCHA Financial Tracking Service data (HPC API plan/flow records; HDX bulk CSV 'Global - Requirements and Funding Data') under the FTS use-and-republish terms plus CC BY-IGO on the HDX record for the bulk distribution. Redistribution and derivatives are permitted with attribution; the no-endorsement condition carries through. The required attribution follows FTS's own suggested form for derived data and names FTS, the publication date and the source URL. The derived dataset is labelled as such throughout and is not an OCHA or FTS product; FTS has not reviewed or endorsed it."
+     },
+     "measurements": {
+      "baseline_triad_2026_11_01": {
+       "concrete_diagnosis_candidates": "(a) the stock train.py is an untuned XGBClassifier(n_estimators=30, max_depth=6) on 437 train rows with country_iso3 as a high-cardinality categorical (78 train levels) - noise-heavy for this panel size; (b) prevalence shift is mild (train 0.638 vs eval 0.583) and does not explain the gap alone; (c) no misalignment: both AUCs computed by the runner's own two implementations on the same accepted bytes; (d) persistence_last_coverage is a legitimate at-instant feature (the country's last strictly-prior plan-year outcome is known at launch), not post-hoc. Bounded repair options (ONE, pre-registered, next session's call): a categorical-handling fix is a runner-side change, NOT a construction rebuild - do not rebuild the artifact for it; the paired bootstrap already shows persistence's edge over every other simple reference is inconclusive on 139 rows",
+       "full_model_eval_auc": 0.6298,
+       "interpretation_rule": "any later model figure must still be quoted beside persistence 0.71711; keep fitting until a score wins is forbidden",
+       "measured_on": "the accepted artifact e7441e1f (job fts-baseline-001, after --accept, on the same 139 eval rows as the references)",
+       "observed_gap": "the stock runner model TRAILS the persistence reference by 0.0873 AUC (0.6298 vs 0.71711) on identical rows",
+       "persistence_last_coverage_auc": 0.7171136653895275,
+       "verdict": "NO DEMONSTRATED HEADROOM UNDER THIS PROTOCOL (stock runner): the full-model figure is quoted beside persistence as the skill requires. This does not prove every competent model must lose; it is a recorded defect of this run, not a property of the task"
+      },
+      "baseline_triad_2026_11_02_fts_baseline_002": {
+       "accepted_before_scoring": "exact-byte gate --accept on the fetched bytes inside the job before any score exists (accept.log: ACCEPTED, matches the qualified artifact ac529cd4e9d4da90)",
+       "dependencies": {
+        "numpy": "2.5.4",
+        "pandas": "2.3.3",
+        "python": "3.13.18",
+        "scikit-learn": "1.9.1",
+        "xgboost": "3.4.1"
+       },
+       "evidence": {
+        "collected_result": "candidates/ocha-fts-appeal-funding-trajectory/baseline/baseline_result.json (sha256 3367077b2a8f99e895a3cccf43e9c8cd516d36520533fd16bf507bebbf233e6e)",
+        "staging_manifest": "staging release 431595358 manifest.json entry output/baseline_result.json",
+        "staging_release": 431595358
+       },
+       "finding": "no demonstrated headroom under this protocol: the stock runner's full model (eval AUC 0.6452) trails the persistence reference (0.7171136653895275) by 0.0719 AUC on the identical 139 eval rows, and also trails every measured simple reference except the majority-class rate; a solver must beat persistence_last_coverage for any headroom claim on this task",
+       "full_model_eval_auc_train_py": 0.6452,
+       "full_model_eval_auc_validate_py": 0.6452,
+       "information_asymmetry": "the model's shipped information set deliberately omits the last prior same-country outcome (the country_prior_* features were the 2026-11-01 queue audit's P0 label-recovery channel and are unshippable under the operator's standard), while the persistence reference reads prior-in-time outcomes scorer-side (train+eval labels only, holdout never opened); the model-vs-persistence gap is therefore quoted with this note and is not read as model failure against an equal information set",
+       "job": "fts-baseline-002",
+       "measured_at": "2026-11-02T15:21:36Z",
+       "positives": 81,
+       "predecessor_comparison": "the same stock runner measured 0.6298 on the pre-rebuild 12-column artifact e7441e1f (job fts-baseline-001, 2026-11-01); removing the P0 prior-outcome features slightly improved the runner (0.6298 -> 0.6452) while closing the label-recovery channel",
+       "references_same_eval_rows": {
+        "ask_size_rate": 0.7126436781609196,
+        "country_hist_rate": 0.6729459344401874,
+        "majority_class_accuracy": 0.5827338129496403,
+        "persistence_last_coverage": 0.7171136653895275,
+        "plan_type_rate": 0.669220945083014,
+        "prior_mean_rate": 0.7143465304384845
+       },
+       "rows": 139,
+       "scope": "stock runner (harness benchmark's own train.py + validate.sh, bundled verbatim, digests equal the read-only clone) on the accepted rebuilt artifact ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0; eval rows only; holdout never copied into any workdir",
+       "two_implementations_agree": true
+      },
+      "class_balance_orig_basis_2026_10_29": "probe_split_counts.py on the sweep: >=50% of orig by window: 2000-2013: 347 rows 237/110 (68.3%); 2014-2018: 153 rows 80/73 (52.3%); 2019-2022: 152 rows 97/55 (63.8%); 2023-2025: 106 rows 45/61 (42.5%). Threshold chosen for interpretability (half the launch ask) and global balance (funding/orig over all closed windows: 459 pos / 299 neg = 60.5%).",
+      "extraction_cost_2026_10_29": "HDX CSV: 1 request, 279,849 bytes, 2.0 s (coordinator). Plan sweep: 877 requests, 401 s, 296 KB output (coordinator, acceptable). Flow endpoint: ~383 KB/page, first page carries the plan-year fundingTotal (YEM 2023 full flow list = 5 pages = 1.9 MB); a full-panel harvest needs ~900 flow requests ~= 340 MB -> worker job, never the coordinator. Machine class: hosted coordinator (4 vCPU, ~1.9 GiB RAM).",
+      "flow_schema_2026_10_29": "YEM country-year sample (first page, n=200): decisionDate present 189/200 (94.5%), firstReportedDate 200/200; status: commitment 125 / paid 75; flowType: Standard 129 / Parked 68 / Pass through 2 / Carryover 1; multiyear parked flows span usage years (one 2018-decision flow covers 2019-2023). Plan-level attribution is the publisher's own (report3 boundary handling): planId 1116 year 2023 -> 986 flows, incoming.fundingTotal 1,774,327,599, exactly equal to the HDX CSV single-country row; AFG 1117 year 2023 -> 683 flows, 1,678,347,238, exactly equal to CSV.",
+      "plan_endpoint_sweep_2026_10_29": "probe_plan_sweep.py: 877 plan-record fetches, 0 errors, 401 s, 296 KB jsonl (candidates/ocha-fts-appeal-funding-trajectory/plan_orig_sweep.jsonl). Revisions measured on 836 plans with orig>0: 286 revised up, 166 revised down, 384 unchanged (54% revised) - the CSV requirements column matches the revised value in revised cases (2016 cohort: matches orig 21 / revised 14; 2023 cohort: matches orig 23 / revised 15, with 8 country-slice mismatches), so the CSV column is unusable as a launch feature.",
+      "population_2026_10_29": "HDX CSV: 3,874 rows 1999-2031 (future-dated rows are multiyear-plan usage-year extensions); 2,678 rows without requirements (country funding outside appeals - outside the task population); 1,196 rows with plan id + requirements = plan x country attribution; 877 distinct (plan, plan-year) pairs; 782 primary single-country plan-years with origRequirements>0 (2000-2025), 60 multi-country regional plans, 41 plan-years with no recorded original requirements (excluded, counted).",
+      "provenance_mix_2026_10_29": "Primary population by typeName: Humanitarian response plan 212, Consolidated appeals process 152, Flash appeal 122, Other 117, Consolidated inter-agency appeal 69, Humanitarian needs and response plan 49, Strategic response plan 45, Regional response plan 16; isPartOfGHO true 703/782. Type is a documented feature, not a population shift: all types share the appeal-launch contract.",
+      "publisher_summary_crosscheck_2026_10_29": "GHO 2023 December update (publisher's snapshot): requirements $56.7B, funding $21.8B, coverage 38% at 2023-12-31; launch ask was $51.5B (2022-12-01). My CSV-basis 2023 aggregate (55.8B requirements / 25.2B funding / 45.1%) differs because it includes non-GHO plans and mixed-vintage requirements - composition, explained; per-plan origRequirements + isPartOfGHO reconcile at construction.",
+      "references_2026_11_01_fts_appeal_001": {
+       "brier": {
+        "ask_size_rate": 0.22545387995752264,
+        "country_hist_rate": 0.25021941248042434,
+        "persistence_last_coverage": 0.2787769784172662,
+        "plan_type_rate": 0.25080408668973475,
+        "prior_mean_rate": 0.2212567383762087
+       },
+       "collected_evidence": ".factory/fts-appeal-001/reports/{acceptance.txt, qualification.json, references.json, summary.json, container.log} each re-hashed at its staging ledger digest from release 430422823; bulk CSVs stay in staging (train 35,621 B / eval 11,268 B / holdout 15,419 B at the ledger digests)",
+       "interpretation_rule": "persistence_last_coverage 0.7171 is the headroom reference; any full-model figure from the runner baseline job must be quoted beside it, and a model below it is a recorded defect; no full-model figure exists yet (the baseline job on the accepted 002 artifact is the next step)",
+       "majority_class": {
+        "accuracy_this_split": 0.5827338129496403,
+        "note": "majority fitted on train (positive rate 0.6384), measured against eval labels"
+       },
+       "measured_on": "artifact 893b2e78a4812dcc (job fts-appeal-001, post-acceptance score.py on the worker; eval rows only, holdout never opened)",
+       "paired_bootstrap_150": {
+        "note": "every interval contains zero: persistence's edge over the other simple references is inconclusive on 139 eval rows; an interval containing zero is an inconclusive difference, not parity",
+        "persistence_vs_ask_size": {
+         "ci95": [
+          -0.1230496453900709,
+          0.08506493506493507
+         ],
+         "observed_difference": 0.004469987228607919
+        },
+        "persistence_vs_country_hist": {
+         "ci95": [
+          -0.05893246187363832,
+          0.1466581524052788
+         ],
+         "observed_difference": 0.04416773094934012
+        },
+        "persistence_vs_plan_type": {
+         "ci95": [
+          -0.06977225672877851,
+          0.16033755274261607
+         ],
+         "observed_difference": 0.04789272030651348
+        },
+        "persistence_vs_prior_mean": {
+         "ci95": [
+          -0.07012987012987015,
+          0.10370051635111877
+         ],
+         "observed_difference": 0.002767134951042971
+        }
+       },
+       "per_eval_year_persistence_auc": {
+        "2017": 0.7361111111111112,
+        "2018": 0.6657894736842105,
+        "2019": 0.7471590909090909,
+        "2020": 0.7272727272727273
+       },
+       "per_eval_year_rows_positives": {
+        "2017": [
+         34,
+         16
+        ],
+        "2018": [
+         29,
+         19
+        ],
+        "2019": [
+         30,
+         22
+        ],
+        "2020": [
+         46,
+         24
+        ]
+       },
+       "re_measured_on_002": "job fts-appeal-002 re-ran score.py post-acceptance on the corrected artifact e7441e1f... over the same 139 eval rows: every reference figure identical to the 001 measurement (persistence_last_coverage 0.7171136653895275, prior_mean 0.71435, ask_size 0.71264, majority accuracy 0.58273) - the CSVs are byte-identical between the attempts, so this is expected, not independent confirmation",
+       "references_eval_auc": {
+        "ask_size_rate": 0.7126436781609196,
+        "country_hist_rate": 0.6729459344401874,
+        "global_rate": "degenerate (constant score; no ranking information)",
+        "persistence_last_coverage": 0.7171136653895275,
+        "plan_type_rate": 0.669220945083014,
+        "prior_mean_rate": 0.7143465304384845,
+        "year_rate": "degenerate by construction (eval plan years 2017-2020 outside train range 2000-2016; falls back to the constant global train rate)"
+       },
+       "rows": {
+        "eval": 139,
+        "eval_positives": 81,
+        "train": 437,
+        "train_positive_rate": 0.638444
+       }
+      },
+      "references_reproduced_2026_11_02_fts_appeal_003": {
+       "ask_size_rate": 0.7126436781609196,
+       "country_hist_rate": 0.6729459344401874,
+       "equality_note": "every reference equals the e7441e1f measurement to the last digit: the rebuild changed the shipped feature set, not the panel, and score.py's scorer-side recompute (prior-in-time labels from train+eval only; the persistence feature form is unshippable under the operator's P0 standard) is verified correct by the exact equality",
+       "full_model": "PENDING - the stock runner's figure on the rebuilt 9-column information set comes from job fts-baseline-002 (bundle filled and ready); the e7441e1f-era stock figure was 0.6298 trailing persistence by 0.0873, recorded then as no demonstrated headroom under the stock runner - it MUST be re-measured on these bytes before any comparison is quoted, with the information-asymmetry note (the model is not given the last outcome; persistence reads it scorer-side)",
+       "majority_class_accuracy_this_split": 0.5827338129496403,
+       "measured_on": "the accepted rebuilt artifact ac529cd4 (job fts-appeal-003, post-acceptance on the worker), same 139 eval rows as every earlier figure",
+       "per_eval_year_persistence_auc": {
+        "2017": 0.7361111111111112,
+        "2018": 0.6657894736842105,
+        "2019": 0.7471590909090909,
+        "2020": 0.7272727272727273
+       },
+       "persistence_last_coverage": 0.7171136653895275,
+       "plan_type_rate": 0.669220945083014,
+       "prior_mean_rate": 0.7143465304384845
+      },
+      "regional_slice_gap_2026_10_29": "Burundi RRP 2021 (plan 1017): HDX CSV country slices sum to 14,978,233 funding vs API plan total 19,282,778 (ratio 0.78) - regional plans excluded from the primary population; the flow endpoint carries the authoritative plan total.",
+      "vintage_flip_fixture_2026_10_29": "Afghanistan HRP 2023: origRequirements 4,627,363,573 (launch ask, matches GHO 2022-12-01 '$4.6 billion' and UNICEF sitrep 'US$4.62 billion is required'); final funding 1,678,347,238 = 36.3% of orig -> label 0. The same plan in today's HDX CSV: requirements 3,227,372,908 (down-revised post-launch) and percentFunded 52 -> using the CSV column would flip the label to 1 and leak the post-launch revision. Recorded as the construction's forbidden-column fixture."
+     },
+     "next_action": "V2026.11 STAGED PRIVATE ON BOTH DESTINATIONS 2026-11-02T22:50Z, awaiting the fresh independent audit before the operator's flip. GitHub: private repo earino/och",
+     "packaged_at": "2026-11-02T22:50:00Z",
+     "path": "candidates/ocha-fts-appeal-funding-trajectory/record.json",
+     "prediction_time": "The plan's public launch: the instant its requirements are first published (GHO publication in early December for the following plan year, or the plan's own release for late-launched plans). Dated example (all UTC): Afghanistan HRP 2023 (plan id 1117) - GHO 2023 launched 2022-12-01 with Afghanistan at $4.6B; the HRP itself launched end of December 2022 / early January 2023; prediction instant pinned at 2023-01-01T00:00Z. Every feature is fixed by that instant: original requirements (plan endpoint origRequirements = 4,627,363,573, matching the December 2022 GHO ask), plan type, country, and strictly-prior plan-years (all closed years, final values). The target window is the plan year 2023-01-01..2023-12-31, strictly after the instant. VINTAGE POLICY (the decisive timing finding): the HDX CSV 'requirements' column is CURRENT-vintage - of 836 plans with requirements, 286 were revised up and 166 down after launch, and the CSV shows the revised value in revised cases - so it must never be used as a launch feature; the plan endpoint's origRequirements is the launch-vintage denominator, verified against the December 2022 GHO on the Afghanistan fixture. Prior-year funding totals used as features are current-vintage final values for closed years, approximating what was knowable at launch (late-reported flows are the measured gap - flow records carry firstReportedDate and decisionDate; 94.5% decisionDate coverage in a 200-flow sample); this retrospective approximation is declared as the restricted protocol and probed at gate 1.5, not assumed to be operational forecasting.",
+     "publisher": "UN OCHA - Financial Tracking Service (FTS), a UN Secretariat office administered from Geneva",
+     "qualification": {
+      "artifact_version": "ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0",
+      "result": "passed; 0 failed checks of the full artifact on the worker (ok=true; leakage incl. declared high-cardinality country_iso3; timing event_time launch instant; evaluation_contract retrospective_research/isolated_rows with training_label_timing unverified; cross_row_audit with probes=[] and a rationale documenting the removed prior-outcome join; splits disjoint and both-classed; runner layout/meta agreement with all 8 TASK_KEYS)",
+      "splits": null
+     },
+     "question": "For a UN-coordinated humanitarian appeal or response plan (HRP/CAP/flash appeal/HNRP/SRP and similar single-country plans) at its public launch instant (requirements first published - GHO early December for the following year, or the plan's own release, whichever the record dates), will the plan receive funding equal to at least 50% of its ORIGINAL (launch-vintage) requirements by the close of its plan year? Features are launch-time attributes (original requirements, plan type, GHO membership, country/region, emergency linkage) plus strictly-prior-year history for the same country (prior-year plan coverage, funding levels, series length). A useful prediction identifies, months ahead, which appeals will end the year underfunded - the quantity GHO gap analysis reports after the fact - enabling donor advocacy and fundraising prioritization.",
+     "region": "International organisations",
+     "release_baseline": {
+      "auc": 0.6452,
+      "display": "0.6452",
+      "reference": null
+     },
+     "release_splits": {
+      "eval": {
+       "positives": 81,
+       "rows": 139
+      },
+      "holdout": {
+       "positives": 96,
+       "rows": 182
+      },
+      "train": {
+       "positives": 279,
+       "rows": 437
+      }
+     },
+     "review": "All five discovery contracts reconciled against recorded evidence (2026-10-29). (1) Redistribution: SUPPORTED - the dataset's own page grants use/republish with citation (quote in license_evidence), and the publisher's HDX distribution of the same data is CC BY-IGO; licence_class A; attribution and no-endorsement conditions carry into LICENSE.md. (2) Prediction timing: SUPPORTED with a declared restricted retrospective protocol - launch instant dated and verified on the Afghanistan fixture (GHO 2022-12-01 ask == origRequirements to 3 significant figures); the decisive vintage finding is measured (54% of plans revised post-launch; HDX CSV column carries revised values; the flip demonstrator is recorded); construction uses origRequirements only; prior-year features are current-vintage finals for closed years with the late-reporting gap measured on flows (firstReportedDate lags decisionDate; 94.5% decisionDate coverage); gate-1.5 reverse-history probes on the exact artifact are mandatory in the handoff - the label is a later aggregation of the same stream, so the retrospective posture must be declared, exactly as on unhcr/abs. (3) Obtainable target: SUPPORTED - per-plan-year funding totals from the publisher's API, equal to its own HDX distribution on measured single-country fixtures; label source columns excludable; censoring rule and zero-funding rows pinned; regional-plan slices excluded with the measured 0.78 gap. (4) Split capacity: SUPPORTED by full-population measurement - 782 primary plan-years, three disjoint windows with both classes (table in split_strategy), clustered count recorded (83 country series; year-clustered prevalence drift 68%->43% is a measured phenomenon property, not a defect). (5) Contribution beyond a mirror: SUPPORTED - novelty verdict differentiated (recorded by check-novelty): the publisher and third parties distribute the raw requirements/funding tables (HDX, HAPI, HF per-country mirrors), but no ML-ready per-plan-year coverage task with an instant, splits and a scored contract exists; our contribution is the launch-vintage-denominator formulation, the vintage trap evidence, the dated fixture set and the persistence-referenced evaluation. Residual uncertainties, stated: (a) the WB instrument-outcome drops (identity-dominated, no headroom over persistence) are the named risk for this family - the prior-year same-country coverage rule is the primary reference and decides whether headroom stands; (b) origRequirements is verified launch-vintage on one external December source (Afghanistan 2023) plus internal orig/revised separation on 836 plans - construction asserts the GHO cross-check on sampled cohorts; (c) the ~6% of flows lacking decisionDate only affects the optional within-year trajectory variant, not the primary launch-instant formulation; (d) exact per-window counts on final construction data may shift slightly when empty-funding rows are pinned.",
+     "sources": [
+      {
+       "licence": "cc-by-igo (publisher's HDX record, read 2026-10-29)",
+       "name": "HDX: Global - Requirements and Funding Data (FTS bulk distribution)",
+       "url": "https://data.humdata.org/dataset/global-requirements-and-funding-data"
+      },
+      {
+       "licence": "FTS republish permission (see license_evidence)",
+       "name": "OCHA HPC API v2 (public, anonymous) - plan records with origRequirements/revisedRequirements",
+       "url": ""
+      },
+      {
+       "licence": "FTS republish permission (see license_evidence)",
+       "name": "OCHA HPC API v1 FTS flow endpoint (public, anonymous) - dated flows and per-plan-year funding totals",
+       "url": ""
+      },
+      {
+       "licence": "publisher permission text (quoted in license_evidence)",
+       "name": "FTS 'About FTS / Using FTS data' (publisher's own use-and-republish instrument)",
+       "url": "https://fts.unocha.org/content/about-fts-using-fts-data"
+      },
+      {
+       "licence": "",
+       "name": "GHO 2023 (publisher's own summary product; external cross-check source)",
+       "url": "https://reliefweb.int/report/world/un-launches-record-515-billion-humanitarian-appeal-2023-enar (1 December 2022) and https://reliefweb.int/report/world/global-humanitarian-overview-2023-december-update-snapshot-31-december-2023"
+      }
+     ],
+     "split_strategy": "Temporal, on the primary population (782 single-country plan-years with origRequirements>0, 2000-2025), measured from the source on 2026-10-29 at the >=50%-of-ORIGINAL-requirements threshold: train 2000-2016: 437 rows, pos 282 / neg 155 (64.5%), 78 distinct countries; eval 2017-2020: 139 rows, pos 81 / neg 58 (58.3%), 51 countries; holdout 2021-2025: 182 rows, pos 96 / neg 86 (52.7%), 43 countries. Both classes present in every window. 2026 live-edge rows (24) excluded until their year closes. CLUSTERED COUNT (the honest sample size): 83 distinct country series in the primary population, max 28 plan-years for one country; positives also cluster by year through global funding cycles - measured positive rate at the 50% threshold drifts 68.3% (2000-2013) -> 52.3% (2014-2018) -> 63.8% (2019-2022) -> 42.5% (2023-2025), and GHO coverage fell from ~50% (2022) to 38% (2023) per the publisher's own snapshot; intervals and baselines must be country-clustered and year-aware. The final window cut is construction's choice; these three windows are the measured default.",
+     "status": "packaged",
+     "target": "Binary: the plan's FTS funding total for its plan year (usage year = plan year; commitments + paid contributions, pledges excluded, USD, publisher's own attribution including boundary flows) divided by its ORIGINAL requirements (launch vintage) is >= 0.50 -> 1, else 0. Label source: per-plan-year funding totals (FTS flow endpoint incoming.fundingTotal with planId+year filter; equal to the publisher's HDX distribution on single-country rows - measured: Yemen HRP 2023 1,774,327,599, Afghanistan HRP 2023 1,678,347,238, both API==CSV to the dollar) and origRequirements from the plan endpoint; both excludable from features by construction (features carry launch attributes and strictly-prior years only). Censoring: plan-years whose year has not closed are excluded and counted (2026 live edge: 24 primary rows), never imputed. Zero-funding rows are the publisher's recorded outcome (empty funding fields in the HDX CSV counted at construction, not dropped silently). Population: PRIMARY = single-country plan-years with origRequirements > 0, 2000-2025 (782 rows; 60 multi-country regional plans excluded from the primary task because the HDX CSV splits them into country slices whose funding sum covers only ~78% of the plan total - measured on Burundi RRP 2021: slices 14,978,233 vs API plan total 19,282,778; regional plans can be a secondary population with flow-endpoint totals if construction wants them). Appeal-linked funding only; the country rows without plan linkage (2,678 HDX CSV rows, 'Not specified' plans) are outside the task population, so the label's meaning is single-population throughout."
+    }
+   ],
+   "packaged": [
+    {
+     "age_hours": 105.5,
+     "awaiting_operator": true,
+     "baseline": {},
+     "country": "CA",
+     "domain": "drinking water regulation - boil water advisory duration to lift (Nova Scotia, Canada)",
+     "id": "ns-bwa-advisory-lift-duration",
+     "jobs": [
+      {
+       "at": null,
+       "id": "ns-bwa-001",
+       "status": "succeeded (deleted)"
+      },
+      {
+       "at": null,
+       "id": "ns-bwa-diag-001",
+       "status": "succeeded (deleted)"
+      },
+      {
+       "at": null,
+       "id": "ns-bwa-publish-001",
+       "status": "succeeded (deleted)"
+      },
+      {
+       "at": null,
+       "id": "ns-bwa-hf-002",
+       "status": "succeeded (deleted)"
+      },
+      {
+       "at": null,
+       "id": "ns-bwa-hf-001",
+       "status": "failed (deleted)"
+      }
+     ],
+     "licence_summary": {
+      "compilation_spdx": "CC0-1.0",
+      "source_spdx": "OGL-NS-1.1",
+      "status": "Boil Water Advisories register (Nova Scotia Department of Environment and Climate Change, distributed by Open Data Nova Scotia, Socrata dataset 7t68-9xmm) under the Open Government Licence - Nova Scotia v1.1: free to copy, modify, publish, adapt and distribute for any lawful purpose, including commercially, with the required attribution statement. OGL-NS exempts personal information, third-party rights and official symbols; the register's columns carry none beyond PID-style site addresses. The derived dataset is labelled as such throughout and is not the province's official product."
+     },
+     "measurements": {
+      "baseline_2026_10_29": {
+       "command": "runner-contract baseline through the benchmark's own train.py + validate.sh, unmodified (bundled digests match the read-only clone: train.py a3c6bcf1, validate.py b597e7f8, validate.sh 3f06ca48), on the accepted artifact fetched from private staging release 427616218 (5/5 files, digests match; failures: 0)",
+       "comparison_on_identical_eval_rows": {
+        "calendar_county_month": 0.5075,
+        "full_model": 0.5086,
+        "majority_class_accuracy": 0.6048,
+        "model_minus_calendar": 0.0011,
+        "model_minus_persistence": -0.1038,
+        "paired_interval_note": "the paired bootstrap from job ns-bwa-001 covers persistence vs calendar (+0.1014 [0.0144, 0.1739], 1000 resamples, seed 23) but NOT model vs persistence: the runner contract emits only the aggregate AUC and per-row model scores were not preserved. The -0.1038 gap is an observed difference; its precision and generality are uncertain and no interval is claimed.",
+        "persistence_site_prior": 0.6124,
+        "reason_prior": 0.4307
+       },
+       "contract": "train.py exit 0, validate.sh exit 0, '[validate] CONTRACT OK'; both eval AUCs agree exactly (train.py print 0.5086, validate.py's independent predict_proba recompute 0.5086)",
+       "dependencies": "python 3.13.18, pandas 2.3.3, numpy 2.5.4, xgboost 3.4.1, scikit-learn 1.9.1",
+       "evidence": ".factory/ns-bwa-baseline-001/reports/ (all 10 staging assets fetched and digest-verified 2026-10-29) and private staging release 427629948; inputs from release 427616218",
+       "finding": "NO demonstrated headroom under this protocol. The runner's own baseline does not beat the best simple reference - it trails the one-line site-persistence rule (a shipped feature) by 0.1038 AUC and sits exactly at the calendar/identity control (+0.0011). Per dataset-qualification, a model below persistence is a recorded defect, not an encouraging result. This does not prove every competent model must lose: an agent that follows the shipped site-persistence feature starts at ~0.61, so the benchmark's baseline-to-reference gap is agent-visible - but the task's discriminative claim above simple references is not demonstrated.",
+       "full_model_eval_auc": 0.5086,
+       "job": "ns-bwa-baseline-001",
+       "model": "benchmark template XGBClassifier, n_estimators=30, max_depth=6, lr=0.1, seed 42, categorical encoding for object columns with <=1000 train levels; every non-id column is input, per the runner contract",
+       "order": "re-accept BEFORE scoring: qualify_dataset.py --accept against the bundled report (byte-identical to the collected ns-bwa-001 gate report, sha256 a6f0090d...) -> ACCEPTED for artifact e8ed2a53eaf0453c8ed52aea336edb994d888ad11e7b76f7898b663f017180a8; only then materialize (public train+eval only, the private holdout was never copied into a workdir) and run the contract",
+       "rows": "the same 372 eval rows as every reference (n=372, eval positive rate 0.604839); holdout sealed, not scored",
+       "worker": "server 173309283, elapsed 51.7 s, reservation EUR 0.06; destroyed 2026-10-29T10:08:32Z, provider read-back 0 servers / 0 primary IPs at 2026-10-29T10:08:41Z"
+      },
+      "censoring_by_issue_year": "73 unresolved: 2013:1, 2017:1, 2020:1, 2021:4, 2022:1, 2024:5, 2025:11, 2026:19 + 30 rows with missing issue date (unknown vintage exposure). Publisher documents the semantics: blanks are advisories currently in effect.",
+      "construction_2026_10_29": {
+       "cross_row_exposure_measured": "the gate executed both declared probes on the full artifact: site-level reverse-history covers 369 train / 56 eval / 217 holdout rows (a later same-site row's site_prior_lift30_rate equals the earlier row's label when that prior is its only resolved one; 1 mismatch in train), county-level covers 109/18/3 with more mismatches. Covered rows are why evaluation_contract declares access=isolated_rows; the descriptor states it as the row-wise design intent, NOT a runtime-enforced protocol (the shipped validator passes the whole table - the unhcr audit lesson is applied here at construction time, before any packaging claim exists)",
+       "exclusions": "censored (blank removal, active at vintage): 2/1/10 per window; negative-duration invalid outcomes: 3 total (the known McIntyre's / PID 50323732 / Naugler's rows, asserted by site+date); 30 blank issue dates; 279 out-of-window (2025: 208, 2026: 71)",
+       "job": "ns-bwa-001 (worker, 12.0 s, EUR 0.04 reservation)",
+       "newly_measured_hazards": "113 rows with blank county (shipped as the explicit \"unknown\" level; never pooled into county history); 19 same-(site, issue date) row pairs + 1 triple, of which 16 pairs have two valid durations (scored as separate register records with identical features - label noise, counted); 16 rows at duration exactly 30 (label 1) and 6 at 31 (label 0); 5 zero-duration rows; 0 disagreements between the register Length column and the recomputed duration; reason merge measured: \"e. coli present\" 135 = 83 \"E. Coli Present\" + 52 \"E.Coli Present\"",
+       "register": "byte-identical to discovery: sha256 60f77ac4945ca824700f5bcd3eaf564f4e5c5d4ec3f08496e8dd796e7184a30a, 283,987 bytes, Last-Modified 2026-06-16; every recorded window count and lift30 rate reproduced exactly",
+       "scored": "train 1,069 (66.88% lift30, 715 positives, 569 positive issue dates), eval 372 (60.48%, 225, 176), holdout 884 (58.14%, 514, 367); 2,325 scored rows total"
+      },
+      "cross_check": "Publisher's own dataset page reports 'Rows: 2,649, Columns: 7' - exactly matches the fetched CSV (no missing rows). Page documents grain, 2006-current coverage, quarterly frequency and the blank-means-active censoring rule that the 73 measured censored rows follow. Changelog shows dated full refreshes (2025-10-14, 2026-06-16 'Inserted 2649 rows, Deleted 0'); whether Socrata restore points/revisions expose prior vintages is a construction-time check that would strengthen (not rescue) the as-of story - the task is declared retrospective on the pinned vintage regardless.",
+      "dated_example": "Named timezone America/Halifax (register records calendar days). Prediction instant 2024-08-31 (Maple Meadows Campground Inc, INVERNESS COUNTY, Registered, 'Total Coliform Present' - row verified in the pinned CSV: issued August 31 2024). Feature event window: all register rows with issue date < 2024-08-31 (site's and county's earlier advisories only). First-available version: the single pinned vintage, content current as of 2026-06-16, fetched 2026-10-27, sha256 60f77ac4.... Target window: the 30 days following 2024-08-31, i.e. through 2024-09-30 (no part precedes the instant). Measured outcome: Date Advisory Removed = July 04 2025, 307 days -> lift30 label NEGATIVE. Second fixture (positive class): 'Canning, NS' (Municipal, Total Coliform Present), issued October 02 2025, removed October 03 2025, 1 day -> lift30 POSITIVE. Both rows verified in-file; fixture commands in notes.md.",
+      "diagnostic_2026_10_29": {
+       "evidence": ".factory/ns-bwa-diag-001/reports/ (all report assets fetched digest-verified 2026-10-29; per-row scores preserved in diag_result.json) and private staging release 427950656",
+       "finding_confirmed": "NO demonstrated headroom, now with intervals excluding zero: the model trails site persistence by 0.1038 with row-level CI [-0.1693, -0.0357] and site-clustered CI [-0.1706, -0.0383] (both exclude zero); model-vs-calendar +0.0011 with CI containing zero (inconclusive, not parity); persistence dominates every issue year and the model's Brier degrades 0.23 -> 0.52 across the prevalence shift while persistence holds 0.22-0.36. Recorded defect per dataset-qualification; the comparison is carried in the package beside every figure.",
+       "job": "ns-bwa-diag-001 (server 173363866, 40.5 s, reservation EUR 0.06; destroyed 2026-10-29T14:13:28Z, provider read-back 0 servers / 0 primary IPs at 2026-10-29T14:13:48Z; staging release 427950656)",
+       "model_eval_auc": 0.5086,
+       "model_eval_auc_detail": "sklearn 0.508617 / midrank 0.5086168 / train.py print 0.5086 / validate.py recompute 0.5086; Brier 0.3609; dependencies identical to ns-bwa-baseline-001 (python 3.13.18, pandas 2.3.3, numpy 2.5.4, xgboost 3.4.1, scikit-learn 1.9.1)",
+       "observed_gaps": {
+        "model_minus_calendar": 0.001119,
+        "model_minus_persistence": -0.103825
+       },
+       "order": "fetch the 5 accepted assets from staging 427616218 (digests verified, 0 failures) -> gate --accept ACCEPTED for e8ed2a53eaf0453c BEFORE any score -> validate.sh re-run: CONTRACT OK, both AUC prints 0.5086 -> diag.py per-row predict_proba (validate.py's exact call) -> intervals; holdout never copied into the workdir; nothing re-tuned (label, threshold, splits, model config frozen)",
+       "paired_intervals_bootstrap1000_seed23": {
+        "model_vs_calendar_row": {
+         "ci95": [
+          -0.086631,
+          0.072312
+         ],
+         "mean": -0.00207
+        },
+        "model_vs_persistence_row": {
+         "ci95": [
+          -0.169273,
+          -0.035679
+         ],
+         "mean": -0.103464
+        },
+        "model_vs_persistence_site_cluster": {
+         "ci95": [
+          -0.170629,
+          -0.038288
+         ],
+         "clusters": 286,
+         "mean": -0.102819
+        }
+       },
+       "per_issue_year_model": {
+        "2018": {
+         "model_auc": 0.5554,
+         "model_brier": 0.2298,
+         "persistence_auc": 0.6084,
+         "rate": 0.7442,
+         "rows": 129
+        },
+        "2019": {
+         "model_auc": 0.5018,
+         "model_brier": 0.3479,
+         "persistence_auc": 0.6203,
+         "rate": 0.64,
+         "rows": 125
+        },
+        "2020": {
+         "model_auc": 0.4886,
+         "model_brier": 0.5178,
+         "persistence_auc": 0.5991,
+         "rate": 0.4153,
+         "rows": 118
+        }
+       },
+       "purpose": "the per-row diagnostic the record's next_action prescribed: preserve per-row model scores so model-vs-persistence gets dependence-aware intervals and per-year model AUCs (the aggregate-only runner contract could not carry them)",
+       "replication": "a second implementation (pandas-based diag.py, independent of the construction score.py) recomputed every reference from the shipped bytes: persistence 0.6124, calendar 0.5075, reason 0.4307, majority 0.6048 and the model 0.5086 all match the recorded figures to 4 dp"
+      },
+      "extraction_cost": "One 284 KB CSV GET plus 12 small SoQL calls; full local aggregate pass < 5 s on the coordinator. Construction needs no worker for the fetch; qualification runs on a worker per the standing order.",
+      "fetch_2026_10_27": "Full CSV: one GET, 283,987 bytes, sha256 60f77ac4945ca824700f5bcd3eaf564f4e5c5d4ec3f08496e8dd796e7184a30a, 2,649 rows x 7 columns. Machine class: hosted coordinator (2 vCPU container). Local parse + all aggregates: < 5 s. SoQL aggregates: 12 anonymous calls, ~1-2 s each. No API key. Probe scripts retained in this directory and re-runnable.",
+      "hazards_measured": "CSV dates are month-name text ('October 02 2025'), not ISO. 3 rows have NEGATIVE duration (removal date before issue): McIntyre's H. Cottages (Baddeck) -1, PID 50323732 -52, Naugler's Ultramar - Italy Cross -7 (construction must define the handling rule and record the row counts). 5 rows have 0-day duration. 30 rows have no parseable issue date. 57 rows missing facility type. 5 rows missing reason. Duration range -52 to 1,668 days. Site identity is messy by design (name variants for the same facility, PID-addressed sites) - no clean entity key; site-history features must be built with an as-of filter and a stated identity rule.",
+      "references_2026_10_29_post_acceptance": {
+       "artifact_version_echo_gap": "score.py echoed report.artifact.version, which does not exist in the 1.5.0 report schema (the digest lives at report.artifact.artifact_version.digest), so the staged references JSON prints artifact_version: null; fixed in source for future runs, numbers unaffected, artifact identity recorded from the qualification + acceptance reports",
+       "calendar_county_month": {
+        "auc": 0.5075,
+        "brier": 0.3101,
+        "definition": "train-estimated (county, month) rate with backoffs"
+       },
+       "facility_prior": {
+        "auc": null,
+        "brier": 0.2429,
+        "definition": "train-estimated rate per facility type - constant scores on eval, no ranking information"
+       },
+       "full_model": "NOT computed in this job; the harness runner baseline job (a separate worker job on the staged artifact, as with wb-sol-baseline-001) is the next measured step; no headroom claim exists until it is compared against persistence on identical rows",
+       "global_rate_brier": 0.2431,
+       "majority_class_accuracy": 0.6048,
+       "paired_bootstrap_1000_seed23": {
+        "calendar_vs_reason": {
+         "ci95": [
+          0.0072,
+          0.1492
+         ],
+         "mean_auc_diff": 0.0779
+        },
+        "persistence_vs_calendar": {
+         "ci95": [
+          0.0144,
+          0.1739
+         ],
+         "mean_auc_diff": 0.1014
+        },
+        "persistence_vs_reason": {
+         "ci95": [
+          0.1136,
+          0.2482
+         ],
+         "mean_auc_diff": 0.1793
+        }
+       },
+       "per_issue_year_eval": {
+        "2018": {
+         "persistence_auc": 0.6084,
+         "rate": 0.7442,
+         "rows": 129
+        },
+        "2019": {
+         "persistence_auc": 0.6203,
+         "rate": 0.64,
+         "rows": 125
+        },
+        "2020": {
+         "persistence_auc": 0.5991,
+         "rate": 0.4153,
+         "rows": 118
+        }
+       },
+       "persistence_site_prior": {
+        "auc": 0.6124,
+        "brier": 0.2819,
+        "definition": "the site's as-of lift30 rate over earlier same-site advisories resolved strictly before the instant (shipped feature)"
+       },
+       "prevalence_shift": "within-eval prevalence falls 0.7442 (2018) -> 0.4153 (2020), the measured COVID-era duration regime shift; per-year figures are the mandatory reading beside the pooled AUC; prevalence drift does not by itself determine AUC",
+       "reason_prior": {
+        "auc": 0.4307,
+        "brier": 0.244,
+        "definition": "train-estimated rate per normalised reason"
+       },
+       "scope": "identical eval rows (n=372), computed after gate PASS + exact-byte --accept; holdout sealed"
+      },
+      "register_totals": "2,649 advisories; 2,576 resolved (removal date present); 73 active/censored (removal blank); 1,116 distinct site names; facility types: Registered 2,491, Municipal 101, missing 57; reasons: Total Coliform Present 1,816, Chemical Exceedance 389, Other 186, E. Coli Present 83 + E.Coli Present 52 (spelling variants - same category), Lack of Disinfection 50, Failure of Treatment Processes 42, Ineffective Disinfection 14, others 13, missing 5.",
+      "sibling_channels_checked_2026_10_27": "Newfoundland & Labrador 'Boil Water Advisories' (opendata.gov.nl.ca file-id=17146, nl-oglnl, 53,342 bytes, bounded header+rows sample read): carries BOIL_ADVISORY_ISSUE_DATE and rich system features (SUPPLY_TYPE, SOURCE_TYPE, NUM_OF_WELLS, CHLORINATION, POPULATION_SERVICED, REGION_*) but NO lift/rescinded date column - cannot support the duration task (measured negative). Manitoba 'Current BWAPWS' (mb-omb): current advisories only, no lifts. Quebec (donneesquebec.ca, qc-cc-by): one city (Repentigny). ECCC/CESI 'Boil water advisories' (ca-ogl-lgo): national aggregate indicator CSVs only. The NS register is the only per-advisory machine-readable channel with lift dates found this tick - the provincial municipal-water channel the isc-ltdwa record named as its reopening condition."
+     },
+     "next_action": "REBUILD QUEUED 2026-11-02 (operator accepted the recommendation; session decision: rebuild, the fix is cheap and the task stays clean). Design, executable by th",
+     "packaged_at": "2026-10-29T14:17:14Z",
+     "path": "candidates/ns-bwa-advisory-lift-duration/record.json",
+     "prediction_time": "The advisory issue date (register column 'Date Advisory Issued', calendar day, America/Halifax). Every shipped feature must be a value fixed at or before that day: the issuing row's own site name, county, facility type, reason for the report, and derived calendar features; site/county history features may only use rows with an earlier issue date. The label window is the 30 days that follow the issue date. No part of the target window precedes the instant.",
+     "publisher": "Open Data Nova Scotia / Nova Scotia Department of Environment and Climate Change (Environment and Energy portal category)",
+     "qualification": {
+      "artifact_version": "e8ed2a53eaf0453c8ed52aea336edb994d888ad11e7b76f7898b663f017180a8",
+      "result": "PASSED - 46 checks, 0 failed, on the full artifact on the worker (job ns-bwa-001); --accept re-verified the report against the exact bytes",
+      "splits": {
+       "eval": {
+        "distinct_sites": 286,
+        "positive_rate": 0.604839,
+        "positives": 225,
+        "rows": 372
+       },
+       "holdout": {
+        "distinct_sites": 547,
+        "positive_rate": 0.581448,
+        "positives": 514,
+        "rows": 884
+       },
+       "train": {
+        "distinct_sites": 585,
+        "positive_rate": 0.668849,
+        "positives": 715,
+        "rows": 1069
+       }
+      }
+     },
+     "question": "At the moment a boil water advisory is issued for a public registered or municipal drinking water supply in Nova Scotia - known then: site name, county, facility type, reason for the report, calendar season, and the prior advisory history of the same site/county computed only from earlier advisories - will the advisory be lifted within 30 days?",
+     "region": "North America",
+     "release_baseline": {
+      "auc": 0.5086,
+      "display": "0.5086",
+      "reference": null
+     },
+     "release_splits": {
+      "eval": {
+       "positives": 225,
+       "rows": 372
+      },
+      "holdout": {
+       "positives": 514,
+       "rows": 884
+      },
+      "train": {
+       "positives": 715,
+       "rows": 1069
+      }
+     },
+     "review": "",
+     "sources": [
+      {
+       "licence": "Nova Scotia Open Government Licence v1.1 (ns-oglns), linked from the dataset page.",
+       "name": "Boil Water Advisories - Open Data Nova Scotia (Socrata 7t68-9xmm)",
+       "url": "https://data.novascotia.ca/datasets/7t68-9xmm"
+      },
+      {
+       "licence": "License row on the page: 'Nova Scotia Open Government Licence' -> http://novascotia.ca/opendata/licence.asp",
+       "name": "Dataset page metadata (publisher's own instrument for grain, coverage, censoring)",
+       "url": "https://data.novascotia.ca/datasets/7t68-9xmm"
+      },
+      {
+       "licence": "'The Information Provider grants you a worldwide, royalty-free, perpetual, non-exclusive licence to use the Information, including for commercial purposes'; 'You are free to: Copy, modify, publish, translate, adapt, distribute or otherwise use the Information in any medium, mode or format for any lawful purpose'; attribution required: 'Contains information licensed under the Open Government Licence - Nova Scotia'. Versioning: v1.1, governed by the laws of Nova Scotia and Canada.",
+       "name": "Open Government Licence - Nova Scotia v1.1 (the publisher's own licence instrument)",
+       "url": "https://novascotia.ca/opendata/licence.asp"
+      },
+      {
+       "licence": "ns-oglns per the CKAN record.",
+       "name": "open.canada.ca federated record (where the lead was found; confirms licence id ns-oglns)",
+       "url": "https://open.canada.ca/data/en/dataset/cc06d839-c26a-19f1-2428-4b5464670f8a"
+      }
+     ],
+     "split_strategy": "Cohort split on advisory issue year (disjoint calendar-year windows, both classes in every window). Computed from the full fetched CSV (sha256 60f77ac4...) and cross-checked against independent SoQL aggregates run against the live API (identical numbers). Censored rows excluded from scored sets with per-window counts. Clustered (site-repeat) counts recorded because advisories cluster by site: 586 / 286 / 551 distinct sites per window.",
+     "status": "packaged",
+     "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
+    },
+    {
+     "age_hours": 1.0,
+     "awaiting_operator": true,
+     "baseline": {},
+     "country": "CH",
+     "domain": "humanitarian financing / per-plan-year appeal funding coverage (UN OCHA Financial Tracking Service) - funding-outcome task family; first humanitarian-appeal financing register assessed on the bench",
+     "id": "ocha-fts-appeal-funding-trajectory",
+     "jobs": [
+      {
+       "at": null,
+       "id": null,
+       "status": "succeeded"
+      },
+      {
+       "at": null,
+       "id": null,
+       "status": "succeeded"
+      },
+      {
+       "at": null,
+       "id": null,
+       "status": "succeeded"
+      },
+      {
+       "at": null,
+       "id": null,
+       "status": "succeeded"
+      },
+      {
+       "at": "2026-11-02T14:56:29.862693+00:00",
+       "id": "fts-baseline-002",
+       "status": null
+      }
+     ],
+     "licence_summary": {
+      "compilation_spdx": "CC0-1.0",
+      "source_spdx": "CC-BY-IGO",
+      "status": "OCHA Financial Tracking Service data (HPC API plan/flow records; HDX bulk CSV 'Global - Requirements and Funding Data') under the FTS use-and-republish terms plus CC BY-IGO on the HDX record for the bulk distribution. Redistribution and derivatives are permitted with attribution; the no-endorsement condition carries through. The required attribution follows FTS's own suggested form for derived data and names FTS, the publication date and the source URL. The derived dataset is labelled as such throughout and is not an OCHA or FTS product; FTS has not reviewed or endorsed it."
+     },
+     "measurements": {
+      "baseline_triad_2026_11_01": {
+       "concrete_diagnosis_candidates": "(a) the stock train.py is an untuned XGBClassifier(n_estimators=30, max_depth=6) on 437 train rows with country_iso3 as a high-cardinality categorical (78 train levels) - noise-heavy for this panel size; (b) prevalence shift is mild (train 0.638 vs eval 0.583) and does not explain the gap alone; (c) no misalignment: both AUCs computed by the runner's own two implementations on the same accepted bytes; (d) persistence_last_coverage is a legitimate at-instant feature (the country's last strictly-prior plan-year outcome is known at launch), not post-hoc. Bounded repair options (ONE, pre-registered, next session's call): a categorical-handling fix is a runner-side change, NOT a construction rebuild - do not rebuild the artifact for it; the paired bootstrap already shows persistence's edge over every other simple reference is inconclusive on 139 rows",
+       "full_model_eval_auc": 0.6298,
+       "interpretation_rule": "any later model figure must still be quoted beside persistence 0.71711; keep fitting until a score wins is forbidden",
+       "measured_on": "the accepted artifact e7441e1f (job fts-baseline-001, after --accept, on the same 139 eval rows as the references)",
+       "observed_gap": "the stock runner model TRAILS the persistence reference by 0.0873 AUC (0.6298 vs 0.71711) on identical rows",
+       "persistence_last_coverage_auc": 0.7171136653895275,
+       "verdict": "NO DEMONSTRATED HEADROOM UNDER THIS PROTOCOL (stock runner): the full-model figure is quoted beside persistence as the skill requires. This does not prove every competent model must lose; it is a recorded defect of this run, not a property of the task"
+      },
+      "baseline_triad_2026_11_02_fts_baseline_002": {
+       "accepted_before_scoring": "exact-byte gate --accept on the fetched bytes inside the job before any score exists (accept.log: ACCEPTED, matches the qualified artifact ac529cd4e9d4da90)",
+       "dependencies": {
+        "numpy": "2.5.4",
+        "pandas": "2.3.3",
+        "python": "3.13.18",
+        "scikit-learn": "1.9.1",
+        "xgboost": "3.4.1"
+       },
+       "evidence": {
+        "collected_result": "candidates/ocha-fts-appeal-funding-trajectory/baseline/baseline_result.json (sha256 3367077b2a8f99e895a3cccf43e9c8cd516d36520533fd16bf507bebbf233e6e)",
+        "staging_manifest": "staging release 431595358 manifest.json entry output/baseline_result.json",
+        "staging_release": 431595358
+       },
+       "finding": "no demonstrated headroom under this protocol: the stock runner's full model (eval AUC 0.6452) trails the persistence reference (0.7171136653895275) by 0.0719 AUC on the identical 139 eval rows, and also trails every measured simple reference except the majority-class rate; a solver must beat persistence_last_coverage for any headroom claim on this task",
+       "full_model_eval_auc_train_py": 0.6452,
+       "full_model_eval_auc_validate_py": 0.6452,
+       "information_asymmetry": "the model's shipped information set deliberately omits the last prior same-country outcome (the country_prior_* features were the 2026-11-01 queue audit's P0 label-recovery channel and are unshippable under the operator's standard), while the persistence reference reads prior-in-time outcomes scorer-side (train+eval labels only, holdout never opened); the model-vs-persistence gap is therefore quoted with this note and is not read as model failure against an equal information set",
+       "job": "fts-baseline-002",
+       "measured_at": "2026-11-02T15:21:36Z",
+       "positives": 81,
+       "predecessor_comparison": "the same stock runner measured 0.6298 on the pre-rebuild 12-column artifact e7441e1f (job fts-baseline-001, 2026-11-01); removing the P0 prior-outcome features slightly improved the runner (0.6298 -> 0.6452) while closing the label-recovery channel",
+       "references_same_eval_rows": {
+        "ask_size_rate": 0.7126436781609196,
+        "country_hist_rate": 0.6729459344401874,
+        "majority_class_accuracy": 0.5827338129496403,
+        "persistence_last_coverage": 0.7171136653895275,
+        "plan_type_rate": 0.669220945083014,
+        "prior_mean_rate": 0.7143465304384845
+       },
+       "rows": 139,
+       "scope": "stock runner (harness benchmark's own train.py + validate.sh, bundled verbatim, digests equal the read-only clone) on the accepted rebuilt artifact ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0; eval rows only; holdout never copied into any workdir",
+       "two_implementations_agree": true
+      },
+      "class_balance_orig_basis_2026_10_29": "probe_split_counts.py on the sweep: >=50% of orig by window: 2000-2013: 347 rows 237/110 (68.3%); 2014-2018: 153 rows 80/73 (52.3%); 2019-2022: 152 rows 97/55 (63.8%); 2023-2025: 106 rows 45/61 (42.5%). Threshold chosen for interpretability (half the launch ask) and global balance (funding/orig over all closed windows: 459 pos / 299 neg = 60.5%).",
+      "extraction_cost_2026_10_29": "HDX CSV: 1 request, 279,849 bytes, 2.0 s (coordinator). Plan sweep: 877 requests, 401 s, 296 KB output (coordinator, acceptable). Flow endpoint: ~383 KB/page, first page carries the plan-year fundingTotal (YEM 2023 full flow list = 5 pages = 1.9 MB); a full-panel harvest needs ~900 flow requests ~= 340 MB -> worker job, never the coordinator. Machine class: hosted coordinator (4 vCPU, ~1.9 GiB RAM).",
+      "flow_schema_2026_10_29": "YEM country-year sample (first page, n=200): decisionDate present 189/200 (94.5%), firstReportedDate 200/200; status: commitment 125 / paid 75; flowType: Standard 129 / Parked 68 / Pass through 2 / Carryover 1; multiyear parked flows span usage years (one 2018-decision flow covers 2019-2023). Plan-level attribution is the publisher's own (report3 boundary handling): planId 1116 year 2023 -> 986 flows, incoming.fundingTotal 1,774,327,599, exactly equal to the HDX CSV single-country row; AFG 1117 year 2023 -> 683 flows, 1,678,347,238, exactly equal to CSV.",
+      "plan_endpoint_sweep_2026_10_29": "probe_plan_sweep.py: 877 plan-record fetches, 0 errors, 401 s, 296 KB jsonl (candidates/ocha-fts-appeal-funding-trajectory/plan_orig_sweep.jsonl). Revisions measured on 836 plans with orig>0: 286 revised up, 166 revised down, 384 unchanged (54% revised) - the CSV requirements column matches the revised value in revised cases (2016 cohort: matches orig 21 / revised 14; 2023 cohort: matches orig 23 / revised 15, with 8 country-slice mismatches), so the CSV column is unusable as a launch feature.",
+      "population_2026_10_29": "HDX CSV: 3,874 rows 1999-2031 (future-dated rows are multiyear-plan usage-year extensions); 2,678 rows without requirements (country funding outside appeals - outside the task population); 1,196 rows with plan id + requirements = plan x country attribution; 877 distinct (plan, plan-year) pairs; 782 primary single-country plan-years with origRequirements>0 (2000-2025), 60 multi-country regional plans, 41 plan-years with no recorded original requirements (excluded, counted).",
+      "provenance_mix_2026_10_29": "Primary population by typeName: Humanitarian response plan 212, Consolidated appeals process 152, Flash appeal 122, Other 117, Consolidated inter-agency appeal 69, Humanitarian needs and response plan 49, Strategic response plan 45, Regional response plan 16; isPartOfGHO true 703/782. Type is a documented feature, not a population shift: all types share the appeal-launch contract.",
+      "publisher_summary_crosscheck_2026_10_29": "GHO 2023 December update (publisher's snapshot): requirements $56.7B, funding $21.8B, coverage 38% at 2023-12-31; launch ask was $51.5B (2022-12-01). My CSV-basis 2023 aggregate (55.8B requirements / 25.2B funding / 45.1%) differs because it includes non-GHO plans and mixed-vintage requirements - composition, explained; per-plan origRequirements + isPartOfGHO reconcile at construction.",
+      "references_2026_11_01_fts_appeal_001": {
+       "brier": {
+        "ask_size_rate": 0.22545387995752264,
+        "country_hist_rate": 0.25021941248042434,
+        "persistence_last_coverage": 0.2787769784172662,
+        "plan_type_rate": 0.25080408668973475,
+        "prior_mean_rate": 0.2212567383762087
+       },
+       "collected_evidence": ".factory/fts-appeal-001/reports/{acceptance.txt, qualification.json, references.json, summary.json, container.log} each re-hashed at its staging ledger digest from release 430422823; bulk CSVs stay in staging (train 35,621 B / eval 11,268 B / holdout 15,419 B at the ledger digests)",
+       "interpretation_rule": "persistence_last_coverage 0.7171 is the headroom reference; any full-model figure from the runner baseline job must be quoted beside it, and a model below it is a recorded defect; no full-model figure exists yet (the baseline job on the accepted 002 artifact is the next step)",
+       "majority_class": {
+        "accuracy_this_split": 0.5827338129496403,
+        "note": "majority fitted on train (positive rate 0.6384), measured against eval labels"
+       },
+       "measured_on": "artifact 893b2e78a4812dcc (job fts-appeal-001, post-acceptance score.py on the worker; eval rows only, holdout never opened)",
+       "paired_bootstrap_150": {
+        "note": "every interval contains zero: persistence's edge over the other simple references is inconclusive on 139 eval rows; an interval containing zero is an inconclusive difference, not parity",
+        "persistence_vs_ask_size": {
+         "ci95": [
+          -0.1230496453900709,
+          0.08506493506493507
+         ],
+         "observed_difference": 0.004469987228607919
+        },
+        "persistence_vs_country_hist": {
+         "ci95": [
+          -0.05893246187363832,
+          0.1466581524052788
+         ],
+         "observed_difference": 0.04416773094934012
+        },
+        "persistence_vs_plan_type": {
+         "ci95": [
+          -0.06977225672877851,
+          0.16033755274261607
+         ],
+         "observed_difference": 0.04789272030651348
+        },
+        "persistence_vs_prior_mean": {
+         "ci95": [
+          -0.07012987012987015,
+          0.10370051635111877
+         ],
+         "observed_difference": 0.002767134951042971
+        }
+       },
+       "per_eval_year_persistence_auc": {
+        "2017": 0.7361111111111112,
+        "2018": 0.6657894736842105,
+        "2019": 0.7471590909090909,
+        "2020": 0.7272727272727273
+       },
+       "per_eval_year_rows_positives": {
+        "2017": [
+         34,
+         16
+        ],
+        "2018": [
+         29,
+         19
+        ],
+        "2019": [
+         30,
+         22
+        ],
+        "2020": [
+         46,
+         24
+        ]
+       },
+       "re_measured_on_002": "job fts-appeal-002 re-ran score.py post-acceptance on the corrected artifact e7441e1f... over the same 139 eval rows: every reference figure identical to the 001 measurement (persistence_last_coverage 0.7171136653895275, prior_mean 0.71435, ask_size 0.71264, majority accuracy 0.58273) - the CSVs are byte-identical between the attempts, so this is expected, not independent confirmation",
+       "references_eval_auc": {
+        "ask_size_rate": 0.7126436781609196,
+        "country_hist_rate": 0.6729459344401874,
+        "global_rate": "degenerate (constant score; no ranking information)",
+        "persistence_last_coverage": 0.7171136653895275,
+        "plan_type_rate": 0.669220945083014,
+        "prior_mean_rate": 0.7143465304384845,
+        "year_rate": "degenerate by construction (eval plan years 2017-2020 outside train range 2000-2016; falls back to the constant global train rate)"
+       },
+       "rows": {
+        "eval": 139,
+        "eval_positives": 81,
+        "train": 437,
+        "train_positive_rate": 0.638444
+       }
+      },
+      "references_reproduced_2026_11_02_fts_appeal_003": {
+       "ask_size_rate": 0.7126436781609196,
+       "country_hist_rate": 0.6729459344401874,
+       "equality_note": "every reference equals the e7441e1f measurement to the last digit: the rebuild changed the shipped feature set, not the panel, and score.py's scorer-side recompute (prior-in-time labels from train+eval only; the persistence feature form is unshippable under the operator's P0 standard) is verified correct by the exact equality",
+       "full_model": "PENDING - the stock runner's figure on the rebuilt 9-column information set comes from job fts-baseline-002 (bundle filled and ready); the e7441e1f-era stock figure was 0.6298 trailing persistence by 0.0873, recorded then as no demonstrated headroom under the stock runner - it MUST be re-measured on these bytes before any comparison is quoted, with the information-asymmetry note (the model is not given the last outcome; persistence reads it scorer-side)",
+       "majority_class_accuracy_this_split": 0.5827338129496403,
+       "measured_on": "the accepted rebuilt artifact ac529cd4 (job fts-appeal-003, post-acceptance on the worker), same 139 eval rows as every earlier figure",
+       "per_eval_year_persistence_auc": {
+        "2017": 0.7361111111111112,
+        "2018": 0.6657894736842105,
+        "2019": 0.7471590909090909,
+        "2020": 0.7272727272727273
+       },
+       "persistence_last_coverage": 0.7171136653895275,
+       "plan_type_rate": 0.669220945083014,
+       "prior_mean_rate": 0.7143465304384845
+      },
+      "regional_slice_gap_2026_10_29": "Burundi RRP 2021 (plan 1017): HDX CSV country slices sum to 14,978,233 funding vs API plan total 19,282,778 (ratio 0.78) - regional plans excluded from the primary population; the flow endpoint carries the authoritative plan total.",
+      "vintage_flip_fixture_2026_10_29": "Afghanistan HRP 2023: origRequirements 4,627,363,573 (launch ask, matches GHO 2022-12-01 '$4.6 billion' and UNICEF sitrep 'US$4.62 billion is required'); final funding 1,678,347,238 = 36.3% of orig -> label 0. The same plan in today's HDX CSV: requirements 3,227,372,908 (down-revised post-launch) and percentFunded 52 -> using the CSV column would flip the label to 1 and leak the post-launch revision. Recorded as the construction's forbidden-column fixture."
+     },
+     "next_action": "V2026.11 STAGED PRIVATE ON BOTH DESTINATIONS 2026-11-02T22:50Z, awaiting the fresh independent audit before the operator's flip. GitHub: private repo earino/och",
+     "packaged_at": "2026-11-02T22:50:00Z",
+     "path": "candidates/ocha-fts-appeal-funding-trajectory/record.json",
+     "prediction_time": "The plan's public launch: the instant its requirements are first published (GHO publication in early December for the following plan year, or the plan's own release for late-launched plans). Dated example (all UTC): Afghanistan HRP 2023 (plan id 1117) - GHO 2023 launched 2022-12-01 with Afghanistan at $4.6B; the HRP itself launched end of December 2022 / early January 2023; prediction instant pinned at 2023-01-01T00:00Z. Every feature is fixed by that instant: original requirements (plan endpoint origRequirements = 4,627,363,573, matching the December 2022 GHO ask), plan type, country, and strictly-prior plan-years (all closed years, final values). The target window is the plan year 2023-01-01..2023-12-31, strictly after the instant. VINTAGE POLICY (the decisive timing finding): the HDX CSV 'requirements' column is CURRENT-vintage - of 836 plans with requirements, 286 were revised up and 166 down after launch, and the CSV shows the revised value in revised cases - so it must never be used as a launch feature; the plan endpoint's origRequirements is the launch-vintage denominator, verified against the December 2022 GHO on the Afghanistan fixture. Prior-year funding totals used as features are current-vintage final values for closed years, approximating what was knowable at launch (late-reported flows are the measured gap - flow records carry firstReportedDate and decisionDate; 94.5% decisionDate coverage in a 200-flow sample); this retrospective approximation is declared as the restricted protocol and probed at gate 1.5, not assumed to be operational forecasting.",
+     "publisher": "UN OCHA - Financial Tracking Service (FTS), a UN Secretariat office administered from Geneva",
+     "qualification": {
+      "artifact_version": "ac529cd4e9d4da90f804ecef425e74c94a946b857fe39095fd73a0407506b8c0",
+      "result": "passed; 0 failed checks of the full artifact on the worker (ok=true; leakage incl. declared high-cardinality country_iso3; timing event_time launch instant; evaluation_contract retrospective_research/isolated_rows with training_label_timing unverified; cross_row_audit with probes=[] and a rationale documenting the removed prior-outcome join; splits disjoint and both-classed; runner layout/meta agreement with all 8 TASK_KEYS)",
+      "splits": null
+     },
+     "question": "For a UN-coordinated humanitarian appeal or response plan (HRP/CAP/flash appeal/HNRP/SRP and similar single-country plans) at its public launch instant (requirements first published - GHO early December for the following year, or the plan's own release, whichever the record dates), will the plan receive funding equal to at least 50% of its ORIGINAL (launch-vintage) requirements by the close of its plan year? Features are launch-time attributes (original requirements, plan type, GHO membership, country/region, emergency linkage) plus strictly-prior-year history for the same country (prior-year plan coverage, funding levels, series length). A useful prediction identifies, months ahead, which appeals will end the year underfunded - the quantity GHO gap analysis reports after the fact - enabling donor advocacy and fundraising prioritization.",
+     "region": "International organisations",
+     "release_baseline": {
+      "auc": 0.6452,
+      "display": "0.6452",
+      "reference": null
+     },
+     "release_splits": {
+      "eval": {
+       "positives": 81,
+       "rows": 139
+      },
+      "holdout": {
+       "positives": 96,
+       "rows": 182
+      },
+      "train": {
+       "positives": 279,
+       "rows": 437
+      }
+     },
+     "review": "All five discovery contracts reconciled against recorded evidence (2026-10-29). (1) Redistribution: SUPPORTED - the dataset's own page grants use/republish with citation (quote in license_evidence), and the publisher's HDX distribution of the same data is CC BY-IGO; licence_class A; attribution and no-endorsement conditions carry into LICENSE.md. (2) Prediction timing: SUPPORTED with a declared restricted retrospective protocol - launch instant dated and verified on the Afghanistan fixture (GHO 2022-12-01 ask == origRequirements to 3 significant figures); the decisive vintage finding is measured (54% of plans revised post-launch; HDX CSV column carries revised values; the flip demonstrator is recorded); construction uses origRequirements only; prior-year features are current-vintage finals for closed years with the late-reporting gap measured on flows (firstReportedDate lags decisionDate; 94.5% decisionDate coverage); gate-1.5 reverse-history probes on the exact artifact are mandatory in the handoff - the label is a later aggregation of the same stream, so the retrospective posture must be declared, exactly as on unhcr/abs. (3) Obtainable target: SUPPORTED - per-plan-year funding totals from the publisher's API, equal to its own HDX distribution on measured single-country fixtures; label source columns excludable; censoring rule and zero-funding rows pinned; regional-plan slices excluded with the measured 0.78 gap. (4) Split capacity: SUPPORTED by full-population measurement - 782 primary plan-years, three disjoint windows with both classes (table in split_strategy), clustered count recorded (83 country series; year-clustered prevalence drift 68%->43% is a measured phenomenon property, not a defect). (5) Contribution beyond a mirror: SUPPORTED - novelty verdict differentiated (recorded by check-novelty): the publisher and third parties distribute the raw requirements/funding tables (HDX, HAPI, HF per-country mirrors), but no ML-ready per-plan-year coverage task with an instant, splits and a scored contract exists; our contribution is the launch-vintage-denominator formulation, the vintage trap evidence, the dated fixture set and the persistence-referenced evaluation. Residual uncertainties, stated: (a) the WB instrument-outcome drops (identity-dominated, no headroom over persistence) are the named risk for this family - the prior-year same-country coverage rule is the primary reference and decides whether headroom stands; (b) origRequirements is verified launch-vintage on one external December source (Afghanistan 2023) plus internal orig/revised separation on 836 plans - construction asserts the GHO cross-check on sampled cohorts; (c) the ~6% of flows lacking decisionDate only affects the optional within-year trajectory variant, not the primary launch-instant formulation; (d) exact per-window counts on final construction data may shift slightly when empty-funding rows are pinned.",
+     "sources": [
+      {
+       "licence": "cc-by-igo (publisher's HDX record, read 2026-10-29)",
+       "name": "HDX: Global - Requirements and Funding Data (FTS bulk distribution)",
+       "url": "https://data.humdata.org/dataset/global-requirements-and-funding-data"
+      },
+      {
+       "licence": "FTS republish permission (see license_evidence)",
+       "name": "OCHA HPC API v2 (public, anonymous) - plan records with origRequirements/revisedRequirements",
+       "url": ""
+      },
+      {
+       "licence": "FTS republish permission (see license_evidence)",
+       "name": "OCHA HPC API v1 FTS flow endpoint (public, anonymous) - dated flows and per-plan-year funding totals",
+       "url": ""
+      },
+      {
+       "licence": "publisher permission text (quoted in license_evidence)",
+       "name": "FTS 'About FTS / Using FTS data' (publisher's own use-and-republish instrument)",
+       "url": "https://fts.unocha.org/content/about-fts-using-fts-data"
+      },
+      {
+       "licence": "",
+       "name": "GHO 2023 (publisher's own summary product; external cross-check source)",
+       "url": "https://reliefweb.int/report/world/un-launches-record-515-billion-humanitarian-appeal-2023-enar (1 December 2022) and https://reliefweb.int/report/world/global-humanitarian-overview-2023-december-update-snapshot-31-december-2023"
+      }
+     ],
+     "split_strategy": "Temporal, on the primary population (782 single-country plan-years with origRequirements>0, 2000-2025), measured from the source on 2026-10-29 at the >=50%-of-ORIGINAL-requirements threshold: train 2000-2016: 437 rows, pos 282 / neg 155 (64.5%), 78 distinct countries; eval 2017-2020: 139 rows, pos 81 / neg 58 (58.3%), 51 countries; holdout 2021-2025: 182 rows, pos 96 / neg 86 (52.7%), 43 countries. Both classes present in every window. 2026 live-edge rows (24) excluded until their year closes. CLUSTERED COUNT (the honest sample size): 83 distinct country series in the primary population, max 28 plan-years for one country; positives also cluster by year through global funding cycles - measured positive rate at the 50% threshold drifts 68.3% (2000-2013) -> 52.3% (2014-2018) -> 63.8% (2019-2022) -> 42.5% (2023-2025), and GHO coverage fell from ~50% (2022) to 38% (2023) per the publisher's own snapshot; intervals and baselines must be country-clustered and year-aware. The final window cut is construction's choice; these three windows are the measured default.",
+     "status": "packaged",
+     "target": "Binary: the plan's FTS funding total for its plan year (usage year = plan year; commitments + paid contributions, pledges excluded, USD, publisher's own attribution including boundary flows) divided by its ORIGINAL requirements (launch vintage) is >= 0.50 -> 1, else 0. Label source: per-plan-year funding totals (FTS flow endpoint incoming.fundingTotal with planId+year filter; equal to the publisher's HDX distribution on single-country rows - measured: Yemen HRP 2023 1,774,327,599, Afghanistan HRP 2023 1,678,347,238, both API==CSV to the dollar) and origRequirements from the plan endpoint; both excludable from features by construction (features carry launch attributes and strictly-prior years only). Censoring: plan-years whose year has not closed are excluded and counted (2026 live edge: 24 primary rows), never imputed. Zero-funding rows are the publisher's recorded outcome (empty funding fields in the HDX CSV counted at construction, not dropped silently). Population: PRIMARY = single-country plan-years with origRequirements > 0, 2000-2025 (782 rows; 60 multi-country regional plans excluded from the primary task because the HDX CSV splits them into country slices whose funding sum covers only ~78% of the plan total - measured on Burundi RRP 2021: slices 14,978,233 vs API plan total 19,282,778; regional plans can be a secondary population with flow-endpoint totals if construction wants them). Appeal-linked funding only; the country rows without plan linkage (2,678 HDX CSV rows, 'Not specified' plans) are outside the task population, so the label's meaning is single-population throughout."
+    },
+    {
+     "age_hours": 148.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12877,7 +13137,7 @@
       "update_cadence_observed_2026_10_23": "HDX package activity (CKAN package_activity_list, 60 entries read 2026-10-23): resource/dataset updates on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22, 2026-08-20 - a several-times-a-year refresh pattern aligned with UNHCR's annual statistical cycle (Global Trends lands ~June of D+1). The 2026-08-20 applications resource carries complete data through 2025, so year-D data is machine-observable at latest ~August of D+1; the conservative instant is the first observed mid-year-or-later refresh carrying year D.",
       "waf_probe_2026_10_20": "curl https://www.unhcr.org/refugee-statistics/ -> HTTP 403, 182,520 B (challenge page); the same URL loads normally in a real browser (title 'Refugee Data Finder - Key Indicators'). In-page same-origin fetch of the export deep link -> HTTP 403, 222,964 B. Both measured from the coordinator."
      },
-     "next_action": "OPERATOR DECISION REQUIRED (unchanged flag), now with a decision-grade analysis (2026-11-02 session). The operator's 2026-11-02 task list names this candidate a",
+     "next_action": "OPERATOR DECISION APPLIED 2026-11-02 (session, per the recommendation the operator accepted): the v2026.10 panel package 6bd0c307 is DROPPED - never to be flipp",
      "packaged_at": "2026-10-27T19:44:51Z",
      "path": "candidates/unhcr-refugee-data-finder/record.json",
      "prediction_time": "Annual publication-lag NOWCAST - the accepted abs-visitor-arrivals-direction pattern, and it must not be described as a future-event forecast. The prediction instant is the publication of year-D complete annual data on the machine-fetchable channel: UNHCR's annual statistical cycle lands mid-year in D+1 (Global Trends), and the HDX distribution of this dataset was observed refreshing on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22 and 2026-08-20, with the 2026-08-20 resource carrying complete data through 2025. At that instant every feature is a corridor-year total for years <= D. The target year D+1 has PARTIALLY ELAPSED at the instant (the 2026-08-20 instant lies inside target year 2026, which started 2026-01-01) but its value is entirely UNPUBLISHED: on this channel no D+1 value exists until ~mid-D+2, and for most non-EU hosts no public monthly corridor data exists at all (Eurostat monthly data covers EU hosts only and is outside this channel's shipped features). So the claim recorded here is value-unavailability at the instant, not that the target window follows the instant. A strictly-future variant (at the same instant, predict year D+2 >= 2x the last PUBLISHED year D) was considered and rejected at discovery: the doubling baseline must be published at the instant, so a strict future window forces a two-year-back comparison, a different label and different measured base rates - a different task. The HDX archive is revised in place (current-vintage), so construction pins the fetched snapshot by sha256 and states values as construction-time vintage - the same documented posture as abs-visitor-arrivals-direction. Dated example in notes.md.",
@@ -12952,7 +13212,7 @@
    ],
    "pending": [
     {
-     "age_hours": 147.1,
+     "age_hours": 148.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13089,7 +13349,7 @@
       "update_cadence_observed_2026_10_23": "HDX package activity (CKAN package_activity_list, 60 entries read 2026-10-23): resource/dataset updates on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22, 2026-08-20 - a several-times-a-year refresh pattern aligned with UNHCR's annual statistical cycle (Global Trends lands ~June of D+1). The 2026-08-20 applications resource carries complete data through 2025, so year-D data is machine-observable at latest ~August of D+1; the conservative instant is the first observed mid-year-or-later refresh carrying year D.",
       "waf_probe_2026_10_20": "curl https://www.unhcr.org/refugee-statistics/ -> HTTP 403, 182,520 B (challenge page); the same URL loads normally in a real browser (title 'Refugee Data Finder - Key Indicators'). In-page same-origin fetch of the export deep link -> HTTP 403, 222,964 B. Both measured from the coordinator."
      },
-     "next_action": "OPERATOR DECISION REQUIRED (unchanged flag), now with a decision-grade analysis (2026-11-02 session). The operator's 2026-11-02 task list names this candidate a",
+     "next_action": "OPERATOR DECISION APPLIED 2026-11-02 (session, per the recommendation the operator accepted): the v2026.10 panel package 6bd0c307 is DROPPED - never to be flipp",
      "packaged_at": "2026-10-27T19:44:51Z",
      "path": "candidates/unhcr-refugee-data-finder/record.json",
      "prediction_time": "Annual publication-lag NOWCAST - the accepted abs-visitor-arrivals-direction pattern, and it must not be described as a future-event forecast. The prediction instant is the publication of year-D complete annual data on the machine-fetchable channel: UNHCR's annual statistical cycle lands mid-year in D+1 (Global Trends), and the HDX distribution of this dataset was observed refreshing on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22 and 2026-08-20, with the 2026-08-20 resource carrying complete data through 2025. At that instant every feature is a corridor-year total for years <= D. The target year D+1 has PARTIALLY ELAPSED at the instant (the 2026-08-20 instant lies inside target year 2026, which started 2026-01-01) but its value is entirely UNPUBLISHED: on this channel no D+1 value exists until ~mid-D+2, and for most non-EU hosts no public monthly corridor data exists at all (Eurostat monthly data covers EU hosts only and is outside this channel's shipped features). So the claim recorded here is value-unavailability at the instant, not that the target window follows the instant. A strictly-future variant (at the same instant, predict year D+2 >= 2x the last PUBLISHED year D) was considered and rejected at discovery: the doubling baseline must be published at the instant, so a strict future window forces a two-year-back comparison, a different label and different measured base rates - a different task. The HDX archive is revised in place (current-vintage), so construction pins the fetched snapshot by sha256 and states values as construction-time vintage - the same documented posture as abs-visitor-arrivals-direction. Dated example in notes.md.",
@@ -13212,10 +13472,9 @@
   "by_status": {
    "dropped": 47,
    "investigating": 18,
-   "packaged": 2,
+   "packaged": 3,
    "parked": 29,
    "published": 13,
-   "qualified": 1,
    "ready": 12
   },
   "candidates": 122,
@@ -13243,10 +13502,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-02T22:50:02.364807+00:00",
+    "last_run_at": "2026-11-02T23:50:02.551893+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-02T23:00:00+00:00",
+    "next_run_at": "2026-11-03T00:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -13267,10 +13526,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-02T22:50:01.508959+00:00",
+    "last_run_at": "2026-11-02T23:50:00.985685+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-02T22:55:00+00:00",
+    "next_run_at": "2026-11-02T23:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13291,10 +13550,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-02T22:48:44.616432+00:00",
+    "last_run_at": "2026-11-02T23:49:08.629294+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-02T22:53:44.616432+00:00",
+    "next_run_at": "2026-11-02T23:54:08.629294+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -13303,10 +13562,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-02T22:50:02.131433+00:00",
+    "last_run_at": "2026-11-02T23:50:01.273805+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-02T22:55:00+00:00",
+    "next_run_at": "2026-11-02T23:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13327,10 +13586,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-02T21:50:44.950531+00:00",
+    "last_run_at": "2026-11-02T22:50:46.177103+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-02T23:50:00+00:00",
+    "next_run_at": "2026-11-03T00:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -13339,10 +13598,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-02T21:55:00.674066+00:00",
+    "last_run_at": "2026-11-02T22:55:01.481770+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-02T22:55:00+00:00",
+    "next_run_at": "2026-11-02T23:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -13383,9 +13642,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-02T22:50:02.365821+00:00"
+  "updated_at": "2026-11-02T23:50:02.552920+00:00"
  },
- "generated_at": "2026-11-02T22:50:01+00:00",
+ "generated_at": "2026-11-02T23:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -13393,19 +13652,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-02T21:10:27Z",
-   "head_sha": "b6509f4",
+   "created_at": "2026-11-02T23:01:14Z",
+   "head_sha": "35d32f7",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41525902010"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41542046906"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 40/46 (87%)"
   },
   "head": {
-   "at": "2026-11-02T21:10:24Z",
-   "sha": "b6509f4",
-   "subject": "factory repo visibility confirmed by the operator: PUBLIC by design (free GitHub Actions); STATE observation resolved"
+   "at": "2026-11-02T23:01:10Z",
+   "sha": "35d32f7",
+   "subject": "recommendation executed: ocha-fts v2026.11 staged private both destinations (fts-publish-001 + fts-hf-001, consumer path"
   },
   "tests": {
    "count": "697",
@@ -16092,13 +16351,21 @@
    "qualified": 1,
    "sessions_7d": 88,
    "tokens_7d": 41402256
+  },
+  {
+   "at": "2026-11-02T23:50:01+00:00",
+   "live": 18,
+   "published": 13,
+   "qualified": 0,
+   "sessions_7d": 88,
+   "tokens_7d": 41402256
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-02T22:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-11-02T23:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -16107,18 +16374,18 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-02T22:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-11-02T23:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 19
+   "value": 18
   },
   "releases": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-02T22:50:01+00:00",
+   "age_minutes": 0.5,
+   "as_of": "2026-11-02T23:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -16635,7 +16902,7 @@
     "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "ocha-fts-appeal-funding-trajectory",
-    "disposition": "qualified",
+    "disposition": "packaged",
     "errors": [],
     "persistence_auc": null,
     "publication_note": "Prepared for human review. Nothing here has been published.",
@@ -18907,7 +19174,7 @@
   "jobs_total": 169,
   "lifetime_eur": 3.66,
   "live": {
-   "checked_at": "2026-11-02T22:50:35+00:00",
+   "checked_at": "2026-11-02T23:50:33+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
