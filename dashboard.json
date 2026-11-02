@@ -1,11 +1,10 @@
 {
  "alarms": [
-  "scout-research-session missed its window (2026-11-02T14:55:00+00:00); last status ok",
-  "Research gate refused the next session: research used 40,665,815 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; lock held for 3601s by scout-research",
-  "Token use at 102% of the weekly ceiling",
-  "Test suite is failing",
-  "unhcr-refugee-data-finder has been packaged and actionable for 140.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (97.5h)"
+  "Research gate refused the next session: research used 41,495,162 tokens in the last 7 days, at or over the 40,000,000-token weekly budget",
+  "Token use at 104% of the weekly ceiling",
+  "unhcr-refugee-data-finder has been packaged and actionable for 141.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (98.5h)",
+  "1 release(s) not fully verified"
  ],
  "budget": {
   "config": {
@@ -23,15 +22,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-11-02T15:50:02.812421+00:00",
+   "moment": "2026-11-02T16:50:03.119316+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "research used 40,665,815 tokens in the last 7 days, at or over the 40,000,000-token weekly budget",
-    "lock held for 3601s by scout-research"
+    "research used 41,495,162 tokens in the last 7 days, at or over the 40,000,000-token weekly budget"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 40665815,
+   "research_tokens_last_7_days": 41495162,
    "runs_last_7_days": 89,
    "runs_weighted_last_7_days": 105,
    "session_cap_per_week": 200,
@@ -58,13 +56,13 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 700,
+     "calls": 727,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 3700004,
-     "output_tokens": 633327,
+     "input_tokens": 4515772,
+     "output_tokens": 646906,
      "pricing_available": false
     }
    },
@@ -1700,7 +1698,7 @@
      "regional_slice_gap_2026_10_29": "Burundi RRP 2021 (plan 1017): HDX CSV country slices sum to 14,978,233 funding vs API plan total 19,282,778 (ratio 0.78) - regional plans excluded from the primary population; the flow endpoint carries the authoritative plan total.",
      "vintage_flip_fixture_2026_10_29": "Afghanistan HRP 2023: origRequirements 4,627,363,573 (launch ask, matches GHO 2022-12-01 '$4.6 billion' and UNICEF sitrep 'US$4.62 billion is required'); final funding 1,678,347,238 = 36.3% of orig -> label 0. The same plan in today's HDX CSV: requirements 3,227,372,908 (down-revised post-launch) and percentFunded 52 -> using the CSV column would flip the label to 1 and leak the post-launch revision. Recorded as the construction's forbidden-column fixture."
     },
-    "next_action": "BASELINE COMPLETE (fts-baseline-002, 2026-11-02): the stock runner scores eval AUC 0.6452 on the accepted rebuilt artifact ac529cd4 (exact-byte re-accept before",
+    "next_action": "PACKAGE BUILT AND VERIFIED (2026-11-02): release/ocha-fts-appeal-funding-trajectory/ carries the v2026.11 package - the accepted artifact ac529cd4 bytes (meta.j",
     "packaged_at": null,
     "path": "candidates/ocha-fts-appeal-funding-trajectory/record.json",
     "prediction_time": "The plan's public launch: the instant its requirements are first published (GHO publication in early December for the following plan year, or the plan's own release for late-launched plans). Dated example (all UTC): Afghanistan HRP 2023 (plan id 1117) - GHO 2023 launched 2022-12-01 with Afghanistan at $4.6B; the HRP itself launched end of December 2022 / early January 2023; prediction instant pinned at 2023-01-01T00:00Z. Every feature is fixed by that instant: original requirements (plan endpoint origRequirements = 4,627,363,573, matching the December 2022 GHO ask), plan type, country, and strictly-prior plan-years (all closed years, final values). The target window is the plan year 2023-01-01..2023-12-31, strictly after the instant. VINTAGE POLICY (the decisive timing finding): the HDX CSV 'requirements' column is CURRENT-vintage - of 836 plans with requirements, 286 were revised up and 166 down after launch, and the CSV shows the revised value in revised cases - so it must never be used as a launch feature; the plan endpoint's origRequirements is the launch-vintage denominator, verified against the December 2022 GHO on the Afghanistan fixture. Prior-year funding totals used as features are current-vintage final values for closed years, approximating what was knowable at launch (late-reported flows are the measured gap - flow records carry firstReportedDate and decisionDate; 94.5% decisionDate coverage in a 200-flow sample); this retrospective approximation is declared as the restricted protocol and probed at gate 1.5, not assumed to be operational forecasting.",
@@ -1713,11 +1711,24 @@
     "question": "For a UN-coordinated humanitarian appeal or response plan (HRP/CAP/flash appeal/HNRP/SRP and similar single-country plans) at its public launch instant (requirements first published - GHO early December for the following year, or the plan's own release, whichever the record dates), will the plan receive funding equal to at least 50% of its ORIGINAL (launch-vintage) requirements by the close of its plan year? Features are launch-time attributes (original requirements, plan type, GHO membership, country/region, emergency linkage) plus strictly-prior-year history for the same country (prior-year plan coverage, funding levels, series length). A useful prediction identifies, months ahead, which appeals will end the year underfunded - the quantity GHO gap analysis reports after the fact - enabling donor advocacy and fundraising prioritization.",
     "region": "International organisations",
     "release_baseline": {
-     "auc": null,
-     "display": null,
+     "auc": 0.6452,
+     "display": "0.6452",
      "reference": null
     },
-    "release_splits": {},
+    "release_splits": {
+     "eval": {
+      "positives": 81,
+      "rows": 139
+     },
+     "holdout": {
+      "positives": 96,
+      "rows": 182
+     },
+     "train": {
+      "positives": 279,
+      "rows": 437
+     }
+    },
     "review": "All five discovery contracts reconciled against recorded evidence (2026-10-29). (1) Redistribution: SUPPORTED - the dataset's own page grants use/republish with citation (quote in license_evidence), and the publisher's HDX distribution of the same data is CC BY-IGO; licence_class A; attribution and no-endorsement conditions carry into LICENSE.md. (2) Prediction timing: SUPPORTED with a declared restricted retrospective protocol - launch instant dated and verified on the Afghanistan fixture (GHO 2022-12-01 ask == origRequirements to 3 significant figures); the decisive vintage finding is measured (54% of plans revised post-launch; HDX CSV column carries revised values; the flip demonstrator is recorded); construction uses origRequirements only; prior-year features are current-vintage finals for closed years with the late-reporting gap measured on flows (firstReportedDate lags decisionDate; 94.5% decisionDate coverage); gate-1.5 reverse-history probes on the exact artifact are mandatory in the handoff - the label is a later aggregation of the same stream, so the retrospective posture must be declared, exactly as on unhcr/abs. (3) Obtainable target: SUPPORTED - per-plan-year funding totals from the publisher's API, equal to its own HDX distribution on measured single-country fixtures; label source columns excludable; censoring rule and zero-funding rows pinned; regional-plan slices excluded with the measured 0.78 gap. (4) Split capacity: SUPPORTED by full-population measurement - 782 primary plan-years, three disjoint windows with both classes (table in split_strategy), clustered count recorded (83 country series; year-clustered prevalence drift 68%->43% is a measured phenomenon property, not a defect). (5) Contribution beyond a mirror: SUPPORTED - novelty verdict differentiated (recorded by check-novelty): the publisher and third parties distribute the raw requirements/funding tables (HDX, HAPI, HF per-country mirrors), but no ML-ready per-plan-year coverage task with an instant, splits and a scored contract exists; our contribution is the launch-vintage-denominator formulation, the vintage trap evidence, the dated fixture set and the persistence-referenced evaluation. Residual uncertainties, stated: (a) the WB instrument-outcome drops (identity-dominated, no headroom over persistence) are the named risk for this family - the prior-year same-country coverage rule is the primary reference and decides whether headroom stands; (b) origRequirements is verified launch-vintage on one external December source (Afghanistan 2023) plus internal orig/revised separation on 836 plans - construction asserts the GHO cross-check on sampled cohorts; (c) the ~6% of flows lacking decisionDate only affects the optional within-year trajectory variant, not the primary launch-instant formulation; (d) exact per-window counts on final construction data may shift slightly when empty-funding rows are pinned.",
     "sources": [
      {
@@ -8685,7 +8696,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 97.5,
+    "age_hours": 98.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -9378,7 +9389,7 @@
      "regional_slice_gap_2026_10_29": "Burundi RRP 2021 (plan 1017): HDX CSV country slices sum to 14,978,233 funding vs API plan total 19,282,778 (ratio 0.78) - regional plans excluded from the primary population; the flow endpoint carries the authoritative plan total.",
      "vintage_flip_fixture_2026_10_29": "Afghanistan HRP 2023: origRequirements 4,627,363,573 (launch ask, matches GHO 2022-12-01 '$4.6 billion' and UNICEF sitrep 'US$4.62 billion is required'); final funding 1,678,347,238 = 36.3% of orig -> label 0. The same plan in today's HDX CSV: requirements 3,227,372,908 (down-revised post-launch) and percentFunded 52 -> using the CSV column would flip the label to 1 and leak the post-launch revision. Recorded as the construction's forbidden-column fixture."
     },
-    "next_action": "BASELINE COMPLETE (fts-baseline-002, 2026-11-02): the stock runner scores eval AUC 0.6452 on the accepted rebuilt artifact ac529cd4 (exact-byte re-accept before",
+    "next_action": "PACKAGE BUILT AND VERIFIED (2026-11-02): release/ocha-fts-appeal-funding-trajectory/ carries the v2026.11 package - the accepted artifact ac529cd4 bytes (meta.j",
     "packaged_at": null,
     "path": "candidates/ocha-fts-appeal-funding-trajectory/record.json",
     "prediction_time": "The plan's public launch: the instant its requirements are first published (GHO publication in early December for the following plan year, or the plan's own release for late-launched plans). Dated example (all UTC): Afghanistan HRP 2023 (plan id 1117) - GHO 2023 launched 2022-12-01 with Afghanistan at $4.6B; the HRP itself launched end of December 2022 / early January 2023; prediction instant pinned at 2023-01-01T00:00Z. Every feature is fixed by that instant: original requirements (plan endpoint origRequirements = 4,627,363,573, matching the December 2022 GHO ask), plan type, country, and strictly-prior plan-years (all closed years, final values). The target window is the plan year 2023-01-01..2023-12-31, strictly after the instant. VINTAGE POLICY (the decisive timing finding): the HDX CSV 'requirements' column is CURRENT-vintage - of 836 plans with requirements, 286 were revised up and 166 down after launch, and the CSV shows the revised value in revised cases - so it must never be used as a launch feature; the plan endpoint's origRequirements is the launch-vintage denominator, verified against the December 2022 GHO on the Afghanistan fixture. Prior-year funding totals used as features are current-vintage final values for closed years, approximating what was knowable at launch (late-reported flows are the measured gap - flow records carry firstReportedDate and decisionDate; 94.5% decisionDate coverage in a 200-flow sample); this retrospective approximation is declared as the restricted protocol and probed at gate 1.5, not assumed to be operational forecasting.",
@@ -9391,11 +9402,24 @@
     "question": "For a UN-coordinated humanitarian appeal or response plan (HRP/CAP/flash appeal/HNRP/SRP and similar single-country plans) at its public launch instant (requirements first published - GHO early December for the following year, or the plan's own release, whichever the record dates), will the plan receive funding equal to at least 50% of its ORIGINAL (launch-vintage) requirements by the close of its plan year? Features are launch-time attributes (original requirements, plan type, GHO membership, country/region, emergency linkage) plus strictly-prior-year history for the same country (prior-year plan coverage, funding levels, series length). A useful prediction identifies, months ahead, which appeals will end the year underfunded - the quantity GHO gap analysis reports after the fact - enabling donor advocacy and fundraising prioritization.",
     "region": "International organisations",
     "release_baseline": {
-     "auc": null,
-     "display": null,
+     "auc": 0.6452,
+     "display": "0.6452",
      "reference": null
     },
-    "release_splits": {},
+    "release_splits": {
+     "eval": {
+      "positives": 81,
+      "rows": 139
+     },
+     "holdout": {
+      "positives": 96,
+      "rows": 182
+     },
+     "train": {
+      "positives": 279,
+      "rows": 437
+     }
+    },
     "review": "All five discovery contracts reconciled against recorded evidence (2026-10-29). (1) Redistribution: SUPPORTED - the dataset's own page grants use/republish with citation (quote in license_evidence), and the publisher's HDX distribution of the same data is CC BY-IGO; licence_class A; attribution and no-endorsement conditions carry into LICENSE.md. (2) Prediction timing: SUPPORTED with a declared restricted retrospective protocol - launch instant dated and verified on the Afghanistan fixture (GHO 2022-12-01 ask == origRequirements to 3 significant figures); the decisive vintage finding is measured (54% of plans revised post-launch; HDX CSV column carries revised values; the flip demonstrator is recorded); construction uses origRequirements only; prior-year features are current-vintage finals for closed years with the late-reporting gap measured on flows (firstReportedDate lags decisionDate; 94.5% decisionDate coverage); gate-1.5 reverse-history probes on the exact artifact are mandatory in the handoff - the label is a later aggregation of the same stream, so the retrospective posture must be declared, exactly as on unhcr/abs. (3) Obtainable target: SUPPORTED - per-plan-year funding totals from the publisher's API, equal to its own HDX distribution on measured single-country fixtures; label source columns excludable; censoring rule and zero-funding rows pinned; regional-plan slices excluded with the measured 0.78 gap. (4) Split capacity: SUPPORTED by full-population measurement - 782 primary plan-years, three disjoint windows with both classes (table in split_strategy), clustered count recorded (83 country series; year-clustered prevalence drift 68%->43% is a measured phenomenon property, not a defect). (5) Contribution beyond a mirror: SUPPORTED - novelty verdict differentiated (recorded by check-novelty): the publisher and third parties distribute the raw requirements/funding tables (HDX, HAPI, HF per-country mirrors), but no ML-ready per-plan-year coverage task with an instant, splits and a scored contract exists; our contribution is the launch-vintage-denominator formulation, the vintage trap evidence, the dated fixture set and the persistence-referenced evaluation. Residual uncertainties, stated: (a) the WB instrument-outcome drops (identity-dominated, no headroom over persistence) are the named risk for this family - the prior-year same-country coverage rule is the primary reference and decides whether headroom stands; (b) origRequirements is verified launch-vintage on one external December source (Afghanistan 2023) plus internal orig/revised separation on 836 plans - construction asserts the GHO cross-check on sampled cohorts; (c) the ~6% of flows lacking decisionDate only affects the optional within-year trajectory variant, not the primary launch-instant formulation; (d) exact per-window counts on final construction data may shift slightly when empty-funding rows are pinned.",
     "sources": [
      {
@@ -10952,7 +10976,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 140.1,
+    "age_hours": 141.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -12143,7 +12167,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 97.5,
+     "age_hours": 98.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12431,7 +12455,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 97.5,
+     "age_hours": 98.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12717,7 +12741,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 140.1,
+     "age_hours": 141.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -12929,7 +12953,7 @@
    ],
    "pending": [
     {
-     "age_hours": 140.1,
+     "age_hours": 141.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13220,10 +13244,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-02T15:50:02.448304+00:00",
+    "last_run_at": "2026-11-02T16:50:01.541429+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-02T16:00:00+00:00",
+    "next_run_at": "2026-11-02T17:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -13244,10 +13268,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-02T14:45:00.923642+00:00",
+    "last_run_at": "2026-11-02T16:50:01.453613+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-02T14:55:00+00:00",
+    "next_run_at": "2026-11-02T16:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13268,10 +13292,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-02T15:45:53.726638+00:00",
+    "last_run_at": "2026-11-02T16:46:15.246327+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-02T15:50:53.726638+00:00",
+    "next_run_at": "2026-11-02T16:51:15.246327+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -13280,10 +13304,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-02T15:50:01.009414+00:00",
+    "last_run_at": "2026-11-02T16:50:01.359286+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-02T15:55:00+00:00",
+    "next_run_at": "2026-11-02T16:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13304,10 +13328,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-02T14:51:38.605307+00:00",
+    "last_run_at": "2026-11-02T15:50:46.068961+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-02T16:50:00+00:00",
+    "next_run_at": "2026-11-02T17:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -13316,10 +13340,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-02T14:55:00.633627+00:00",
+    "last_run_at": "2026-11-02T15:55:00.640006+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-02T15:55:00+00:00",
+    "next_run_at": "2026-11-02T16:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -13360,9 +13384,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-02T15:50:02.846870+00:00"
+  "updated_at": "2026-11-02T16:50:01.542462+00:00"
  },
- "generated_at": "2026-11-02T15:50:01+00:00",
+ "generated_at": "2026-11-02T16:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -13370,23 +13394,23 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-02T14:44:32Z",
-   "head_sha": "e6bf3b3",
+   "created_at": "2026-11-02T16:12:05Z",
+   "head_sha": "1be4c90",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41464818426"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41479114293"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 40/46 (87%)"
   },
   "head": {
-   "at": "2026-11-02T14:44:28Z",
-   "sha": "e6bf3b3",
-   "subject": "watcher follow-up: all four finished ocha-fts jobs verified already handled and acknowledged with .factory handled marke"
+   "at": "2026-11-02T16:12:01Z",
+   "sha": "1be4c90",
+   "subject": "ocha-fts v2026.11 version-bound suitability review (retain_restricted, isolated rows, current-vintage retrospective; fre"
   },
   "tests": {
    "count": "697",
-   "ok": false
+   "ok": true
   }
  },
  "history": [
@@ -16013,13 +16037,21 @@
    "qualified": 1,
    "sessions_7d": 89,
    "tokens_7d": 40665815
+  },
+  {
+   "at": "2026-11-02T16:50:01+00:00",
+   "live": 19,
+   "published": 13,
+   "qualified": 1,
+   "sessions_7d": 89,
+   "tokens_7d": 41495162
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.5,
-   "as_of": "2026-11-02T15:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-02T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -16028,8 +16060,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.5,
-   "as_of": "2026-11-02T15:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-02T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -16038,14 +16070,14 @@
    "value": 19
   },
   "releases": {
-   "age_minutes": 0.5,
-   "as_of": "2026-11-02T15:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-02T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
    "stale": false,
    "status": "ok",
-   "value": 17
+   "value": 18
   }
  },
  "releases": {
@@ -16546,6 +16578,40 @@
     },
     "verified_all": true,
     "verified_at": "2026-10-23T23:25:59+00:00"
+   },
+   {
+    "assets": 5,
+    "baseline_current": true,
+    "baseline_display": "0.6452",
+    "baseline_eval_auc": 0.6452,
+    "baseline_evidence": "/opt/data/dataset-factory/release/ocha-fts-appeal-funding-trajectory/MANIFEST.json:baseline.contract.eval_auc_from_train_py",
+    "baseline_per_config": {},
+    "baseline_scope": null,
+    "dataset": "ocha-fts-appeal-funding-trajectory",
+    "disposition": "qualified",
+    "errors": [],
+    "persistence_auc": null,
+    "publication_note": "Prepared for human review. Nothing here has been published.",
+    "published": false,
+    "release_tag": "v2026.11",
+    "rows": 758,
+    "splits": {
+     "eval": {
+      "positives": 81,
+      "rows": 139
+     },
+     "holdout": {
+      "positives": 96,
+      "rows": 182
+     },
+     "train": {
+      "positives": 279,
+      "rows": 437
+     }
+    },
+    "verified": {},
+    "verified_all": false,
+    "verified_at": null
    },
    {
     "assets": 5,
@@ -18767,7 +18833,7 @@
   "jobs_total": 167,
   "lifetime_eur": 3.65,
   "live": {
-   "checked_at": "2026-11-02T15:50:33+00:00",
+   "checked_at": "2026-11-02T16:50:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -18842,8 +18908,22 @@
     "run_budget": 900,
     "submitted_brief_sha256": "918b7e0a25efc331a99bb08998e77ef95705779176586a83cc5dd848fd8d870d",
     "ts": "2026-11-02T14:45:37.233543+00:00"
+   },
+   {
+    "elapsed_seconds": 5097.5,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "b22a21aa48f83d7f0dc5c977c752f5d722c75e90cf9a1b07be1c3903e312f36d",
+    "ts": "2026-11-02T16:14:59.512642+00:00"
    }
   ],
-  "total": 3
+  "total": 4
  }
 }
