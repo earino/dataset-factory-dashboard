@@ -1,9 +1,9 @@
 {
  "alarms": [
-  "Research gate refused the next session: research used 40,404,302 tokens in the last 7 days, at or over the 40,000,000-token weekly budget",
-  "Token use at 101% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 169.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (126.5h)"
+  "scout-discovery-session missed its window (2026-11-03T21:35:00+00:00); last status ok",
+  "Token use at 99% of the weekly ceiling",
+  "unhcr-refugee-data-finder has been packaged and actionable for 170.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (127.5h)"
  ],
  "budget": {
   "config": {
@@ -21,47 +21,47 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-11-03T20:50:03.495560+00:00",
+   "moment": "2026-11-03T21:50:02.660734+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "research used 40,404,302 tokens in the last 7 days, at or over the 40,000,000-token weekly budget"
+    "lock held for 1202s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 40404302,
-   "runs_last_7_days": 83,
-   "runs_weighted_last_7_days": 98,
+   "research_tokens_last_7_days": 39649158,
+   "runs_last_7_days": 84,
+   "runs_weighted_last_7_days": 99,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 15,
    "usage": {
     "auxiliary": {
-     "calls": 8,
+     "calls": 16,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 2536,
-     "output_tokens": 3594,
+     "input_tokens": 7869,
+     "output_tokens": 9455,
      "pricing_available": false
     },
     "interactive": {
-     "calls": 297,
+     "calls": 321,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 10279845,
-     "output_tokens": 278419,
+     "input_tokens": 11246373,
+     "output_tokens": 295517,
      "pricing_available": false
     },
     "research": {
-     "calls": 1208,
+     "calls": 1218,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 6716856,
-     "output_tokens": 1197302,
+     "input_tokens": 6792006,
+     "output_tokens": 1203824,
      "pricing_available": false
     }
    },
@@ -8883,7 +8883,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 126.5,
+    "age_hours": 127.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -9381,7 +9381,7 @@
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
    },
    {
-    "age_hours": 22.0,
+    "age_hours": 23.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CH",
@@ -9590,8 +9590,8 @@
     "question": "For a UN-coordinated humanitarian appeal or response plan (HRP/CAP/flash appeal/HNRP/SRP and similar single-country plans) at its public launch instant (requirements first published - GHO early December for the following year, or the plan's own release, whichever the record dates), will the plan receive funding equal to at least 50% of its ORIGINAL (launch-vintage) requirements by the close of its plan year? Features are launch-time attributes (original requirements, plan type, GHO membership, country/region, emergency linkage) plus strictly-prior-year history for the same country (prior-year plan coverage, funding levels, series length). A useful prediction identifies, months ahead, which appeals will end the year underfunded - the quantity GHO gap analysis reports after the fact - enabling donor advocacy and fundraising prioritization.",
     "region": "International organisations",
     "release_baseline": {
-     "auc": 0.6452,
-     "display": "0.6452",
+     "auc": null,
+     "display": "0.6452 (historical artifact; not this release)",
      "reference": null
     },
     "release_splits": {
@@ -11303,7 +11303,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 169.1,
+    "age_hours": 170.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -12667,7 +12667,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 126.5,
+     "age_hours": 127.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12953,7 +12953,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 22.0,
+     "age_hours": 23.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CH",
@@ -13162,8 +13162,8 @@
      "question": "For a UN-coordinated humanitarian appeal or response plan (HRP/CAP/flash appeal/HNRP/SRP and similar single-country plans) at its public launch instant (requirements first published - GHO early December for the following year, or the plan's own release, whichever the record dates), will the plan receive funding equal to at least 50% of its ORIGINAL (launch-vintage) requirements by the close of its plan year? Features are launch-time attributes (original requirements, plan type, GHO membership, country/region, emergency linkage) plus strictly-prior-year history for the same country (prior-year plan coverage, funding levels, series length). A useful prediction identifies, months ahead, which appeals will end the year underfunded - the quantity GHO gap analysis reports after the fact - enabling donor advocacy and fundraising prioritization.",
      "region": "International organisations",
      "release_baseline": {
-      "auc": 0.6452,
-      "display": "0.6452",
+      "auc": null,
+      "display": "0.6452 (historical artifact; not this release)",
       "reference": null
      },
      "release_splits": {
@@ -13215,7 +13215,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 126.5,
+     "age_hours": 127.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13501,7 +13501,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 22.0,
+     "age_hours": 23.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CH",
@@ -13710,8 +13710,8 @@
      "question": "For a UN-coordinated humanitarian appeal or response plan (HRP/CAP/flash appeal/HNRP/SRP and similar single-country plans) at its public launch instant (requirements first published - GHO early December for the following year, or the plan's own release, whichever the record dates), will the plan receive funding equal to at least 50% of its ORIGINAL (launch-vintage) requirements by the close of its plan year? Features are launch-time attributes (original requirements, plan type, GHO membership, country/region, emergency linkage) plus strictly-prior-year history for the same country (prior-year plan coverage, funding levels, series length). A useful prediction identifies, months ahead, which appeals will end the year underfunded - the quantity GHO gap analysis reports after the fact - enabling donor advocacy and fundraising prioritization.",
      "region": "International organisations",
      "release_baseline": {
-      "auc": 0.6452,
-      "display": "0.6452",
+      "auc": null,
+      "display": "0.6452 (historical artifact; not this release)",
       "reference": null
      },
      "release_splits": {
@@ -13761,7 +13761,7 @@
      "target": "Binary: the plan's FTS funding total for its plan year (usage year = plan year; commitments + paid contributions, pledges excluded, USD, publisher's own attribution including boundary flows) divided by its ORIGINAL requirements (launch vintage) is >= 0.50 -> 1, else 0. Label source: per-plan-year funding totals (FTS flow endpoint incoming.fundingTotal with planId+year filter; equal to the publisher's HDX distribution on single-country rows - measured: Yemen HRP 2023 1,774,327,599, Afghanistan HRP 2023 1,678,347,238, both API==CSV to the dollar) and origRequirements from the plan endpoint; both excludable from features by construction (features carry launch attributes and strictly-prior years only). Censoring: plan-years whose year has not closed are excluded and counted (2026 live edge: 24 primary rows), never imputed. Zero-funding rows are the publisher's recorded outcome (empty funding fields in the HDX CSV counted at construction, not dropped silently). Population: PRIMARY = single-country plan-years with origRequirements > 0, 2000-2025 (782 rows; 60 multi-country regional plans excluded from the primary task because the HDX CSV splits them into country slices whose funding sum covers only ~78% of the plan total - measured on Burundi RRP 2021: slices 14,978,233 vs API plan total 19,282,778; regional plans can be a secondary population with flow-endpoint totals if construction wants them). Appeal-linked funding only; the country rows without plan linkage (2,678 HDX CSV rows, 'Not specified' plans) are outside the task population, so the label's meaning is single-population throughout."
     },
     {
-     "age_hours": 169.1,
+     "age_hours": 170.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13973,7 +13973,7 @@
    ],
    "pending": [
     {
-     "age_hours": 169.1,
+     "age_hours": 170.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -14264,10 +14264,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-03T20:50:02.372878+00:00",
+    "last_run_at": "2026-11-03T21:50:01.560713+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-03T21:00:00+00:00",
+    "next_run_at": "2026-11-03T22:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14288,10 +14288,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-03T20:50:01.348294+00:00",
+    "last_run_at": "2026-11-03T21:50:01.021719+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-03T20:55:00+00:00",
+    "next_run_at": "2026-11-03T21:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14312,10 +14312,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-03T20:47:11.103921+00:00",
+    "last_run_at": "2026-11-03T21:47:33.086463+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-03T20:52:11.103921+00:00",
+    "next_run_at": "2026-11-03T21:52:33.086463+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14324,10 +14324,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-03T20:50:01.843123+00:00",
+    "last_run_at": "2026-11-03T21:25:02.043297+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-03T20:55:00+00:00",
+    "next_run_at": "2026-11-03T21:35:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14348,10 +14348,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-03T19:50:52.993985+00:00",
+    "last_run_at": "2026-11-03T20:50:49.963972+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-03T21:50:00+00:00",
+    "next_run_at": "2026-11-03T22:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14360,10 +14360,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-03T19:55:00.747386+00:00",
+    "last_run_at": "2026-11-03T20:55:01.130919+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-03T20:55:00+00:00",
+    "next_run_at": "2026-11-03T21:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14404,9 +14404,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-03T20:50:02.374046+00:00"
+  "updated_at": "2026-11-03T21:50:01.561840+00:00"
  },
- "generated_at": "2026-11-03T20:50:02+00:00",
+ "generated_at": "2026-11-03T21:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -14414,10 +14414,10 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-03T19:16:20Z",
+   "created_at": "2026-11-03T21:49:21Z",
    "head_sha": "232512c",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41701696439"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41725233949"
   },
   "coverage": {
    "ok": true,
@@ -17289,13 +17289,23 @@
    "qualified": 1,
    "sessions_7d": 83,
    "tokens_7d": 40404302
+  },
+  {
+   "at": "2026-11-03T21:50:01+00:00",
+   "live": 20,
+   "published": 13,
+   "qualified": 1,
+   "sessions_7d": 84,
+   "tokens_7d": 39649158
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 1202s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-03T20:50:02+00:00",
+   "as_of": "2026-11-03T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17305,7 +17315,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-03T20:50:02+00:00",
+   "as_of": "2026-11-03T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -17315,7 +17325,7 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-03T20:50:02+00:00",
+   "as_of": "2026-11-03T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -17825,9 +17835,9 @@
    },
    {
     "assets": 5,
-    "baseline_current": true,
-    "baseline_display": "0.6452",
-    "baseline_eval_auc": 0.6452,
+    "baseline_current": false,
+    "baseline_display": "0.6452 (historical artifact; not this release)",
+    "baseline_eval_auc": null,
     "baseline_evidence": "/opt/data/dataset-factory/release/ocha-fts-appeal-funding-trajectory/MANIFEST.json:baseline.contract.eval_auc_from_train_py",
     "baseline_per_config": {},
     "baseline_scope": null,
@@ -17858,7 +17868,7 @@
      "huggingface": true
     },
     "verified_all": true,
-    "verified_at": "2026-11-02T22:47:40+00:00"
+    "verified_at": "2026-11-03T21:49:09Z"
    },
    {
     "assets": 5,
@@ -18023,12 +18033,12 @@
   "histogram": {
    "bins": [
     {
-     "count": 15,
+     "count": 17,
      "hi": 0.005,
      "lo": 0.002
     },
     {
-     "count": 48,
+     "count": 49,
      "hi": 0.01,
      "lo": 0.005
     },
@@ -18048,7 +18058,7 @@
      "lo": 0.05
     },
     {
-     "count": 2,
+     "count": 3,
      "hi": 0.2,
      "lo": 0.1
     },
@@ -18065,10 +18075,10 @@
    ],
    "max": 0.6296,
    "median": 0.0139,
-   "n": 171,
-   "p90": 0.0561,
+   "n": 175,
+   "p90": 0.0569,
    "ref_rate": 0.06924,
-   "total": 5.11
+   "total": 5.28
   },
   "jobs": [
    {
@@ -18505,15 +18515,15 @@
    },
    {
     "created_at": "2026-11-03T19:12:55.935675+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-11-03T21:25:26.068548+00:00",
+    "eur": 0.0254,
+    "hours": 2.208,
     "id": "cqc-chd-001",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.1529,
     "rate_eur": 0.01152,
     "server_type": "cx23",
-    "status": "collected"
+    "status": "deleted"
    },
    {
     "created_at": "2026-10-31T00:24:07.306988+00:00",
@@ -18996,6 +19006,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-03T21:42:57.705297+00:00",
+    "deleted_at": "2026-11-03T21:45:59.368552+00:00",
+    "eur": 0.0006,
+    "hours": 0.05,
+    "id": "fts-hf-002",
+    "location": "hel1",
+    "normalised_eur": 0.0035,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-02T22:32:07.994009+00:00",
     "deleted_at": "2026-11-02T22:35:08.572654+00:00",
     "eur": 0.0006,
@@ -19003,6 +19025,30 @@
     "id": "fts-publish-001",
     "location": "hel1",
     "normalised_eur": 0.0035,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-03T21:32:26.363544+00:00",
+    "deleted_at": "2026-11-03T21:37:18.196685+00:00",
+    "eur": 0.0009,
+    "hours": 0.081,
+    "id": "fts-publish-002",
+    "location": "hel1",
+    "normalised_eur": 0.0056,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-03T21:26:17.236107+00:00",
+    "deleted_at": "2026-11-03T21:29:40.247099+00:00",
+    "eur": 0.0006,
+    "hours": 0.056,
+    "id": "fts-requal-001",
+    "location": "hel1",
+    "normalised_eur": 0.0039,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -20136,19 +20182,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 10,
-  "jobs_total": 172,
-  "lifetime_eur": 3.67,
+  "jobs_this_month": 14,
+  "jobs_total": 175,
+  "lifetime_eur": 3.69,
   "live": {
-   "checked_at": "2026-11-03T20:50:37+00:00",
+   "checked_at": "2026-11-03T21:50:36+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 3.7,
-  "month_to_date": 0.04,
+  "month_hours": 6.1,
+  "month_to_date": 0.07,
   "months": [
    {
     "eur": 2.4452,
@@ -20163,33 +20209,18 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.0431,
-    "hours": 3.73,
-    "jobs": 10,
+    "eur": 0.0706,
+    "hours": 6.12,
+    "jobs": 14,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 0.43
+  "projected_month_eur": 0.71
  },
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
-  "recent": [
-   {
-    "elapsed_seconds": 1747.9,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "bd174b1056ff7ee705870dbb6a411235e42f1dea702462553fbc62153aca1547",
-    "ts": "2026-11-03T19:29:12.022092+00:00"
-   }
-  ],
-  "total": 1
+  "recent": [],
+  "total": 0
  }
 }
