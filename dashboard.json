@@ -1,8 +1,9 @@
 {
  "alarms": [
+  "Research gate refused the next session: research used 40,142,358 tokens in the last 7 days, at or over the 40,000,000-token weekly budget",
   "Token use at 100% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 157.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (114.5h)"
+  "unhcr-refugee-data-finder has been packaged and actionable for 158.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (115.5h)"
  ],
  "budget": {
   "config": {
@@ -20,14 +21,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-11-03T08:50:02.805295+00:00",
+   "moment": "2026-11-03T09:50:02.650691+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 601s by scout-research"
+    "research used 40,142,358 tokens in the last 7 days, at or over the 40,000,000-token weekly budget"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 39880269,
+   "research_tokens_last_7_days": 40142358,
    "runs_last_7_days": 86,
    "runs_weighted_last_7_days": 101,
    "session_cap_per_week": 200,
@@ -54,13 +55,13 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 737,
+     "calls": 782,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 4565950,
-     "output_tokens": 665238,
+     "input_tokens": 4773361,
+     "output_tokens": 719916,
      "pricing_available": false
     }
    },
@@ -82,12 +83,12 @@
    "US": 1
   },
   "counts": {
-   "dropped": 47,
+   "dropped": 48,
    "investigating": 18,
    "packaged": 3,
    "parked": 29,
    "published": 13,
-   "ready": 12
+   "ready": 13
   },
   "errors": [],
   "live": [
@@ -8433,7 +8434,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 114.5,
+    "age_hours": 115.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -8931,7 +8932,7 @@
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
    },
    {
-    "age_hours": 10.0,
+    "age_hours": 11.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CH",
@@ -9236,6 +9237,145 @@
     "split_strategy": "Not reached - the aggregate coverage measurement (below) closed the lead before split work. For the propagation target, split capacity is not the binding failure: the target itself is uninterpretable at the measured coverage mix (negatives are censoring-dominated; the four reliably-contributing channels - US CPSC, Canada, Australia, EU Safety Gate - are exactly the national portals a consumer can already download, and EU Safety Gate natively publishes follow-up alerts by member states, covering the EU part of the propagation signal).",
     "status": "dropped",
     "target": "Would have been binary: a later portal record for the same product in a different jurisdiction within N days, label source = a later recall record linked to the same product. Two blockers measured/verified: (1) no recorded second-jurisdiction recall cannot be read as absence, because contributor coverage is radically heterogeneous (measured: ~20 of 50 jurisdictions carry fewer than 100 lifetime notices; the OECD's own documentation states 'The scope of the recalls depends on the mandate of the particular government authority providing the information'); (2) the 4-row sample carries no product identity field (GTIN/model) beyond product.name and GS1 GPC category facets, which identify a category, not a product - the same-product link the label depends on is not visibly present in the public search payload."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "FR",
+    "domain": "Business and human rights / non-judicial grievance mechanisms: OECD Guidelines for Multinational Enterprises specific instances (RBC / corporate accountability)",
+    "id": "oecd-ncp-specific-instance-acceptance",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "access_cost_2026_11_03": {
+      "case_pages": "~700 pages, client-side rendered (plain curl/Googlebot UA returns a 5.7-5.9 KB empty shell - measured; a JS-rendering client is required, e.g. headless browser on the worker); rendered page ~15-40 KB each, est. 15-30 MB total, est. 700-750 requests; wall-clock well under one hour on a small worker VM",
+      "enumeration": "47 RSS requests (~660 KB total) for 700 case URLs + listing dates + truncated summaries",
+      "note": "estimates for the rendering step are labelled as such; the enumeration and shell measurements are measured"
+     },
+     "closed_cohort_acceptance_publisher_2026_11_03": {
+      "2021": {
+       "closed": 43,
+       "concluded": 27,
+       "not_accepted": 16,
+       "not_accepted_pct": 37,
+       "source": "Annual Report 2021 (c OECD 2022)"
+      },
+      "2024": {
+       "accepted_pct": 58,
+       "closed": 52,
+       "source": "2025 Annual Report (CC BY 4.0): 'slight decrease in acceptance rate, compared to 58% in 2024'"
+      },
+      "2025": {
+       "accepted_pct": 54,
+       "closed": 56,
+       "concluded_after_acceptance": 30,
+       "not_accepted": 26,
+       "source": "2025 Annual Report (CC BY 4.0)",
+       "submitter_class": {
+        "individuals": {
+         "accepted": 11,
+         "accepted_pct": 39,
+         "closed": 28
+        },
+        "ngos": {
+         "accepted": 12,
+         "accepted_pct": 86,
+         "closed": 14
+        },
+        "trade_unions": {
+         "accepted": 5,
+         "accepted_pct": 63,
+         "closed": 8
+        }
+       }
+      }
+     },
+     "db_inclusion_discretion_2026_11_03": {
+      "implication": "the historical filing population is enumerable only from the current DB vintage; DB listing dates are NOT filing dates and NOT decision dates; the task is a clearly-labelled current-vintage retrospective panel with no operational point-in-time claim for history (same posture family as ocha-fts and za-statsa), and construction must state this in the dataset card",
+      "quote": "all ongoing cases might not be reflected in the database, as NCPs have discretion as to the moment they report a case for inclusion in the database",
+      "source": "NCP Grievance Mechanism FAQ (oecd.org PDF, fetched 2026-11-03)"
+     },
+     "db_listing_lag_2026_11_03": {
+      "measured": "kr0029: filed 2026-02-27, DB listing date 2026-02-27 (lag 0); ca0029 (United Tegaru Canada vs East Africa Metals): filed 2022-09-10, DB listing date 2026-05-12 (lag ~32 months); the DB 'Publication Date' filter therefore cannot stand in for any timing field",
+      "source": "RSS listing dates vs case-page 'Date' fields and summaries, 2026-11-03"
+     },
+     "db_total_2026_11_03": {
+      "method": "RSS pagination: curl 'https://api.oecd.org/webcms/search/rss?siteName=oecd&interfaceLanguage=en&hiddenFacets=siteName%3Amne-guidelines&page=N&size=15' for N=0..47; retained as probe_ncp_rss.py",
+      "result": "page=0..45 -> 15 items each, page=46 -> 10 items, page=47 -> 0; total 700; size parameter capped at 15 (size=100 returns 15); matches the site's 'Over 700 cases' statement and '700 results' on the listing page; ~14 KB per RSS page, 47 requests total for enumeration"
+     },
+     "field_structure_sample_2026_11_03": {
+      "cases": [
+       "pl0001 (filed 2006-05-04, US->Poland transfer, Status Concluded)",
+       "kr0029 (filed 2026-02-27, Status Not accepted, Outcomes Recommendations, initial assessment published 2026-05-21)"
+      ],
+      "fields": "Lead NCP, Supporting NCP, Date (= submission date), Country of the issue, Source (submitter class), Sector, Subsectors, Topics, Subtopics, Status, Outcomes, Procedural issues, Entity involved, Relationships to Other Instruments + retrospective NCP-authored Summary",
+      "gap": "no structured initial-assessment decision-date field on sampled pages; decision timing lives in the summary prose and linked NCP statements; the label itself (Status) needs no decision date - eligibility is terminal-status-at-vintage"
+     },
+     "filings_per_year_publisher_table_2026_11_03": {
+      "caveat": "publisher's own numbers carry small internal inconsistencies (report text: '120 case submissions' and '58 cases in 2020' vs table rows 119 and 57; the 2021 report states 48 received in 2021 vs table 47) - exact counts must come from the DB scrape at construction; the table is evidence of volume, not the shipped count",
+      "source": "2025 Annual Report on NCP Activity (CC BY 4.0), 'Cases received by NCPs' table",
+      "years": {
+       "2011": 31,
+       "2012": 27,
+       "2013": 39,
+       "2014": 39,
+       "2015": 24,
+       "2016": 31,
+       "2017": 26,
+       "2018": 49,
+       "2019": 36,
+       "2020": 57,
+       "2021": 47,
+       "2022": 41,
+       "2023": 55,
+       "2024": 56,
+       "2025": 119
+      }
+     }
+    },
+    "next_action": "Hand to construction (worker; discovery is complete and no construction was run in this session): (1) scrape the 700 case records via the RSS enumeration (47 pa",
+    "packaged_at": null,
+    "path": "candidates/oecd-ncp-specific-instance-acceptance/record.json",
+    "prediction_time": "One sentence: the prediction is made on the submission date of the specific instance (day grain; the NCP-recorded 'Date' field on the case record), using only the complaint's own DB-coded attributes (lead NCP, supporting NCP, country of the issue, submitter class, sector/subsector, Guidelines topics and subtopics cited, entity-involved type) plus trailing history computed only from cases whose initial assessment was already decided before that date, and the label is the initial-assessment decision that the NCP publishes strictly afterwards. Dated example (Europe/Paris, publisher HQ; all dates recorded by the publisher at day grain, no time of day): case kr0029, Hoang Gia Trading & Services vs Lotte Corporation; feature event window = all specific instances with submission date < 2026-02-27 and decision-published before the instant (trailing acceptance rates, counts per NCP/submitter/topic); first-available timestamps and version = the complaint itself exists 2026-02-27 (Korean NCP, filed 2026-02-27 local; the DB's own listing date for this case equals the filing date - measured, see measurements.db_listing_lag), and the case's structured attributes are as coded in the current database vintage (fetched 2026-11-03; the database migrated platform in June 2025 and no historical vintages are archived - current-vintage posture, explicit assumption); eligibility cutoff = submission date in a scored window AND terminal status at the extraction vintage ('In progress' cases are excluded, not labelled); prediction instant = 2026-02-27 00:00 Europe/Paris (day-grain convention stated); target start/end = the initial assessment event, published 2026-05-21 (Korean NCP statement, decision 'not accepted'), i.e. target window 2026-02-27..2026-05-21 ending at the decision - every part of the target window is after the instant; the DB listing date (2026-02-27 for this case) is never used as instant or decision date. For any future-event scoring, a row scored at filing must use only rows decided strictly before its filing date for history features.",
+    "publisher": "Organisation for Economic Co-operation and Development (OECD), Paris (Investment Committee / Responsible Business Conduct team); case data reported by the National Contact Points of the 52 adherent countries; the OECD's own jurisdiction is France (Paris HQ) - 'international' is not a country",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the filing instant of a specific instance - the day an interested party (individual, NGO, trade union, business or other submitter) submits a complaint to a National Contact Point (NCP) alleging that a multinational enterprise did not observe the OECD Guidelines - will the NCP accept the case for further examination at initial assessment (Step 3 of the procedure), or will the case be closed without proceeding ('not accepted', which per the publisher's own terminology also includes withdrawals before the initial assessment completes)? A useful prediction tells complainants whether and how a grievance framed this way is likely to clear the intake gate of the chosen NCP, tells companies and RBC observers which complaint profiles are likely to enter mediation, and gives the 52-NCP network a measurable intake-consistency signal across the functional-equivalence agenda the OECD itself tracks. Acceptance is a real institutional decision published 1-12+ months after filing (measured: 2021-2025 closed-cohort acceptance 54-63%), not an editorial artefact.",
+    "region": "International organisations",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "All five discovery contracts reconciled against recorded evidence (2026-11-03, discovery-only session; no construction, no worker). (1) Redistribution SUPPORTED - class A: OECD T&C grant Data use 'for any purpose, even for commercial use' absent additional restrictions, none found on the database or case pages; 2025 annual report is explicitly CC BY 4.0; attribution format prescribed ('[OECD (year), Title, URL]') and carried into LICENSE.md; the restricted-marked annual-report data annexes are excluded from any redistributed artifact. (2) Prediction timing SUPPORTED with one recorded assumption - instant = submission date (day grain, publisher-recorded per case), label event strictly after (initial assessment published 1-12+ months later; measured kr0029: filed 2026-02-27, decided 2026-05-21); the DB-coded complaint attributes (NCP, issue country, submitter class, sector, topics cited) are complaint-stated, but the codification itself is NCP/OECD-assigned in the current vintage - an ASSUMPTION to verify at construction on a bounded sample (compare DB topic codes against the complaint text in the linked initial-assessment statements; a material mismatch downgrades those columns to post-hoc and they are dropped); DB listing dates measured as unusable for timing (0 to ~32-month lag); current-vintage posture explicit (DB migrated platform June 2025, no historical vintages; inclusion timing discretionary per the publisher's FAQ - quoted). (3) Target SUPPORTED - binary acceptance at initial assessment derived from the publisher's own Status taxonomy (quoted Box-terminology: closed = concluded OR not accepted, incl. pre-assessment withdrawals; in progress = pending); label source column excludable (Status/Outcomes/Procedural issues/summaries never shipped as features); censoring handled by eligibility (terminal status at extraction), not by treating pending as negative. (4) Split capacity SUPPORTED at the aggregate level - publisher-measured filings/year for every proposed window (train ~420, eval 189, holdout 152 minus pending), both classes measured in the 2021/2024/2025 closed cohorts (63%/58%/54% accepted) and strongly varying by submitter class (39-86% in 2025); exact per-window counts, the pending fraction of 2022-2024 filings and the clustered counts (by NCP, by respondent company, by year) are the first construction measurement on the worker - this record never presents those as known. (5) Not a mirror SUPPORTED as differentiated - the OECD publishes the registry and aggregate reports but no prediction task; the nearest prior art is an academic hand-coded dataset of 81 human-rights cases concluded 2012-2021 scored on remedy gravity (Springer chapter, descriptive, not distributed in ML-ready form, different population and different target), named in the novelty check; no ML-ready NCP acceptance/conclusion benchmark found in catalog or literature searches. RISKS named for the construction gate: (a) the WB-instrument-family defect - if a trailing NCP(+submitter-class) rate table matches the model, there is no headroom and the candidate drops at baseline (the reference triad is therefore mandatory: global prior, NCP trailing rate, NCP x submitter-class trailing rate); (b) topic-codification timing (assumption above); (c) small-population clustering (top-5 NCPs = 52% of recent filings; ~120-190 rows per window) - the honest effective-sample and cluster counts must accompany any quoted score.",
+    "sources": [
+     {
+      "licence": "OECD Terms and Conditions (https://www.oecd.org/en/about/terms-conditions.html): OECD.org is an 'OECD Website'; Data may be used 'for any purpose, even for commercial use' where no additional restriction applies; no dataset-specific restrictive notice appears on the database or case pages (checked 2026-11-03)",
+      "name": "OECD Database of specific instances handled by National Contact Points (case-level registry, 700+ cases since 2000; per-case structured Overview: Lead NCP, Supporting NCP, Date, Country of the issue, Source/submitter, Sector, Subsectors, Topics, Subtopics, Status, Outcomes, Procedural issues, Entity involved, Relationships to Other Instruments; plus an NCP-authored retrospective Summary)",
+      "url": "https://www.oecd.org/en/networks/national-contact-points-for-responsible-business-conduct/database.html"
+     },
+     {
+      "licence": "'OECD 2026, CC BY 4.0. For the full terms of use and applicable disclaimers see https://www.oecd.org/en/about/terms-conditions.html' (report footer)",
+      "name": "OECD 2025 Annual Report on NCP Activity (publisher's own summary product; CC BY 4.0 footer) - yearly filings table 2011-2025, closed-cohort acceptance 2024/2025, submitter-class acceptance 2025, NCP concentration",
+      "url": "https://www.oecd.org/content/dam/oecd/en/networks/national-contact-points/OECD-2025-Annual-Report-on-NCP-Activity.pdf"
+     },
+     {
+      "licence": "2021 report (c) OECD 2022, pre-Open-Access instrument; used only as the publisher's own summary cross-check with citation, not as a redistributed input. The shipped artifact derives solely from the database (current T&C Data clause) and facts are not copyrightable content",
+      "name": "OECD Annual Report on the Activity of NCPs 2021 (corroboration for the eval-era cohort) + NCP FAQ on the grievance mechanism (inclusion-discretion statement) + NCP database keyword taxonomy PDF (documented filter vocabulary)",
+      "url": "https://www.oecd.org/content/dam/oecd/en/networks/national-contact-points/annual-report-on-the-activity-of-national-contact-points-2021.pdf"
+     }
+    ],
+    "split_strategy": "PROPOSED windows by submission year, disjoint; exact per-window row and label counts are the FIRST construction measurement (they require the full 700-case scrape - bulk work, worker), so the numbers below are the publisher's own reported aggregates plus measured closed-cohort acceptance rates, never presented as full-DB counts. Unit = one specific instance (DB case ID). Train: filings 2000-2017 (publisher filings table 2011-2017 sums to 217; pre-2011 filings approximately 203 from DB total 700 minus 2011-2025 - approximate, to be measured exactly at construction). Eval: filings 2018-2021 (189 per the publisher's table; all resolved by extraction - measured 2021 cohort: 63% accepted/37% not accepted). Holdout: filings 2022-2024 (152 per the publisher's table, minus rows still 'In progress' at extraction; measured cohort acceptance 2024: 58%, 2025: 54%). 2025-2026 filings are EXCLUDED from scored rows: the 2025 cohort is mostly still pending (publisher's data annex: at end-2025, of the 120 received in 2025, 99 in progress, 19 not accepted, 2 concluded; restricted-marked annex cited as cross-check only - construction re-measures censoring exactly from the DB). Both classes measured in every recent closed cohort (2021: 27/16, 2024: 30/22, 2025: 30/26). Cluster structure to measure at construction: cases cluster by lead NCP (top-5 NCPs hold 52% of 2025 submissions), by respondent company (repeat filings against the same company occur, incl. coordinated multi-NCP campaigns), and by submission year (the 2025 individual-submission surge is a cohort effect: 71% of 2025 submissions vs 23% in 2024) - the clustered count and an interval on it are required outputs of the first construction measurement, per the discovery policy.",
+    "status": "ready",
+    "target": "Binary label per specific instance: 1 = the NCP accepted the case for further examination at initial assessment (DB Status values indicating acceptance: 'Concluded' after acceptance, or an in-progress-but-accepted state; the publisher's status taxonomy from the case records and the annual reports: closed = concluded OR not accepted, in progress = awaiting initial assessment OR accepted and ongoing); 0 = the case did not proceed past initial assessment ('Not accepted', which the publisher defines to include cases withdrawn prior to completion of the initial assessment). Source columns: the DB case-record 'Status' field (label source; excludable - not shipped as a feature) with 'Outcomes', 'Procedural issues' and all prose summaries excluded from features as post-hoc. Rows with Status 'In progress' at extraction are excluded from scored splits (censored, not negative). Label derivation needs no external data and no threshold."
    },
    {
     "awaiting_operator": false,
@@ -10714,7 +10854,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 157.1,
+    "age_hours": 158.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -11302,6 +11442,84 @@
     "split_strategy": "Temporal splits on board_approval calendar year, labeled population censored at 2017 approvals (measured: >=94% of 2010-2017 approvals are disbursement-closed in the 2026-09-30 snapshot, 0-6 open rows per year; 2018+ approvals are 12-96% still open and are excluded as censored, per-year counts recorded in measurements). Candidate windows at the >=90% label, all three carrying both classes with hundreds of independent country-year clusters: train approvals <=1999: 6,180 rows (4,086 pos / 1,855 neg; 1,611 distinct country-year positives across 129 countries), eval 2000-2009: 1,166 rows (774 / 369; 319 country-year clusters), holdout 2010-2017: 934 rows (614 / 303; 271 country-year clusters). Positives cluster by project (a project_id can carry several loans: 3,302 distinct projects behind 4,086 train positives) and by country-year; construction must keep multiple loans of one project_id on one side of every split boundary and report both row and cluster counts.",
     "status": "dropped",
     "target": "Binary completion label: final_disbursed_ratio = disbursed_amount / original_principal_amount >= 0.90 (primary) or >= 0.99 (near-balanced alternative, base rate 51.5%), computed only on instruments whose disbursement phase is closed (terminal loan_status - Fully Repaid/Cancelled/Disbursed/Transferred, Terminated - or Repaying, or closed_date <= data-as-of; 'Repaying' with undisbursed>0 occurs on 2/9538 rows and is excluded by construction). Label source columns (disbursed_amount, undisbursed_amount, cancelled_amount, closed_date_most_recent, last_disbursement_date, loan_status, all repayment fields) are excluded from shipped features. Zero ratio (312 IBRD rows, fully cancelled/terminated with cancelled_amount = original) is a genuine negative (no disbursement ever made), distinguished from missing data by the in-row cancelled_amount. Population: IBRD instruments from DS00047 with original_principal_amount > 0, excluding guarantees (loan_number prefixes IBRDB/IBRDG, 113 rows) and B-loan/guarantee-facility types (BLNR 18, BLNC 2, GURB 84, GUBF 9); the type mix is recorded so construction can scope further with evidence."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "US",
+    "domain": "Multilateral development procurement: World Bank Investment Project Financing contract awards (STEP procurement stream)",
+    "id": "wb-procurement-contract-awards",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "schema_2026_11_03": {
+      "columns": "fiscal_year, region, borrower_country, project_id, project_name, project_global_practice, procurement_category, procurement_method, contract_number, contract_description, borrower_contract_reference_number, contract_signing_date, supplier, supplier_country, supplier_contract_amount_usd, contract_signed_calendar_year, as_of_date (+WB contract number and 3 further fields in the 21-column FY2020+ set)",
+      "finding": "at-award attributes and a snapshot stamp only; no post-signature outcome column exists in any segment",
+      "method": "published Column Details of DS01004 (17 columns, enumerated on the dataset page) and the DS00005 dataset page (21 columns); no bulk download was made"
+     },
+     "volume_2026_11_03": {
+      "DS00005_fy2020_plus": {
+       "columns": 21,
+       "data_as_of": "2026-11-03",
+       "rows": 296836,
+       "update_schedule": "daily"
+      },
+      "DS01004_fy2001_2016": {
+       "columns": 17,
+       "csv_bytes": 49920000,
+       "data_as_of": "2022-03-11",
+       "retired": true,
+       "rows": 146802
+      },
+      "DS04691_fy2017_2019": {
+       "columns": 17,
+       "rows": 63912
+      }
+     }
+    },
+    "next_action": "None - closed on task-shape/schema grounds with the probes recorded; the licence is class A so a future session need not re-check it. Re-open only if the World ",
+    "packaged_at": null,
+    "path": "candidates/wb-procurement-contract-awards/record.json",
+    "prediction_time": "One sentence (moot, recorded for the rejection): the prediction would be made at the end of fiscal quarter T using awards with contract_signing_date <= that instant, about awards signed in T+1..T+2; contract_signing_date is a documented at-award column and the as_of_date snapshot column is the publisher's refresh stamp, not an outcome; the FY2001-2016 segment is prior-reviewed-only while FY2020+ is all IPF awards, so the population definition breaks across segments and pre-FY2020 history cannot serve as the same population for FY2020+ rows.",
+    "publisher": "World Bank Group (IBRD/IDA), Washington DC - Finances One platform (financesone.worldbank.org), procurement data sourced from STEP (Systematic Tracking of Exchanges in Procurement), entered by borrowing countries; the publisher's own jurisdiction is the United States (Washington DC HQ) - 'international' is not a country",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "The task family this source could carry: at the end of a quarter, given a WB IPF project's contract-award history and attributes, predict whether the project will sign another major contract award in the next one to two quarters (award occurrence / pipeline continuation), or predict the composition of the next award (local vs foreign supplier country, procurement method, category). Prospective users would be firms/consultants watching the WB procurement pipeline and observers of implementation slowdowns. DROPPED before construction: the stream carries no post-award outcome, so every derivable label is future administrative activity on the same borrower-entered stream - the target family measured twice on WB instruments with no headroom over identity/rate tables (see rejection_reason).",
+    "region": "International organisations",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Discovery-only session 2026-11-03, regional tick International organisations (World Bank named). The two existing WB drops covered instrument outcomes (IEG ratings, disbursement completion); this was the one un-probed WB row-level family. Probes were bounded and coordinator-side: published dataset pages and metadata only, no bulk download (the 50 MB CSV stays on the publisher). Contracts: redistribution SUPPORTED (class A, dataset-specific CC BY 4.0 recorded); prediction timing STATEABLE (contract_signing_date is documented) but MOOT; target NOT SUPPORTABLE (no post-award outcome column; only administrative recurrence labels); split capacity present (296k+ rows, quarterly instants) but irrelevant once the target fails; contribution NOT SUPPORTABLE within this stream (the WB itself redistributes the full data daily with bulk access, so our value-add would be only the task formulation - and the formulation lands in the family already measured twice as rate-table-dominated). The licence evidence is recorded deliberately so a reopened lead starts past the licence check.",
+    "sources": [
+     {
+      "licence": "Dataset metadata block: 'License: Creative Commons Attribution 4.0 International'; platform Terms of Use: WBG-owned data under CC BY 4.0 IGO unless otherwise labeled",
+      "name": "Contract Awards in Investment Project Financing (Since FY 2020) - WBG Finances One DS00005 (base dataset, source STEP, all IPF awards)",
+      "url": "https://financesone.worldbank.org/contract-awards-in-investment-project-financing-since-fy-2020/DS00005"
+     },
+     {
+      "licence": "DS01004 metadata: 'License: Creative Commons Attribution 4.0 International'",
+      "name": "Contract Awards in IPF since FY2017-FY2019 (DS04691) and the retired FY2001-FY2016 prior-reviewed set (DS01004)",
+      "url": "https://financesone.worldbank.org/contract-awards-in-investment-project-financing-since-fy-2017-fy-2019/DS04691"
+     },
+     {
+      "licence": "CC BY 4.0 (dataset-specific metadata) / CC BY 4.0 IGO (platform default for WBG-owned data)",
+      "name": "Publisher's own scoping and quality statements (dataset descriptions, read 2026-11-03)",
+      "url": "https://financesone.worldbank.org/terms"
+     }
+    ],
+    "split_strategy": "",
+    "status": "dropped",
+    "target": "No defensible target exists in this stream: the documented 21-column schema (DS00005, read 2026-11-03) contains only at-award attributes (project, borrower country, procurement category/method, supplier, supplier country, contract amount, signing date, WB contract number) and the snapshot date; there is no post-signature field (no revision, modification, termination, completion or end-date column), and the publisher states contracts 'may be modified after signature' with modifications not reflected. Any label must therefore be a future award occurrence or composition on the same stream - administrative activity, not an externally observable outcome."
    },
    {
     "awaiting_operator": false,
@@ -11905,7 +12123,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 114.5,
+     "age_hours": 115.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12191,7 +12409,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 10.0,
+     "age_hours": 11.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CH",
@@ -12453,7 +12671,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 114.5,
+     "age_hours": 115.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12739,7 +12957,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 10.0,
+     "age_hours": 11.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CH",
@@ -12999,7 +13217,7 @@
      "target": "Binary: the plan's FTS funding total for its plan year (usage year = plan year; commitments + paid contributions, pledges excluded, USD, publisher's own attribution including boundary flows) divided by its ORIGINAL requirements (launch vintage) is >= 0.50 -> 1, else 0. Label source: per-plan-year funding totals (FTS flow endpoint incoming.fundingTotal with planId+year filter; equal to the publisher's HDX distribution on single-country rows - measured: Yemen HRP 2023 1,774,327,599, Afghanistan HRP 2023 1,678,347,238, both API==CSV to the dollar) and origRequirements from the plan endpoint; both excludable from features by construction (features carry launch attributes and strictly-prior years only). Censoring: plan-years whose year has not closed are excluded and counted (2026 live edge: 24 primary rows), never imputed. Zero-funding rows are the publisher's recorded outcome (empty funding fields in the HDX CSV counted at construction, not dropped silently). Population: PRIMARY = single-country plan-years with origRequirements > 0, 2000-2025 (782 rows; 60 multi-country regional plans excluded from the primary task because the HDX CSV splits them into country slices whose funding sum covers only ~78% of the plan total - measured on Burundi RRP 2021: slices 14,978,233 vs API plan total 19,282,778; regional plans can be a secondary population with flow-endpoint totals if construction wants them). Appeal-linked funding only; the country rows without plan linkage (2,678 HDX CSV rows, 'Not specified' plans) are outside the task population, so the label's meaning is single-population throughout."
     },
     {
-     "age_hours": 157.1,
+     "age_hours": 158.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13211,7 +13429,7 @@
    ],
    "pending": [
     {
-     "age_hours": 157.1,
+     "age_hours": 158.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13435,7 +13653,7 @@
    "CO": 2,
    "DE": 2,
    "EU": 12,
-   "FR": 2,
+   "FR": 3,
    "GB": 14,
    "GH": 1,
    "HK": 2,
@@ -13454,7 +13672,7 @@
    "SG": 1,
    "TH": 1,
    "TW": 3,
-   "US": 14,
+   "US": 15,
    "VN": 1,
    "ZA": 7
   },
@@ -13462,24 +13680,24 @@
    "Africa": 12,
    "East Asia": 9,
    "Europe": 29,
-   "International organisations": 13,
+   "International organisations": 15,
    "Latin America": 12,
    "North America": 25,
    "Oceania": 9,
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 47,
+   "dropped": 48,
    "investigating": 18,
    "packaged": 3,
    "parked": 29,
    "published": 13,
-   "ready": 12
+   "ready": 13
   },
-  "candidates": 122,
-  "live": 46,
-  "live_non_us": 40,
-  "live_non_us_share": 0.87,
+  "candidates": 124,
+  "live": 47,
+  "live_non_us": 41,
+  "live_non_us_share": 0.872,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -13501,10 +13719,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-03T08:50:02.227416+00:00",
+    "last_run_at": "2026-11-03T09:50:01.658610+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-03T09:00:00+00:00",
+    "next_run_at": "2026-11-03T10:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -13525,10 +13743,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-03T08:50:01.038965+00:00",
+    "last_run_at": "2026-11-03T09:50:01.449037+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-03T08:55:00+00:00",
+    "next_run_at": "2026-11-03T09:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13549,10 +13767,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-03T08:47:46.045750+00:00",
+    "last_run_at": "2026-11-03T09:48:08.529576+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-03T08:52:46.045750+00:00",
+    "next_run_at": "2026-11-03T09:53:08.529576+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -13561,10 +13779,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-03T08:35:01.448796+00:00",
+    "last_run_at": "2026-11-03T09:50:00.989266+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-03T08:45:00+00:00",
+    "next_run_at": "2026-11-03T09:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13585,10 +13803,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-03T07:50:44.849294+00:00",
+    "last_run_at": "2026-11-03T08:50:44.751159+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-03T09:50:00+00:00",
+    "next_run_at": "2026-11-03T10:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -13597,10 +13815,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-03T07:55:01.372747+00:00",
+    "last_run_at": "2026-11-03T08:55:01.342720+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-03T08:55:00+00:00",
+    "next_run_at": "2026-11-03T09:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -13641,29 +13859,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-03T08:50:02.228494+00:00"
+  "updated_at": "2026-11-03T09:50:01.659669+00:00"
  },
- "generated_at": "2026-11-03T08:50:01+00:00",
+ "generated_at": "2026-11-03T09:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 122
+   "passing": 124
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-03T06:57:52Z",
-   "head_sha": "35d32f7",
+   "created_at": "2026-11-03T09:14:16Z",
+   "head_sha": "101b450",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41593181286"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41609376740"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 40/46 (87%)"
+   "summary": "live non-US: 41/47 (87%)"
   },
   "head": {
-   "at": "2026-11-02T23:01:10Z",
-   "sha": "35d32f7",
-   "subject": "recommendation executed: ocha-fts v2026.11 staged private both destinations (fts-publish-001 + fts-hf-001, consumer path"
+   "at": "2026-11-03T09:14:07Z",
+   "sha": "101b450",
+   "subject": "discovery tick (International organisations): oecd-ncp-specific-instance-acceptance READY (OECD NCP specific-instance in"
   },
   "tests": {
    "count": "697",
@@ -16430,15 +16648,21 @@
    "qualified": 0,
    "sessions_7d": 86,
    "tokens_7d": 39880269
+  },
+  {
+   "at": "2026-11-03T09:50:01+00:00",
+   "live": 18,
+   "published": 13,
+   "qualified": 0,
+   "sessions_7d": 86,
+   "tokens_7d": 40142358
   }
  ],
- "notices": [
-  "A research session is running: lock held for 601s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.5,
-   "as_of": "2026-11-03T08:50:01+00:00",
+   "as_of": "2026-11-03T09:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -16448,7 +16672,7 @@
   },
   "candidates": {
    "age_minutes": 0.5,
-   "as_of": "2026-11-03T08:50:01+00:00",
+   "as_of": "2026-11-03T09:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -16458,7 +16682,7 @@
   },
   "releases": {
    "age_minutes": 0.5,
-   "as_of": "2026-11-03T08:50:01+00:00",
+   "as_of": "2026-11-03T09:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -19247,7 +19471,7 @@
   "jobs_total": 169,
   "lifetime_eur": 3.66,
   "live": {
-   "checked_at": "2026-11-03T08:50:34+00:00",
+   "checked_at": "2026-11-03T09:50:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -19281,7 +19505,21 @@
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
-  "recent": [],
-  "total": 0
+  "recent": [
+   {
+    "elapsed_seconds": 2165.5,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "f0fe0a184e1abcf0c06df87caf8e56de34d7bd2991179c146093dad1dcd86f61",
+    "ts": "2026-11-03T09:16:07.096058+00:00"
+   }
+  ],
+  "total": 1
  }
 }
