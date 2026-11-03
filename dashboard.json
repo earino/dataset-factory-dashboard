@@ -1,9 +1,8 @@
 {
  "alarms": [
-  "Research gate refused the next session: research used 40,308,146 tokens in the last 7 days, at or over the 40,000,000-token weekly budget",
-  "Token use at 101% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 160.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (117.5h)"
+  "Token use at 100% of the weekly ceiling",
+  "unhcr-refugee-data-finder has been packaged and actionable for 161.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (118.5h)"
  ],
  "budget": {
   "config": {
@@ -21,14 +20,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-11-03T11:50:02.585945+00:00",
+   "moment": "2026-11-03T12:50:02.843950+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "research used 40,308,146 tokens in the last 7 days, at or over the 40,000,000-token weekly budget"
+    "lock held for 648s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 40308146,
+   "research_tokens_last_7_days": 39991052,
    "runs_last_7_days": 85,
    "runs_weighted_last_7_days": 100,
    "session_cap_per_week": 200,
@@ -55,13 +54,13 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 862,
+     "calls": 871,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 5212503,
-     "output_tokens": 830077,
+     "input_tokens": 5272503,
+     "output_tokens": 851359,
      "pricing_available": false
     }
    },
@@ -8565,7 +8564,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 117.5,
+    "age_hours": 118.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -9063,7 +9062,7 @@
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
    },
    {
-    "age_hours": 13.0,
+    "age_hours": 14.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CH",
@@ -10985,7 +10984,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 160.1,
+    "age_hours": 161.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -12329,7 +12328,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 117.5,
+     "age_hours": 118.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -12615,7 +12614,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 13.0,
+     "age_hours": 14.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CH",
@@ -12877,7 +12876,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 117.5,
+     "age_hours": 118.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13163,7 +13162,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 13.0,
+     "age_hours": 14.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CH",
@@ -13423,7 +13422,7 @@
      "target": "Binary: the plan's FTS funding total for its plan year (usage year = plan year; commitments + paid contributions, pledges excluded, USD, publisher's own attribution including boundary flows) divided by its ORIGINAL requirements (launch vintage) is >= 0.50 -> 1, else 0. Label source: per-plan-year funding totals (FTS flow endpoint incoming.fundingTotal with planId+year filter; equal to the publisher's HDX distribution on single-country rows - measured: Yemen HRP 2023 1,774,327,599, Afghanistan HRP 2023 1,678,347,238, both API==CSV to the dollar) and origRequirements from the plan endpoint; both excludable from features by construction (features carry launch attributes and strictly-prior years only). Censoring: plan-years whose year has not closed are excluded and counted (2026 live edge: 24 primary rows), never imputed. Zero-funding rows are the publisher's recorded outcome (empty funding fields in the HDX CSV counted at construction, not dropped silently). Population: PRIMARY = single-country plan-years with origRequirements > 0, 2000-2025 (782 rows; 60 multi-country regional plans excluded from the primary task because the HDX CSV splits them into country slices whose funding sum covers only ~78% of the plan total - measured on Burundi RRP 2021: slices 14,978,233 vs API plan total 19,282,778; regional plans can be a secondary population with flow-endpoint totals if construction wants them). Appeal-linked funding only; the country rows without plan linkage (2,678 HDX CSV rows, 'Not specified' plans) are outside the task population, so the label's meaning is single-population throughout."
     },
     {
-     "age_hours": 160.1,
+     "age_hours": 161.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13635,7 +13634,7 @@
    ],
    "pending": [
     {
-     "age_hours": 160.1,
+     "age_hours": 161.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13926,10 +13925,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-03T11:50:02.209412+00:00",
+    "last_run_at": "2026-11-03T12:50:01.949344+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-03T12:00:00+00:00",
+    "next_run_at": "2026-11-03T13:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -13950,10 +13949,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-03T11:50:01.446366+00:00",
+    "last_run_at": "2026-11-03T12:50:01.826598+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-03T11:55:00+00:00",
+    "next_run_at": "2026-11-03T12:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13974,10 +13973,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-03T11:48:54.665997+00:00",
+    "last_run_at": "2026-11-03T12:34:13.170046+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-03T11:53:54.665997+00:00",
+    "next_run_at": "2026-11-03T12:44:14.441880+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -13986,10 +13985,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-03T11:50:00.875489+00:00",
+    "last_run_at": "2026-11-03T12:50:02.174484+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-03T11:55:00+00:00",
+    "next_run_at": "2026-11-03T12:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14010,10 +14009,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-03T10:50:46.278675+00:00",
+    "last_run_at": "2026-11-03T11:50:46.830132+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-03T12:50:00+00:00",
+    "next_run_at": "2026-11-03T13:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14022,10 +14021,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-03T10:55:00.619698+00:00",
+    "last_run_at": "2026-11-03T11:55:00.923447+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-03T11:55:00+00:00",
+    "next_run_at": "2026-11-03T12:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14066,9 +14065,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-03T11:50:02.210480+00:00"
+  "updated_at": "2026-11-03T12:50:02.176043+00:00"
  },
- "generated_at": "2026-11-03T11:50:01+00:00",
+ "generated_at": "2026-11-03T12:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16879,13 +16878,23 @@
    "qualified": 1,
    "sessions_7d": 85,
    "tokens_7d": 40308146
+  },
+  {
+   "at": "2026-11-03T12:50:01+00:00",
+   "live": 19,
+   "published": 13,
+   "qualified": 1,
+   "sessions_7d": 85,
+   "tokens_7d": 39991052
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 648s by scout-research"
+ ],
  "panels": {
   "budget": {
-   "age_minutes": 0.5,
-   "as_of": "2026-11-03T11:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-03T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -16894,8 +16903,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.5,
-   "as_of": "2026-11-03T11:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-03T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -16904,8 +16913,8 @@
    "value": 19
   },
   "releases": {
-   "age_minutes": 0.5,
-   "as_of": "2026-11-03T11:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-03T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -19706,7 +19715,7 @@
   "jobs_total": 170,
   "lifetime_eur": 3.66,
   "live": {
-   "checked_at": "2026-11-03T11:50:34+00:00",
+   "checked_at": "2026-11-03T12:50:36+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -19742,19 +19751,6 @@
   "failed_last_three": 0,
   "recent": [
    {
-    "elapsed_seconds": 2165.5,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "f0fe0a184e1abcf0c06df87caf8e56de34d7bd2991179c146093dad1dcd86f61",
-    "ts": "2026-11-03T09:16:07.096058+00:00"
-   },
-   {
     "elapsed_seconds": 3567.0,
     "event": "session",
     "max_turns": 120,
@@ -19769,6 +19765,6 @@
     "ts": "2026-11-03T11:34:28.769120+00:00"
    }
   ],
-  "total": 2
+  "total": 1
  }
 }
