@@ -1,8 +1,7 @@
 {
  "alarms": [
-  "Token use at 89% of the weekly ceiling",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (149.5h)",
-  "1 release(s) not fully verified"
+  "Token use at 90% of the weekly ceiling",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (150.5h)"
  ],
  "budget": {
   "config": {
@@ -20,16 +19,16 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-04T19:50:02.942414+00:00",
+   "moment": "2026-11-04T20:50:02.619296+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 35409451,
-   "runs_last_7_days": 93,
+   "research_tokens_last_7_days": 35815757,
+   "runs_last_7_days": 94,
    "runs_weighted_last_7_days": 106,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 13,
+   "sessions_over_token_cap": 12,
    "usage": {
     "auxiliary": {
      "calls": 20,
@@ -52,13 +51,13 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 2382,
+     "calls": 2554,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 10295471,
-     "output_tokens": 2341019,
+     "input_tokens": 10573278,
+     "output_tokens": 2470231,
      "pricing_available": false
     }
    },
@@ -90,7 +89,7 @@
    "parked": 30,
    "published": 14,
    "qualified": 1,
-   "ready": 15
+   "ready": 16
   },
   "errors": [],
   "live": [
@@ -3613,7 +3612,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 9.0,
+    "age_hours": 10.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -9289,7 +9288,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 149.5,
+    "age_hours": 150.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -11711,6 +11710,60 @@
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
+    "domain": "forced displacement / annual asylum-corridor entry events",
+    "id": "unhcr-corridor-entry-surge",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "censoring_measured": "Host silent in an outcome year: 19 rows excluded (cum2_2x), 10 (next-year labels). Live edge at the 2026-08-20T15:33:49Z instant: 26 corridors entered 2025 (strict-forecast rows, outcome entirely future), plus 31 entering 2024 whose outcome is half-published (2025 known, 2026 not) - 57 unlabeled deployable rows for cum2_2x; largest SSD->ETH 50,148.",
+     "design_table_measured": "rows/positives/distinct-events at eligibility 500 (probe_hdx_oneshot_designs.py): next1_2x train 709/68/57 eval 183/25/20 holdout 201/28/28 GATE FAIL; next1_1.5x 709/118/94, 183/45/34, 201/53/49 PASS; next1_g25 709/185/136, 183/59/46, 201/68/59 PASS; next1_3x 183/11/8, 201/16/16 FAIL; cum2_2x 653/214/153, 230/103/83, 170/73/64 PASS. Threshold sensitivity: eligibility 200 rescues next1_2x only by admitting small-number noise (263/37/31 eval, 258/37/31 holdout); cum2_2x passes at every threshold 200-500. The recorded 500 eligibility is kept.",
+     "fetch_cost_measured": "1 request, 8,669,567 bytes, 3.11 s on the coordinator (2026-11-04); no bulk transfer beyond the single source CSV; all aggregates computed locally from the pinned file.",
+     "known_event_fixtures": "AFG->USA T0=2021 (533; 2020: 44) outcome 25,082+19,320=44,402 >= 1,066 TRUE (post-Aug-2021 Taliban takeover); VEN->COL T0=2017 (582; 2016: 316) outcome 2,592+10,479=13,071 >= 1,164 TRUE; SYR->DEU T0=2000 left-censored, FALSE; UKR->POL T0=2014 (2,511) outcome 2,295+1,194=3,489 < 5,022 FALSE (2022 Ukraine displacement is mostly EU temporary protection, absent from this stream); SSD->ETH T0=2025 (50,148) live strict-forecast row.",
+     "measured_on": "2026-11-04, coordinator, from sha256-pinned source d5808616c3d10d33925d4df5a3182a2028dd574d111e843cc207455ba45fe950",
+     "momentum_association_by_label": "Positive rate by growth into the entry year (T0-1 -> T0): next1_2x 5.8%/<1.5x, 11.8%/1.5-3x, 16.2%/>3x (monotone continuation, ~2.8x risk ratio); next1_g25 23.0%/32.6%/32.7% (monotone); cum2_2x 42.0%/45.6%/37.5% with 28.3% among no-prior rows (INVERTED at the top: past-peak corridors revert - a measured property construction must describe honestly, recorded in notes.md).",
+     "momentum_feature_coverage": "761/1,093 labeled rows have a published T0-1 corridor value; 192 left-censored at T0=2000 (panel starts 2000); 719 have >=2 prior published years.",
+     "one_shot_base_rates": "n=1,093 next-year-labeled rows (T0<=2024, host active in T0+1): decline 58.0%, >=1.5x 19.8%, >=2x 11.1%, >=3x 5.0% (panel task's family for comparison: >=2x 9.3%). cum2_2x prevalence: train 32.8% -> eval 44.8% -> holdout 42.9% (drift recorded as a phenomenon property).",
+     "population_measured_2026_11_04": "G/P corridors 6,936 (carried: 99,281 G/P rows, years 2000-2025); corridors ever reaching >=500 in a year: 1,129; entries by year recorded in notes.md (2000:193 ... 2022:79 ... 2025:26).",
+     "probes": "candidates/unhcr-corridor-entry-surge/probe_hdx_oneshot.py (population, base rates, coverage, fixtures, live edge); probe_hdx_oneshot_designs.py (design table, momentum association, capacity under momentum-eligibility); both read the pinned CSV and reproduce every number quoted here."
+    },
+    "next_action": "Hand to advancement (construction is NOT part of this discovery record). Order: fresh construction on a worker from the pinned source (build.py: one row per cor",
+    "packaged_at": null,
+    "path": "candidates/unhcr-corridor-entry-surge/record.json",
+    "prediction_time": "Publication-lag nowcast at the annual instant: the first refresh of the UNHCR HDX global package (data.humdata.org, dataset unhcr-population-data-for-world) that carries the entry year T0's data (observed cadence: refreshes 2026-06-11/19/22 and 2026-08-20T15:33:49Z; the 2026-08-20 file carries years 2000-2025). Features are the corridor's published yearly totals for years <= T0 only. The outcome years T0+1/T0+2 are unpublished and unavailable on this channel at the instant (first published ~mid T0+2/T0+3); for historical rows the outcome window has partially elapsed at the instant - no 'window follows the instant' claim is made (the abs-visitor-arrivals-direction / unhcr-refugee-data-finder posture). Corridors entering 2025 are live strict forecasts: their whole outcome window 2026-2027 follows the 2026-08-20 instant. Dated example in notes.md (AFG->USA).",
+    "publisher": "United Nations High Commissioner for Refugees (UNHCR), headquartered in Geneva, Switzerland; published via the UNHCR organisation account on OCHA's Humanitarian Data Exchange (data.humdata.org)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For an asylum corridor (country of origin O, country of asylum H) whose total government-procedure asylum applications FIRST reach at least 500 in year T0 (its entry year), will the corridor's total applications over the two following years (T0+1 and T0+2) reach at least twice the T0 total? One row per corridor, taken once at first crossing; a useful prediction enables two-year reception and processing-capacity planning for newly-arrived flows. Measured fallback design (also one-shot, decided before any score): will the crossing year's flow grow by more than 25% in T0+1.",
+    "region": "International organisations",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Five contracts reconciled 2026-11-04 on written evidence (details and dated example in notes.md): (1) Redistribution SUPPORTED - cc-by-igo re-verified live on the package today; class A; conditions carry to LICENSE.md; no unhcr.org scraping. (2) Timing SUPPORTED with the documented current-vintage assumption - annual publication-lag nowcast instant, outcome years unpublished at the instant, live 2025-entrant rows strict forecasts; the archive is revised in place so values are construction-time vintage, sha256-pinned (parent-record posture); no claim of historical operational availability of today's vintages. (3) Target SUPPORTED - label operands (T0+1/T0+2 totals) excluded from features by the one-row-per-corridor structure; observed-zero vs host-silent censoring measured; eligibility from at-instant information only. (4) Split capacity SUPPORTED with margin for the primary design (eval 103/83, holdout 73/64 vs gate 30/20; momentum-eligibility variant also passing); the direct next-year-2x analogue measured not viable (25/28) and recorded. (5) Not a mirror SUPPORTED - differentiated verdict recorded via check-novelty.py; no released corridor-grain first-crossing task with fixed splits and a scored contract exists; prior art is EU-only monthly panel forecasting or unreleased systems. LIMITATION recorded for construction: rows share origins across windows, so a later entrant's origin-level aggregate can contain components of an earlier entrant's outcome years - partial information, not the parent's exact-copy exposure; the gate 1.5.0 cross-row probe must run on the built artifact with the aggregate features declared. This record formulates the operator's recorded reopen condition (unhcr-refugee-data-finder, 2026-11-02): the one-shot design removes the adjacent-row self-answering structurally; the aggregate-outcome label is the operator's second named shape.",
+    "sources": [
+     {
+      "licence": "cc-by-igo (CC BY 3.0 IGO), the UNHCR organisation account's own licence choice on its HDX package; RDF methodology page independently grants CC BY 4.0 on the same datasets",
+      "name": "UNHCR population data for world (HDX global package) - asylum_applications_residing_world.csv",
+      "url": "https://data.humdata.org/dataset/unhcr-population-data-for-world"
+     }
+    ],
+    "split_strategy": "One row per corridor at its FIRST year >= 500 government-procedure applications (entry year T0); temporal splits on entry year. Primary design (cum2_2x) measured windows: train entries 2000-2014 (653 rows / 214 positives / 153 origin-entry-year events), eval 2015-2020 (230/103/83), holdout 2021-2023 (170/73/64) - outcome years must be published, so entries stop at 2023; 57 live-edge corridors (entries 2024-2025) carry no label at the 2026-08-20 instant. Both gate minimums (30 positives / 20 distinct events on eval and holdout) pass with margin. Under the parent's momentum-feature eligibility (published T0-1 value required): 363/127, 202/98, 159/72 - still passing, so construction may adopt the stricter rule. Construction may re-draw boundaries BEFORE any score is seen. Measured fallback (next1_g25, entries T0<=2024): train 709/185/136, eval 183/59/46, holdout 201/68/59. The direct analogue (one-shot + next-year 2x, the parent task's label) is measured NOT viable: eval 183/25/20, holdout 201/28/28 (below 30), zero-positive entry years 2019 and 2024.",
+    "status": "ready",
+    "target": "Binary label: (corridor G/P application total in T0+1 + total in T0+2) >= 2 x corridor G/P total in T0. Source column: Number of Applications summed over Government-procedure (Procedure Type G), person-count (Application Data Type P) rows per corridor-year (the sum rule validated against BAMF in the parent record). The T0+1 and T0+2 values are the label operands and never ship as features. Observed absence: corridor row missing while the host still reports that year = 0; host silent in an outcome year = unobserved target, row excluded (19 rows measured). Eligibility (first year >= 500) is decided only from the at-instant year-T0 row - no whole-series future inclusion. Fallback label: total(T0+1) >= 1.25 x total(T0)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "CH",
     "domain": "forced displacement - corridor-level asylum-application surge prediction (international organisation publisher)",
     "id": "unhcr-refugee-data-finder",
     "jobs": [
@@ -13084,7 +13137,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 9.0,
+     "age_hours": 10.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13258,7 +13311,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 149.5,
+     "age_hours": 150.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13546,7 +13599,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 9.0,
+     "age_hours": 10.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13720,7 +13773,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 149.5,
+     "age_hours": 150.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -14016,7 +14069,7 @@
    "AU": 9,
    "BR": 5,
    "CA": 15,
-   "CH": 5,
+   "CH": 6,
    "CI": 1,
    "CL": 2,
    "CO": 2,
@@ -14049,7 +14102,7 @@
    "Africa": 13,
    "East Asia": 9,
    "Europe": 33,
-   "International organisations": 15,
+   "International organisations": 16,
    "Latin America": 12,
    "North America": 25,
    "Oceania": 11,
@@ -14062,12 +14115,12 @@
    "parked": 30,
    "published": 14,
    "qualified": 1,
-   "ready": 15
+   "ready": 16
   },
-  "candidates": 131,
-  "live": 52,
-  "live_non_us": 46,
-  "live_non_us_share": 0.885,
+  "candidates": 132,
+  "live": 53,
+  "live_non_us": 47,
+  "live_non_us_share": 0.887,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -14089,10 +14142,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-04T19:50:02.430205+00:00",
+    "last_run_at": "2026-11-04T20:50:02.036378+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-04T20:00:00+00:00",
+    "next_run_at": "2026-11-04T21:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14113,10 +14166,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-04T19:50:01.549274+00:00",
+    "last_run_at": "2026-11-04T20:50:00.817278+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-04T19:55:00+00:00",
+    "next_run_at": "2026-11-04T20:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14137,10 +14190,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-04T19:46:15.881367+00:00",
+    "last_run_at": "2026-11-04T20:46:32.929356+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-04T19:51:15.881367+00:00",
+    "next_run_at": "2026-11-04T20:51:32.929356+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14149,10 +14202,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-04T19:50:01.226212+00:00",
+    "last_run_at": "2026-11-04T20:50:01.102786+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-04T19:55:00+00:00",
+    "next_run_at": "2026-11-04T20:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14173,10 +14226,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-04T18:50:50.385924+00:00",
+    "last_run_at": "2026-11-04T19:50:51.179144+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-04T20:50:00+00:00",
+    "next_run_at": "2026-11-04T21:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14185,10 +14238,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-04T18:55:01.393211+00:00",
+    "last_run_at": "2026-11-04T19:55:00.568570+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-04T19:55:00+00:00",
+    "next_run_at": "2026-11-04T20:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14229,29 +14282,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-04T19:50:02.431466+00:00"
+  "updated_at": "2026-11-04T20:50:02.037380+00:00"
  },
- "generated_at": "2026-11-04T19:50:01+00:00",
+ "generated_at": "2026-11-04T20:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 131
+   "passing": 132
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-04T18:41:04Z",
-   "head_sha": "a56c74c",
+   "created_at": "2026-11-04T20:25:46Z",
+   "head_sha": "df9e13b",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41889561757"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41906511097"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 46/52 (88%)"
+   "summary": "live non-US: 47/53 (89%)"
   },
   "head": {
-   "at": "2026-11-04T18:21:03Z",
-   "sha": "a56c74c",
-   "subject": "za-cct-substation-evening-peak-exceedance packaged (v2026.11, private, NOT published) per operator decision (a): release"
+   "at": "2026-11-04T20:25:38Z",
+   "sha": "df9e13b",
+   "subject": "discovery tick (International organisations): unhcr-corridor-entry-surge opened READY - the operator's recorded UNHCR re"
   },
   "tests": {
    "count": "708",
@@ -17298,13 +17351,21 @@
    "qualified": 1,
    "sessions_7d": 93,
    "tokens_7d": 35409451
+  },
+  {
+   "at": "2026-11-04T20:50:01+00:00",
+   "live": 21,
+   "published": 14,
+   "qualified": 1,
+   "sessions_7d": 94,
+   "tokens_7d": 35815757
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T19:50:01+00:00",
+   "as_of": "2026-11-04T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17314,7 +17375,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T19:50:01+00:00",
+   "as_of": "2026-11-04T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -17324,7 +17385,7 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T19:50:01+00:00",
+   "as_of": "2026-11-04T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -18088,9 +18149,11 @@
       "rows": 13735
      }
     },
-    "verified": {},
-    "verified_all": false,
-    "verified_at": null
+    "verified": {
+     "huggingface": true
+    },
+    "verified_all": true,
+    "verified_at": "2026-11-04T20:41:31+00:00"
    }
   ]
  },
@@ -18104,12 +18167,12 @@
   "histogram": {
    "bins": [
     {
-     "count": 20,
+     "count": 21,
      "hi": 0.005,
      "lo": 0.002
     },
     {
-     "count": 51,
+     "count": 53,
      "hi": 0.01,
      "lo": 0.005
     },
@@ -18145,11 +18208,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0136,
-   "n": 189,
-   "p90": 0.0561,
+   "median": 0.0132,
+   "n": 192,
+   "p90": 0.0542,
    "ref_rate": 0.06924,
-   "total": 5.46
+   "total": 5.47
   },
   "jobs": [
    {
@@ -20409,6 +20472,42 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-04T20:41:56.490034+00:00",
+    "deleted_at": "2026-11-04T20:46:29.934655+00:00",
+    "eur": 0.0053,
+    "hours": 0.076,
+    "id": "za-cct-consumer-001",
+    "location": "hel1",
+    "normalised_eur": 0.0053,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-04T20:36:14.768285+00:00",
+    "deleted_at": "2026-11-04T20:41:18.292523+00:00",
+    "eur": 0.001,
+    "hours": 0.084,
+    "id": "za-cct-hf-001",
+    "location": "hel1",
+    "normalised_eur": 0.0058,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-04T20:33:27.477626+00:00",
+    "deleted_at": "2026-11-04T20:35:13.489703+00:00",
+    "eur": 0.0003,
+    "hours": 0.029,
+    "id": "za-cct-publish-001",
+    "location": "hel1",
+    "normalised_eur": 0.002,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-10-30T16:08:37.808359+00:00",
     "deleted_at": "2026-10-30T16:37:14.428577+00:00",
     "eur": 0.0055,
@@ -20421,19 +20520,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 28,
-  "jobs_total": 189,
+  "jobs_this_month": 31,
+  "jobs_total": 192,
   "lifetime_eur": 3.74,
   "live": {
-   "checked_at": "2026-11-04T19:50:36+00:00",
+   "checked_at": "2026-11-04T20:50:36+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 8.8,
-  "month_to_date": 0.11,
+  "month_hours": 9.0,
+  "month_to_date": 0.12,
   "months": [
    {
     "eur": 2.4452,
@@ -20448,45 +20547,18 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.1116,
-    "hours": 8.77,
-    "jobs": 28,
+    "eur": 0.1182,
+    "hours": 8.96,
+    "jobs": 31,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 0.84
+  "projected_month_eur": 0.89
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 0,
+  "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 781.2,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "6173355bd01e859411b25fdadd142d756517cd69370ced81062e3cd15fefb2c7",
-    "ts": "2026-11-04T12:13:04.144150+00:00"
-   },
-   {
-    "elapsed_seconds": 536.1,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "84f3c20e97a9d91be1dad1b024d57adb1f4d61274ebc1241da1c3fc6dbb4a80c",
-    "ts": "2026-11-04T14:09:00.912163+00:00"
-   },
    {
     "elapsed_seconds": 1691.8,
     "event": "session",
@@ -20541,8 +20613,35 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "7bc8f813241635815a3e29bb9a7e68bba7f5d78cd30650cf416d002240996402",
     "ts": "2026-11-04T18:22:56.279822+00:00"
+   },
+   {
+    "elapsed_seconds": 1611.7,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "e7b47948e18243a91cc1dfb039558b041a42523ce8e90de0ac19d0dcfbf0ced6",
+    "ts": "2026-11-04T20:26:53.102761+00:00"
+   },
+   {
+    "elapsed_seconds": 1034.2,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "exit 1",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "af2f5b61a78a249eb81f5d9146e8b2f173685befc54e6c5f6fb2f55ff119895d",
+    "ts": "2026-11-04T20:47:16.422765+00:00"
    }
   ],
-  "total": 17
+  "total": 19
  }
 }
