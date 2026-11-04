@@ -1,8 +1,9 @@
 {
  "alarms": [
-  "Token use at 91% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 178.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (135.5h)"
+  "Token use at 92% of the weekly ceiling",
+  "unhcr-refugee-data-finder has been packaged and actionable for 179.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (136.5h)",
+  "1 release(s) not fully verified"
  ],
  "budget": {
   "config": {
@@ -20,14 +21,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-04T05:50:02.745744+00:00",
+   "moment": "2026-11-04T06:50:02.802813+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 36480670,
-   "runs_last_7_days": 87,
-   "runs_weighted_last_7_days": 101,
+   "research_tokens_last_7_days": 36792549,
+   "runs_last_7_days": 89,
+   "runs_weighted_last_7_days": 103,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 14,
    "usage": {
@@ -52,13 +53,13 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 1637,
+     "calls": 1762,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 8988982,
-     "output_tokens": 1629884,
+     "input_tokens": 9203379,
+     "output_tokens": 1727366,
      "pricing_available": false
     }
    },
@@ -390,12 +391,17 @@
       "at": null,
       "id": "cqc-chd-004",
       "status": null
+     },
+     {
+      "at": null,
+      "id": "cqc-chd-baseline-001",
+      "status": null
      }
     ],
     "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
+     "compilation_spdx": "CC0-1.0",
+     "source_spdx": "OGL-UK-3.0",
+     "status": "CQC register bulk files ('HSCA Active Locations' vintages + 'Deactivated Locations' 2026-11-02 edition) under the Open Government Licence v3.0: free to copy, publish, distribute, transmit, adapt and exploit commercially with the required attribution statement. OGL-UK exempts personal data, third-party rights and official symbols from its grant; the shipped columns were chosen with that in mind: no location name, address, postcode, phone, registered manager, provider id/name, Companies House or charity number ships (identity is a per-instant salted pseudonym; the real-id location map is staging-side and never published), and the redistributed fields (care home beds, service type and service user band flags, latest overall rating + publication date, local authority, region, provider sector, HSCA start year, the vintage instant) are derived from the publisher's own register columns with nothing added beyond our derived binary label, the pseudonym, the derived counts/flags and the partition. The derived dataset is labelled as such throughout and is not CQC's official product."
     },
     "measurements": {
      "archive_depth_measured": "monthly 'HSCA Active Locations' vintages 2011-2026 (2019 files .xlsx, 2024+ .ods; 12 per year), 'with ratings' archive 2015-2026, weekly CSV archive 2012-2026; all anonymously listable and downloadable from Google Drive (embeddedfolderview + drive.usercontent download); Drive year-folder IDs and one 2024 file ID recorded in probe/cqc_drive_*.py",
@@ -434,9 +440,32 @@
        "rating_x_beds_rate": 0.5870921937794369
       },
       "source": "score.py post-acceptance on the worker, eval rows only (14,765 / 757 positives, base rate 5.126%), holdout never opened; every rate table estimated ONLY from train rows"
+     },
+     "runner_contract_baseline_2026_11_04_cqc_chd_baseline_001": {
+      "command": "worker job cqc-chd-baseline-001 run.sh (fetch the five accepted assets from staging release 433536764, digests verified on arrival, --accept ACCEPTED afe9ee203f302f3c BEFORE any score, then the benchmark's own unmodified train.py + validate.sh); report .factory/cqc-chd-baseline-001/reports/output/baseline_result.json, staging release 433569826",
+      "comparison_ladder_eval_auc": {
+       "MODEL_stock_runner": 0.5659,
+       "beds_bucket_rate": 0.5297982677571677,
+       "global_rate": "degenerate (constant score)",
+       "hsca_start_year_rate_nearest_history_prior": 0.5226476076701217,
+       "last_rating_rate_best_one_line_prior": 0.5597447335246061,
+       "local_authority_rate": 0.5207061335775669,
+       "majority_class_accuracy_eval": 0.9487301049779885,
+       "persistence": "NOT APPLICABLE BY DESIGN - identity ships as per-instant pseudonyms (missing-successor P0 design), so prior-instant labels are structurally unlinkable for the scorer too",
+       "provider_sector_rate": 0.5010938738912734,
+       "rating_x_beds_rate_headroom_reference": 0.5870921937794369
+      },
+      "concrete_diagnosis_candidates": "(a) verified by code reading: the stock train.py treats the 'instant' string column (YYYY-MM) as a train-only categorical - train instants 2018-01..2022-01 define the levels and the eval instant 2024-01 is unseen, so every eval row gets NaN there and part of the 30-tree depth-6 budget was spent on train-instant memorization that cannot transfer; (b) the rating x beds interaction the two-way rate table captures directly is available to XGBoost only through split combinations, and the small-home x poorly-rated cells are a thin slice of 78k train rows; (c) no misalignment and no post-hoc reference: both AUC figures come from the runner's own two implementations on the same accepted bytes, and as-of was asserted in-build (0/14,765 rating publication dates after T); (d) prevalence shift train 5.654% -> eval 5.127% is mild and recorded",
+      "full_model_eval_auc": 0.5659,
+      "full_model_eval_auc_from_validate_py": 0.5659,
+      "information_note": "rating_x_beds_rate reads ONLY shipped at-T columns (latest_overall_rating x care_home_beds), so it is a fair same-information target for anything that consumes this artifact - no information asymmetry, unlike a persistence score",
+      "interpretation_rule": "any later model figure must still be quoted beside rating_x_beds_rate 0.5871; a model below it is a recorded defect, not an encouraging result; keep fitting until a score wins is forbidden",
+      "measured_on": "the accepted artifact afe9ee203f302f3c (job cqc-chd-baseline-001, after --accept, on the same 14,765 eval rows as the cqc-chd-004 references)",
+      "observed_gap": "the stock runner model trails the strongest reference by 0.0212 AUC (0.5659 vs rating_x_beds_rate 0.5871) on identical rows, while beating every one-line prior (best: last_rating_rate 0.5597); observed difference, no dependence-aware interval computed for the model-vs-reference pair",
+      "verdict": "RECORDED DEFECT for the stock runner under this protocol (model 0.5659 < rating_x_beds_rate 0.5871, both on the identical 14,765 eval rows) - quoted beside the reference as the skill requires. NOT a no-headroom verdict on the task, and the pre-registered drop condition (a one-line prior saturating it) is NOT met: the model beats every one-line prior, and the headroom reference demonstrates exploitable signal (CI excluding zero over last_rating_rate) inside the model's own shipped feature set. This does not prove a competent model must beat 0.5871; no model above the reference has been measured"
      }
     },
-    "next_action": "QUALIFIED + ACCEPTED (cqc-chd-004, artifact afe9ee203f302f3c..., staging release 433536764; gate 1.5.0 failed_checks empty on the full artifact on the worker; e",
+    "next_action": "PACKAGED (v2026.11, private; NOT published): release/cqc-care-home-deregistration/ assembled on the pins layout - docs (README/DATA_DICTIONARY/RELEASE_NOTES/REP",
     "packaged_at": null,
     "path": "candidates/cqc-care-home-deregistration/record.json",
     "prediction_time": "The production instant of a monthly CQC 'HSCA Active Locations' vintage (Europe/London; the date in the file name, e.g. '05 January 2024 HSCA Active Locations'; the weekly sibling CSV states 'This data was produced on <date>' - the same stamping convention). Features are the vintage's own columns only: HSCA start date, care home beds, service types (with/without nursing), service user bands, latest overall rating + its publication date (measured as-of: 0/14,765 care-home rows at T=2024-01-05 carry a rating publication date after T), geography, provider attributes incl. Companies House number. Target = the register event dated after T, read from the cumulative Deactivated Locations product. Archive: monthly vintages 2011-2026 (Drive year folders, anonymous).",
@@ -449,11 +478,24 @@
     "question": "For a care home location active on the CQC register at monthly vintage T (the 'HSCA Active Locations' file produced on that date), will the location's registration end within the following 12 months (Location Status Inactive-Dereg with a Location HSCA End Date inside (T, T+365d])?",
     "region": "Europe",
     "release_baseline": {
-     "auc": null,
-     "display": null,
+     "auc": 0.5659,
+     "display": "0.5659",
      "reference": null
     },
-    "release_splits": {},
+    "release_splits": {
+     "eval": {
+      "positives": 757,
+      "rows": 14765
+     },
+     "holdout": {
+      "positives": 761,
+      "rows": 14749
+     },
+     "train": {
+      "positives": 4418,
+      "rows": 78138
+     }
+    },
     "review": "",
     "sources": [
      {
@@ -3537,12 +3579,17 @@
       "at": null,
       "id": "cqc-chd-004",
       "status": null
+     },
+     {
+      "at": null,
+      "id": "cqc-chd-baseline-001",
+      "status": null
      }
     ],
     "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
+     "compilation_spdx": "CC0-1.0",
+     "source_spdx": "OGL-UK-3.0",
+     "status": "CQC register bulk files ('HSCA Active Locations' vintages + 'Deactivated Locations' 2026-11-02 edition) under the Open Government Licence v3.0: free to copy, publish, distribute, transmit, adapt and exploit commercially with the required attribution statement. OGL-UK exempts personal data, third-party rights and official symbols from its grant; the shipped columns were chosen with that in mind: no location name, address, postcode, phone, registered manager, provider id/name, Companies House or charity number ships (identity is a per-instant salted pseudonym; the real-id location map is staging-side and never published), and the redistributed fields (care home beds, service type and service user band flags, latest overall rating + publication date, local authority, region, provider sector, HSCA start year, the vintage instant) are derived from the publisher's own register columns with nothing added beyond our derived binary label, the pseudonym, the derived counts/flags and the partition. The derived dataset is labelled as such throughout and is not CQC's official product."
     },
     "measurements": {
      "archive_depth_measured": "monthly 'HSCA Active Locations' vintages 2011-2026 (2019 files .xlsx, 2024+ .ods; 12 per year), 'with ratings' archive 2015-2026, weekly CSV archive 2012-2026; all anonymously listable and downloadable from Google Drive (embeddedfolderview + drive.usercontent download); Drive year-folder IDs and one 2024 file ID recorded in probe/cqc_drive_*.py",
@@ -3581,9 +3628,32 @@
        "rating_x_beds_rate": 0.5870921937794369
       },
       "source": "score.py post-acceptance on the worker, eval rows only (14,765 / 757 positives, base rate 5.126%), holdout never opened; every rate table estimated ONLY from train rows"
+     },
+     "runner_contract_baseline_2026_11_04_cqc_chd_baseline_001": {
+      "command": "worker job cqc-chd-baseline-001 run.sh (fetch the five accepted assets from staging release 433536764, digests verified on arrival, --accept ACCEPTED afe9ee203f302f3c BEFORE any score, then the benchmark's own unmodified train.py + validate.sh); report .factory/cqc-chd-baseline-001/reports/output/baseline_result.json, staging release 433569826",
+      "comparison_ladder_eval_auc": {
+       "MODEL_stock_runner": 0.5659,
+       "beds_bucket_rate": 0.5297982677571677,
+       "global_rate": "degenerate (constant score)",
+       "hsca_start_year_rate_nearest_history_prior": 0.5226476076701217,
+       "last_rating_rate_best_one_line_prior": 0.5597447335246061,
+       "local_authority_rate": 0.5207061335775669,
+       "majority_class_accuracy_eval": 0.9487301049779885,
+       "persistence": "NOT APPLICABLE BY DESIGN - identity ships as per-instant pseudonyms (missing-successor P0 design), so prior-instant labels are structurally unlinkable for the scorer too",
+       "provider_sector_rate": 0.5010938738912734,
+       "rating_x_beds_rate_headroom_reference": 0.5870921937794369
+      },
+      "concrete_diagnosis_candidates": "(a) verified by code reading: the stock train.py treats the 'instant' string column (YYYY-MM) as a train-only categorical - train instants 2018-01..2022-01 define the levels and the eval instant 2024-01 is unseen, so every eval row gets NaN there and part of the 30-tree depth-6 budget was spent on train-instant memorization that cannot transfer; (b) the rating x beds interaction the two-way rate table captures directly is available to XGBoost only through split combinations, and the small-home x poorly-rated cells are a thin slice of 78k train rows; (c) no misalignment and no post-hoc reference: both AUC figures come from the runner's own two implementations on the same accepted bytes, and as-of was asserted in-build (0/14,765 rating publication dates after T); (d) prevalence shift train 5.654% -> eval 5.127% is mild and recorded",
+      "full_model_eval_auc": 0.5659,
+      "full_model_eval_auc_from_validate_py": 0.5659,
+      "information_note": "rating_x_beds_rate reads ONLY shipped at-T columns (latest_overall_rating x care_home_beds), so it is a fair same-information target for anything that consumes this artifact - no information asymmetry, unlike a persistence score",
+      "interpretation_rule": "any later model figure must still be quoted beside rating_x_beds_rate 0.5871; a model below it is a recorded defect, not an encouraging result; keep fitting until a score wins is forbidden",
+      "measured_on": "the accepted artifact afe9ee203f302f3c (job cqc-chd-baseline-001, after --accept, on the same 14,765 eval rows as the cqc-chd-004 references)",
+      "observed_gap": "the stock runner model trails the strongest reference by 0.0212 AUC (0.5659 vs rating_x_beds_rate 0.5871) on identical rows, while beating every one-line prior (best: last_rating_rate 0.5597); observed difference, no dependence-aware interval computed for the model-vs-reference pair",
+      "verdict": "RECORDED DEFECT for the stock runner under this protocol (model 0.5659 < rating_x_beds_rate 0.5871, both on the identical 14,765 eval rows) - quoted beside the reference as the skill requires. NOT a no-headroom verdict on the task, and the pre-registered drop condition (a one-line prior saturating it) is NOT met: the model beats every one-line prior, and the headroom reference demonstrates exploitable signal (CI excluding zero over last_rating_rate) inside the model's own shipped feature set. This does not prove a competent model must beat 0.5871; no model above the reference has been measured"
      }
     },
-    "next_action": "QUALIFIED + ACCEPTED (cqc-chd-004, artifact afe9ee203f302f3c..., staging release 433536764; gate 1.5.0 failed_checks empty on the full artifact on the worker; e",
+    "next_action": "PACKAGED (v2026.11, private; NOT published): release/cqc-care-home-deregistration/ assembled on the pins layout - docs (README/DATA_DICTIONARY/RELEASE_NOTES/REP",
     "packaged_at": null,
     "path": "candidates/cqc-care-home-deregistration/record.json",
     "prediction_time": "The production instant of a monthly CQC 'HSCA Active Locations' vintage (Europe/London; the date in the file name, e.g. '05 January 2024 HSCA Active Locations'; the weekly sibling CSV states 'This data was produced on <date>' - the same stamping convention). Features are the vintage's own columns only: HSCA start date, care home beds, service types (with/without nursing), service user bands, latest overall rating + its publication date (measured as-of: 0/14,765 care-home rows at T=2024-01-05 carry a rating publication date after T), geography, provider attributes incl. Companies House number. Target = the register event dated after T, read from the cumulative Deactivated Locations product. Archive: monthly vintages 2011-2026 (Drive year folders, anonymous).",
@@ -3596,11 +3666,24 @@
     "question": "For a care home location active on the CQC register at monthly vintage T (the 'HSCA Active Locations' file produced on that date), will the location's registration end within the following 12 months (Location Status Inactive-Dereg with a Location HSCA End Date inside (T, T+365d])?",
     "region": "Europe",
     "release_baseline": {
-     "auc": null,
-     "display": null,
+     "auc": 0.5659,
+     "display": "0.5659",
      "reference": null
     },
-    "release_splits": {},
+    "release_splits": {
+     "eval": {
+      "positives": 757,
+      "rows": 14765
+     },
+     "holdout": {
+      "positives": 761,
+      "rows": 14749
+     },
+     "train": {
+      "positives": 4418,
+      "rows": 78138
+     }
+    },
     "review": "",
     "sources": [
      {
@@ -8995,7 +9078,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 135.5,
+    "age_hours": 136.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -11414,7 +11497,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 178.1,
+    "age_hours": 179.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -12778,7 +12861,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 135.5,
+     "age_hours": 136.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13066,7 +13149,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 135.5,
+     "age_hours": 136.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13352,7 +13435,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 178.1,
+     "age_hours": 179.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13564,7 +13647,7 @@
    ],
    "pending": [
     {
-     "age_hours": 178.1,
+     "age_hours": 179.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13856,10 +13939,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-04T05:50:02.229432+00:00",
+    "last_run_at": "2026-11-04T06:50:02.021354+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-04T06:00:00+00:00",
+    "next_run_at": "2026-11-04T07:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -13880,10 +13963,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-04T05:50:01.898135+00:00",
+    "last_run_at": "2026-11-04T06:50:00.951927+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-04T05:55:00+00:00",
+    "next_run_at": "2026-11-04T06:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13904,10 +13987,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-04T05:48:29.938438+00:00",
+    "last_run_at": "2026-11-04T06:48:58.438124+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-04T05:53:29.938438+00:00",
+    "next_run_at": "2026-11-04T06:53:58.438124+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -13916,10 +13999,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-04T05:50:01.600869+00:00",
+    "last_run_at": "2026-11-04T06:50:01.255047+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-04T05:55:00+00:00",
+    "next_run_at": "2026-11-04T06:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -13940,10 +14023,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-04T04:50:48.634098+00:00",
+    "last_run_at": "2026-11-04T05:51:40.143259+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-04T06:50:00+00:00",
+    "next_run_at": "2026-11-04T07:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -13952,10 +14035,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-04T04:55:01.614532+00:00",
+    "last_run_at": "2026-11-04T05:55:01.392929+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-04T05:55:00+00:00",
+    "next_run_at": "2026-11-04T06:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -13996,9 +14079,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-04T05:50:02.230508+00:00"
+  "updated_at": "2026-11-04T06:50:02.022349+00:00"
  },
- "generated_at": "2026-11-04T05:50:01+00:00",
+ "generated_at": "2026-11-04T06:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -14006,19 +14089,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-04T05:46:27Z",
-   "head_sha": "5537bfe",
+   "created_at": "2026-11-04T06:48:00Z",
+   "head_sha": "31227b6",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41781293544"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41787926537"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 44/50 (88%)"
   },
   "head": {
-   "at": "2026-11-04T05:46:24Z",
-   "sha": "5537bfe",
-   "subject": "watcher follow-up: cqc-chd-004 SUCCEEDED - cqc-care-home-deregistration qualified + accepted (gate 1.5.0 ok=true failed_"
+   "at": "2026-11-04T06:47:57Z",
+   "sha": "31227b6",
+   "subject": "watcher follow-up: cqc-chd-baseline-001 SUCCEEDED - already durably recorded at 5a6aa3f by the 06:35Z advancement sessio"
   },
   "tests": {
    "count": "708",
@@ -16953,13 +17036,21 @@
    "qualified": 2,
    "sessions_7d": 87,
    "tokens_7d": 36480670
+  },
+  {
+   "at": "2026-11-04T06:50:01+00:00",
+   "live": 19,
+   "published": 14,
+   "qualified": 2,
+   "sessions_7d": 89,
+   "tokens_7d": 36792549
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T05:50:01+00:00",
+   "as_of": "2026-11-04T06:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -16969,7 +17060,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T05:50:01+00:00",
+   "as_of": "2026-11-04T06:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -16979,13 +17070,13 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T05:50:01+00:00",
+   "as_of": "2026-11-04T06:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
    "stale": false,
    "status": "ok",
-   "value": 18
+   "value": 19
   }
  },
  "releases": {
@@ -17139,6 +17230,40 @@
     },
     "verified_all": true,
     "verified_at": "2026-10-23T20:31:51+00:00"
+   },
+   {
+    "assets": 5,
+    "baseline_current": true,
+    "baseline_display": "0.5659",
+    "baseline_eval_auc": 0.5659,
+    "baseline_evidence": "/opt/data/dataset-factory/release/cqc-care-home-deregistration/MANIFEST.json:baseline.contract.eval_auc_from_train_py",
+    "baseline_per_config": {},
+    "baseline_scope": null,
+    "dataset": "cqc-care-home-deregistration",
+    "disposition": "qualified",
+    "errors": [],
+    "persistence_auc": null,
+    "publication_note": "Prepared for human review. Nothing here has been published.",
+    "published": false,
+    "release_tag": "v2026.11",
+    "rows": 107652,
+    "splits": {
+     "eval": {
+      "positives": 757,
+      "rows": 14765
+     },
+     "holdout": {
+      "positives": 761,
+      "rows": 14749
+     },
+     "train": {
+      "positives": 4418,
+      "rows": 78138
+     }
+    },
+    "verified": {},
+    "verified_all": false,
+    "verified_at": null
    },
    {
     "assets": 5,
@@ -17703,7 +17828,7 @@
      "lo": 0.01
     },
     {
-     "count": 39,
+     "count": 40,
      "hi": 0.05,
      "lo": 0.02
     },
@@ -17730,10 +17855,10 @@
    ],
    "max": 0.6296,
    "median": 0.0136,
-   "n": 183,
+   "n": 184,
    "p90": 0.0561,
    "ref_rate": 0.06924,
-   "total": 5.34
+   "total": 5.37
   },
   "jobs": [
    {
@@ -18212,6 +18337,18 @@
     "id": "cqc-chd-004",
     "location": "hel1",
     "normalised_eur": 0.0117,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-04T06:05:49.977866+00:00",
+    "deleted_at": "2026-11-04T06:28:28.928969+00:00",
+    "eur": 0.0043,
+    "hours": 0.377,
+    "id": "cqc-chd-baseline-001",
+    "location": "hel1",
+    "normalised_eur": 0.0261,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -19933,19 +20070,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 22,
-  "jobs_total": 183,
+  "jobs_this_month": 23,
+  "jobs_total": 184,
   "lifetime_eur": 3.71,
   "live": {
-   "checked_at": "2026-11-04T05:50:36+00:00",
+   "checked_at": "2026-11-04T06:50:36+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 7.1,
-  "month_to_date": 0.08,
+  "month_hours": 7.5,
+  "month_to_date": 0.09,
   "months": [
    {
     "eur": 2.4452,
@@ -19960,45 +20097,18 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.0817,
-    "hours": 7.09,
-    "jobs": 22,
+    "eur": 0.086,
+    "hours": 7.46,
+    "jobs": 23,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 0.61
+  "projected_month_eur": 0.65
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 1,
+  "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 824.5,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "0eecee12fe4bc4e1a487c05c6cd4cda252bc09b03fedc81e17f5746d6a25e722",
-    "ts": "2026-11-04T03:23:22.123950+00:00"
-   },
-   {
-    "elapsed_seconds": 2599.4,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "5f829358eab167ced7673393afdd2f8f7bf57e6a8ebc72c1cb8c25f27812b4af",
-    "ts": "2026-11-04T04:08:20.627944+00:00"
-   },
    {
     "elapsed_seconds": 429.7,
     "event": "session",
@@ -20053,8 +20163,36 @@
     "run_budget": 900,
     "submitted_brief_sha256": "52c23b55a3dff9acd39e3f7e66929e927fc49d74ce06ae6c9d23375ec6e9a871",
     "ts": "2026-11-04T05:48:29.894997+00:00"
+   },
+   {
+    "elapsed_seconds": 2493.1,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "f47b37cc74b98a1ca505d0abb6e0d932ffdf3a4010da215b5e5dbfab8dfd7cc0",
+    "ts": "2026-11-04T06:41:36.006856+00:00"
+   },
+   {
+    "elapsed_seconds": 311.5,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "56506c8ad360232ed18257923fb1a8fe288bf7852d9a421ca47fe6472029e8c3",
+    "ts": "2026-11-04T06:48:58.396006+00:00"
    }
   ],
-  "total": 6
+  "total": 8
  }
 }
