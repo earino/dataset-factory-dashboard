@@ -1,7 +1,7 @@
 {
  "alarms": [
   "Token use at 89% of the weekly ceiling",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (148.5h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (149.5h)",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -20,7 +20,7 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-04T18:50:03.094388+00:00",
+   "moment": "2026-11-04T19:50:02.942414+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
@@ -3613,7 +3613,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 8.0,
+    "age_hours": 9.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -9289,7 +9289,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 148.5,
+    "age_hours": 149.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -13084,7 +13084,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 8.0,
+     "age_hours": 9.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13258,7 +13258,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 148.5,
+     "age_hours": 149.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13546,7 +13546,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 8.0,
+     "age_hours": 9.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13720,7 +13720,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 148.5,
+     "age_hours": 149.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -14089,10 +14089,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-04T18:50:01.707553+00:00",
+    "last_run_at": "2026-11-04T19:50:02.430205+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-04T19:00:00+00:00",
+    "next_run_at": "2026-11-04T20:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14113,10 +14113,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-04T18:50:01.657956+00:00",
+    "last_run_at": "2026-11-04T19:50:01.549274+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-04T18:55:00+00:00",
+    "next_run_at": "2026-11-04T19:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14137,10 +14137,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-04T18:45:58.358517+00:00",
+    "last_run_at": "2026-11-04T19:46:15.881367+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-04T18:50:58.358517+00:00",
+    "next_run_at": "2026-11-04T19:51:15.881367+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14149,10 +14149,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-04T18:50:00.906286+00:00",
+    "last_run_at": "2026-11-04T19:50:01.226212+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-04T18:55:00+00:00",
+    "next_run_at": "2026-11-04T19:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14173,10 +14173,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-04T17:50:50.293145+00:00",
+    "last_run_at": "2026-11-04T18:50:50.385924+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-04T19:50:00+00:00",
+    "next_run_at": "2026-11-04T20:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14185,10 +14185,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-04T17:55:01.057196+00:00",
+    "last_run_at": "2026-11-04T18:55:01.393211+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-04T18:55:00+00:00",
+    "next_run_at": "2026-11-04T19:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14229,9 +14229,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-04T18:50:01.708581+00:00"
+  "updated_at": "2026-11-04T19:50:02.431466+00:00"
  },
- "generated_at": "2026-11-04T18:50:01+00:00",
+ "generated_at": "2026-11-04T19:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17290,13 +17290,21 @@
    "qualified": 1,
    "sessions_7d": 93,
    "tokens_7d": 35409451
+  },
+  {
+   "at": "2026-11-04T19:50:01+00:00",
+   "live": 21,
+   "published": 14,
+   "qualified": 1,
+   "sessions_7d": 93,
+   "tokens_7d": 35409451
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T18:50:01+00:00",
+   "as_of": "2026-11-04T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17306,7 +17314,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T18:50:01+00:00",
+   "as_of": "2026-11-04T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -17316,7 +17324,7 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T18:50:01+00:00",
+   "as_of": "2026-11-04T19:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -20417,7 +20425,7 @@
   "jobs_total": 189,
   "lifetime_eur": 3.74,
   "live": {
-   "checked_at": "2026-11-04T18:50:36+00:00",
+   "checked_at": "2026-11-04T19:50:36+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
