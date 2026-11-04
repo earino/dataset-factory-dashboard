@@ -1,8 +1,7 @@
 {
  "alarms": [
-  "Token use at 93% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 186.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (143.5h)"
+  "Token use at 87% of the weekly ceiling",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (144.5h)"
  ],
  "budget": {
   "config": {
@@ -20,16 +19,16 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-04T13:51:04.991919+00:00",
+   "moment": "2026-11-04T14:50:02.618390+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 37085551,
+   "research_tokens_last_7_days": 34718939,
    "runs_last_7_days": 90,
-   "runs_weighted_last_7_days": 104,
+   "runs_weighted_last_7_days": 103,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 14,
+   "sessions_over_token_cap": 13,
    "usage": {
     "auxiliary": {
      "calls": 19,
@@ -52,13 +51,13 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 2039,
+     "calls": 2158,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 9717926,
-     "output_tokens": 1978341,
+     "input_tokens": 9836222,
+     "output_tokens": 2048433,
      "pricing_available": false
     }
    },
@@ -85,8 +84,8 @@
   "counts": {
    "dropped": 49,
    "investigating": 18,
-   "packaged": 3,
-   "parked": 29,
+   "packaged": 2,
+   "parked": 30,
    "published": 14,
    "qualified": 1,
    "ready": 15
@@ -1532,9 +1531,9 @@
      }
     ],
     "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
+     "compilation_spdx": "CC0-1.0",
+     "source_spdx": "LicenseRef-CityOfCapeTown-OpenDataTerms",
+     "status": "No standard SPDX licence is declared; the operative instruments are the City of Cape Town Open Data Terms of Use (disclaimer-only: as-is, no warranty, no liability; no restriction on reuse, redistribution or derivatives for portal data) together with the Council-approved Open Data Policy 27781 ('freely used, shared and built-on by anyone, anywhere, for any purpose'), and the ArcGIS item's licenseInfo links the portal terms. The table is engineering telemetry (half-hourly apparent-power MVA readings per switching substation): no personal data, no third-party content, no official symbols. The redistributed fields are the publisher's own readings (timestamped MVA values and station identifiers) plus our derived binary label, at-instant aggregates, calendar fields and partition. The derived dataset is labelled as such throughout and is not a City of Cape Town product."
     },
     "measurements": {
      "baseline_triad_2026_11_03_za_cct_baseline_001": {
@@ -1632,7 +1631,7 @@
      "seasonality_fixture": "Known-event fixture (verified measured): Cape Town winter evening-peaking. Monthly mean evening peak over all stations: 2024-07 61.9 MVA vs 2024-12 44.1 MVA; same May-August rise in 2022 (2022-08 60.3 vs 2022-12 48.0) and 2023 (2023-07 60.6 vs 2023-12 45.9). Per-station winter(May-Aug)/summer(Nov-Feb) mean evening-peak ratios: Grassy Park 66kV 1.25, Atlantis Industrial 132kV 1.22, Foreshore 132kV (CBD) 0.98 - winter-peaking residential/industrial substations and a flat CBD profile, exactly as expected for Cape Town's winter-heating, summer-cooling-mild coastal climate.",
      "target_labels_measured": "Evening-peak p95-exceedance labels (trailing 90 evenings, min 30 prior evenings, evening window 16:00-22:00 SAST): 2022 positives 1,539/13,735 (11.20%); 2023 positives 1,256/14,965 (8.39%); 2024 positives 1,382/15,006 (9.21%). Total 4,177/43,706. Both classes present in every year. Commands in notes.md (probe_fullscan.py, probe_cluster.py)."
     },
-    "next_action": "BASELINE MEASURED (za-cct-baseline-001, staging release 432863325, artifact 9f2e10ce re-accepted before any score): the stock runner model scored eval AUC 0.510",
+    "next_action": "OPERATOR DECISION (a) RECORDED 2026-11-04: package as an agent-headroom benchmark, with the comparison leading every package document. Basis: the operator's 202",
     "packaged_at": null,
     "path": "candidates/za-cct-substation-evening-peak-exceedance/record.json",
     "prediction_time": "06:00 Africa/Johannesburg (SAST, UTC+2) on day D, within the artifact's history. Features are the substation's half-hourly MVA readings with timestamps <= the instant (including day D's 00:00-06:00 readings), trailing aggregates computed only from readings <= the instant, plus calendar fields and substation identity. The evening target window 16:00-22:00 SAST lies entirely after the instant. RETROSPECTIVE USE: the publisher released the entire 2022-01-01..2024-12-31 window as one closed table (item created 2026-02-28, last modified 2026-03-02, hasStaticData), so this is a retrospective_research task per docs/PREDICTION-CONTRACT.md: no historical-operational-availability claim is made, label timing is unverified at any historical instant outside the artifact's own timestamp order.",
@@ -3472,8 +3471,8 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 3.0,
-    "awaiting_operator": false,
+    "age_hours": 4.0,
+    "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
     "domain": "adult social care regulation / 12-month register-exit (deregistration) prediction",
@@ -3587,7 +3586,7 @@
       "verdict": "RECORDED DEFECT for the stock runner under this protocol (model 0.5659 < rating_x_beds_rate 0.5871, both on the identical 14,765 eval rows) - quoted beside the reference as the skill requires. NOT a no-headroom verdict on the task, and the pre-registered drop condition (a one-line prior saturating it) is NOT met: the model beats every one-line prior, and the headroom reference demonstrates exploitable signal (CI excluding zero over last_rating_rate) inside the model's own shipped feature set. This does not prove a competent model must beat 0.5871; no model above the reference has been measured"
      }
     },
-    "next_action": "STAGED PRIVATE on BOTH destinations (v2026.11, NOT published): the accepted artifact afe9ee203f302f3c sits at the package MANIFEST digests on the private GitHub",
+    "next_action": "AWAITING OPERATOR (flip is the sole remaining step; publisher side complete, nothing public, holdout sealed on both destinations). v2026.11 is staged private an",
     "packaged_at": "2026-11-04T10:51:08Z",
     "path": "candidates/cqc-care-home-deregistration/record.json",
     "prediction_time": "The production instant of a monthly CQC 'HSCA Active Locations' vintage (Europe/London; the date in the file name, e.g. '05 January 2024 HSCA Active Locations'; the weekly sibling CSV states 'This data was produced on <date>' - the same stamping convention). Features are the vintage's own columns only: HSCA start date, care home beds, service types (with/without nursing), service user bands, latest overall rating + its publication date (measured as-of: 0/14,765 care-home rows at T=2024-01-05 carry a rating publication date after T), geography, provider attributes incl. Companies House number. Target = the register event dated after T, read from the cumulative Deactivated Locations product. Archive: monthly vintages 2011-2026 (Drive year folders, anonymous).",
@@ -9021,7 +9020,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 143.5,
+    "age_hours": 144.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -11440,7 +11439,6 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 186.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -11577,7 +11575,7 @@
      "update_cadence_observed_2026_10_23": "HDX package activity (CKAN package_activity_list, 60 entries read 2026-10-23): resource/dataset updates on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22, 2026-08-20 - a several-times-a-year refresh pattern aligned with UNHCR's annual statistical cycle (Global Trends lands ~June of D+1). The 2026-08-20 applications resource carries complete data through 2025, so year-D data is machine-observable at latest ~August of D+1; the conservative instant is the first observed mid-year-or-later refresh carrying year D.",
      "waf_probe_2026_10_20": "curl https://www.unhcr.org/refugee-statistics/ -> HTTP 403, 182,520 B (challenge page); the same URL loads normally in a real browser (title 'Refugee Data Finder - Key Indicators'). In-page same-origin fetch of the export deep link -> HTTP 403, 222,964 B. Both measured from the coordinator."
     },
-    "next_action": "OPERATOR DECISION APPLIED 2026-11-02 (session, per the recommendation the operator accepted): the v2026.10 panel package 6bd0c307 is DROPPED - never to be flipp",
+    "next_action": "PARKED on the reopen condition; the drop decision's mechanical marking is APPLIED (2026-11-04). Both destinations stay PRIVATE indefinitely and are marked so no",
     "packaged_at": "2026-10-27T19:44:51Z",
     "path": "candidates/unhcr-refugee-data-finder/record.json",
     "prediction_time": "Annual publication-lag NOWCAST - the accepted abs-visitor-arrivals-direction pattern, and it must not be described as a future-event forecast. The prediction instant is the publication of year-D complete annual data on the machine-fetchable channel: UNHCR's annual statistical cycle lands mid-year in D+1 (Global Trends), and the HDX distribution of this dataset was observed refreshing on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22 and 2026-08-20, with the 2026-08-20 resource carrying complete data through 2025. At that instant every feature is a corridor-year total for years <= D. The target year D+1 has PARTIALLY ELAPSED at the instant (the 2026-08-20 instant lies inside target year 2026, which started 2026-01-01) but its value is entirely UNPUBLISHED: on this channel no D+1 value exists until ~mid-D+2, and for most non-EU hosts no public monthly corridor data exists at all (Eurostat monthly data covers EU hosts only and is outside this channel's shipped features). So the claim recorded here is value-unavailability at the instant, not that the target window follows the instant. A strictly-future variant (at the same instant, predict year D+2 >= 2x the last PUBLISHED year D) was considered and rejected at discovery: the doubling baseline must be published at the instant, so a strict future window forces a two-year-back comparison, a different label and different measured base rates - a different task. The HDX archive is revised in place (current-vintage), so construction pins the fetched snapshot by sha256 and states values as construction-time vintage - the same documented posture as abs-visitor-arrivals-direction. Dated example in notes.md.",
@@ -11646,7 +11644,7 @@
      }
     ],
     "split_strategy": "Temporal split on corridor-year label windows (Government procedure, persons, sum of all application-type rows; eligibility: year-D corridor total >= 500 and host active in D+1). Candidate partition, counts computed from the source 2026-10-23: train label-years 2001-2016: n=3,677 rows, 302 positives (x2 prevalence 8.2%), 198 distinct (origin, label-year) positive clusters; eval label-years 2017-2021: n=1,918, 166 positives (8.7%), 109 clusters; holdout label-years 2022-2025: n=1,994, 234 positives (11.7%), 135 clusters. Both classes present in every label-year of every window (positives per label-year range 2-92). Surge origins differ across windows (train: SYR/AFG/IRQ; eval: VEN/AFG/COD; holdout: TUR/VEN/IND/AFG/CUB). Construction may adjust boundaries inside this measured envelope but must recompute and record counts on the frozen artifact; the prevalence drift (more surges later) is a property of the period, to document at construction.",
-    "status": "packaged",
+    "status": "parked",
     "target": "Binary exceedance: label 1 iff the corridor-year (D+1, O, H) government-procedure persons total (sum of all application-type rows; a missing corridor row with the host still reporting counted as 0 applications) is >= 2 x the corridor-year (D, O, H) total. Label source: the same 'Number of Applications' column of the HDX CSV at year D+1; the year-D+1 value and everything derived from it are excluded from shipped features. Censoring: corridors whose host reports no G/P rows at all in D+1 (33 of 7,622 eligible rows, 0.43%) are excluded as unobserved targets, not counted as 0. Note what the target does NOT measure: temporary-protection registrations (e.g. Ukrainians in the EU from 2022) are not asylum applications and do not enter this stream."
    },
    {
@@ -12485,9 +12483,9 @@
      }
     ],
     "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
+     "compilation_spdx": "CC0-1.0",
+     "source_spdx": "LicenseRef-CityOfCapeTown-OpenDataTerms",
+     "status": "No standard SPDX licence is declared; the operative instruments are the City of Cape Town Open Data Terms of Use (disclaimer-only: as-is, no warranty, no liability; no restriction on reuse, redistribution or derivatives for portal data) together with the Council-approved Open Data Policy 27781 ('freely used, shared and built-on by anyone, anywhere, for any purpose'), and the ArcGIS item's licenseInfo links the portal terms. The table is engineering telemetry (half-hourly apparent-power MVA readings per switching substation): no personal data, no third-party content, no official symbols. The redistributed fields are the publisher's own readings (timestamped MVA values and station identifiers) plus our derived binary label, at-instant aggregates, calendar fields and partition. The derived dataset is labelled as such throughout and is not a City of Cape Town product."
     },
     "measurements": {
      "baseline_triad_2026_11_03_za_cct_baseline_001": {
@@ -12585,7 +12583,7 @@
      "seasonality_fixture": "Known-event fixture (verified measured): Cape Town winter evening-peaking. Monthly mean evening peak over all stations: 2024-07 61.9 MVA vs 2024-12 44.1 MVA; same May-August rise in 2022 (2022-08 60.3 vs 2022-12 48.0) and 2023 (2023-07 60.6 vs 2023-12 45.9). Per-station winter(May-Aug)/summer(Nov-Feb) mean evening-peak ratios: Grassy Park 66kV 1.25, Atlantis Industrial 132kV 1.22, Foreshore 132kV (CBD) 0.98 - winter-peaking residential/industrial substations and a flat CBD profile, exactly as expected for Cape Town's winter-heating, summer-cooling-mild coastal climate.",
      "target_labels_measured": "Evening-peak p95-exceedance labels (trailing 90 evenings, min 30 prior evenings, evening window 16:00-22:00 SAST): 2022 positives 1,539/13,735 (11.20%); 2023 positives 1,256/14,965 (8.39%); 2024 positives 1,382/15,006 (9.21%). Total 4,177/43,706. Both classes present in every year. Commands in notes.md (probe_fullscan.py, probe_cluster.py)."
     },
-    "next_action": "BASELINE MEASURED (za-cct-baseline-001, staging release 432863325, artifact 9f2e10ce re-accepted before any score): the stock runner model scored eval AUC 0.510",
+    "next_action": "OPERATOR DECISION (a) RECORDED 2026-11-04: package as an agent-headroom benchmark, with the comparison leading every package document. Basis: the operator's 202",
     "packaged_at": null,
     "path": "candidates/za-cct-substation-evening-peak-exceedance/record.json",
     "prediction_time": "06:00 Africa/Johannesburg (SAST, UTC+2) on day D, within the artifact's history. Features are the substation's half-hourly MVA readings with timestamps <= the instant (including day D's 00:00-06:00 readings), trailing aggregates computed only from readings <= the instant, plus calendar fields and substation identity. The evening target window 16:00-22:00 SAST lies entirely after the instant. RETROSPECTIVE USE: the publisher released the entire 2022-01-01..2024-12-31 window as one closed table (item created 2026-02-28, last modified 2026-03-02, hasStaticData), so this is a retrospective_research task per docs/PREDICTION-CONTRACT.md: no historical-operational-availability claim is made, label timing is unverified at any historical instant outside the artifact's own timestamp order.",
@@ -12804,7 +12802,181 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 143.5,
+     "age_hours": 4.0,
+     "awaiting_operator": true,
+     "baseline": {},
+     "country": "GB",
+     "domain": "adult social care regulation / 12-month register-exit (deregistration) prediction",
+     "id": "cqc-care-home-deregistration",
+     "jobs": [
+      {
+       "at": null,
+       "id": "cqc-chd-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-chd-002",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-chd-003",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-chd-004",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-chd-baseline-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-publish-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-hf-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-consumer-001",
+       "status": null
+      }
+     ],
+     "licence_summary": {
+      "compilation_spdx": "CC0-1.0",
+      "source_spdx": "OGL-UK-3.0",
+      "status": "CQC register bulk files ('HSCA Active Locations' vintages + 'Deactivated Locations' 2026-11-02 edition) under the Open Government Licence v3.0: free to copy, publish, distribute, transmit, adapt and exploit commercially with the required attribution statement. OGL-UK exempts personal data, third-party rights and official symbols from its grant; the shipped columns were chosen with that in mind: no location name, address, postcode, phone, registered manager, provider id/name, Companies House or charity number ships (identity is a per-instant salted pseudonym; the real-id location map is staging-side and never published), and the redistributed fields (care home beds, service type and service user band flags, latest overall rating + publication date, local authority, region, provider sector, HSCA start year, the vintage instant) are derived from the publisher's own register columns with nothing added beyond our derived binary label, the pseudonym, the derived counts/flags and the partition. The derived dataset is labelled as such throughout and is not CQC's official product."
+     },
+     "measurements": {
+      "archive_depth_measured": "monthly 'HSCA Active Locations' vintages 2011-2026 (2019 files .xlsx, 2024+ .ods; 12 per year), 'with ratings' archive 2015-2026, weekly CSV archive 2012-2026; all anonymously listable and downloadable from Google Drive (embeddedfolderview + drive.usercontent download); Drive year-folder IDs and one 2024 file ID recorded in probe/cqc_drive_*.py",
+      "asof_measured": "0/14,765 care-home rows in the Jan-2024 vintage carry a rating Publication Date after T=2024-01-05 - the vintage's ratings are genuinely at-T",
+      "clustering_measured": "deregistrations spread across 376-877 distinct providers per year; largest single provider holds 3-12% of a complete year's events (max 74/1656 in 2011, 102/1649 in 2012, 97/697 in the partial 2026); top-3 provider share <= 12.2% in every complete year - mild provider clustering, positives independently numerous",
+      "cost_measured": "discovery: 4 anonymous GETs, 85.9 MB total (4.4 + 27.6 + 26.1 + 27.7 MB), seconds each; construction (January instants): ~10-15 vintage files (~26 MB each, ~390 MB) + 1 deactivated file, worker download, Drive per-file IDs enumerated from year folders; ODS parse ~60 s/file on 4 vCPU warm (one cold run under concurrent I/O took >15 min and was killed - worker sizing should budget generously)",
+      "cross_checks": "CQC/DHSC operational-effectiveness review (June 2024 snapshot): 29,108 social care organisation locations, 23,951 with published ratings vs 57,123 total locations / 15,477 care homes measured here (2026-10-28) - consistent magnitude and mix; BMJ Public Health 2024: 29,548 care homes existed 2011-2023 with 8,346 COMPLETE closures vs 14,911 register events measured here over the same span (the gap = their linkage-filtered subset vs raw deregistrations, per their methodology note); CQC State of Care 2016 small-home closure profile matches the beds-at-deactivation distribution",
+      "feature_availability_measured": "vintage header (118 real columns): Location ID, Location HSCA start date, Care home?, Care homes beds, Registered manager, Location Latest Overall Rating + Publication Date + Inherited Rating flag, geography (region/NHS region/LA/CCG/constituency, lat-long, postcode), Provider Companies House Number, Provider Charity Number, Provider ID/name/type-sector/HSCA dates, 32 Service type Y/N columns (incl. Care home service with/without nursing), 12 Service user band Y/N columns (incl. Dementia, Older People, Learning disabilities). No Location Status column (all rows active by construction)",
+      "known_event_fixture": "dated worked example in notes.md: Park Hills Nursing Home (1-113831768, Oldham, 17 beds, HSCA start 01/02/2011, Good published 26/08/2022) present at T=2024-01-05, Location HSCA End Date 01/02/2024 inside the window -> label 1; Henley House (1-10000302982, Suffolk, 66 beds) present at T, absent from the deactivated file as of 2026-11-02 -> label 0; Options Hazel House (end date 05/03/2025, outside the window) -> label 0 at T",
+      "label_events_measured": "Deactivated Locations 2026-11-02: 65,830 archived locations, of which 17,177 care homes (Care home?=Y); care-home deregistrations by HSCA end year 2011..2026 = 1656, 1649, 1063, 1227, 1245, 1381, 1352, 970, 949, 822, 967, 803, 827, 768, 801, 697(partial-year); earliest care-home end date 2011-01-19 (earliest overall 2010-08-05); status mix: 17,046 Inactive-Dereg, 131 Removed",
+      "measured_on": "2026-11-03, anonymous coordinator-side probes; scripts + outputs in candidates/cqc-care-home-deregistration/probe/ (sha256 of fetched files in notes.md)",
+      "population_measured": "weekly CSV produced 2026-10-28: 57,123 active locations; care homes today 15,477 (10,380 Residential homes + 4,497 Nursing homes), all 9 English regions; care homes at T=2024-01-05 vintage: 14,765",
+      "prevalence_measured": "T=2024-01-05: 758/14,765 care homes deregister in (T, T+365d] = 5.13%; 2,076 of the 14,765 deregister by 2026-11-02 - label fully observable, no censoring at that instant",
+      "rating_signal_measured": "last overall rating at deactivation (care homes): Good 5,992, blank 7,698, Requires improvement 2,318, Inadequate 1,027, Outstanding 138 - Inadequate is 6.0% of deactivations vs a low single-digit share of the active stock; beds at deactivation small-home-dominated (modes 3-10 beds) - both match the publisher's State of Care closure profile",
+      "references_2026_11_04_cqc_chd_004": {
+       "headroom_reference_for_any_model_figure": "rating_x_beds_rate 0.5871 on the identical eval rows; a full-model figure from the coming baseline job must be quoted beside it, and a model below it is a recorded defect, not an encouraging result",
+       "majority_class_accuracy_eval": 0.9487301049779885,
+       "no_persistence_by_design": "the location's own prior-instant outcome is the natural persistence score, but identity ships as a per-instant pseudonym (the missing-successor P0 design), so prior-instant labels are structurally unlinkable over the shipped frame - for the scorer too; hsca_start_year_rate is the nearest shippable history prior",
+       "paired_bootstrap_150": {
+        "rating_x_beds_vs_last_rating": {
+         "ci95": [
+          0.012336799268033438,
+          0.04074592760988893
+         ],
+         "note": "interval excludes zero",
+         "observed_difference": 0.027347460254830813
+        }
+       },
+       "references_eval_auc": {
+        "beds_bucket_rate": 0.5297982677571677,
+        "global_rate": "degenerate (constant score)",
+        "hsca_start_year_rate": 0.5226476076701217,
+        "last_rating_rate": 0.5597447335246061,
+        "local_authority_rate": 0.5207061335775669,
+        "provider_sector_rate": 0.5010938738912734,
+        "rating_x_beds_rate": 0.5870921937794369
+       },
+       "source": "score.py post-acceptance on the worker, eval rows only (14,765 / 757 positives, base rate 5.126%), holdout never opened; every rate table estimated ONLY from train rows"
+      },
+      "runner_contract_baseline_2026_11_04_cqc_chd_baseline_001": {
+       "command": "worker job cqc-chd-baseline-001 run.sh (fetch the five accepted assets from staging release 433536764, digests verified on arrival, --accept ACCEPTED afe9ee203f302f3c BEFORE any score, then the benchmark's own unmodified train.py + validate.sh); report .factory/cqc-chd-baseline-001/reports/output/baseline_result.json, staging release 433569826",
+       "comparison_ladder_eval_auc": {
+        "MODEL_stock_runner": 0.5659,
+        "beds_bucket_rate": 0.5297982677571677,
+        "global_rate": "degenerate (constant score)",
+        "hsca_start_year_rate_nearest_history_prior": 0.5226476076701217,
+        "last_rating_rate_best_one_line_prior": 0.5597447335246061,
+        "local_authority_rate": 0.5207061335775669,
+        "majority_class_accuracy_eval": 0.9487301049779885,
+        "persistence": "NOT APPLICABLE BY DESIGN - identity ships as per-instant pseudonyms (missing-successor P0 design), so prior-instant labels are structurally unlinkable for the scorer too",
+        "provider_sector_rate": 0.5010938738912734,
+        "rating_x_beds_rate_headroom_reference": 0.5870921937794369
+       },
+       "concrete_diagnosis_candidates": "(a) verified by code reading: the stock train.py treats the 'instant' string column (YYYY-MM) as a train-only categorical - train instants 2018-01..2022-01 define the levels and the eval instant 2024-01 is unseen, so every eval row gets NaN there and part of the 30-tree depth-6 budget was spent on train-instant memorization that cannot transfer; (b) the rating x beds interaction the two-way rate table captures directly is available to XGBoost only through split combinations, and the small-home x poorly-rated cells are a thin slice of 78k train rows; (c) no misalignment and no post-hoc reference: both AUC figures come from the runner's own two implementations on the same accepted bytes, and as-of was asserted in-build (0/14,765 rating publication dates after T); (d) prevalence shift train 5.654% -> eval 5.127% is mild and recorded",
+       "full_model_eval_auc": 0.5659,
+       "full_model_eval_auc_from_validate_py": 0.5659,
+       "information_note": "rating_x_beds_rate reads ONLY shipped at-T columns (latest_overall_rating x care_home_beds), so it is a fair same-information target for anything that consumes this artifact - no information asymmetry, unlike a persistence score",
+       "interpretation_rule": "any later model figure must still be quoted beside rating_x_beds_rate 0.5871; a model below it is a recorded defect, not an encouraging result; keep fitting until a score wins is forbidden",
+       "measured_on": "the accepted artifact afe9ee203f302f3c (job cqc-chd-baseline-001, after --accept, on the same 14,765 eval rows as the cqc-chd-004 references)",
+       "observed_gap": "the stock runner model trails the strongest reference by 0.0212 AUC (0.5659 vs rating_x_beds_rate 0.5871) on identical rows, while beating every one-line prior (best: last_rating_rate 0.5597); observed difference, no dependence-aware interval computed for the model-vs-reference pair",
+       "verdict": "RECORDED DEFECT for the stock runner under this protocol (model 0.5659 < rating_x_beds_rate 0.5871, both on the identical 14,765 eval rows) - quoted beside the reference as the skill requires. NOT a no-headroom verdict on the task, and the pre-registered drop condition (a one-line prior saturating it) is NOT met: the model beats every one-line prior, and the headroom reference demonstrates exploitable signal (CI excluding zero over last_rating_rate) inside the model's own shipped feature set. This does not prove a competent model must beat 0.5871; no model above the reference has been measured"
+      }
+     },
+     "next_action": "AWAITING OPERATOR (flip is the sole remaining step; publisher side complete, nothing public, holdout sealed on both destinations). v2026.11 is staged private an",
+     "packaged_at": "2026-11-04T10:51:08Z",
+     "path": "candidates/cqc-care-home-deregistration/record.json",
+     "prediction_time": "The production instant of a monthly CQC 'HSCA Active Locations' vintage (Europe/London; the date in the file name, e.g. '05 January 2024 HSCA Active Locations'; the weekly sibling CSV states 'This data was produced on <date>' - the same stamping convention). Features are the vintage's own columns only: HSCA start date, care home beds, service types (with/without nursing), service user bands, latest overall rating + its publication date (measured as-of: 0/14,765 care-home rows at T=2024-01-05 carry a rating publication date after T), geography, provider attributes incl. Companies House number. Target = the register event dated after T, read from the cumulative Deactivated Locations product. Archive: monthly vintages 2011-2026 (Drive year folders, anonymous).",
+     "publisher": "Care Quality Commission (CQC) - regulator of health and adult social care in England",
+     "qualification": {
+      "artifact_version": "afe9ee203f302f3ca41b9b01ad74a937e111d1b830590c7e662bb0b7b6df85d7",
+      "result": null,
+      "splits": null
+     },
+     "question": "For a care home location active on the CQC register at monthly vintage T (the 'HSCA Active Locations' file produced on that date), will the location's registration end within the following 12 months (Location Status Inactive-Dereg with a Location HSCA End Date inside (T, T+365d])?",
+     "region": "Europe",
+     "release_baseline": {
+      "auc": 0.5659,
+      "display": "0.5659",
+      "reference": null
+     },
+     "release_splits": {
+      "eval": {
+       "positives": 757,
+       "rows": 14765
+      },
+      "holdout": {
+       "positives": 761,
+       "rows": 14749
+      },
+      "train": {
+       "positives": 4418,
+       "rows": 78138
+      }
+     },
+     "review": "",
+     "sources": [
+      {
+       "licence": "Open Government Licence v3.0 (publisher's using-cqc-data page)",
+       "name": "CQC care directory with filters - 'HSCA Active Locations' (monthly bulk file, all active regulated locations, care home beds, service types, service user bands, latest rating + publication date, provider attributes)",
+       "url": "https://www.cqc.org.uk/about-us/transparency/using-cqc-data"
+      },
+      {
+       "licence": "Open Government Licence v3.0 (using-cqc-data page + in-sheet statement)",
+       "name": "CQC Deactivated Locations (monthly bulk file, cumulative register of archived locations with Location HSCA start/end dates, Location Status, beds at deactivation, last rating + publication date, provider attributes)",
+       "url": "https://www.cqc.org.uk/system/files/2026-11/02_November_2026_Deactivated_Locations.ods"
+      },
+      {
+       "licence": "Open Government Licence v3.0",
+       "name": "CQC care directory with ratings (monthly bulk file, service-level latest ratings; archive from 2015)",
+       "url": "https://www.cqc.org.uk/about-us/transparency/using-cqc-data"
+      },
+      {
+       "licence": "Open Government Licence v3.0",
+       "name": "CQC care directory weekly CSV (locations census only; no beds/ratings)",
+       "url": "https://www.cqc.org.uk/system/files/2026-10/28_October_2026_CQC_directory.zip"
+      }
+     ],
+     "split_strategy": "Annual January instants with non-overlapping 12-month target windows. Proposed: train instants Jan 2016-2019 (targets 2016-2020), eval Jan 2020-2021 (targets 2020-2022), holdout Jan 2022-2024 (holdout target windows end by 2025-01, fully observed by the 2026-11-02 deactivated file). Instants 2011-2015 are usable for train with the pre-Oct-2014 no-ratings caveat; instants 2025+ are excluded while either the deactivated file's coverage or the publisher's migration-related cancellation lag is unresolved. Exact per-instant positives are the first construction measurement; measured anchor: T=2024-01-05 carries 14,765 eligible care homes and 758 positives (5.13%).",
+     "status": "packaged",
+     "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
+    },
+    {
+     "age_hours": 144.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13092,8 +13264,8 @@
    ],
    "packaged": [
     {
-     "age_hours": 3.0,
-     "awaiting_operator": false,
+     "age_hours": 4.0,
+     "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
      "domain": "adult social care regulation / 12-month register-exit (deregistration) prediction",
@@ -13207,7 +13379,7 @@
        "verdict": "RECORDED DEFECT for the stock runner under this protocol (model 0.5659 < rating_x_beds_rate 0.5871, both on the identical 14,765 eval rows) - quoted beside the reference as the skill requires. NOT a no-headroom verdict on the task, and the pre-registered drop condition (a one-line prior saturating it) is NOT met: the model beats every one-line prior, and the headroom reference demonstrates exploitable signal (CI excluding zero over last_rating_rate) inside the model's own shipped feature set. This does not prove a competent model must beat 0.5871; no model above the reference has been measured"
       }
      },
-     "next_action": "STAGED PRIVATE on BOTH destinations (v2026.11, NOT published): the accepted artifact afe9ee203f302f3c sits at the package MANIFEST digests on the private GitHub",
+     "next_action": "AWAITING OPERATOR (flip is the sole remaining step; publisher side complete, nothing public, holdout sealed on both destinations). v2026.11 is staged private an",
      "packaged_at": "2026-11-04T10:51:08Z",
      "path": "candidates/cqc-care-home-deregistration/record.json",
      "prediction_time": "The production instant of a monthly CQC 'HSCA Active Locations' vintage (Europe/London; the date in the file name, e.g. '05 January 2024 HSCA Active Locations'; the weekly sibling CSV states 'This data was produced on <date>' - the same stamping convention). Features are the vintage's own columns only: HSCA start date, care home beds, service types (with/without nursing), service user bands, latest overall rating + its publication date (measured as-of: 0/14,765 care-home rows at T=2024-01-05 carry a rating publication date after T), geography, provider attributes incl. Companies House number. Target = the register event dated after T, read from the cumulative Deactivated Locations product. Archive: monthly vintages 2011-2026 (Drive year folders, anonymous).",
@@ -13266,7 +13438,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 143.5,
+     "age_hours": 144.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13550,604 +13722,9 @@
      "split_strategy": "Cohort split on advisory issue year (disjoint calendar-year windows, both classes in every window). Computed from the full fetched CSV (sha256 60f77ac4...) and cross-checked against independent SoQL aggregates run against the live API (identical numbers). Censored rows excluded from scored sets with per-window counts. Clustered (site-repeat) counts recorded because advisories cluster by site: 586 / 286 / 551 distinct sites per window.",
      "status": "packaged",
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
-    },
-    {
-     "age_hours": 186.1,
-     "awaiting_operator": false,
-     "baseline": {},
-     "country": "CH",
-     "domain": "forced displacement - corridor-level asylum-application surge prediction (international organisation publisher)",
-     "id": "unhcr-refugee-data-finder",
-     "jobs": [
-      {
-       "at": null,
-       "id": "unhcr-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "unhcr-baseline-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "unhcr-publish-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "unhcr-hf-001",
-       "status": null
-      }
-     ],
-     "licence_summary": {
-      "compilation_spdx": "CC0-1.0",
-      "source_spdx": "CC-BY-3.0-IGO",
-      "status": "UNHCR asylum-applications statistics (asylum applications residing in each country of origin, annually, 2000-) distributed via the Humanitarian Data Exchange under CC BY 3.0 IGO. Redistribution and adaptation are permitted for any purpose with attribution. The licence does not and cannot imply UNHCR's endorsement of this derived task, and the derived dataset is labelled as such throughout."
-     },
-     "measurements": {
-      "app_internals_2026_10_20": "The app is a Symfony/UX live-component application (assets under /refugee-statistics/assets/, controllers incl. data_finder_controller-*.js, turbo/stimulus bundles); the data_finder controller submits a FormData via Turbo form POST; no JSON/CSV API route appears in the controller source or in the page's network resource entries. The Download control is an <a> with no href (JS-driven dialog form); a programmatic click produced no downloaded file in this session.",
-      "bamf_cross_check_2026_10_23": "Sum-all G/P host-year totals vs BAMF's published totals (Erst- und Folgeantraege): DEU 2000: 117,600 vs 117,648 (-0.04%); DEU 2010: 48,544 vs 48,589 (-0.09%); DEU 2015: 476,630 vs 476,649 (-0.004%); DEU 2016: 745,510 vs 745,545 (-0.005%). The max-rule matches BAMF first applications for the same years (441,898 vs 441,899 in 2015), confirming the duplicates are first/follow-up pairs. BAMF figures from bamf.de Asylgeschaeftsstatistik / Bundesamt in Zahlen (searched and read 2026-10-23); UNHCR's Germany data is sourced from BAMF. This is the publisher-total cross-check for the panel construction rule.",
-      "baseline_triad_2026_10_27": {
-       "calendar_identity": {
-        "eval_auc": 0.540927
-       },
-       "finding": "no demonstrated headroom over persistence under this protocol: the stock model 0.5393 trails momentum 0.5742 and the surge flag 0.5856 on identical rows; all paired intervals contain zero (inconclusive differences, observed gaps negative). Recorded beside every model figure; one weak stock model does not establish that no solver can beat persistence, and no claim is made in either direction. 2020 (6 positives) inverts momentum; 2017-2019 belong to it.",
-       "full_model_stock_xgboost": {
-        "brier": 0.085099,
-        "eval_auc": 0.5393
-       },
-       "majority_class_accuracy_this_split": 0.91256,
-       "paired_differences_full_model_vs": {
-        "calendar_identity": {
-         "ci95": [
-          -0.059444,
-          0.058719
-         ],
-         "diff": -0.001577
-        },
-        "persistence_momentum": {
-         "ci95": [
-          -0.105633,
-          0.04085
-         ],
-         "diff": -0.034815
-        },
-        "persistence_surge_flag": {
-         "ci95": [
-          -0.110322,
-          0.014362
-         ],
-         "diff": -0.046269
-        },
-        "recent_rate": {
-         "ci95": [
-          -0.004657,
-          0.085904
-         ],
-         "diff": 0.03935
-        }
-       },
-       "per_label_year": {
-        "2017": {
-         "model": 0.3938,
-         "momentum": 0.7451,
-         "positives": 27,
-         "rows": 361
-        },
-        "2018": {
-         "model": 0.5479,
-         "momentum": 0.6568,
-         "positives": 41,
-         "rows": 386
-        },
-        "2019": {
-         "model": 0.5635,
-         "momentum": 0.6272,
-         "positives": 34,
-         "rows": 423
-        },
-        "2020": {
-         "model": 0.8417,
-         "momentum": 0.1164,
-         "positives": 6,
-         "rows": 414
-        },
-        "2021": {
-         "model": 0.6127,
-         "momentum": 0.5684,
-         "positives": 57,
-         "rows": 303
-        }
-       },
-       "persistence_momentum_log_growth_d": {
-        "eval_auc": 0.574165
-       },
-       "persistence_surge_flag": {
-        "eval_auc": 0.585619
-       },
-       "positives": 165,
-       "recent_rate_constant": {
-        "eval_auc": 0.5,
-        "note": "constant score, no ranking information; degenerate control"
-       },
-       "rows": 1887,
-       "source": "worker job unhcr-baseline-001 (baseline_result.json), post-acceptance, eval-only, holdout sealed"
-      },
-      "censoring_measured_2026_10_23": "Host-year activity: 67 hosts report in 2000 growing to ~110 in recent years; among 7,622 eligible corridor-years, 7,589 (99.57%) have an active host in D+1 (missing corridor row = observed zero) and 33 (0.43%) have a host reporting nothing at all in D+1 (unobserved target; excluded). Absence of a row is treated as zero applications only when the host is still reporting.",
-      "dead_channels_2026_10_20": "http://popstats.unhcr.org/en/overview -> HTTP 000 (host gone); https://data.unhcr.org/en/index -> HTTP 404. The pre-RDF population database channel no longer exists.",
-      "deep_links_2026_10_20": "The homepage's five export deep links (extracted from the rendered page): population by country of origin (?v2url=dc36b6), population by host country (?v2url=bd1059), demographics of refugees (?v2url=d3e49d), solutions 2015-2024 (?v2url=d63e73), new asylum applications during 2024 (?v2url=1e3087). Navigating a real tab to the origin deep link opens the interactive Data Finder app with that dataset preselected - the URL is a view selector, not a file.",
-      "duplicate_rows_resolved_2026_10_23": "20,851 of 73,051 G/P corridor-year cells (28.5%) carry multiple rows with the same (Year, Origin, Asylum, Procedure, ApplicationType, DataType) key but different counts (e.g. 2000 AFG->DEU G/V/P: 5,380 vs 5,756; 2000 AFG->AUS G/V/C: 90 vs 1,326). Identical rows in all other columns; present in every year incl. 2025 (35 groups), and identical in the per-country extracts (verified on asylum_applications_residing_deu.csv). Resolution rule: SUM all G/P rows per corridor-year. Basis: cross-checks against the primary national publisher's own published host-year totals (BAMF, which is UNHCR's source for Germany) match the sum-all rule to within 0.005-0.09% in four different years, while the max-rule matches BAMF's first-application figure - i.e. the duplicate rows are disjoint components (first vs follow-up applications) exported under one type code, so summing reconstructs the total. See bamf_cross_check_2026_10_23.",
-      "hdx_bulk_path_2026_10_23": "HDX package unhcr-population-data-for-world (created 2020-08-27, maintained by the UNHCR organisation account) carries the full global corridor panel in five CSVs. Applications resource: 1 GET (HTTP 302 -> signed URL, curl -L), 200 OK, 8,669,567 bytes, 2.06 s from the coordinator (1.9 GiB class); sha256 d5808616c3d10d33925d4df5a3182a2028dd574d111e843cc207455ba45fe950 identical across two fetches. This resolves the 2026-10-20 access blocker: the 2026-10-20 note 'HDX does not unblock the bulk data' was a search-visibility miss and is corrected here with the package URL.",
-      "hdx_mirrors_2026_10_20": "HDX CKAN search 'unhcr population' -> 860 results, of which the full origin-year population series is absent; only per-country extracts (CC BY) and GIS reference layers. 'refugee data finder' search -> 3,427 results, none the full series. HDX does not unblock the bulk data.",
-      "known_event_fixtures_2026_10_23": "Reproduced by candidates/unhcr-refugee-data-finder/probe_hdx_asylum_fixture.py (exit 0): SYR->DEU 2014->2015 41,100 -> 162,510 x2 label TRUE (2015 Syrian surge into Germany); AFG->USA 2021->2022 533 -> 25,082 TRUE (post-Aug-2021 Taliban takeover, Afghan asylum filings in the US); AFG->DEU 2021->2022 37,245 -> 48,602 FALSE (large growth, sub-doubling). Anti-fixture recorded: UKR->POL 2021->2022 458 -> 1,593 is below the 500 eligibility at D, and Ukrainians in the EU mostly registered temporary protection rather than asylum applications - the target does not measure temporary-protection registrations.",
-      "label_family_measured_2026_10_23": "On eligible corridor-years (G/P sum-all >= 500 at D, host active in D+1; n=7,589 across 2000-2024): decline (D+1 < D) 57.3%; growth >25% 27.4%; growth >50% 18.5%; >=2x 9.3%; >=3x 4.2%. Chosen label: >=2x (doubling), a ~9% prevalence exceedance target in the house family of the other published exceedance tasks. Alternatives measured and recorded; construction must not re-tune the threshold after seeing scores.",
-      "panel_shape_measured_2026_10_23": "Applications CSV: 120,597 data rows, 13 columns, years 2000-2025 (26), 215 origin codes, 130 asylum-country codes. Columns: Year, Country of Origin Code/Name, Country of Asylum Code/Name, Procedure Type/Name, Application Type Code/Name, Application Data Type/Data, Application Average Persons Per Case (all zero), Number of Applications (all integer). No month column. Provenance mix (skill requirement): Procedure G=105,862 / U=13,955 / J=780 rows; Data Type P=113,635 / C=6,962. The task is defined on the G/P stream only (99,281 rows, 6,936 distinct corridors, 33.7M applications); the UNHCR-procedure stream (13,640 persons rows) is a separate RSD population, not summed in, and the task does not cover corridors served only by UNHCR procedure.",
-      "recency_2026_10_20": "The RDF homepage reports 'Forcibly displaced people worldwide at end-2025: 117.8 million' with charts spanning 2000-2025, so the series is maintained to end-2025 (annual grain) - current and republished on a rolling schedule.",
-      "reporting_model_mix_2026_10_23": "Two reporting models inside the G/P stream: split-type codes (N/R/A/J/...) vs unsplit 'V' rows. Measured on eligible corridor-years: train window 1,238 V-model / 2,439 split-model; eval 1,918/0 V-model; holdout 1,994/0 V-model. The eval and holdout windows are 100% split-model; V-model ambiguity therefore touches only training-era rows, and the sum-all rule is cross-checked against BAMF in exactly that era. Type coexistence measured: V never coexists with N/R/A in the same corridor-year (0 of 73,051), so V is an unsplit total, not an additive category; N-with-NR/RA/SP coexistence is rare (646 cells differ between sum-all and a V/NR-preferring rule; 196 eligible).",
-      "split_window_counts_2026_10_23": "x2 label, computed from the source: train label-years 2001-2016 n=3,677 / 302 positives / 198 (origin, label-year) positive clusters; eval 2017-2021 n=1,918 / 166 / 109; holdout 2022-2025 n=1,994 / 234 / 135. Positives per label-year: train 2-53, eval 6-57, holdout 26-92; every label-year of every window carries both classes. For comparison, the parked annual origin-grain derivative (unicef-sdmx-refugee-origin-growth) carried only 34 positive origin-years in eval.",
-      "update_cadence_observed_2026_10_23": "HDX package activity (CKAN package_activity_list, 60 entries read 2026-10-23): resource/dataset updates on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22, 2026-08-20 - a several-times-a-year refresh pattern aligned with UNHCR's annual statistical cycle (Global Trends lands ~June of D+1). The 2026-08-20 applications resource carries complete data through 2025, so year-D data is machine-observable at latest ~August of D+1; the conservative instant is the first observed mid-year-or-later refresh carrying year D.",
-      "waf_probe_2026_10_20": "curl https://www.unhcr.org/refugee-statistics/ -> HTTP 403, 182,520 B (challenge page); the same URL loads normally in a real browser (title 'Refugee Data Finder - Key Indicators'). In-page same-origin fetch of the export deep link -> HTTP 403, 222,964 B. Both measured from the coordinator."
-     },
-     "next_action": "OPERATOR DECISION APPLIED 2026-11-02 (session, per the recommendation the operator accepted): the v2026.10 panel package 6bd0c307 is DROPPED - never to be flipp",
-     "packaged_at": "2026-10-27T19:44:51Z",
-     "path": "candidates/unhcr-refugee-data-finder/record.json",
-     "prediction_time": "Annual publication-lag NOWCAST - the accepted abs-visitor-arrivals-direction pattern, and it must not be described as a future-event forecast. The prediction instant is the publication of year-D complete annual data on the machine-fetchable channel: UNHCR's annual statistical cycle lands mid-year in D+1 (Global Trends), and the HDX distribution of this dataset was observed refreshing on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22 and 2026-08-20, with the 2026-08-20 resource carrying complete data through 2025. At that instant every feature is a corridor-year total for years <= D. The target year D+1 has PARTIALLY ELAPSED at the instant (the 2026-08-20 instant lies inside target year 2026, which started 2026-01-01) but its value is entirely UNPUBLISHED: on this channel no D+1 value exists until ~mid-D+2, and for most non-EU hosts no public monthly corridor data exists at all (Eurostat monthly data covers EU hosts only and is outside this channel's shipped features). So the claim recorded here is value-unavailability at the instant, not that the target window follows the instant. A strictly-future variant (at the same instant, predict year D+2 >= 2x the last PUBLISHED year D) was considered and rejected at discovery: the doubling baseline must be published at the instant, so a strict future window forces a two-year-back comparison, a different label and different measured base rates - a different task. The HDX archive is revised in place (current-vintage), so construction pins the fetched snapshot by sha256 and states values as construction-time vintage - the same documented posture as abs-visitor-arrivals-direction. Dated example in notes.md.",
-     "publisher": "United Nations High Commissioner for Refugees (UNHCR), headquartered in Geneva, Switzerland",
-     "qualification": {
-      "artifact_version": null,
-      "result": "passed; 0 failed checks of 45 on the full artifact on the worker (leakage incl. declared high-cardinality row_id/surge_cluster, timing publication instant with measured 232-day lag, evaluation_contract retrospective_research/isolated_rows with training_label_timing unverified, current_snapshot vintage, cross-row probe executed on all splits with 0 mismatches, splits disjoint and both-classed, runner layout/meta agreement)",
-      "splits": {
-       "eval": {
-        "distinct_positive_clusters": 109,
-        "positive_rate": 0.08744,
-        "positives": 165,
-        "rows": 1887
-       },
-       "holdout": {
-        "distinct_positive_clusters": 133,
-        "positive_rate": 0.115698,
-        "positives": 227,
-        "rows": 1962
-       },
-       "train": {
-        "distinct_positive_clusters": 183,
-        "positive_rate": 0.084151,
-        "positives": 283,
-        "rows": 3363
-       }
-      }
-     },
-     "question": "For an asylum corridor (country of origin O, country of asylum H) whose total government-procedure asylum applications in year D are at least 500 (persons, all application types summed), will that corridor's total government-procedure asylum applications in year D+1 be at least twice the year-D value? Annual grain, measured 2000-2025; a useful prediction enables humanitarian reception planning and resettlement budgeting ahead of the surge year rather than after it.",
-     "region": "International organisations",
-     "release_baseline": {
-      "auc": 0.5393,
-      "display": "0.5393",
-      "reference": null
-     },
-     "release_splits": {
-      "eval": {
-       "positives": 165,
-       "rows": 1887
-      },
-      "holdout": {
-       "positives": 227,
-       "rows": 1962
-      },
-      "train": {
-       "positives": 283,
-       "rows": 3363
-      }
-     },
-     "review": "Five contracts reconciled 2026-10-23 on written evidence: (1) Redistribution SUPPORTED - publisher's own instruments (HDX package record CC BY 3.0 IGO with grant and Section 4 quoted; RDF methodology CC BY 4.0), class A, conditions carried to LICENSE.md. (2) Timing SUPPORTED with documented current-vintage assumption - annual instant = first refresh carrying year-D data (observed cadence; 2026-08-20 file carries data through 2025); the task is an explicitly-labelled publication-lag NOWCAST (abs-visitor-arrivals-direction precedent): the target value is unpublished and unavailable on the channel at the instant, while the target year itself has partially elapsed - no 'window follows the instant' claim is made; the archive is revised in place, so values are construction-time vintage, sha256-pinned, the same accepted posture as abs-visitor-arrivals-direction; a future standing vintage collector is NOT needed for the annual task but would strengthen the as-of claim if ever added. (3) Target SUPPORTED - label from the same source column at D+1, excluded from features; observed absence (missing row, active host) = 0; host-silent rows (0.43%) excluded as censored. (4) Split capacity SUPPORTED - disjoint windows with both classes in every label-year, counts and clustered (origin, label-year) counts computed from the source. (5) Not a mirror SUPPORTED - no ML-ready corridor-grain UNHCR benchmark with fixed temporal splits and a scored contract found; prior art is origin-level or EU-bilateral monthly forecasting papers and raw-panel repackages. LIMITATION recorded: the machine-fetchable extract is annual; the RDF's monthly grain stays browser-only behind the WAF, so no monthly variant is buildable from this path. The old park reason (no machine-fetchable bulk path) is resolved by the HDX global package; the correction of the 2026-10-20 search miss is recorded in both sources[1].access and measurements.",
-     "sources": [
-      {
-       "licence": "CC BY 4.0 for the datasets, per the methodology page's 'Data terms and conditions of usage' (see license_evidence); the site-wide website terms are more restrictive for website Content but the dataset licence is the specific grant",
-       "name": "UNHCR Refugee Data Finder (RDF) - the publisher's current statistics channel, replacing the retired popstats.unhcr.org",
-       "url": "https://www.unhcr.org/refugee-statistics/"
-      },
-      {
-       "licence": "UNHCR datasets on HDX carry licence metadata 'Creative Commons Attribution International (CC BY)' / 'CC BY-IGO' (e.g. unhcr-statistical-yearbooks, unhcr-situations)",
-       "name": "HDX (OCHA Centre for Humanitarian Data) - UNHCR organisation catalog",
-       "url": "https://data.humdata.org/api/3/action/package_search?q=unhcr+population&rows=5"
-      },
-      {
-       "licence": "CC BY 3.0 IGO, from the dataset record's machine-readable licence metadata (license_id 'cc-by-igo'); grant and restrictions quoted in license_evidence",
-       "name": "HDX (OCHA Centre for Humanitarian Data) - UNHCR global package 'Data on forcibly displaced populations and stateless persons (Global)', asylum-applications resource (the machine-fetchable bulk path that reopens this lead)",
-       "url": "https://data.humdata.org/dataset/unhcr-population-data-for-world"
-      }
-     ],
-     "split_strategy": "Temporal split on corridor-year label windows (Government procedure, persons, sum of all application-type rows; eligibility: year-D corridor total >= 500 and host active in D+1). Candidate partition, counts computed from the source 2026-10-23: train label-years 2001-2016: n=3,677 rows, 302 positives (x2 prevalence 8.2%), 198 distinct (origin, label-year) positive clusters; eval label-years 2017-2021: n=1,918, 166 positives (8.7%), 109 clusters; holdout label-years 2022-2025: n=1,994, 234 positives (11.7%), 135 clusters. Both classes present in every label-year of every window (positives per label-year range 2-92). Surge origins differ across windows (train: SYR/AFG/IRQ; eval: VEN/AFG/COD; holdout: TUR/VEN/IND/AFG/CUB). Construction may adjust boundaries inside this measured envelope but must recompute and record counts on the frozen artifact; the prevalence drift (more surges later) is a property of the period, to document at construction.",
-     "status": "packaged",
-     "target": "Binary exceedance: label 1 iff the corridor-year (D+1, O, H) government-procedure persons total (sum of all application-type rows; a missing corridor row with the host still reporting counted as 0 applications) is >= 2 x the corridor-year (D, O, H) total. Label source: the same 'Number of Applications' column of the HDX CSV at year D+1; the year-D+1 value and everything derived from it are excluded from shipped features. Censoring: corridors whose host reports no G/P rows at all in D+1 (33 of 7,622 eligible rows, 0.43%) are excluded as unobserved targets, not counted as 0. Note what the target does NOT measure: temporary-protection registrations (e.g. Ukrainians in the EU from 2022) are not asylum applications and do not enter this stream."
     }
    ],
-   "pending": [
-    {
-     "age_hours": 3.0,
-     "awaiting_operator": false,
-     "baseline": {},
-     "country": "GB",
-     "domain": "adult social care regulation / 12-month register-exit (deregistration) prediction",
-     "id": "cqc-care-home-deregistration",
-     "jobs": [
-      {
-       "at": null,
-       "id": "cqc-chd-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "cqc-chd-002",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "cqc-chd-003",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "cqc-chd-004",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "cqc-chd-baseline-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "cqc-publish-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "cqc-hf-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "cqc-consumer-001",
-       "status": null
-      }
-     ],
-     "licence_summary": {
-      "compilation_spdx": "CC0-1.0",
-      "source_spdx": "OGL-UK-3.0",
-      "status": "CQC register bulk files ('HSCA Active Locations' vintages + 'Deactivated Locations' 2026-11-02 edition) under the Open Government Licence v3.0: free to copy, publish, distribute, transmit, adapt and exploit commercially with the required attribution statement. OGL-UK exempts personal data, third-party rights and official symbols from its grant; the shipped columns were chosen with that in mind: no location name, address, postcode, phone, registered manager, provider id/name, Companies House or charity number ships (identity is a per-instant salted pseudonym; the real-id location map is staging-side and never published), and the redistributed fields (care home beds, service type and service user band flags, latest overall rating + publication date, local authority, region, provider sector, HSCA start year, the vintage instant) are derived from the publisher's own register columns with nothing added beyond our derived binary label, the pseudonym, the derived counts/flags and the partition. The derived dataset is labelled as such throughout and is not CQC's official product."
-     },
-     "measurements": {
-      "archive_depth_measured": "monthly 'HSCA Active Locations' vintages 2011-2026 (2019 files .xlsx, 2024+ .ods; 12 per year), 'with ratings' archive 2015-2026, weekly CSV archive 2012-2026; all anonymously listable and downloadable from Google Drive (embeddedfolderview + drive.usercontent download); Drive year-folder IDs and one 2024 file ID recorded in probe/cqc_drive_*.py",
-      "asof_measured": "0/14,765 care-home rows in the Jan-2024 vintage carry a rating Publication Date after T=2024-01-05 - the vintage's ratings are genuinely at-T",
-      "clustering_measured": "deregistrations spread across 376-877 distinct providers per year; largest single provider holds 3-12% of a complete year's events (max 74/1656 in 2011, 102/1649 in 2012, 97/697 in the partial 2026); top-3 provider share <= 12.2% in every complete year - mild provider clustering, positives independently numerous",
-      "cost_measured": "discovery: 4 anonymous GETs, 85.9 MB total (4.4 + 27.6 + 26.1 + 27.7 MB), seconds each; construction (January instants): ~10-15 vintage files (~26 MB each, ~390 MB) + 1 deactivated file, worker download, Drive per-file IDs enumerated from year folders; ODS parse ~60 s/file on 4 vCPU warm (one cold run under concurrent I/O took >15 min and was killed - worker sizing should budget generously)",
-      "cross_checks": "CQC/DHSC operational-effectiveness review (June 2024 snapshot): 29,108 social care organisation locations, 23,951 with published ratings vs 57,123 total locations / 15,477 care homes measured here (2026-10-28) - consistent magnitude and mix; BMJ Public Health 2024: 29,548 care homes existed 2011-2023 with 8,346 COMPLETE closures vs 14,911 register events measured here over the same span (the gap = their linkage-filtered subset vs raw deregistrations, per their methodology note); CQC State of Care 2016 small-home closure profile matches the beds-at-deactivation distribution",
-      "feature_availability_measured": "vintage header (118 real columns): Location ID, Location HSCA start date, Care home?, Care homes beds, Registered manager, Location Latest Overall Rating + Publication Date + Inherited Rating flag, geography (region/NHS region/LA/CCG/constituency, lat-long, postcode), Provider Companies House Number, Provider Charity Number, Provider ID/name/type-sector/HSCA dates, 32 Service type Y/N columns (incl. Care home service with/without nursing), 12 Service user band Y/N columns (incl. Dementia, Older People, Learning disabilities). No Location Status column (all rows active by construction)",
-      "known_event_fixture": "dated worked example in notes.md: Park Hills Nursing Home (1-113831768, Oldham, 17 beds, HSCA start 01/02/2011, Good published 26/08/2022) present at T=2024-01-05, Location HSCA End Date 01/02/2024 inside the window -> label 1; Henley House (1-10000302982, Suffolk, 66 beds) present at T, absent from the deactivated file as of 2026-11-02 -> label 0; Options Hazel House (end date 05/03/2025, outside the window) -> label 0 at T",
-      "label_events_measured": "Deactivated Locations 2026-11-02: 65,830 archived locations, of which 17,177 care homes (Care home?=Y); care-home deregistrations by HSCA end year 2011..2026 = 1656, 1649, 1063, 1227, 1245, 1381, 1352, 970, 949, 822, 967, 803, 827, 768, 801, 697(partial-year); earliest care-home end date 2011-01-19 (earliest overall 2010-08-05); status mix: 17,046 Inactive-Dereg, 131 Removed",
-      "measured_on": "2026-11-03, anonymous coordinator-side probes; scripts + outputs in candidates/cqc-care-home-deregistration/probe/ (sha256 of fetched files in notes.md)",
-      "population_measured": "weekly CSV produced 2026-10-28: 57,123 active locations; care homes today 15,477 (10,380 Residential homes + 4,497 Nursing homes), all 9 English regions; care homes at T=2024-01-05 vintage: 14,765",
-      "prevalence_measured": "T=2024-01-05: 758/14,765 care homes deregister in (T, T+365d] = 5.13%; 2,076 of the 14,765 deregister by 2026-11-02 - label fully observable, no censoring at that instant",
-      "rating_signal_measured": "last overall rating at deactivation (care homes): Good 5,992, blank 7,698, Requires improvement 2,318, Inadequate 1,027, Outstanding 138 - Inadequate is 6.0% of deactivations vs a low single-digit share of the active stock; beds at deactivation small-home-dominated (modes 3-10 beds) - both match the publisher's State of Care closure profile",
-      "references_2026_11_04_cqc_chd_004": {
-       "headroom_reference_for_any_model_figure": "rating_x_beds_rate 0.5871 on the identical eval rows; a full-model figure from the coming baseline job must be quoted beside it, and a model below it is a recorded defect, not an encouraging result",
-       "majority_class_accuracy_eval": 0.9487301049779885,
-       "no_persistence_by_design": "the location's own prior-instant outcome is the natural persistence score, but identity ships as a per-instant pseudonym (the missing-successor P0 design), so prior-instant labels are structurally unlinkable over the shipped frame - for the scorer too; hsca_start_year_rate is the nearest shippable history prior",
-       "paired_bootstrap_150": {
-        "rating_x_beds_vs_last_rating": {
-         "ci95": [
-          0.012336799268033438,
-          0.04074592760988893
-         ],
-         "note": "interval excludes zero",
-         "observed_difference": 0.027347460254830813
-        }
-       },
-       "references_eval_auc": {
-        "beds_bucket_rate": 0.5297982677571677,
-        "global_rate": "degenerate (constant score)",
-        "hsca_start_year_rate": 0.5226476076701217,
-        "last_rating_rate": 0.5597447335246061,
-        "local_authority_rate": 0.5207061335775669,
-        "provider_sector_rate": 0.5010938738912734,
-        "rating_x_beds_rate": 0.5870921937794369
-       },
-       "source": "score.py post-acceptance on the worker, eval rows only (14,765 / 757 positives, base rate 5.126%), holdout never opened; every rate table estimated ONLY from train rows"
-      },
-      "runner_contract_baseline_2026_11_04_cqc_chd_baseline_001": {
-       "command": "worker job cqc-chd-baseline-001 run.sh (fetch the five accepted assets from staging release 433536764, digests verified on arrival, --accept ACCEPTED afe9ee203f302f3c BEFORE any score, then the benchmark's own unmodified train.py + validate.sh); report .factory/cqc-chd-baseline-001/reports/output/baseline_result.json, staging release 433569826",
-       "comparison_ladder_eval_auc": {
-        "MODEL_stock_runner": 0.5659,
-        "beds_bucket_rate": 0.5297982677571677,
-        "global_rate": "degenerate (constant score)",
-        "hsca_start_year_rate_nearest_history_prior": 0.5226476076701217,
-        "last_rating_rate_best_one_line_prior": 0.5597447335246061,
-        "local_authority_rate": 0.5207061335775669,
-        "majority_class_accuracy_eval": 0.9487301049779885,
-        "persistence": "NOT APPLICABLE BY DESIGN - identity ships as per-instant pseudonyms (missing-successor P0 design), so prior-instant labels are structurally unlinkable for the scorer too",
-        "provider_sector_rate": 0.5010938738912734,
-        "rating_x_beds_rate_headroom_reference": 0.5870921937794369
-       },
-       "concrete_diagnosis_candidates": "(a) verified by code reading: the stock train.py treats the 'instant' string column (YYYY-MM) as a train-only categorical - train instants 2018-01..2022-01 define the levels and the eval instant 2024-01 is unseen, so every eval row gets NaN there and part of the 30-tree depth-6 budget was spent on train-instant memorization that cannot transfer; (b) the rating x beds interaction the two-way rate table captures directly is available to XGBoost only through split combinations, and the small-home x poorly-rated cells are a thin slice of 78k train rows; (c) no misalignment and no post-hoc reference: both AUC figures come from the runner's own two implementations on the same accepted bytes, and as-of was asserted in-build (0/14,765 rating publication dates after T); (d) prevalence shift train 5.654% -> eval 5.127% is mild and recorded",
-       "full_model_eval_auc": 0.5659,
-       "full_model_eval_auc_from_validate_py": 0.5659,
-       "information_note": "rating_x_beds_rate reads ONLY shipped at-T columns (latest_overall_rating x care_home_beds), so it is a fair same-information target for anything that consumes this artifact - no information asymmetry, unlike a persistence score",
-       "interpretation_rule": "any later model figure must still be quoted beside rating_x_beds_rate 0.5871; a model below it is a recorded defect, not an encouraging result; keep fitting until a score wins is forbidden",
-       "measured_on": "the accepted artifact afe9ee203f302f3c (job cqc-chd-baseline-001, after --accept, on the same 14,765 eval rows as the cqc-chd-004 references)",
-       "observed_gap": "the stock runner model trails the strongest reference by 0.0212 AUC (0.5659 vs rating_x_beds_rate 0.5871) on identical rows, while beating every one-line prior (best: last_rating_rate 0.5597); observed difference, no dependence-aware interval computed for the model-vs-reference pair",
-       "verdict": "RECORDED DEFECT for the stock runner under this protocol (model 0.5659 < rating_x_beds_rate 0.5871, both on the identical 14,765 eval rows) - quoted beside the reference as the skill requires. NOT a no-headroom verdict on the task, and the pre-registered drop condition (a one-line prior saturating it) is NOT met: the model beats every one-line prior, and the headroom reference demonstrates exploitable signal (CI excluding zero over last_rating_rate) inside the model's own shipped feature set. This does not prove a competent model must beat 0.5871; no model above the reference has been measured"
-      }
-     },
-     "next_action": "STAGED PRIVATE on BOTH destinations (v2026.11, NOT published): the accepted artifact afe9ee203f302f3c sits at the package MANIFEST digests on the private GitHub",
-     "packaged_at": "2026-11-04T10:51:08Z",
-     "path": "candidates/cqc-care-home-deregistration/record.json",
-     "prediction_time": "The production instant of a monthly CQC 'HSCA Active Locations' vintage (Europe/London; the date in the file name, e.g. '05 January 2024 HSCA Active Locations'; the weekly sibling CSV states 'This data was produced on <date>' - the same stamping convention). Features are the vintage's own columns only: HSCA start date, care home beds, service types (with/without nursing), service user bands, latest overall rating + its publication date (measured as-of: 0/14,765 care-home rows at T=2024-01-05 carry a rating publication date after T), geography, provider attributes incl. Companies House number. Target = the register event dated after T, read from the cumulative Deactivated Locations product. Archive: monthly vintages 2011-2026 (Drive year folders, anonymous).",
-     "publisher": "Care Quality Commission (CQC) - regulator of health and adult social care in England",
-     "qualification": {
-      "artifact_version": "afe9ee203f302f3ca41b9b01ad74a937e111d1b830590c7e662bb0b7b6df85d7",
-      "result": null,
-      "splits": null
-     },
-     "question": "For a care home location active on the CQC register at monthly vintage T (the 'HSCA Active Locations' file produced on that date), will the location's registration end within the following 12 months (Location Status Inactive-Dereg with a Location HSCA End Date inside (T, T+365d])?",
-     "region": "Europe",
-     "release_baseline": {
-      "auc": 0.5659,
-      "display": "0.5659",
-      "reference": null
-     },
-     "release_splits": {
-      "eval": {
-       "positives": 757,
-       "rows": 14765
-      },
-      "holdout": {
-       "positives": 761,
-       "rows": 14749
-      },
-      "train": {
-       "positives": 4418,
-       "rows": 78138
-      }
-     },
-     "review": "",
-     "sources": [
-      {
-       "licence": "Open Government Licence v3.0 (publisher's using-cqc-data page)",
-       "name": "CQC care directory with filters - 'HSCA Active Locations' (monthly bulk file, all active regulated locations, care home beds, service types, service user bands, latest rating + publication date, provider attributes)",
-       "url": "https://www.cqc.org.uk/about-us/transparency/using-cqc-data"
-      },
-      {
-       "licence": "Open Government Licence v3.0 (using-cqc-data page + in-sheet statement)",
-       "name": "CQC Deactivated Locations (monthly bulk file, cumulative register of archived locations with Location HSCA start/end dates, Location Status, beds at deactivation, last rating + publication date, provider attributes)",
-       "url": "https://www.cqc.org.uk/system/files/2026-11/02_November_2026_Deactivated_Locations.ods"
-      },
-      {
-       "licence": "Open Government Licence v3.0",
-       "name": "CQC care directory with ratings (monthly bulk file, service-level latest ratings; archive from 2015)",
-       "url": "https://www.cqc.org.uk/about-us/transparency/using-cqc-data"
-      },
-      {
-       "licence": "Open Government Licence v3.0",
-       "name": "CQC care directory weekly CSV (locations census only; no beds/ratings)",
-       "url": "https://www.cqc.org.uk/system/files/2026-10/28_October_2026_CQC_directory.zip"
-      }
-     ],
-     "split_strategy": "Annual January instants with non-overlapping 12-month target windows. Proposed: train instants Jan 2016-2019 (targets 2016-2020), eval Jan 2020-2021 (targets 2020-2022), holdout Jan 2022-2024 (holdout target windows end by 2025-01, fully observed by the 2026-11-02 deactivated file). Instants 2011-2015 are usable for train with the pre-Oct-2014 no-ratings caveat; instants 2025+ are excluded while either the deactivated file's coverage or the publisher's migration-related cancellation lag is unresolved. Exact per-instant positives are the first construction measurement; measured anchor: T=2024-01-05 carries 14,765 eligible care homes and 758 positives (5.13%).",
-     "status": "packaged",
-     "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
-    },
-    {
-     "age_hours": 186.1,
-     "awaiting_operator": false,
-     "baseline": {},
-     "country": "CH",
-     "domain": "forced displacement - corridor-level asylum-application surge prediction (international organisation publisher)",
-     "id": "unhcr-refugee-data-finder",
-     "jobs": [
-      {
-       "at": null,
-       "id": "unhcr-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "unhcr-baseline-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "unhcr-publish-001",
-       "status": null
-      },
-      {
-       "at": null,
-       "id": "unhcr-hf-001",
-       "status": null
-      }
-     ],
-     "licence_summary": {
-      "compilation_spdx": "CC0-1.0",
-      "source_spdx": "CC-BY-3.0-IGO",
-      "status": "UNHCR asylum-applications statistics (asylum applications residing in each country of origin, annually, 2000-) distributed via the Humanitarian Data Exchange under CC BY 3.0 IGO. Redistribution and adaptation are permitted for any purpose with attribution. The licence does not and cannot imply UNHCR's endorsement of this derived task, and the derived dataset is labelled as such throughout."
-     },
-     "measurements": {
-      "app_internals_2026_10_20": "The app is a Symfony/UX live-component application (assets under /refugee-statistics/assets/, controllers incl. data_finder_controller-*.js, turbo/stimulus bundles); the data_finder controller submits a FormData via Turbo form POST; no JSON/CSV API route appears in the controller source or in the page's network resource entries. The Download control is an <a> with no href (JS-driven dialog form); a programmatic click produced no downloaded file in this session.",
-      "bamf_cross_check_2026_10_23": "Sum-all G/P host-year totals vs BAMF's published totals (Erst- und Folgeantraege): DEU 2000: 117,600 vs 117,648 (-0.04%); DEU 2010: 48,544 vs 48,589 (-0.09%); DEU 2015: 476,630 vs 476,649 (-0.004%); DEU 2016: 745,510 vs 745,545 (-0.005%). The max-rule matches BAMF first applications for the same years (441,898 vs 441,899 in 2015), confirming the duplicates are first/follow-up pairs. BAMF figures from bamf.de Asylgeschaeftsstatistik / Bundesamt in Zahlen (searched and read 2026-10-23); UNHCR's Germany data is sourced from BAMF. This is the publisher-total cross-check for the panel construction rule.",
-      "baseline_triad_2026_10_27": {
-       "calendar_identity": {
-        "eval_auc": 0.540927
-       },
-       "finding": "no demonstrated headroom over persistence under this protocol: the stock model 0.5393 trails momentum 0.5742 and the surge flag 0.5856 on identical rows; all paired intervals contain zero (inconclusive differences, observed gaps negative). Recorded beside every model figure; one weak stock model does not establish that no solver can beat persistence, and no claim is made in either direction. 2020 (6 positives) inverts momentum; 2017-2019 belong to it.",
-       "full_model_stock_xgboost": {
-        "brier": 0.085099,
-        "eval_auc": 0.5393
-       },
-       "majority_class_accuracy_this_split": 0.91256,
-       "paired_differences_full_model_vs": {
-        "calendar_identity": {
-         "ci95": [
-          -0.059444,
-          0.058719
-         ],
-         "diff": -0.001577
-        },
-        "persistence_momentum": {
-         "ci95": [
-          -0.105633,
-          0.04085
-         ],
-         "diff": -0.034815
-        },
-        "persistence_surge_flag": {
-         "ci95": [
-          -0.110322,
-          0.014362
-         ],
-         "diff": -0.046269
-        },
-        "recent_rate": {
-         "ci95": [
-          -0.004657,
-          0.085904
-         ],
-         "diff": 0.03935
-        }
-       },
-       "per_label_year": {
-        "2017": {
-         "model": 0.3938,
-         "momentum": 0.7451,
-         "positives": 27,
-         "rows": 361
-        },
-        "2018": {
-         "model": 0.5479,
-         "momentum": 0.6568,
-         "positives": 41,
-         "rows": 386
-        },
-        "2019": {
-         "model": 0.5635,
-         "momentum": 0.6272,
-         "positives": 34,
-         "rows": 423
-        },
-        "2020": {
-         "model": 0.8417,
-         "momentum": 0.1164,
-         "positives": 6,
-         "rows": 414
-        },
-        "2021": {
-         "model": 0.6127,
-         "momentum": 0.5684,
-         "positives": 57,
-         "rows": 303
-        }
-       },
-       "persistence_momentum_log_growth_d": {
-        "eval_auc": 0.574165
-       },
-       "persistence_surge_flag": {
-        "eval_auc": 0.585619
-       },
-       "positives": 165,
-       "recent_rate_constant": {
-        "eval_auc": 0.5,
-        "note": "constant score, no ranking information; degenerate control"
-       },
-       "rows": 1887,
-       "source": "worker job unhcr-baseline-001 (baseline_result.json), post-acceptance, eval-only, holdout sealed"
-      },
-      "censoring_measured_2026_10_23": "Host-year activity: 67 hosts report in 2000 growing to ~110 in recent years; among 7,622 eligible corridor-years, 7,589 (99.57%) have an active host in D+1 (missing corridor row = observed zero) and 33 (0.43%) have a host reporting nothing at all in D+1 (unobserved target; excluded). Absence of a row is treated as zero applications only when the host is still reporting.",
-      "dead_channels_2026_10_20": "http://popstats.unhcr.org/en/overview -> HTTP 000 (host gone); https://data.unhcr.org/en/index -> HTTP 404. The pre-RDF population database channel no longer exists.",
-      "deep_links_2026_10_20": "The homepage's five export deep links (extracted from the rendered page): population by country of origin (?v2url=dc36b6), population by host country (?v2url=bd1059), demographics of refugees (?v2url=d3e49d), solutions 2015-2024 (?v2url=d63e73), new asylum applications during 2024 (?v2url=1e3087). Navigating a real tab to the origin deep link opens the interactive Data Finder app with that dataset preselected - the URL is a view selector, not a file.",
-      "duplicate_rows_resolved_2026_10_23": "20,851 of 73,051 G/P corridor-year cells (28.5%) carry multiple rows with the same (Year, Origin, Asylum, Procedure, ApplicationType, DataType) key but different counts (e.g. 2000 AFG->DEU G/V/P: 5,380 vs 5,756; 2000 AFG->AUS G/V/C: 90 vs 1,326). Identical rows in all other columns; present in every year incl. 2025 (35 groups), and identical in the per-country extracts (verified on asylum_applications_residing_deu.csv). Resolution rule: SUM all G/P rows per corridor-year. Basis: cross-checks against the primary national publisher's own published host-year totals (BAMF, which is UNHCR's source for Germany) match the sum-all rule to within 0.005-0.09% in four different years, while the max-rule matches BAMF's first-application figure - i.e. the duplicate rows are disjoint components (first vs follow-up applications) exported under one type code, so summing reconstructs the total. See bamf_cross_check_2026_10_23.",
-      "hdx_bulk_path_2026_10_23": "HDX package unhcr-population-data-for-world (created 2020-08-27, maintained by the UNHCR organisation account) carries the full global corridor panel in five CSVs. Applications resource: 1 GET (HTTP 302 -> signed URL, curl -L), 200 OK, 8,669,567 bytes, 2.06 s from the coordinator (1.9 GiB class); sha256 d5808616c3d10d33925d4df5a3182a2028dd574d111e843cc207455ba45fe950 identical across two fetches. This resolves the 2026-10-20 access blocker: the 2026-10-20 note 'HDX does not unblock the bulk data' was a search-visibility miss and is corrected here with the package URL.",
-      "hdx_mirrors_2026_10_20": "HDX CKAN search 'unhcr population' -> 860 results, of which the full origin-year population series is absent; only per-country extracts (CC BY) and GIS reference layers. 'refugee data finder' search -> 3,427 results, none the full series. HDX does not unblock the bulk data.",
-      "known_event_fixtures_2026_10_23": "Reproduced by candidates/unhcr-refugee-data-finder/probe_hdx_asylum_fixture.py (exit 0): SYR->DEU 2014->2015 41,100 -> 162,510 x2 label TRUE (2015 Syrian surge into Germany); AFG->USA 2021->2022 533 -> 25,082 TRUE (post-Aug-2021 Taliban takeover, Afghan asylum filings in the US); AFG->DEU 2021->2022 37,245 -> 48,602 FALSE (large growth, sub-doubling). Anti-fixture recorded: UKR->POL 2021->2022 458 -> 1,593 is below the 500 eligibility at D, and Ukrainians in the EU mostly registered temporary protection rather than asylum applications - the target does not measure temporary-protection registrations.",
-      "label_family_measured_2026_10_23": "On eligible corridor-years (G/P sum-all >= 500 at D, host active in D+1; n=7,589 across 2000-2024): decline (D+1 < D) 57.3%; growth >25% 27.4%; growth >50% 18.5%; >=2x 9.3%; >=3x 4.2%. Chosen label: >=2x (doubling), a ~9% prevalence exceedance target in the house family of the other published exceedance tasks. Alternatives measured and recorded; construction must not re-tune the threshold after seeing scores.",
-      "panel_shape_measured_2026_10_23": "Applications CSV: 120,597 data rows, 13 columns, years 2000-2025 (26), 215 origin codes, 130 asylum-country codes. Columns: Year, Country of Origin Code/Name, Country of Asylum Code/Name, Procedure Type/Name, Application Type Code/Name, Application Data Type/Data, Application Average Persons Per Case (all zero), Number of Applications (all integer). No month column. Provenance mix (skill requirement): Procedure G=105,862 / U=13,955 / J=780 rows; Data Type P=113,635 / C=6,962. The task is defined on the G/P stream only (99,281 rows, 6,936 distinct corridors, 33.7M applications); the UNHCR-procedure stream (13,640 persons rows) is a separate RSD population, not summed in, and the task does not cover corridors served only by UNHCR procedure.",
-      "recency_2026_10_20": "The RDF homepage reports 'Forcibly displaced people worldwide at end-2025: 117.8 million' with charts spanning 2000-2025, so the series is maintained to end-2025 (annual grain) - current and republished on a rolling schedule.",
-      "reporting_model_mix_2026_10_23": "Two reporting models inside the G/P stream: split-type codes (N/R/A/J/...) vs unsplit 'V' rows. Measured on eligible corridor-years: train window 1,238 V-model / 2,439 split-model; eval 1,918/0 V-model; holdout 1,994/0 V-model. The eval and holdout windows are 100% split-model; V-model ambiguity therefore touches only training-era rows, and the sum-all rule is cross-checked against BAMF in exactly that era. Type coexistence measured: V never coexists with N/R/A in the same corridor-year (0 of 73,051), so V is an unsplit total, not an additive category; N-with-NR/RA/SP coexistence is rare (646 cells differ between sum-all and a V/NR-preferring rule; 196 eligible).",
-      "split_window_counts_2026_10_23": "x2 label, computed from the source: train label-years 2001-2016 n=3,677 / 302 positives / 198 (origin, label-year) positive clusters; eval 2017-2021 n=1,918 / 166 / 109; holdout 2022-2025 n=1,994 / 234 / 135. Positives per label-year: train 2-53, eval 6-57, holdout 26-92; every label-year of every window carries both classes. For comparison, the parked annual origin-grain derivative (unicef-sdmx-refugee-origin-growth) carried only 34 positive origin-years in eval.",
-      "update_cadence_observed_2026_10_23": "HDX package activity (CKAN package_activity_list, 60 entries read 2026-10-23): resource/dataset updates on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22, 2026-08-20 - a several-times-a-year refresh pattern aligned with UNHCR's annual statistical cycle (Global Trends lands ~June of D+1). The 2026-08-20 applications resource carries complete data through 2025, so year-D data is machine-observable at latest ~August of D+1; the conservative instant is the first observed mid-year-or-later refresh carrying year D.",
-      "waf_probe_2026_10_20": "curl https://www.unhcr.org/refugee-statistics/ -> HTTP 403, 182,520 B (challenge page); the same URL loads normally in a real browser (title 'Refugee Data Finder - Key Indicators'). In-page same-origin fetch of the export deep link -> HTTP 403, 222,964 B. Both measured from the coordinator."
-     },
-     "next_action": "OPERATOR DECISION APPLIED 2026-11-02 (session, per the recommendation the operator accepted): the v2026.10 panel package 6bd0c307 is DROPPED - never to be flipp",
-     "packaged_at": "2026-10-27T19:44:51Z",
-     "path": "candidates/unhcr-refugee-data-finder/record.json",
-     "prediction_time": "Annual publication-lag NOWCAST - the accepted abs-visitor-arrivals-direction pattern, and it must not be described as a future-event forecast. The prediction instant is the publication of year-D complete annual data on the machine-fetchable channel: UNHCR's annual statistical cycle lands mid-year in D+1 (Global Trends), and the HDX distribution of this dataset was observed refreshing on 2025-11-05, 2026-02-25, 2026-06-11, 2026-06-19, 2026-06-22 and 2026-08-20, with the 2026-08-20 resource carrying complete data through 2025. At that instant every feature is a corridor-year total for years <= D. The target year D+1 has PARTIALLY ELAPSED at the instant (the 2026-08-20 instant lies inside target year 2026, which started 2026-01-01) but its value is entirely UNPUBLISHED: on this channel no D+1 value exists until ~mid-D+2, and for most non-EU hosts no public monthly corridor data exists at all (Eurostat monthly data covers EU hosts only and is outside this channel's shipped features). So the claim recorded here is value-unavailability at the instant, not that the target window follows the instant. A strictly-future variant (at the same instant, predict year D+2 >= 2x the last PUBLISHED year D) was considered and rejected at discovery: the doubling baseline must be published at the instant, so a strict future window forces a two-year-back comparison, a different label and different measured base rates - a different task. The HDX archive is revised in place (current-vintage), so construction pins the fetched snapshot by sha256 and states values as construction-time vintage - the same documented posture as abs-visitor-arrivals-direction. Dated example in notes.md.",
-     "publisher": "United Nations High Commissioner for Refugees (UNHCR), headquartered in Geneva, Switzerland",
-     "qualification": {
-      "artifact_version": null,
-      "result": "passed; 0 failed checks of 45 on the full artifact on the worker (leakage incl. declared high-cardinality row_id/surge_cluster, timing publication instant with measured 232-day lag, evaluation_contract retrospective_research/isolated_rows with training_label_timing unverified, current_snapshot vintage, cross-row probe executed on all splits with 0 mismatches, splits disjoint and both-classed, runner layout/meta agreement)",
-      "splits": {
-       "eval": {
-        "distinct_positive_clusters": 109,
-        "positive_rate": 0.08744,
-        "positives": 165,
-        "rows": 1887
-       },
-       "holdout": {
-        "distinct_positive_clusters": 133,
-        "positive_rate": 0.115698,
-        "positives": 227,
-        "rows": 1962
-       },
-       "train": {
-        "distinct_positive_clusters": 183,
-        "positive_rate": 0.084151,
-        "positives": 283,
-        "rows": 3363
-       }
-      }
-     },
-     "question": "For an asylum corridor (country of origin O, country of asylum H) whose total government-procedure asylum applications in year D are at least 500 (persons, all application types summed), will that corridor's total government-procedure asylum applications in year D+1 be at least twice the year-D value? Annual grain, measured 2000-2025; a useful prediction enables humanitarian reception planning and resettlement budgeting ahead of the surge year rather than after it.",
-     "region": "International organisations",
-     "release_baseline": {
-      "auc": 0.5393,
-      "display": "0.5393",
-      "reference": null
-     },
-     "release_splits": {
-      "eval": {
-       "positives": 165,
-       "rows": 1887
-      },
-      "holdout": {
-       "positives": 227,
-       "rows": 1962
-      },
-      "train": {
-       "positives": 283,
-       "rows": 3363
-      }
-     },
-     "review": "Five contracts reconciled 2026-10-23 on written evidence: (1) Redistribution SUPPORTED - publisher's own instruments (HDX package record CC BY 3.0 IGO with grant and Section 4 quoted; RDF methodology CC BY 4.0), class A, conditions carried to LICENSE.md. (2) Timing SUPPORTED with documented current-vintage assumption - annual instant = first refresh carrying year-D data (observed cadence; 2026-08-20 file carries data through 2025); the task is an explicitly-labelled publication-lag NOWCAST (abs-visitor-arrivals-direction precedent): the target value is unpublished and unavailable on the channel at the instant, while the target year itself has partially elapsed - no 'window follows the instant' claim is made; the archive is revised in place, so values are construction-time vintage, sha256-pinned, the same accepted posture as abs-visitor-arrivals-direction; a future standing vintage collector is NOT needed for the annual task but would strengthen the as-of claim if ever added. (3) Target SUPPORTED - label from the same source column at D+1, excluded from features; observed absence (missing row, active host) = 0; host-silent rows (0.43%) excluded as censored. (4) Split capacity SUPPORTED - disjoint windows with both classes in every label-year, counts and clustered (origin, label-year) counts computed from the source. (5) Not a mirror SUPPORTED - no ML-ready corridor-grain UNHCR benchmark with fixed temporal splits and a scored contract found; prior art is origin-level or EU-bilateral monthly forecasting papers and raw-panel repackages. LIMITATION recorded: the machine-fetchable extract is annual; the RDF's monthly grain stays browser-only behind the WAF, so no monthly variant is buildable from this path. The old park reason (no machine-fetchable bulk path) is resolved by the HDX global package; the correction of the 2026-10-20 search miss is recorded in both sources[1].access and measurements.",
-     "sources": [
-      {
-       "licence": "CC BY 4.0 for the datasets, per the methodology page's 'Data terms and conditions of usage' (see license_evidence); the site-wide website terms are more restrictive for website Content but the dataset licence is the specific grant",
-       "name": "UNHCR Refugee Data Finder (RDF) - the publisher's current statistics channel, replacing the retired popstats.unhcr.org",
-       "url": "https://www.unhcr.org/refugee-statistics/"
-      },
-      {
-       "licence": "UNHCR datasets on HDX carry licence metadata 'Creative Commons Attribution International (CC BY)' / 'CC BY-IGO' (e.g. unhcr-statistical-yearbooks, unhcr-situations)",
-       "name": "HDX (OCHA Centre for Humanitarian Data) - UNHCR organisation catalog",
-       "url": "https://data.humdata.org/api/3/action/package_search?q=unhcr+population&rows=5"
-      },
-      {
-       "licence": "CC BY 3.0 IGO, from the dataset record's machine-readable licence metadata (license_id 'cc-by-igo'); grant and restrictions quoted in license_evidence",
-       "name": "HDX (OCHA Centre for Humanitarian Data) - UNHCR global package 'Data on forcibly displaced populations and stateless persons (Global)', asylum-applications resource (the machine-fetchable bulk path that reopens this lead)",
-       "url": "https://data.humdata.org/dataset/unhcr-population-data-for-world"
-      }
-     ],
-     "split_strategy": "Temporal split on corridor-year label windows (Government procedure, persons, sum of all application-type rows; eligibility: year-D corridor total >= 500 and host active in D+1). Candidate partition, counts computed from the source 2026-10-23: train label-years 2001-2016: n=3,677 rows, 302 positives (x2 prevalence 8.2%), 198 distinct (origin, label-year) positive clusters; eval label-years 2017-2021: n=1,918, 166 positives (8.7%), 109 clusters; holdout label-years 2022-2025: n=1,994, 234 positives (11.7%), 135 clusters. Both classes present in every label-year of every window (positives per label-year range 2-92). Surge origins differ across windows (train: SYR/AFG/IRQ; eval: VEN/AFG/COD; holdout: TUR/VEN/IND/AFG/CUB). Construction may adjust boundaries inside this measured envelope but must recompute and record counts on the frozen artifact; the prevalence drift (more surges later) is a property of the period, to document at construction.",
-     "status": "packaged",
-     "target": "Binary exceedance: label 1 iff the corridor-year (D+1, O, H) government-procedure persons total (sum of all application-type rows; a missing corridor row with the host still reporting counted as 0 applications) is >= 2 x the corridor-year (D, O, H) total. Label source: the same 'Number of Applications' column of the HDX CSV at year D+1; the year-D+1 value and everything derived from it are excluded from shipped features. Censoring: corridors whose host reports no G/P rows at all in D+1 (33 of 7,622 eligible rows, 0.43%) are excluded as unobserved targets, not counted as 0. Note what the target does NOT measure: temporary-protection registrations (e.g. Ukrainians in the EU from 2022) are not asylum applications and do not enter this stream."
-    }
-   ]
+   "pending": []
   }
  },
  "coverage": {
@@ -14199,16 +13776,16 @@
   "by_status": {
    "dropped": 49,
    "investigating": 18,
-   "packaged": 3,
-   "parked": 29,
+   "packaged": 2,
+   "parked": 30,
    "published": 14,
    "qualified": 1,
    "ready": 15
   },
   "candidates": 129,
-  "live": 51,
-  "live_non_us": 45,
-  "live_non_us_share": 0.882,
+  "live": 50,
+  "live_non_us": 44,
+  "live_non_us_share": 0.88,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -14230,10 +13807,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-04T13:40:02.237149+00:00",
+    "last_run_at": "2026-11-04T14:50:01.740339+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-04T14:00:00+00:00",
+    "next_run_at": "2026-11-04T15:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14254,10 +13831,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-04T13:50:00.922245+00:00",
+    "last_run_at": "2026-11-04T14:50:00.816821+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-04T13:55:00+00:00",
+    "next_run_at": "2026-11-04T14:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14278,10 +13855,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-04T13:46:56.016535+00:00",
+    "last_run_at": "2026-11-04T14:47:15.945925+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-04T13:51:56.016535+00:00",
+    "next_run_at": "2026-11-04T14:52:15.945925+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14290,10 +13867,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-04T13:50:01.173104+00:00",
+    "last_run_at": "2026-11-04T14:50:01.238609+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-04T13:55:00+00:00",
+    "next_run_at": "2026-11-04T14:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14314,10 +13891,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-04T12:50:50.155440+00:00",
+    "last_run_at": "2026-11-04T13:51:52.645583+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-04T14:50:00+00:00",
+    "next_run_at": "2026-11-04T15:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14326,10 +13903,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-04T12:55:00.922854+00:00",
+    "last_run_at": "2026-11-04T13:55:00.742265+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-04T13:55:00+00:00",
+    "next_run_at": "2026-11-04T14:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14370,9 +13947,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-04T13:51:00.873096+00:00"
+  "updated_at": "2026-11-04T14:50:01.741344+00:00"
  },
- "generated_at": "2026-11-04T13:50:01+00:00",
+ "generated_at": "2026-11-04T14:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -14380,19 +13957,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-04T12:12:04Z",
-   "head_sha": "84adc1b",
+   "created_at": "2026-11-04T14:08:05Z",
+   "head_sha": "6c2b52c",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41827209843"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41844532173"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 45/51 (88%)"
+   "summary": "live non-US: 44/50 (88%)"
   },
   "head": {
-   "at": "2026-11-04T12:11:58Z",
-   "sha": "84adc1b",
-   "subject": "gitignore: scoped negation for standing-capture vintages (*.csv blanket was excluding the 2024 Taipower register pin com"
+   "at": "2026-11-04T14:08:01Z",
+   "sha": "6c2b52c",
+   "subject": "release session: cqc flip boundary reached (hf --verify + --tag done: Hub tag v2026.11 == main == fea98b695abd, all five"
   },
   "tests": {
    "count": "708",
@@ -17391,13 +16968,21 @@
    "qualified": 1,
    "sessions_7d": 90,
    "tokens_7d": 37085551
+  },
+  {
+   "at": "2026-11-04T14:50:01+00:00",
+   "live": 19,
+   "published": 14,
+   "qualified": 1,
+   "sessions_7d": 90,
+   "tokens_7d": 34718939
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 1.6,
-   "as_of": "2026-11-04T13:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-04T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17406,8 +16991,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 1.6,
-   "as_of": "2026-11-04T13:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-04T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -17416,8 +17001,8 @@
    "value": 19
   },
   "releases": {
-   "age_minutes": 1.6,
-   "as_of": "2026-11-04T13:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-04T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -17613,7 +17198,7 @@
      "huggingface": true
     },
     "verified_all": true,
-    "verified_at": "2026-11-04T10:51:08Z"
+    "verified_at": "2026-11-04T14:01:08+00:00"
    },
    {
     "assets": 5,
@@ -18085,7 +17670,7 @@
     "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "unhcr-refugee-data-finder",
-    "disposition": "packaged",
+    "disposition": "parked",
     "errors": [],
     "persistence_auc": null,
     "publication_note": "Prepared for human review. Nothing here has been published.",
@@ -20460,7 +20045,7 @@
   "jobs_total": 187,
   "lifetime_eur": 3.73,
   "live": {
-   "checked_at": "2026-11-04T13:51:39+00:00",
+   "checked_at": "2026-11-04T14:50:36+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -20493,22 +20078,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 1,
+  "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 2493.1,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "f47b37cc74b98a1ca505d0abb6e0d932ffdf3a4010da215b5e5dbfab8dfd7cc0",
-    "ts": "2026-11-04T06:41:36.006856+00:00"
-   },
    {
     "elapsed_seconds": 311.5,
     "event": "session",
@@ -20576,8 +20147,22 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "6173355bd01e859411b25fdadd142d756517cd69370ced81062e3cd15fefb2c7",
     "ts": "2026-11-04T12:13:04.144150+00:00"
+   },
+   {
+    "elapsed_seconds": 536.1,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "84f3c20e97a9d91be1dad1b024d57adb1f4d61274ebc1241da1c3fc6dbb4a80c",
+    "ts": "2026-11-04T14:09:00.912163+00:00"
    }
   ],
-  "total": 12
+  "total": 13
  }
 }
