@@ -1,8 +1,7 @@
 {
  "alarms": [
-  "scout-dashboard-refresh last status error (streak 1)",
-  "Token use at 83% of the weekly ceiling",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (151.5h)"
+  "Token use at 84% of the weekly ceiling",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (152.5h)"
  ],
  "budget": {
   "config": {
@@ -20,14 +19,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-04T21:50:03.147084+00:00",
+   "moment": "2026-11-04T22:50:02.825399+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 33076813,
-   "runs_last_7_days": 95,
-   "runs_weighted_last_7_days": 107,
+   "research_tokens_last_7_days": 33525373,
+   "runs_last_7_days": 96,
+   "runs_weighted_last_7_days": 108,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 12,
    "usage": {
@@ -42,23 +41,23 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 363,
+     "calls": 365,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 13866688,
-     "output_tokens": 325036,
+     "input_tokens": 14398233,
+     "output_tokens": 326008,
      "pricing_available": false
     },
     "research": {
-     "calls": 2574,
+     "calls": 2658,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 10655186,
-     "output_tokens": 2529078,
+     "input_tokens": 10984916,
+     "output_tokens": 2647908,
      "pricing_available": false
     }
    },
@@ -3449,7 +3448,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 11.0,
+    "age_hours": 12.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -9125,7 +9124,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 151.5,
+    "age_hours": 152.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -11549,7 +11548,13 @@
     "country": "CH",
     "domain": "forced displacement / annual asylum-corridor entry events",
     "id": "unhcr-corridor-entry-surge",
-    "jobs": [],
+    "jobs": [
+     {
+      "at": null,
+      "id": "unhcr-corridor-001",
+      "status": "creation-unresolved (ledger jobs/unhcr-corridor-001.json; the designed state for a creation that never resolved)"
+     }
+    ],
     "licence_summary": {
      "compilation_spdx": null,
      "source_spdx": null,
@@ -11567,7 +11572,7 @@
      "population_measured_2026_11_04": "G/P corridors 6,936 (carried: 99,281 G/P rows, years 2000-2025); corridors ever reaching >=500 in a year: 1,129; entries by year recorded in notes.md (2000:193 ... 2022:79 ... 2025:26).",
      "probes": "candidates/unhcr-corridor-entry-surge/probe_hdx_oneshot.py (population, base rates, coverage, fixtures, live edge); probe_hdx_oneshot_designs.py (design table, momentum association, capacity under momentum-eligibility); both read the pinned CSV and reproduce every number quoted here."
     },
-    "next_action": "Hand to advancement (construction is NOT part of this discovery record). Order: fresh construction on a worker from the pinned source (build.py: one row per cor",
+    "next_action": "RETRY PROTOCOL (the ONE changed retry this infrastructure failure is entitled to, per the recorded stopping condition - the named source is Hetzner 412 resource",
     "packaged_at": null,
     "path": "candidates/unhcr-corridor-entry-surge/record.json",
     "prediction_time": "Publication-lag nowcast at the annual instant: the first refresh of the UNHCR HDX global package (data.humdata.org, dataset unhcr-population-data-for-world) that carries the entry year T0's data (observed cadence: refreshes 2026-06-11/19/22 and 2026-08-20T15:33:49Z; the 2026-08-20 file carries years 2000-2025). Features are the corridor's published yearly totals for years <= T0 only. The outcome years T0+1/T0+2 are unpublished and unavailable on this channel at the instant (first published ~mid T0+2/T0+3); for historical rows the outcome window has partially elapsed at the instant - no 'window follows the instant' claim is made (the abs-visitor-arrivals-direction / unhcr-refugee-data-finder posture). Corridors entering 2025 are live strict forecasts: their whole outcome window 2026-2027 follows the 2026-08-20 instant. Dated example in notes.md (AFG->USA).",
@@ -12624,7 +12629,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 0.7,
+    "age_hours": 1.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -12990,7 +12995,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 11.0,
+     "age_hours": 12.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13164,7 +13169,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 151.5,
+     "age_hours": 152.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13450,7 +13455,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 0.7,
+     "age_hours": 1.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -13630,7 +13635,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 11.0,
+     "age_hours": 12.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13804,7 +13809,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 151.5,
+     "age_hours": 152.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -14090,7 +14095,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 0.7,
+     "age_hours": 1.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -14350,10 +14355,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-04T21:50:01.605292+00:00",
+    "last_run_at": "2026-11-04T22:50:02.384911+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-04T22:00:00+00:00",
+    "next_run_at": "2026-11-04T23:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14374,10 +14379,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-04T21:50:02.025428+00:00",
+    "last_run_at": "2026-11-04T22:50:01.064852+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-04T21:55:00+00:00",
+    "next_run_at": "2026-11-04T22:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14398,10 +14403,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-04T21:45:57.756417+00:00",
+    "last_run_at": "2026-11-04T22:46:14.854895+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-04T21:50:57.756417+00:00",
+    "next_run_at": "2026-11-04T22:51:14.854895+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14410,10 +14415,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-04T21:50:01.297213+00:00",
+    "last_run_at": "2026-11-04T22:50:01.222904+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-04T21:55:00+00:00",
+    "next_run_at": "2026-11-04T22:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14431,13 +14436,13 @@
    },
    {
     "enabled": true,
-    "failure_streak": 1,
+    "failure_streak": 0,
     "id": "4d8053a69ed2",
-    "last_error": "Script exited with code 1\nstdout:\ndashboard: generated 2026-11-04T20:50:01+00:00 live=21 published=True verified=False\n{'ok': False, 'pages': {'index.html': {'status': 200, 'fresh': True}, 'cost.html'",
-    "last_run_at": "2026-11-04T20:54:02.561333+00:00",
-    "last_status": "error",
+    "last_error": "",
+    "last_run_at": "2026-11-04T21:51:42.626592+00:00",
+    "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-04T22:50:00+00:00",
+    "next_run_at": "2026-11-04T23:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14446,10 +14451,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-04T20:55:00.747571+00:00",
+    "last_run_at": "2026-11-04T21:55:01.913091+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-04T21:55:00+00:00",
+    "next_run_at": "2026-11-04T22:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14490,9 +14495,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-04T21:50:02.026816+00:00"
+  "updated_at": "2026-11-04T22:50:02.385919+00:00"
  },
- "generated_at": "2026-11-04T21:50:01+00:00",
+ "generated_at": "2026-11-04T22:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -14500,22 +14505,22 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-04T21:10:14Z",
-   "head_sha": "e7eac73",
+   "created_at": "2026-11-04T22:47:19Z",
+   "head_sha": "415fee1",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41913531594"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41928293395"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 47/53 (89%)"
   },
   "head": {
-   "at": "2026-11-04T21:10:10Z",
-   "sha": "e7eac73",
-   "subject": "za-cct follow-up fix: record artifacts[0] carries the structured release identity (repo earino/za-cct-substation-evening"
+   "at": "2026-11-04T22:47:15Z",
+   "sha": "415fee1",
+   "subject": "unhcr-corridor-entry-surge construction built + rehearsed + preflighted; launch refused by provider (Hetzner 412 resourc"
   },
   "tests": {
-   "count": "708",
+   "count": "720",
    "ok": true
   }
  },
@@ -17575,13 +17580,21 @@
    "qualified": 0,
    "sessions_7d": 95,
    "tokens_7d": 33076813
+  },
+  {
+   "at": "2026-11-04T22:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 96,
+   "tokens_7d": 33525373
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T21:50:01+00:00",
+   "as_of": "2026-11-04T22:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17591,7 +17604,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T21:50:01+00:00",
+   "as_of": "2026-11-04T22:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -17601,7 +17614,7 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T21:50:01+00:00",
+   "as_of": "2026-11-04T22:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -20521,6 +20534,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-04T22:36:50.191358+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "unhcr-corridor-001",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "creation-unresolved"
+   },
+   {
     "created_at": "2026-10-28T14:25:33.681242+00:00",
     "deleted_at": "2026-10-28T14:31:29.897529+00:00",
     "eur": 0.0011,
@@ -20738,10 +20763,10 @@
    }
   ],
   "jobs_this_month": 31,
-  "jobs_total": 192,
+  "jobs_total": 193,
   "lifetime_eur": 3.74,
   "live": {
-   "checked_at": "2026-11-04T21:50:37+00:00",
+   "checked_at": "2026-11-04T22:50:39+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -20776,20 +20801,6 @@
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 914.2,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "59d14da66d359b5de065a1bdbb91609b676d871724155c8b2d7887fac4b9807a",
-    "ts": "2026-11-04T16:48:05.329778+00:00"
-   },
    {
     "elapsed_seconds": 736.7,
     "event": "session",
@@ -20858,8 +20869,22 @@
     "run_budget": 900,
     "submitted_brief_sha256": "4350ae3a3af211f0fb58c640b2a5d30a7fff867df6f37b4392cb96cabba7ada8",
     "ts": "2026-11-04T21:10:48.438292+00:00"
+   },
+   {
+    "elapsed_seconds": 2913.8,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "0f7026a062624085a43464abc1c2dea25ee0e286c84f43ea4476d35248ee0484",
+    "ts": "2026-11-04T22:48:38.798936+00:00"
    }
   ],
-  "total": 20
+  "total": 21
  }
 }
