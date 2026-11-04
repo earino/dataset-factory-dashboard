@@ -1,7 +1,8 @@
 {
  "alarms": [
-  "Token use at 90% of the weekly ceiling",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (150.5h)"
+  "scout-dashboard-refresh last status error (streak 1)",
+  "Token use at 83% of the weekly ceiling",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (151.5h)"
  ],
  "budget": {
   "config": {
@@ -19,14 +20,14 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-04T20:50:02.619296+00:00",
+   "moment": "2026-11-04T21:50:03.147084+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 35815757,
-   "runs_last_7_days": 94,
-   "runs_weighted_last_7_days": 106,
+   "research_tokens_last_7_days": 33076813,
+   "runs_last_7_days": 95,
+   "runs_weighted_last_7_days": 107,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 12,
    "usage": {
@@ -51,13 +52,13 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 2554,
+     "calls": 2574,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 10573278,
-     "output_tokens": 2470231,
+     "input_tokens": 10655186,
+     "output_tokens": 2529078,
      "pricing_available": false
     }
    },
@@ -79,16 +80,14 @@
    "GB": 3,
    "IN": 1,
    "NZ": 2,
-   "US": 1,
-   "ZA": 1
+   "US": 1
   },
   "counts": {
    "dropped": 49,
    "investigating": 20,
-   "packaged": 2,
+   "packaged": 3,
    "parked": 30,
    "published": 14,
-   "qualified": 1,
    "ready": 16
   },
   "errors": [],
@@ -1639,171 +1638,9 @@
     "split_strategy": "Temporal windows on the 1996-10..2026-10 daily panel, e.g. train 1996-10..2015-12 / eval 2016-01..2020-12 / holdout 2021-01..2026-10; each window contains at least one measured high-price episode (train: 2008-07 measured 9/31 days >$200; eval: 2020-06 measured 5/30 days >$200 with mid-month means to $287; holdout: 2024-08 measured 25/31 days >$200). Positives cluster into multi-day weather/storage episodes, so split capacity is counted per episode-week, not per day; sampled episode weeks measured, exact counts computed at construction over the full files. The 2022-11-01 real-time-pricing regime change (ex-post -> real-time pricing, documented by the publisher) is a structural break: either bound all windows inside one regime or ship a regime indicator; decided and documented at construction.",
     "status": "investigating",
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
-   },
-   {
-    "awaiting_operator": false,
-    "baseline": {},
-    "country": "ZA",
-    "domain": "electricity distribution operations / substation-day peak-stress exceedance prediction (retrospective)",
-    "id": "za-cct-substation-evening-peak-exceedance",
-    "jobs": [
-     {
-      "at": null,
-      "id": "za-cct-001",
-      "status": "collected+destroyed"
-     },
-     {
-      "at": null,
-      "id": "za-cct-baseline-001",
-      "status": null
-     }
-    ],
-    "licence_summary": {
-     "compilation_spdx": "CC0-1.0",
-     "source_spdx": "LicenseRef-CityOfCapeTown-OpenDataTerms",
-     "status": "No standard SPDX licence is declared; the operative instruments are the City of Cape Town Open Data Terms of Use (disclaimer-only: as-is, no warranty, no liability; no restriction on reuse, redistribution or derivatives for portal data) together with the Council-approved Open Data Policy 27781 ('freely used, shared and built-on by anyone, anywhere, for any purpose'), and the ArcGIS item's licenseInfo links the portal terms. The table is engineering telemetry (half-hourly apparent-power MVA readings per switching substation): no personal data, no third-party content, no official symbols. The redistributed fields are the publisher's own readings (timestamped MVA values and station identifiers) plus our derived binary label, at-instant aggregates, calendar fields and partition. The derived dataset is labelled as such throughout and is not a City of Cape Town product."
-    },
-    "measurements": {
-     "baseline_triad_2026_11_03_za_cct_baseline_001": {
-      "calendar_identity_auc": 0.6503605075098278,
-      "command": "worker job za-cct-baseline-001 run.sh (fetch the five accepted assets from staging release 432591871, digests verified on arrival, --accept ACCEPTED 9f2e10ce BEFORE any score, then the benchmark's own unmodified train.py + validate.sh); report .factory/za-cct-baseline-001/reports/output/baseline_result.json, staging release 432863325",
-      "concrete_diagnosis_candidates": "(a) the stock train.py treats the 'date' string column as a 365-level train-only categorical (eval dates unseen -> NaN), so the 30-tree depth-6 budget is spent partly on train-date memorization; (b) the model must express morning_max / hist_morningpeak_mean_90 as an implicit ratio through splits - the one-line rule reaching 0.7340 is not among the stock features; (c) no misalignment and no post-hoc reference: both AUC figures come from the runner's own two implementations on the same accepted bytes and morning_ratio reads only shipped at-instant columns; (d) prevalence shift 11.20% -> 8.39% is recorded and cannot explain a fall to chance",
-      "full_model_eval_auc": 0.5107,
-      "full_model_eval_auc_from_validate_py": 0.5107,
-      "identity_only_auc": 0.513407814058643,
-      "information_asymmetry_note": "persistence_prev_evening is recomputed scorer-side from strictly-earlier same-station rows; the model is denied the prior evening's outcome, so model-vs-persistence is information-asymmetric by design. The morning_ratio comparison is NOT asymmetric: both read only shipped at-instant columns, so 0.7340 is a fair same-information target for anything that consumes this artifact",
-      "interpretation_rule": "any later model figure must still be quoted beside morning_ratio 0.7340; keep fitting until a score wins is forbidden",
-      "measured_on": "the accepted artifact 9f2e10ce (job za-cct-baseline-001, after --accept, on the same 14,965 eval rows as the za-cct-001 references)",
-      "morning_ratio_auc": 0.7340185012588782,
-      "observed_gap": "the stock runner model trails the strongest simple reference by 0.2233 AUC (0.5107 vs morning_ratio 0.734) on identical rows, also trails persistence 0.6502, calendar_identity 0.6504 and identity_only 0.5134 - at chance",
-      "persistence_prev_evening_auc": 0.6501779422881337,
-      "verdict": "NO DEMONSTRATED HEADROOM UNDER THIS PROTOCOL (stock runner): the model figure is quoted beside morning_ratio 0.7340 as the skill requires, and the pre-registered packaging gate (next_action step 3, 'on a useful triad outcome') is NOT met, so packaging did not start. This does not prove every competent model must lose: morning_ratio proves the extractable signal exists in the shipped at-instant features (CI excluding zero over persistence and calendar, which are inseparable); the stock template does not find it"
-     },
-     "clustering_measured": "Positives cluster by day (city-wide weather / load-shedding regime): distinct exceedance days 2022: 227, 2023: 246, 2024: 247 (out of 365/365/366 label-bearing days), with all 41 stations carrying at least one positive in every year. The distinct-day counts are the clustered/independent-observation evidence for split capacity.",
-     "cross_check_publisher_summary": "The publisher ships no summary product for this table (raw readings only; the ODP page carries only the description quoted above). The internal consistency check is the arithmetic identity rows = 48 x 1,096 and the gapless daily grid, both measured. No publisher aggregate exists to contradict.",
-     "dated_worked_example": "Grassy Park 66kV, Africa/Johannesburg (SAST): day D = 2024-07-15 (Monday, mid-winter). Feature event window = half-hourly readings 2022-01-01 00:00 .. 2024-07-15 06:00 for this substation (trailing aggregates computed within it); prediction instant = 2024-07-15 06:00 SAST; eligibility = >= 30 prior evenings (met: 90 evenings 2024-04-16..2024-07-14 used); target window = 2024-07-15 16:00-22:00 SAST (entirely after the instant); measured label = evening peak 150.38 MVA > trailing-90-evening p95 146.82 MVA -> POSITIVE. Every target-window timestamp is later than the instant; no target-window reading can be a feature.",
-     "extraction_cost_measured": "53 HTTP GETs (1,000 rows/page, orderByFields=ObjectId, outFields all), 70,086,470 bytes JSON, 54.1 s wall clock on the coordinator (4 vCPU / 1.9 GiB class), measured 2026-11-01. No raw copy retained: the fetch streams to per-station-day aggregates only (probe_fullscan.py); reduced aggregates ~9 MB. Advancement-side construction must re-fetch on a worker and pin sha256.",
-     "novelty_scope_limitations": "Web search (arXiv, HF, GitHub, Fraunhofer survey) 2026-11-01; queries recorded by scripts/check-novelty.py. The Fraunhofer 25-dataset public load-forecasting survey lists system/zone/substation datasets from EU/US/AU operators only; no African substation series surfaced. Hugging Face/Zenodo catalogue searches for this source's title returned no ML-ready formulation of this task.",
-     "panel_shape_measured": "52,608 rows = 48 half-hours x 1,096 days, 2022-01-01 00:00 .. 2024-12-31 23:30 SAST, gapless (0 days with !=48 half-hours). 45 fields: Timestamp + 43 substation columns (33kV/66kV/132kV switching stations) + ObjectId. 41 double-typed substation columns have 52,608/52,608 non-null values (ZERO nulls); Triangle_132kV (string-typed) contains no values at all; Morgen_Gronde_132kV (string-typed) carries numeric readings stored as strings (schema artifact: parse at construction or exclude; measured on fetch). 42 stations carry data in total (41 double + Morgen Gronde parsed), and all 41 double-typed stations are used for the measured label counts.",
-     "provenance_mix_measured": "Single provenance stream: one reading per substation per half-hour from the City's SCADA/telemetry export; no sentinel/non-sentinel or multi-stream mixture. Two columns are string-typed (one empty, one numeric-as-text) - a schema artifact, not a separate population.",
-     "publisher_caveat": "Item description (quoted): 'Users should note that readings are indicative of the measured Mega Volt-Ampere readings which have not been corrected for temporary load shifts due to operational requirements or load fluctuations due to load shedding.' The label therefore measures demand-as-dispatched, not underlying demand; this is documented meaning (usable), recorded as a limitation, and must appear in the dataset README.",
-     "references_2026_11_03_za_cct_001": {
-      "command": "worker job za-cct-001 run.sh stage 4 (score.py, post-acceptance; eval rows only, holdout sealed); report .factory/za-cct-001/reports/output/references-za-cct-substation-evening-peak-exceedance.json, staging release 432591871",
-      "figures": {
-       "calendar_identity": {
-        "brier": 0.11733772555830475,
-        "eval_auc": 0.6503605075098278,
-        "note": "station x month rate from train, station then global fallback - the skill's calendar control"
-       },
-       "global_rate": {
-        "brier": 0.07767581638737096,
-        "note": "constant score, degenerate"
-       },
-       "identity_only": {
-        "eval_auc": 0.513407814058643
-       },
-       "majority_class": {
-        "accuracy_this_split": 0.9160708319411961
-       },
-       "month_only": {
-        "eval_auc": 0.6540502879924992
-       },
-       "morning_ratio": {
-        "eval_auc": 0.7340185012588782,
-        "note": "morning_max / hist_morningpeak_mean_90 from shipped features - THE STRONGEST simple reference; brier meaningless (raw scale factor, not a probability)"
-       },
-       "persistence_prev_evening": {
-        "brier": 0.10758436351486803,
-        "eval_auc": 0.6501779422881337,
-        "note": "recomputed scorer-side from prior-in-time same-station labels (train+eval); a shipped prior label is the P0 cross-row recovery the design excludes; the model is DENIED this information - information-asymmetric comparison"
-       }
-      },
-      "interpretation_so_far": "no full-model figure exists yet, so NO headroom claim exists. The headroom reference the model must beat is morning_ratio 0.7340 (not persistence: persistence and the calendar control are statistically inseparable at 0.650). Any future model figure must be quoted beside 0.7340 on identical rows with the information-asymmetry note for persistence. eval is one year (2023); per-month reporting replaces the pooled per-year check",
-      "paired_bootstrap_150": {
-       "calendar_identity_vs_morning_ratio": {
-        "ci95": [
-         -0.10192888805600986,
-         -0.06274112821084565
-        ],
-        "diff": -0.08365799374905047,
-        "verdict": "morning_ratio significantly above calendar control"
-       },
-       "persistence_vs_calendar_identity": {
-        "ci95": [
-         -0.01684265124782114,
-         0.01605528413526447
-        ],
-        "diff": -0.0001825652216940199,
-        "verdict": "inconclusive (interval contains zero)"
-       },
-       "persistence_vs_identity_only": {
-        "ci95": [
-         0.11716568765541084,
-         0.15646327913606112
-        ],
-        "diff": 0.13677012822949075,
-        "verdict": "persistence significantly above identity-only"
-       },
-       "persistence_vs_morning_ratio": {
-        "ci95": [
-         -0.10118117461628362,
-         -0.0706365042660001
-        ],
-        "diff": -0.0838405589700445,
-        "verdict": "morning_ratio significantly above persistence"
-       }
-      },
-      "per_eval_month": "every calendar month of 2023 reported with rows/positives and persistence/calendar/morning_ratio AUCs (report file); morning_ratio is the top reference in 11 of 12 months",
-      "rows": "14,965 eval rows (1,256 positives, 246 distinct exceedance days); train tables estimated from 2022 only"
-     },
-     "seasonality_fixture": "Known-event fixture (verified measured): Cape Town winter evening-peaking. Monthly mean evening peak over all stations: 2024-07 61.9 MVA vs 2024-12 44.1 MVA; same May-August rise in 2022 (2022-08 60.3 vs 2022-12 48.0) and 2023 (2023-07 60.6 vs 2023-12 45.9). Per-station winter(May-Aug)/summer(Nov-Feb) mean evening-peak ratios: Grassy Park 66kV 1.25, Atlantis Industrial 132kV 1.22, Foreshore 132kV (CBD) 0.98 - winter-peaking residential/industrial substations and a flat CBD profile, exactly as expected for Cape Town's winter-heating, summer-cooling-mild coastal climate.",
-     "target_labels_measured": "Evening-peak p95-exceedance labels (trailing 90 evenings, min 30 prior evenings, evening window 16:00-22:00 SAST): 2022 positives 1,539/13,735 (11.20%); 2023 positives 1,256/14,965 (8.39%); 2024 positives 1,382/15,006 (9.21%). Total 4,177/43,706. Both classes present in every year. Commands in notes.md (probe_fullscan.py, probe_cluster.py)."
-    },
-    "next_action": "OPERATOR DECISION (a) RECORDED 2026-11-04: package as an agent-headroom benchmark, with the comparison leading every package document - stock-runner baseline 0.",
-    "packaged_at": null,
-    "path": "candidates/za-cct-substation-evening-peak-exceedance/record.json",
-    "prediction_time": "06:00 Africa/Johannesburg (SAST, UTC+2) on day D, within the artifact's history. Features are the substation's half-hourly MVA readings with timestamps <= the instant (including day D's 00:00-06:00 readings), trailing aggregates computed only from readings <= the instant, plus calendar fields and substation identity. The evening target window 16:00-22:00 SAST lies entirely after the instant. RETROSPECTIVE USE: the publisher released the entire 2022-01-01..2024-12-31 window as one closed table (item created 2026-02-28, last modified 2026-03-02, hasStaticData), so this is a retrospective_research task per docs/PREDICTION-CONTRACT.md: no historical-operational-availability claim is made, label timing is unverified at any historical instant outside the artifact's own timestamp order.",
-    "publisher": "City of Cape Town (Energy Directorate via the Corporate GIS Open Data Portal, odp-cctegis.opendata.arcgis.com) - metropolitan municipality in South Africa",
-    "qualification": {
-     "artifact_version": "9f2e10ce485635f65e695072e2bbd904024ebf58b1465d12fb969f8bb0692180",
-     "result": null,
-     "splits": null
-    },
-    "question": "For each City of Cape Town switching substation, at 06:00 SAST on day D, predict whether that substation's evening peak apparent-power load (maximum half-hourly MVA reading over 16:00-22:00 SAST on day D) will exceed the trailing-90-evening 95th percentile of its own evening peaks (evenings ending strictly before the instant).",
-    "region": "Africa",
-    "release_baseline": {
-     "auc": 0.5107,
-     "display": "0.5107",
-     "reference": null
-    },
-    "release_splits": {
-     "eval": {
-      "positives": 1256,
-      "rows": 14965
-     },
-     "holdout": {
-      "positives": 1382,
-      "rows": 15006
-     },
-     "train": {
-      "positives": 1539,
-      "rows": 13735
-     }
-    },
-    "review": "All five discovery contracts are supported with measured evidence: class A licence from the publisher's own instruments; a within-artifact 06:00 SAST instant with a fully-post-instant evening target window and publisher-documented feature meaning (with the load-shift caveat recorded as a limitation); a label derivable from the same gapless table with sealable label-source columns; measured split capacity (train 2022 / eval 2023 / holdout 2024, 1,256-1,539 positives per year, clustered on 227-247 distinct days); and a differentiated novelty position (regression forecasting benchmarks exist on EU/US/AU substation data; none is African, none is a within-day exceedance classification with a sealed label contract). Honest labelling: retrospective_research - the closed 2022-2024 window was published as one table in 2026, so no historical-operational-availability claim is made and label timing is unverified outside the artifact's own timestamp order.",
-    "sources": [
-     {
-      "licence": "Item licenseInfo links the City of Cape Town Open Data Terms of Use; Council-approved Open Data Policy 27781 defines open data as freely used, shared and built-on by anyone, anywhere, for any purpose (see license_evidence)",
-      "name": "City of Cape Town Open Data Portal - Switching Substation Load Profile (half-hourly MVA per switching substation, 2022-2024)",
-      "url": "https://odp-cctegis.opendata.arcgis.com/documents/cctegis::switching-substation-load-profile"
-     }
-    ],
-    "split_strategy": "Temporal splits on station-days: train = 2022 (13,735 label-bearing station-days, 1,539 positives), eval = 2023 (14,965, 1,256), holdout = 2024 (15,006, 1,382). Disjoint years, both classes in every window, positives clustered on 227/246/247 distinct days per year. First ~30-90 evenings per station are burn-in (eligibility) and drop out of the labelled set. The evening-window 16:00-22:00 and the 06:00 instant are fixed for all splits; the sealed evening readings of any scored day never enter any shipped feature frame.",
-    "status": "qualified",
-    "target": "Binary: evening-peak exceedance. Label = (max half-hourly MVA over 16:00-22:00 SAST on day D for substation S) > (95th percentile of the same substation's evening peaks over the trailing 90 evenings ending strictly before the instant, minimum 30 prior evenings for eligibility). Label source columns: the target day's 16:00-22:00 MVA readings, plus the same substation's prior evening peaks; these are sealed (private label matrix) and never shipped in any solver-visible feature frame. The baseline operand (trailing p95) is computed from feature-side readings <= the instant and may ship as a numeric feature; the target evening readings cannot."
    }
   ],
-  "non_us_share": 95.2,
+  "non_us_share": 95.0,
   "records": [
    {
     "awaiting_operator": false,
@@ -3612,7 +3449,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 10.0,
+    "age_hours": 11.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -9288,7 +9125,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 150.5,
+    "age_hours": 151.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -12787,7 +12624,8 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "awaiting_operator": false,
+    "age_hours": 0.7,
+    "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
     "domain": "electricity distribution operations / substation-day peak-stress exceedance prediction (retrospective)",
@@ -12801,6 +12639,21 @@
      {
       "at": null,
       "id": "za-cct-baseline-001",
+      "status": null
+     },
+     {
+      "at": null,
+      "id": "za-cct-publish-001",
+      "status": null
+     },
+     {
+      "at": null,
+      "id": "za-cct-hf-001",
+      "status": null
+     },
+     {
+      "at": null,
+      "id": "za-cct-consumer-001",
       "status": null
      }
     ],
@@ -12905,8 +12758,8 @@
      "seasonality_fixture": "Known-event fixture (verified measured): Cape Town winter evening-peaking. Monthly mean evening peak over all stations: 2024-07 61.9 MVA vs 2024-12 44.1 MVA; same May-August rise in 2022 (2022-08 60.3 vs 2022-12 48.0) and 2023 (2023-07 60.6 vs 2023-12 45.9). Per-station winter(May-Aug)/summer(Nov-Feb) mean evening-peak ratios: Grassy Park 66kV 1.25, Atlantis Industrial 132kV 1.22, Foreshore 132kV (CBD) 0.98 - winter-peaking residential/industrial substations and a flat CBD profile, exactly as expected for Cape Town's winter-heating, summer-cooling-mild coastal climate.",
      "target_labels_measured": "Evening-peak p95-exceedance labels (trailing 90 evenings, min 30 prior evenings, evening window 16:00-22:00 SAST): 2022 positives 1,539/13,735 (11.20%); 2023 positives 1,256/14,965 (8.39%); 2024 positives 1,382/15,006 (9.21%). Total 4,177/43,706. Both classes present in every year. Commands in notes.md (probe_fullscan.py, probe_cluster.py)."
     },
-    "next_action": "OPERATOR DECISION (a) RECORDED 2026-11-04: package as an agent-headroom benchmark, with the comparison leading every package document - stock-runner baseline 0.",
-    "packaged_at": null,
+    "next_action": "FLIP BOUNDARY REACHED 2026-11-04T21:06:41Z: za-cct-substation-evening-peak-exceedance v2026.11 is STAGED PRIVATE and VERIFIED on BOTH destinations (GitHub relea",
+    "packaged_at": "2026-11-04T21:06:41Z",
     "path": "candidates/za-cct-substation-evening-peak-exceedance/record.json",
     "prediction_time": "06:00 Africa/Johannesburg (SAST, UTC+2) on day D, within the artifact's history. Features are the substation's half-hourly MVA readings with timestamps <= the instant (including day D's 00:00-06:00 readings), trailing aggregates computed only from readings <= the instant, plus calendar fields and substation identity. The evening target window 16:00-22:00 SAST lies entirely after the instant. RETROSPECTIVE USE: the publisher released the entire 2022-01-01..2024-12-31 window as one closed table (item created 2026-02-28, last modified 2026-03-02, hasStaticData), so this is a retrospective_research task per docs/PREDICTION-CONTRACT.md: no historical-operational-availability claim is made, label timing is unverified at any historical instant outside the artifact's own timestamp order.",
     "publisher": "City of Cape Town (Energy Directorate via the Corporate GIS Open Data Portal, odp-cctegis.opendata.arcgis.com) - metropolitan municipality in South Africa",
@@ -12945,7 +12798,7 @@
      }
     ],
     "split_strategy": "Temporal splits on station-days: train = 2022 (13,735 label-bearing station-days, 1,539 positives), eval = 2023 (14,965, 1,256), holdout = 2024 (15,006, 1,382). Disjoint years, both classes in every window, positives clustered on 227/246/247 distinct days per year. First ~30-90 evenings per station are burn-in (eligibility) and drop out of the labelled set. The evening-window 16:00-22:00 and the 06:00 instant are fixed for all splits; the sealed evening readings of any scored day never enter any shipped feature frame.",
-    "status": "qualified",
+    "status": "packaged",
     "target": "Binary: evening-peak exceedance. Label = (max half-hourly MVA over 16:00-22:00 SAST on day D for substation S) > (95th percentile of the same substation's evening peaks over the trailing 90 evenings ending strictly before the instant, minimum 30 prior evenings for eligibility). Label source columns: the target day's 16:00-22:00 MVA readings, plus the same substation's prior evening peaks; these are sealed (private label matrix) and never shipped in any solver-visible feature frame. The baseline operand (trailing p95) is computed from feature-side readings <= the instant and may ship as a numeric feature; the target evening readings cannot."
    },
    {
@@ -13137,7 +12990,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 10.0,
+     "age_hours": 11.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13311,7 +13164,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 150.5,
+     "age_hours": 151.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13595,11 +13448,189 @@
      "split_strategy": "Cohort split on advisory issue year (disjoint calendar-year windows, both classes in every window). Computed from the full fetched CSV (sha256 60f77ac4...) and cross-checked against independent SoQL aggregates run against the live API (identical numbers). Censored rows excluded from scored sets with per-window counts. Clustered (site-repeat) counts recorded because advisories cluster by site: 586 / 286 / 551 distinct sites per window.",
      "status": "packaged",
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
+    },
+    {
+     "age_hours": 0.7,
+     "awaiting_operator": true,
+     "baseline": {},
+     "country": "ZA",
+     "domain": "electricity distribution operations / substation-day peak-stress exceedance prediction (retrospective)",
+     "id": "za-cct-substation-evening-peak-exceedance",
+     "jobs": [
+      {
+       "at": null,
+       "id": "za-cct-001",
+       "status": "collected+destroyed"
+      },
+      {
+       "at": null,
+       "id": "za-cct-baseline-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "za-cct-publish-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "za-cct-hf-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "za-cct-consumer-001",
+       "status": null
+      }
+     ],
+     "licence_summary": {
+      "compilation_spdx": "CC0-1.0",
+      "source_spdx": "LicenseRef-CityOfCapeTown-OpenDataTerms",
+      "status": "No standard SPDX licence is declared; the operative instruments are the City of Cape Town Open Data Terms of Use (disclaimer-only: as-is, no warranty, no liability; no restriction on reuse, redistribution or derivatives for portal data) together with the Council-approved Open Data Policy 27781 ('freely used, shared and built-on by anyone, anywhere, for any purpose'), and the ArcGIS item's licenseInfo links the portal terms. The table is engineering telemetry (half-hourly apparent-power MVA readings per switching substation): no personal data, no third-party content, no official symbols. The redistributed fields are the publisher's own readings (timestamped MVA values and station identifiers) plus our derived binary label, at-instant aggregates, calendar fields and partition. The derived dataset is labelled as such throughout and is not a City of Cape Town product."
+     },
+     "measurements": {
+      "baseline_triad_2026_11_03_za_cct_baseline_001": {
+       "calendar_identity_auc": 0.6503605075098278,
+       "command": "worker job za-cct-baseline-001 run.sh (fetch the five accepted assets from staging release 432591871, digests verified on arrival, --accept ACCEPTED 9f2e10ce BEFORE any score, then the benchmark's own unmodified train.py + validate.sh); report .factory/za-cct-baseline-001/reports/output/baseline_result.json, staging release 432863325",
+       "concrete_diagnosis_candidates": "(a) the stock train.py treats the 'date' string column as a 365-level train-only categorical (eval dates unseen -> NaN), so the 30-tree depth-6 budget is spent partly on train-date memorization; (b) the model must express morning_max / hist_morningpeak_mean_90 as an implicit ratio through splits - the one-line rule reaching 0.7340 is not among the stock features; (c) no misalignment and no post-hoc reference: both AUC figures come from the runner's own two implementations on the same accepted bytes and morning_ratio reads only shipped at-instant columns; (d) prevalence shift 11.20% -> 8.39% is recorded and cannot explain a fall to chance",
+       "full_model_eval_auc": 0.5107,
+       "full_model_eval_auc_from_validate_py": 0.5107,
+       "identity_only_auc": 0.513407814058643,
+       "information_asymmetry_note": "persistence_prev_evening is recomputed scorer-side from strictly-earlier same-station rows; the model is denied the prior evening's outcome, so model-vs-persistence is information-asymmetric by design. The morning_ratio comparison is NOT asymmetric: both read only shipped at-instant columns, so 0.7340 is a fair same-information target for anything that consumes this artifact",
+       "interpretation_rule": "any later model figure must still be quoted beside morning_ratio 0.7340; keep fitting until a score wins is forbidden",
+       "measured_on": "the accepted artifact 9f2e10ce (job za-cct-baseline-001, after --accept, on the same 14,965 eval rows as the za-cct-001 references)",
+       "morning_ratio_auc": 0.7340185012588782,
+       "observed_gap": "the stock runner model trails the strongest simple reference by 0.2233 AUC (0.5107 vs morning_ratio 0.734) on identical rows, also trails persistence 0.6502, calendar_identity 0.6504 and identity_only 0.5134 - at chance",
+       "persistence_prev_evening_auc": 0.6501779422881337,
+       "verdict": "NO DEMONSTRATED HEADROOM UNDER THIS PROTOCOL (stock runner): the model figure is quoted beside morning_ratio 0.7340 as the skill requires, and the pre-registered packaging gate (next_action step 3, 'on a useful triad outcome') is NOT met, so packaging did not start. This does not prove every competent model must lose: morning_ratio proves the extractable signal exists in the shipped at-instant features (CI excluding zero over persistence and calendar, which are inseparable); the stock template does not find it"
+      },
+      "clustering_measured": "Positives cluster by day (city-wide weather / load-shedding regime): distinct exceedance days 2022: 227, 2023: 246, 2024: 247 (out of 365/365/366 label-bearing days), with all 41 stations carrying at least one positive in every year. The distinct-day counts are the clustered/independent-observation evidence for split capacity.",
+      "cross_check_publisher_summary": "The publisher ships no summary product for this table (raw readings only; the ODP page carries only the description quoted above). The internal consistency check is the arithmetic identity rows = 48 x 1,096 and the gapless daily grid, both measured. No publisher aggregate exists to contradict.",
+      "dated_worked_example": "Grassy Park 66kV, Africa/Johannesburg (SAST): day D = 2024-07-15 (Monday, mid-winter). Feature event window = half-hourly readings 2022-01-01 00:00 .. 2024-07-15 06:00 for this substation (trailing aggregates computed within it); prediction instant = 2024-07-15 06:00 SAST; eligibility = >= 30 prior evenings (met: 90 evenings 2024-04-16..2024-07-14 used); target window = 2024-07-15 16:00-22:00 SAST (entirely after the instant); measured label = evening peak 150.38 MVA > trailing-90-evening p95 146.82 MVA -> POSITIVE. Every target-window timestamp is later than the instant; no target-window reading can be a feature.",
+      "extraction_cost_measured": "53 HTTP GETs (1,000 rows/page, orderByFields=ObjectId, outFields all), 70,086,470 bytes JSON, 54.1 s wall clock on the coordinator (4 vCPU / 1.9 GiB class), measured 2026-11-01. No raw copy retained: the fetch streams to per-station-day aggregates only (probe_fullscan.py); reduced aggregates ~9 MB. Advancement-side construction must re-fetch on a worker and pin sha256.",
+      "novelty_scope_limitations": "Web search (arXiv, HF, GitHub, Fraunhofer survey) 2026-11-01; queries recorded by scripts/check-novelty.py. The Fraunhofer 25-dataset public load-forecasting survey lists system/zone/substation datasets from EU/US/AU operators only; no African substation series surfaced. Hugging Face/Zenodo catalogue searches for this source's title returned no ML-ready formulation of this task.",
+      "panel_shape_measured": "52,608 rows = 48 half-hours x 1,096 days, 2022-01-01 00:00 .. 2024-12-31 23:30 SAST, gapless (0 days with !=48 half-hours). 45 fields: Timestamp + 43 substation columns (33kV/66kV/132kV switching stations) + ObjectId. 41 double-typed substation columns have 52,608/52,608 non-null values (ZERO nulls); Triangle_132kV (string-typed) contains no values at all; Morgen_Gronde_132kV (string-typed) carries numeric readings stored as strings (schema artifact: parse at construction or exclude; measured on fetch). 42 stations carry data in total (41 double + Morgen Gronde parsed), and all 41 double-typed stations are used for the measured label counts.",
+      "provenance_mix_measured": "Single provenance stream: one reading per substation per half-hour from the City's SCADA/telemetry export; no sentinel/non-sentinel or multi-stream mixture. Two columns are string-typed (one empty, one numeric-as-text) - a schema artifact, not a separate population.",
+      "publisher_caveat": "Item description (quoted): 'Users should note that readings are indicative of the measured Mega Volt-Ampere readings which have not been corrected for temporary load shifts due to operational requirements or load fluctuations due to load shedding.' The label therefore measures demand-as-dispatched, not underlying demand; this is documented meaning (usable), recorded as a limitation, and must appear in the dataset README.",
+      "references_2026_11_03_za_cct_001": {
+       "command": "worker job za-cct-001 run.sh stage 4 (score.py, post-acceptance; eval rows only, holdout sealed); report .factory/za-cct-001/reports/output/references-za-cct-substation-evening-peak-exceedance.json, staging release 432591871",
+       "figures": {
+        "calendar_identity": {
+         "brier": 0.11733772555830475,
+         "eval_auc": 0.6503605075098278,
+         "note": "station x month rate from train, station then global fallback - the skill's calendar control"
+        },
+        "global_rate": {
+         "brier": 0.07767581638737096,
+         "note": "constant score, degenerate"
+        },
+        "identity_only": {
+         "eval_auc": 0.513407814058643
+        },
+        "majority_class": {
+         "accuracy_this_split": 0.9160708319411961
+        },
+        "month_only": {
+         "eval_auc": 0.6540502879924992
+        },
+        "morning_ratio": {
+         "eval_auc": 0.7340185012588782,
+         "note": "morning_max / hist_morningpeak_mean_90 from shipped features - THE STRONGEST simple reference; brier meaningless (raw scale factor, not a probability)"
+        },
+        "persistence_prev_evening": {
+         "brier": 0.10758436351486803,
+         "eval_auc": 0.6501779422881337,
+         "note": "recomputed scorer-side from prior-in-time same-station labels (train+eval); a shipped prior label is the P0 cross-row recovery the design excludes; the model is DENIED this information - information-asymmetric comparison"
+        }
+       },
+       "interpretation_so_far": "no full-model figure exists yet, so NO headroom claim exists. The headroom reference the model must beat is morning_ratio 0.7340 (not persistence: persistence and the calendar control are statistically inseparable at 0.650). Any future model figure must be quoted beside 0.7340 on identical rows with the information-asymmetry note for persistence. eval is one year (2023); per-month reporting replaces the pooled per-year check",
+       "paired_bootstrap_150": {
+        "calendar_identity_vs_morning_ratio": {
+         "ci95": [
+          -0.10192888805600986,
+          -0.06274112821084565
+         ],
+         "diff": -0.08365799374905047,
+         "verdict": "morning_ratio significantly above calendar control"
+        },
+        "persistence_vs_calendar_identity": {
+         "ci95": [
+          -0.01684265124782114,
+          0.01605528413526447
+         ],
+         "diff": -0.0001825652216940199,
+         "verdict": "inconclusive (interval contains zero)"
+        },
+        "persistence_vs_identity_only": {
+         "ci95": [
+          0.11716568765541084,
+          0.15646327913606112
+         ],
+         "diff": 0.13677012822949075,
+         "verdict": "persistence significantly above identity-only"
+        },
+        "persistence_vs_morning_ratio": {
+         "ci95": [
+          -0.10118117461628362,
+          -0.0706365042660001
+         ],
+         "diff": -0.0838405589700445,
+         "verdict": "morning_ratio significantly above persistence"
+        }
+       },
+       "per_eval_month": "every calendar month of 2023 reported with rows/positives and persistence/calendar/morning_ratio AUCs (report file); morning_ratio is the top reference in 11 of 12 months",
+       "rows": "14,965 eval rows (1,256 positives, 246 distinct exceedance days); train tables estimated from 2022 only"
+      },
+      "seasonality_fixture": "Known-event fixture (verified measured): Cape Town winter evening-peaking. Monthly mean evening peak over all stations: 2024-07 61.9 MVA vs 2024-12 44.1 MVA; same May-August rise in 2022 (2022-08 60.3 vs 2022-12 48.0) and 2023 (2023-07 60.6 vs 2023-12 45.9). Per-station winter(May-Aug)/summer(Nov-Feb) mean evening-peak ratios: Grassy Park 66kV 1.25, Atlantis Industrial 132kV 1.22, Foreshore 132kV (CBD) 0.98 - winter-peaking residential/industrial substations and a flat CBD profile, exactly as expected for Cape Town's winter-heating, summer-cooling-mild coastal climate.",
+      "target_labels_measured": "Evening-peak p95-exceedance labels (trailing 90 evenings, min 30 prior evenings, evening window 16:00-22:00 SAST): 2022 positives 1,539/13,735 (11.20%); 2023 positives 1,256/14,965 (8.39%); 2024 positives 1,382/15,006 (9.21%). Total 4,177/43,706. Both classes present in every year. Commands in notes.md (probe_fullscan.py, probe_cluster.py)."
+     },
+     "next_action": "FLIP BOUNDARY REACHED 2026-11-04T21:06:41Z: za-cct-substation-evening-peak-exceedance v2026.11 is STAGED PRIVATE and VERIFIED on BOTH destinations (GitHub relea",
+     "packaged_at": "2026-11-04T21:06:41Z",
+     "path": "candidates/za-cct-substation-evening-peak-exceedance/record.json",
+     "prediction_time": "06:00 Africa/Johannesburg (SAST, UTC+2) on day D, within the artifact's history. Features are the substation's half-hourly MVA readings with timestamps <= the instant (including day D's 00:00-06:00 readings), trailing aggregates computed only from readings <= the instant, plus calendar fields and substation identity. The evening target window 16:00-22:00 SAST lies entirely after the instant. RETROSPECTIVE USE: the publisher released the entire 2022-01-01..2024-12-31 window as one closed table (item created 2026-02-28, last modified 2026-03-02, hasStaticData), so this is a retrospective_research task per docs/PREDICTION-CONTRACT.md: no historical-operational-availability claim is made, label timing is unverified at any historical instant outside the artifact's own timestamp order.",
+     "publisher": "City of Cape Town (Energy Directorate via the Corporate GIS Open Data Portal, odp-cctegis.opendata.arcgis.com) - metropolitan municipality in South Africa",
+     "qualification": {
+      "artifact_version": "9f2e10ce485635f65e695072e2bbd904024ebf58b1465d12fb969f8bb0692180",
+      "result": null,
+      "splits": null
+     },
+     "question": "For each City of Cape Town switching substation, at 06:00 SAST on day D, predict whether that substation's evening peak apparent-power load (maximum half-hourly MVA reading over 16:00-22:00 SAST on day D) will exceed the trailing-90-evening 95th percentile of its own evening peaks (evenings ending strictly before the instant).",
+     "region": "Africa",
+     "release_baseline": {
+      "auc": 0.5107,
+      "display": "0.5107",
+      "reference": null
+     },
+     "release_splits": {
+      "eval": {
+       "positives": 1256,
+       "rows": 14965
+      },
+      "holdout": {
+       "positives": 1382,
+       "rows": 15006
+      },
+      "train": {
+       "positives": 1539,
+       "rows": 13735
+      }
+     },
+     "review": "All five discovery contracts are supported with measured evidence: class A licence from the publisher's own instruments; a within-artifact 06:00 SAST instant with a fully-post-instant evening target window and publisher-documented feature meaning (with the load-shift caveat recorded as a limitation); a label derivable from the same gapless table with sealable label-source columns; measured split capacity (train 2022 / eval 2023 / holdout 2024, 1,256-1,539 positives per year, clustered on 227-247 distinct days); and a differentiated novelty position (regression forecasting benchmarks exist on EU/US/AU substation data; none is African, none is a within-day exceedance classification with a sealed label contract). Honest labelling: retrospective_research - the closed 2022-2024 window was published as one table in 2026, so no historical-operational-availability claim is made and label timing is unverified outside the artifact's own timestamp order.",
+     "sources": [
+      {
+       "licence": "Item licenseInfo links the City of Cape Town Open Data Terms of Use; Council-approved Open Data Policy 27781 defines open data as freely used, shared and built-on by anyone, anywhere, for any purpose (see license_evidence)",
+       "name": "City of Cape Town Open Data Portal - Switching Substation Load Profile (half-hourly MVA per switching substation, 2022-2024)",
+       "url": "https://odp-cctegis.opendata.arcgis.com/documents/cctegis::switching-substation-load-profile"
+      }
+     ],
+     "split_strategy": "Temporal splits on station-days: train = 2022 (13,735 label-bearing station-days, 1,539 positives), eval = 2023 (14,965, 1,256), holdout = 2024 (15,006, 1,382). Disjoint years, both classes in every window, positives clustered on 227/246/247 distinct days per year. First ~30-90 evenings per station are burn-in (eligibility) and drop out of the labelled set. The evening-window 16:00-22:00 and the 06:00 instant are fixed for all splits; the sealed evening readings of any scored day never enter any shipped feature frame.",
+     "status": "packaged",
+     "target": "Binary: evening-peak exceedance. Label = (max half-hourly MVA over 16:00-22:00 SAST on day D for substation S) > (95th percentile of the same substation's evening peaks over the trailing 90 evenings ending strictly before the instant, minimum 30 prior evenings for eligibility). Label source columns: the target day's 16:00-22:00 MVA readings, plus the same substation's prior evening peaks; these are sealed (private label matrix) and never shipped in any solver-visible feature frame. The baseline operand (trailing p95) is computed from feature-side readings <= the instant and may ship as a numeric feature; the target evening readings cannot."
     }
    ],
    "packaged": [
     {
-     "age_hours": 10.0,
+     "age_hours": 11.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13773,7 +13804,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 150.5,
+     "age_hours": 151.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -14057,6 +14088,184 @@
      "split_strategy": "Cohort split on advisory issue year (disjoint calendar-year windows, both classes in every window). Computed from the full fetched CSV (sha256 60f77ac4...) and cross-checked against independent SoQL aggregates run against the live API (identical numbers). Censored rows excluded from scored sets with per-window counts. Clustered (site-repeat) counts recorded because advisories cluster by site: 586 / 286 / 551 distinct sites per window.",
      "status": "packaged",
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
+    },
+    {
+     "age_hours": 0.7,
+     "awaiting_operator": true,
+     "baseline": {},
+     "country": "ZA",
+     "domain": "electricity distribution operations / substation-day peak-stress exceedance prediction (retrospective)",
+     "id": "za-cct-substation-evening-peak-exceedance",
+     "jobs": [
+      {
+       "at": null,
+       "id": "za-cct-001",
+       "status": "collected+destroyed"
+      },
+      {
+       "at": null,
+       "id": "za-cct-baseline-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "za-cct-publish-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "za-cct-hf-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "za-cct-consumer-001",
+       "status": null
+      }
+     ],
+     "licence_summary": {
+      "compilation_spdx": "CC0-1.0",
+      "source_spdx": "LicenseRef-CityOfCapeTown-OpenDataTerms",
+      "status": "No standard SPDX licence is declared; the operative instruments are the City of Cape Town Open Data Terms of Use (disclaimer-only: as-is, no warranty, no liability; no restriction on reuse, redistribution or derivatives for portal data) together with the Council-approved Open Data Policy 27781 ('freely used, shared and built-on by anyone, anywhere, for any purpose'), and the ArcGIS item's licenseInfo links the portal terms. The table is engineering telemetry (half-hourly apparent-power MVA readings per switching substation): no personal data, no third-party content, no official symbols. The redistributed fields are the publisher's own readings (timestamped MVA values and station identifiers) plus our derived binary label, at-instant aggregates, calendar fields and partition. The derived dataset is labelled as such throughout and is not a City of Cape Town product."
+     },
+     "measurements": {
+      "baseline_triad_2026_11_03_za_cct_baseline_001": {
+       "calendar_identity_auc": 0.6503605075098278,
+       "command": "worker job za-cct-baseline-001 run.sh (fetch the five accepted assets from staging release 432591871, digests verified on arrival, --accept ACCEPTED 9f2e10ce BEFORE any score, then the benchmark's own unmodified train.py + validate.sh); report .factory/za-cct-baseline-001/reports/output/baseline_result.json, staging release 432863325",
+       "concrete_diagnosis_candidates": "(a) the stock train.py treats the 'date' string column as a 365-level train-only categorical (eval dates unseen -> NaN), so the 30-tree depth-6 budget is spent partly on train-date memorization; (b) the model must express morning_max / hist_morningpeak_mean_90 as an implicit ratio through splits - the one-line rule reaching 0.7340 is not among the stock features; (c) no misalignment and no post-hoc reference: both AUC figures come from the runner's own two implementations on the same accepted bytes and morning_ratio reads only shipped at-instant columns; (d) prevalence shift 11.20% -> 8.39% is recorded and cannot explain a fall to chance",
+       "full_model_eval_auc": 0.5107,
+       "full_model_eval_auc_from_validate_py": 0.5107,
+       "identity_only_auc": 0.513407814058643,
+       "information_asymmetry_note": "persistence_prev_evening is recomputed scorer-side from strictly-earlier same-station rows; the model is denied the prior evening's outcome, so model-vs-persistence is information-asymmetric by design. The morning_ratio comparison is NOT asymmetric: both read only shipped at-instant columns, so 0.7340 is a fair same-information target for anything that consumes this artifact",
+       "interpretation_rule": "any later model figure must still be quoted beside morning_ratio 0.7340; keep fitting until a score wins is forbidden",
+       "measured_on": "the accepted artifact 9f2e10ce (job za-cct-baseline-001, after --accept, on the same 14,965 eval rows as the za-cct-001 references)",
+       "morning_ratio_auc": 0.7340185012588782,
+       "observed_gap": "the stock runner model trails the strongest simple reference by 0.2233 AUC (0.5107 vs morning_ratio 0.734) on identical rows, also trails persistence 0.6502, calendar_identity 0.6504 and identity_only 0.5134 - at chance",
+       "persistence_prev_evening_auc": 0.6501779422881337,
+       "verdict": "NO DEMONSTRATED HEADROOM UNDER THIS PROTOCOL (stock runner): the model figure is quoted beside morning_ratio 0.7340 as the skill requires, and the pre-registered packaging gate (next_action step 3, 'on a useful triad outcome') is NOT met, so packaging did not start. This does not prove every competent model must lose: morning_ratio proves the extractable signal exists in the shipped at-instant features (CI excluding zero over persistence and calendar, which are inseparable); the stock template does not find it"
+      },
+      "clustering_measured": "Positives cluster by day (city-wide weather / load-shedding regime): distinct exceedance days 2022: 227, 2023: 246, 2024: 247 (out of 365/365/366 label-bearing days), with all 41 stations carrying at least one positive in every year. The distinct-day counts are the clustered/independent-observation evidence for split capacity.",
+      "cross_check_publisher_summary": "The publisher ships no summary product for this table (raw readings only; the ODP page carries only the description quoted above). The internal consistency check is the arithmetic identity rows = 48 x 1,096 and the gapless daily grid, both measured. No publisher aggregate exists to contradict.",
+      "dated_worked_example": "Grassy Park 66kV, Africa/Johannesburg (SAST): day D = 2024-07-15 (Monday, mid-winter). Feature event window = half-hourly readings 2022-01-01 00:00 .. 2024-07-15 06:00 for this substation (trailing aggregates computed within it); prediction instant = 2024-07-15 06:00 SAST; eligibility = >= 30 prior evenings (met: 90 evenings 2024-04-16..2024-07-14 used); target window = 2024-07-15 16:00-22:00 SAST (entirely after the instant); measured label = evening peak 150.38 MVA > trailing-90-evening p95 146.82 MVA -> POSITIVE. Every target-window timestamp is later than the instant; no target-window reading can be a feature.",
+      "extraction_cost_measured": "53 HTTP GETs (1,000 rows/page, orderByFields=ObjectId, outFields all), 70,086,470 bytes JSON, 54.1 s wall clock on the coordinator (4 vCPU / 1.9 GiB class), measured 2026-11-01. No raw copy retained: the fetch streams to per-station-day aggregates only (probe_fullscan.py); reduced aggregates ~9 MB. Advancement-side construction must re-fetch on a worker and pin sha256.",
+      "novelty_scope_limitations": "Web search (arXiv, HF, GitHub, Fraunhofer survey) 2026-11-01; queries recorded by scripts/check-novelty.py. The Fraunhofer 25-dataset public load-forecasting survey lists system/zone/substation datasets from EU/US/AU operators only; no African substation series surfaced. Hugging Face/Zenodo catalogue searches for this source's title returned no ML-ready formulation of this task.",
+      "panel_shape_measured": "52,608 rows = 48 half-hours x 1,096 days, 2022-01-01 00:00 .. 2024-12-31 23:30 SAST, gapless (0 days with !=48 half-hours). 45 fields: Timestamp + 43 substation columns (33kV/66kV/132kV switching stations) + ObjectId. 41 double-typed substation columns have 52,608/52,608 non-null values (ZERO nulls); Triangle_132kV (string-typed) contains no values at all; Morgen_Gronde_132kV (string-typed) carries numeric readings stored as strings (schema artifact: parse at construction or exclude; measured on fetch). 42 stations carry data in total (41 double + Morgen Gronde parsed), and all 41 double-typed stations are used for the measured label counts.",
+      "provenance_mix_measured": "Single provenance stream: one reading per substation per half-hour from the City's SCADA/telemetry export; no sentinel/non-sentinel or multi-stream mixture. Two columns are string-typed (one empty, one numeric-as-text) - a schema artifact, not a separate population.",
+      "publisher_caveat": "Item description (quoted): 'Users should note that readings are indicative of the measured Mega Volt-Ampere readings which have not been corrected for temporary load shifts due to operational requirements or load fluctuations due to load shedding.' The label therefore measures demand-as-dispatched, not underlying demand; this is documented meaning (usable), recorded as a limitation, and must appear in the dataset README.",
+      "references_2026_11_03_za_cct_001": {
+       "command": "worker job za-cct-001 run.sh stage 4 (score.py, post-acceptance; eval rows only, holdout sealed); report .factory/za-cct-001/reports/output/references-za-cct-substation-evening-peak-exceedance.json, staging release 432591871",
+       "figures": {
+        "calendar_identity": {
+         "brier": 0.11733772555830475,
+         "eval_auc": 0.6503605075098278,
+         "note": "station x month rate from train, station then global fallback - the skill's calendar control"
+        },
+        "global_rate": {
+         "brier": 0.07767581638737096,
+         "note": "constant score, degenerate"
+        },
+        "identity_only": {
+         "eval_auc": 0.513407814058643
+        },
+        "majority_class": {
+         "accuracy_this_split": 0.9160708319411961
+        },
+        "month_only": {
+         "eval_auc": 0.6540502879924992
+        },
+        "morning_ratio": {
+         "eval_auc": 0.7340185012588782,
+         "note": "morning_max / hist_morningpeak_mean_90 from shipped features - THE STRONGEST simple reference; brier meaningless (raw scale factor, not a probability)"
+        },
+        "persistence_prev_evening": {
+         "brier": 0.10758436351486803,
+         "eval_auc": 0.6501779422881337,
+         "note": "recomputed scorer-side from prior-in-time same-station labels (train+eval); a shipped prior label is the P0 cross-row recovery the design excludes; the model is DENIED this information - information-asymmetric comparison"
+        }
+       },
+       "interpretation_so_far": "no full-model figure exists yet, so NO headroom claim exists. The headroom reference the model must beat is morning_ratio 0.7340 (not persistence: persistence and the calendar control are statistically inseparable at 0.650). Any future model figure must be quoted beside 0.7340 on identical rows with the information-asymmetry note for persistence. eval is one year (2023); per-month reporting replaces the pooled per-year check",
+       "paired_bootstrap_150": {
+        "calendar_identity_vs_morning_ratio": {
+         "ci95": [
+          -0.10192888805600986,
+          -0.06274112821084565
+         ],
+         "diff": -0.08365799374905047,
+         "verdict": "morning_ratio significantly above calendar control"
+        },
+        "persistence_vs_calendar_identity": {
+         "ci95": [
+          -0.01684265124782114,
+          0.01605528413526447
+         ],
+         "diff": -0.0001825652216940199,
+         "verdict": "inconclusive (interval contains zero)"
+        },
+        "persistence_vs_identity_only": {
+         "ci95": [
+          0.11716568765541084,
+          0.15646327913606112
+         ],
+         "diff": 0.13677012822949075,
+         "verdict": "persistence significantly above identity-only"
+        },
+        "persistence_vs_morning_ratio": {
+         "ci95": [
+          -0.10118117461628362,
+          -0.0706365042660001
+         ],
+         "diff": -0.0838405589700445,
+         "verdict": "morning_ratio significantly above persistence"
+        }
+       },
+       "per_eval_month": "every calendar month of 2023 reported with rows/positives and persistence/calendar/morning_ratio AUCs (report file); morning_ratio is the top reference in 11 of 12 months",
+       "rows": "14,965 eval rows (1,256 positives, 246 distinct exceedance days); train tables estimated from 2022 only"
+      },
+      "seasonality_fixture": "Known-event fixture (verified measured): Cape Town winter evening-peaking. Monthly mean evening peak over all stations: 2024-07 61.9 MVA vs 2024-12 44.1 MVA; same May-August rise in 2022 (2022-08 60.3 vs 2022-12 48.0) and 2023 (2023-07 60.6 vs 2023-12 45.9). Per-station winter(May-Aug)/summer(Nov-Feb) mean evening-peak ratios: Grassy Park 66kV 1.25, Atlantis Industrial 132kV 1.22, Foreshore 132kV (CBD) 0.98 - winter-peaking residential/industrial substations and a flat CBD profile, exactly as expected for Cape Town's winter-heating, summer-cooling-mild coastal climate.",
+      "target_labels_measured": "Evening-peak p95-exceedance labels (trailing 90 evenings, min 30 prior evenings, evening window 16:00-22:00 SAST): 2022 positives 1,539/13,735 (11.20%); 2023 positives 1,256/14,965 (8.39%); 2024 positives 1,382/15,006 (9.21%). Total 4,177/43,706. Both classes present in every year. Commands in notes.md (probe_fullscan.py, probe_cluster.py)."
+     },
+     "next_action": "FLIP BOUNDARY REACHED 2026-11-04T21:06:41Z: za-cct-substation-evening-peak-exceedance v2026.11 is STAGED PRIVATE and VERIFIED on BOTH destinations (GitHub relea",
+     "packaged_at": "2026-11-04T21:06:41Z",
+     "path": "candidates/za-cct-substation-evening-peak-exceedance/record.json",
+     "prediction_time": "06:00 Africa/Johannesburg (SAST, UTC+2) on day D, within the artifact's history. Features are the substation's half-hourly MVA readings with timestamps <= the instant (including day D's 00:00-06:00 readings), trailing aggregates computed only from readings <= the instant, plus calendar fields and substation identity. The evening target window 16:00-22:00 SAST lies entirely after the instant. RETROSPECTIVE USE: the publisher released the entire 2022-01-01..2024-12-31 window as one closed table (item created 2026-02-28, last modified 2026-03-02, hasStaticData), so this is a retrospective_research task per docs/PREDICTION-CONTRACT.md: no historical-operational-availability claim is made, label timing is unverified at any historical instant outside the artifact's own timestamp order.",
+     "publisher": "City of Cape Town (Energy Directorate via the Corporate GIS Open Data Portal, odp-cctegis.opendata.arcgis.com) - metropolitan municipality in South Africa",
+     "qualification": {
+      "artifact_version": "9f2e10ce485635f65e695072e2bbd904024ebf58b1465d12fb969f8bb0692180",
+      "result": null,
+      "splits": null
+     },
+     "question": "For each City of Cape Town switching substation, at 06:00 SAST on day D, predict whether that substation's evening peak apparent-power load (maximum half-hourly MVA reading over 16:00-22:00 SAST on day D) will exceed the trailing-90-evening 95th percentile of its own evening peaks (evenings ending strictly before the instant).",
+     "region": "Africa",
+     "release_baseline": {
+      "auc": 0.5107,
+      "display": "0.5107",
+      "reference": null
+     },
+     "release_splits": {
+      "eval": {
+       "positives": 1256,
+       "rows": 14965
+      },
+      "holdout": {
+       "positives": 1382,
+       "rows": 15006
+      },
+      "train": {
+       "positives": 1539,
+       "rows": 13735
+      }
+     },
+     "review": "All five discovery contracts are supported with measured evidence: class A licence from the publisher's own instruments; a within-artifact 06:00 SAST instant with a fully-post-instant evening target window and publisher-documented feature meaning (with the load-shift caveat recorded as a limitation); a label derivable from the same gapless table with sealable label-source columns; measured split capacity (train 2022 / eval 2023 / holdout 2024, 1,256-1,539 positives per year, clustered on 227-247 distinct days); and a differentiated novelty position (regression forecasting benchmarks exist on EU/US/AU substation data; none is African, none is a within-day exceedance classification with a sealed label contract). Honest labelling: retrospective_research - the closed 2022-2024 window was published as one table in 2026, so no historical-operational-availability claim is made and label timing is unverified outside the artifact's own timestamp order.",
+     "sources": [
+      {
+       "licence": "Item licenseInfo links the City of Cape Town Open Data Terms of Use; Council-approved Open Data Policy 27781 defines open data as freely used, shared and built-on by anyone, anywhere, for any purpose (see license_evidence)",
+       "name": "City of Cape Town Open Data Portal - Switching Substation Load Profile (half-hourly MVA per switching substation, 2022-2024)",
+       "url": "https://odp-cctegis.opendata.arcgis.com/documents/cctegis::switching-substation-load-profile"
+      }
+     ],
+     "split_strategy": "Temporal splits on station-days: train = 2022 (13,735 label-bearing station-days, 1,539 positives), eval = 2023 (14,965, 1,256), holdout = 2024 (15,006, 1,382). Disjoint years, both classes in every window, positives clustered on 227/246/247 distinct days per year. First ~30-90 evenings per station are burn-in (eligibility) and drop out of the labelled set. The evening-window 16:00-22:00 and the 06:00 instant are fixed for all splits; the sealed evening readings of any scored day never enter any shipped feature frame.",
+     "status": "packaged",
+     "target": "Binary: evening-peak exceedance. Label = (max half-hourly MVA over 16:00-22:00 SAST on day D for substation S) > (95th percentile of the same substation's evening peaks over the trailing 90 evenings ending strictly before the instant, minimum 30 prior evenings for eligibility). Label source columns: the target day's 16:00-22:00 MVA readings, plus the same substation's prior evening peaks; these are sealed (private label matrix) and never shipped in any solver-visible feature frame. The baseline operand (trailing p95) is computed from feature-side readings <= the instant and may ship as a numeric feature; the target evening readings cannot."
     }
    ],
    "pending": []
@@ -14111,10 +14320,9 @@
   "by_status": {
    "dropped": 49,
    "investigating": 20,
-   "packaged": 2,
+   "packaged": 3,
    "parked": 30,
    "published": 14,
-   "qualified": 1,
    "ready": 16
   },
   "candidates": 132,
@@ -14142,10 +14350,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-04T20:50:02.036378+00:00",
+    "last_run_at": "2026-11-04T21:50:01.605292+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-04T21:00:00+00:00",
+    "next_run_at": "2026-11-04T22:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14166,10 +14374,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-04T20:50:00.817278+00:00",
+    "last_run_at": "2026-11-04T21:50:02.025428+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-04T20:55:00+00:00",
+    "next_run_at": "2026-11-04T21:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14190,10 +14398,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-04T20:46:32.929356+00:00",
+    "last_run_at": "2026-11-04T21:45:57.756417+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-04T20:51:32.929356+00:00",
+    "next_run_at": "2026-11-04T21:50:57.756417+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14202,10 +14410,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-04T20:50:01.102786+00:00",
+    "last_run_at": "2026-11-04T21:50:01.297213+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-04T20:55:00+00:00",
+    "next_run_at": "2026-11-04T21:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14223,13 +14431,13 @@
    },
    {
     "enabled": true,
-    "failure_streak": 0,
+    "failure_streak": 1,
     "id": "4d8053a69ed2",
-    "last_error": "",
-    "last_run_at": "2026-11-04T19:50:51.179144+00:00",
-    "last_status": "ok",
+    "last_error": "Script exited with code 1\nstdout:\ndashboard: generated 2026-11-04T20:50:01+00:00 live=21 published=True verified=False\n{'ok': False, 'pages': {'index.html': {'status': 200, 'fresh': True}, 'cost.html'",
+    "last_run_at": "2026-11-04T20:54:02.561333+00:00",
+    "last_status": "error",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-04T21:50:00+00:00",
+    "next_run_at": "2026-11-04T22:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14238,10 +14446,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-04T19:55:00.568570+00:00",
+    "last_run_at": "2026-11-04T20:55:00.747571+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-04T20:55:00+00:00",
+    "next_run_at": "2026-11-04T21:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14282,9 +14490,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-04T20:50:02.037380+00:00"
+  "updated_at": "2026-11-04T21:50:02.026816+00:00"
  },
- "generated_at": "2026-11-04T20:50:01+00:00",
+ "generated_at": "2026-11-04T21:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -14292,19 +14500,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-04T20:25:46Z",
-   "head_sha": "df9e13b",
+   "created_at": "2026-11-04T21:10:14Z",
+   "head_sha": "e7eac73",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41906511097"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41913531594"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 47/53 (89%)"
   },
   "head": {
-   "at": "2026-11-04T20:25:38Z",
-   "sha": "df9e13b",
-   "subject": "discovery tick (International organisations): unhcr-corridor-entry-surge opened READY - the operator's recorded UNHCR re"
+   "at": "2026-11-04T21:10:10Z",
+   "sha": "e7eac73",
+   "subject": "za-cct follow-up fix: record artifacts[0] carries the structured release identity (repo earino/za-cct-substation-evening"
   },
   "tests": {
    "count": "708",
@@ -17359,13 +17567,21 @@
    "qualified": 1,
    "sessions_7d": 94,
    "tokens_7d": 35815757
+  },
+  {
+   "at": "2026-11-04T21:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 95,
+   "tokens_7d": 33076813
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T20:50:01+00:00",
+   "as_of": "2026-11-04T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17375,17 +17591,17 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T20:50:01+00:00",
+   "as_of": "2026-11-04T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 21
+   "value": 20
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T20:50:01+00:00",
+   "as_of": "2026-11-04T21:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -18128,7 +18344,7 @@
     "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "za-cct-substation-evening-peak-exceedance",
-    "disposition": "qualified",
+    "disposition": "packaged",
     "errors": [],
     "persistence_auc": null,
     "publication_note": "Prepared for human review. Nothing here has been published.",
@@ -18150,10 +18366,11 @@
      }
     },
     "verified": {
+     "github": true,
      "huggingface": true
     },
     "verified_all": true,
-    "verified_at": "2026-11-04T20:41:31+00:00"
+    "verified_at": "2026-11-04T21:06:41Z"
    }
   ]
  },
@@ -20524,7 +20741,7 @@
   "jobs_total": 192,
   "lifetime_eur": 3.74,
   "live": {
-   "checked_at": "2026-11-04T20:50:36+00:00",
+   "checked_at": "2026-11-04T21:50:37+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -20559,19 +20776,6 @@
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 1691.8,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "exit 1",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "cab3727d4ea2f3cbd58127683118ee1a53ea22c956cd01b81cb7ed4c71a61064",
-    "ts": "2026-11-04T16:28:14.842627+00:00"
-   },
    {
     "elapsed_seconds": 914.2,
     "event": "session",
@@ -20640,8 +20844,22 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "af2f5b61a78a249eb81f5d9146e8b2f173685befc54e6c5f6fb2f55ff119895d",
     "ts": "2026-11-04T20:47:16.422765+00:00"
+   },
+   {
+    "elapsed_seconds": 1154.1,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "4350ae3a3af211f0fb58c640b2a5d30a7fff867df6f37b4392cb96cabba7ada8",
+    "ts": "2026-11-04T21:10:48.438292+00:00"
    }
   ],
-  "total": 19
+  "total": 20
  }
 }
