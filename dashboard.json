@@ -1,8 +1,9 @@
 {
  "alarms": [
-  "Token use at 92% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 181.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (138.5h)",
+  "scout-dashboard-refresh last status error (streak 1)",
+  "Token use at 93% of the weekly ceiling",
+  "unhcr-refugee-data-finder has been packaged and actionable for 183.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (140.5h)",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -20,15 +21,17 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-11-04T08:50:02.795933+00:00",
+   "allowed": false,
+   "moment": "2026-11-04T10:50:03.124340+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 591s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 36966871,
-   "runs_last_7_days": 89,
-   "runs_weighted_last_7_days": 103,
+   "research_tokens_last_7_days": 37074499,
+   "runs_last_7_days": 90,
+   "runs_weighted_last_7_days": 104,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 14,
    "usage": {
@@ -53,13 +56,13 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 1827,
+     "calls": 1955,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 9368524,
-     "output_tokens": 1790604,
+     "input_tokens": 9578959,
+     "output_tokens": 1886895,
      "pricing_available": false
     }
    },
@@ -9162,7 +9165,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 138.5,
+    "age_hours": 140.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -11581,7 +11584,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 181.1,
+    "age_hours": 183.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -12945,7 +12948,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 138.5,
+     "age_hours": 140.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13233,7 +13236,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 138.5,
+     "age_hours": 140.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13519,7 +13522,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 181.1,
+     "age_hours": 183.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13731,7 +13734,7 @@
    ],
    "pending": [
     {
-     "age_hours": 181.1,
+     "age_hours": 183.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -14023,10 +14026,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-04T08:50:01.713639+00:00",
+    "last_run_at": "2026-11-04T10:50:01.873364+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-04T09:00:00+00:00",
+    "next_run_at": "2026-11-04T11:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14047,10 +14050,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-04T08:50:01.454465+00:00",
+    "last_run_at": "2026-11-04T10:50:01.065057+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-04T08:55:00+00:00",
+    "next_run_at": "2026-11-04T10:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14071,10 +14074,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-04T08:49:37.190971+00:00",
+    "last_run_at": "2026-11-04T10:35:09.221742+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-04T08:54:37.190971+00:00",
+    "next_run_at": "2026-11-04T10:45:11.193650+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14083,10 +14086,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-04T08:50:00.868210+00:00",
+    "last_run_at": "2026-11-04T10:50:01.263487+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-04T08:55:00+00:00",
+    "next_run_at": "2026-11-04T10:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14104,13 +14107,13 @@
    },
    {
     "enabled": true,
-    "failure_streak": 0,
+    "failure_streak": 1,
     "id": "4d8053a69ed2",
-    "last_error": "",
-    "last_run_at": "2026-11-04T07:50:50.000912+00:00",
-    "last_status": "ok",
+    "last_error": "Script exited with code 1\nstderr:\npush failed: : Request ID 85AC:28FC9F:9EEF1B:F0B8C9:6AEAFFEE        \nremote: Time 2026-11-04T09:50:39Z\nTo https://github.com/earino/dataset-factory-dashboard.git\n ! [",
+    "last_run_at": "2026-11-04T09:50:39.365723+00:00",
+    "last_status": "error",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-04T09:50:00+00:00",
+    "next_run_at": "2026-11-04T11:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14119,10 +14122,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-04T07:55:00.670137+00:00",
+    "last_run_at": "2026-11-04T09:55:00.625565+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-04T08:55:00+00:00",
+    "next_run_at": "2026-11-04T10:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14163,9 +14166,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-04T08:50:01.714646+00:00"
+  "updated_at": "2026-11-04T10:50:01.875621+00:00"
  },
- "generated_at": "2026-11-04T08:50:01+00:00",
+ "generated_at": "2026-11-04T10:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17144,13 +17147,31 @@
    "qualified": 2,
    "sessions_7d": 89,
    "tokens_7d": 36966871
+  },
+  {
+   "at": "2026-11-04T09:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 2,
+   "sessions_7d": 89,
+   "tokens_7d": 36966871
+  },
+  {
+   "at": "2026-11-04T10:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 2,
+   "sessions_7d": 90,
+   "tokens_7d": 37074499
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 591s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T08:50:01+00:00",
+   "as_of": "2026-11-04T10:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17160,7 +17181,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T08:50:01+00:00",
+   "as_of": "2026-11-04T10:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -17170,7 +17191,7 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T08:50:01+00:00",
+   "as_of": "2026-11-04T10:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -17923,7 +17944,7 @@
      "lo": 0.005
     },
     {
-     "count": 50,
+     "count": 53,
      "hi": 0.02,
      "lo": 0.01
     },
@@ -17955,10 +17976,10 @@
    ],
    "max": 0.6296,
    "median": 0.0136,
-   "n": 184,
+   "n": 187,
    "p90": 0.0561,
    "ref_rate": 0.06924,
-   "total": 5.37
+   "total": 5.41
   },
   "jobs": [
    {
@@ -18449,6 +18470,42 @@
     "id": "cqc-chd-baseline-001",
     "location": "hel1",
     "normalised_eur": 0.0261,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-04T10:22:16.334523+00:00",
+    "deleted_at": "2026-11-04T10:33:11.736737+00:00",
+    "eur": 0.0126,
+    "hours": 0.182,
+    "id": "cqc-consumer-001",
+    "location": "hel1",
+    "normalised_eur": 0.0126,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-04T10:33:16.068016+00:00",
+    "deleted_at": "2026-11-04T10:49:15.346242+00:00",
+    "eur": 0.0031,
+    "hours": 0.266,
+    "id": "cqc-hf-001",
+    "location": "hel1",
+    "normalised_eur": 0.0184,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-04T10:09:38.096863+00:00",
+    "deleted_at": "2026-11-04T10:19:08.617112+00:00",
+    "eur": 0.0018,
+    "hours": 0.158,
+    "id": "cqc-publish-001",
+    "location": "hel1",
+    "normalised_eur": 0.0109,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -20170,19 +20227,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 23,
-  "jobs_total": 184,
-  "lifetime_eur": 3.71,
+  "jobs_this_month": 26,
+  "jobs_total": 187,
+  "lifetime_eur": 3.73,
   "live": {
-   "checked_at": "2026-11-04T08:50:37+00:00",
+   "checked_at": "2026-11-04T10:50:37+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 7.5,
-  "month_to_date": 0.09,
+  "month_hours": 8.1,
+  "month_to_date": 0.1,
   "months": [
    {
     "eur": 2.4452,
@@ -20197,32 +20254,18 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.086,
-    "hours": 7.46,
-    "jobs": 23,
+    "eur": 0.1035,
+    "hours": 8.07,
+    "jobs": 26,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 0.65
+  "projected_month_eur": 0.78
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 0,
+  "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 3256.8,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "exit 1",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "feb02a1859224fa35aea1672b05f8e309d81d015d73417192fc7302008f6ae85",
-    "ts": "2026-11-04T05:14:18.105100+00:00"
-   },
    {
     "elapsed_seconds": 1465.1,
     "event": "session",
@@ -20290,8 +20333,22 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "3d5e07c7639c32ebc8e87804edece46337a6f858df5c09e4d1d0d8bd0eda052f",
     "ts": "2026-11-04T08:11:46.283233+00:00"
+   },
+   {
+    "elapsed_seconds": 2247.9,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "exit 1",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "d24db7c5f5f0cb06ef9b3172d2031b4931f5ffd8f1c7910e655f00a34f6b93a4",
+    "ts": "2026-11-04T10:37:31.379551+00:00"
    }
   ],
-  "total": 9
+  "total": 10
  }
 }
