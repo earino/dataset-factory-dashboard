@@ -1,10 +1,8 @@
 {
  "alarms": [
-  "scout-dashboard-refresh last status error (streak 1)",
   "Token use at 93% of the weekly ceiling",
-  "unhcr-refugee-data-finder has been packaged and actionable for 183.1h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (140.5h)",
-  "1 release(s) not fully verified"
+  "unhcr-refugee-data-finder has been packaged and actionable for 184.1h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (141.5h)"
  ],
  "budget": {
   "config": {
@@ -21,15 +19,13 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-11-04T10:50:03.124340+00:00",
+   "allowed": true,
+   "moment": "2026-11-04T11:50:03.971771+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 591s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 37074499,
+   "research_tokens_last_7_days": 37097624,
    "runs_last_7_days": 90,
    "runs_weighted_last_7_days": 104,
    "session_cap_per_week": 200,
@@ -56,13 +52,13 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 1955,
+     "calls": 1964,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 9578959,
-     "output_tokens": 1886895,
+     "input_tokens": 9586347,
+     "output_tokens": 1902632,
      "pricing_available": false
     }
    },
@@ -80,7 +76,7 @@
    "CO": 2,
    "DE": 1,
    "EU": 4,
-   "GB": 4,
+   "GB": 3,
    "IN": 1,
    "NZ": 1,
    "US": 1,
@@ -89,10 +85,10 @@
   "counts": {
    "dropped": 49,
    "investigating": 18,
-   "packaged": 2,
+   "packaged": 3,
    "parked": 29,
    "published": 14,
-   "qualified": 2,
+   "qualified": 1,
    "ready": 15
   },
   "errors": [],
@@ -435,164 +431,6 @@
     "split_strategy": "Temporal by day, computed at construction on the cpcb_caaqm stream only (5 us_embassy DS* stations excluded so the population is one instrumentation stream). Archive re-measured 2026-11-04 (XKDR export 2026-09-30): PM2.5 effectively ends 2025-12 - ZERO of 549 CPCB PM2.5 stations have last_seen in 2026 - so candidate windows are train 2019-2023 / eval 2024 / holdout 2025 (330 stations live into 2025; 135 stations started <= 2019-01 giving train-era depth; 87 more started 2009-2017). Eval-window coverage measured 2026-11-04: 534 stations with 2024 PM2.5 (466 with all 12 months; 495-524 station-months each month). Both classes plausible per window (monthly-mean >90 share 2024: Jan 0.317, Nov 0.308, Dec 0.203 vs Jul-Sep 0.004; annual 0.1027) but the DAILY label's exact per-window class counts are the first construction measurement (demo tier reads 2024 files only; 2019-2023 and 2025 daily passes need a full free signup key or the OpenAQ archive).",
     "status": "investigating",
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
-   },
-   {
-    "awaiting_operator": false,
-    "baseline": {},
-    "country": "GB",
-    "domain": "adult social care regulation / 12-month register-exit (deregistration) prediction",
-    "id": "cqc-care-home-deregistration",
-    "jobs": [
-     {
-      "at": null,
-      "id": "cqc-chd-001",
-      "status": null
-     },
-     {
-      "at": null,
-      "id": "cqc-chd-002",
-      "status": null
-     },
-     {
-      "at": null,
-      "id": "cqc-chd-003",
-      "status": null
-     },
-     {
-      "at": null,
-      "id": "cqc-chd-004",
-      "status": null
-     },
-     {
-      "at": null,
-      "id": "cqc-chd-baseline-001",
-      "status": null
-     }
-    ],
-    "licence_summary": {
-     "compilation_spdx": "CC0-1.0",
-     "source_spdx": "OGL-UK-3.0",
-     "status": "CQC register bulk files ('HSCA Active Locations' vintages + 'Deactivated Locations' 2026-11-02 edition) under the Open Government Licence v3.0: free to copy, publish, distribute, transmit, adapt and exploit commercially with the required attribution statement. OGL-UK exempts personal data, third-party rights and official symbols from its grant; the shipped columns were chosen with that in mind: no location name, address, postcode, phone, registered manager, provider id/name, Companies House or charity number ships (identity is a per-instant salted pseudonym; the real-id location map is staging-side and never published), and the redistributed fields (care home beds, service type and service user band flags, latest overall rating + publication date, local authority, region, provider sector, HSCA start year, the vintage instant) are derived from the publisher's own register columns with nothing added beyond our derived binary label, the pseudonym, the derived counts/flags and the partition. The derived dataset is labelled as such throughout and is not CQC's official product."
-    },
-    "measurements": {
-     "archive_depth_measured": "monthly 'HSCA Active Locations' vintages 2011-2026 (2019 files .xlsx, 2024+ .ods; 12 per year), 'with ratings' archive 2015-2026, weekly CSV archive 2012-2026; all anonymously listable and downloadable from Google Drive (embeddedfolderview + drive.usercontent download); Drive year-folder IDs and one 2024 file ID recorded in probe/cqc_drive_*.py",
-     "asof_measured": "0/14,765 care-home rows in the Jan-2024 vintage carry a rating Publication Date after T=2024-01-05 - the vintage's ratings are genuinely at-T",
-     "clustering_measured": "deregistrations spread across 376-877 distinct providers per year; largest single provider holds 3-12% of a complete year's events (max 74/1656 in 2011, 102/1649 in 2012, 97/697 in the partial 2026); top-3 provider share <= 12.2% in every complete year - mild provider clustering, positives independently numerous",
-     "cost_measured": "discovery: 4 anonymous GETs, 85.9 MB total (4.4 + 27.6 + 26.1 + 27.7 MB), seconds each; construction (January instants): ~10-15 vintage files (~26 MB each, ~390 MB) + 1 deactivated file, worker download, Drive per-file IDs enumerated from year folders; ODS parse ~60 s/file on 4 vCPU warm (one cold run under concurrent I/O took >15 min and was killed - worker sizing should budget generously)",
-     "cross_checks": "CQC/DHSC operational-effectiveness review (June 2024 snapshot): 29,108 social care organisation locations, 23,951 with published ratings vs 57,123 total locations / 15,477 care homes measured here (2026-10-28) - consistent magnitude and mix; BMJ Public Health 2024: 29,548 care homes existed 2011-2023 with 8,346 COMPLETE closures vs 14,911 register events measured here over the same span (the gap = their linkage-filtered subset vs raw deregistrations, per their methodology note); CQC State of Care 2016 small-home closure profile matches the beds-at-deactivation distribution",
-     "feature_availability_measured": "vintage header (118 real columns): Location ID, Location HSCA start date, Care home?, Care homes beds, Registered manager, Location Latest Overall Rating + Publication Date + Inherited Rating flag, geography (region/NHS region/LA/CCG/constituency, lat-long, postcode), Provider Companies House Number, Provider Charity Number, Provider ID/name/type-sector/HSCA dates, 32 Service type Y/N columns (incl. Care home service with/without nursing), 12 Service user band Y/N columns (incl. Dementia, Older People, Learning disabilities). No Location Status column (all rows active by construction)",
-     "known_event_fixture": "dated worked example in notes.md: Park Hills Nursing Home (1-113831768, Oldham, 17 beds, HSCA start 01/02/2011, Good published 26/08/2022) present at T=2024-01-05, Location HSCA End Date 01/02/2024 inside the window -> label 1; Henley House (1-10000302982, Suffolk, 66 beds) present at T, absent from the deactivated file as of 2026-11-02 -> label 0; Options Hazel House (end date 05/03/2025, outside the window) -> label 0 at T",
-     "label_events_measured": "Deactivated Locations 2026-11-02: 65,830 archived locations, of which 17,177 care homes (Care home?=Y); care-home deregistrations by HSCA end year 2011..2026 = 1656, 1649, 1063, 1227, 1245, 1381, 1352, 970, 949, 822, 967, 803, 827, 768, 801, 697(partial-year); earliest care-home end date 2011-01-19 (earliest overall 2010-08-05); status mix: 17,046 Inactive-Dereg, 131 Removed",
-     "measured_on": "2026-11-03, anonymous coordinator-side probes; scripts + outputs in candidates/cqc-care-home-deregistration/probe/ (sha256 of fetched files in notes.md)",
-     "population_measured": "weekly CSV produced 2026-10-28: 57,123 active locations; care homes today 15,477 (10,380 Residential homes + 4,497 Nursing homes), all 9 English regions; care homes at T=2024-01-05 vintage: 14,765",
-     "prevalence_measured": "T=2024-01-05: 758/14,765 care homes deregister in (T, T+365d] = 5.13%; 2,076 of the 14,765 deregister by 2026-11-02 - label fully observable, no censoring at that instant",
-     "rating_signal_measured": "last overall rating at deactivation (care homes): Good 5,992, blank 7,698, Requires improvement 2,318, Inadequate 1,027, Outstanding 138 - Inadequate is 6.0% of deactivations vs a low single-digit share of the active stock; beds at deactivation small-home-dominated (modes 3-10 beds) - both match the publisher's State of Care closure profile",
-     "references_2026_11_04_cqc_chd_004": {
-      "headroom_reference_for_any_model_figure": "rating_x_beds_rate 0.5871 on the identical eval rows; a full-model figure from the coming baseline job must be quoted beside it, and a model below it is a recorded defect, not an encouraging result",
-      "majority_class_accuracy_eval": 0.9487301049779885,
-      "no_persistence_by_design": "the location's own prior-instant outcome is the natural persistence score, but identity ships as a per-instant pseudonym (the missing-successor P0 design), so prior-instant labels are structurally unlinkable over the shipped frame - for the scorer too; hsca_start_year_rate is the nearest shippable history prior",
-      "paired_bootstrap_150": {
-       "rating_x_beds_vs_last_rating": {
-        "ci95": [
-         0.012336799268033438,
-         0.04074592760988893
-        ],
-        "note": "interval excludes zero",
-        "observed_difference": 0.027347460254830813
-       }
-      },
-      "references_eval_auc": {
-       "beds_bucket_rate": 0.5297982677571677,
-       "global_rate": "degenerate (constant score)",
-       "hsca_start_year_rate": 0.5226476076701217,
-       "last_rating_rate": 0.5597447335246061,
-       "local_authority_rate": 0.5207061335775669,
-       "provider_sector_rate": 0.5010938738912734,
-       "rating_x_beds_rate": 0.5870921937794369
-      },
-      "source": "score.py post-acceptance on the worker, eval rows only (14,765 / 757 positives, base rate 5.126%), holdout never opened; every rate table estimated ONLY from train rows"
-     },
-     "runner_contract_baseline_2026_11_04_cqc_chd_baseline_001": {
-      "command": "worker job cqc-chd-baseline-001 run.sh (fetch the five accepted assets from staging release 433536764, digests verified on arrival, --accept ACCEPTED afe9ee203f302f3c BEFORE any score, then the benchmark's own unmodified train.py + validate.sh); report .factory/cqc-chd-baseline-001/reports/output/baseline_result.json, staging release 433569826",
-      "comparison_ladder_eval_auc": {
-       "MODEL_stock_runner": 0.5659,
-       "beds_bucket_rate": 0.5297982677571677,
-       "global_rate": "degenerate (constant score)",
-       "hsca_start_year_rate_nearest_history_prior": 0.5226476076701217,
-       "last_rating_rate_best_one_line_prior": 0.5597447335246061,
-       "local_authority_rate": 0.5207061335775669,
-       "majority_class_accuracy_eval": 0.9487301049779885,
-       "persistence": "NOT APPLICABLE BY DESIGN - identity ships as per-instant pseudonyms (missing-successor P0 design), so prior-instant labels are structurally unlinkable for the scorer too",
-       "provider_sector_rate": 0.5010938738912734,
-       "rating_x_beds_rate_headroom_reference": 0.5870921937794369
-      },
-      "concrete_diagnosis_candidates": "(a) verified by code reading: the stock train.py treats the 'instant' string column (YYYY-MM) as a train-only categorical - train instants 2018-01..2022-01 define the levels and the eval instant 2024-01 is unseen, so every eval row gets NaN there and part of the 30-tree depth-6 budget was spent on train-instant memorization that cannot transfer; (b) the rating x beds interaction the two-way rate table captures directly is available to XGBoost only through split combinations, and the small-home x poorly-rated cells are a thin slice of 78k train rows; (c) no misalignment and no post-hoc reference: both AUC figures come from the runner's own two implementations on the same accepted bytes, and as-of was asserted in-build (0/14,765 rating publication dates after T); (d) prevalence shift train 5.654% -> eval 5.127% is mild and recorded",
-      "full_model_eval_auc": 0.5659,
-      "full_model_eval_auc_from_validate_py": 0.5659,
-      "information_note": "rating_x_beds_rate reads ONLY shipped at-T columns (latest_overall_rating x care_home_beds), so it is a fair same-information target for anything that consumes this artifact - no information asymmetry, unlike a persistence score",
-      "interpretation_rule": "any later model figure must still be quoted beside rating_x_beds_rate 0.5871; a model below it is a recorded defect, not an encouraging result; keep fitting until a score wins is forbidden",
-      "measured_on": "the accepted artifact afe9ee203f302f3c (job cqc-chd-baseline-001, after --accept, on the same 14,765 eval rows as the cqc-chd-004 references)",
-      "observed_gap": "the stock runner model trails the strongest reference by 0.0212 AUC (0.5659 vs rating_x_beds_rate 0.5871) on identical rows, while beating every one-line prior (best: last_rating_rate 0.5597); observed difference, no dependence-aware interval computed for the model-vs-reference pair",
-      "verdict": "RECORDED DEFECT for the stock runner under this protocol (model 0.5659 < rating_x_beds_rate 0.5871, both on the identical 14,765 eval rows) - quoted beside the reference as the skill requires. NOT a no-headroom verdict on the task, and the pre-registered drop condition (a one-line prior saturating it) is NOT met: the model beats every one-line prior, and the headroom reference demonstrates exploitable signal (CI excluding zero over last_rating_rate) inside the model's own shipped feature set. This does not prove a competent model must beat 0.5871; no model above the reference has been measured"
-     }
-    },
-    "next_action": "PACKAGED (v2026.11, private; NOT published): release/cqc-care-home-deregistration/ assembled on the pins layout - docs (README/DATA_DICTIONARY/RELEASE_NOTES/REP",
-    "packaged_at": null,
-    "path": "candidates/cqc-care-home-deregistration/record.json",
-    "prediction_time": "The production instant of a monthly CQC 'HSCA Active Locations' vintage (Europe/London; the date in the file name, e.g. '05 January 2024 HSCA Active Locations'; the weekly sibling CSV states 'This data was produced on <date>' - the same stamping convention). Features are the vintage's own columns only: HSCA start date, care home beds, service types (with/without nursing), service user bands, latest overall rating + its publication date (measured as-of: 0/14,765 care-home rows at T=2024-01-05 carry a rating publication date after T), geography, provider attributes incl. Companies House number. Target = the register event dated after T, read from the cumulative Deactivated Locations product. Archive: monthly vintages 2011-2026 (Drive year folders, anonymous).",
-    "publisher": "Care Quality Commission (CQC) - regulator of health and adult social care in England",
-    "qualification": {
-     "artifact_version": "afe9ee203f302f3ca41b9b01ad74a937e111d1b830590c7e662bb0b7b6df85d7",
-     "result": null,
-     "splits": null
-    },
-    "question": "For a care home location active on the CQC register at monthly vintage T (the 'HSCA Active Locations' file produced on that date), will the location's registration end within the following 12 months (Location Status Inactive-Dereg with a Location HSCA End Date inside (T, T+365d])?",
-    "region": "Europe",
-    "release_baseline": {
-     "auc": 0.5659,
-     "display": "0.5659",
-     "reference": null
-    },
-    "release_splits": {
-     "eval": {
-      "positives": 757,
-      "rows": 14765
-     },
-     "holdout": {
-      "positives": 761,
-      "rows": 14749
-     },
-     "train": {
-      "positives": 4418,
-      "rows": 78138
-     }
-    },
-    "review": "",
-    "sources": [
-     {
-      "licence": "Open Government Licence v3.0 (publisher's using-cqc-data page)",
-      "name": "CQC care directory with filters - 'HSCA Active Locations' (monthly bulk file, all active regulated locations, care home beds, service types, service user bands, latest rating + publication date, provider attributes)",
-      "url": "https://www.cqc.org.uk/about-us/transparency/using-cqc-data"
-     },
-     {
-      "licence": "Open Government Licence v3.0 (using-cqc-data page + in-sheet statement)",
-      "name": "CQC Deactivated Locations (monthly bulk file, cumulative register of archived locations with Location HSCA start/end dates, Location Status, beds at deactivation, last rating + publication date, provider attributes)",
-      "url": "https://www.cqc.org.uk/system/files/2026-11/02_November_2026_Deactivated_Locations.ods"
-     },
-     {
-      "licence": "Open Government Licence v3.0",
-      "name": "CQC care directory with ratings (monthly bulk file, service-level latest ratings; archive from 2015)",
-      "url": "https://www.cqc.org.uk/about-us/transparency/using-cqc-data"
-     },
-     {
-      "licence": "Open Government Licence v3.0",
-      "name": "CQC care directory weekly CSV (locations census only; no beds/ratings)",
-      "url": "https://www.cqc.org.uk/system/files/2026-10/28_October_2026_CQC_directory.zip"
-     }
-    ],
-    "split_strategy": "Annual January instants with non-overlapping 12-month target windows. Proposed: train instants Jan 2016-2019 (targets 2016-2020), eval Jan 2020-2021 (targets 2020-2022), holdout Jan 2022-2024 (holdout target windows end by 2025-01, fully observed by the 2026-11-02 deactivated file). Instants 2011-2015 are usable for train with the pre-Oct-2014 no-ratings caveat; instants 2025+ are excluded while either the deactivated file's coverage or the publisher's migration-related cancellation lag is unresolved. Exact per-instant positives are the first construction measurement; measured anchor: T=2024-01-05 carries 14,765 eligible care homes and 758 positives (5.13%).",
-    "status": "qualified",
-    "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
    },
    {
     "awaiting_operator": false,
@@ -1825,7 +1663,7 @@
     "target": "Binary: evening-peak exceedance. Label = (max half-hourly MVA over 16:00-22:00 SAST on day D for substation S) > (95th percentile of the same substation's evening peaks over the trailing 90 evenings ending strictly before the instant, minimum 30 prior evenings for eligibility). Label source columns: the target day's 16:00-22:00 MVA readings, plus the same substation's prior evening peaks; these are sealed (private label matrix) and never shipped in any solver-visible feature frame. The baseline operand (trailing p95) is computed from feature-side readings <= the instant and may ship as a numeric feature; the target evening readings cannot."
    }
   ],
-  "non_us_share": 95.0,
+  "non_us_share": 94.7,
   "records": [
    {
     "awaiting_operator": false,
@@ -3634,6 +3472,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
+    "age_hours": 1.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -3663,6 +3502,21 @@
      {
       "at": null,
       "id": "cqc-chd-baseline-001",
+      "status": null
+     },
+     {
+      "at": null,
+      "id": "cqc-publish-001",
+      "status": null
+     },
+     {
+      "at": null,
+      "id": "cqc-hf-001",
+      "status": null
+     },
+     {
+      "at": null,
+      "id": "cqc-consumer-001",
       "status": null
      }
     ],
@@ -3733,8 +3587,8 @@
       "verdict": "RECORDED DEFECT for the stock runner under this protocol (model 0.5659 < rating_x_beds_rate 0.5871, both on the identical 14,765 eval rows) - quoted beside the reference as the skill requires. NOT a no-headroom verdict on the task, and the pre-registered drop condition (a one-line prior saturating it) is NOT met: the model beats every one-line prior, and the headroom reference demonstrates exploitable signal (CI excluding zero over last_rating_rate) inside the model's own shipped feature set. This does not prove a competent model must beat 0.5871; no model above the reference has been measured"
      }
     },
-    "next_action": "PACKAGED (v2026.11, private; NOT published): release/cqc-care-home-deregistration/ assembled on the pins layout - docs (README/DATA_DICTIONARY/RELEASE_NOTES/REP",
-    "packaged_at": null,
+    "next_action": "STAGED PRIVATE on BOTH destinations (v2026.11, NOT published): the accepted artifact afe9ee203f302f3c sits at the package MANIFEST digests on the private GitHub",
+    "packaged_at": "2026-11-04T10:51:08Z",
     "path": "candidates/cqc-care-home-deregistration/record.json",
     "prediction_time": "The production instant of a monthly CQC 'HSCA Active Locations' vintage (Europe/London; the date in the file name, e.g. '05 January 2024 HSCA Active Locations'; the weekly sibling CSV states 'This data was produced on <date>' - the same stamping convention). Features are the vintage's own columns only: HSCA start date, care home beds, service types (with/without nursing), service user bands, latest overall rating + its publication date (measured as-of: 0/14,765 care-home rows at T=2024-01-05 carry a rating publication date after T), geography, provider attributes incl. Companies House number. Target = the register event dated after T, read from the cumulative Deactivated Locations product. Archive: monthly vintages 2011-2026 (Drive year folders, anonymous).",
     "publisher": "Care Quality Commission (CQC) - regulator of health and adult social care in England",
@@ -3788,7 +3642,7 @@
      }
     ],
     "split_strategy": "Annual January instants with non-overlapping 12-month target windows. Proposed: train instants Jan 2016-2019 (targets 2016-2020), eval Jan 2020-2021 (targets 2020-2022), holdout Jan 2022-2024 (holdout target windows end by 2025-01, fully observed by the 2026-11-02 deactivated file). Instants 2011-2015 are usable for train with the pre-Oct-2014 no-ratings caveat; instants 2025+ are excluded while either the deactivated file's coverage or the publisher's migration-related cancellation lag is unresolved. Exact per-instant positives are the first construction measurement; measured anchor: T=2024-01-05 carries 14,765 eligible care homes and 758 positives (5.13%).",
-    "status": "qualified",
+    "status": "packaged",
     "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
    },
    {
@@ -9165,7 +9019,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 140.5,
+    "age_hours": 141.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -11584,7 +11438,7 @@
     "target": "Binary per (county, date): the county's status for date D is a full-day stop of both work and school, as published by the Directorate-General of Personnel Administration (DGPA). Label sources (excluded from shipped features): the DGPA \u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f archive (500 announcements, 2001-present, per-county status attachments) and, for the modern era, county-portal historical CSVs (e.g. data.taipei \u81fa\u5317\u5e02\u6b77\u6b21\u5929\u7136\u707d\u5bb3\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u8a0a\u606f, fields \u6c11\u570b\u5e74/\u6708/\u65e5/\u5929\u7136\u707d\u5bb3\u540d\u7a31/\u505c\u6b62\u4e0a\u73ed\u4e0a\u8ab2\u60c5\u5f62)."
    },
    {
-    "age_hours": 183.1,
+    "age_hours": 184.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CH",
@@ -12948,7 +12802,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 140.5,
+     "age_hours": 141.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13236,7 +13090,181 @@
    ],
    "packaged": [
     {
-     "age_hours": 140.5,
+     "age_hours": 1.0,
+     "awaiting_operator": false,
+     "baseline": {},
+     "country": "GB",
+     "domain": "adult social care regulation / 12-month register-exit (deregistration) prediction",
+     "id": "cqc-care-home-deregistration",
+     "jobs": [
+      {
+       "at": null,
+       "id": "cqc-chd-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-chd-002",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-chd-003",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-chd-004",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-chd-baseline-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-publish-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-hf-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-consumer-001",
+       "status": null
+      }
+     ],
+     "licence_summary": {
+      "compilation_spdx": "CC0-1.0",
+      "source_spdx": "OGL-UK-3.0",
+      "status": "CQC register bulk files ('HSCA Active Locations' vintages + 'Deactivated Locations' 2026-11-02 edition) under the Open Government Licence v3.0: free to copy, publish, distribute, transmit, adapt and exploit commercially with the required attribution statement. OGL-UK exempts personal data, third-party rights and official symbols from its grant; the shipped columns were chosen with that in mind: no location name, address, postcode, phone, registered manager, provider id/name, Companies House or charity number ships (identity is a per-instant salted pseudonym; the real-id location map is staging-side and never published), and the redistributed fields (care home beds, service type and service user band flags, latest overall rating + publication date, local authority, region, provider sector, HSCA start year, the vintage instant) are derived from the publisher's own register columns with nothing added beyond our derived binary label, the pseudonym, the derived counts/flags and the partition. The derived dataset is labelled as such throughout and is not CQC's official product."
+     },
+     "measurements": {
+      "archive_depth_measured": "monthly 'HSCA Active Locations' vintages 2011-2026 (2019 files .xlsx, 2024+ .ods; 12 per year), 'with ratings' archive 2015-2026, weekly CSV archive 2012-2026; all anonymously listable and downloadable from Google Drive (embeddedfolderview + drive.usercontent download); Drive year-folder IDs and one 2024 file ID recorded in probe/cqc_drive_*.py",
+      "asof_measured": "0/14,765 care-home rows in the Jan-2024 vintage carry a rating Publication Date after T=2024-01-05 - the vintage's ratings are genuinely at-T",
+      "clustering_measured": "deregistrations spread across 376-877 distinct providers per year; largest single provider holds 3-12% of a complete year's events (max 74/1656 in 2011, 102/1649 in 2012, 97/697 in the partial 2026); top-3 provider share <= 12.2% in every complete year - mild provider clustering, positives independently numerous",
+      "cost_measured": "discovery: 4 anonymous GETs, 85.9 MB total (4.4 + 27.6 + 26.1 + 27.7 MB), seconds each; construction (January instants): ~10-15 vintage files (~26 MB each, ~390 MB) + 1 deactivated file, worker download, Drive per-file IDs enumerated from year folders; ODS parse ~60 s/file on 4 vCPU warm (one cold run under concurrent I/O took >15 min and was killed - worker sizing should budget generously)",
+      "cross_checks": "CQC/DHSC operational-effectiveness review (June 2024 snapshot): 29,108 social care organisation locations, 23,951 with published ratings vs 57,123 total locations / 15,477 care homes measured here (2026-10-28) - consistent magnitude and mix; BMJ Public Health 2024: 29,548 care homes existed 2011-2023 with 8,346 COMPLETE closures vs 14,911 register events measured here over the same span (the gap = their linkage-filtered subset vs raw deregistrations, per their methodology note); CQC State of Care 2016 small-home closure profile matches the beds-at-deactivation distribution",
+      "feature_availability_measured": "vintage header (118 real columns): Location ID, Location HSCA start date, Care home?, Care homes beds, Registered manager, Location Latest Overall Rating + Publication Date + Inherited Rating flag, geography (region/NHS region/LA/CCG/constituency, lat-long, postcode), Provider Companies House Number, Provider Charity Number, Provider ID/name/type-sector/HSCA dates, 32 Service type Y/N columns (incl. Care home service with/without nursing), 12 Service user band Y/N columns (incl. Dementia, Older People, Learning disabilities). No Location Status column (all rows active by construction)",
+      "known_event_fixture": "dated worked example in notes.md: Park Hills Nursing Home (1-113831768, Oldham, 17 beds, HSCA start 01/02/2011, Good published 26/08/2022) present at T=2024-01-05, Location HSCA End Date 01/02/2024 inside the window -> label 1; Henley House (1-10000302982, Suffolk, 66 beds) present at T, absent from the deactivated file as of 2026-11-02 -> label 0; Options Hazel House (end date 05/03/2025, outside the window) -> label 0 at T",
+      "label_events_measured": "Deactivated Locations 2026-11-02: 65,830 archived locations, of which 17,177 care homes (Care home?=Y); care-home deregistrations by HSCA end year 2011..2026 = 1656, 1649, 1063, 1227, 1245, 1381, 1352, 970, 949, 822, 967, 803, 827, 768, 801, 697(partial-year); earliest care-home end date 2011-01-19 (earliest overall 2010-08-05); status mix: 17,046 Inactive-Dereg, 131 Removed",
+      "measured_on": "2026-11-03, anonymous coordinator-side probes; scripts + outputs in candidates/cqc-care-home-deregistration/probe/ (sha256 of fetched files in notes.md)",
+      "population_measured": "weekly CSV produced 2026-10-28: 57,123 active locations; care homes today 15,477 (10,380 Residential homes + 4,497 Nursing homes), all 9 English regions; care homes at T=2024-01-05 vintage: 14,765",
+      "prevalence_measured": "T=2024-01-05: 758/14,765 care homes deregister in (T, T+365d] = 5.13%; 2,076 of the 14,765 deregister by 2026-11-02 - label fully observable, no censoring at that instant",
+      "rating_signal_measured": "last overall rating at deactivation (care homes): Good 5,992, blank 7,698, Requires improvement 2,318, Inadequate 1,027, Outstanding 138 - Inadequate is 6.0% of deactivations vs a low single-digit share of the active stock; beds at deactivation small-home-dominated (modes 3-10 beds) - both match the publisher's State of Care closure profile",
+      "references_2026_11_04_cqc_chd_004": {
+       "headroom_reference_for_any_model_figure": "rating_x_beds_rate 0.5871 on the identical eval rows; a full-model figure from the coming baseline job must be quoted beside it, and a model below it is a recorded defect, not an encouraging result",
+       "majority_class_accuracy_eval": 0.9487301049779885,
+       "no_persistence_by_design": "the location's own prior-instant outcome is the natural persistence score, but identity ships as a per-instant pseudonym (the missing-successor P0 design), so prior-instant labels are structurally unlinkable over the shipped frame - for the scorer too; hsca_start_year_rate is the nearest shippable history prior",
+       "paired_bootstrap_150": {
+        "rating_x_beds_vs_last_rating": {
+         "ci95": [
+          0.012336799268033438,
+          0.04074592760988893
+         ],
+         "note": "interval excludes zero",
+         "observed_difference": 0.027347460254830813
+        }
+       },
+       "references_eval_auc": {
+        "beds_bucket_rate": 0.5297982677571677,
+        "global_rate": "degenerate (constant score)",
+        "hsca_start_year_rate": 0.5226476076701217,
+        "last_rating_rate": 0.5597447335246061,
+        "local_authority_rate": 0.5207061335775669,
+        "provider_sector_rate": 0.5010938738912734,
+        "rating_x_beds_rate": 0.5870921937794369
+       },
+       "source": "score.py post-acceptance on the worker, eval rows only (14,765 / 757 positives, base rate 5.126%), holdout never opened; every rate table estimated ONLY from train rows"
+      },
+      "runner_contract_baseline_2026_11_04_cqc_chd_baseline_001": {
+       "command": "worker job cqc-chd-baseline-001 run.sh (fetch the five accepted assets from staging release 433536764, digests verified on arrival, --accept ACCEPTED afe9ee203f302f3c BEFORE any score, then the benchmark's own unmodified train.py + validate.sh); report .factory/cqc-chd-baseline-001/reports/output/baseline_result.json, staging release 433569826",
+       "comparison_ladder_eval_auc": {
+        "MODEL_stock_runner": 0.5659,
+        "beds_bucket_rate": 0.5297982677571677,
+        "global_rate": "degenerate (constant score)",
+        "hsca_start_year_rate_nearest_history_prior": 0.5226476076701217,
+        "last_rating_rate_best_one_line_prior": 0.5597447335246061,
+        "local_authority_rate": 0.5207061335775669,
+        "majority_class_accuracy_eval": 0.9487301049779885,
+        "persistence": "NOT APPLICABLE BY DESIGN - identity ships as per-instant pseudonyms (missing-successor P0 design), so prior-instant labels are structurally unlinkable for the scorer too",
+        "provider_sector_rate": 0.5010938738912734,
+        "rating_x_beds_rate_headroom_reference": 0.5870921937794369
+       },
+       "concrete_diagnosis_candidates": "(a) verified by code reading: the stock train.py treats the 'instant' string column (YYYY-MM) as a train-only categorical - train instants 2018-01..2022-01 define the levels and the eval instant 2024-01 is unseen, so every eval row gets NaN there and part of the 30-tree depth-6 budget was spent on train-instant memorization that cannot transfer; (b) the rating x beds interaction the two-way rate table captures directly is available to XGBoost only through split combinations, and the small-home x poorly-rated cells are a thin slice of 78k train rows; (c) no misalignment and no post-hoc reference: both AUC figures come from the runner's own two implementations on the same accepted bytes, and as-of was asserted in-build (0/14,765 rating publication dates after T); (d) prevalence shift train 5.654% -> eval 5.127% is mild and recorded",
+       "full_model_eval_auc": 0.5659,
+       "full_model_eval_auc_from_validate_py": 0.5659,
+       "information_note": "rating_x_beds_rate reads ONLY shipped at-T columns (latest_overall_rating x care_home_beds), so it is a fair same-information target for anything that consumes this artifact - no information asymmetry, unlike a persistence score",
+       "interpretation_rule": "any later model figure must still be quoted beside rating_x_beds_rate 0.5871; a model below it is a recorded defect, not an encouraging result; keep fitting until a score wins is forbidden",
+       "measured_on": "the accepted artifact afe9ee203f302f3c (job cqc-chd-baseline-001, after --accept, on the same 14,765 eval rows as the cqc-chd-004 references)",
+       "observed_gap": "the stock runner model trails the strongest reference by 0.0212 AUC (0.5659 vs rating_x_beds_rate 0.5871) on identical rows, while beating every one-line prior (best: last_rating_rate 0.5597); observed difference, no dependence-aware interval computed for the model-vs-reference pair",
+       "verdict": "RECORDED DEFECT for the stock runner under this protocol (model 0.5659 < rating_x_beds_rate 0.5871, both on the identical 14,765 eval rows) - quoted beside the reference as the skill requires. NOT a no-headroom verdict on the task, and the pre-registered drop condition (a one-line prior saturating it) is NOT met: the model beats every one-line prior, and the headroom reference demonstrates exploitable signal (CI excluding zero over last_rating_rate) inside the model's own shipped feature set. This does not prove a competent model must beat 0.5871; no model above the reference has been measured"
+      }
+     },
+     "next_action": "STAGED PRIVATE on BOTH destinations (v2026.11, NOT published): the accepted artifact afe9ee203f302f3c sits at the package MANIFEST digests on the private GitHub",
+     "packaged_at": "2026-11-04T10:51:08Z",
+     "path": "candidates/cqc-care-home-deregistration/record.json",
+     "prediction_time": "The production instant of a monthly CQC 'HSCA Active Locations' vintage (Europe/London; the date in the file name, e.g. '05 January 2024 HSCA Active Locations'; the weekly sibling CSV states 'This data was produced on <date>' - the same stamping convention). Features are the vintage's own columns only: HSCA start date, care home beds, service types (with/without nursing), service user bands, latest overall rating + its publication date (measured as-of: 0/14,765 care-home rows at T=2024-01-05 carry a rating publication date after T), geography, provider attributes incl. Companies House number. Target = the register event dated after T, read from the cumulative Deactivated Locations product. Archive: monthly vintages 2011-2026 (Drive year folders, anonymous).",
+     "publisher": "Care Quality Commission (CQC) - regulator of health and adult social care in England",
+     "qualification": {
+      "artifact_version": "afe9ee203f302f3ca41b9b01ad74a937e111d1b830590c7e662bb0b7b6df85d7",
+      "result": null,
+      "splits": null
+     },
+     "question": "For a care home location active on the CQC register at monthly vintage T (the 'HSCA Active Locations' file produced on that date), will the location's registration end within the following 12 months (Location Status Inactive-Dereg with a Location HSCA End Date inside (T, T+365d])?",
+     "region": "Europe",
+     "release_baseline": {
+      "auc": 0.5659,
+      "display": "0.5659",
+      "reference": null
+     },
+     "release_splits": {
+      "eval": {
+       "positives": 757,
+       "rows": 14765
+      },
+      "holdout": {
+       "positives": 761,
+       "rows": 14749
+      },
+      "train": {
+       "positives": 4418,
+       "rows": 78138
+      }
+     },
+     "review": "",
+     "sources": [
+      {
+       "licence": "Open Government Licence v3.0 (publisher's using-cqc-data page)",
+       "name": "CQC care directory with filters - 'HSCA Active Locations' (monthly bulk file, all active regulated locations, care home beds, service types, service user bands, latest rating + publication date, provider attributes)",
+       "url": "https://www.cqc.org.uk/about-us/transparency/using-cqc-data"
+      },
+      {
+       "licence": "Open Government Licence v3.0 (using-cqc-data page + in-sheet statement)",
+       "name": "CQC Deactivated Locations (monthly bulk file, cumulative register of archived locations with Location HSCA start/end dates, Location Status, beds at deactivation, last rating + publication date, provider attributes)",
+       "url": "https://www.cqc.org.uk/system/files/2026-11/02_November_2026_Deactivated_Locations.ods"
+      },
+      {
+       "licence": "Open Government Licence v3.0",
+       "name": "CQC care directory with ratings (monthly bulk file, service-level latest ratings; archive from 2015)",
+       "url": "https://www.cqc.org.uk/about-us/transparency/using-cqc-data"
+      },
+      {
+       "licence": "Open Government Licence v3.0",
+       "name": "CQC care directory weekly CSV (locations census only; no beds/ratings)",
+       "url": "https://www.cqc.org.uk/system/files/2026-10/28_October_2026_CQC_directory.zip"
+      }
+     ],
+     "split_strategy": "Annual January instants with non-overlapping 12-month target windows. Proposed: train instants Jan 2016-2019 (targets 2016-2020), eval Jan 2020-2021 (targets 2020-2022), holdout Jan 2022-2024 (holdout target windows end by 2025-01, fully observed by the 2026-11-02 deactivated file). Instants 2011-2015 are usable for train with the pre-Oct-2014 no-ratings caveat; instants 2025+ are excluded while either the deactivated file's coverage or the publisher's migration-related cancellation lag is unresolved. Exact per-instant positives are the first construction measurement; measured anchor: T=2024-01-05 carries 14,765 eligible care homes and 758 positives (5.13%).",
+     "status": "packaged",
+     "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
+    },
+    {
+     "age_hours": 141.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13522,7 +13550,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 183.1,
+     "age_hours": 184.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13734,7 +13762,181 @@
    ],
    "pending": [
     {
-     "age_hours": 183.1,
+     "age_hours": 1.0,
+     "awaiting_operator": false,
+     "baseline": {},
+     "country": "GB",
+     "domain": "adult social care regulation / 12-month register-exit (deregistration) prediction",
+     "id": "cqc-care-home-deregistration",
+     "jobs": [
+      {
+       "at": null,
+       "id": "cqc-chd-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-chd-002",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-chd-003",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-chd-004",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-chd-baseline-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-publish-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-hf-001",
+       "status": null
+      },
+      {
+       "at": null,
+       "id": "cqc-consumer-001",
+       "status": null
+      }
+     ],
+     "licence_summary": {
+      "compilation_spdx": "CC0-1.0",
+      "source_spdx": "OGL-UK-3.0",
+      "status": "CQC register bulk files ('HSCA Active Locations' vintages + 'Deactivated Locations' 2026-11-02 edition) under the Open Government Licence v3.0: free to copy, publish, distribute, transmit, adapt and exploit commercially with the required attribution statement. OGL-UK exempts personal data, third-party rights and official symbols from its grant; the shipped columns were chosen with that in mind: no location name, address, postcode, phone, registered manager, provider id/name, Companies House or charity number ships (identity is a per-instant salted pseudonym; the real-id location map is staging-side and never published), and the redistributed fields (care home beds, service type and service user band flags, latest overall rating + publication date, local authority, region, provider sector, HSCA start year, the vintage instant) are derived from the publisher's own register columns with nothing added beyond our derived binary label, the pseudonym, the derived counts/flags and the partition. The derived dataset is labelled as such throughout and is not CQC's official product."
+     },
+     "measurements": {
+      "archive_depth_measured": "monthly 'HSCA Active Locations' vintages 2011-2026 (2019 files .xlsx, 2024+ .ods; 12 per year), 'with ratings' archive 2015-2026, weekly CSV archive 2012-2026; all anonymously listable and downloadable from Google Drive (embeddedfolderview + drive.usercontent download); Drive year-folder IDs and one 2024 file ID recorded in probe/cqc_drive_*.py",
+      "asof_measured": "0/14,765 care-home rows in the Jan-2024 vintage carry a rating Publication Date after T=2024-01-05 - the vintage's ratings are genuinely at-T",
+      "clustering_measured": "deregistrations spread across 376-877 distinct providers per year; largest single provider holds 3-12% of a complete year's events (max 74/1656 in 2011, 102/1649 in 2012, 97/697 in the partial 2026); top-3 provider share <= 12.2% in every complete year - mild provider clustering, positives independently numerous",
+      "cost_measured": "discovery: 4 anonymous GETs, 85.9 MB total (4.4 + 27.6 + 26.1 + 27.7 MB), seconds each; construction (January instants): ~10-15 vintage files (~26 MB each, ~390 MB) + 1 deactivated file, worker download, Drive per-file IDs enumerated from year folders; ODS parse ~60 s/file on 4 vCPU warm (one cold run under concurrent I/O took >15 min and was killed - worker sizing should budget generously)",
+      "cross_checks": "CQC/DHSC operational-effectiveness review (June 2024 snapshot): 29,108 social care organisation locations, 23,951 with published ratings vs 57,123 total locations / 15,477 care homes measured here (2026-10-28) - consistent magnitude and mix; BMJ Public Health 2024: 29,548 care homes existed 2011-2023 with 8,346 COMPLETE closures vs 14,911 register events measured here over the same span (the gap = their linkage-filtered subset vs raw deregistrations, per their methodology note); CQC State of Care 2016 small-home closure profile matches the beds-at-deactivation distribution",
+      "feature_availability_measured": "vintage header (118 real columns): Location ID, Location HSCA start date, Care home?, Care homes beds, Registered manager, Location Latest Overall Rating + Publication Date + Inherited Rating flag, geography (region/NHS region/LA/CCG/constituency, lat-long, postcode), Provider Companies House Number, Provider Charity Number, Provider ID/name/type-sector/HSCA dates, 32 Service type Y/N columns (incl. Care home service with/without nursing), 12 Service user band Y/N columns (incl. Dementia, Older People, Learning disabilities). No Location Status column (all rows active by construction)",
+      "known_event_fixture": "dated worked example in notes.md: Park Hills Nursing Home (1-113831768, Oldham, 17 beds, HSCA start 01/02/2011, Good published 26/08/2022) present at T=2024-01-05, Location HSCA End Date 01/02/2024 inside the window -> label 1; Henley House (1-10000302982, Suffolk, 66 beds) present at T, absent from the deactivated file as of 2026-11-02 -> label 0; Options Hazel House (end date 05/03/2025, outside the window) -> label 0 at T",
+      "label_events_measured": "Deactivated Locations 2026-11-02: 65,830 archived locations, of which 17,177 care homes (Care home?=Y); care-home deregistrations by HSCA end year 2011..2026 = 1656, 1649, 1063, 1227, 1245, 1381, 1352, 970, 949, 822, 967, 803, 827, 768, 801, 697(partial-year); earliest care-home end date 2011-01-19 (earliest overall 2010-08-05); status mix: 17,046 Inactive-Dereg, 131 Removed",
+      "measured_on": "2026-11-03, anonymous coordinator-side probes; scripts + outputs in candidates/cqc-care-home-deregistration/probe/ (sha256 of fetched files in notes.md)",
+      "population_measured": "weekly CSV produced 2026-10-28: 57,123 active locations; care homes today 15,477 (10,380 Residential homes + 4,497 Nursing homes), all 9 English regions; care homes at T=2024-01-05 vintage: 14,765",
+      "prevalence_measured": "T=2024-01-05: 758/14,765 care homes deregister in (T, T+365d] = 5.13%; 2,076 of the 14,765 deregister by 2026-11-02 - label fully observable, no censoring at that instant",
+      "rating_signal_measured": "last overall rating at deactivation (care homes): Good 5,992, blank 7,698, Requires improvement 2,318, Inadequate 1,027, Outstanding 138 - Inadequate is 6.0% of deactivations vs a low single-digit share of the active stock; beds at deactivation small-home-dominated (modes 3-10 beds) - both match the publisher's State of Care closure profile",
+      "references_2026_11_04_cqc_chd_004": {
+       "headroom_reference_for_any_model_figure": "rating_x_beds_rate 0.5871 on the identical eval rows; a full-model figure from the coming baseline job must be quoted beside it, and a model below it is a recorded defect, not an encouraging result",
+       "majority_class_accuracy_eval": 0.9487301049779885,
+       "no_persistence_by_design": "the location's own prior-instant outcome is the natural persistence score, but identity ships as a per-instant pseudonym (the missing-successor P0 design), so prior-instant labels are structurally unlinkable over the shipped frame - for the scorer too; hsca_start_year_rate is the nearest shippable history prior",
+       "paired_bootstrap_150": {
+        "rating_x_beds_vs_last_rating": {
+         "ci95": [
+          0.012336799268033438,
+          0.04074592760988893
+         ],
+         "note": "interval excludes zero",
+         "observed_difference": 0.027347460254830813
+        }
+       },
+       "references_eval_auc": {
+        "beds_bucket_rate": 0.5297982677571677,
+        "global_rate": "degenerate (constant score)",
+        "hsca_start_year_rate": 0.5226476076701217,
+        "last_rating_rate": 0.5597447335246061,
+        "local_authority_rate": 0.5207061335775669,
+        "provider_sector_rate": 0.5010938738912734,
+        "rating_x_beds_rate": 0.5870921937794369
+       },
+       "source": "score.py post-acceptance on the worker, eval rows only (14,765 / 757 positives, base rate 5.126%), holdout never opened; every rate table estimated ONLY from train rows"
+      },
+      "runner_contract_baseline_2026_11_04_cqc_chd_baseline_001": {
+       "command": "worker job cqc-chd-baseline-001 run.sh (fetch the five accepted assets from staging release 433536764, digests verified on arrival, --accept ACCEPTED afe9ee203f302f3c BEFORE any score, then the benchmark's own unmodified train.py + validate.sh); report .factory/cqc-chd-baseline-001/reports/output/baseline_result.json, staging release 433569826",
+       "comparison_ladder_eval_auc": {
+        "MODEL_stock_runner": 0.5659,
+        "beds_bucket_rate": 0.5297982677571677,
+        "global_rate": "degenerate (constant score)",
+        "hsca_start_year_rate_nearest_history_prior": 0.5226476076701217,
+        "last_rating_rate_best_one_line_prior": 0.5597447335246061,
+        "local_authority_rate": 0.5207061335775669,
+        "majority_class_accuracy_eval": 0.9487301049779885,
+        "persistence": "NOT APPLICABLE BY DESIGN - identity ships as per-instant pseudonyms (missing-successor P0 design), so prior-instant labels are structurally unlinkable for the scorer too",
+        "provider_sector_rate": 0.5010938738912734,
+        "rating_x_beds_rate_headroom_reference": 0.5870921937794369
+       },
+       "concrete_diagnosis_candidates": "(a) verified by code reading: the stock train.py treats the 'instant' string column (YYYY-MM) as a train-only categorical - train instants 2018-01..2022-01 define the levels and the eval instant 2024-01 is unseen, so every eval row gets NaN there and part of the 30-tree depth-6 budget was spent on train-instant memorization that cannot transfer; (b) the rating x beds interaction the two-way rate table captures directly is available to XGBoost only through split combinations, and the small-home x poorly-rated cells are a thin slice of 78k train rows; (c) no misalignment and no post-hoc reference: both AUC figures come from the runner's own two implementations on the same accepted bytes, and as-of was asserted in-build (0/14,765 rating publication dates after T); (d) prevalence shift train 5.654% -> eval 5.127% is mild and recorded",
+       "full_model_eval_auc": 0.5659,
+       "full_model_eval_auc_from_validate_py": 0.5659,
+       "information_note": "rating_x_beds_rate reads ONLY shipped at-T columns (latest_overall_rating x care_home_beds), so it is a fair same-information target for anything that consumes this artifact - no information asymmetry, unlike a persistence score",
+       "interpretation_rule": "any later model figure must still be quoted beside rating_x_beds_rate 0.5871; a model below it is a recorded defect, not an encouraging result; keep fitting until a score wins is forbidden",
+       "measured_on": "the accepted artifact afe9ee203f302f3c (job cqc-chd-baseline-001, after --accept, on the same 14,765 eval rows as the cqc-chd-004 references)",
+       "observed_gap": "the stock runner model trails the strongest reference by 0.0212 AUC (0.5659 vs rating_x_beds_rate 0.5871) on identical rows, while beating every one-line prior (best: last_rating_rate 0.5597); observed difference, no dependence-aware interval computed for the model-vs-reference pair",
+       "verdict": "RECORDED DEFECT for the stock runner under this protocol (model 0.5659 < rating_x_beds_rate 0.5871, both on the identical 14,765 eval rows) - quoted beside the reference as the skill requires. NOT a no-headroom verdict on the task, and the pre-registered drop condition (a one-line prior saturating it) is NOT met: the model beats every one-line prior, and the headroom reference demonstrates exploitable signal (CI excluding zero over last_rating_rate) inside the model's own shipped feature set. This does not prove a competent model must beat 0.5871; no model above the reference has been measured"
+      }
+     },
+     "next_action": "STAGED PRIVATE on BOTH destinations (v2026.11, NOT published): the accepted artifact afe9ee203f302f3c sits at the package MANIFEST digests on the private GitHub",
+     "packaged_at": "2026-11-04T10:51:08Z",
+     "path": "candidates/cqc-care-home-deregistration/record.json",
+     "prediction_time": "The production instant of a monthly CQC 'HSCA Active Locations' vintage (Europe/London; the date in the file name, e.g. '05 January 2024 HSCA Active Locations'; the weekly sibling CSV states 'This data was produced on <date>' - the same stamping convention). Features are the vintage's own columns only: HSCA start date, care home beds, service types (with/without nursing), service user bands, latest overall rating + its publication date (measured as-of: 0/14,765 care-home rows at T=2024-01-05 carry a rating publication date after T), geography, provider attributes incl. Companies House number. Target = the register event dated after T, read from the cumulative Deactivated Locations product. Archive: monthly vintages 2011-2026 (Drive year folders, anonymous).",
+     "publisher": "Care Quality Commission (CQC) - regulator of health and adult social care in England",
+     "qualification": {
+      "artifact_version": "afe9ee203f302f3ca41b9b01ad74a937e111d1b830590c7e662bb0b7b6df85d7",
+      "result": null,
+      "splits": null
+     },
+     "question": "For a care home location active on the CQC register at monthly vintage T (the 'HSCA Active Locations' file produced on that date), will the location's registration end within the following 12 months (Location Status Inactive-Dereg with a Location HSCA End Date inside (T, T+365d])?",
+     "region": "Europe",
+     "release_baseline": {
+      "auc": 0.5659,
+      "display": "0.5659",
+      "reference": null
+     },
+     "release_splits": {
+      "eval": {
+       "positives": 757,
+       "rows": 14765
+      },
+      "holdout": {
+       "positives": 761,
+       "rows": 14749
+      },
+      "train": {
+       "positives": 4418,
+       "rows": 78138
+      }
+     },
+     "review": "",
+     "sources": [
+      {
+       "licence": "Open Government Licence v3.0 (publisher's using-cqc-data page)",
+       "name": "CQC care directory with filters - 'HSCA Active Locations' (monthly bulk file, all active regulated locations, care home beds, service types, service user bands, latest rating + publication date, provider attributes)",
+       "url": "https://www.cqc.org.uk/about-us/transparency/using-cqc-data"
+      },
+      {
+       "licence": "Open Government Licence v3.0 (using-cqc-data page + in-sheet statement)",
+       "name": "CQC Deactivated Locations (monthly bulk file, cumulative register of archived locations with Location HSCA start/end dates, Location Status, beds at deactivation, last rating + publication date, provider attributes)",
+       "url": "https://www.cqc.org.uk/system/files/2026-11/02_November_2026_Deactivated_Locations.ods"
+      },
+      {
+       "licence": "Open Government Licence v3.0",
+       "name": "CQC care directory with ratings (monthly bulk file, service-level latest ratings; archive from 2015)",
+       "url": "https://www.cqc.org.uk/about-us/transparency/using-cqc-data"
+      },
+      {
+       "licence": "Open Government Licence v3.0",
+       "name": "CQC care directory weekly CSV (locations census only; no beds/ratings)",
+       "url": "https://www.cqc.org.uk/system/files/2026-10/28_October_2026_CQC_directory.zip"
+      }
+     ],
+     "split_strategy": "Annual January instants with non-overlapping 12-month target windows. Proposed: train instants Jan 2016-2019 (targets 2016-2020), eval Jan 2020-2021 (targets 2020-2022), holdout Jan 2022-2024 (holdout target windows end by 2025-01, fully observed by the 2026-11-02 deactivated file). Instants 2011-2015 are usable for train with the pre-Oct-2014 no-ratings caveat; instants 2025+ are excluded while either the deactivated file's coverage or the publisher's migration-related cancellation lag is unresolved. Exact per-instant positives are the first construction measurement; measured anchor: T=2024-01-05 carries 14,765 eligible care homes and 758 positives (5.13%).",
+     "status": "packaged",
+     "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
+    },
+    {
+     "age_hours": 184.1,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CH",
@@ -13995,10 +14197,10 @@
   "by_status": {
    "dropped": 49,
    "investigating": 18,
-   "packaged": 2,
+   "packaged": 3,
    "parked": 29,
    "published": 14,
-   "qualified": 2,
+   "qualified": 1,
    "ready": 15
   },
   "candidates": 129,
@@ -14026,10 +14228,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-04T10:50:01.873364+00:00",
+    "last_run_at": "2026-11-04T11:50:01.561497+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-04T11:00:00+00:00",
+    "next_run_at": "2026-11-04T12:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14050,10 +14252,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-04T10:50:01.065057+00:00",
+    "last_run_at": "2026-11-04T11:50:01.771376+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-04T10:55:00+00:00",
+    "next_run_at": "2026-11-04T11:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14074,10 +14276,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-04T10:35:09.221742+00:00",
+    "last_run_at": "2026-11-04T11:46:19.480376+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-04T10:45:11.193650+00:00",
+    "next_run_at": "2026-11-04T11:51:19.480376+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14086,10 +14288,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-04T10:50:01.263487+00:00",
+    "last_run_at": "2026-11-04T11:50:01.012957+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-04T10:55:00+00:00",
+    "next_run_at": "2026-11-04T11:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14107,13 +14309,13 @@
    },
    {
     "enabled": true,
-    "failure_streak": 1,
+    "failure_streak": 0,
     "id": "4d8053a69ed2",
-    "last_error": "Script exited with code 1\nstderr:\npush failed: : Request ID 85AC:28FC9F:9EEF1B:F0B8C9:6AEAFFEE        \nremote: Time 2026-11-04T09:50:39Z\nTo https://github.com/earino/dataset-factory-dashboard.git\n ! [",
-    "last_run_at": "2026-11-04T09:50:39.365723+00:00",
-    "last_status": "error",
+    "last_error": "",
+    "last_run_at": "2026-11-04T10:50:57.474613+00:00",
+    "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-04T11:50:00+00:00",
+    "next_run_at": "2026-11-04T12:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14122,10 +14324,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-04T09:55:00.625565+00:00",
+    "last_run_at": "2026-11-04T10:55:00.662702+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-04T10:55:00+00:00",
+    "next_run_at": "2026-11-04T11:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14166,9 +14368,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-04T10:50:01.875621+00:00"
+  "updated_at": "2026-11-04T11:50:02.077485+00:00"
  },
- "generated_at": "2026-11-04T10:50:01+00:00",
+ "generated_at": "2026-11-04T11:50:02+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -14176,19 +14378,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-04T08:10:50Z",
-   "head_sha": "0741354",
+   "created_at": "2026-11-04T11:09:06Z",
+   "head_sha": "59cb956",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41797521231"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41818949368"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 45/51 (88%)"
   },
   "head": {
-   "at": "2026-11-04T08:10:46Z",
-   "sha": "0741354",
-   "subject": "discovery tick (South & South-East Asia): cpcb-aqi-exceedance REOPENED from dropped - publisher licence evidence read (C"
+   "at": "2026-11-04T10:53:22Z",
+   "sha": "59cb956",
+   "subject": "watcher follow-up: cqc-publish-001/cqc-hf-001/cqc-consumer-001 SUCCEEDED - cqc v2026.11 staged private on BOTH destinati"
   },
   "tests": {
    "count": "708",
@@ -17163,15 +17365,21 @@
    "qualified": 2,
    "sessions_7d": 90,
    "tokens_7d": 37074499
+  },
+  {
+   "at": "2026-11-04T11:50:02+00:00",
+   "live": 19,
+   "published": 14,
+   "qualified": 1,
+   "sessions_7d": 90,
+   "tokens_7d": 37097624
   }
  ],
- "notices": [
-  "A research session is running: lock held for 591s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T10:50:01+00:00",
+   "as_of": "2026-11-04T11:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17181,17 +17389,17 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T10:50:01+00:00",
+   "as_of": "2026-11-04T11:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 20
+   "value": 19
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T10:50:01+00:00",
+   "as_of": "2026-11-04T11:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -17361,7 +17569,7 @@
     "baseline_per_config": {},
     "baseline_scope": null,
     "dataset": "cqc-care-home-deregistration",
-    "disposition": "qualified",
+    "disposition": "packaged",
     "errors": [],
     "persistence_auc": null,
     "publication_note": "Prepared for human review. Nothing here has been published.",
@@ -17382,9 +17590,12 @@
       "rows": 78138
      }
     },
-    "verified": {},
-    "verified_all": false,
-    "verified_at": null
+    "verified": {
+     "github": true,
+     "huggingface": true
+    },
+    "verified_all": true,
+    "verified_at": "2026-11-04T10:51:08Z"
    },
    {
     "assets": 5,
@@ -20231,7 +20442,7 @@
   "jobs_total": 187,
   "lifetime_eur": 3.73,
   "live": {
-   "checked_at": "2026-11-04T10:50:37+00:00",
+   "checked_at": "2026-11-04T11:50:38+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -20266,19 +20477,6 @@
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 1465.1,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "ebff3726db798f88ff731fe4c578556d882d0b25aa3083efa4de7c326233de0b",
-    "ts": "2026-11-04T05:39:26.971545+00:00"
-   },
    {
     "elapsed_seconds": 437.2,
     "event": "session",
@@ -20347,8 +20545,22 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "d24db7c5f5f0cb06ef9b3172d2031b4931f5ffd8f1c7910e655f00a34f6b93a4",
     "ts": "2026-11-04T10:37:31.379551+00:00"
+   },
+   {
+    "elapsed_seconds": 953.0,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "e227517831da174cc28c59f96187227f026582d44f0cfcef05b7a4d4906237af",
+    "ts": "2026-11-04T10:56:04.836989+00:00"
    }
   ],
-  "total": 10
+  "total": 11
  }
 }
