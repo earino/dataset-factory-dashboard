@@ -1,7 +1,8 @@
 {
  "alarms": [
-  "Token use at 88% of the weekly ceiling",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (147.5h)"
+  "Token use at 89% of the weekly ceiling",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (148.5h)",
+  "1 release(s) not fully verified"
  ],
  "budget": {
   "config": {
@@ -19,12 +20,12 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-04T17:50:02.551595+00:00",
+   "moment": "2026-11-04T18:50:03.094388+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 35251466,
+   "research_tokens_last_7_days": 35409451,
    "runs_last_7_days": 93,
    "runs_weighted_last_7_days": 106,
    "session_cap_per_week": 200,
@@ -51,13 +52,13 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 2331,
+     "calls": 2382,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 10139330,
-     "output_tokens": 2277852,
+     "input_tokens": 10295471,
+     "output_tokens": 2341019,
      "pricing_available": false
     }
    },
@@ -1759,7 +1760,7 @@
      "seasonality_fixture": "Known-event fixture (verified measured): Cape Town winter evening-peaking. Monthly mean evening peak over all stations: 2024-07 61.9 MVA vs 2024-12 44.1 MVA; same May-August rise in 2022 (2022-08 60.3 vs 2022-12 48.0) and 2023 (2023-07 60.6 vs 2023-12 45.9). Per-station winter(May-Aug)/summer(Nov-Feb) mean evening-peak ratios: Grassy Park 66kV 1.25, Atlantis Industrial 132kV 1.22, Foreshore 132kV (CBD) 0.98 - winter-peaking residential/industrial substations and a flat CBD profile, exactly as expected for Cape Town's winter-heating, summer-cooling-mild coastal climate.",
      "target_labels_measured": "Evening-peak p95-exceedance labels (trailing 90 evenings, min 30 prior evenings, evening window 16:00-22:00 SAST): 2022 positives 1,539/13,735 (11.20%); 2023 positives 1,256/14,965 (8.39%); 2024 positives 1,382/15,006 (9.21%). Total 4,177/43,706. Both classes present in every year. Commands in notes.md (probe_fullscan.py, probe_cluster.py)."
     },
-    "next_action": "OPERATOR DECISION (a) RECORDED 2026-11-04: package as an agent-headroom benchmark, with the comparison leading every package document. Basis: the operator's 202",
+    "next_action": "OPERATOR DECISION (a) RECORDED 2026-11-04: package as an agent-headroom benchmark, with the comparison leading every package document - stock-runner baseline 0.",
     "packaged_at": null,
     "path": "candidates/za-cct-substation-evening-peak-exceedance/record.json",
     "prediction_time": "06:00 Africa/Johannesburg (SAST, UTC+2) on day D, within the artifact's history. Features are the substation's half-hourly MVA readings with timestamps <= the instant (including day D's 00:00-06:00 readings), trailing aggregates computed only from readings <= the instant, plus calendar fields and substation identity. The evening target window 16:00-22:00 SAST lies entirely after the instant. RETROSPECTIVE USE: the publisher released the entire 2022-01-01..2024-12-31 window as one closed table (item created 2026-02-28, last modified 2026-03-02, hasStaticData), so this is a retrospective_research task per docs/PREDICTION-CONTRACT.md: no historical-operational-availability claim is made, label timing is unverified at any historical instant outside the artifact's own timestamp order.",
@@ -1772,11 +1773,24 @@
     "question": "For each City of Cape Town switching substation, at 06:00 SAST on day D, predict whether that substation's evening peak apparent-power load (maximum half-hourly MVA reading over 16:00-22:00 SAST on day D) will exceed the trailing-90-evening 95th percentile of its own evening peaks (evenings ending strictly before the instant).",
     "region": "Africa",
     "release_baseline": {
-     "auc": null,
-     "display": null,
+     "auc": 0.5107,
+     "display": "0.5107",
      "reference": null
     },
-    "release_splits": {},
+    "release_splits": {
+     "eval": {
+      "positives": 1256,
+      "rows": 14965
+     },
+     "holdout": {
+      "positives": 1382,
+      "rows": 15006
+     },
+     "train": {
+      "positives": 1539,
+      "rows": 13735
+     }
+    },
     "review": "All five discovery contracts are supported with measured evidence: class A licence from the publisher's own instruments; a within-artifact 06:00 SAST instant with a fully-post-instant evening target window and publisher-documented feature meaning (with the load-shift caveat recorded as a limitation); a label derivable from the same gapless table with sealable label-source columns; measured split capacity (train 2022 / eval 2023 / holdout 2024, 1,256-1,539 positives per year, clustered on 227-247 distinct days); and a differentiated novelty position (regression forecasting benchmarks exist on EU/US/AU substation data; none is African, none is a within-day exceedance classification with a sealed label contract). Honest labelling: retrospective_research - the closed 2022-2024 window was published as one table in 2026, so no historical-operational-availability claim is made and label timing is unverified outside the artifact's own timestamp order.",
     "sources": [
      {
@@ -3599,7 +3613,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 7.0,
+    "age_hours": 8.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -9275,7 +9289,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 147.5,
+    "age_hours": 148.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -12838,7 +12852,7 @@
      "seasonality_fixture": "Known-event fixture (verified measured): Cape Town winter evening-peaking. Monthly mean evening peak over all stations: 2024-07 61.9 MVA vs 2024-12 44.1 MVA; same May-August rise in 2022 (2022-08 60.3 vs 2022-12 48.0) and 2023 (2023-07 60.6 vs 2023-12 45.9). Per-station winter(May-Aug)/summer(Nov-Feb) mean evening-peak ratios: Grassy Park 66kV 1.25, Atlantis Industrial 132kV 1.22, Foreshore 132kV (CBD) 0.98 - winter-peaking residential/industrial substations and a flat CBD profile, exactly as expected for Cape Town's winter-heating, summer-cooling-mild coastal climate.",
      "target_labels_measured": "Evening-peak p95-exceedance labels (trailing 90 evenings, min 30 prior evenings, evening window 16:00-22:00 SAST): 2022 positives 1,539/13,735 (11.20%); 2023 positives 1,256/14,965 (8.39%); 2024 positives 1,382/15,006 (9.21%). Total 4,177/43,706. Both classes present in every year. Commands in notes.md (probe_fullscan.py, probe_cluster.py)."
     },
-    "next_action": "OPERATOR DECISION (a) RECORDED 2026-11-04: package as an agent-headroom benchmark, with the comparison leading every package document. Basis: the operator's 202",
+    "next_action": "OPERATOR DECISION (a) RECORDED 2026-11-04: package as an agent-headroom benchmark, with the comparison leading every package document - stock-runner baseline 0.",
     "packaged_at": null,
     "path": "candidates/za-cct-substation-evening-peak-exceedance/record.json",
     "prediction_time": "06:00 Africa/Johannesburg (SAST, UTC+2) on day D, within the artifact's history. Features are the substation's half-hourly MVA readings with timestamps <= the instant (including day D's 00:00-06:00 readings), trailing aggregates computed only from readings <= the instant, plus calendar fields and substation identity. The evening target window 16:00-22:00 SAST lies entirely after the instant. RETROSPECTIVE USE: the publisher released the entire 2022-01-01..2024-12-31 window as one closed table (item created 2026-02-28, last modified 2026-03-02, hasStaticData), so this is a retrospective_research task per docs/PREDICTION-CONTRACT.md: no historical-operational-availability claim is made, label timing is unverified at any historical instant outside the artifact's own timestamp order.",
@@ -12851,11 +12865,24 @@
     "question": "For each City of Cape Town switching substation, at 06:00 SAST on day D, predict whether that substation's evening peak apparent-power load (maximum half-hourly MVA reading over 16:00-22:00 SAST on day D) will exceed the trailing-90-evening 95th percentile of its own evening peaks (evenings ending strictly before the instant).",
     "region": "Africa",
     "release_baseline": {
-     "auc": null,
-     "display": null,
+     "auc": 0.5107,
+     "display": "0.5107",
      "reference": null
     },
-    "release_splits": {},
+    "release_splits": {
+     "eval": {
+      "positives": 1256,
+      "rows": 14965
+     },
+     "holdout": {
+      "positives": 1382,
+      "rows": 15006
+     },
+     "train": {
+      "positives": 1539,
+      "rows": 13735
+     }
+    },
     "review": "All five discovery contracts are supported with measured evidence: class A licence from the publisher's own instruments; a within-artifact 06:00 SAST instant with a fully-post-instant evening target window and publisher-documented feature meaning (with the load-shift caveat recorded as a limitation); a label derivable from the same gapless table with sealable label-source columns; measured split capacity (train 2022 / eval 2023 / holdout 2024, 1,256-1,539 positives per year, clustered on 227-247 distinct days); and a differentiated novelty position (regression forecasting benchmarks exist on EU/US/AU substation data; none is African, none is a within-day exceedance classification with a sealed label contract). Honest labelling: retrospective_research - the closed 2022-2024 window was published as one table in 2026, so no historical-operational-availability claim is made and label timing is unverified outside the artifact's own timestamp order.",
     "sources": [
      {
@@ -13057,7 +13084,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 7.0,
+     "age_hours": 8.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13231,7 +13258,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 147.5,
+     "age_hours": 148.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13519,7 +13546,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 7.0,
+     "age_hours": 8.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13693,7 +13720,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 147.5,
+     "age_hours": 148.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -14062,10 +14089,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-04T17:50:01.914222+00:00",
+    "last_run_at": "2026-11-04T18:50:01.707553+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-04T18:00:00+00:00",
+    "next_run_at": "2026-11-04T19:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14086,10 +14113,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-04T17:50:01.243722+00:00",
+    "last_run_at": "2026-11-04T18:50:01.657956+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-04T17:55:00+00:00",
+    "next_run_at": "2026-11-04T18:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14110,10 +14137,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-04T17:45:39.789427+00:00",
+    "last_run_at": "2026-11-04T18:45:58.358517+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-04T17:50:39.789427+00:00",
+    "next_run_at": "2026-11-04T18:50:58.358517+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14122,10 +14149,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-04T17:50:01.347801+00:00",
+    "last_run_at": "2026-11-04T18:50:00.906286+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-04T17:55:00+00:00",
+    "next_run_at": "2026-11-04T18:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14146,10 +14173,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-04T16:51:43.911478+00:00",
+    "last_run_at": "2026-11-04T17:50:50.293145+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-04T18:50:00+00:00",
+    "next_run_at": "2026-11-04T19:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14158,10 +14185,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-04T16:55:01.021318+00:00",
+    "last_run_at": "2026-11-04T17:55:01.057196+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-04T17:55:00+00:00",
+    "next_run_at": "2026-11-04T18:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14202,9 +14229,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-04T17:50:01.915504+00:00"
+  "updated_at": "2026-11-04T18:50:01.708581+00:00"
  },
- "generated_at": "2026-11-04T17:50:01+00:00",
+ "generated_at": "2026-11-04T18:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -14212,19 +14239,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-04T17:08:45Z",
-   "head_sha": "9ff3a3b",
+   "created_at": "2026-11-04T18:41:04Z",
+   "head_sha": "a56c74c",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41874659765"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41889561757"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 46/52 (88%)"
   },
   "head": {
-   "at": "2026-11-04T17:08:41Z",
-   "sha": "9ff3a3b",
-   "subject": "watcher follow-up: ipa-tm-002 discovery aggregate job SUCCEEDED (exit 0, 828.7 s, all 7 passes; the -001 party-pass repa"
+   "at": "2026-11-04T18:21:03Z",
+   "sha": "a56c74c",
+   "subject": "za-cct-substation-evening-peak-exceedance packaged (v2026.11, private, NOT published) per operator decision (a): release"
   },
   "tests": {
    "count": "708",
@@ -17255,13 +17282,21 @@
    "qualified": 1,
    "sessions_7d": 93,
    "tokens_7d": 35251466
+  },
+  {
+   "at": "2026-11-04T18:50:01+00:00",
+   "live": 21,
+   "published": 14,
+   "qualified": 1,
+   "sessions_7d": 93,
+   "tokens_7d": 35409451
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T17:50:01+00:00",
+   "as_of": "2026-11-04T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17271,7 +17306,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T17:50:01+00:00",
+   "as_of": "2026-11-04T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -17281,13 +17316,13 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-04T17:50:01+00:00",
+   "as_of": "2026-11-04T18:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
    "stale": false,
    "status": "ok",
-   "value": 19
+   "value": 20
   }
  },
  "releases": {
@@ -18014,6 +18049,40 @@
     },
     "verified_all": true,
     "verified_at": "2026-10-24T12:50:25+00:00"
+   },
+   {
+    "assets": 5,
+    "baseline_current": true,
+    "baseline_display": "0.5107",
+    "baseline_eval_auc": 0.5107,
+    "baseline_evidence": "/opt/data/dataset-factory/release/za-cct-substation-evening-peak-exceedance/MANIFEST.json:baseline.contract.eval_auc_from_train_py",
+    "baseline_per_config": {},
+    "baseline_scope": null,
+    "dataset": "za-cct-substation-evening-peak-exceedance",
+    "disposition": "qualified",
+    "errors": [],
+    "persistence_auc": null,
+    "publication_note": "Prepared for human review. Nothing here has been published.",
+    "published": false,
+    "release_tag": "v2026.11",
+    "rows": 43706,
+    "splits": {
+     "eval": {
+      "positives": 1256,
+      "rows": 14965
+     },
+     "holdout": {
+      "positives": 1382,
+      "rows": 15006
+     },
+     "train": {
+      "positives": 1539,
+      "rows": 13735
+     }
+    },
+    "verified": {},
+    "verified_all": false,
+    "verified_at": null
    }
   ]
  },
@@ -20348,7 +20417,7 @@
   "jobs_total": 189,
   "lifetime_eur": 3.74,
   "live": {
-   "checked_at": "2026-11-04T17:50:36+00:00",
+   "checked_at": "2026-11-04T18:50:36+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -20381,22 +20450,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 1,
+  "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 953.0,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "e227517831da174cc28c59f96187227f026582d44f0cfcef05b7a4d4906237af",
-    "ts": "2026-11-04T10:56:04.836989+00:00"
-   },
    {
     "elapsed_seconds": 781.2,
     "event": "session",
@@ -20464,8 +20519,22 @@
     "run_budget": 900,
     "submitted_brief_sha256": "6bc3e03242316f550fabf398f69531a563540f00fd58306cc894a6ac99024e4f",
     "ts": "2026-11-04T17:10:28.362418+00:00"
+   },
+   {
+    "elapsed_seconds": 1373.2,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "7bc8f813241635815a3e29bb9a7e68bba7f5d78cd30650cf416d002240996402",
+    "ts": "2026-11-04T18:22:56.279822+00:00"
    }
   ],
-  "total": 16
+  "total": 17
  }
 }
