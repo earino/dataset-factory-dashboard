@@ -1,9 +1,9 @@
 {
  "alarms": [
-  "scout-research-session missed its window (2026-11-05T18:50:00+00:00); last status ok",
-  "Token use at 93% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (33.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (173.5h)"
+  "scout-discovery-session missed its window (2026-11-05T20:25:00+00:00); last status ok",
+  "Token use at 95% of the weekly ceiling",
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (34.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (174.5h)"
  ],
  "budget": {
   "config": {
@@ -21,18 +21,18 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-11-05T19:50:02.728002+00:00",
+   "moment": "2026-11-05T20:50:02.649754+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 3901s by scout-research"
+    "lock held for 1802s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 37100831,
+   "research_tokens_last_7_days": 38040062,
    "runs_last_7_days": 104,
-   "runs_weighted_last_7_days": 118,
+   "runs_weighted_last_7_days": 119,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 14,
+   "sessions_over_token_cap": 15,
    "usage": {
     "auxiliary": {
      "calls": 20,
@@ -55,14 +55,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 3599,
+     "calls": 3658,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 15454902,
-     "output_tokens": 3567887,
+     "input_tokens": 16329474,
+     "output_tokens": 3633435,
      "pricing_available": false
     }
    },
@@ -4704,7 +4704,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 33.0,
+    "age_hours": 34.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -5452,6 +5452,11 @@
       "at": null,
       "id": "dvsa-mot-build-001",
       "status": "running"
+     },
+     {
+      "at": null,
+      "id": null,
+      "status": null
      }
     ],
     "licence_summary": {
@@ -5461,6 +5466,7 @@
     },
     "measurements": {
      "artifact_allowance_check_2026_11_05": "PRE-COMPLETION CHECK (written 2026-11-05 19:2xZ, while dvsa-mot-build-001 was still running, BEFORE any outcome existed). The launched job declares max_artifact_mb = 8, and workers/upload.py refuses the WHOLE staging upload (reports included) when the bytes under /output plus source.tar plus container.log exceed that allowance. MEASURED inputs: 2024 source year = 7,667,648,876 B uncompressed (~64M rows at the prefix-measured ~120 B/row); first-4MB prefix of test_result_202408.csv = 34,924 rows with 19,328 distinct vehicle_ids; shipped extract = 21 plain-CSV columns. ESTIMATE (not a measurement): the md5 mod 1000 == 0 vehicle sample keeps ~0.1% of a multi-ten-million vehicle panel, so the pair panel plausibly lands in the hundreds-of-thousands of rows (~30-130 MB extract) - every other candidate in the catalog sized max_artifact_mb to its extract (austin 131 MB extract -> 400; msha 3.38 GB -> 4200; za-cct 8.4 MB -> 24), while this job's 8 MiB supports only ~60k rows at ~128 B/row. PREDICTION, not a finding: if the extract exceeds the allowance, publish() raises UploadError('Artifacts exceed job allowance') and NOTHING uploads - but executor.py still embeds /output/summary.json (<= 64 KiB) in /opt/scout/result.json and `worker collect` is designed to fetch exactly that, so the measured row counts, per-file sizes and the 19-file vintage sha256 pins survive for a correctly-sized rebuild. RESPONSE PRE-REGISTERED: one corrected rebuild (dvsa-mot-build-002, new job ID per the immutable-bundle rule) with max_artifact_mb sized from the collected per-file bytes with >= 2.5x headroom; construction logic unchanged - this is a job-descriptor defect, not a build defect; the gate/triad then rerun deterministically on the rebuilt bytes. If collect instead shows a clean upload, this entry is void and the baseline proceeds as recorded.",
+     "build_failure_2015_abrve_2026_11_05": "MEASURED on the worker (dvsa-mot-build-001, container.log collected to .factory/dvsa-mot-build-001/ and preserved in staging release 435609197): the build fetched and parsed 2005-2014 cleanly - per-year rows_seen / class4 / sampled (md5 mod 1000 == 0): 2005 7,499,744/7,113,089/7,101; 2006 32,014,080/30,302,568/30,572; 2007 33,591,238/31,803,974/31,948; 2008 34,439,132/32,591,753/32,500; 2009 35,436,943/33,529,083/33,506; 2010 36,134,920/34,179,326/34,097; 2011 36,849,154/34,790,696/35,074; 2012 36,846,342/34,831,846/34,872; 2013 37,361,925/35,346,508/35,295; 2014 37,493,825/35,458,346/35,635. Per-year result histograms for P/F/PRS/ABR/ABA recorded in the log; ABR+ABA stays ~0.55-0.7% (the <0.6% pre-launch estimate was correct in scale). FAILURE at source_2015.txt.gz seq 18757: test_result='ABRVE' (row: test_id 1574076421, vehicle_id 192184530, test_date 2015-07-03, class 4, NT, test_mileage empty, postcode SK, VOLKSWAGEN GOLF PLUS, RED, DI, 1896, first_use 2006-07-07, completed_date empty). All other fields are well-formed, so this is a source VALUE anomaly, not a delimiter/parse shift; the empty mileage and completed_date match the abandoned-row shape. 'ABRVE' is not in the documented result-code set. CONSEQUENCES, both measured/derived: (1) the sampled panel is ~34-35k completed class-4 tests per year, so priors 2009-2023 is ~500k tests -> ~450-490k pair rows -> ~57-65 MB extract at the 21-column ~128 B/row - the launch's max_artifact_mb=8 would ALSO have refused the upload (see artifact_allowance_check_2026_11_05, directionally confirmed); (2) 2015-2024 result-value inventories remain unmeasured because the build died at 2015 (Range is ignored at data.dft.gov.uk, so a bounded coordinator-side probe is impossible - the repair must inventory them on the worker).",
      "construction_preflight_2026_11_05": {
       "dry_run_2026_11_05": "Full build+gate+accept+score machinery exercised on synthetic fixtures spanning all three file eras (headerless pipe 2005-2008, headered pipe 2009-2016, single-member zips 2017-2023, 12-member pinned 2024 zip), including duplicate rows, ABR rows, other-class rows and the censoring cutoff. Gate 1.5.0: 45/45 PASS on the synthetic extract; --accept ACCEPTED; the declared cross-row probe measured the blind-join exposure (synthetic eval coverage 420/570 rows, 0 mismatches - a later pair's prior_initial_fail equals the earlier pair's label by construction, which is exactly the exposure the probe exists to measure); access is isolated_rows. Fixture numbers are NOT findings and are never quoted.",
       "pre_registered_triad": "Deciding members (written before any construction or score, mirrored in source/score.py): persistence_prior_result (the prior test's own initial-fail flag - the last observed outcome), calendar_make_week (train-estimated rate per make x ISO week-of-year, make then global fallback), vehicle_train_rate (train-estimated rate per vehicle_id - the panel identity prior). Supplementary: global_rate (degenerate, Brier only), majority_class accuracy. DECIDING RULE: headroom ONLY if the full model beats EVERY deciding member with a cluster-aware paired bootstrap 95% CI excluding zero in the model's favour AND the model's own cluster-bootstrap AUC CI lies entirely above 0.5; triad dominance -> DROP. Clusters = vehicle_id. Per-prior-year reporting mandatory (May-2018 regime change; 2020-21 pandemic test extensions).",
@@ -5479,7 +5485,7 @@
       "result": "MOT testing data results (2024).zip = 1,531,265,132 bytes compressed (Last-Modified 2025-05-13), 12 monthly members test_result_202401..202412.csv, 7,667,648,876 bytes uncompressed total (per-month 461-746 MB). S3 answers Range requests; construction is a worker job (ESTIMATE: other years are of similar per-year size - only 2024 was measured)."
      }
     },
-    "next_action": "Collect dvsa-mot-build-001 (worker cpx32, hel1). Expected /output reports: summary.json (per-file receipts + population + per-year tables), qualification-dvsa-m",
+    "next_action": "Repair dvsa-mot construction from the measured build_failure_2015_abrve_2026_11_05 evidence, then relaunch as dvsa-mot-build-002 (new job ID; bundles are immuta",
     "packaged_at": null,
     "path": "candidates/dvsa-mot-next-test-outcome/record.json",
     "prediction_time": "The completion instant of the vehicle's previous test (completed_date in the prior test's row). Features are the vehicle's static attributes (make, model, colour, fuel_type, cylinder_capacity, first_use_date, test class) plus its full prior-test history (test dates, intervals, test types including NT/RT, prior results, mileage and mileage deltas, prior defect-item categories from the companion failure-item files). The next test's own fields (test_result, its test_mileage, its completed_date, its defect items) are the label source and never ship as features.",
@@ -10417,7 +10423,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 173.5,
+    "age_hours": 174.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -14157,7 +14163,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 22.7,
+    "age_hours": 23.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -14523,7 +14529,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 33.0,
+     "age_hours": 34.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -14697,7 +14703,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 173.5,
+     "age_hours": 174.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -14983,7 +14989,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 22.7,
+     "age_hours": 23.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -15163,7 +15169,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 33.0,
+     "age_hours": 34.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -15337,7 +15343,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 173.5,
+     "age_hours": 174.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -15623,7 +15629,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 22.7,
+     "age_hours": 23.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -15884,10 +15890,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-05T19:50:02.161364+00:00",
+    "last_run_at": "2026-11-05T20:50:02.253024+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-05T20:00:00+00:00",
+    "next_run_at": "2026-11-05T21:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -15908,10 +15914,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-05T18:43:15.012095+00:00",
+    "last_run_at": "2026-11-05T20:50:01.060248+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-05T18:50:00+00:00",
+    "next_run_at": "2026-11-05T20:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -15932,10 +15938,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-05T19:49:55.857935+00:00",
+    "last_run_at": "2026-11-05T20:45:09.754619+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-05T19:54:55.857935+00:00",
+    "next_run_at": "2026-11-05T20:50:09.754619+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -15944,10 +15950,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-05T19:50:01.151886+00:00",
+    "last_run_at": "2026-11-05T20:15:01.492552+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-05T19:55:00+00:00",
+    "next_run_at": "2026-11-05T20:25:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -15968,10 +15974,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-05T18:50:54.461547+00:00",
+    "last_run_at": "2026-11-05T19:50:55.136151+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-05T20:50:00+00:00",
+    "next_run_at": "2026-11-05T21:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -15980,10 +15986,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-05T18:55:00.493766+00:00",
+    "last_run_at": "2026-11-05T19:55:01.100169+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-05T19:55:00+00:00",
+    "next_run_at": "2026-11-05T20:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16024,9 +16030,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-05T19:50:02.162381+00:00"
+  "updated_at": "2026-11-05T20:50:02.254273+00:00"
  },
- "generated_at": "2026-11-05T19:50:01+00:00",
+ "generated_at": "2026-11-05T20:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16034,19 +16040,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-05T18:40:37Z",
-   "head_sha": "77aa1ef",
+   "created_at": "2026-11-05T20:05:05Z",
+   "head_sha": "d2b6c06",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42086523483"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42100017515"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 46/52 (88%)"
   },
   "head": {
-   "at": "2026-11-05T18:40:33Z",
-   "sha": "77aa1ef",
-   "subject": "STATE correction: dvsa-mot-build-001 server expiry is 20:53Z (140-minute lifetime from 18:33:02Z), not 19:53Z"
+   "at": "2026-11-05T20:05:02Z",
+   "sha": "d2b6c06",
+   "subject": "dvsa-mot-build-001 follow-up: build failed by its pre-registered fail-loud rule at undocumented 2015 source value 'ABRVE"
   },
   "tests": {
    "count": "723",
@@ -19285,15 +19291,23 @@
    "qualified": 0,
    "sessions_7d": 104,
    "tokens_7d": 37100831
+  },
+  {
+   "at": "2026-11-05T20:50:01+00:00",
+   "live": 19,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 104,
+   "tokens_7d": 38040062
   }
  ],
  "notices": [
-  "A research session is running: lock held for 3901s by scout-research"
+  "A research session is running: lock held for 1802s by scout-research"
  ],
  "panels": {
   "budget": {
-   "age_minutes": 0.7,
-   "as_of": "2026-11-05T19:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-05T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -19302,8 +19316,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.7,
-   "as_of": "2026-11-05T19:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-05T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -19312,8 +19326,8 @@
    "value": 19
   },
   "releases": {
-   "age_minutes": 0.7,
-   "as_of": "2026-11-05T19:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-05T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -20092,7 +20106,7 @@
  "resources": {
   "ceiling_eur": 20.0,
   "errors": [],
-  "eur_per_release": 0.27,
+  "eur_per_release": 0.28,
   "histogram": {
    "bins": [
     {
@@ -20116,7 +20130,7 @@
      "lo": 0.02
     },
     {
-     "count": 18,
+     "count": 19,
      "hi": 0.1,
      "lo": 0.05
     },
@@ -20137,11 +20151,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0128,
-   "n": 201,
-   "p90": 0.0561,
+   "median": 0.0132,
+   "n": 202,
+   "p90": 0.0569,
    "ref_rate": 0.06924,
-   "total": 5.88
+   "total": 5.97
   },
   "jobs": [
    {
@@ -20710,15 +20724,15 @@
    },
    {
     "created_at": "2026-11-05T18:33:02.397729+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-11-05T19:52:54.324033+00:00",
+    "eur": 0.0922,
+    "hours": 1.331,
     "id": "dvsa-mot-build-001",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0922,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
-    "status": "collected"
+    "status": "deleted"
    },
    {
     "created_at": "2026-10-31T00:24:07.306988+00:00",
@@ -22569,19 +22583,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 40,
+  "jobs_this_month": 41,
   "jobs_total": 202,
-  "lifetime_eur": 3.81,
+  "lifetime_eur": 3.9,
   "live": {
-   "checked_at": "2026-11-05T19:50:41+00:00",
+   "checked_at": "2026-11-05T20:50:40+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 14.8,
-  "month_to_date": 0.18,
+  "month_hours": 16.1,
+  "month_to_date": 0.28,
   "months": [
    {
     "eur": 2.4452,
@@ -22596,32 +22610,18 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.185,
-    "hours": 14.76,
-    "jobs": 40,
+    "eur": 0.2772,
+    "hours": 16.1,
+    "jobs": 41,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 1.11
+  "projected_month_eur": 1.66
  },
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 749.2,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "b25e27fecd6679e597ed56ca66cb3e180c79f7249fad70a436cfef6a2acaabdf",
-    "ts": "2026-11-05T15:31:20.226711+00:00"
-   },
    {
     "elapsed_seconds": 1499.8,
     "event": "session",
@@ -22690,8 +22690,22 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "57e914601cc83a4f7ff2e035c6decf3bbfec1fcba356766aef8c4a47f4475030",
     "ts": "2026-11-05T18:43:14.375919+00:00"
+   },
+   {
+    "elapsed_seconds": 5693.3,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "e1d0bcafe6abbc63aedfc86013265f87fbf24472e2fcc8c0e0678a39b8380492",
+    "ts": "2026-11-05T20:19:55.155542+00:00"
    }
   ],
-  "total": 38
+  "total": 39
  }
 }
