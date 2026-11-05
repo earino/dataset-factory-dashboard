@@ -1,8 +1,8 @@
 {
  "alarms": [
-  "Token use at 89% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (29.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (169.5h)"
+  "Token use at 91% of the weekly ceiling",
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (30.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (170.5h)"
  ],
  "budget": {
   "config": {
@@ -19,15 +19,17 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-11-05T15:50:02.479817+00:00",
+   "allowed": false,
+   "moment": "2026-11-05T16:50:02.573633+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 601s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 35769331,
-   "runs_last_7_days": 100,
-   "runs_weighted_last_7_days": 114,
+   "research_tokens_last_7_days": 36384557,
+   "runs_last_7_days": 102,
+   "runs_weighted_last_7_days": 116,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 14,
    "usage": {
@@ -52,14 +54,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 3257,
+     "calls": 3387,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 14206940,
-     "output_tokens": 3225932,
+     "input_tokens": 14807984,
+     "output_tokens": 3348921,
      "pricing_available": false
     }
    },
@@ -74,7 +76,6 @@
    "AU": 1,
    "BR": 2,
    "CA": 3,
-   "CI": 1,
    "CO": 2,
    "DE": 1,
    "EU": 3,
@@ -84,73 +85,15 @@
    "US": 1
   },
   "counts": {
-   "dropped": 50,
-   "investigating": 21,
+   "dropped": 51,
+   "investigating": 20,
    "packaged": 3,
    "parked": 31,
    "published": 14,
-   "ready": 15
+   "ready": 16
   },
   "errors": [],
   "live": [
-   {
-    "awaiting_operator": false,
-    "baseline": {},
-    "country": "CI",
-    "domain": "multilateral development bank operations / project lifecycle panel",
-    "id": "afdb-project-cancellation",
-    "jobs": [],
-    "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
-    },
-    "measurements": {
-     "cancelled_population_2026_11_04": "All 230 cancelled operations fetched bounded via MapAfrica /api/v15/activities?status=5 (3 pages x 100 rows, browser): approval (planned_start) range 1969-07-24..2023-12-30; by approval year (1969..2023): 1,1,3,2,3,5,5,5,4,7,9,5,7,4,12,9,7,9,13,1,1,1,8,6,4,4,7,6,2,1,1,3,2,1,9,4,5,4,10,4,8,3,5,6,7,2,1,1,2 for years 1969,1972,1975,1976,1977,1979,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023 - every decade carries positives; 49 distinct countries + 29 multinational rows; actual_start present on 219/230, actual_end on 0/230 (cancellations never carry a completion date).",
-     "datastore_crosscheck_2026_11_04": "datastore.codeforiati.org (community index of the same registry files): 5,187 activities for reporting-org=XM-DAC-46002; activity-status=3 -> 3,896; activity-status=5 -> 191; start-date<1985 -> 610; start-date<2000 -> 1,759; 2010<start-date<2020 -> 1,439. DISCREPANCY recorded honestly: MapAfrica reports 230 cancelled / 4,400 completed while the datastore indexes 191 / 3,896 - MapAfrica's internal database appears to carry more rows than the published IATI files; construction MUST define the population from the registry XML only (the publisher's own bulk instrument) and reconcile this gap as a design input, never mix channels.",
-     "extraction_cost_measured_2026_11_04": "Coordinator (browser, Cloudflare-cleared): 3 activities pages (100 rows each, ~40 KB/page) + 1 stats call + 1 codelists attempt. Coordinator (plain HTTP): registry package_search 90,702 B + package_show 1,625 B + one country XML 1,145,985 B in one GET (~3 s); datastore count queries 4.3-99 KB each, 6 queries. Bulk estimate (NOT a count): 57 XML files, 5,188 activities at ~27 KB/activity measured on the one file -> ~140 MB total, worker-scale. PREREQUISITE: afdb.org static-file paths answered this coordinator anonymously (dynamic afdb.org pages 403 plain clients), but worker-side (Hetzner) reachability is untested - the dws.gov.za lesson; the first worker job must measure it.",
-     "known_event_fixtures": "Positives (label 1, measured in the cancelled fetch): P-LR-B00-005 Liberia, approved 1969-07-24 (earliest cancelled, sector 32110, sovereign, UA 1,350,000); P-SD-FF0-001 Sudan, approved 2019-12-18, actual start 2020-03-05, planned end 2025-12-31, sector 23230, sovereign, UA 29,020,000. Negative (label 0, measured in the afdb-saotome XML): 46002-P-ST-K00-012, planned start 2013-06-17, actual end 2015-12-31 before planned end 2016-06-30, status 3 (Completed).",
-     "mapafrica_stats_2026_11_04": "Publisher's own aggregate (browser same-origin fetch /api/v15/stats?currency=xdr): activities 6,000; activity_status {1: 383, 2: 987, 3: 4400, 5: 230}; 55 countries, 18 sector groups, 58 sectors, 16 ADF cycles, 5 regions; total commitments (non-gov view) 142,427,078,206.7 XDR.",
-     "novelty_search_2026_11_04": "Web searches found no published, scored or ML-ready benchmark for AfDB operation outcomes: nearest prior art is a Nature Energy 2020 ML study predicting realization of PLANNED POWER PLANTS in Africa (different population - all power plants, not AfDB operations), MOPAN institutional assessment reports (descriptive), and an unrelated HuggingFace IATI mirror of Malaysia aid flows (country-level aggregates, no outcome task). The WB-family comparators on this bench (wb-ieg-project-outcome, wb-loan-disbursement-completion) were dropped on measured no-headroom over identity/rate priors at the Board-approval instant - this candidate's differentiation must be measured against that precedent, not assumed (see next_action).",
-     "registry_inventory_2026_11_04": "package_search?fq=organization:afdb&rows=100: 57 datasets, license_id cc-by on 57/57, sum(activity_count extras)=5,188 (afdb-org has no count), largest files afdb-multinational 781, afdb-nonsovereign 402, afdb-morocco 175, afdb-tunisia 166, afdb-tanzania 131. Evidence: probe/out/africa_tick_b12.json.",
-     "sao_tome_file_schema_2026_11_04": "afdb-saotome XML (42 activities, 1,145,985 bytes, one anonymous GET): activity-status mix {3: 32, 2: 7, 1: 3}; activity-date types 1,2,3 on 42/42 and type 4 (actual end) on exactly the 32 completed - label derivable from published dates; planned_start != actual_start on 42/42 (approval vs effectiveness are distinct); overrun check on the 32 completed: actual_end > planned_end on 4/32 (12.5% of this one-country sample) - recorded as evidence that a schedule-overrun target would be revision-contaminated (planned_end in the current vintage is the revised end), NOT as a population count.",
-     "xml_field_inventory_2026_11_04": "Per-activity fields available at approval in the registry XML: iati-identifier, title, recipient-country, sector (vocabulary 1), activity-date types 1-3, default-flow-type (10=ODA), default-finance-type (421/110 on 35/42 in the sample), default-tied-status (5=untied), conditions attached, budget items with AfDB-specific codes, participating organisations (2,073 distinct across the bank per MapAfrica stats). Post-approval / label-source fields excluded from features: activity-date type 4 (actual end), activity-status, transaction histories (2,442 transaction elements in the sample file carrying afdb:finance-type-id), total_disbursements. No explicit board-approval-date element exists in the XML; the type-1 date is the instant proxy (see prediction_time)."
-    },
-    "next_action": "Discovery-owned order for the next session(s): (1) record the novelty verdict with scripts/check-novelty.py (queries: 'AfDB project cancellation prediction', 'A",
-    "packaged_at": null,
-    "path": "candidates/afdb-project-cancellation/record.json",
-    "prediction_time": "The instant the operation enters AfDB's published record at approval: activity-date type 1 (planned start), observed within ~1 day of MapAfrica's displayed 'Approval Date' (P-KE-KF0-013: UI 23 Sept 2026 vs API planned_start 2026-09-24; a bounded construction sample must pin this offset). All features are at-approval attributes; the terminal status is observed only years later at the current coverage end (registry files re-published in full, so the current vintage is the observation frame - a current-vintage retrospective task, not an operational historical claim).",
-    "publisher": "African Development Bank Group (Abidjan, Cote d'Ivoire) - publisher of the IATI activity files and MapAfrica",
-    "qualification": {
-     "artifact_version": null,
-     "result": null,
-     "splits": null
-    },
-    "question": "At the board-approval instant of an African Development Bank Group (AfDB) operation, using only the at-approval attributes AfDB publishes in its IATI activity files (country, sector, financing instrument, commitment, planned span, era), will the operation ultimately be CANCELLED (activity-status 5) rather than COMPLETED (activity-status 3)?",
-    "region": "Africa",
-    "release_baseline": {
-     "auc": null,
-     "display": null,
-     "reference": null
-    },
-    "release_splits": {},
-    "review": "Five contracts at investigating: (1) Redistribution SUPPORTED (class A, two publisher instruments, 57/57 registry datasets cc-by). (2) Prediction timing PARTIALLY SUPPORTED - the instant is stateable (approval, activity-date type 1) and features are at-approval attributes in a fully republished file, but the current-vintage-only posture must be declared (no historical snapshots promised) and the type-1-vs-approval-date offset needs a bounded sample; UNRESOLVED items recorded in prediction_time. (3) Target SUPPORTED as derivable-and-excludable (activity-status is the label source; censoring rule stated; the MapAfrica-vs-registry count gap must be reconciled at construction). (4) Split capacity PARTIALLY SUPPORTED - positives measured in every proposed window (136/36/58) but per-window denominators and clustered counts are unmeasured (worker pass; the first construction measurement). (5) Contribution UNRESOLVED pending check-novelty.py and the pre-registered family-risk test: two WB at-approval tasks on this bench died on rate-table/identity priors, so the reference triad (global / country / sector-x-decade cancellation rates) is the mandatory first scored comparison and a pre-registered drop condition, not an afterthought.",
-    "sources": [
-     {
-      "licence": "CC BY 4.0 (license_id cc-by on all 57 IATI Registry dataset records for publisher afdb, read 2026-11-04; see license_evidence)",
-      "name": "AfDB IATI activity files via the IATI Registry (publisher 'afdb', org XM-DAC-46002)",
-      "url": "https://iatiregistry.org/api/3/action/package_search?fq=organization:afdb&rows=100"
-     },
-     {
-      "licence": "CC BY 4.0 (MapAfrica About-this-data modal: Data provided under Creative Commons Attribution licence; see license_evidence)",
-      "name": "MapAfrica portal (publisher's own dashboard; used for bounded aggregates and the status vocabulary, via the supported browser only)",
-      "url": "https://mapafrica.afdb.org/"
-     }
-    ],
-    "split_strategy": "Temporal split on approval year. Proposed (positive counts measured from the bounded full-population cancelled fetch of 2026-11-04, 230 rows): train approvals <=2000 (136 cancelled positives), eval 2001-2010 (36), holdout 2011-2023 (58). Negatives (completed 4,400) are thousands per window but per-window denominators and eligibility accounting are unmeasured - the exact per-window class count over the terminal population is the FIRST construction measurement on the worker, with acceptance criteria recorded before scoring. Positives cluster by country (measured: 49 distinct countries, top DRC 15 / Cote d'Ivoire 10 / Liberia 9 / Tunisia 9 / Angola 9 of 230; 29 rows multinational) and by approval year - per-window clustered counts required at construction.",
-    "status": "investigating",
-    "target": "Binary: terminal activity-status = Cancelled (IATI code 5) vs Completed (code 3) for operations whose outcome window has closed. Label source column: activity-status in AfDB's IATI XML (excludable by construction - it ships only as the label). Statuses 1 (Approved, 383) and 2 (Ongoing, 987) are right-censored and never scored; eligibility must be defined from information available at the instant (approval date + planned end + censoring margin), never from eventual status."
-   },
    {
     "awaiting_operator": false,
     "baseline": {},
@@ -1804,7 +1747,7 @@
     "target": "The outcome published in later editions of the same traffic area's AD gazette, linked EXACTLY by the application reference number (the OF-number, which is also the operator licence number; measured in both sample eras): Section 2.1/2.3 = granted without public inquiry; 2.2/2.4 = refused; 4.1 = withdrawn; 4.2 = grant not taken up; 5.1 = notice of public inquiry with a statutory ground code (S13 'Consideration of new application under Section 13' identifies application-related inquiries; S26 'disciplinary action under Section 26' belongs to existing holders and is excluded from this population), followed by 5.2 = decision taken at that inquiry. Candidate primary binary label (decided at construction, before any score): 1 = refused (2.2) or withdrawn/not taken up (4.1/4.2); 0 = granted. Label source columns (the outcome sections) are excluded from the feature set by construction."
    }
   ],
-  "non_us_share": 95.2,
+  "non_us_share": 95.0,
   "records": [
    {
     "awaiting_operator": false,
@@ -2037,7 +1980,13 @@
     "country": "CI",
     "domain": "multilateral development bank operations / project lifecycle panel",
     "id": "afdb-project-cancellation",
-    "jobs": [],
+    "jobs": [
+     {
+      "at": null,
+      "id": "afdb-panel-probe-001",
+      "status": "succeeded"
+     }
+    ],
     "licence_summary": {
      "compilation_spdx": null,
      "source_spdx": null,
@@ -2052,9 +2001,872 @@
      "novelty_search_2026_11_04": "Web searches found no published, scored or ML-ready benchmark for AfDB operation outcomes: nearest prior art is a Nature Energy 2020 ML study predicting realization of PLANNED POWER PLANTS in Africa (different population - all power plants, not AfDB operations), MOPAN institutional assessment reports (descriptive), and an unrelated HuggingFace IATI mirror of Malaysia aid flows (country-level aggregates, no outcome task). The WB-family comparators on this bench (wb-ieg-project-outcome, wb-loan-disbursement-completion) were dropped on measured no-headroom over identity/rate priors at the Board-approval instant - this candidate's differentiation must be measured against that precedent, not assumed (see next_action).",
      "registry_inventory_2026_11_04": "package_search?fq=organization:afdb&rows=100: 57 datasets, license_id cc-by on 57/57, sum(activity_count extras)=5,188 (afdb-org has no count), largest files afdb-multinational 781, afdb-nonsovereign 402, afdb-morocco 175, afdb-tunisia 166, afdb-tanzania 131. Evidence: probe/out/africa_tick_b12.json.",
      "sao_tome_file_schema_2026_11_04": "afdb-saotome XML (42 activities, 1,145,985 bytes, one anonymous GET): activity-status mix {3: 32, 2: 7, 1: 3}; activity-date types 1,2,3 on 42/42 and type 4 (actual end) on exactly the 32 completed - label derivable from published dates; planned_start != actual_start on 42/42 (approval vs effectiveness are distinct); overrun check on the 32 completed: actual_end > planned_end on 4/32 (12.5% of this one-country sample) - recorded as evidence that a schedule-overrun target would be revision-contaminated (planned_end in the current vintage is the revised end), NOT as a population count.",
+     "worker_panel_probe_2026_11_05": {
+      "censoring_eligibility": {
+       "min_type1_year": 2007,
+       "n": 1100,
+       "planned_end_le_2015": 0,
+       "planned_end_le_2020": 1,
+       "planned_end_le_2026": 271,
+       "planned_end_missing": 173
+      },
+      "cleanup": "worker destroyed 2026-11-05T16:20:10Z with provider read-back: GET /v1/servers/174640740 -> 404 not_found; GET /v1/servers -> 0 total; GET /v1/primary_ips -> 0 total",
+      "codelist": "activity-status machine-readable codelist not retrieved: raw.githubusercontent.com/IATI/codelists ActivityStatus.xml -> 404; iatistandard.org codelist page -> 200 (280,851 B, not parsed). The status labels used are the publisher's own from MapAfrica's stats endpoint (measured 2026-11-04): 1 Approved, 2 Ongoing, 3 Completed, 5 Cancelled.",
+      "extraction_cost": "57 files, 172859806 B (164.5 MiB) total; fetch wallclock 7.2 s; job wallclock 20.5 s; largest file afdb-multinational 31111196 B; budget used: 62/130 requests, 165/400 MB",
+      "grain_nuance": "13 positive rows carry no recipient-country element (11 holdout, 2 eval): multinational/regional operations. The construction must define the cluster key as country-or-region and declare it as positive_events.",
+      "job": "afdb-panel-probe-001",
+      "per_approval_year": {
+       "1967": {
+        "cens": 0,
+        "neg": 1,
+        "pos": 0,
+        "term": 1
+       },
+       "1968": {
+        "cens": 0,
+        "neg": 2,
+        "pos": 0,
+        "term": 2
+       },
+       "1969": {
+        "cens": 0,
+        "neg": 3,
+        "pos": 1,
+        "term": 4
+       },
+       "1970": {
+        "cens": 0,
+        "neg": 6,
+        "pos": 0,
+        "term": 6
+       },
+       "1971": {
+        "cens": 0,
+        "neg": 10,
+        "pos": 0,
+        "term": 10
+       },
+       "1972": {
+        "cens": 0,
+        "neg": 15,
+        "pos": 1,
+        "term": 16
+       },
+       "1973": {
+        "cens": 0,
+        "neg": 14,
+        "pos": 0,
+        "term": 14
+       },
+       "1974": {
+        "cens": 0,
+        "neg": 39,
+        "pos": 0,
+        "term": 39
+       },
+       "1975": {
+        "cens": 0,
+        "neg": 39,
+        "pos": 3,
+        "term": 42
+       },
+       "1976": {
+        "cens": 0,
+        "neg": 35,
+        "pos": 2,
+        "term": 37
+       },
+       "1977": {
+        "cens": 0,
+        "neg": 46,
+        "pos": 3,
+        "term": 49
+       },
+       "1978": {
+        "cens": 0,
+        "neg": 62,
+        "pos": 0,
+        "term": 62
+       },
+       "1979": {
+        "cens": 0,
+        "neg": 48,
+        "pos": 5,
+        "term": 53
+       },
+       "1980": {
+        "cens": 0,
+        "neg": 51,
+        "pos": 0,
+        "term": 51
+       },
+       "1981": {
+        "cens": 0,
+        "neg": 56,
+        "pos": 5,
+        "term": 61
+       },
+       "1982": {
+        "cens": 0,
+        "neg": 51,
+        "pos": 5,
+        "term": 56
+       },
+       "1983": {
+        "cens": 0,
+        "neg": 58,
+        "pos": 4,
+        "term": 62
+       },
+       "1984": {
+        "cens": 0,
+        "neg": 59,
+        "pos": 6,
+        "term": 65
+       },
+       "1985": {
+        "cens": 0,
+        "neg": 63,
+        "pos": 7,
+        "term": 70
+       },
+       "1986": {
+        "cens": 0,
+        "neg": 68,
+        "pos": 3,
+        "term": 71
+       },
+       "1987": {
+        "cens": 0,
+        "neg": 76,
+        "pos": 4,
+        "term": 80
+       },
+       "1988": {
+        "cens": 0,
+        "neg": 65,
+        "pos": 2,
+        "term": 67
+       },
+       "1989": {
+        "cens": 0,
+        "neg": 97,
+        "pos": 8,
+        "term": 105
+       },
+       "1990": {
+        "cens": 0,
+        "neg": 101,
+        "pos": 8,
+        "term": 109
+       },
+       "1991": {
+        "cens": 0,
+        "neg": 123,
+        "pos": 7,
+        "term": 130
+       },
+       "1992": {
+        "cens": 0,
+        "neg": 94,
+        "pos": 9,
+        "term": 103
+       },
+       "1993": {
+        "cens": 0,
+        "neg": 108,
+        "pos": 13,
+        "term": 121
+       },
+       "1994": {
+        "cens": 0,
+        "neg": 18,
+        "pos": 1,
+        "term": 19
+       },
+       "1995": {
+        "cens": 0,
+        "neg": 6,
+        "pos": 1,
+        "term": 7
+       },
+       "1996": {
+        "cens": 0,
+        "neg": 23,
+        "pos": 1,
+        "term": 24
+       },
+       "1997": {
+        "cens": 0,
+        "neg": 81,
+        "pos": 8,
+        "term": 89
+       },
+       "1998": {
+        "cens": 0,
+        "neg": 101,
+        "pos": 6,
+        "term": 107
+       },
+       "1999": {
+        "cens": 0,
+        "neg": 51,
+        "pos": 4,
+        "term": 55
+       },
+       "2000": {
+        "cens": 0,
+        "neg": 80,
+        "pos": 4,
+        "term": 84
+       },
+       "2001": {
+        "cens": 0,
+        "neg": 90,
+        "pos": 7,
+        "term": 97
+       },
+       "2002": {
+        "cens": 0,
+        "neg": 82,
+        "pos": 6,
+        "term": 88
+       },
+       "2003": {
+        "cens": 0,
+        "neg": 86,
+        "pos": 2,
+        "term": 88
+       },
+       "2004": {
+        "cens": 0,
+        "neg": 106,
+        "pos": 1,
+        "term": 107
+       },
+       "2005": {
+        "cens": 0,
+        "neg": 65,
+        "pos": 1,
+        "term": 66
+       },
+       "2006": {
+        "cens": 0,
+        "neg": 106,
+        "pos": 2,
+        "term": 108
+       },
+       "2007": {
+        "cens": 1,
+        "neg": 80,
+        "pos": 0,
+        "term": 80
+       },
+       "2008": {
+        "cens": 2,
+        "neg": 92,
+        "pos": 0,
+        "term": 92
+       },
+       "2009": {
+        "cens": 2,
+        "neg": 142,
+        "pos": 6,
+        "term": 148
+       },
+       "2010": {
+        "cens": 0,
+        "neg": 107,
+        "pos": 4,
+        "term": 111
+       },
+       "2011": {
+        "cens": 0,
+        "neg": 138,
+        "pos": 3,
+        "term": 141
+       },
+       "2012": {
+        "cens": 6,
+        "neg": 107,
+        "pos": 3,
+        "term": 110
+       },
+       "2013": {
+        "cens": 7,
+        "neg": 176,
+        "pos": 6,
+        "term": 182
+       },
+       "2014": {
+        "cens": 12,
+        "neg": 134,
+        "pos": 2,
+        "term": 136
+       },
+       "2015": {
+        "cens": 29,
+        "neg": 117,
+        "pos": 6,
+        "term": 123
+       },
+       "2016": {
+        "cens": 33,
+        "neg": 129,
+        "pos": 2,
+        "term": 131
+       },
+       "2017": {
+        "cens": 40,
+        "neg": 87,
+        "pos": 5,
+        "term": 92
+       },
+       "2018": {
+        "cens": 73,
+        "neg": 66,
+        "pos": 3,
+        "term": 69
+       },
+       "2019": {
+        "cens": 88,
+        "neg": 64,
+        "pos": 7,
+        "term": 71
+       },
+       "2020": {
+        "cens": 43,
+        "neg": 90,
+        "pos": 0,
+        "term": 90
+       },
+       "2021": {
+        "cens": 109,
+        "neg": 24,
+        "pos": 1,
+        "term": 25
+       },
+       "2022": {
+        "cens": 150,
+        "neg": 41,
+        "pos": 1,
+        "term": 42
+       },
+       "2023": {
+        "cens": 142,
+        "neg": 14,
+        "pos": 2,
+        "term": 16
+       },
+       "2024": {
+        "cens": 150,
+        "neg": 3,
+        "pos": 0,
+        "term": 3
+       },
+       "2025": {
+        "cens": 131,
+        "neg": 1,
+        "pos": 0,
+        "term": 1
+       },
+       "2026": {
+        "cens": 82,
+        "neg": 0,
+        "pos": 0,
+        "term": 0
+       }
+      },
+      "population": {
+       "activities": 5188,
+       "duplicate_iati_identifiers_across_files": 0,
+       "status_histogram": {
+        "1": 281,
+        "2": 819,
+        "3": 3897,
+        "5": 191
+       },
+       "status_outside_1_2_3_5": {}
+      },
+      "reachability_worker": "all 57/57 afdb.org IATI XML URLs answered HTTP 200 from the Hetzner worker (the dws.gov.za lesson tested explicitly: worker egress 2.29.159.168); registry package_search refreshed from the worker: 57 datasets, license_id cc-by on 57/57; zero fetch failures, zero retries",
+      "reconciliation": "registry XML: 191 cancelled / 3,897 completed / 5,188 activities. Code for IATI datastore (2026-11-04 probe): 191 cancelled / 3,896 completed / 5,187 activities - the registry XML and the datastore AGREE (the 2026-11-04 tick's '230 vs 191' question is resolved: MapAfrica's 230 cancelled sits in a larger population, 6,000 activities, i.e. a different scope, not a registry defect). The task population is the registry XML, as already declared.",
+      "result": "succeeded, exit 0, oom_killed false; job wallclock 20.5 s; requests 62; bytes downloaded 172859806",
+      "server": "174640740 (cx23/hel1, 2 vCPU, 1024 MB container, EUR 0.04 reserved)",
+      "source_vintage_pin_sha256": {
+       "afdb-algeria": "7817d83c692f0429b08539818933ca6a13232ae213f13595568235fe415d098f",
+       "afdb-angola": "fdf3453887c377137bb7f1e6cacbcb467389967f1235e99315f2c59aea348051",
+       "afdb-benin": "dda51b4f887f3f0b70ed7edcefeed1bc17be4506a4f427f90b77f02aa7434f32",
+       "afdb-botswana": "47621e12c4ea542495eb3399fdd9b0b107dd948ce8f19a3889a370ed7f3ac0ec",
+       "afdb-burkinafaso": "8612ff1cb150c4531cfddfd55fce56890f515c7803b85d3dea0d6698d18a44a0",
+       "afdb-burundi": "25e01a74446eaa7ded061eeadaca386d1005100e271c82d338486a19263a4328",
+       "afdb-cameroon": "9beb672f5100bc02f7575b968940493307ced12d98563937e8f63ac0a4b24545",
+       "afdb-capeverde": "6248fb13753dd9f24b26c594be740145d0d14f496f2e46d55a4b8bbaa803aec5",
+       "afdb-centralafricanrepublic": "c3dec5b9324ba09d6837b736493c821007bf31964187c36ca72a3b2941c24152",
+       "afdb-chad": "68d6fa049b8897a8a01d8410e6445de072bcc50e6046aee9e1b2d39e9a29e990",
+       "afdb-ci": "4cb2d695c903a12b4aab61dd7769bca7192e7ea890ca3b6bb3111ea6ec6bd631",
+       "afdb-comoros": "3ac02657ca88f5251c33d531978bbfcf20c4806f3a1ffb3eaf15ab61a0723d50",
+       "afdb-congo": "c31470a8599c3ca541b60a0f2cb209778e434cbd986672c5393abf6a7c2d7df8",
+       "afdb-djibouti": "ffa49df2652d78459f820cd2985d3b5d5d817fb84f0899b1fef20cd76b9fcb14",
+       "afdb-drc": "47fa6ca3a791a1c67e1581030d8e09aeb1e5d5f2698418b952c6451bb1d72337",
+       "afdb-egypt": "5b00daa0ef71c65d74ce1835557a11c6d8316bb9fd6caced8e1b60ee7c140845",
+       "afdb-equatorialguinea": "1b03c2c986815108036cfb4040a82b941906b210c3ec4da76aae07c6b7f41080",
+       "afdb-eritrea": "427904f7b6cc3ada375b68aa757625c96b560aa28a3e2a94e2517551f29f0c87",
+       "afdb-ethiopia": "050dccd55561347ee7e62b676b5538087989211093723bab4784aa0829adf0dc",
+       "afdb-gabon": "3edececd2866cb30482e74ea00cc989b2f90f17726f4fdb0195bf8d7c9077e6c",
+       "afdb-gambia": "7013425aa66c9842fee8583fa7324af63b3379c0d24b30abacc7b29a25cac8d8",
+       "afdb-ghana": "4241c1574cfa72ecf788b22e0a75bed44783efa67c2677aed3e59b3d44c2f75e",
+       "afdb-guinea": "45f8926370670278b506089bde4fd920b6a5ed6135e144925915e2d2c43b6aef",
+       "afdb-guineabissau": "efd6737a1c251808dd4f44753f701ac6886ae85e4a5a88614c12a7d6e2fdb2fa",
+       "afdb-kenya": "6bd14e3d76892da8a3ffea320754ee50ab6fb92f952c3195812a103a10e7a3ac",
+       "afdb-lesotho": "b59d4c5003caa8cabce6f7b3c826b996605b930ab05d3328625d5e619f8645bd",
+       "afdb-liberia": "279afa59b00800ff19905a5cfc05176012515771c6191de95b7c625dc26260ff",
+       "afdb-madagascar": "e86d41e1b491f37e854a9d9d1c7b82e97165bd82499f465d6f28911c575931ea",
+       "afdb-malawi": "68fb70b487f1c6607f814f0ce63d754c30c0868fa45a14b9993720b76322c699",
+       "afdb-mali": "ee1667c1820ea4b730e48085ca114b5f323544187aa61723a8e9ddf31b9116a0",
+       "afdb-mauritania": "d8e148d59b0dfb5622e072e9239294e763ead433333e7144b6256271b7f45c05",
+       "afdb-mauritius": "6fd1817ed8e7da70236b06db5ad6ce84d88f89a1cb8bb938bac8d75e88dc2a22",
+       "afdb-morocco": "dc12f7f27869bc3abac1fa6478e9351264db311cc5513c7c1de681cf4b91fae6",
+       "afdb-mozambique": "fb1fe6ac28a35706b4c834d52d9d998e45b4d53556900045c915430364300039",
+       "afdb-multinational": "01fe1be370d5caf8a0b551fed0e9d1525ccf1bbf67765ae50da72d5d557d04f9",
+       "afdb-namibia": "531798b9a2f7abded37467889d688743e1d69bae7f008094d6fe001d636fa194",
+       "afdb-niger": "8f248318a1d65cd729c4b1665138aafecb6f4ac69075e257b8d5ee7e5a3ff46e",
+       "afdb-nigeria": "b722a1c4dfc1f51d3161f34053add05bd0c6d4f23a264e3dfd9e344263a1677d",
+       "afdb-nonsovereign": "e21b38e32903cce47ce3fbff14a4c902cca3ad736e76dc2b73e164824015522d",
+       "afdb-org": "5e234b740518a9d9903848de99db6bafbbf289215ee5a9d296a1782612997801",
+       "afdb-rwanda": "e2e6fcce07b1c298f3b41893a7153df73995b7d8612e5880b6ea251cb0a00e30",
+       "afdb-saotome": "4f6111c50929f75834fcba9fb1efee66bc89f4d45979595592d03c9d36ed9a44",
+       "afdb-senegal": "bfbe8cd63b76990b0bc33fa8dc9b7c6a3188d0b4532c880c103dfc542ab18412",
+       "afdb-seychelles": "3f362364ec3307f54b9005e9bf8201b72340fec33a9af5054e74fea0188b6208",
+       "afdb-sierraleone": "33c14bd11955a3dc7f368e08a5e4c3714f2facedde929bb41375954b76776222",
+       "afdb-somalia": "3c357b7cd8641011eccd556876d973b428451469b2c81d6509cecf52a12ce1ec",
+       "afdb-southafrica": "2e8c1efa162887cc62f698b0aafdc79401d128c8910bbad2c316985359f227fd",
+       "afdb-southsudan": "ed5b75d9ab8ef8d784ba87022d69a4eb7e64235f26e959644f6b34ab90add40a",
+       "afdb-sudan": "7e8e48a4de36a705e24e26c0d1542237f2b2722a3360b4d2788f7618b2cae8f5",
+       "afdb-swaziland": "df8276bb3c2f3695423447bd6f7adce2559b0f08c04ee92e3c843b6141031f15",
+       "afdb-tanzania": "f93dca1f09ac37a7818760e41c8f1b4cf461bb55421ae6bcaba2b041bf13a23d",
+       "afdb-togo": "d9ca40210fd172f37eec72ddb64e5be405aedea0fb8e8cd0b83735a784e8ca46",
+       "afdb-tunisia": "0c41f6e97fb4edca984c8ccd62a621e7582d40e1e78ccbaeb2d8e3c239523d00",
+       "afdb-uganda": "a4f0865b4a575e56995a9c5d810e0d6b7f3a87e6f419f607e3d378df9b1f520e",
+       "afdb-zambia": "dd0bee76c45eb2fa1369e51c95022db93cc06f8274ef757b29e8a20a05665718",
+       "afdb-zimbabwe": "cf16c47115d9746a21025fd529730705fad84e654d6f0b4b85ae43c482ff51e5",
+       "libya": "a806e7d132c6386a63fcaa4127dd65c8e915e24fd3a83cee2db656ff106938dd"
+      },
+      "split_counts_chosen_2026_11_05": {
+       "eval_2001_2011": {
+        "cells_note": "26 measured for 2001-2010 plus 1-3 for 2011 (3 positives); exact integer is the construction's declared positive_events",
+        "distinct_countries_with_positives": "21+ (2011 adds 0-3)",
+        "negatives": 1094,
+        "positive_country_year_cells": "27-29",
+        "positive_rate": 0.0284,
+        "positives": 32,
+        "rows": 1126
+       },
+       "excluded": {
+        "censored_status_1_or_2": "1,100 rows, never scored",
+        "recent_2024_plus": "4 terminal rows / 0 positives (declared, not scored)"
+       },
+       "gate_margin": "eval 32 positives vs 30 minimum; holdout 38 vs 30; events 27-29 and 31-33 vs 20 minimum - every bound clears the gate",
+       "holdout_2012_2023": {
+        "cells_note": "34 measured for 2011-2023 minus 1-3 for 2012 (3 positives)",
+        "distinct_countries_with_positives": "15-17",
+        "negatives": 1080,
+        "positive_country_year_cells": "31-33",
+        "positive_rate": 0.034,
+        "positives": 38,
+        "rows": 1118
+       },
+       "rule": "chosen BEFORE any construction or score from the measured per-year table, to clear the gate minimum: eval end moved 2010 -> 2011; holdout start follows. No threshold, label or feature re-tuning: no score exists anywhere.",
+       "train_approval_le_2000": {
+        "distinct_countries_with_positives": 42,
+        "negatives": 1750,
+        "positive_country_year_cells": 107,
+        "positive_rate": 0.0647,
+        "positives": 121,
+        "positives_in_cells_ge2": 26,
+        "rows": 1871
+       }
+      },
+      "split_counts_proposed_measured": {
+       "eval_2001_2010": {
+        "distinct_countries_terminal": 52,
+        "distinct_countries_with_positives": 21,
+        "negatives": 956,
+        "positive_country_year_cells": 26,
+        "positive_rate": 0.0294,
+        "positives": 29,
+        "positives_in_cells_with_ge2": 6,
+        "rows": 985,
+        "top_clusters": [
+         [
+          "DZ|2002",
+          2
+         ],
+         [
+          "CF|2009",
+          2
+         ],
+         [
+          "EG|2001",
+          2
+         ],
+         [
+          "AO|2001",
+          1
+         ],
+         [
+          "AO|2003",
+          1
+         ],
+         [
+          "BJ|2002",
+          1
+         ],
+         [
+          "BF|2009",
+          1
+         ],
+         [
+          "CM|2006",
+          1
+         ],
+         [
+          "CI|2002",
+          1
+         ],
+         [
+          "GQ|2009",
+          1
+         ],
+         [
+          "LR|2009",
+          1
+         ],
+         [
+          "MG|2006",
+          1
+         ]
+        ],
+        "top_positive_countries": [
+         [
+          "MU",
+          3
+         ],
+         [
+          "DZ",
+          2
+         ],
+         [
+          "AO",
+          2
+         ],
+         [
+          "CF",
+          2
+         ],
+         [
+          "EG",
+          2
+         ],
+         [
+          "MR",
+          2
+         ],
+         [
+          null,
+          2
+         ],
+         [
+          "BJ",
+          1
+         ],
+         [
+          "BF",
+          1
+         ],
+         [
+          "CM",
+          1
+         ]
+        ]
+       },
+       "gate_finding": "eval 2001-2010 carries 29 positives; the qualification gate requires MIN_EVAL_POSITIVES=30 and MIN_DISTINCT_EVENTS=20 (skills/dataset-qualification/scripts/qualify_dataset.py), so the proposed window FAILS the gate by one positive",
+       "holdout_2011_2023": {
+        "distinct_countries_terminal": 55,
+        "distinct_countries_with_positives": 17,
+        "negatives": 1187,
+        "positive_country_year_cells": 34,
+        "positive_rate": 0.0334,
+        "positives": 41,
+        "positives_in_cells_with_ge2": 12,
+        "rows": 1228,
+        "top_clusters": [
+         [
+          "None|2015",
+          3
+         ],
+         [
+          "TN|2013",
+          3
+         ],
+         [
+          "None|2014",
+          2
+         ],
+         [
+          "NG|2018",
+          2
+         ],
+         [
+          "SL|2013",
+          2
+         ],
+         [
+          "BJ|2019",
+          1
+         ],
+         [
+          "CF|2012",
+          1
+         ],
+         [
+          "EG|2015",
+          1
+         ],
+         [
+          "EG|2021",
+          1
+         ],
+         [
+          "ER|2019",
+          1
+         ],
+         [
+          "KE|2017",
+          1
+         ],
+         [
+          "ML|2017",
+          1
+         ]
+        ],
+        "top_positive_countries": [
+         [
+          null,
+          11
+         ],
+         [
+          "TN",
+          6
+         ],
+         [
+          "ML",
+          3
+         ],
+         [
+          "NG",
+          3
+         ],
+         [
+          "EG",
+          2
+         ],
+         [
+          "MA",
+          2
+         ],
+         [
+          "GN",
+          2
+         ],
+         [
+          "SL",
+          2
+         ],
+         [
+          "SD",
+          2
+         ],
+         [
+          "BJ",
+          1
+         ]
+        ]
+       },
+       "recent_2024_plus": {
+        "distinct_countries_terminal": 4,
+        "distinct_countries_with_positives": 0,
+        "negatives": 4,
+        "positive_country_year_cells": 0,
+        "positive_rate": 0.0,
+        "positives": 0,
+        "positives_in_cells_with_ge2": 0,
+        "rows": 4,
+        "top_clusters": [],
+        "top_positive_countries": []
+       },
+       "train_le_2000": {
+        "distinct_countries_terminal": 52,
+        "distinct_countries_with_positives": 42,
+        "negatives": 1750,
+        "positive_country_year_cells": 107,
+        "positive_rate": 0.0647,
+        "positives": 121,
+        "positives_in_cells_with_ge2": 26,
+        "rows": 1871,
+        "top_clusters": [
+         [
+          "LR|1984",
+          3
+         ],
+         [
+          "MW|1990",
+          3
+         ],
+         [
+          "DZ|1993",
+          2
+         ],
+         [
+          "AO|1989",
+          2
+         ],
+         [
+          "AO|1983",
+          2
+         ],
+         [
+          "BI|1990",
+          2
+         ],
+         [
+          "CI|1997",
+          2
+         ],
+         [
+          "GQ|1985",
+          2
+         ],
+         [
+          "GW|1987",
+          2
+         ],
+         [
+          "LR|1982",
+          2
+         ],
+         [
+          "NE|1984",
+          2
+         ],
+         [
+          "SL|1991",
+          2
+         ]
+        ],
+        "top_positive_countries": [
+         [
+          "LR",
+          8
+         ],
+         [
+          "AO",
+          7
+         ],
+         [
+          "BI",
+          7
+         ],
+         [
+          "CI",
+          6
+         ],
+         [
+          "GW",
+          6
+         ],
+         [
+          "NE",
+          5
+         ],
+         [
+          "RW",
+          5
+         ],
+         [
+          "CM",
+          4
+         ],
+         [
+          "GA",
+          4
+         ],
+         [
+          "MW",
+          4
+         ]
+        ]
+       }
+      },
+      "staging_asset_accounting_followup_2026_11_05": {
+       "assets": [
+        {
+         "asset": "file-0000-part-0000",
+         "logical_path": "output/summary.json",
+         "sha256": "215c20d9e9727deb6dfcc3f98f072c77554ed6e8195e9f139b897aea1fbe0b0f",
+         "size": 44298
+        },
+        {
+         "asset": "file-0001-part-0000",
+         "logical_path": "source.tar (job input bundle)",
+         "matches": "jobs/afdb-panel-probe-001.json source_sha256/source_bytes (exact)",
+         "sha256": "b5fab84afbb607180e16fcdc52653f9914652d0ffd0bcaac521c1b73bd37c989",
+         "size": 112640
+        },
+        {
+         "asset": "file-0002-part-0000",
+         "logical_path": "container.log",
+         "sha256": "56fc2b4b4b5c0b2c0403c5c62ddcc40b1cfcc58b1f99030fdadd22dfad5a35e6",
+         "size": 4687
+        },
+        {
+         "asset": "manifest.json",
+         "logical_path": "manifest.json (staging manifest; embeds the job result)",
+         "sha256": "a324477c1df5b6b2a5aeb8fa361499be6d227ab04430c8a23769c5fc2da40f93",
+         "size": 63190
+        }
+       ],
+       "ci_on_recording_commit": "fcffeed37b535021db44a519977e509f89086891 (the discovery tick that recorded this probe's outcome; HEAD == origin/main at verification): Actions run 42063878395, event push, completed/success, checked 2026-11-05 via api.github.com repos/earino/dataset-factory/actions/runs?head_sha= (anonymous, public repo)",
+       "correction": "the 2026-11-05 discovery session's staging_release string named the 63,190 B a324477c... asset 'summary.json'; that asset is the staging manifest.json. The worker's output/summary.json is file-0000-part-0000, 44,298 B, sha256 215c20d9e9727deb6dfcc3f98f072c77554ed6e8195e9f139b897aea1fbe0b0f. No recorded digest was wrong - the label was; corrected in the same field",
+       "verified_by": "2026-11-05 watcher follow-up (16:34Z), read-only: GitHub releases API GET /repos/earino/dataset-factory-staging/releases/435425973 - 4 assets present, each name/size/sha256 read back; manifest.json downloaded and its sha256 recomputed locally, equal to the API digest; its files table maps every part to a logical path; part digests equal the API digests"
+      },
+      "staging_release": "435425973 (private earino/dataset-factory-staging, tag job-afdb-panel-probe-001; staging manifest.json sha256 a324477c1df5b6b2a5aeb8fa361499be6d227ab04430c8a23769c5fc2da40f93, 63,190 B, embeds the job result. Label corrected by the 2026-11-05 follow-up: this digest was first recorded as 'summary.json', but the worker's output/summary.json is a separate 44,298 B asset - see staging_asset_accounting_followup_2026_11_05)",
+      "terminal_population": {
+       "cancelled_with_actual_end": 0,
+       "cancelled_without_actual_end": 191,
+       "completed_with_actual_end": 3889,
+       "completed_without_actual_end": 8,
+       "missing_type1_date": 0,
+       "missing_type3_planned_end": 38,
+       "rows_status_3_or_5": 4088
+      },
+      "timing": {
+       "note": "the prediction instant is the published activity-date type 1 (planned start), present on 100% of scored rows; actual start follows it by median 75 days; the ~1-day MapAfrica displayed-approval-date offset (one observed pair, 2026-11-04) stays a construction-time documentation sample and is declared, not claimed resolved",
+       "type2_minus_type1_days": {
+        "max": 2392,
+        "median": 75,
+        "min": 0,
+        "n": 5059,
+        "negatives": 0
+       },
+       "type2_minus_type1_days_cancelled": {
+        "median": 78,
+        "n": 185
+       }
+      }
+     },
      "xml_field_inventory_2026_11_04": "Per-activity fields available at approval in the registry XML: iati-identifier, title, recipient-country, sector (vocabulary 1), activity-date types 1-3, default-flow-type (10=ODA), default-finance-type (421/110 on 35/42 in the sample), default-tied-status (5=untied), conditions attached, budget items with AfDB-specific codes, participating organisations (2,073 distinct across the bank per MapAfrica stats). Post-approval / label-source fields excluded from features: activity-date type 4 (actual end), activity-status, transaction histories (2,442 transaction elements in the sample file carrying afdb:finance-type-id), total_disbursements. No explicit board-approval-date element exists in the XML; the type-1 date is the instant proxy (see prediction_time)."
     },
-    "next_action": "Discovery-owned order for the next session(s): (1) record the novelty verdict with scripts/check-novelty.py (queries: 'AfDB project cancellation prediction', 'A",
+    "next_action": "READY for advancement, standing order (no step may be skipped or reordered): (1) CONSTRUCTION on a worker from the pinned source vintage - the 57 afdb.org XML U",
     "packaged_at": null,
     "path": "candidates/afdb-project-cancellation/record.json",
     "prediction_time": "The instant the operation enters AfDB's published record at approval: activity-date type 1 (planned start), observed within ~1 day of MapAfrica's displayed 'Approval Date' (P-KE-KF0-013: UI 23 Sept 2026 vs API planned_start 2026-09-24; a bounded construction sample must pin this offset). All features are at-approval attributes; the terminal status is observed only years later at the current coverage end (registry files re-published in full, so the current vintage is the observation frame - a current-vintage retrospective task, not an operational historical claim).",
@@ -2072,7 +2884,7 @@
      "reference": null
     },
     "release_splits": {},
-    "review": "Five contracts at investigating: (1) Redistribution SUPPORTED (class A, two publisher instruments, 57/57 registry datasets cc-by). (2) Prediction timing PARTIALLY SUPPORTED - the instant is stateable (approval, activity-date type 1) and features are at-approval attributes in a fully republished file, but the current-vintage-only posture must be declared (no historical snapshots promised) and the type-1-vs-approval-date offset needs a bounded sample; UNRESOLVED items recorded in prediction_time. (3) Target SUPPORTED as derivable-and-excludable (activity-status is the label source; censoring rule stated; the MapAfrica-vs-registry count gap must be reconciled at construction). (4) Split capacity PARTIALLY SUPPORTED - positives measured in every proposed window (136/36/58) but per-window denominators and clustered counts are unmeasured (worker pass; the first construction measurement). (5) Contribution UNRESOLVED pending check-novelty.py and the pre-registered family-risk test: two WB at-approval tasks on this bench died on rate-table/identity priors, so the reference triad (global / country / sector-x-decade cancellation rates) is the mandatory first scored comparison and a pre-registered drop condition, not an afterthought.",
+    "review": "Five contracts re-reconciled 2026-11-05 after the worker pass (each with its evidence source and coverage): (1) Redistribution SUPPORTED - class A; IATI registry package_search re-run from the worker this session: 57 datasets, license_id cc-by on 57/57; CC BY 4.0 also stated on MapAfrica's data-product modal (2026-11-04). Attribution wording carried to LICENSE.md at release. (2) Prediction timing SUPPORTED for a retrospective task - the instant is the published activity-date type 1, present on 100% of the 4,088 scored rows (measured); actual start follows by median 75 days; the archive is re-published in full, so the current-vintage posture is declared (no operational historical claim); the ~1-day MapAfrica display offset remains a construction documentation sample, explicitly an assumption. (3) Target SUPPORTED - label = activity-status 5 vs 3, excludable by construction; statuses 1/2 never scored; the censored backlog is entirely post-2006 (1,100 rows, min type-1 year 2007) so the historical backfill is complete for the scored era; the MapAfrica-230 vs registry-191 gap is resolved (the registry XML agrees exactly with the Code for IATI datastore: 191 cancelled; MapAfrica is a larger different population). (4) Split capacity SUPPORTED - measured per-window counts over the terminal population: train 1,871/121, eval 1,126/32, holdout 1,118/38, both classes present in every window, clustered counts recorded, gate minimums cleared under every bound (32, 38 >= 30 positives; 27-29, 31-33 >= 20 events). The 2026-11-04 proposal's eval window (29 positives) was one short and was re-cut BEFORE any score, with the reason recorded. (5) Contribution - novelty_check recorded through scripts/check-novelty.py this session (differentiated; 4 queries; ours/theirs/prior-art stated). The family-risk test is PRE-REGISTERED as the construction-time deciding check: the reference triad (global rate, trailing country rate, trailing sector-x-decade rate) computed from TRAIN ONLY on identical eval rows; if its strongest member is not beaten by a meaningful margin, this is the third measured instance of the WB at-approval family defect and the candidate DROPS with the evidence. Bench context: two WB at-approval tasks already died on rate/identity priors; the triad is feasible from the measured data (42/21+/15-17 countries with positives per window, 57 sectors).",
     "sources": [
      {
       "licence": "CC BY 4.0 (license_id cc-by on all 57 IATI Registry dataset records for publisher afdb, read 2026-11-04; see license_evidence)",
@@ -2085,8 +2897,8 @@
       "url": "https://mapafrica.afdb.org/"
      }
     ],
-    "split_strategy": "Temporal split on approval year. Proposed (positive counts measured from the bounded full-population cancelled fetch of 2026-11-04, 230 rows): train approvals <=2000 (136 cancelled positives), eval 2001-2010 (36), holdout 2011-2023 (58). Negatives (completed 4,400) are thousands per window but per-window denominators and eligibility accounting are unmeasured - the exact per-window class count over the terminal population is the FIRST construction measurement on the worker, with acceptance criteria recorded before scoring. Positives cluster by country (measured: 49 distinct countries, top DRC 15 / Cote d'Ivoire 10 / Liberia 9 / Tunisia 9 / Angola 9 of 230; 29 rows multinational) and by approval year - per-window clustered counts required at construction.",
-    "status": "investigating",
+    "split_strategy": "Temporal split on approval year (activity-date type 1), chosen 2026-11-05 from the measured registry-XML table and PRE-REGISTERED before any construction or score: train approvals <=2000 (1,871 terminal rows / 121 cancelled positives / 107 country-year cells / 6.47%); eval 2001-2011 (1,126 / 32 / 27-29 cells / 2.84%); holdout 2012-2023 (1,118 / 38 / 31-33 cells / 3.40%). 2024+ approvals (4 terminal rows, 0 positives) and all right-censored statuses 1/2 (1,100 rows, approvals 2007+) are excluded and declared. The eval end was extended from 2010 to 2011 because the originally proposed eval window carried 29 positives, one short of the gate's 30-positive minimum; the re-cut is measured, not tuned - no score exists. Positives cluster by country and approval year (clustered share in cells with >=2 positives: 26/121 train, 6/29 eval, 12/41 holdout); the cluster/event key is country-or-region x approval year, declared to the gate as positive_events.",
+    "status": "ready",
     "target": "Binary: terminal activity-status = Cancelled (IATI code 5) vs Completed (code 3) for operations whose outcome window has closed. Label source column: activity-status in AfDB's IATI XML (excludable by construction - it ships only as the label). Statuses 1 (Approved, 383) and 2 (Ongoing, 987) are right-censored and never scored; eligibility must be defined from information available at the instant (approval date + planned end + censoring margin), never from eventual status."
    },
    {
@@ -3684,7 +4496,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 29.0,
+    "age_hours": 30.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -8082,6 +8894,7 @@
      "ammc_opcvm_granularity_check_2026_10_23": "Downloaded 4 weekly files from stat-hebdo-opcvm-2025 (39,552 / 40,678 / 40,916 / 39,586 bytes; sheet names 'Francais', 'data', 'VALEURS_LIQUIDATIVES'): content is 'Actif net par categorie OPCVM' with 6 categories (Actions, Diversifies, Monetaire, Obligations CT/MLT, Contractuel) plus performance indices - CATEGORY-level aggregates, NOT per-fund rows. A ~6-series weekly panel is not a viable task.",
      "census_2026_10_23": "697 datasets enumerated via CKAN; top-10 publishers by count (~590 datasets) title-censused: Justice (annual court-activity tables per court type, 2021/2022/2023 + quinquennat 2017-2021), HCP (national accounts/CPI/labour aggregates, mirrored conceptually by WDI), Economie et Finances (75), MATNUHPV (regional real-estate/construction-materials prices 2005-2022, agent fees/rents/deposits 2001-2022, housing units started/completed 2016-2023, cement consumption), Bank Al-Maghrib (monetary/credit aggregates, most ending sept-2023), mjcc (static youth/culture facility inventories), ACAPS (insurance/AMO/retraite sector indicators, 2012-2023), Commune d'Ait Melloul (27), ANRT (16), INPPLC (third-party governance indices - Basel AML, WJP, BTI, TRACE, V-Dem, Mo Ibrahim, OBI - plus annual corruption-complaint counts), AMMC (weekly OPCVM statistics).",
      "portal_recheck_2026_10_30": "Africa tick 2026-10-30: the portal was REBUILT - data.gov.ma is now a Drupal-fronted CKAN with the action API moved to /data/api/3/action/* (the old /api/3/action/* paths return the HTML 404 page; /fr/guide-api documents the moved endpoints, fetched 2026-10-30). Growth re-check per the recorded trigger: package_search rows=0 (https://data.gov.ma/data/api/3/action/package_search?q=&rows=0, 2026-10-30) reports count=699 vs 697 censused 2026-10-23 - a delta of +2, not material growth. The newest metadata_modified entries (6 fetched, all 2026-10-30, all odc-odbl) are Bank Al-Maghrib financial-corporations balance-sheet accounts (compte de patrimoine / creances series) - the same BAM macro-aggregate family the census already covered, most likely re-stamped by the portal migration rather than genuinely new. No new publisher org appears; no unit-grain ongoing series. Verdict unchanged: parked. Next re-check trigger stays as recorded (material count growth or a new publisher org), now against 699.",
+     "portal_recheck_2026_11_05": "Africa tick 2026-11-05: recorded re-census trigger checked with one anonymous call - GET https://data.gov.ma/data/api/3/action/package_search?q=&rows=0 -> count=699, UNCHANGED from the 2026-10-30 recheck (699) and the 2026-10-23 census (697; +2 since). The trigger (materially above 697 or a new publisher org) has NOT fired; park stands, no title census performed.",
      "third_party_mirror_landscape": "The electricsheepafrica HF organisation (observed 2026-10-23, 100+ datasets) standardizes African indicator series (World-Bank-style) to HF - macro-indicator tasks on African data are a crowded raw-mirror space, which further reduces the value of aggregate-table tasks from this portal.",
      "unexamined_tail": "The long tail beyond the top-10 orgs (~100 datasets, incl. education ministry, tourism, reform-of-administration) was not title-censused this tick; formats there are the same XLSX/XLS annual-table pattern. Recorded as an explicit census limitation, not as evidence of absence."
     },
@@ -9381,7 +10194,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 169.5,
+    "age_hours": 170.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -11938,6 +12751,55 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "ET",
+    "domain": "international-organisation statistical publishing (regional commission portal record, UNECA)",
+    "id": "uneca-ecastats-coverage",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "api_surface_2026_11_05": "OpenAPI 3.0.1 spec (title 'ACS ECAStats API', 'An API for accessing country profiles, indicators, and time series data') enumerated in full: ~100 endpoints, ALL of them country/subregion/theme/indicator/time-series/chart/subscription/search surfaces (e.g. /api/SubIndicator/timeSeries/{rootIndicatorId}, /api/country-profile/{countryId}/{themeId}, /api/data-viz/*, /api/subscribe/*). No unit-grain, event-grain, project, register or listing product anywhere in the spec.",
+     "data_products_2026_11_05": "/api/data-products: 27 products, all theme-level indicator collections (Health: 28 indicators/115 sub-indicators/112,711 data points; SDGs; Climate change; ...). /api/general/summary: 7,390 indicators, 2,955,076 data points, min year 1970, max year 2028, 54 countries, 15 subregions. /api/topics: 25 topics (SDG 5,329 sub-indicators/804,895 data points; Climate 140/81,706; ...).",
+     "datasources_2026_11_05": "/api/datasources: 66 datasources, predominantly OTHER publishers (World Bank data.worldbank.org, IMF, FAO FAOSTAT, UNDP, plus national sources) - ECAStats republishes third-party indicator series rather than publishing primary event-grain records.",
+     "family_landscape": "Aggregate-indicator portals are the recorded weak-task family on this bench (statcan-wds-aggregate-series park with three negative re-checks; the afdb record's AIH/Knoema note), and African macro-indicator series are a crowded raw-mirror space (electricsheepafrica HF organisation, 100+ standardized African indicator datasets, recorded in ma-datagovma-coverage).",
+     "reachability_2026_11_05": "ecastats.uneca.org/ and /data/ HTTP 200 from this coordinator (plain client, no challenge); backing API discovered from the JS bundle; data.uneca.org: no DNS; www.uneca.org/data: 404. Same-session control: the 2026-11-04 Africa tick probe 01 also recorded ecastats.uneca.org -> 200 redirecting to /data."
+    },
+    "next_action": "Closed for ECAStats. Reopen ONLY if: (a) a unit-grain or event-grain, ongoing, dated series appears in the ECAStats API surface or a successor UNECA data produc",
+    "packaged_at": null,
+    "path": "candidates/uneca-ecastats-coverage/record.json",
+    "prediction_time": "n/a - no event-grain product exists in the measured API surface, so no publication instant or feature-availability window could be stated. The aggregate series carry only period labels (years 1970-2028).",
+    "publisher": "United Nations Economic Commission for Africa (UNECA / African Centre for Statistics), Addis Ababa - publisher of the ECAStats data portal",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "No task carried to formulation: this is a publisher-coverage record for the Africa tick (operator named UNECA). UNECA's statistical product ECAStats (ecastats.uneca.org/data) was measured end-to-end this session: it is an aggregate indicator gateway - 27 theme-level indicator data products, 7,390 indicators, 2,955,076 data points across 1970-2028 for 54 countries - republishing series that originate predominantly from OTHER publishers (World Bank, IMF, FAO, UNDP, national statistical offices; 66 listed datasources). No event-grain, unit-grain or register product exists anywhere in its API surface, so no prediction instant could be stated for any product and no task was opened.",
+    "region": "Africa",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "unstated on the portal: the SPA bundle carries only a copyright line ('\u00a9 Copyright {year}') plus Terms of Use and Privacy SPA routes; no CC/OGL-style open-licence instrument surfaced anywhere in the API or the bundle. The Terms of Use page is an SPA shell to a plain client and was NOT read in the supported browser - the decisive blocker is task shape, not licence. Not classified.",
+      "name": "ECAStats - UNECA statistical data portal ('Africa's Statistics. One Gateway.')",
+      "url": "https://ecastats.uneca.org/data/"
+     }
+    ],
+    "split_strategy": "n/a - no task-shaped series exists; nothing to split.",
+    "status": "dropped",
+    "target": "n/a - no label source could be defined: the surface carries indicator time series, not dated outcomes of identifiable events or entities."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "CH",
     "domain": "forced displacement / annual asylum-corridor entry events",
     "id": "unhcr-corridor-entry-surge",
@@ -13072,7 +13934,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 18.7,
+    "age_hours": 19.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -13438,7 +14300,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 29.0,
+     "age_hours": 30.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13612,7 +14474,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 169.5,
+     "age_hours": 170.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13898,7 +14760,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 18.7,
+     "age_hours": 19.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -14078,7 +14940,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 29.0,
+     "age_hours": 30.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -14252,7 +15114,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 169.5,
+     "age_hours": 170.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -14538,7 +15400,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 18.7,
+     "age_hours": 19.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -14731,6 +15593,7 @@
    "CL": 2,
    "CO": 2,
    "DE": 2,
+   "ET": 1,
    "EU": 15,
    "FR": 3,
    "GB": 16,
@@ -14756,7 +15619,7 @@
    "ZA": 7
   },
   "by_region": {
-   "Africa": 13,
+   "Africa": 14,
    "East Asia": 9,
    "Europe": 34,
    "International organisations": 16,
@@ -14766,14 +15629,14 @@
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 50,
-   "investigating": 21,
+   "dropped": 51,
+   "investigating": 20,
    "packaged": 3,
    "parked": 31,
    "published": 14,
-   "ready": 15
+   "ready": 16
   },
-  "candidates": 134,
+  "candidates": 135,
   "live": 53,
   "live_non_us": 47,
   "live_non_us_share": 0.887,
@@ -14798,10 +15661,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-05T15:50:02.189444+00:00",
+    "last_run_at": "2026-11-05T16:50:01.399843+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-05T16:00:00+00:00",
+    "next_run_at": "2026-11-05T17:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14822,10 +15685,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-05T15:50:01.379694+00:00",
+    "last_run_at": "2026-11-05T16:35:00.959683+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-05T15:55:00+00:00",
+    "next_run_at": "2026-11-05T16:45:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14846,10 +15709,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-05T15:46:24.674593+00:00",
+    "last_run_at": "2026-11-05T16:48:08.706706+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-05T15:51:24.674593+00:00",
+    "next_run_at": "2026-11-05T16:53:08.706706+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14858,10 +15721,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-05T15:50:00.977556+00:00",
+    "last_run_at": "2026-11-05T16:50:01.054597+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-05T15:55:00+00:00",
+    "next_run_at": "2026-11-05T16:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14882,10 +15745,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-05T14:50:54.554369+00:00",
+    "last_run_at": "2026-11-05T15:51:19.588744+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-05T16:50:00+00:00",
+    "next_run_at": "2026-11-05T17:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14894,10 +15757,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-05T14:55:01.017605+00:00",
+    "last_run_at": "2026-11-05T15:55:00.675343+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-05T15:55:00+00:00",
+    "next_run_at": "2026-11-05T16:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14938,29 +15801,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-05T15:50:02.190665+00:00"
+  "updated_at": "2026-11-05T16:50:01.400824+00:00"
  },
- "generated_at": "2026-11-05T15:50:01+00:00",
+ "generated_at": "2026-11-05T16:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 134
+   "passing": 135
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-05T15:31:05Z",
-   "head_sha": "3d13f8f",
+   "created_at": "2026-11-05T16:35:49Z",
+   "head_sha": "e0d190c",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42055770558"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42066065350"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 47/53 (89%)"
   },
   "head": {
-   "at": "2026-11-05T15:31:01Z",
-   "sha": "3d13f8f",
-   "subject": "follow-up: nws-tornado-build-001 failed by its pinned refusal (2016 GLD #38) - diagnosed row-key grain defect (cow event"
+   "at": "2026-11-05T16:35:45Z",
+   "sha": "e0d190c",
+   "subject": "follow-up: afdb-panel-probe-001 verified handled - staging release 435425973 accounted 4/4 assets via releases API diges"
   },
   "tests": {
    "count": "723",
@@ -18167,13 +19030,23 @@
    "qualified": 0,
    "sessions_7d": 100,
    "tokens_7d": 35769331
+  },
+  {
+   "at": "2026-11-05T16:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 102,
+   "tokens_7d": 36384557
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 601s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-05T15:50:01+00:00",
+   "as_of": "2026-11-05T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -18183,17 +19056,17 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-05T15:50:01+00:00",
+   "as_of": "2026-11-05T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 21
+   "value": 20
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-05T15:50:01+00:00",
+   "as_of": "2026-11-05T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -18986,7 +19859,7 @@
      "lo": 0.005
     },
     {
-     "count": 54,
+     "count": 55,
      "hi": 0.02,
      "lo": 0.01
     },
@@ -19017,11 +19890,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0132,
-   "n": 198,
+   "median": 0.0128,
+   "n": 199,
    "p90": 0.0569,
    "ref_rate": 0.06924,
-   "total": 5.84
+   "total": 5.85
   },
   "jobs": [
    {
@@ -19104,6 +19977,18 @@
     "id": "acnc-diag-002",
     "location": "hel1",
     "normalised_eur": 0.0358,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-05T16:10:36.316253+00:00",
+    "deleted_at": "2026-11-05T16:20:10.944822+00:00",
+    "eur": 0.0018,
+    "hours": 0.16,
+    "id": "afdb-panel-probe-001",
+    "location": "hel1",
+    "normalised_eur": 0.0111,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -21401,18 +22286,18 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 37,
-  "jobs_total": 198,
-  "lifetime_eur": 3.8,
+  "jobs_this_month": 38,
+  "jobs_total": 199,
+  "lifetime_eur": 3.81,
   "live": {
-   "checked_at": "2026-11-05T15:50:40+00:00",
+   "checked_at": "2026-11-05T16:50:40+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 14.2,
+  "month_hours": 14.4,
   "month_to_date": 0.18,
   "months": [
    {
@@ -21428,45 +22313,18 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.1789,
-    "hours": 14.23,
-    "jobs": 37,
+    "eur": 0.1807,
+    "hours": 14.39,
+    "jobs": 38,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 1.07
+  "projected_month_eur": 1.08
  },
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 323.0,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "5175b8b2cbc0ba9f2f548b058a86ec94013be7818386671369a08855ac8f0044",
-    "ts": "2026-11-05T07:11:23.376403+00:00"
-   },
-   {
-    "elapsed_seconds": 1794.9,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "504d1d7ebf6de88f8c91cd2b4ce778a725d388bcc05116d3b3df02dc7f492dd1",
-    "ts": "2026-11-05T08:29:58.135065+00:00"
-   },
    {
     "elapsed_seconds": 5700.1,
     "event": "session",
@@ -21521,8 +22379,35 @@
     "run_budget": 900,
     "submitted_brief_sha256": "b25e27fecd6679e597ed56ca66cb3e180c79f7249fad70a436cfef6a2acaabdf",
     "ts": "2026-11-05T15:31:20.226711+00:00"
+   },
+   {
+    "elapsed_seconds": 1499.8,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "d2dffb0e025048f52abe081f544916b80aa90fa4a49cf592e8e807e12d208196",
+    "ts": "2026-11-05T16:25:02.557559+00:00"
+   },
+   {
+    "elapsed_seconds": 687.1,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "090a4c6ca777f67b703cdfa6e266db5ce574eedaab4cf766359e16f8b2d315af",
+    "ts": "2026-11-05T16:38:04.002727+00:00"
    }
   ],
-  "total": 33
+  "total": 35
  }
 }
