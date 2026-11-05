@@ -1,8 +1,7 @@
 {
  "alarms": [
-  "scout-discovery-session missed its window (2026-11-05T00:05:00+00:00); last status ok",
-  "Token use at 85% of the weekly ceiling",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (154.5h)"
+  "Token use at 86% of the weekly ceiling",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (155.5h)"
  ],
  "budget": {
   "config": {
@@ -19,15 +18,13 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-11-05T00:50:03.152136+00:00",
+   "allowed": true,
+   "moment": "2026-11-05T01:50:02.904981+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 2999s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 34123214,
+   "research_tokens_last_7_days": 34419920,
    "runs_last_7_days": 96,
    "runs_weighted_last_7_days": 109,
    "session_cap_per_week": 200,
@@ -54,13 +51,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 2670,
+     "calls": 2691,
      "cost_status": [
+      "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 11689792,
-     "output_tokens": 2653199,
+     "input_tokens": 11966297,
+     "output_tokens": 2673400,
      "pricing_available": false
     }
    },
@@ -78,7 +76,7 @@
    "CI": 1,
    "CO": 2,
    "DE": 1,
-   "EU": 4,
+   "EU": 3,
    "GB": 3,
    "IN": 1,
    "NZ": 2,
@@ -86,9 +84,9 @@
   },
   "counts": {
    "dropped": 49,
-   "investigating": 20,
+   "investigating": 19,
    "packaged": 3,
-   "parked": 30,
+   "parked": 31,
    "published": 14,
    "ready": 16
   },
@@ -732,51 +730,6 @@
     "split_strategy": "Temporal, one row per eligible alert event: train 2006-2019, eval 2020-2022, holdout 2023-2026 Q2 (file ends 2026-06-30). Measured at label window [D+1,D+7]: train 28,864 events / 3,638 positives (12.60%); eval 9,623 / 1,560 (16.21%); holdout 14,561 / 2,408 (16.54%). Positives occur in every year 2006-2026. Positives cluster by storm: 458 distinct year-weeks carry at least one positive (top week 2020-W7, Storms Ciara/Dennis, 324 same-window positives at the [D,D+7] definition). Report per-year metrics: a reporting-system migration in April 2017 (Floodline Warnings Direct -> Flood Warning System, per the EA's dataset description) is a candidate structural break.",
     "status": "investigating",
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
-   },
-   {
-    "awaiting_operator": false,
-    "baseline": {},
-    "country": "EU",
-    "domain": "EU competition policy / state aid control (DG COMP case register)",
-    "id": "ec-state-aid-investigation-opening",
-    "jobs": [],
-    "licence_summary": {
-     "compilation_spdx": null,
-     "source_spdx": null,
-     "status": null
-    },
-    "measurements": {
-     "what_is_measured": "Nothing yet - this record was opened from the EU/EEA discovery tick's channel search only. No data was downloaded. The register's own long-standing web application (online since 2001, updated daily, per DG COMP's State aid Scoreboard documentation) is now additionally published as a machine-readable JSON dataset on data.europa.eu - that channel is the discovery."
-    },
-    "next_action": "Next probe (a later discovery/advancement tick, bounded): (1) pull the JSON distribution URL from the portal record and measure per-case schema, per-year case c",
-    "packaged_at": null,
-    "path": "candidates/ec-state-aid-investigation-opening/record.json",
-    "prediction_time": "The case's notification/registration date as published in the case record (to be verified in the JSON distribution's schema at the next probe). Features would be the fields fixed at notification: Member State, legal basis, aid instrument, sector, title text - all documented register fields; the decision-type/-date fields are post-hoc and must be excluded from features.",
-    "publisher": "European Commission, Directorate-General for Competition (state aid register), republished via data.europa.eu",
-    "qualification": {
-     "artifact_version": null,
-     "result": null,
-     "splits": null
-    },
-    "question": "At the instant the European Commission registers a state aid case (SA case number assigned on notification/registration, per the register's documented case fields), will the measure be handled under the ordinary/simplified procedure or will the Commission open a formal investigation under Article 108(2) TFEU before deciding?",
-    "region": "Europe",
-    "release_baseline": {
-     "auc": null,
-     "display": null,
-     "reference": null
-    },
-    "release_splits": {},
-    "review": "Promising institutional-decision task in a procedure family this bench knows well (ec-merger-phase2-opening is published for merger control; state aid control is a different procedure, different population (SA.xxxxx cases, ~2 decades, tens of thousands of measures) and a different label). The cheapest unresolved fact that could change the verdict: whether the JSON distribution actually carries per-case row-level fields (registration date, legal basis, instrument, decision type/dates) with usable coverage, and what the Article 108(2)-opening base rate per year is. Second: the publisher's own licence instrument. A third check, novel to this family: the register is a live database, so historical vintages/as-of evidence for the case fields must be stated (case records carry their own decision dates, which mitigates, but feature-vintage claims need evidence).",
-    "sources": [
-     {
-      "licence": "not yet verified on the publisher's own page (competition-cases.ec.europa.eu); the portal record states public access; classify only after reading the publisher's reuse notice",
-      "name": "EU Competition: State Aid case publications (DG COMP state aid register republished as a data.europa.eu dataset; JSON)",
-      "url": "https://data.europa.eu/data/datasets/fa8d67be-d050-42a4-97ff-9e849805acf9~~1"
-     }
-    ],
-    "split_strategy": "",
-    "status": "investigating",
-    "target": "Binary label derived from the case's decision record: a decision opening proceedings under Article 108(2) TFEU (formal investigation) vs decisions taken without opening (no-objection, block-exemption compatibility). Label source = the case's decision fields, excludable from features. Base rate unknown until the distribution is measured."
    },
    {
     "awaiting_operator": false,
@@ -1642,7 +1595,7 @@
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
    }
   ],
-  "non_us_share": 95.0,
+  "non_us_share": 94.7,
   "records": [
    {
     "awaiting_operator": false,
@@ -3451,7 +3404,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 14.0,
+    "age_hours": 15.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -4732,9 +4685,19 @@
      "status": null
     },
     "measurements": {
-     "what_is_measured": "Nothing yet - this record was opened from the EU/EEA discovery tick's channel search only. No data was downloaded. The register's own long-standing web application (online since 2001, updated daily, per DG COMP's State aid Scoreboard documentation) is now additionally published as a machine-readable JSON dataset on data.europa.eu - that channel is the discovery."
+     "channel_2026_10_28": "Opened from the EU/EEA tick's channel search: the register's long-standing web application (online since 2001, updated daily per DG COMP's State aid Scoreboard documentation) is now additionally published as a machine-readable JSON dataset on data.europa.eu.",
+     "licence_probe_2026_11_05": "Read-only, bounded, anonymous (probe/probe_licence_2026_11_05.py): (a) data.europa.eu hub record 200 / 59,502 B, licence null, 1 JSON distribution, downloadURL the S3 object, modified 2026-11-02; (b) landing page 200 / 56,823 B with no legal/licence/reuse links in plain HTML; (c) /legal-notice, /en/legal-notice, /about and /api/config all return the identical 56,823-byte shell (catch-all); (d) S3 HEAD 704,703,783 B, Last-Modified 2026-11-03T03:49:43Z, no licence metadata, x-amz-expiration 2026-12-04 (DeleteOldODPLogs); (e) S3 bucket listing 403.",
+     "probe_evidence_2026_10_30_committed": {
+      "all_case_counts_by_initiation_year": "sa_year_counts.json 1993-2026, e.g. 1993 17 cases/6 openings; 2004 1601/145; 2011 1098/149; 2014 1535/84; 2019 2825/199; 2020 4089/32; 2021 4437/18; 2022 3851/6; 2023 5041/6; 2024 5433/6; 2025 3862/8; 2026 3106/0.",
+      "exact_case_level_openings": "sa_opening_cases_exact.json: distinct case numbers with an A44 decision per initiation year, TOTAL 1,083 over 1993-2026 (e.g. 2004 120, 2011 54, 2019 55, 2023 3, 2025 4, 2026 0).",
+      "measured_coverage_caveat": "The notified-population filter returns 0 for 2025-2026 although sa_year_counts.json reports 3,862 and 3,106 SA cases initiated in those years: notification-date coverage in the live index/search API is incomplete for the most recent vintage, so recent-year counts are NOT usable as split evidence. Additionally the opening prevalence drops from ~5-8% (2000s) to ~0.3% (2015+), a regime change that any task definition must state.",
+      "not_measured": "Per-field schema documentation for the shipped features (the 704 MB dump's full field set was range-sampled, not enumerated); label observability reconciliation for no-decision cases (sa_nodec_sample.py only printed a sample); the dated worked example; the novelty sweep (check-novelty.py); the licence instrument itself.",
+      "notified_population_counts": "sa_notified_split_counts.json 1995-2026, notified cases / opening cases: 1995 21/4; 2000 516/53; 2004 1444/120; 2008 1569/42; 2011 1055/54; 2014 1481/31; 2015 3009/10; 2019 2803/54; 2020 4025/10; 2021 4364/6; 2022 3749/2; 2023 4845/1; 2024 2106/0; 2025 0/0; 2026 0/0.",
+      "population_and_label": "Population: SA cases with a recorded caseNotificationDate (ex-officio cases, which have no notification instant, excluded). Label: a distinct case number carrying at least one DecisionTypeA44 decision (Article 108(2) formal investigation opening), counted per case initiation year.",
+      "what": "Probe scripts and outputs committed at 5fe48f5 (2026-11-01) but never entered this record; verified present in git this session: probe/sa_range_probe.py (ranged GET sampling of the 704 MB case-data-SA.json), sa_decompose.py, sa_exact_openings.py, sa_final_counts.py, sa_nodec_sample.py; outputs sa_year_counts.json, sa_notified_split_counts.json, sa_opening_cases_exact.json."
+     }
     },
-    "next_action": "Next probe (a later discovery/advancement tick, bounded): (1) pull the JSON distribution URL from the portal record and measure per-case schema, per-year case c",
+    "next_action": "PARKED until a reopening event. The ONE cheapest reopening probe, when the supported browser is available (a later discovery tick): open https://competition-cas",
     "packaged_at": null,
     "path": "candidates/ec-state-aid-investigation-opening/record.json",
     "prediction_time": "The case's notification/registration date as published in the case record (to be verified in the JSON distribution's schema at the next probe). Features would be the fields fixed at notification: Member State, legal basis, aid instrument, sector, title text - all documented register fields; the decision-type/-date fields are post-hoc and must be excluded from features.",
@@ -4755,13 +4718,13 @@
     "review": "Promising institutional-decision task in a procedure family this bench knows well (ec-merger-phase2-opening is published for merger control; state aid control is a different procedure, different population (SA.xxxxx cases, ~2 decades, tens of thousands of measures) and a different label). The cheapest unresolved fact that could change the verdict: whether the JSON distribution actually carries per-case row-level fields (registration date, legal basis, instrument, decision type/dates) with usable coverage, and what the Article 108(2)-opening base rate per year is. Second: the publisher's own licence instrument. A third check, novel to this family: the register is a live database, so historical vintages/as-of evidence for the case fields must be stated (case records carry their own decision dates, which mitigates, but feature-vintage claims need evidence).",
     "sources": [
      {
-      "licence": "not yet verified on the publisher's own page (competition-cases.ec.europa.eu); the portal record states public access; classify only after reading the publisher's reuse notice",
+      "licence": "NONE STATED at the dataset level: the portal record's licence field is null; the S3 object carries no licence metadata (probe_licence_2026_11_05.py, 2026-11-05).",
       "name": "EU Competition: State Aid case publications (DG COMP state aid register republished as a data.europa.eu dataset; JSON)",
       "url": "https://data.europa.eu/data/datasets/fa8d67be-d050-42a4-97ff-9e849805acf9~~1"
      }
     ],
     "split_strategy": "",
-    "status": "investigating",
+    "status": "parked",
     "target": "Binary label derived from the case's decision record: a decision opening proceedings under Article 108(2) TFEU (formal investigation) vs decisions taken without opening (no-objection, block-exemption compatibility). Label source = the case's decision fields, excludable from features. Base rate unknown until the distribution is measured."
    },
    {
@@ -9127,7 +9090,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 154.5,
+    "age_hours": 155.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -12632,7 +12595,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 3.7,
+    "age_hours": 4.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -12998,7 +12961,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 14.0,
+     "age_hours": 15.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13172,7 +13135,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 154.5,
+     "age_hours": 155.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13458,7 +13421,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 3.7,
+     "age_hours": 4.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -13638,7 +13601,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 14.0,
+     "age_hours": 15.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13812,7 +13775,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 154.5,
+     "age_hours": 155.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -14098,7 +14061,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 3.7,
+     "age_hours": 4.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -14327,16 +14290,16 @@
   },
   "by_status": {
    "dropped": 49,
-   "investigating": 20,
+   "investigating": 19,
    "packaged": 3,
-   "parked": 30,
+   "parked": 31,
    "published": 14,
    "ready": 16
   },
   "candidates": 132,
-  "live": 53,
-  "live_non_us": 47,
-  "live_non_us_share": 0.887,
+  "live": 52,
+  "live_non_us": 46,
+  "live_non_us_share": 0.885,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -14358,10 +14321,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-05T00:50:01.456403+00:00",
+    "last_run_at": "2026-11-05T01:50:02.186229+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-05T01:00:00+00:00",
+    "next_run_at": "2026-11-05T02:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14382,10 +14345,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-05T00:50:00.986802+00:00",
+    "last_run_at": "2026-11-05T01:50:00.845111+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-05T00:55:00+00:00",
+    "next_run_at": "2026-11-05T01:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14406,10 +14369,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-05T00:46:47.853133+00:00",
+    "last_run_at": "2026-11-05T01:47:05.220098+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-05T00:51:47.853133+00:00",
+    "next_run_at": "2026-11-05T01:52:05.220098+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14418,10 +14381,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-04T23:55:00.965345+00:00",
+    "last_run_at": "2026-11-05T01:50:00.931884+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-05T00:05:00+00:00",
+    "next_run_at": "2026-11-05T01:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14442,10 +14405,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-04T23:50:51.678453+00:00",
+    "last_run_at": "2026-11-05T00:50:52.442978+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-05T01:50:00+00:00",
+    "next_run_at": "2026-11-05T02:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14454,10 +14417,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-04T23:55:01.297906+00:00",
+    "last_run_at": "2026-11-05T00:55:01.179929+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-05T00:55:00+00:00",
+    "next_run_at": "2026-11-05T01:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14498,9 +14461,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-05T00:50:01.457404+00:00"
+  "updated_at": "2026-11-05T01:50:02.187374+00:00"
  },
- "generated_at": "2026-11-05T00:50:01+00:00",
+ "generated_at": "2026-11-05T01:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -14508,19 +14471,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-05T00:24:58Z",
-   "head_sha": "415fee1",
+   "created_at": "2026-11-05T01:28:50Z",
+   "head_sha": "78c7d97",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41941149968"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41948794595"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 47/53 (89%)"
+   "summary": "live non-US: 46/52 (88%)"
   },
   "head": {
-   "at": "2026-11-04T22:47:15Z",
-   "sha": "415fee1",
-   "subject": "unhcr-corridor-entry-surge construction built + rehearsed + preflighted; launch refused by provider (Hetzner 412 resourc"
+   "at": "2026-11-05T01:28:46Z",
+   "sha": "78c7d97",
+   "subject": "discovery tick (EU/EEA): ec-state-aid-investigation-opening PARKED on measured access evidence - dataset record licence "
   },
   "tests": {
    "count": "720",
@@ -17607,15 +17570,21 @@
    "qualified": 0,
    "sessions_7d": 96,
    "tokens_7d": 34123214
+  },
+  {
+   "at": "2026-11-05T01:50:01+00:00",
+   "live": 19,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 96,
+   "tokens_7d": 34419920
   }
  ],
- "notices": [
-  "A research session is running: lock held for 2999s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-05T00:50:01+00:00",
+   "as_of": "2026-11-05T01:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17625,17 +17594,17 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-05T00:50:01+00:00",
+   "as_of": "2026-11-05T01:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 20
+   "value": 19
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-05T00:50:01+00:00",
+   "as_of": "2026-11-05T01:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -20787,7 +20756,7 @@
   "jobs_total": 193,
   "lifetime_eur": 3.74,
   "live": {
-   "checked_at": "2026-11-05T00:50:40+00:00",
+   "checked_at": "2026-11-05T01:50:39+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -20820,22 +20789,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 1,
+  "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 736.7,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "6bc3e03242316f550fabf398f69531a563540f00fd58306cc894a6ac99024e4f",
-    "ts": "2026-11-04T17:10:28.362418+00:00"
-   },
    {
     "elapsed_seconds": 1373.2,
     "event": "session",
@@ -20904,8 +20859,21 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "0f7026a062624085a43464abc1c2dea25ee0e286c84f43ea4476d35248ee0484",
     "ts": "2026-11-04T22:48:38.798936+00:00"
+   },
+   {
+    "elapsed_seconds": 5381.4,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "9212a253c4a7586c1d32e140b0f6d42d61ac28a010ab58367bfd451ad19af938",
+    "ts": "2026-11-05T01:29:45.578613+00:00"
    }
   ],
-  "total": 21
+  "total": 22
  }
 }
