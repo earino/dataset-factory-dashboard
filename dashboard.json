@@ -1,8 +1,7 @@
 {
  "alarms": [
-  "Token use at 86% of the weekly ceiling",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (161.5h)",
-  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
+  "Token use at 87% of the weekly ceiling",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (162.5h)"
  ],
  "budget": {
   "config": {
@@ -20,12 +19,12 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-05T07:50:02.773664+00:00",
+   "moment": "2026-11-05T08:50:02.510012+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 34527345,
+   "research_tokens_last_7_days": 34725733,
    "runs_last_7_days": 99,
    "runs_weighted_last_7_days": 112,
    "session_cap_per_week": 200,
@@ -52,14 +51,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 3016,
+     "calls": 3102,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 12508599,
-     "output_tokens": 2985465,
+     "input_tokens": 12610804,
+     "output_tokens": 3082449,
      "pricing_available": false
     }
    },
@@ -73,7 +72,7 @@
   "countries": {
    "AU": 1,
    "BR": 2,
-   "CA": 2,
+   "CA": 3,
    "CI": 1,
    "CO": 2,
    "DE": 1,
@@ -85,7 +84,7 @@
   },
   "counts": {
    "dropped": 50,
-   "investigating": 20,
+   "investigating": 21,
    "packaged": 3,
    "parked": 31,
    "published": 14,
@@ -364,6 +363,77 @@
     "split_strategy": "Temporal on the original notice publicationDate over 2009-2026 (legacy archive 2009-2022 measured to carry the SAME 67-column schema including tenderStatus; cancellation present in bounded slices from 2017, 2018 and 2021). Indicative windows pending the bulk count pass: train 2009-2019, eval 2020-2023, holdout 2024-2026, each multi-year with both classes expected from the measured per-FY rate. Measured basis (FY2023-24, whole-FY bounded sample): RFP-like population 5,749 solicitations with 397 Cancelled (6.90%); all-solicitations 6,829 with 415 Cancelled (6.08%); both classes present. Per-window exact counts are the FIRST construction measurement on the worker (the ~746 MB tender archive download is bulk work and stays off the coordinator); no sampled number is claimed as a total. Cancellations cluster by contracting entity and publication month, so intervals must be clustered on (entity, publication-month); clustered counts are reported beside raw counts.",
     "status": "investigating",
     "target": "Binary: 1 if the solicitation's terminal tenderStatus (current archive) is 'Cancelled'; 0 if 'Expired'. Label source column: tenderStatus-appelOffresStatut-eng/-fra, excluded from shipped features. Population restricted to the RFP-like notice types above; excluded: Request for Information (measured 3.2% award-notice rate - no award by design), Advance Contract Award Notice (award pre-decided), Directed Contract and Not Applicable (non-competitive instruments). Observed absence vs no-event: 'Expired' is an observed terminal state (closed without cancellation), not missing data. Multi-row rule: 499/6,829 FY2023-24 solicitations carry amendment rows with their own later publication dates, and 144 of those show differing statuses across rows - construction defines precedence as any-row-Cancelled (solicitation-level label), verified on a bounded sample against the notice pages; measured FY2023-24 impact of the precedence choice is small (base rate 6.08% under max-amendment-row vs 6.1-6.9% band). Censoring: solicitations still Open at harvest are excluded. Optional recorded variant (NOT the primary label): no award notice published among Expired RFP-like solicitations (measured ~48% in the FY2023-24 + FY2024-25 award files) - ambiguous because award-notice publication is not guaranteed for every award."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "CA",
+    "domain": "border operations / queueing - service-standard exceedance nowcast at land ports of entry (Canada, federal)",
+    "id": "cbsa-land-border-wait-exceedance",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "archive_end_evidence_2026_11_05": "The hourly series definitively ended: Wayback capture 2021-11-23 of the dataset page shows the 24 quarterly resources ending 2020-01..2020-03 and NO successor resource; captures 2024-12-02 and 2025-01-17 show the monthly file at 'to 2024-10-31'; capture 2026-01-16 shows 'to 2025-10-31' (current); blob Last-Modified 2025-12-16. CKAN resource for the EN 2020 Q1 file is missing, but the file is live (HTTP 200, HEAD 2026-11-05) at the predictable URL - all 24 EN quarterly URLs measured 200.",
+     "base_rates_2019q3_2026_11_05": "Traveller cells, 2019 Q3 (valid = minutes or no-delay = 80,630 of 81,836 rows; excluded: missed_entry 649, closed 557): minute-rows 30,390 (37.7% of valid) with mean 13.36 min, max 199. Per-cell exceedance: >5 min 22.6%, >10 min 14.6%, >15 min 10.1%, >30 min 3.79%, >60 min 0.75%. Per-port >30-min cells: Douglas/Peace Arch 1,212/3,318 (36.5%), Pacific Highway 803/4,687 (17.1%), Thousand Islands 106/338 (31.4%), St-Armand/Philipsburg 80/357 (22.4%), Aldergrove 224/2,401 (9.3%), Coutts 47/479 (9.8%), and 6 more ports positive; 2 of 25 ports with valid cells have zero >30 cells (small ports) - the exceedance population is concentrated but multi-port. Commercial flow exists at 23 of 26 offices in the quarter (not_applicable 14,987 rows) - a recorded optional variant, not the primary label.",
+     "catalogue_2026_11_05": "open.canada.ca CKAN package_search q='border wait': 4 datasets - Current BWT (d4a716f5, live CSVs only), Historical BWT Land (000fe5aa), Historical BWT Air (fe8020ad, monthly air-mode service-standard panel 31 KB - sibling noted, not opened), and an unrelated dataset. All license_id ca-ogl-lgo, org cbsa-asfc.",
+     "duplicate_conflicts_2026_11_05": "2019 Q3: 11,960 of 57,434 (20.8%) office-hours carry >1 row; max 15; group-size distribution 2:139, 3:11494, 4:213, 5:38, 6:32, 7:26, 8:2, 9:4, 10:2, 11:9, 15:1; 18,053 rows sit in duplicate groups with CONFLICTING values (22% of all rows), concentrated at the six busiest ports (Peace Bridge 4,035; Queenston-Lewiston 3,861; Pacific Highway 3,802; Douglas/Peace Arch 2,383; Rainbow 2,279; Aldergrove 1,693) - the size-3 groups often carry three different values (e.g. Aldergrove 2019-06-30 21:00: 30/13/2), while large groups are mostly repetition with one differing value (Pacific Highway 2019-07-06 10:00: 14x'70' + 1x'44'). The publisher's changelog acknowledges exactly this ('duplicate records (same location and timestamp) ... with conflicting border wait time values'). Any-row ('any reported value exceeds') semantics is the recorded label choice; construction fixes and documents it before scoring.",
+     "fetch_cost_2026_11_05": "Coordinator, anonymous HTTPS: 2019 Q3 EN 5,705,884 B and 2020 Q1 FR 6,383,740 B each in a few seconds; monthly file 80,693 B; live feed 3,270 B; three 60 KB range slices of the 71,369,535 B combined file; 24 HEAD requests. Full harvest (worker, one job): 24 EN quarterly files (~5.0-13.5 MB each) + the 71.4 MB combined file ~= 190 MB across ~25 GETs; same machine class as canadabuys's measured ~8 s per 45 MB => minutes-scale, single standard worker job. Timezone normalization: 10 tz abbreviations measured, all fixed-offset Canadian zones.",
+     "grain_and_coverage_2026_11_05": "2019 Q3 EN full quarter (81,836 rows, 26 offices, 2019-06-30 21:00..2019-10-01 01:00): 57,434 distinct (office,timestamp) keys vs ~57,564 theoretical office-hours for 26 offices x the quarter = 99.8% complete hourly grid. The archive's grain is (office, hour). Quarterly files OVERLAP at boundaries (Q3 starts 2019-06-30 21:00 before its nominal 2019-07-01; ends 2019-10-01 01:00; the 2010-2014 combined file contains rows into 2014-04-04, overlapping the first quarterly) - cross-file dedupe on (office, UTC-normalized hour) is mandatory. 2020 Q1 FR (80,439 rows, 26 offices, 2019-12-31 23:00 CST..2020-04-01 00:00 EDT) confirms the same grid at the archive's end.",
+     "known_event_fixture_2026_11_05": "COVID-19 US-Canada border closure to non-essential travel 2020-03-21 (named event, expected verdict: traveller delays become rarer). Measured on the 2020 Q1 FR file: pre-2020-03-21 70,856 rows, no-delay 77.6%, minute-rows 14,360, max 298, >30-min 566 (3.9% of minute-rows); post-2020-03-21 9,583 rows, no-delay 87.3%, minute-rows 1,015, max 75, >30-min 18 (1.8% of minute-rows). Direction confirmed, magnitude moderate (not a collapse - essential travel continued and the archive ends 10 days after the event); recorded as measured, not inflated. Second fixture family: long weekends (Canada Day, Civic Holiday, Labour Day) at the BC and Niagara ports - per-window counts come from the worker pass.",
+     "measured_on": "2026-11-05 from the coordinator, anonymous HTTPS only; scripts: candidates/cbsa-land-border-wait-exceedance/probe/ (measure_archive.py, measure_monthly.py reproduce the quoted numbers from the recorded URLs; fetch commands recorded in notes.md)",
+     "monthly_cross_check_panel_2026_11_05": "The publisher's own monthly aggregate (source 2): 26 ports x 79 months 2019-04..2025-10, 2,054 rows, 0 duplicates, pct-met range 59.03..100.00; base rates for a monthly miss label: <100 65.5%, <99 47.9%, <97 34.3%, <95 26.1%, <90 13.8% (recorded for the cross-check design; a monthly task was NOT opened - the panel is small, own-history-only, and its observed refresh is annual despite the 'Monthly' claim). Cross-check plan for qualification: for the 11 overlap months 2019-04..2020-03, the archive-derived monthly share of office-hours meeting the in-force rule must reproduce the published pct-met within a stated tolerance; disagreement names the rule form actually used by the publisher.",
+     "novelty_searches_2026_11_05": "Hugging Face datasets API search 'border wait': 0 hits; 'border crossing': 5 hits, all US BTS monthly VOLUME mirrors or Africa logistics sets - none are wait-time series, none Canadian. Web search: no ML-ready dataset or benchmark on the CBSA series found. Adjacent prior art (models in papers, not shipped datasets): deep-learning crossing-delay prediction at the Niagara Frontier borders from researcher-collected Bluetooth data (US DOT report, rosap.ntl.bts.gov/view/dot/50534); Blue Water Bridge ISFC crossing-time regression (dot/86608); El Paso CV-data crossing-time estimation (Sage 2024); a 2026 multi-modal border-queue framework on SYNTHETIC data (arXiv 2608.27010). CBSA's own CanBorder app ships forecasted wait times as a product, not as data with splits. US-bound waits are a separate product (CBP bwt.cbp.gov / BTS), explicitly distinct from this Canada-bound series.",
+     "schema_and_vocabulary_2026_11_05": "Archive columns: 'CBSA Office,Location,Updated,Commercial Flow,Travellers Flow' in the 2010-2014 file (header renamed 2016-07-20 per changelog) vs 'Custom Office Name,...' in 2019-era quarterlies; FR files are cp1252-encoded with French headers/values ('Nom du bureau', 'Aucun delay' family). Status vocabulary per the publisher's data dictionary (ref.odt v2017-04-11): minute counts; 'No delay' = five minutes or less; 'Closed' = outside operating hours; 'Not applicable' = business line not available at that port; 'Missed entry' = no wait recorded for the period. Case drifts by era ('No Delay' in the 2010-2014 file, 'No delay' in 2019); parse case-insensitively. All five behaviours measured in samples.",
+     "service_standard_evolution_2026_11_05": "Highway traveller service standard, publisher's own pages (current + Wayback): FY2014-15, FY2016-17, FY2017-18: '10 minutes on weekdays (Monday to Thursday); 20 minutes weekends (Friday, Saturday, Sunday) and holidays', target 95% (FY2014-15 result 97.1%). FY2018-19 onward: adds 'September to June:' prefix and 'July to August: 20 minutes (7 days a week)'. Current pages (FY2020-21..FY2026-27) keep that form; quoted results 99.35% (FY2020-21, pandemic), 94.97% (FY2024-25), 96.9% (FY2025-26). The FY2015-16 and FY2010-11..FY2013-14 forms were NOT found in this session - named verification prerequisite for the era-correct label rule (option (b) core 10/20 rule avoids the dependency)."
+    },
+    "next_action": "One bounded worker measurement pass (advancement owns it), then ready/drop decision on measured criteria. Job: fetch all 24 EN quarterly files + the 2010-2014 c",
+    "packaged_at": null,
+    "path": "candidates/cbsa-land-border-wait-exceedance/record.json",
+    "prediction_time": "T = the snapshot hour of port P as printed in the archive's 'Updated' column (local-time string with a Canadian tz abbreviation; ADT/AST/EDT/EST/CDT/CST/MDT/MST/PDT/PST all measured in samples, each resolving to a fixed UTC offset; construction normalizes to UTC and states the offset table). Features are archive rows with Updated <= T. The target window (T, T+24h] is strictly after the instant; no part of it precedes T. RETROSPECTIVE, ARCHIVE-VINTAGE framing (recorded, not resolved to operational): the hourly archive is a frozen historical record published in batches (the 2010-2014 file and the 2014-2016Q1 quarterly files all carry CKAN created=2016-12-01; later quarters in batches 2017-03..2020-04; the series ends 2020-03-31 - Wayback capture 2021-11-23 shows 24 quarterly resources ending 2020-01..2020-03 and no successor, and the monthly service-standard file only appears by 2024-12), so the task claims no operational download availability at T; the files fetched today are one current vintage (the changelog documents FR translation fixes 2017-09-19 and a column rename 2016-07-20 as the only revisions; no EN data-value revision is documented, and current-vintage is the recorded assumption, same posture as the abs-visitor precedent). The self-collection option (hourly fetch of the live feed, ~3.3 KB per fetch, to build a fresh operational tail from now) is recorded as a possible extension, not part of this task.",
+    "publisher": "Canada Border Services Agency (CBSA) via open.canada.ca",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a measured CBSA land port of entry P, at instant T = the publication timestamp of one of CBSA's hourly border-wait-time snapshots, using only hourly snapshots of the archive with timestamps <= T (port identity, hour-of-day, day-of-week, season, recent wait history and status vocabulary), will the port's traveller flow exceed the CBSA highway-traveller service standard at ANY hourly snapshot in the next 24 hours, i.e. the window (T, T+24h]? A useful prediction lets a traveller or dispatcher re-time or re-route a crossing a day ahead, the same decision CBSA's own CanBorder app supports with forecasts; it also lets CBSA compare ports against its published 95% compliance target.",
+    "region": "North America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Five contracts at probe time: (1) Redistribution - SUPPORTED: OGL-Canada 2.0 on the publisher's own package record (ca-ogl-lgo), explicit copy/modify/publish/adapt/distribute grant incl. commercial use; class A; attribution statement required and carried to LICENSE.md. (2) Prediction timing - SUPPORTED WITH RECORDED SCOPE: instant = archive snapshot hour T, features = rows with Updated <= T, target window strictly after T, timezone table measured; the framing is RETROSPECTIVE/ARCHIVE-VINTAGE because the archive is frozen (ended 2020-03-31, successor evidence chain via Wayback) and was itself published in batches - no operational-download claim is made, current-vintage assumption recorded (abs precedent posture). (3) Target - SUPPORTED: label source = Travellers Flow cells after T, excludable via common-cutoff design (abs-visitor defect class named as a gate check); the threshold has external meaning from the publisher's documented service standard (rule forms pinned FY2014-15..present via the publisher's pages incl. Wayback); eligibility and censoring defined at the instant (Closed/Not applicable/Missed entry are statuses, not outcomes); publisher-acknowledged duplicate conflicts measured (20.8% of office-hours) with a deterministic any-row rule fixed before scoring. (4) Split capacity - PARTIALLY MEASURED: grain and per-cell base rates measured on two full quarters (2019 Q3 EN + 2020 Q1 FR) + three era slices; three disjoint multi-year windows fit the 2010-2020 span with both classes expected; exact per-window counts need one bulk worker pass (recorded as the prerequisite to ready; never extrapolated to a claimed total). (5) Not a mirror - differentiated (novelty check recorded): no ML-ready task on the CBSA series anywhere found; closest prior art is researcher-collected-sensor models at 4-6 ports and CBSA's own app forecasts - neither ships data, splits or a scored contract; the nearest bench family abs-visitor-arrivals-direction is a monthly aggregate direction task on a different publisher/population, and its known defect class is addressed here by design.",
+    "sources": [
+     {
+      "licence": "Open Government Licence - Canada 2.0 (license_id ca-ogl-lgo on the package record)",
+      "name": "CBSA Historical Border Wait Times - Land Mode, open.canada.ca dataset 000fe5aa-1d77-42d1-bfe7-458c51dacfef (the task source)",
+      "url": "https://open.canada.ca/data/en/dataset/000fe5aa-1d77-42d1-bfe7-458c51dacfef"
+     },
+     {
+      "licence": "Open Government Licence - Canada 2.0 (same package)",
+      "name": "CBSA monthly service-standard summary, 'Historical Border Wait Times - 2019-04-01 to 2025-10-31' (resource 2b5853e4 of the same package) - cross-check product, NOT the task source",
+      "url": "https://open.canada.ca/data/dataset/000fe5aa-1d77-42d1-bfe7-458c51dacfef/resource/2b5853e4-41b4-4858-86dd-38012e30d5b8/download/land-bwt-opengov-en.csv"
+     },
+     {
+      "licence": "Publisher's supporting documentation under the same GC web terms; used only as rule evidence, not as a data source.",
+      "name": "CBSA service-standard pages (the label's external meaning), current and Wayback-pinned",
+      "url": "https://www.cbsa-asfc.gc.ca/services/serving-servir/standards-normes-2026-2027-eng.html (current); http://web.archive.org/web/20170719071209/http://www.cbsa-asfc.gc.ca/services/serving-servir/standards-normes-2014-2015-eng.html (FY2014-15); .../20170128023922/...standards-normes-2016-2017-eng.html (FY2016-17); .../20170604062445/...standards-normes-2017-2018-eng.html (FY2017-18); .../20180728094303/...standards-normes-2018-2019-eng.html (FY2018-19)"
+     },
+     {
+      "licence": "Open Government Licence - Canada 2.0 (license_id ca-ogl-lgo)",
+      "name": "CBSA Current Border Wait Times live feed, open.canada.ca dataset d4a716f5-a2fc-4c3c-88ed-451fe05900e4 - schema-drift evidence and optional collection target, NOT the task source",
+      "url": "https://www.cbsa-asfc.gc.ca/bwt-taf/bwt-eng.csv"
+     }
+    ],
+    "split_strategy": "Temporal thirds on the frozen hourly archive 2010-01..2020-03, instant = snapshot hour; candidate windows train 2010-01..2016-12 / eval 2017-01..2018-12 / holdout 2019-01..2020-03 (each multi-year, disjoint, ordered; the 2020-03-21 COVID closure sits in the holdout's last 10 days and is a known-event fixture, not a whole-window effect). Clustering: (port, calendar-day) is the dependence unit (within-port serial correlation plus day-level demand shocks such as long weekends); clustered counts reported beside raw counts. Both classes expected in every window from measured per-port rates (12 ports with >30-min traveller exceedances in 2019 Q3 alone; 0 of 12 named busiest ports is all-negative), but exact per-window label counts at the chosen threshold rule are the FIRST construction measurement on the worker - the ~190 MB full archive is bulk work and stays off the coordinator; no sampled number is claimed as a total.",
+    "status": "investigating",
+    "target": "Binary: 1 if the port's Travellers Flow cell at ANY hourly snapshot in (T, T+24h] exceeds the CBSA highway-traveller service standard; 0 if no valid traveller cell in the window exceeds it. Label source: the Travellers Flow cells of the target window's snapshots; they are excluded from solver-visible features by a common-cutoff design (no shipped row may expose another scored row's outcome - the abs-visitor/canadabuys blind-join defect class is a named gate check). Threshold rule: the publisher's own service standard, whose documented forms are 10 minutes on weekdays (Mon-Thu) and 20 minutes on weekends (Fri-Sun) and holidays for FY2014-15..FY2017-18, and from FY2018-19 additionally 'July to August: 20 minutes (7 days a week)' (all quoted from CBSA service-standard pages, current and Wayback-pinned, see measurements.service_standard_evolution). Construction picks ONE of: (a) era-correct full rule (needs the FY2010-11..FY2013-14 forms verified - named prerequisite; FY2014-15 back is verified), or (b) the era-stable core rule 10/20 weekday/weekend-holiday everywhere (conservative, verified FY2014-15..present), or (c) a fixed plain threshold (e.g. >20 min) if the standard-linked rule proves unstable. Valid label denominator: traveller cells whose value is a minute count or 'No delay' (dictionary: 'No delay' = five minutes or less). 'Closed' (outside operating hours), 'Not applicable' (business line unavailable) and 'Missed entry' (no wait recorded) are not outcomes: an (office, hour) whose whole target window has no valid traveller cell is ineligible and right-censored out, never imputed; eligibility is decided from information at T (the port's own status history) not from the outcome. In-hour duplicate rows (publisher-acknowledged) are collapsed by a deterministic rule fixed before scoring: label = exceedance of ANY reported value in the (office, hour) group ('any' semantics; a conservative choice for a warning-use task, robust to the measured duplicate conflict pattern)."
    },
    {
     "awaiting_operator": false,
@@ -1026,14 +1096,15 @@
      "status": null
     },
     "measurements": {
-     "cost_unknown_page_extraction": "Per-page extraction cost at cohort scale (6,600 pages) NOT yet measured - named as the next bounded measurement before any ready verdict.",
+     "cost_unknown_page_extraction": "RESOLVED 2026-11-05 by the 60-page stratified sample: mean 170,415 B and 3.00 s per page; 6,600-page cohort extraction ~= 1.12 GB, ~5.5 h serial - a bounded-concurrency worker prerequisite (see registry_page_stratified_sample_2026_11_05).",
      "full_layer_fetch_2026_10_30": "All 6,600 attribute rows (project_id, project_cat_en, province_codes, start_date, project_state_en; no geometry): 9 requests, 1,010,024 bytes, 6.58 s wall clock on the coordinator container. Retained probe script probe/iaac_layer_probe.py.",
      "mapserver_probe_2026_10_30": "Service info + per-layer counts + 8-record samples per layer (fields listed in sources). Total 6,600 projects: Completed 5,079, In progress 1,173, Terminated 348 (5.3%).",
      "novelty_search_preliminary_2026_10_30": "Web search (queries: 'machine learning predicting environmental impact assessment outcome Canada decisions dataset', plus browsing of top results): no ML-ready benchmark or dataset found for predicting Canadian Impact Assessment Registry outcomes; results were CO2-emissions/LCA ML noise plus one Tandfonline review of AI-in-EIA literature (no registry-outcome task). A 2024 review of AI in EIA surfaced no outcome-prediction benchmark. Formal check-novelty.py with recorded verdict deferred until the bounded page-sample resolves extraction feasibility (investigating status).",
      "registry_page_samples_2026_10_30": "4 pages via extraction backend: 81027 Terminated (dated termination line 2022-01-18; non-designated project on federal lands), 84411 Completed (dated determination 2023-08-29, outcome wording 'not likely to cause significant adverse environmental effects'; clean text 149.8 KB mostly 'nearby assessments' nav noise), 80175 Completed designated CEAA-2012 project (key-documents table: Notice of Commencement 2019-07-05, EA Decision Statement 2021-01-11; 8.6 KB), 87425 In progress (dated latest update 2024-04-17, key-documents table with dates; 12.2 KB). Dated terminal events verified for 3/3 terminal-or-completed samples; sample size too small to generalize - the share of pages with parseable dated terminal events across the full cohort is the named next measurement.",
+     "registry_page_stratified_sample_2026_11_05": "60-page stratified sample (24 Terminated + 24 Completed + 12 In progress, spread over start-years 2010-2026 with a 2019+ bias; seed 20261105; direct urllib fetches from the coordinator, 0 errors): (a) DATED machine-parseable terminal/most-recent event line in the page's 'Latest update' div, after entity normalization (&nbsp; &ndash; &mdash; appear inside dates and separators; one line uses 'March 10 2026' comma-less): Terminated 20/24 (83%; 2019+ subsample 11/14), Completed 23/24 (96%; 2019+ 13/14), In progress 11/12 (92%). 3/24 Terminated pages carry terminal wording with NO parsable date ('The permit holder will not be proceeding with this project.', 'The project, as proposed, has been cancelled .', 'The environmental assessment process has been terminated.') - a named fallback class for construction: the page meta 'Modified Date' exists (e.g. 2024-12-11) but is last-edit, not event date, so these rows are either event-date-missing or resolved from the page's key-documents table; the rule is fixed before scoring. (b) Per-page cost measured: mean 170,415 B, mean 3.00 s -> 6,600 pages ESTIMATES to ~1.12 GB and ~5.5 h serial (bounded-concurrency worker job; estimate from the 60-page mean, labeled as such). (c) Outcome wording among Completed: 'determined that the project is not likely to cause significant adverse environmental effects' 11/24; 'likely to cause' 0/24 (expected-rare CONFIRMED at sample scale); 14/24 carry determination wording of any form. (d) Bulk export: NONE found - the registry listing page (iaac-aeic.gc.ca/050/evaluations, 30,981 B fetched 2026-11-05) has no export/CSV/RSS/bulk markers; per-page extraction is the only channel for dated events. CROSS-CHECK: page meta 'Status' == MapServer project_state_en on 60/60. NEW timing measurement: start_date -> dated-event lag on the 20 dated Terminated pages: min 0, p25 224, median 575, p75 1,583, max 3,917 days (long-tailed; the latest-update date is a proxy for the termination event where the line IS the terminal event - noisy for a few pages whose latest update is post-termination); censoring rule and holdout boundary need the cohort-scale distribution. Retained scripts: probe/iaac_page_sample.py (fetch + first-pass parse) and probe/iaac_reanalyze.py (entity-normalized final numbers); raw per-page results iaac_pages_sample.json kept in the session scratch, not the repo.",
      "start_year_histogram": "By start year (Completed/InProg/Terminated): 2006 2/0/0, 2007 0/0/1, 2009 1/0/0, 2010 12/1/5, 2011 10/0/7, 2012 24/1/22, 2013 22/2/7, 2014 12/3/8, 2015 14/1/6, 2016 11/3/4, 2017 7/0/3, 2018 10/1/7, 2019 188/11/16, 2020 717/71/48, 2021 826/91/51, 2022 749/111/47, 2023 758/150/48, 2024 724/161/32, 2025 707/208/29, 2026 285/358/7. Category mix (top): Construction 2,593, Transport Industry 1,879, Water Management 440, Tourism 331, Waste Management 286, Environmental Management 281, Petroleum Industry 279, Energy 149, Mining Industry 144. Province mix (top): ON 1,322, BC 1,232, AB 1,038, QC 886, SK 566, NS 373, MB 355, NL 306."
     },
-    "next_action": "Bounded stratified sample of ~60-100 registry pages (states x start-years 2019-2026) on the coordinator or a worker: measure (a) share of pages exposing a dated",
+    "next_action": "Cohort-scale dated-event extraction is the remaining worker prerequisite (advancement owns it), then ready/drop on measured criteria. Job: with bounded concurre",
     "packaged_at": null,
     "path": "candidates/iaac-registry-assessment-termination/record.json",
     "prediction_time": "The assessment's registry start date (published per project on the registry page and in the MapServer layer as start_date). Features available at that instant: the inventory attributes published with the posting (project category, province, responsible authority(ies), location type, coordinates, description text, start date). The terminal state and its dated event (Latest update line: termination date, or Notice-of-Determination date + outcome wording) and the layer's current project_state_en/updated_at are post-hoc label sources and never ship as features. The registry is a live current archive: no historical vintages of pages are published, so the task is retrospective-within-current-archive, anchored on the dated events the current pages preserve; it cannot claim historical operational availability.",
@@ -1717,7 +1788,7 @@
     "target": "The outcome published in later editions of the same traffic area's AD gazette, linked EXACTLY by the application reference number (the OF-number, which is also the operator licence number; measured in both sample eras): Section 2.1/2.3 = granted without public inquiry; 2.2/2.4 = refused; 4.1 = withdrawn; 4.2 = grant not taken up; 5.1 = notice of public inquiry with a statutory ground code (S13 'Consideration of new application under Section 13' identifies application-related inquiries; S26 'disciplinary action under Section 26' belongs to existing holders and is excluded from this population), followed by 5.2 = decision taken at that inquiry. Candidate primary binary label (decided at construction, before any score): 1 = refused (2.2) or withdrawn/not taken up (4.1/4.2); 0 = granted. Label source columns (the outcome sections) are excluded from the feature set by construction."
    }
   ],
-  "non_us_share": 95.0,
+  "non_us_share": 95.2,
   "records": [
    {
     "awaiting_operator": false,
@@ -2720,6 +2791,77 @@
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
+    "domain": "border operations / queueing - service-standard exceedance nowcast at land ports of entry (Canada, federal)",
+    "id": "cbsa-land-border-wait-exceedance",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "archive_end_evidence_2026_11_05": "The hourly series definitively ended: Wayback capture 2021-11-23 of the dataset page shows the 24 quarterly resources ending 2020-01..2020-03 and NO successor resource; captures 2024-12-02 and 2025-01-17 show the monthly file at 'to 2024-10-31'; capture 2026-01-16 shows 'to 2025-10-31' (current); blob Last-Modified 2025-12-16. CKAN resource for the EN 2020 Q1 file is missing, but the file is live (HTTP 200, HEAD 2026-11-05) at the predictable URL - all 24 EN quarterly URLs measured 200.",
+     "base_rates_2019q3_2026_11_05": "Traveller cells, 2019 Q3 (valid = minutes or no-delay = 80,630 of 81,836 rows; excluded: missed_entry 649, closed 557): minute-rows 30,390 (37.7% of valid) with mean 13.36 min, max 199. Per-cell exceedance: >5 min 22.6%, >10 min 14.6%, >15 min 10.1%, >30 min 3.79%, >60 min 0.75%. Per-port >30-min cells: Douglas/Peace Arch 1,212/3,318 (36.5%), Pacific Highway 803/4,687 (17.1%), Thousand Islands 106/338 (31.4%), St-Armand/Philipsburg 80/357 (22.4%), Aldergrove 224/2,401 (9.3%), Coutts 47/479 (9.8%), and 6 more ports positive; 2 of 25 ports with valid cells have zero >30 cells (small ports) - the exceedance population is concentrated but multi-port. Commercial flow exists at 23 of 26 offices in the quarter (not_applicable 14,987 rows) - a recorded optional variant, not the primary label.",
+     "catalogue_2026_11_05": "open.canada.ca CKAN package_search q='border wait': 4 datasets - Current BWT (d4a716f5, live CSVs only), Historical BWT Land (000fe5aa), Historical BWT Air (fe8020ad, monthly air-mode service-standard panel 31 KB - sibling noted, not opened), and an unrelated dataset. All license_id ca-ogl-lgo, org cbsa-asfc.",
+     "duplicate_conflicts_2026_11_05": "2019 Q3: 11,960 of 57,434 (20.8%) office-hours carry >1 row; max 15; group-size distribution 2:139, 3:11494, 4:213, 5:38, 6:32, 7:26, 8:2, 9:4, 10:2, 11:9, 15:1; 18,053 rows sit in duplicate groups with CONFLICTING values (22% of all rows), concentrated at the six busiest ports (Peace Bridge 4,035; Queenston-Lewiston 3,861; Pacific Highway 3,802; Douglas/Peace Arch 2,383; Rainbow 2,279; Aldergrove 1,693) - the size-3 groups often carry three different values (e.g. Aldergrove 2019-06-30 21:00: 30/13/2), while large groups are mostly repetition with one differing value (Pacific Highway 2019-07-06 10:00: 14x'70' + 1x'44'). The publisher's changelog acknowledges exactly this ('duplicate records (same location and timestamp) ... with conflicting border wait time values'). Any-row ('any reported value exceeds') semantics is the recorded label choice; construction fixes and documents it before scoring.",
+     "fetch_cost_2026_11_05": "Coordinator, anonymous HTTPS: 2019 Q3 EN 5,705,884 B and 2020 Q1 FR 6,383,740 B each in a few seconds; monthly file 80,693 B; live feed 3,270 B; three 60 KB range slices of the 71,369,535 B combined file; 24 HEAD requests. Full harvest (worker, one job): 24 EN quarterly files (~5.0-13.5 MB each) + the 71.4 MB combined file ~= 190 MB across ~25 GETs; same machine class as canadabuys's measured ~8 s per 45 MB => minutes-scale, single standard worker job. Timezone normalization: 10 tz abbreviations measured, all fixed-offset Canadian zones.",
+     "grain_and_coverage_2026_11_05": "2019 Q3 EN full quarter (81,836 rows, 26 offices, 2019-06-30 21:00..2019-10-01 01:00): 57,434 distinct (office,timestamp) keys vs ~57,564 theoretical office-hours for 26 offices x the quarter = 99.8% complete hourly grid. The archive's grain is (office, hour). Quarterly files OVERLAP at boundaries (Q3 starts 2019-06-30 21:00 before its nominal 2019-07-01; ends 2019-10-01 01:00; the 2010-2014 combined file contains rows into 2014-04-04, overlapping the first quarterly) - cross-file dedupe on (office, UTC-normalized hour) is mandatory. 2020 Q1 FR (80,439 rows, 26 offices, 2019-12-31 23:00 CST..2020-04-01 00:00 EDT) confirms the same grid at the archive's end.",
+     "known_event_fixture_2026_11_05": "COVID-19 US-Canada border closure to non-essential travel 2020-03-21 (named event, expected verdict: traveller delays become rarer). Measured on the 2020 Q1 FR file: pre-2020-03-21 70,856 rows, no-delay 77.6%, minute-rows 14,360, max 298, >30-min 566 (3.9% of minute-rows); post-2020-03-21 9,583 rows, no-delay 87.3%, minute-rows 1,015, max 75, >30-min 18 (1.8% of minute-rows). Direction confirmed, magnitude moderate (not a collapse - essential travel continued and the archive ends 10 days after the event); recorded as measured, not inflated. Second fixture family: long weekends (Canada Day, Civic Holiday, Labour Day) at the BC and Niagara ports - per-window counts come from the worker pass.",
+     "measured_on": "2026-11-05 from the coordinator, anonymous HTTPS only; scripts: candidates/cbsa-land-border-wait-exceedance/probe/ (measure_archive.py, measure_monthly.py reproduce the quoted numbers from the recorded URLs; fetch commands recorded in notes.md)",
+     "monthly_cross_check_panel_2026_11_05": "The publisher's own monthly aggregate (source 2): 26 ports x 79 months 2019-04..2025-10, 2,054 rows, 0 duplicates, pct-met range 59.03..100.00; base rates for a monthly miss label: <100 65.5%, <99 47.9%, <97 34.3%, <95 26.1%, <90 13.8% (recorded for the cross-check design; a monthly task was NOT opened - the panel is small, own-history-only, and its observed refresh is annual despite the 'Monthly' claim). Cross-check plan for qualification: for the 11 overlap months 2019-04..2020-03, the archive-derived monthly share of office-hours meeting the in-force rule must reproduce the published pct-met within a stated tolerance; disagreement names the rule form actually used by the publisher.",
+     "novelty_searches_2026_11_05": "Hugging Face datasets API search 'border wait': 0 hits; 'border crossing': 5 hits, all US BTS monthly VOLUME mirrors or Africa logistics sets - none are wait-time series, none Canadian. Web search: no ML-ready dataset or benchmark on the CBSA series found. Adjacent prior art (models in papers, not shipped datasets): deep-learning crossing-delay prediction at the Niagara Frontier borders from researcher-collected Bluetooth data (US DOT report, rosap.ntl.bts.gov/view/dot/50534); Blue Water Bridge ISFC crossing-time regression (dot/86608); El Paso CV-data crossing-time estimation (Sage 2024); a 2026 multi-modal border-queue framework on SYNTHETIC data (arXiv 2608.27010). CBSA's own CanBorder app ships forecasted wait times as a product, not as data with splits. US-bound waits are a separate product (CBP bwt.cbp.gov / BTS), explicitly distinct from this Canada-bound series.",
+     "schema_and_vocabulary_2026_11_05": "Archive columns: 'CBSA Office,Location,Updated,Commercial Flow,Travellers Flow' in the 2010-2014 file (header renamed 2016-07-20 per changelog) vs 'Custom Office Name,...' in 2019-era quarterlies; FR files are cp1252-encoded with French headers/values ('Nom du bureau', 'Aucun delay' family). Status vocabulary per the publisher's data dictionary (ref.odt v2017-04-11): minute counts; 'No delay' = five minutes or less; 'Closed' = outside operating hours; 'Not applicable' = business line not available at that port; 'Missed entry' = no wait recorded for the period. Case drifts by era ('No Delay' in the 2010-2014 file, 'No delay' in 2019); parse case-insensitively. All five behaviours measured in samples.",
+     "service_standard_evolution_2026_11_05": "Highway traveller service standard, publisher's own pages (current + Wayback): FY2014-15, FY2016-17, FY2017-18: '10 minutes on weekdays (Monday to Thursday); 20 minutes weekends (Friday, Saturday, Sunday) and holidays', target 95% (FY2014-15 result 97.1%). FY2018-19 onward: adds 'September to June:' prefix and 'July to August: 20 minutes (7 days a week)'. Current pages (FY2020-21..FY2026-27) keep that form; quoted results 99.35% (FY2020-21, pandemic), 94.97% (FY2024-25), 96.9% (FY2025-26). The FY2015-16 and FY2010-11..FY2013-14 forms were NOT found in this session - named verification prerequisite for the era-correct label rule (option (b) core 10/20 rule avoids the dependency)."
+    },
+    "next_action": "One bounded worker measurement pass (advancement owns it), then ready/drop decision on measured criteria. Job: fetch all 24 EN quarterly files + the 2010-2014 c",
+    "packaged_at": null,
+    "path": "candidates/cbsa-land-border-wait-exceedance/record.json",
+    "prediction_time": "T = the snapshot hour of port P as printed in the archive's 'Updated' column (local-time string with a Canadian tz abbreviation; ADT/AST/EDT/EST/CDT/CST/MDT/MST/PDT/PST all measured in samples, each resolving to a fixed UTC offset; construction normalizes to UTC and states the offset table). Features are archive rows with Updated <= T. The target window (T, T+24h] is strictly after the instant; no part of it precedes T. RETROSPECTIVE, ARCHIVE-VINTAGE framing (recorded, not resolved to operational): the hourly archive is a frozen historical record published in batches (the 2010-2014 file and the 2014-2016Q1 quarterly files all carry CKAN created=2016-12-01; later quarters in batches 2017-03..2020-04; the series ends 2020-03-31 - Wayback capture 2021-11-23 shows 24 quarterly resources ending 2020-01..2020-03 and no successor, and the monthly service-standard file only appears by 2024-12), so the task claims no operational download availability at T; the files fetched today are one current vintage (the changelog documents FR translation fixes 2017-09-19 and a column rename 2016-07-20 as the only revisions; no EN data-value revision is documented, and current-vintage is the recorded assumption, same posture as the abs-visitor precedent). The self-collection option (hourly fetch of the live feed, ~3.3 KB per fetch, to build a fresh operational tail from now) is recorded as a possible extension, not part of this task.",
+    "publisher": "Canada Border Services Agency (CBSA) via open.canada.ca",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a measured CBSA land port of entry P, at instant T = the publication timestamp of one of CBSA's hourly border-wait-time snapshots, using only hourly snapshots of the archive with timestamps <= T (port identity, hour-of-day, day-of-week, season, recent wait history and status vocabulary), will the port's traveller flow exceed the CBSA highway-traveller service standard at ANY hourly snapshot in the next 24 hours, i.e. the window (T, T+24h]? A useful prediction lets a traveller or dispatcher re-time or re-route a crossing a day ahead, the same decision CBSA's own CanBorder app supports with forecasts; it also lets CBSA compare ports against its published 95% compliance target.",
+    "region": "North America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Five contracts at probe time: (1) Redistribution - SUPPORTED: OGL-Canada 2.0 on the publisher's own package record (ca-ogl-lgo), explicit copy/modify/publish/adapt/distribute grant incl. commercial use; class A; attribution statement required and carried to LICENSE.md. (2) Prediction timing - SUPPORTED WITH RECORDED SCOPE: instant = archive snapshot hour T, features = rows with Updated <= T, target window strictly after T, timezone table measured; the framing is RETROSPECTIVE/ARCHIVE-VINTAGE because the archive is frozen (ended 2020-03-31, successor evidence chain via Wayback) and was itself published in batches - no operational-download claim is made, current-vintage assumption recorded (abs precedent posture). (3) Target - SUPPORTED: label source = Travellers Flow cells after T, excludable via common-cutoff design (abs-visitor defect class named as a gate check); the threshold has external meaning from the publisher's documented service standard (rule forms pinned FY2014-15..present via the publisher's pages incl. Wayback); eligibility and censoring defined at the instant (Closed/Not applicable/Missed entry are statuses, not outcomes); publisher-acknowledged duplicate conflicts measured (20.8% of office-hours) with a deterministic any-row rule fixed before scoring. (4) Split capacity - PARTIALLY MEASURED: grain and per-cell base rates measured on two full quarters (2019 Q3 EN + 2020 Q1 FR) + three era slices; three disjoint multi-year windows fit the 2010-2020 span with both classes expected; exact per-window counts need one bulk worker pass (recorded as the prerequisite to ready; never extrapolated to a claimed total). (5) Not a mirror - differentiated (novelty check recorded): no ML-ready task on the CBSA series anywhere found; closest prior art is researcher-collected-sensor models at 4-6 ports and CBSA's own app forecasts - neither ships data, splits or a scored contract; the nearest bench family abs-visitor-arrivals-direction is a monthly aggregate direction task on a different publisher/population, and its known defect class is addressed here by design.",
+    "sources": [
+     {
+      "licence": "Open Government Licence - Canada 2.0 (license_id ca-ogl-lgo on the package record)",
+      "name": "CBSA Historical Border Wait Times - Land Mode, open.canada.ca dataset 000fe5aa-1d77-42d1-bfe7-458c51dacfef (the task source)",
+      "url": "https://open.canada.ca/data/en/dataset/000fe5aa-1d77-42d1-bfe7-458c51dacfef"
+     },
+     {
+      "licence": "Open Government Licence - Canada 2.0 (same package)",
+      "name": "CBSA monthly service-standard summary, 'Historical Border Wait Times - 2019-04-01 to 2025-10-31' (resource 2b5853e4 of the same package) - cross-check product, NOT the task source",
+      "url": "https://open.canada.ca/data/dataset/000fe5aa-1d77-42d1-bfe7-458c51dacfef/resource/2b5853e4-41b4-4858-86dd-38012e30d5b8/download/land-bwt-opengov-en.csv"
+     },
+     {
+      "licence": "Publisher's supporting documentation under the same GC web terms; used only as rule evidence, not as a data source.",
+      "name": "CBSA service-standard pages (the label's external meaning), current and Wayback-pinned",
+      "url": "https://www.cbsa-asfc.gc.ca/services/serving-servir/standards-normes-2026-2027-eng.html (current); http://web.archive.org/web/20170719071209/http://www.cbsa-asfc.gc.ca/services/serving-servir/standards-normes-2014-2015-eng.html (FY2014-15); .../20170128023922/...standards-normes-2016-2017-eng.html (FY2016-17); .../20170604062445/...standards-normes-2017-2018-eng.html (FY2017-18); .../20180728094303/...standards-normes-2018-2019-eng.html (FY2018-19)"
+     },
+     {
+      "licence": "Open Government Licence - Canada 2.0 (license_id ca-ogl-lgo)",
+      "name": "CBSA Current Border Wait Times live feed, open.canada.ca dataset d4a716f5-a2fc-4c3c-88ed-451fe05900e4 - schema-drift evidence and optional collection target, NOT the task source",
+      "url": "https://www.cbsa-asfc.gc.ca/bwt-taf/bwt-eng.csv"
+     }
+    ],
+    "split_strategy": "Temporal thirds on the frozen hourly archive 2010-01..2020-03, instant = snapshot hour; candidate windows train 2010-01..2016-12 / eval 2017-01..2018-12 / holdout 2019-01..2020-03 (each multi-year, disjoint, ordered; the 2020-03-21 COVID closure sits in the holdout's last 10 days and is a known-event fixture, not a whole-window effect). Clustering: (port, calendar-day) is the dependence unit (within-port serial correlation plus day-level demand shocks such as long weekends); clustered counts reported beside raw counts. Both classes expected in every window from measured per-port rates (12 ports with >30-min traveller exceedances in 2019 Q3 alone; 0 of 12 named busiest ports is all-negative), but exact per-window label counts at the chosen threshold rule are the FIRST construction measurement on the worker - the ~190 MB full archive is bulk work and stays off the coordinator; no sampled number is claimed as a total.",
+    "status": "investigating",
+    "target": "Binary: 1 if the port's Travellers Flow cell at ANY hourly snapshot in (T, T+24h] exceeds the CBSA highway-traveller service standard; 0 if no valid traveller cell in the window exceeds it. Label source: the Travellers Flow cells of the target window's snapshots; they are excluded from solver-visible features by a common-cutoff design (no shipped row may expose another scored row's outcome - the abs-visitor/canadabuys blind-join defect class is a named gate check). Threshold rule: the publisher's own service standard, whose documented forms are 10 minutes on weekdays (Mon-Thu) and 20 minutes on weekends (Fri-Sun) and holidays for FY2014-15..FY2017-18, and from FY2018-19 additionally 'July to August: 20 minutes (7 days a week)' (all quoted from CBSA service-standard pages, current and Wayback-pinned, see measurements.service_standard_evolution). Construction picks ONE of: (a) era-correct full rule (needs the FY2010-11..FY2013-14 forms verified - named prerequisite; FY2014-15 back is verified), or (b) the era-stable core rule 10/20 weekday/weekend-holiday everywhere (conservative, verified FY2014-15..present), or (c) a fixed plain threshold (e.g. >20 min) if the standard-linked rule proves unstable. Valid label denominator: traveller cells whose value is a minute count or 'No delay' (dictionary: 'No delay' = five minutes or less). 'Closed' (outside operating hours), 'Not applicable' (business line unavailable) and 'Missed entry' (no wait recorded) are not outcomes: an (office, hour) whose whole target window has no valid traveller cell is ineligible and right-censored out, never imputed; eligibility is decided from information at T (the port's own status history) not from the outcome. In-hour duplicate rows (publisher-acknowledged) are collapsed by a deterministic rule fixed before scoring: label = exceedance of ANY reported value in the (office, hour) group ('any' semantics; a conservative choice for a warning-use task, robust to the measured duplicate conflict pattern)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "CA",
     "domain": "energy infrastructure safety - regulatory significance classification of reported pipeline incidents (Canada, federal)",
     "id": "cer-pipeline-incident-significant",
     "jobs": [],
@@ -3526,7 +3668,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 21.0,
+    "age_hours": 22.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -6338,14 +6480,15 @@
      "status": null
     },
     "measurements": {
-     "cost_unknown_page_extraction": "Per-page extraction cost at cohort scale (6,600 pages) NOT yet measured - named as the next bounded measurement before any ready verdict.",
+     "cost_unknown_page_extraction": "RESOLVED 2026-11-05 by the 60-page stratified sample: mean 170,415 B and 3.00 s per page; 6,600-page cohort extraction ~= 1.12 GB, ~5.5 h serial - a bounded-concurrency worker prerequisite (see registry_page_stratified_sample_2026_11_05).",
      "full_layer_fetch_2026_10_30": "All 6,600 attribute rows (project_id, project_cat_en, province_codes, start_date, project_state_en; no geometry): 9 requests, 1,010,024 bytes, 6.58 s wall clock on the coordinator container. Retained probe script probe/iaac_layer_probe.py.",
      "mapserver_probe_2026_10_30": "Service info + per-layer counts + 8-record samples per layer (fields listed in sources). Total 6,600 projects: Completed 5,079, In progress 1,173, Terminated 348 (5.3%).",
      "novelty_search_preliminary_2026_10_30": "Web search (queries: 'machine learning predicting environmental impact assessment outcome Canada decisions dataset', plus browsing of top results): no ML-ready benchmark or dataset found for predicting Canadian Impact Assessment Registry outcomes; results were CO2-emissions/LCA ML noise plus one Tandfonline review of AI-in-EIA literature (no registry-outcome task). A 2024 review of AI in EIA surfaced no outcome-prediction benchmark. Formal check-novelty.py with recorded verdict deferred until the bounded page-sample resolves extraction feasibility (investigating status).",
      "registry_page_samples_2026_10_30": "4 pages via extraction backend: 81027 Terminated (dated termination line 2022-01-18; non-designated project on federal lands), 84411 Completed (dated determination 2023-08-29, outcome wording 'not likely to cause significant adverse environmental effects'; clean text 149.8 KB mostly 'nearby assessments' nav noise), 80175 Completed designated CEAA-2012 project (key-documents table: Notice of Commencement 2019-07-05, EA Decision Statement 2021-01-11; 8.6 KB), 87425 In progress (dated latest update 2024-04-17, key-documents table with dates; 12.2 KB). Dated terminal events verified for 3/3 terminal-or-completed samples; sample size too small to generalize - the share of pages with parseable dated terminal events across the full cohort is the named next measurement.",
+     "registry_page_stratified_sample_2026_11_05": "60-page stratified sample (24 Terminated + 24 Completed + 12 In progress, spread over start-years 2010-2026 with a 2019+ bias; seed 20261105; direct urllib fetches from the coordinator, 0 errors): (a) DATED machine-parseable terminal/most-recent event line in the page's 'Latest update' div, after entity normalization (&nbsp; &ndash; &mdash; appear inside dates and separators; one line uses 'March 10 2026' comma-less): Terminated 20/24 (83%; 2019+ subsample 11/14), Completed 23/24 (96%; 2019+ 13/14), In progress 11/12 (92%). 3/24 Terminated pages carry terminal wording with NO parsable date ('The permit holder will not be proceeding with this project.', 'The project, as proposed, has been cancelled .', 'The environmental assessment process has been terminated.') - a named fallback class for construction: the page meta 'Modified Date' exists (e.g. 2024-12-11) but is last-edit, not event date, so these rows are either event-date-missing or resolved from the page's key-documents table; the rule is fixed before scoring. (b) Per-page cost measured: mean 170,415 B, mean 3.00 s -> 6,600 pages ESTIMATES to ~1.12 GB and ~5.5 h serial (bounded-concurrency worker job; estimate from the 60-page mean, labeled as such). (c) Outcome wording among Completed: 'determined that the project is not likely to cause significant adverse environmental effects' 11/24; 'likely to cause' 0/24 (expected-rare CONFIRMED at sample scale); 14/24 carry determination wording of any form. (d) Bulk export: NONE found - the registry listing page (iaac-aeic.gc.ca/050/evaluations, 30,981 B fetched 2026-11-05) has no export/CSV/RSS/bulk markers; per-page extraction is the only channel for dated events. CROSS-CHECK: page meta 'Status' == MapServer project_state_en on 60/60. NEW timing measurement: start_date -> dated-event lag on the 20 dated Terminated pages: min 0, p25 224, median 575, p75 1,583, max 3,917 days (long-tailed; the latest-update date is a proxy for the termination event where the line IS the terminal event - noisy for a few pages whose latest update is post-termination); censoring rule and holdout boundary need the cohort-scale distribution. Retained scripts: probe/iaac_page_sample.py (fetch + first-pass parse) and probe/iaac_reanalyze.py (entity-normalized final numbers); raw per-page results iaac_pages_sample.json kept in the session scratch, not the repo.",
      "start_year_histogram": "By start year (Completed/InProg/Terminated): 2006 2/0/0, 2007 0/0/1, 2009 1/0/0, 2010 12/1/5, 2011 10/0/7, 2012 24/1/22, 2013 22/2/7, 2014 12/3/8, 2015 14/1/6, 2016 11/3/4, 2017 7/0/3, 2018 10/1/7, 2019 188/11/16, 2020 717/71/48, 2021 826/91/51, 2022 749/111/47, 2023 758/150/48, 2024 724/161/32, 2025 707/208/29, 2026 285/358/7. Category mix (top): Construction 2,593, Transport Industry 1,879, Water Management 440, Tourism 331, Waste Management 286, Environmental Management 281, Petroleum Industry 279, Energy 149, Mining Industry 144. Province mix (top): ON 1,322, BC 1,232, AB 1,038, QC 886, SK 566, NS 373, MB 355, NL 306."
     },
-    "next_action": "Bounded stratified sample of ~60-100 registry pages (states x start-years 2019-2026) on the coordinator or a worker: measure (a) share of pages exposing a dated",
+    "next_action": "Cohort-scale dated-event extraction is the remaining worker prerequisite (advancement owns it), then ready/drop on measured criteria. Job: with bounded concurre",
     "packaged_at": null,
     "path": "candidates/iaac-registry-assessment-termination/record.json",
     "prediction_time": "The assessment's registry start date (published per project on the registry page and in the MapServer layer as start_date). Features available at that instant: the inventory attributes published with the posting (project category, province, responsible authority(ies), location type, coordinates, description text, start date). The terminal state and its dated event (Latest update line: termination date, or Notice-of-Determination date + outcome wording) and the layer's current project_state_en/updated_at are post-hoc label sources and never ship as features. The registry is a live current archive: no historical vintages of pages are published, so the task is retrospective-within-current-archive, anchored on the dated events the current pages preserve; it cannot claim historical operational availability.",
@@ -9222,7 +9365,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 161.5,
+    "age_hours": 162.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -12898,7 +13041,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 10.7,
+    "age_hours": 11.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -13264,7 +13407,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 21.0,
+     "age_hours": 22.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13438,7 +13581,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 161.5,
+     "age_hours": 162.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13724,7 +13867,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 10.7,
+     "age_hours": 11.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -13904,7 +14047,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 21.0,
+     "age_hours": 22.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -14078,7 +14221,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 161.5,
+     "age_hours": 162.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -14364,7 +14507,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 10.7,
+     "age_hours": 11.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -14551,7 +14694,7 @@
    "AT": 2,
    "AU": 9,
    "BR": 5,
-   "CA": 15,
+   "CA": 16,
    "CH": 6,
    "CI": 1,
    "CL": 2,
@@ -14587,22 +14730,22 @@
    "Europe": 34,
    "International organisations": 16,
    "Latin America": 12,
-   "North America": 25,
+   "North America": 26,
    "Oceania": 11,
    "South & South-East Asia": 13
   },
   "by_status": {
    "dropped": 50,
-   "investigating": 20,
+   "investigating": 21,
    "packaged": 3,
    "parked": 31,
    "published": 14,
    "ready": 15
   },
-  "candidates": 133,
-  "live": 52,
-  "live_non_us": 46,
-  "live_non_us_share": 0.885,
+  "candidates": 134,
+  "live": 53,
+  "live_non_us": 47,
+  "live_non_us_share": 0.887,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -14624,10 +14767,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-05T07:50:02.376327+00:00",
+    "last_run_at": "2026-11-05T08:50:01.805994+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-05T08:00:00+00:00",
+    "next_run_at": "2026-11-05T09:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14648,10 +14791,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-05T07:50:01.581845+00:00",
+    "last_run_at": "2026-11-05T08:50:01.334130+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-05T07:55:00+00:00",
+    "next_run_at": "2026-11-05T08:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14672,10 +14815,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-05T07:46:35.933420+00:00",
+    "last_run_at": "2026-11-05T08:46:53.372656+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-05T07:51:35.933420+00:00",
+    "next_run_at": "2026-11-05T08:51:53.372656+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14684,10 +14827,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-05T07:50:00.837584+00:00",
+    "last_run_at": "2026-11-05T08:50:00.953527+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-05T07:55:00+00:00",
+    "next_run_at": "2026-11-05T08:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14708,10 +14851,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-05T06:50:51.916348+00:00",
+    "last_run_at": "2026-11-05T07:50:52.288245+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-05T08:50:00+00:00",
+    "next_run_at": "2026-11-05T09:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14720,10 +14863,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-05T06:55:00.712502+00:00",
+    "last_run_at": "2026-11-05T07:55:01.415813+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-05T07:55:00+00:00",
+    "next_run_at": "2026-11-05T08:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14764,29 +14907,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-05T07:50:02.377398+00:00"
+  "updated_at": "2026-11-05T08:50:01.807161+00:00"
  },
- "generated_at": "2026-11-05T07:50:01+00:00",
+ "generated_at": "2026-11-05T08:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 133
+   "passing": 134
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-05T06:59:41Z",
-   "head_sha": "9bb49d4",
+   "created_at": "2026-11-05T08:27:02Z",
+   "head_sha": "6e4ef35",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41984104598"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41994547950"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 46/52 (88%)"
+   "summary": "live non-US: 47/53 (89%)"
   },
   "head": {
-   "at": "2026-11-05T06:59:34Z",
-   "sha": "9bb49d4",
-   "subject": "ibama-build-001/-002 follow-up: BOTH construction attempts failed at the TP_PESSOA anchor -> recorded BLOCKER per the pr"
+   "at": "2026-11-05T08:26:58Z",
+   "sha": "6e4ef35",
+   "subject": "discovery tick (Canada): cbsa-land-border-wait-exceedance OPENED (investigating, class A) - CBSA hourly land border-wait"
   },
   "tests": {
    "count": "723",
@@ -17929,13 +18072,21 @@
    "qualified": 0,
    "sessions_7d": 99,
    "tokens_7d": 34527345
+  },
+  {
+   "at": "2026-11-05T08:50:01+00:00",
+   "live": 21,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 99,
+   "tokens_7d": 34725733
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-05T07:50:01+00:00",
+   "as_of": "2026-11-05T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17945,17 +18096,17 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-05T07:50:01+00:00",
+   "as_of": "2026-11-05T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 20
+   "value": 21
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-05T07:50:01+00:00",
+   "as_of": "2026-11-05T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -21155,7 +21306,7 @@
   "jobs_total": 197,
   "lifetime_eur": 3.79,
   "live": {
-   "checked_at": "2026-11-05T07:50:40+00:00",
+   "checked_at": "2026-11-05T08:50:40+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -21188,22 +21339,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 2,
+  "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 3375.3,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "67ec35c1cb44aff36caa79b3a4fd0798ca183c668e55a420a37e4d5c85c1340c",
-    "ts": "2026-11-05T02:56:18.061391+00:00"
-   },
    {
     "elapsed_seconds": 399.5,
     "event": "session",
@@ -21272,8 +21409,21 @@
     "run_budget": 900,
     "submitted_brief_sha256": "5175b8b2cbc0ba9f2f548b058a86ec94013be7818386671369a08855ac8f0044",
     "ts": "2026-11-05T07:11:23.376403+00:00"
+   },
+   {
+    "elapsed_seconds": 1794.9,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "504d1d7ebf6de88f8c91cd2b4ce778a725d388bcc05116d3b3df02dc7f492dd1",
+    "ts": "2026-11-05T08:29:58.135065+00:00"
    }
   ],
-  "total": 28
+  "total": 29
  }
 }
