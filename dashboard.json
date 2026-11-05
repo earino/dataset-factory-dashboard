@@ -1,8 +1,8 @@
 {
  "alarms": [
-  "scout-research-session missed its window (2026-11-05T06:05:00+00:00); last status ok",
   "Token use at 86% of the weekly ceiling",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (160.5h)"
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (161.5h)",
+  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report"
  ],
  "budget": {
   "config": {
@@ -19,17 +19,15 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-11-05T06:50:02.692950+00:00",
+   "allowed": true,
+   "moment": "2026-11-05T07:50:02.773664+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 3000s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 34392279,
-   "runs_last_7_days": 97,
-   "runs_weighted_last_7_days": 110,
+   "research_tokens_last_7_days": 34527345,
+   "runs_last_7_days": 99,
+   "runs_weighted_last_7_days": 112,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 13,
    "usage": {
@@ -54,14 +52,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 2962,
+     "calls": 3016,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 12413063,
-     "output_tokens": 2945935,
+     "input_tokens": 12508599,
+     "output_tokens": 2985465,
      "pricing_available": false
     }
    },
@@ -3528,7 +3526,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 20.0,
+    "age_hours": 21.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -6458,6 +6456,11 @@
       "at": null,
       "id": "ibama-build-001",
       "status": null
+     },
+     {
+      "at": null,
+      "id": "ibama-build-002",
+      "status": null
      }
     ],
     "licence_summary": {
@@ -6475,7 +6478,7 @@
      "served_schema_measured": "Publisher data dictionary captured in full (read in the supported browser 2026-10-30; dictionary dated 2025-08-08 by the publisher). Key documented fields: SEQ_AUTO_INFRACAO (PK), NUM_AUTO_INFRACAO + SER_AUTO_INFRACAO (SICAFI analogue series up to 2019-10-07; alphanumeric AI-e series from 2019-10-08), DES_STATUS_FORMULARIO (Lavrado/Cancelado/Danificado/Extraviado/Substituido por outro/Impresso/Excluido), SIT_CANCELADO (S/N), TIPO_AUTO (multa simples/multa diaria/advertencia), TIPO_MULTA (aberta/fechada), VAL_AUTO_INFRACAO (initial value proposed by the agent), PATRIMONIO_APURACAO, GRAVIDADE_INFRACAO (Leve/Media/Grave), MOTIVACAO_CONDUTA, EFEITO_MEIO_AMBIENTE, EFEITO_SAUDE_PUBLICA, PASSIVEL_RECUPERACAO, DAT_HORA_AUTO_INFRACAO (lavratura), DAT_CIENCIA_AUTUACAO, DT_FATO_INFRACIONAL, COD_MUNICIPIO/MUNICIPIO/UF, NUM_PROCESSO/NU_PROCESSO_FORMATADO, COD_INFRACAO/DES_INFRACAO/TIPO_INFRACAO (fauna/flora/pesca/controle ambiental/etc.), NOME_INFRATOR, CPF_CNPJ_INFRATOR, QT_AREA, longitude/latitude/WKT, UNIDADE_CONSERVACAO, DS_BIOMAS_ATINGIDOS, SEQ_ACAO_FISCALIZATORIA, TIPO_ACAO (operacao/fortuito/rotina/demanda juridica/linha verde), OPERACAO, DT_LANCAMENTO, DT_ULT_ALTERACAO, TP_ULT_ALTERACAO, JUSTIFICATIVA_ALTERACAO, ULTIMA_ATUALIZACAO_RELATORIO. Aux tables confirmed served semicolon-separated UTF-8-BOM CSV keyed on SEQ_AUTO_INFRACAO (Range sample 2026-10-30).",
      "worker_probe_2026_11_04": "ibama-probe-002 (cx23/hel1, succeeded, 64.6 s; ibama-probe-001 failed at 61.1 s on a diagnosed code defect and measured nothing): full-table aggregate pass over auto_infracao_csv.zip - 48 per-year members auto_infracao_1977..2026.csv, 705,667 rows, 0 duplicate SEQ, coverage 1977-09-03..2026-10-30, one export stamp 2026-11-03 01:28:15 on all rows. Entity keys: cpf 453,978 / cnpj 218,797 / missing 32,874 / other 18; TP_PESSOA_INFRATOR cross-check exact; canonical punctuated storage on 672,780/672,793 non-empty rows. Regime mix (TP_ORIGEM_REGISTRO_AUTO): SICAFI 100% through 2018, mixed 2019 (SICAFI 12,521 / AI-e 1,922), AI-e dominant 2020+ with a small late-recorded SICAFI tail (110-188/yr 2023-2026). Window and clustered counts: see split_strategy. PUBLISHER-SUMMARY CROSS-CHECK (record next_action step 2): the 'Multas Ambientais Distribuidas por Bens Tutelados' product (24,655,019-byte csv zip, sha256 aa3173ce48a80694437a4ea98c3eeae644a2246f507a12f15c57a9a39e6ddfca, 27 UF files, 725,081 rows, Tipo Auto mix Multa 719,326 / Advertencia 5,317 / Multa Diaria 438) is NOT an aggregate count table but a second per-auto listing; at distinct-N-AI grain per Data Auto year it tracks the main table within ratio 1.02-1.20 for 1977-2019 (probe higher: advertencia autos are in the main table but not in the multas product) and 0.82-0.90 for 2020-2026 (the multas product carries 11-18% MORE distinct autos than the main table in the AIe era; unexplained - hypothesis, unverified: different date semantics or inclusion of voided app-era forms). CONSTRUCTION DESIGN INPUT: define the population from the main table alone and never mix products; the discrepancy is recorded, not resolved. The 'Diagnostico de Delitos Ambientais' annual PDFs were not re-fetched; the multas product served as the publisher-summary cross-check. PROBE DEFECTS RECORDED (cosmetic, aggregate-level only): the windows.json 'censored_excluded' column is always 0 because the window dict never increments it (per-year censored_n is correct: 2,347 for 2025, 10,562 for 2026); pre-2005 acao_pos is 0 because SEQ_ACAO_FISCALIZATORIA is empty in that era (rows_without_seq_acao 525,203 overall). Raw outputs retained in probe/out/: summary.json, probe_report.json, per_year.json, windows.json, members.json, multas_per_year.json, multas_distinct_per_year.json, crosscheck_per_year.json, probe_002_container.txt."
     },
-    "next_action": "RELAUNCHED (advancement session 2026-11-05): ibama-build-002 carries the ONE repair the TP_PESSOA cross-check defect class is entitled to (aggregate anchor enfo",
+    "next_action": "BLOCKED at the TP_PESSOA cross-check after two same-class refusals (ibama-build-001 per-row, ibama-build-002 all-years aggregate; see blocker_2026_11_05). The p",
     "packaged_at": null,
     "path": "candidates/ibama-auto-infracao-recidivism/record.json",
     "prediction_time": "The prediction instant is the lavratura instant: DAT_HORA_AUTO_INFRACAO of the current auto de infracao, the earliest documented moment the enforcement act exists (recorded by the electronic AI-e form since 2019-10-08, and by the launch date DT_LANCAMENTO for the pre-2019 analogue SICAFI series). Features are restricted to (a) the current auto's issuance-time attributes (infraction type/code, proposed sanction TIPO_AUTO, initial value VAL_AUTO_INFRACAO, gravity classification GRAVIDADE_INFRACAO, conduct MOTIVACAO_CONDUTA, UF/municipio, bioma, action motivation TIPO_ACAO, operation name) and (b) the entity's PRIOR autos only (DAT_HORA_AUTO_INFRACAO strictly earlier than the instant). Post-instant process events defined by IN Ibama 19/2023 (ciencia of the auto, defense, julgamento in first instance ~30 days from file receipt, appeal ~20 days, second instance, Cadin inclusion) are label-window events of the current auto's lifecycle, never features. LIMITATION, recorded: the daily export is current-vintage only (no publisher archive of past exports); prior-history features are therefore current-vintage rows with per-row DT_ULT_ALTERACAO / TP_ULT_ALTERACAO / JUSTIFICATIVA_ALTERACAO available to quantify how much history was revised. The 12-month target window follows the prediction instant entirely. MEASURED 2026-11-04 (worker probe ibama-probe-002, full current vintage, 705,667 rows): DAT_HORA_AUTO_INFRACAO is non-empty on 705,667/705,667 rows (91,632 date-only 'YYYY-MM-DD' concentrated in the pre-AIe eras + 614,035 full 'YYYY-MM-DD HH:MM:SS'), so the lavratura instant is directly the published column on every row; the DT_LANCAMENTO fallback was never needed (0 rows fell back; DT_LANCAMENTO itself is empty on 479 rows); 0 unparseable dates. Every row carries the same export stamp 2026-11-03 01:28:15, i.e. the zip is one full daily re-export (current-vintage only). Revision churn measured from DT_ULT_ALTERACAO: rows altered within the 12 months before the export stamp are <=1.2% for every lavratura year <=2024, 30.5% for 2025 and 100% for 2026 - the current-vintage limitation is concentrated in the most recent ~18 months, matching the censoring design; the evaluation contract must state the retrospective/current-vintage as-of policy (datasus-sinasc precedent). Timestamps carry no timezone; treated as publisher-local (America/Sao_Paulo).",
@@ -9219,7 +9222,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 160.5,
+    "age_hours": 161.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -12895,7 +12898,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 9.7,
+    "age_hours": 10.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -13261,7 +13264,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 20.0,
+     "age_hours": 21.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13435,7 +13438,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 160.5,
+     "age_hours": 161.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13721,7 +13724,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 9.7,
+     "age_hours": 10.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -13901,7 +13904,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 20.0,
+     "age_hours": 21.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -14075,7 +14078,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 160.5,
+     "age_hours": 161.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -14361,7 +14364,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 9.7,
+     "age_hours": 10.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -14621,10 +14624,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-05T06:50:02.346020+00:00",
+    "last_run_at": "2026-11-05T07:50:02.376327+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-05T07:00:00+00:00",
+    "next_run_at": "2026-11-05T08:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14645,10 +14648,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-05T05:55:00.936513+00:00",
+    "last_run_at": "2026-11-05T07:50:01.581845+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-05T06:05:00+00:00",
+    "next_run_at": "2026-11-05T07:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14669,10 +14672,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-05T06:45:16.856750+00:00",
+    "last_run_at": "2026-11-05T07:46:35.933420+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-05T06:50:16.856750+00:00",
+    "next_run_at": "2026-11-05T07:51:35.933420+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14681,10 +14684,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-05T06:50:01.302501+00:00",
+    "last_run_at": "2026-11-05T07:50:00.837584+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-05T06:55:00+00:00",
+    "next_run_at": "2026-11-05T07:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14705,10 +14708,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-05T05:50:51.815788+00:00",
+    "last_run_at": "2026-11-05T06:50:51.916348+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-05T07:50:00+00:00",
+    "next_run_at": "2026-11-05T08:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14717,10 +14720,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-05T05:55:01.129037+00:00",
+    "last_run_at": "2026-11-05T06:55:00.712502+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-05T06:55:00+00:00",
+    "next_run_at": "2026-11-05T07:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14761,9 +14764,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-05T06:50:02.347072+00:00"
+  "updated_at": "2026-11-05T07:50:02.377398+00:00"
  },
- "generated_at": "2026-11-05T06:50:01+00:00",
+ "generated_at": "2026-11-05T07:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -14771,19 +14774,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-05T04:35:32Z",
-   "head_sha": "7435a4d",
+   "created_at": "2026-11-05T06:59:41Z",
+   "head_sha": "9bb49d4",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41968756481"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41984104598"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 46/52 (88%)"
   },
   "head": {
-   "at": "2026-11-05T04:35:29Z",
-   "sha": "7435a4d",
-   "subject": "discovery tick (UK): tc-gv-licence-application-outcome OPENED (investigating) - Traffic Commissioners' weekly A&D gazett"
+   "at": "2026-11-05T06:59:34Z",
+   "sha": "9bb49d4",
+   "subject": "ibama-build-001/-002 follow-up: BOTH construction attempts failed at the TP_PESSOA anchor -> recorded BLOCKER per the pr"
   },
   "tests": {
    "count": "723",
@@ -17918,15 +17921,21 @@
    "qualified": 0,
    "sessions_7d": 97,
    "tokens_7d": 34392279
+  },
+  {
+   "at": "2026-11-05T07:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 99,
+   "tokens_7d": 34527345
   }
  ],
- "notices": [
-  "A research session is running: lock held for 3000s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-05T06:50:01+00:00",
+   "as_of": "2026-11-05T07:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17936,7 +17945,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-05T06:50:01+00:00",
+   "as_of": "2026-11-05T07:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -17946,7 +17955,7 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-05T06:50:01+00:00",
+   "as_of": "2026-11-05T07:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -18734,7 +18743,7 @@
      "lo": 0.002
     },
     {
-     "count": 54,
+     "count": 55,
      "hi": 0.01,
      "lo": 0.005
     },
@@ -18770,11 +18779,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0132,
-   "n": 196,
+   "median": 0.0128,
+   "n": 197,
    "p90": 0.0561,
    "ref_rate": 0.06924,
-   "total": 5.77
+   "total": 5.78
   },
   "jobs": [
    {
@@ -19883,15 +19892,15 @@
    },
    {
     "created_at": "2026-11-05T06:45:29.725510+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-11-05T06:50:45.765984+00:00",
+    "eur": 0.001,
+    "hours": 0.088,
     "id": "ibama-build-002",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0061,
     "rate_eur": 0.01152,
     "server_type": "cx23",
-    "status": "collected"
+    "status": "deleted"
    },
    {
     "created_at": "2026-11-04T03:43:38.921254+00:00",
@@ -21142,18 +21151,18 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 35,
+  "jobs_this_month": 36,
   "jobs_total": 197,
   "lifetime_eur": 3.79,
   "live": {
-   "checked_at": "2026-11-05T06:50:40+00:00",
+   "checked_at": "2026-11-05T07:50:40+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 13.3,
+  "month_hours": 13.4,
   "month_to_date": 0.17,
   "months": [
    {
@@ -21169,9 +21178,9 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.1679,
-    "hours": 13.27,
-    "jobs": 35,
+    "eur": 0.1689,
+    "hours": 13.36,
+    "jobs": 36,
     "month": "2026-11"
    }
   ],
@@ -21179,49 +21188,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 0,
+  "failed_last_three": 2,
   "recent": [
-   {
-    "elapsed_seconds": 1154.1,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "4350ae3a3af211f0fb58c640b2a5d30a7fff867df6f37b4392cb96cabba7ada8",
-    "ts": "2026-11-04T21:10:48.438292+00:00"
-   },
-   {
-    "elapsed_seconds": 2913.8,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "0f7026a062624085a43464abc1c2dea25ee0e286c84f43ea4476d35248ee0484",
-    "ts": "2026-11-04T22:48:38.798936+00:00"
-   },
-   {
-    "elapsed_seconds": 5381.4,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "9212a253c4a7586c1d32e140b0f6d42d61ac28a010ab58367bfd451ad19af938",
-    "ts": "2026-11-05T01:29:45.578613+00:00"
-   },
    {
     "elapsed_seconds": 3375.3,
     "event": "session",
@@ -21262,8 +21230,50 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "869a78a8d343ece69aad4b1170d65a0149562cf647a9a8819db3c821428c7dc7",
     "ts": "2026-11-05T04:36:40.551852+00:00"
+   },
+   {
+    "elapsed_seconds": 3190.2,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "exit 1",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "4002632e9833886591f6a4b419f6c2c87d6ed9e20e69491962827152d6327a18",
+    "ts": "2026-11-05T06:53:12.715985+00:00"
+   },
+   {
+    "elapsed_seconds": 339.1,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "exit 1",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "5175b8b2cbc0ba9f2f548b058a86ec94013be7818386671369a08855ac8f0044",
+    "ts": "2026-11-05T07:00:58.396441+00:00"
+   },
+   {
+    "elapsed_seconds": 323.0,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "5175b8b2cbc0ba9f2f548b058a86ec94013be7818386671369a08855ac8f0044",
+    "ts": "2026-11-05T07:11:23.376403+00:00"
    }
   ],
-  "total": 25
+  "total": 28
  }
 }
