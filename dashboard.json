@@ -1,7 +1,7 @@
 {
  "alarms": [
   "Token use at 86% of the weekly ceiling",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (157.5h)"
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (158.5h)"
  ],
  "budget": {
   "config": {
@@ -19,12 +19,12 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-05T03:50:02.843779+00:00",
+   "moment": "2026-11-05T04:50:03.093265+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 34244540,
+   "research_tokens_last_7_days": 34348126,
    "runs_last_7_days": 97,
    "runs_weighted_last_7_days": 110,
    "session_cap_per_week": 200,
@@ -51,14 +51,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 2785,
+     "calls": 2851,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 12114527,
-     "output_tokens": 2742820,
+     "input_tokens": 12248683,
+     "output_tokens": 2826594,
      "pricing_available": false
     }
    },
@@ -77,14 +77,14 @@
    "CO": 2,
    "DE": 1,
    "EU": 3,
-   "GB": 3,
+   "GB": 4,
    "IN": 1,
    "NZ": 2,
    "US": 1
   },
   "counts": {
    "dropped": 50,
-   "investigating": 19,
+   "investigating": 20,
    "packaged": 3,
    "parked": 31,
    "published": 14,
@@ -1593,9 +1593,130 @@
     "split_strategy": "Temporal windows on the 1996-10..2026-10 daily panel, e.g. train 1996-10..2015-12 / eval 2016-01..2020-12 / holdout 2021-01..2026-10; each window contains at least one measured high-price episode (train: 2008-07 measured 9/31 days >$200; eval: 2020-06 measured 5/30 days >$200 with mid-month means to $287; holdout: 2024-08 measured 25/31 days >$200). Positives cluster into multi-day weather/storage episodes, so split capacity is counted per episode-week, not per day; sampled episode weeks measured, exact counts computed at construction over the full files. The 2022-11-01 real-time-pricing regime change (ex-post -> real-time pricing, documented by the publisher) is a structural break: either bound all windows inside one regime or ship a regime indicator; decided and documented at construction.",
     "status": "investigating",
     "target": "Binary: market/island daily mean of DollarsPerMegawattHour over all trading periods of day D+k exceeds a threshold frozen from the training window (candidate fixed thresholds measured at 100/150/200/300 $/MWh; a per-region training-quantile threshold is the alternative). Label source columns: the target day's per-POC prices, excluded from shipped features."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "GB",
+    "domain": "transport operator licensing / regulatory application-outcome prediction",
+    "id": "tc-gv-licence-application-outcome",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "archive_channels_2026_11_05": "LIVE: each area page keeps only the current calendar year (43 PDF links for 2026 on the east page, 43 on Wales; oldest live link Jan 2026). Old asset URLs return HTTP 410 (measured on ad_5308_6_January_2021.pdf). WAYBACK: 26 monthly-collapsed 200-status page snapshots (per-year: 2015:1, 2019:1, 2020:6, 2021:2, 2022:11, 2023:1, 2024:1, 2025:1, 2026:2); each snapshot carries the trailing ~52 edition attachments (2022 snapshot measured: 53 links, back to Jan 2021); archived gazette PDFs are themselves captured (ad_5308 fetched from Wayback 2021-08-11 capture, 422,289 B in 1.8 s, parses). The 2015 snapshot carries no PDF links (pre-2016 page format). UKGWA: captures of TC pages exist (ukgwa/20230103214402) but the CDX endpoint now serves a TNA HTML shell; machine listing unresolved this session. NET: realistically retrievable span ~2019/2020-2026 with gaps; the per-area per-edition coverage ledger is the first construction measurement.",
+     "extraction_cost_measured": "Per gazette: 355-576 KB, live fetch 0.1-2.0 s (four editions measured). Corpus estimate: 8 areas x ~52 editions/year x retrievable years (~6-7) = roughly 2,500-2,900 PDFs, ~1.0-1.5 GB - a worker job, never the coordinator; pypdf text extraction of one 32-page edition takes seconds locally.",
+     "gazette_structure_2026_11_05": "Every A&D edition has the same 9-section layout (contents page measured): 1.1 new applications / 1.2 variation applications / 2.1 new granted / 2.2 new refused / 2.3 variation granted / 2.4 variation refused / 3 Schedule 4 / 4.1 withdrawn / 4.2 grants not taken up / 5.1 notices of public inquiries to be held / 5.2 decisions taken at public inquiries / 5.3-5.4 transport manager inquiries / 6 operating centre reviews / 7.1 licences surrendered / 7.2 licences terminated / 8 licences revoked without public inquiry / 9 corrections. Each entry is prefaced by its reference number (e.g. OF2094843 SI ALEX ACOZMEI LTD, directors, registered address, operating centre + postcode, authorisation counts, transport manager where applicable).",
+     "hazards": [
+      "Refusal grounds (e.g. financial standing) are NOT in the listing - good for ex-ante validity, but if most refusals are driven by grounds invisible at T the achievable ceiling may be low; the refusal-grounds distribution is measurable from decision documents at construction and must be reported with any score.",
+      "Section volume drift across eras: 2021 and 2026 editions parse identically, but 2013-2016 era layouts (and the pre-2016 page format that carried no PDF attachments) are unverified; the coverage ledger decides the usable window.",
+      "Weekly refusal counts swing (0 in the 2021 sample week, 4 in the 2026 sample week): per-window class counts need the aggregate, not extrapolation from two editions.",
+      "Withdrawal semantics: 4.1 withdrawals are applicant choices, not regulator decisions; the binary label choice (refused-only vs refused-or-withdrawn) is a pre-registered construction decision.",
+      "Repeat applicants and multi-licence operators (e.g. GT Transport Services with three licence numbers in one decision) create entity clustering; cluster-aware splits/bootstrap by applicant name-key are required.",
+      "PI notices mix application inquiries (S13/S14) with enforcement (S26): the application-outcome population must filter by ground code, measured present in the notice text.",
+      "The gazette is a statutory public notice containing named individuals (directors, transport managers, drivers); construction should decide pseudonymisation of person names before any release (operator/centre fields are business data, cqc precedent for provider data)."
+     ],
+     "linkage_exact": "The reference number (OF + 7 digits; the eventual licence number) appears both in the Section 1.1 listing and in the outcome sections. Cross-edition fixtures measured 2026-11-05: OF2093050 SN ULTRA LOGIK LIMITED and OF2093311 R Brownline UK Ltd listed in AD-5598 (published 29/07/2026) and granted in AD-5611 Section 2.1 (published 28/10/2026); OF2088279 SI SAGAL LOGISTICS LTD listed in AD-5598 Section 1.1 and REFUSED in AD-5611 Section 2.2. Pending example (right-censoring at the live edge): OF2091916 NEIL DRURY HAULAGE LTD, PI noticed in AD-5611 Section 5.1 (S13) for a hearing on 3 December 2026 - outcome after the current archive edge.",
+     "population_note": "New applications only are the proposed population (~28/area-week east, ~6 Wales => very roughly 9-12k new applications/year nationally across 8 areas; exact national counts need the worker aggregate). Variation applications (~12-38/area-week) are a separate population (existing operators) - a declared design decision; the richest formulation may include them with a type flag.",
+     "sample_edition_volumes": {
+      "east_AD_5308_pub_2021_01_06_sha256_9dd88b899c05a7a3_wayback": {
+       "new_applications": 22,
+       "new_granted": 25,
+       "new_refused": 0,
+       "pages": 31,
+       "pi_decisions": 9,
+       "pi_notices": 8,
+       "variation_applications": 14,
+       "variation_refused": 2,
+       "withdrawn": 2
+      },
+      "east_AD_5598_pub_2026_07_29_sha256_c87112a87540accf": {
+       "new_applications": 25,
+       "pages": 40
+      },
+      "east_AD_5611_pub_2026_10_28_sha256_a1e1e06e8585095a": {
+       "new_applications": 28,
+       "new_granted": 24,
+       "new_refused": 4,
+       "pages": 32,
+       "pi_decisions": 2,
+       "pi_notices": 6,
+       "surrendered": 5,
+       "terminated": 3,
+       "variation_applications": 38,
+       "variation_refused": 3,
+       "withdrawn": 5
+      },
+      "wales_AD_8981_pub_2026_10_28_sha256_247581daa15c4b47": {
+       "new_applications": 6,
+       "new_granted": 4,
+       "new_refused": 0,
+       "pages": 14,
+       "pi_decisions": 3,
+       "pi_notices": 1,
+       "variation_applications": 12,
+       "variation_refused": 0,
+       "withdrawn": 2
+      }
+     },
+     "sibling_channels_recorded_not_opened": "Driver-conduct decisions CSV (rolling 12 months only, 5,303 rows fetched 2026-11-05: hearing date, postcode prefix, name, birth year, LGV/PCV entitlement, decision, appeal outcome) - no published history, no task by itself, but proves the decision volume. PSV 'Notices and Proceedings' is the bus/coach sibling gazette (unmeasured). VOL weekly operator-licence register CSVs on data.gov.uk (current-state, per-area) + gazette sections 7.1/7.2/8 (surrender/termination/revocation events) together support a SEPARATE register-exit lead - recorded here, not opened, decision deferred until this candidate is decided.",
+     "stale_link_hazard": "The GOV.UK 'check vehicle operator licence applications' page links to https://www.vehicle-operator-licensing.service.gov.uk/search/check-vehicle-operator-decisions-applications which is NXDOMAIN from this vantage (2026-11-05, both bare and www forms) - the advertised structured search service is unreachable, so the PDF gazettes remain the population record."
+    },
+    "next_action": "Discovery owns the next step - a bounded worker aggregate probe (ibama-probe precedent, EUR 0.04-class): (1) enumerate every retrievable edition per area from t",
+    "packaged_at": null,
+    "path": "candidates/tc-gv-licence-application-outcome/record.json",
+    "prediction_time": "The publication date printed on page 1 of the AD edition that lists the application (Europe/London; measured example: east-of-England edition AD-5611 published 28/10/2026 with objection deadline 18/11/2026 = publication + 21 days). Features are exactly the fields of the listing as published: licence class (R/SN/SI), applicant name and legal form, director names, registered address, operating-centre address and postcode, vehicle and trailer authorisation counts, traffic area, publication week. Objections, representations and inquiry outcomes all occur strictly after T, so nothing in the feature set can encode the outcome path.",
+    "publisher": "Traffic Commissioners for Great Britain (Office of the Traffic Commissioner, supported by DVSA)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a new goods-vehicle operator licence application in Great Britain, at the instant its listing is published in the Traffic Commissioners' weekly 'Applications and Decisions' (AD) gazette (instant T; the 21-day statutory objection window opens at publication), which resolution will the application reach: granted without a public inquiry, called to a public inquiry (ground code S13), refused, or withdrawn / grant not taken up?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "OGL v3.0 (GOV.UK guidance pages hosting the product: 'All content is available under the Open Government Licence v3.0, except where otherwise stated', read 2026-11-05); no contrary statement found on the pages or in the sampled gazette PDFs",
+      "name": "Traffic Commissioner Goods Vehicle Applications and Decisions - collection page",
+      "url": ""
+     },
+     {
+      "licence": "OGL v3.0 via the hosting guidance pages; PDF front page carries a legacy 'copies can be purchased' print-distribution line, not a licence restriction",
+      "name": "Weekly A&D gazettes, per traffic area guidance pages (8 areas)",
+      "url": ""
+     },
+     {
+      "licence": "Same GOV.UK guidance/collection pages (OGL v3.0 footer statement, measured 2026-11-05); retrieval-channel or auxiliary entry - licence re-read at construction",
+      "name": "Historical editions retrieval channel (live page keeps only the current year)",
+      "url": ""
+     },
+     {
+      "licence": "GOV.UK service/collection pages carrying the same OGL v3.0 footer statement (measured on the parent collection 2026-11-05); auxiliary cross-check channel",
+      "name": "Traffic Commissioner regulatory decisions service (2025+) and pre-2025 collections",
+      "url": ""
+     },
+     {
+      "licence": "GOV.UK collection + data.gov.uk CKAN records (uk-ogl licence ids); auxiliary channels, licence re-read at construction",
+      "name": "Key Traffic Commissioner Data (transparency products) - auxiliary",
+      "url": ""
+     }
+    ],
+    "split_strategy": "Temporal splits on the LISTING publication date over the retrievable archive (candidate windows train 2021-2022 / eval 2023-2024 / holdout 2025-2026; the exact retrievable span and per-window counts are the named next measurement, not yet computed - sampled editions show both classes present and volumes of ~22-28 new applications per area-week in the east, ~6 in Wales). Both classes appear in every sampled edition (grants every week; refusals 0-4 per area-week, withdrawals 2-5, PI notices 1-8). Applications are one row each; an applicant can re-apply after refusal (repeat-applicant clustering must be measured at construction).",
+    "status": "investigating",
+    "target": "The outcome published in later editions of the same traffic area's AD gazette, linked EXACTLY by the application reference number (the OF-number, which is also the operator licence number; measured in both sample eras): Section 2.1/2.3 = granted without public inquiry; 2.2/2.4 = refused; 4.1 = withdrawn; 4.2 = grant not taken up; 5.1 = notice of public inquiry with a statutory ground code (S13 'Consideration of new application under Section 13' identifies application-related inquiries; S26 'disciplinary action under Section 26' belongs to existing holders and is excluded from this population), followed by 5.2 = decision taken at that inquiry. Candidate primary binary label (decided at construction, before any score): 1 = refused (2.2) or withdrawn/not taken up (4.1/4.2); 0 = granted. Label source columns (the outcome sections) are excluded from the feature set by construction."
    }
   ],
-  "non_us_share": 94.7,
+  "non_us_share": 95.0,
   "records": [
    {
     "awaiting_operator": false,
@@ -3404,7 +3525,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 17.0,
+    "age_hours": 18.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -9090,7 +9211,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 157.5,
+    "age_hours": 158.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -11077,6 +11198,127 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "GB",
+    "domain": "transport operator licensing / regulatory application-outcome prediction",
+    "id": "tc-gv-licence-application-outcome",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "archive_channels_2026_11_05": "LIVE: each area page keeps only the current calendar year (43 PDF links for 2026 on the east page, 43 on Wales; oldest live link Jan 2026). Old asset URLs return HTTP 410 (measured on ad_5308_6_January_2021.pdf). WAYBACK: 26 monthly-collapsed 200-status page snapshots (per-year: 2015:1, 2019:1, 2020:6, 2021:2, 2022:11, 2023:1, 2024:1, 2025:1, 2026:2); each snapshot carries the trailing ~52 edition attachments (2022 snapshot measured: 53 links, back to Jan 2021); archived gazette PDFs are themselves captured (ad_5308 fetched from Wayback 2021-08-11 capture, 422,289 B in 1.8 s, parses). The 2015 snapshot carries no PDF links (pre-2016 page format). UKGWA: captures of TC pages exist (ukgwa/20230103214402) but the CDX endpoint now serves a TNA HTML shell; machine listing unresolved this session. NET: realistically retrievable span ~2019/2020-2026 with gaps; the per-area per-edition coverage ledger is the first construction measurement.",
+     "extraction_cost_measured": "Per gazette: 355-576 KB, live fetch 0.1-2.0 s (four editions measured). Corpus estimate: 8 areas x ~52 editions/year x retrievable years (~6-7) = roughly 2,500-2,900 PDFs, ~1.0-1.5 GB - a worker job, never the coordinator; pypdf text extraction of one 32-page edition takes seconds locally.",
+     "gazette_structure_2026_11_05": "Every A&D edition has the same 9-section layout (contents page measured): 1.1 new applications / 1.2 variation applications / 2.1 new granted / 2.2 new refused / 2.3 variation granted / 2.4 variation refused / 3 Schedule 4 / 4.1 withdrawn / 4.2 grants not taken up / 5.1 notices of public inquiries to be held / 5.2 decisions taken at public inquiries / 5.3-5.4 transport manager inquiries / 6 operating centre reviews / 7.1 licences surrendered / 7.2 licences terminated / 8 licences revoked without public inquiry / 9 corrections. Each entry is prefaced by its reference number (e.g. OF2094843 SI ALEX ACOZMEI LTD, directors, registered address, operating centre + postcode, authorisation counts, transport manager where applicable).",
+     "hazards": [
+      "Refusal grounds (e.g. financial standing) are NOT in the listing - good for ex-ante validity, but if most refusals are driven by grounds invisible at T the achievable ceiling may be low; the refusal-grounds distribution is measurable from decision documents at construction and must be reported with any score.",
+      "Section volume drift across eras: 2021 and 2026 editions parse identically, but 2013-2016 era layouts (and the pre-2016 page format that carried no PDF attachments) are unverified; the coverage ledger decides the usable window.",
+      "Weekly refusal counts swing (0 in the 2021 sample week, 4 in the 2026 sample week): per-window class counts need the aggregate, not extrapolation from two editions.",
+      "Withdrawal semantics: 4.1 withdrawals are applicant choices, not regulator decisions; the binary label choice (refused-only vs refused-or-withdrawn) is a pre-registered construction decision.",
+      "Repeat applicants and multi-licence operators (e.g. GT Transport Services with three licence numbers in one decision) create entity clustering; cluster-aware splits/bootstrap by applicant name-key are required.",
+      "PI notices mix application inquiries (S13/S14) with enforcement (S26): the application-outcome population must filter by ground code, measured present in the notice text.",
+      "The gazette is a statutory public notice containing named individuals (directors, transport managers, drivers); construction should decide pseudonymisation of person names before any release (operator/centre fields are business data, cqc precedent for provider data)."
+     ],
+     "linkage_exact": "The reference number (OF + 7 digits; the eventual licence number) appears both in the Section 1.1 listing and in the outcome sections. Cross-edition fixtures measured 2026-11-05: OF2093050 SN ULTRA LOGIK LIMITED and OF2093311 R Brownline UK Ltd listed in AD-5598 (published 29/07/2026) and granted in AD-5611 Section 2.1 (published 28/10/2026); OF2088279 SI SAGAL LOGISTICS LTD listed in AD-5598 Section 1.1 and REFUSED in AD-5611 Section 2.2. Pending example (right-censoring at the live edge): OF2091916 NEIL DRURY HAULAGE LTD, PI noticed in AD-5611 Section 5.1 (S13) for a hearing on 3 December 2026 - outcome after the current archive edge.",
+     "population_note": "New applications only are the proposed population (~28/area-week east, ~6 Wales => very roughly 9-12k new applications/year nationally across 8 areas; exact national counts need the worker aggregate). Variation applications (~12-38/area-week) are a separate population (existing operators) - a declared design decision; the richest formulation may include them with a type flag.",
+     "sample_edition_volumes": {
+      "east_AD_5308_pub_2021_01_06_sha256_9dd88b899c05a7a3_wayback": {
+       "new_applications": 22,
+       "new_granted": 25,
+       "new_refused": 0,
+       "pages": 31,
+       "pi_decisions": 9,
+       "pi_notices": 8,
+       "variation_applications": 14,
+       "variation_refused": 2,
+       "withdrawn": 2
+      },
+      "east_AD_5598_pub_2026_07_29_sha256_c87112a87540accf": {
+       "new_applications": 25,
+       "pages": 40
+      },
+      "east_AD_5611_pub_2026_10_28_sha256_a1e1e06e8585095a": {
+       "new_applications": 28,
+       "new_granted": 24,
+       "new_refused": 4,
+       "pages": 32,
+       "pi_decisions": 2,
+       "pi_notices": 6,
+       "surrendered": 5,
+       "terminated": 3,
+       "variation_applications": 38,
+       "variation_refused": 3,
+       "withdrawn": 5
+      },
+      "wales_AD_8981_pub_2026_10_28_sha256_247581daa15c4b47": {
+       "new_applications": 6,
+       "new_granted": 4,
+       "new_refused": 0,
+       "pages": 14,
+       "pi_decisions": 3,
+       "pi_notices": 1,
+       "variation_applications": 12,
+       "variation_refused": 0,
+       "withdrawn": 2
+      }
+     },
+     "sibling_channels_recorded_not_opened": "Driver-conduct decisions CSV (rolling 12 months only, 5,303 rows fetched 2026-11-05: hearing date, postcode prefix, name, birth year, LGV/PCV entitlement, decision, appeal outcome) - no published history, no task by itself, but proves the decision volume. PSV 'Notices and Proceedings' is the bus/coach sibling gazette (unmeasured). VOL weekly operator-licence register CSVs on data.gov.uk (current-state, per-area) + gazette sections 7.1/7.2/8 (surrender/termination/revocation events) together support a SEPARATE register-exit lead - recorded here, not opened, decision deferred until this candidate is decided.",
+     "stale_link_hazard": "The GOV.UK 'check vehicle operator licence applications' page links to https://www.vehicle-operator-licensing.service.gov.uk/search/check-vehicle-operator-decisions-applications which is NXDOMAIN from this vantage (2026-11-05, both bare and www forms) - the advertised structured search service is unreachable, so the PDF gazettes remain the population record."
+    },
+    "next_action": "Discovery owns the next step - a bounded worker aggregate probe (ibama-probe precedent, EUR 0.04-class): (1) enumerate every retrievable edition per area from t",
+    "packaged_at": null,
+    "path": "candidates/tc-gv-licence-application-outcome/record.json",
+    "prediction_time": "The publication date printed on page 1 of the AD edition that lists the application (Europe/London; measured example: east-of-England edition AD-5611 published 28/10/2026 with objection deadline 18/11/2026 = publication + 21 days). Features are exactly the fields of the listing as published: licence class (R/SN/SI), applicant name and legal form, director names, registered address, operating-centre address and postcode, vehicle and trailer authorisation counts, traffic area, publication week. Objections, representations and inquiry outcomes all occur strictly after T, so nothing in the feature set can encode the outcome path.",
+    "publisher": "Traffic Commissioners for Great Britain (Office of the Traffic Commissioner, supported by DVSA)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "For a new goods-vehicle operator licence application in Great Britain, at the instant its listing is published in the Traffic Commissioners' weekly 'Applications and Decisions' (AD) gazette (instant T; the 21-day statutory objection window opens at publication), which resolution will the application reach: granted without a public inquiry, called to a public inquiry (ground code S13), refused, or withdrawn / grant not taken up?",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "OGL v3.0 (GOV.UK guidance pages hosting the product: 'All content is available under the Open Government Licence v3.0, except where otherwise stated', read 2026-11-05); no contrary statement found on the pages or in the sampled gazette PDFs",
+      "name": "Traffic Commissioner Goods Vehicle Applications and Decisions - collection page",
+      "url": ""
+     },
+     {
+      "licence": "OGL v3.0 via the hosting guidance pages; PDF front page carries a legacy 'copies can be purchased' print-distribution line, not a licence restriction",
+      "name": "Weekly A&D gazettes, per traffic area guidance pages (8 areas)",
+      "url": ""
+     },
+     {
+      "licence": "Same GOV.UK guidance/collection pages (OGL v3.0 footer statement, measured 2026-11-05); retrieval-channel or auxiliary entry - licence re-read at construction",
+      "name": "Historical editions retrieval channel (live page keeps only the current year)",
+      "url": ""
+     },
+     {
+      "licence": "GOV.UK service/collection pages carrying the same OGL v3.0 footer statement (measured on the parent collection 2026-11-05); auxiliary cross-check channel",
+      "name": "Traffic Commissioner regulatory decisions service (2025+) and pre-2025 collections",
+      "url": ""
+     },
+     {
+      "licence": "GOV.UK collection + data.gov.uk CKAN records (uk-ogl licence ids); auxiliary channels, licence re-read at construction",
+      "name": "Key Traffic Commissioner Data (transparency products) - auxiliary",
+      "url": ""
+     }
+    ],
+    "split_strategy": "Temporal splits on the LISTING publication date over the retrievable archive (candidate windows train 2021-2022 / eval 2023-2024 / holdout 2025-2026; the exact retrievable span and per-window counts are the named next measurement, not yet computed - sampled editions show both classes present and volumes of ~22-28 new applications per area-week in the east, ~6 in Wales). Both classes appear in every sampled edition (grants every week; refusals 0-4 per area-week, withdrawals 2-5, PI notices 1-8). Applications are one row each; an applicant can re-apply after refusal (repeat-applicant clustering must be measured at construction).",
+    "status": "investigating",
+    "target": "The outcome published in later editions of the same traffic area's AD gazette, linked EXACTLY by the application reference number (the OF-number, which is also the operator licence number; measured in both sample eras): Section 2.1/2.3 = granted without public inquiry; 2.2/2.4 = refused; 4.1 = withdrawn; 4.2 = grant not taken up; 5.1 = notice of public inquiry with a statutory ground code (S13 'Consideration of new application under Section 13' identifies application-related inquiries; S26 'disciplinary action under Section 26' belongs to existing holders and is excluded from this population), followed by 5.2 = decision taken at that inquiry. Candidate primary binary label (decided at construction, before any score): 1 = refused (2.2) or withdrawn/not taken up (4.1/4.2); 0 = granted. Label source columns (the outcome sections) are excluded from the feature set by construction."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "BR",
     "domain": "infrastructure delivery / public-works stall prediction",
     "id": "tcu-obra-paralisacao",
@@ -12645,7 +12887,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 6.7,
+    "age_hours": 7.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -13011,7 +13253,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 17.0,
+     "age_hours": 18.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13185,7 +13427,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 157.5,
+     "age_hours": 158.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13471,7 +13713,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 6.7,
+     "age_hours": 7.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -13651,7 +13893,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 17.0,
+     "age_hours": 18.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13825,7 +14067,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 157.5,
+     "age_hours": 158.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -14111,7 +14353,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 6.7,
+     "age_hours": 7.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -14306,7 +14548,7 @@
    "DE": 2,
    "EU": 15,
    "FR": 3,
-   "GB": 15,
+   "GB": 16,
    "GH": 1,
    "HK": 2,
    "ID": 3,
@@ -14331,7 +14573,7 @@
   "by_region": {
    "Africa": 13,
    "East Asia": 9,
-   "Europe": 33,
+   "Europe": 34,
    "International organisations": 16,
    "Latin America": 12,
    "North America": 25,
@@ -14340,16 +14582,16 @@
   },
   "by_status": {
    "dropped": 50,
-   "investigating": 19,
+   "investigating": 20,
    "packaged": 3,
    "parked": 31,
    "published": 14,
    "ready": 15
   },
-  "candidates": 132,
-  "live": 51,
-  "live_non_us": 45,
-  "live_non_us_share": 0.882,
+  "candidates": 133,
+  "live": 52,
+  "live_non_us": 46,
+  "live_non_us_share": 0.885,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -14371,10 +14613,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-05T03:50:01.628007+00:00",
+    "last_run_at": "2026-11-05T04:50:02.533822+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-05T04:00:00+00:00",
+    "next_run_at": "2026-11-05T05:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14395,10 +14637,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-05T03:50:01.005636+00:00",
+    "last_run_at": "2026-11-05T04:50:01.219828+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-05T03:55:00+00:00",
+    "next_run_at": "2026-11-05T04:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14419,10 +14661,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-05T03:49:21.586148+00:00",
+    "last_run_at": "2026-11-05T04:49:40.003626+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-05T03:54:21.586148+00:00",
+    "next_run_at": "2026-11-05T04:54:40.003626+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14431,10 +14673,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-05T03:50:01.216589+00:00",
+    "last_run_at": "2026-11-05T04:50:00.877273+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-05T03:55:00+00:00",
+    "next_run_at": "2026-11-05T04:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14455,10 +14697,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-05T02:50:52.211856+00:00",
+    "last_run_at": "2026-11-05T03:50:52.077488+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-05T04:50:00+00:00",
+    "next_run_at": "2026-11-05T05:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14467,10 +14709,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-05T02:55:01.076418+00:00",
+    "last_run_at": "2026-11-05T03:55:00.620655+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-05T03:55:00+00:00",
+    "next_run_at": "2026-11-05T04:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14511,29 +14753,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-05T03:50:01.629037+00:00"
+  "updated_at": "2026-11-05T04:50:02.534853+00:00"
  },
- "generated_at": "2026-11-05T03:50:01+00:00",
+ "generated_at": "2026-11-05T04:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 132
+   "passing": 133
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-05T02:54:45Z",
-   "head_sha": "302ada6",
+   "created_at": "2026-11-05T04:35:32Z",
+   "head_sha": "7435a4d",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/41958230402"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/41968756481"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 45/51 (88%)"
+   "summary": "live non-US: 46/52 (88%)"
   },
   "head": {
-   "at": "2026-11-05T02:54:42Z",
-   "sha": "302ada6",
-   "subject": "unhcr-corridor-entry-surge constructed+qualified+accepted+scored on worker (unhcr-corridor-003) and DROPPED for no demon"
+   "at": "2026-11-05T04:35:29Z",
+   "sha": "7435a4d",
+   "subject": "discovery tick (UK): tc-gv-licence-application-outcome OPENED (investigating) - Traffic Commissioners' weekly A&D gazett"
   },
   "tests": {
    "count": "723",
@@ -17644,13 +17886,21 @@
    "qualified": 0,
    "sessions_7d": 97,
    "tokens_7d": 34244540
+  },
+  {
+   "at": "2026-11-05T04:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 97,
+   "tokens_7d": 34348126
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-05T03:50:01+00:00",
+   "age_minutes": 0.7,
+   "as_of": "2026-11-05T04:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -17659,18 +17909,18 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-05T03:50:01+00:00",
+   "age_minutes": 0.7,
+   "as_of": "2026-11-05T04:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 19
+   "value": 20
   },
   "releases": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-05T03:50:01+00:00",
+   "age_minutes": 0.7,
+   "as_of": "2026-11-05T04:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -20846,7 +21096,7 @@
   "jobs_total": 195,
   "lifetime_eur": 3.79,
   "live": {
-   "checked_at": "2026-11-05T03:50:40+00:00",
+   "checked_at": "2026-11-05T04:50:40+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -20881,20 +21131,6 @@
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 1034.2,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "exit 1",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "af2f5b61a78a249eb81f5d9146e8b2f173685befc54e6c5f6fb2f55ff119895d",
-    "ts": "2026-11-04T20:47:16.422765+00:00"
-   },
    {
     "elapsed_seconds": 1154.1,
     "event": "session",
@@ -20963,8 +21199,21 @@
     "run_budget": 900,
     "submitted_brief_sha256": "dad8a468fd3cc6e94cacee6f0b2a4e58b781a727161589acb35f8bd98c590c02",
     "ts": "2026-11-05T03:04:04.626379+00:00"
+   },
+   {
+    "elapsed_seconds": 2199.3,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "869a78a8d343ece69aad4b1170d65a0149562cf647a9a8819db3c821428c7dc7",
+    "ts": "2026-11-05T04:36:40.551852+00:00"
    }
   ],
-  "total": 24
+  "total": 25
  }
 }
