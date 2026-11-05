@@ -1,8 +1,9 @@
 {
  "alarms": [
+  "scout-research-session missed its window (2026-11-05T14:05:00+00:00); last status ok",
   "Token use at 89% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (27.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (167.5h)"
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (28.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (168.5h)"
  ],
  "budget": {
   "config": {
@@ -19,13 +20,15 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-11-05T13:50:02.620124+00:00",
+   "allowed": false,
+   "moment": "2026-11-05T14:50:03.178775+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 3002s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 35640564,
+   "research_tokens_last_7_days": 35689768,
    "runs_last_7_days": 99,
    "runs_weighted_last_7_days": 113,
    "session_cap_per_week": 200,
@@ -52,14 +55,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 3139,
+     "calls": 3214,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 13946552,
-     "output_tokens": 3119055,
+     "input_tokens": 14161215,
+     "output_tokens": 3192094,
      "pricing_available": false
     }
    },
@@ -1484,9 +1487,17 @@
      ],
      "cross_check_against_published_summary_products": "cow FAR[1] = 0.759 (2013) and 0.741 (2023) against the published tornado-warning FAR of 0.69 for 2014-2023 (arXiv 2510.25011, Keylon 2025) and the DOC OIG finding that NWS met its GPRA false-alarm-ratio goal in 9 of 12 recent fiscal years - same ballpark, no contradiction.",
      "extraction_cost_measured_per_year": "One national TOR-year pull (the whole construction unit) measured at 20-28 MB and 38-60 s from this host (coordinator class). A 17-year construction (2008-2024) is 17 such requests: ~500 MB total, 12-17 min of pulling, measured per-year and summed - the only estimate inside it is whether the coordinator class is slower or faster than the worker class; measure once on the worker at construction.",
-     "known_event_fixture": "The 2022-04-16 northern-Arkansas storm documented by Keylon 2025 (arXiv 2510.25011) as the source of all 3 tornado-emergency false alarms 2014-2023 (a nontornadic thunderstorm that drew repeated TOR warnings): those warnings must read verify=false, while the 89 tornado emergencies 2014-2023 must read verify=true at 0.03 FAR (86/89). Pin exact per-warning expected verdicts at construction."
+     "known_event_fixture": "The 2022-04-16 northern-Arkansas storm documented by Keylon 2025 (arXiv 2510.25011) as the source of all 3 tornado-emergency false alarms 2014-2023 (a nontornadic thunderstorm that drew repeated TOR warnings): those warnings must read verify=false, while the 89 tornado emergencies 2014-2023 must read verify=true at 0.03 FAR (86/89). Pin exact per-warning expected verdicts at construction.",
+     "preflight_2026_11_05": {
+      "anchors_reverified_exact": "2026-11-05 coordinator pulls: 2013 = 19,590,053 B -> 1,832 raw features / 441 verified / 94 WFOs / 170 active days / 100 verified days / FAR[1] 0.7593; 2023 = 28,383,984 B -> 2,531 / 656 / 96 / 201 / 115 / 0.7408. BOTH anchors reproduce EXACTLY (the record-pinned 2026-10-19 counts are identical; the 2023 file changed bytes 28,389,049 -> 28,383,984 while the counts held: live recomputation, stable counts - the current-vintage basis for quality.json). cow response shape: events.features (not top-level features), stats.events_total/events_verified agree with the raw feature counts in both anchor years.",
+      "arkansas_fixture_correction_before_launch": "The record's original fixture expectation ('the 2022-04-16 storm's warnings must read verify=false') was WRONG and is corrected BEFORE launch on measured evidence: (1) the paper at arXiv 2510.25011 is Wolff, Goodnight, Blind-Doskocil, Conklin, Gustafson, Trujillo-Falcon 2025, 'Reflecting on a Decade of Formalized Tornado Emergencies' - the record's 'Keylon 2025' attribution was a citation slip (Keylon 2025 is the performance.commerce.gov storm-based FAR KPI the same paper cites for the 0.69 all-warnings FAR). (2) The paper's own words: '3 tornado emergency false alarms, all of which were issued for the same nontornadic thunderstorm in northern Arkansas on 16 April 2022', 'false real-time reports of tornado damage' (Navarro 2022). (3) The IEM tornado-emergency archive the paper used (api/1/nws/emergencies.json) identifies the three 2022-04-16 UTC storm warnings: LZK #49 (00:09Z), LZK #50 (00:45Z), MEG #40 (01:05Z, states=AR) - one storm crossing the LZK/MEG boundary. (4) MEASURED cow verdicts on 2026-11-05: LZK #49 verify=TRUE, LZK #50 verify=TRUE, MEG #40 verify=FALSE - the false real-time tornado LSrs that later surveys reclassified as straight-line wind remain in the LSR archive and verify two of the three. CONSEQUENCE: the task label is REPORT-based (LSR archive), the paper's 0.03 emergency FAR is SURVEY-based (NCEI tracks); the 89-emergency 0.03-FAR cross-check is NOT expected to reproduce under the LSR label and is reframed as the documented semantics caveat. The pinned per-warning fixture asserts the MEASURED cow verdicts (1/1/0) plus the Joplin known-positive event.",
+      "duplicate_feature_structure_measured": "cow emits byte-identical duplicate features: 2013 FWD #33 x2 (zero differing properties), Joplin day file 2011-05-22 SGF #28 and #30 each x2; 2023 has none. cow's own stats count the duplicates (stats.events_total 1832 = 1831 distinct + 1 dup). Build rule pinned: drop byte-identical duplicates; same-key with DISAGREEING verify refuses the build; same-key agreeing verify keeps the earliest product_id. Raw feature counts are the anchor unit; row counts post-dedupe.",
+      "joplin_known_positive_fixture": "2011-05-22 SGF TOR warnings (national day pull 2026-11-05): #28 21:25Z verify=FALSE (x2 identical duplicate features), #29 21:51Z FALSE, #30 22:09Z FALSE (x2), #31 22:17Z TRUE, #32 22:48Z TRUE. Asserted as the known-positive event: #31 and #32 (in effect over Jasper/Newton/Lawrence MO as the EF-5 crossed Joplin) MUST read verify=1; #28/#29/#30 recorded as measured context, not asserted (their FALSE values are LSR-timing/polygon facts, not externally documented certainties).",
+      "local_dry_run_construct_only": "build.py --dry-run over the cached 2013+2023 anchor files (construct only, no performance metric, no gate): 2013 -> 1,831 rows / 441 positives / 100 positive days (1 byte-identical duplicate dropped), 2023 -> 2,531 / 656 / 115, stats cross-checks and anchor asserts green, CSVs + quality.json + meta.json written. score.py's first execution was the synthetic smoke test (test_score_smoke.py): references, gap rule, bootstrap and report all exercised; no real-data figure exists anywhere on this host.",
+      "product_text_sample_decision_excluded_v1": "500-warning deterministic spread sample from the 2023 year file (probe/preflight_2026_11_05.py sample mode): 500/500 fetched OK, 0 failures, bytes p50 1,598 (min 1,278 / max 2,595), latency p50 458 ms, wall 49.2 s at 5 workers -> implied ~40,000 warnings = 305 min serial / 61 min at 5 workers, over the 60-min worker lifetime on fetches alone plus load/politeness risk on one public service. DECISION: v1 ships cow per-event fields only; product_text/IBW fetch EXCLUDED. A v2 wanting the tornado-tag category should probe IEM's bulk AFOS archive channel, not per-warning fetches."
+     }
     },
-    "next_action": "GO to construction (advancement session owns it). Construction step: per-year cow.json pull 2008-2024 with phenomena=TO&significance=W (17 requests, measured 20",
+    "next_action": "EXECUTING the pre-registered plan (SESSION DECISION 2026-11-05): preflight done 2026-11-05 (measurements.preflight_2026_11_05: anchors re-verified EXACT, fixtur",
     "packaged_at": null,
     "path": "candidates/nws-tornado-warning-verification/record.json",
     "prediction_time": "The warning's issue timestamp. Everything the warning product itself carries at issuance is a feature: issuing WFO, forecaster of record, issue/expiry times (hence time-of-day and day-of-season), the warned county list, the storm-based polygon geometry (area, perimeter, polygon-vs-county size reduction), the tornado-possible flag on parent SVR warnings, the hail/wind tags, and - via the per-warning product-text URL - the full issued text (tornado tag, damage-threat tag, storm motion). The label is determined afterwards by which tornado reports occur in the polygon while the warning is live; the cow fields that encode it (verify, stormreports, stormreports_all, lead0, areaverify, statuses, status) are label-source/post-hoc and never ship as features.",
@@ -3669,7 +3680,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 27.0,
+    "age_hours": 28.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -9366,7 +9377,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 167.5,
+    "age_hours": 168.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -9680,9 +9691,17 @@
      ],
      "cross_check_against_published_summary_products": "cow FAR[1] = 0.759 (2013) and 0.741 (2023) against the published tornado-warning FAR of 0.69 for 2014-2023 (arXiv 2510.25011, Keylon 2025) and the DOC OIG finding that NWS met its GPRA false-alarm-ratio goal in 9 of 12 recent fiscal years - same ballpark, no contradiction.",
      "extraction_cost_measured_per_year": "One national TOR-year pull (the whole construction unit) measured at 20-28 MB and 38-60 s from this host (coordinator class). A 17-year construction (2008-2024) is 17 such requests: ~500 MB total, 12-17 min of pulling, measured per-year and summed - the only estimate inside it is whether the coordinator class is slower or faster than the worker class; measure once on the worker at construction.",
-     "known_event_fixture": "The 2022-04-16 northern-Arkansas storm documented by Keylon 2025 (arXiv 2510.25011) as the source of all 3 tornado-emergency false alarms 2014-2023 (a nontornadic thunderstorm that drew repeated TOR warnings): those warnings must read verify=false, while the 89 tornado emergencies 2014-2023 must read verify=true at 0.03 FAR (86/89). Pin exact per-warning expected verdicts at construction."
+     "known_event_fixture": "The 2022-04-16 northern-Arkansas storm documented by Keylon 2025 (arXiv 2510.25011) as the source of all 3 tornado-emergency false alarms 2014-2023 (a nontornadic thunderstorm that drew repeated TOR warnings): those warnings must read verify=false, while the 89 tornado emergencies 2014-2023 must read verify=true at 0.03 FAR (86/89). Pin exact per-warning expected verdicts at construction.",
+     "preflight_2026_11_05": {
+      "anchors_reverified_exact": "2026-11-05 coordinator pulls: 2013 = 19,590,053 B -> 1,832 raw features / 441 verified / 94 WFOs / 170 active days / 100 verified days / FAR[1] 0.7593; 2023 = 28,383,984 B -> 2,531 / 656 / 96 / 201 / 115 / 0.7408. BOTH anchors reproduce EXACTLY (the record-pinned 2026-10-19 counts are identical; the 2023 file changed bytes 28,389,049 -> 28,383,984 while the counts held: live recomputation, stable counts - the current-vintage basis for quality.json). cow response shape: events.features (not top-level features), stats.events_total/events_verified agree with the raw feature counts in both anchor years.",
+      "arkansas_fixture_correction_before_launch": "The record's original fixture expectation ('the 2022-04-16 storm's warnings must read verify=false') was WRONG and is corrected BEFORE launch on measured evidence: (1) the paper at arXiv 2510.25011 is Wolff, Goodnight, Blind-Doskocil, Conklin, Gustafson, Trujillo-Falcon 2025, 'Reflecting on a Decade of Formalized Tornado Emergencies' - the record's 'Keylon 2025' attribution was a citation slip (Keylon 2025 is the performance.commerce.gov storm-based FAR KPI the same paper cites for the 0.69 all-warnings FAR). (2) The paper's own words: '3 tornado emergency false alarms, all of which were issued for the same nontornadic thunderstorm in northern Arkansas on 16 April 2022', 'false real-time reports of tornado damage' (Navarro 2022). (3) The IEM tornado-emergency archive the paper used (api/1/nws/emergencies.json) identifies the three 2022-04-16 UTC storm warnings: LZK #49 (00:09Z), LZK #50 (00:45Z), MEG #40 (01:05Z, states=AR) - one storm crossing the LZK/MEG boundary. (4) MEASURED cow verdicts on 2026-11-05: LZK #49 verify=TRUE, LZK #50 verify=TRUE, MEG #40 verify=FALSE - the false real-time tornado LSrs that later surveys reclassified as straight-line wind remain in the LSR archive and verify two of the three. CONSEQUENCE: the task label is REPORT-based (LSR archive), the paper's 0.03 emergency FAR is SURVEY-based (NCEI tracks); the 89-emergency 0.03-FAR cross-check is NOT expected to reproduce under the LSR label and is reframed as the documented semantics caveat. The pinned per-warning fixture asserts the MEASURED cow verdicts (1/1/0) plus the Joplin known-positive event.",
+      "duplicate_feature_structure_measured": "cow emits byte-identical duplicate features: 2013 FWD #33 x2 (zero differing properties), Joplin day file 2011-05-22 SGF #28 and #30 each x2; 2023 has none. cow's own stats count the duplicates (stats.events_total 1832 = 1831 distinct + 1 dup). Build rule pinned: drop byte-identical duplicates; same-key with DISAGREEING verify refuses the build; same-key agreeing verify keeps the earliest product_id. Raw feature counts are the anchor unit; row counts post-dedupe.",
+      "joplin_known_positive_fixture": "2011-05-22 SGF TOR warnings (national day pull 2026-11-05): #28 21:25Z verify=FALSE (x2 identical duplicate features), #29 21:51Z FALSE, #30 22:09Z FALSE (x2), #31 22:17Z TRUE, #32 22:48Z TRUE. Asserted as the known-positive event: #31 and #32 (in effect over Jasper/Newton/Lawrence MO as the EF-5 crossed Joplin) MUST read verify=1; #28/#29/#30 recorded as measured context, not asserted (their FALSE values are LSR-timing/polygon facts, not externally documented certainties).",
+      "local_dry_run_construct_only": "build.py --dry-run over the cached 2013+2023 anchor files (construct only, no performance metric, no gate): 2013 -> 1,831 rows / 441 positives / 100 positive days (1 byte-identical duplicate dropped), 2023 -> 2,531 / 656 / 115, stats cross-checks and anchor asserts green, CSVs + quality.json + meta.json written. score.py's first execution was the synthetic smoke test (test_score_smoke.py): references, gap rule, bootstrap and report all exercised; no real-data figure exists anywhere on this host.",
+      "product_text_sample_decision_excluded_v1": "500-warning deterministic spread sample from the 2023 year file (probe/preflight_2026_11_05.py sample mode): 500/500 fetched OK, 0 failures, bytes p50 1,598 (min 1,278 / max 2,595), latency p50 458 ms, wall 49.2 s at 5 workers -> implied ~40,000 warnings = 305 min serial / 61 min at 5 workers, over the 60-min worker lifetime on fetches alone plus load/politeness risk on one public service. DECISION: v1 ships cow per-event fields only; product_text/IBW fetch EXCLUDED. A v2 wanting the tornado-tag category should probe IEM's bulk AFOS archive channel, not per-warning fetches."
+     }
     },
-    "next_action": "GO to construction (advancement session owns it). Construction step: per-year cow.json pull 2008-2024 with phenomena=TO&significance=W (17 requests, measured 20",
+    "next_action": "EXECUTING the pre-registered plan (SESSION DECISION 2026-11-05): preflight done 2026-11-05 (measurements.preflight_2026_11_05: anchors re-verified EXACT, fixtur",
     "packaged_at": null,
     "path": "candidates/nws-tornado-warning-verification/record.json",
     "prediction_time": "The warning's issue timestamp. Everything the warning product itself carries at issuance is a feature: issuing WFO, forecaster of record, issue/expiry times (hence time-of-day and day-of-season), the warned county list, the storm-based polygon geometry (area, perimeter, polygon-vs-county size reduction), the tornado-possible flag on parent SVR warnings, the hail/wind tags, and - via the per-warning product-text URL - the full issued text (tornado tag, damage-threat tag, storm motion). The label is determined afterwards by which tornado reports occur in the polygon while the warning is live; the cow fields that encode it (verify, stormreports, stormreports_all, lead0, areaverify, statuses, status) are label-source/post-hoc and never ship as features.",
@@ -13042,7 +13061,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 16.7,
+    "age_hours": 17.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -13408,7 +13427,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 27.0,
+     "age_hours": 28.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -13582,7 +13601,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 167.5,
+     "age_hours": 168.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -13868,7 +13887,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 16.7,
+     "age_hours": 17.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -14048,7 +14067,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 27.0,
+     "age_hours": 28.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -14222,7 +14241,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 167.5,
+     "age_hours": 168.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -14508,7 +14527,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 16.7,
+     "age_hours": 17.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -14768,10 +14787,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-05T13:50:01.977326+00:00",
+    "last_run_at": "2026-11-05T14:50:02.273273+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-05T14:00:00+00:00",
+    "next_run_at": "2026-11-05T15:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -14792,10 +14811,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-05T13:50:00.893625+00:00",
+    "last_run_at": "2026-11-05T13:55:01.660781+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-05T13:55:00+00:00",
+    "next_run_at": "2026-11-05T14:05:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14816,10 +14835,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-05T13:48:23.557965+00:00",
+    "last_run_at": "2026-11-05T14:48:38.661259+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-05T13:53:23.557965+00:00",
+    "next_run_at": "2026-11-05T14:53:38.661259+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -14828,10 +14847,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-05T13:50:00.829889+00:00",
+    "last_run_at": "2026-11-05T14:50:01.605003+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-05T13:55:00+00:00",
+    "next_run_at": "2026-11-05T14:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -14852,10 +14871,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-05T12:50:52.851436+00:00",
+    "last_run_at": "2026-11-05T13:50:54.941576+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-05T14:50:00+00:00",
+    "next_run_at": "2026-11-05T15:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -14864,10 +14883,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-05T12:55:01.463722+00:00",
+    "last_run_at": "2026-11-05T13:55:01.666203+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-05T13:55:00+00:00",
+    "next_run_at": "2026-11-05T14:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -14908,9 +14927,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-05T13:50:01.978420+00:00"
+  "updated_at": "2026-11-05T14:50:02.274419+00:00"
  },
- "generated_at": "2026-11-05T13:50:01+00:00",
+ "generated_at": "2026-11-05T14:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -18121,13 +18140,23 @@
    "qualified": 0,
    "sessions_7d": 99,
    "tokens_7d": 35640564
+  },
+  {
+   "at": "2026-11-05T14:50:01+00:00",
+   "live": 21,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 99,
+   "tokens_7d": 35689768
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 3002s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 0.7,
-   "as_of": "2026-11-05T13:50:01+00:00",
+   "as_of": "2026-11-05T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -18137,7 +18166,7 @@
   },
   "candidates": {
    "age_minutes": 0.7,
-   "as_of": "2026-11-05T13:50:01+00:00",
+   "as_of": "2026-11-05T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -18147,7 +18176,7 @@
   },
   "releases": {
    "age_minutes": 0.7,
-   "as_of": "2026-11-05T13:50:01+00:00",
+   "as_of": "2026-11-05T14:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -20791,6 +20820,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-05T14:38:05.313300+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "nws-tornado-build-001",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.01152,
+    "server_type": "cx23",
+    "status": "running"
+   },
+   {
     "created_at": "2026-10-23T10:14:37.485318+00:00",
     "deleted_at": "2026-10-23T11:37:54.083165+00:00",
     "eur": 0.016,
@@ -21344,15 +21385,15 @@
    }
   ],
   "jobs_this_month": 36,
-  "jobs_total": 197,
+  "jobs_total": 198,
   "lifetime_eur": 3.79,
   "live": {
-   "checked_at": "2026-11-05T13:50:40+00:00",
+   "checked_at": "2026-11-05T14:50:40+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
   "month_hours": 13.4,
   "month_to_date": 0.17,
