@@ -1,9 +1,9 @@
 {
  "alarms": [
   "Token use at 92% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (46.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (186.5h)",
-  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (35.7h)"
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (47.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (187.5h)",
+  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (36.7h)"
  ],
  "budget": {
   "config": {
@@ -21,7 +21,7 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-06T08:50:02.535455+00:00",
+   "moment": "2026-11-06T09:50:02.653505+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
@@ -5304,7 +5304,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 46.0,
+    "age_hours": 47.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -11031,7 +11031,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 186.5,
+    "age_hours": 187.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -14950,7 +14950,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 35.7,
+    "age_hours": 36.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -15316,7 +15316,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 46.0,
+     "age_hours": 47.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -15490,7 +15490,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 186.5,
+     "age_hours": 187.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -15776,7 +15776,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 35.7,
+     "age_hours": 36.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -15956,7 +15956,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 46.0,
+     "age_hours": 47.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -16130,7 +16130,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 186.5,
+     "age_hours": 187.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -16416,7 +16416,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 35.7,
+     "age_hours": 36.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -16678,10 +16678,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-06T08:50:02.128212+00:00",
+    "last_run_at": "2026-11-06T09:50:02.038772+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-06T09:00:00+00:00",
+    "next_run_at": "2026-11-06T10:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16702,10 +16702,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-06T08:50:00.870058+00:00",
+    "last_run_at": "2026-11-06T09:50:01.011610+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-06T08:55:00+00:00",
+    "next_run_at": "2026-11-06T09:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -16726,10 +16726,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-06T08:49:23.971934+00:00",
+    "last_run_at": "2026-11-06T09:49:38.869346+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-06T08:54:23.971934+00:00",
+    "next_run_at": "2026-11-06T09:54:38.869346+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -16738,10 +16738,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-06T08:50:01.168814+00:00",
+    "last_run_at": "2026-11-06T09:50:00.874637+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-06T08:55:00+00:00",
+    "next_run_at": "2026-11-06T09:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -16762,10 +16762,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-06T07:50:52.999079+00:00",
+    "last_run_at": "2026-11-06T08:51:46.015392+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-06T09:50:00+00:00",
+    "next_run_at": "2026-11-06T10:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16774,10 +16774,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-06T07:55:01.097558+00:00",
+    "last_run_at": "2026-11-06T08:55:01.208870+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-06T08:55:00+00:00",
+    "next_run_at": "2026-11-06T09:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16818,9 +16818,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-06T08:50:02.129245+00:00"
+  "updated_at": "2026-11-06T09:50:02.039878+00:00"
  },
- "generated_at": "2026-11-06T08:50:01+00:00",
+ "generated_at": "2026-11-06T09:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -20183,13 +20183,21 @@
    "qualified": 0,
    "sessions_7d": 104,
    "tokens_7d": 36928692
+  },
+  {
+   "at": "2026-11-06T09:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 104,
+   "tokens_7d": 36928692
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-06T08:50:01+00:00",
+   "as_of": "2026-11-06T09:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -20199,7 +20207,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-06T08:50:01+00:00",
+   "as_of": "2026-11-06T09:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -20209,7 +20217,7 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-06T08:50:01+00:00",
+   "as_of": "2026-11-06T09:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -23529,7 +23537,7 @@
   "jobs_total": 207,
   "lifetime_eur": 4.0,
   "live": {
-   "checked_at": "2026-11-06T08:50:40+00:00",
+   "checked_at": "2026-11-06T09:50:40+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
