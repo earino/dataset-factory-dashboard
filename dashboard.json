@@ -1,10 +1,10 @@
 {
  "alarms": [
-  "Token use at 97% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (53.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (193.5h)",
-  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (42.7h)",
-  "2 of the last 3 scheduled sessions failed (wall clock or provider) and produced no usable report",
+  "scout-discovery-session missed its window (2026-11-06T16:25:00+00:00); last status ok",
+  "Token use at 95% of the weekly ceiling",
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (54.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (194.5h)",
+  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (43.7h)",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -23,18 +23,18 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": false,
-   "moment": "2026-11-06T15:50:02.607004+00:00",
+   "moment": "2026-11-06T16:50:02.480322+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 692s by scout-research"
+    "lock held for 1801s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 38786579,
+   "research_tokens_last_7_days": 38112846,
    "runs_last_7_days": 107,
-   "runs_weighted_last_7_days": 123,
+   "runs_weighted_last_7_days": 122,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 16,
+   "sessions_over_token_cap": 15,
    "usage": {
     "auxiliary": {
      "calls": 20,
@@ -57,14 +57,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 4639,
+     "calls": 4699,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 22839863,
-     "output_tokens": 4521726,
+     "input_tokens": 22967909,
+     "output_tokens": 4668040,
      "pricing_available": false
     }
    },
@@ -92,10 +92,10 @@
    "dropped": 54,
    "investigating": 19,
    "packaged": 3,
-   "parked": 30,
+   "parked": 31,
    "published": 14,
    "qualified": 1,
-   "ready": 17
+   "ready": 18
   },
   "errors": [],
   "live": [
@@ -393,11 +393,6 @@
     "jobs": [
      {
       "at": null,
-      "id": "cpcb-aqi-build-001",
-      "status": "failed_and_deleted"
-     },
-     {
-      "at": null,
       "id": "cpcb-aqi-build-002",
       "status": "failed_and_deleted"
      },
@@ -429,7 +424,12 @@
      {
       "at": null,
       "id": "cpcb-aqi-hf-001",
-      "status": "running"
+      "status": "failed_and_deleted"
+     },
+     {
+      "at": null,
+      "id": "cpcb-aqi-hf-002",
+      "status": "succeeded_and_deleted"
      }
     ],
     "licence_summary": {
@@ -937,6 +937,25 @@
       "xkdr_meta_2026_11_04": "GET /v1/meta with the front-page demo key (valid, tier demo): 196,521,834 rows, 207 months 2009-01..2026-03, 558 stations, 15 parameters, export stamped 2026-09-30T11:25:11+00:00; source column values 'cpcb_caaqm' | 'us_embassy'; collected_at naive IST (UTC+05:30)."
      },
      "data_gov_in_unreachable_2026_10_20": "https://api.data.gov.in/resource/3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69?format=csv&limit=5: connection failure (HTTP 000) from the coordinator on two attempts - the official keyed API cannot be evaluated from this network.",
+     "hf_001_eval_digest_spec_failure_2026_11_06": {
+      "cleanup": "worker 174825952 destroyed 2026-11-06T15:48:36Z; provider read-back GET /v1/servers/174825952 -> 404, project servers 0, primary_ips 0",
+      "commands": [
+       "gh api repos/earino/cpcb-aqi-exceedance/releases/436366305 (read-back)",
+       "sh scripts/scout-factory worker destroy cpcb-aqi-hf-001",
+       "sh scripts/scout-factory worker plan candidates/cpcb-aqi-exceedance/hf/job.json",
+       "sh scripts/scout-factory worker launch candidates/cpcb-aqi-exceedance/hf/job.json"
+      ],
+      "defect_class": "job-spec digest transcription error (the cpcb-aqi-consumer-001 / nz-ea-baseline-001/002 class), second occurrence: hf/job.json was written in the 12:15Z session from the same hand-compiled asset list whose eval line consumer-001 refused; the 13:12Z correction fixed consumer/source/job.json only",
+      "evidence_paths": [
+       ".factory/cpcb-aqi-hf-001/result.json",
+       ".factory/cpcb-aqi-hf-001/reports/manifest.json",
+       "staging release 436618377"
+      ],
+      "job_outcome": "failed exit None, elapsed 121.7 s; 4/5 uploads green (Hub-verified manifest digests, 68,635,896 B); eval fetch refused; load_dataset check not run; nothing quotable",
+      "recovery": "the one changed retry (consumer-002 precedent): hf/job.json eval sha256 corrected BY JSON LOAD/COPY/DUMP from MANIFEST.json, id bumped to cpcb-aqi-hf-002, plan rc=0 (reservation EUR 0.04, 0 cloud calls, bundle 00152c78), launched 2026-11-06T15:49:00Z, server 174835948. A second failure is a recorded finding handed to advancement, never another silent retry.",
+      "release_intact": "live server-side read-back 2026-11-06T15:45Z: all five assets of private release 436366305 report API digests equal to MANIFEST.json; repo private true; tag v2026.11 non-draft",
+      "spec_vs_manifest": "eval sha256 position 36: 'a' (spec) vs 'e' (manifest); both 64 chars"
+     },
      "openaq_archive_2026_10_20": "Bucket listing https://openaq-data-archive.s3.amazonaws.com/?list-type=2: HTTP 200, single top-level prefix 'records/'; a guessed provider-prefixed layout (real-cpcb-gov-in/2024/) measured absent (KeyCount 0), confirming the documented hive layout records/csv.gz/locationid=... instead. CPCB locationids not enumerated this session (v3 locations API needs a key).",
      "openaq_archive_enumeration_2026_11_05": {
       "facts": "Wayback capture 20230425092626id_ of v2 locations country=IN: 1,765 locations, 989 government, 978 source 'Central Pollution Control Board' (312 also 'data.gov.in'), 937 pm25 (ids 13..363603); embassy monitors present as 'U.S. Department of State India - *' x5 + 'EPA AirNow DOS' x10 (corroborates the us_embassy exclusion). S3 year-dirs for all 937: 447 with any files; per-year 2019:203 2020:270 2021:324 2022:365 2023:0 2024:0 2025:332 2026:327; 316 follow 2022->gap->2025. Evidence: probe/out/openaq_in_locations_2023_04_25_compact.json, probe/out/openaq_cpcb_937_year_coverage_2026_11_05.json; scripts probe/probe_openaq_*_2026_11_05.py.",
@@ -1140,7 +1159,7 @@
      "xkdr_delhi_sample_2026_10_20": "GET /v1/measurements?city=Delhi&parameter=PM2.5&start=2024-01-01&end=2024-03-31&agg=daily&format=csv: HTTP 200, 252,729 bytes, 3,384 data rows across 39 distinct station_ids; columns station_id, parameter_name, unit, period_start, mean, min, max, n. Base rate measured on this sample at the proposed threshold: 1,993/3,384 = 58.89% of station-days with mean PM2.5 > 90 micrograms/m3 (Delhi winter; not the annual rate). One request, ~3 s.",
      "xkdr_meta_2026_10_20": "GET https://airquality.xkdr.org/v1/meta with the published demo key: HTTP 200; measurements 196,521,834 rows over 207 months (2009-01..2026-03), 558 stations, 15 parameters; schema station_id, station_name, state_name, city_name, parameter_name, unit, collected_at (naive IST), value, source (cpcb_caaqm|us_embassy), year, month; demo tier capped at 10,000 rows/query, 30 s query timeout."
     },
-    "next_action": "PRIVATE STAGING, GITHUB DONE, CONSUMER GREEN, HF SMALL FILES UPLOADED, BULK HF JOB RUNNING. (1) CLOSED 2026-11-06: consumer-002 green on the released bytes (see",
+    "next_action": "PRIVATE STAGING; BOTH DESTINATIONS' BYTES NOW LANDED AND VERIFIED; RELEASE-SEQUENCE CLOSE-OUT REMAINING (run-time ceiling stopped the 16:12Z follow-up after col",
     "packaged_at": null,
     "path": "candidates/cpcb-aqi-exceedance/record.json",
     "prediction_time": "23:59 IST on day D: every hourly reading through day D is knowable at that instant and no D+1 reading exists yet. Features are the station's own trailing hourly/daily PM2.5 statistics and calendar terms only; every D+1 measurement is label source and never ships as a feature.",
@@ -5312,6 +5331,7 @@
      "status": null
     },
     "measurements": {
+     "gazette_label_path_2026_11_06": "The Gazette (thegazette.co.uk/data and /data/longitudinal-datasets, read 2026-11-06 during the UK discovery session) is a second public label stream for company exits: notice content is Crown copyright under OGL v3.0 ('...is Crown Copyright and is therefore free for you to use under the Open Government Licence', with a personal-data carve-out that does not apply to corporate notices), and free query channels exist (public notice search, SPARQL endpoint, FTP RDF dumps, GitHub dataset indexes). However the structured Companies longitudinal bulk datasets (insolvency, strike-off, dissolution, from 1998) are a charged product ('The following are available for a charge, please contact data@thegazette.co.uk'). Decisive: Gazette labels do NOT unlock a historical build of this task. The blocker is not the label alone - it is the absence of historical Companies House feature vintages (no bulk historical snapshots, unchanged), and the compulsory-strike-off label is near-mechanical in the snapshot's own overdue accounts/confirmation-statement flags, the same persistence-defect shape that dropped nhs-ae-four-hour-decline. Gazette event notices remain useful as a forward-collection cross-check on path (a): monthly CH snapshot diffs yield exits directly and Gazette notices confirm them.",
      "live_only_evidence_2026_10_19": "Prefix (first 4 MB, 8,109 rows, proper CSV parse): CompanyStatus Active 7,099; Liquidation 575; 'Active - Proposal to Strike off' 403; In Administration 17; other live-ish statuses 21 - and rows with DissolutionDate set: 0 of 8,109. Combined with the page text ('basic company data of live companies on the register') and the mirror row count (~5.45M unique company numbers in the 2023-11 snapshot, matching the live-register size, not the ~10M+ cumulative ever-incorporated), the bulk product is measured to be the live register only: no historical dissolution labels exist in any file publishable today.",
      "row_sample_2026_10_19": "First data row: company 08209948 '! LTD', Private Limited Company, Active, incorporated 11/09/2012, SIC 99999 - Dormant Company, Accounts.AccountCategory DORMANT. Prefix rows span incorporations back to 1869; the file is name-sorted.",
      "snapshot_shape_2026_10_19": {
@@ -5319,7 +5339,7 @@
       "result": "BasicCompanyDataAsOneFile-2026-10-01.zip = 493,990,184 bytes (Last-Modified 2026-10-07), one CSV member 2,810,066,457 bytes uncompressed, 55 columns (header verbatim in notes.md)."
      }
     },
-    "next_action": "None. Parked permanently unless a free historical dissolution feed appears.",
+    "next_action": "None this session. The Gazette label path (measured 2026-11-06, see measurements.gazette_label_path_2026_11_06) does not change the park: Gazette notice content",
     "packaged_at": null,
     "path": "candidates/companies-house-company-exit/record.json",
     "prediction_time": "Snapshot month M (the snapshot is compiled to the end of the previous month and published within 5 working days of month end). Features would be the register row at M: company category, SIC code(s), incorporation age, registered-address region, accounts/confirmation-statement filing state, mortgage counts, previous names - all present in the measured 55-column schema.",
@@ -5459,11 +5479,6 @@
     "jobs": [
      {
       "at": null,
-      "id": "cpcb-aqi-build-001",
-      "status": "failed_and_deleted"
-     },
-     {
-      "at": null,
       "id": "cpcb-aqi-build-002",
       "status": "failed_and_deleted"
      },
@@ -5495,7 +5510,12 @@
      {
       "at": null,
       "id": "cpcb-aqi-hf-001",
-      "status": "running"
+      "status": "failed_and_deleted"
+     },
+     {
+      "at": null,
+      "id": "cpcb-aqi-hf-002",
+      "status": "succeeded_and_deleted"
      }
     ],
     "licence_summary": {
@@ -6003,6 +6023,25 @@
       "xkdr_meta_2026_11_04": "GET /v1/meta with the front-page demo key (valid, tier demo): 196,521,834 rows, 207 months 2009-01..2026-03, 558 stations, 15 parameters, export stamped 2026-09-30T11:25:11+00:00; source column values 'cpcb_caaqm' | 'us_embassy'; collected_at naive IST (UTC+05:30)."
      },
      "data_gov_in_unreachable_2026_10_20": "https://api.data.gov.in/resource/3b01bcb8-0b14-4abf-b6f2-c1bfd384ba69?format=csv&limit=5: connection failure (HTTP 000) from the coordinator on two attempts - the official keyed API cannot be evaluated from this network.",
+     "hf_001_eval_digest_spec_failure_2026_11_06": {
+      "cleanup": "worker 174825952 destroyed 2026-11-06T15:48:36Z; provider read-back GET /v1/servers/174825952 -> 404, project servers 0, primary_ips 0",
+      "commands": [
+       "gh api repos/earino/cpcb-aqi-exceedance/releases/436366305 (read-back)",
+       "sh scripts/scout-factory worker destroy cpcb-aqi-hf-001",
+       "sh scripts/scout-factory worker plan candidates/cpcb-aqi-exceedance/hf/job.json",
+       "sh scripts/scout-factory worker launch candidates/cpcb-aqi-exceedance/hf/job.json"
+      ],
+      "defect_class": "job-spec digest transcription error (the cpcb-aqi-consumer-001 / nz-ea-baseline-001/002 class), second occurrence: hf/job.json was written in the 12:15Z session from the same hand-compiled asset list whose eval line consumer-001 refused; the 13:12Z correction fixed consumer/source/job.json only",
+      "evidence_paths": [
+       ".factory/cpcb-aqi-hf-001/result.json",
+       ".factory/cpcb-aqi-hf-001/reports/manifest.json",
+       "staging release 436618377"
+      ],
+      "job_outcome": "failed exit None, elapsed 121.7 s; 4/5 uploads green (Hub-verified manifest digests, 68,635,896 B); eval fetch refused; load_dataset check not run; nothing quotable",
+      "recovery": "the one changed retry (consumer-002 precedent): hf/job.json eval sha256 corrected BY JSON LOAD/COPY/DUMP from MANIFEST.json, id bumped to cpcb-aqi-hf-002, plan rc=0 (reservation EUR 0.04, 0 cloud calls, bundle 00152c78), launched 2026-11-06T15:49:00Z, server 174835948. A second failure is a recorded finding handed to advancement, never another silent retry.",
+      "release_intact": "live server-side read-back 2026-11-06T15:45Z: all five assets of private release 436366305 report API digests equal to MANIFEST.json; repo private true; tag v2026.11 non-draft",
+      "spec_vs_manifest": "eval sha256 position 36: 'a' (spec) vs 'e' (manifest); both 64 chars"
+     },
      "openaq_archive_2026_10_20": "Bucket listing https://openaq-data-archive.s3.amazonaws.com/?list-type=2: HTTP 200, single top-level prefix 'records/'; a guessed provider-prefixed layout (real-cpcb-gov-in/2024/) measured absent (KeyCount 0), confirming the documented hive layout records/csv.gz/locationid=... instead. CPCB locationids not enumerated this session (v3 locations API needs a key).",
      "openaq_archive_enumeration_2026_11_05": {
       "facts": "Wayback capture 20230425092626id_ of v2 locations country=IN: 1,765 locations, 989 government, 978 source 'Central Pollution Control Board' (312 also 'data.gov.in'), 937 pm25 (ids 13..363603); embassy monitors present as 'U.S. Department of State India - *' x5 + 'EPA AirNow DOS' x10 (corroborates the us_embassy exclusion). S3 year-dirs for all 937: 447 with any files; per-year 2019:203 2020:270 2021:324 2022:365 2023:0 2024:0 2025:332 2026:327; 316 follow 2022->gap->2025. Evidence: probe/out/openaq_in_locations_2023_04_25_compact.json, probe/out/openaq_cpcb_937_year_coverage_2026_11_05.json; scripts probe/probe_openaq_*_2026_11_05.py.",
@@ -6206,7 +6245,7 @@
      "xkdr_delhi_sample_2026_10_20": "GET /v1/measurements?city=Delhi&parameter=PM2.5&start=2024-01-01&end=2024-03-31&agg=daily&format=csv: HTTP 200, 252,729 bytes, 3,384 data rows across 39 distinct station_ids; columns station_id, parameter_name, unit, period_start, mean, min, max, n. Base rate measured on this sample at the proposed threshold: 1,993/3,384 = 58.89% of station-days with mean PM2.5 > 90 micrograms/m3 (Delhi winter; not the annual rate). One request, ~3 s.",
      "xkdr_meta_2026_10_20": "GET https://airquality.xkdr.org/v1/meta with the published demo key: HTTP 200; measurements 196,521,834 rows over 207 months (2009-01..2026-03), 558 stations, 15 parameters; schema station_id, station_name, state_name, city_name, parameter_name, unit, collected_at (naive IST), value, source (cpcb_caaqm|us_embassy), year, month; demo tier capped at 10,000 rows/query, 30 s query timeout."
     },
-    "next_action": "PRIVATE STAGING, GITHUB DONE, CONSUMER GREEN, HF SMALL FILES UPLOADED, BULK HF JOB RUNNING. (1) CLOSED 2026-11-06: consumer-002 green on the released bytes (see",
+    "next_action": "PRIVATE STAGING; BOTH DESTINATIONS' BYTES NOW LANDED AND VERIFIED; RELEASE-SEQUENCE CLOSE-OUT REMAINING (run-time ceiling stopped the 16:12Z follow-up after col",
     "packaged_at": null,
     "path": "candidates/cpcb-aqi-exceedance/record.json",
     "prediction_time": "23:59 IST on day D: every hourly reading through day D is knowable at that instant and no D+1 reading exists yet. Features are the station's own trailing hourly/daily PM2.5 statistics and calendar terms only; every D+1 measurement is label source and never ships as a feature.",
@@ -6260,7 +6299,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 53.0,
+    "age_hours": 54.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -6888,6 +6927,72 @@
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
+    "domain": "animal health epidemiology / wild-bird-to-poultry spillover early warning (county-week event panel)",
+    "id": "defra-avian-influenza-spillover",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "availability_assumption": "Residual, stated: no retro-addition of rows to past weeks between snapshot captures is observed at the dated example, but UKGWA's ~monthly cadence cannot exclude it within uncaptured weeks; construction verifies additional snapshots before shipping a strict as-of build and otherwise declares the assumption in quality.json.evaluation_contract (gate 1.5).",
+     "extraction_cost_measured": "Case listing: 8 requests / 1,251,470 bytes / 4.9 s. Feature files: 7 CSVs, 150 KB total, ~30 s including downloads. Archived listings: 15 requests / 2,906,321 bytes. UKGWA coverage probes: 12 HEAD requests. All on the 1.9 GiB coordinator; a full worker build is bounded by tens of small fetches (feature files + ~10-20 archived vintages + 1-2 epidemiology PDFs).",
+     "feature_stream_measured_2026_11_06": "Wild-bird findings per year-file: 2016-17 67 rows/17 locations/45 positive birds; 2018 63/15/101; 2020 166/37/277; 2021 258/120/459; 2022 825/283/1,876; 2023 458 rows/93 counties; 2025 1,203 rows parsed from XLSX with openpyxl 3.1.5 on the coordinator; 2026 309 rows/81 locations/348 positive birds, weeks 1-44. Four schema generations: 2016-2020 'Location (county)'; 2021-2022 'Location' at district/council grain (283 distinct in 2022); 2023+ county-normalized ('Week, District, County, Species, Pathotype, Total'). Grain normalization for 2021-2022 is bounded construction work.",
+     "probe_scripts": "candidates/defra-avian-influenza-spillover/probe_case_listing.py, probe_wildbirds_counts.py, probe_archived_listings.py (results JSON beside each)",
+     "publisher_cross_check": "Publisher's UK season table (HPAI cases): 2021-22 158, 2022-23 207, 2023-24 6, 2024-25 82, 2025-26 100 - measured England counts (22-tail-only / 162 / 4 / 73 / 80) are consistent England-majority subsets; 2026-27 latest-situation page (read 2026-11-06) names exactly the 2 England cases the listing shows (Belford, Northumberland 2026-10-19; Brigg, North Lincolnshire 2026-11-04).",
+     "target_stream_measured_2026_11_06": "Live listing: 340 entries = 339 premises cases + 1 AIPZ zone entry; all premises entries carry opened dates (parse fix applied; earlier run's 24 'undated' were a parser artifact). Per-season England premises cases / distinct counties / positive county-weeks: 2021-22 tail 22/9/18, 2022-23 162/36/93, 2023-24 4/4/4, 2024-25 73/20/56, 2025-26 80/23/65, 2026-27 2/2/2, plus one legacy 2005-06 entry excluded by split windows. Archived snapshots union: 187 entries, consistent with the live listing (2022-23 identical at 162).",
+     "vintage_evidence": "UKGWA replay works anonymously (307 to nearest snapshot). Dated example: the 2022-11-14 snapshot of the findings page links ai-findings-week-2022-44.csv and the archived attachment contains weeks 1-44 only (570 rows) vs 825 rows in the current 2022 file - a row's week label is its availability week at snapshot time. Corroboration: search-indexed 2025 files 'Week_8' and 'Week_23' showed weeks 1-8 and 1-23 respectively, but both media URLs served identical 69,118-byte current-year files when fetched 2026-11-06 - live attachment URLs are current-state and replaced in place, so per-week vintages are recoverable only from UKGWA captures."
+    },
+    "next_action": "Construction handoff (worker build, licence class A): (1) fetch current per-year feature files (CSV 2016-2023, XLSX 2024-2026) and the UKGWA vintages listed in ",
+    "packaged_at": null,
+    "path": "candidates/defra-avian-influenza-spillover/record.json",
+    "prediction_time": "The Monday publication of APHA's weekly wild-bird findings list for ISO week t (measured update-log entries: '2 November 2026 - Updated the ... list with data for week 44 of 2026' and '26 October 2026 - Weekly update ...', both Mondays). Features are the report rows with week label <= t, plus previously published case history; the target window (ISO week t+2, Monday-Sunday) lies entirely after the prediction instant, so no part of the target precedes it and the next report's publication (week t+1) is never a feature. Where the exact publication time-of-day is needed, the instant is taken as 23:59 Europe/London of the publication day and the page's atom feed is the recorded channel for the exact timestamp (construction fetches it).",
+    "publisher": "Animal and Plant Health Agency (APHA) / Department for Environment, Food and Rural Affairs (Defra), published on GOV.UK; wild-bird surveillance covers Great Britain, the case listing and target panel are England",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the Monday publication of APHA's weekly wild-bird HPAI findings report for ISO week t, will at least one new notifiable avian influenza premises case be confirmed (case opened) in each English county during ISO week t+2? A useful prediction supports APHA-style early warning: targeting surveillance, control-zone preparedness and poultry-industry biosecurity at the county level one to two weeks ahead, using only the open weekly surveillance stream.",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "An event-emergence shape the bench does not yet cover (hazard-warning escalation on ea-flood is a different hazard and population; efsa-one-health-sample-prevalence was per-sample test positivity, not event emergence). Decision utility is real and documented: APHA runs county-level risk assessments and declares control zones; the modeling literature (US county-month GBM AUC 0.856; Europe WAHIS 2006-2021 XGBoost; Netherlands/Korea/France/Taiwan studies) shows the wild-bird-exposure signal is predictive but none of it publishes an ML-ready task. Licence is OGL v3 from the publisher's own footer on both streams. Timing has dated vintage evidence at UKGWA snapshot granularity with the residual intra-snapshot assumption stated. Splits are measured and both classes appear in every window; positives are wave-clustered and recorded as such.",
+    "sources": [
+     {
+      "licence": "OGL v3.0 (GOV.UK footer: 'All content is available under the Open Government Licence v3.0, except where otherwise stated')",
+      "name": "Bird flu (avian influenza): cases in wild birds - APHA weekly findings publication (features)",
+      "url": "https://www.gov.uk/government/publications/avian-influenza-in-wild-birds"
+     },
+     {
+      "licence": "OGL v3.0 (same GOV.UK footer, read 2026-11-06)",
+      "name": "Notifiable animal disease cases and control zones - gov.uk case listing, bird-flu filtered (target)",
+      "url": "https://www.gov.uk/animal-disease-cases-england?disease_type%5B%5D=bird-flu"
+     },
+     {
+      "licence": "UKGWA terms cover access to archived public web content; the archived content itself is Crown-copyright GOV.UK material under OGL v3.0",
+      "name": "UK Government Web Archive (dated vintages of both streams)",
+      "url": "https://webarchive.nationalarchives.gov.uk/ukgwa/<timestamp>mp_/https://www.gov.uk/government/publications/avian-influenza-in-wild-birds"
+     },
+     {
+      "licence": "OGL v3.0 (GOV.UK footer)",
+      "name": "Bird flu (avian influenza): latest situation in England - publisher season summary table (cross-check product)",
+      "url": "https://www.gov.uk/guidance/bird-flu-avian-influenza-latest-situation-in-england"
+     }
+    ],
+    "split_strategy": "Temporal by outbreak season (1 October - 30 September), measured from the case listing and its archived snapshots on 2026-11-06. Candidate partition: train = 2021-22 tail + 2022-23 (162 cases, 93 positive county-weeks, 36 counties; the 2021-22 bulk - cases opened Oct 2021-Aug 2022 - was never carried by the live or archived listing, which both start at 2022-08-27, so train currently includes only the measured 22-case tail; recovering the bulk from APHA's 2021-22 epidemiology report annex tables is optional bounded construction work, ~1-2 PDFs); eval = 2024-25 (73 cases, 56 positive county-weeks, 20 counties) plus 2023-24 (4 cases) folded in or excluded at construction; holdout = 2025-26 (80 cases, 65 positive county-weeks, 23 counties); 2026-27 (in progress, 2 England cases to date) reserved for post-publication scoring. Both classes present in every window (negatives are the bulk of every county-week panel). Positives cluster at national-wave level: 1-2 waves per season window, so wave-level independence is 1-2 per window and county-week counts within a wave are correlated - recorded as the clustered count that constrains score precision.",
+    "status": "ready",
+    "target": "Binary label per (English county, ISO week): 1 iff at least one HPAI premises case whose gov.uk case-listing 'Opened' date falls inside target week t+2 names that county. Source: the gov.uk notifiable-animal-disease case listing, entries carrying an outbreak id - current '(AIV 2026/23)' form or 2022-era '(2022/73)'/'(SOS AIV 2022/19)' form. Provenance mix measured 2026-11-06: 339 premises entries vs 1 regional zone entry (an AIPZ prevention zone, excluded) in 340 total; strain mix 334 H5N1, 1 H5N5, 4 unspecified on the old-format entries. The label source columns (opened dates, titles, counties) are excluded from shipped features."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "GB",
     "domain": "waste and resource policy - local authority household recycling performance prediction (annual LA panel)",
     "id": "defra-la-household-recycling-rate",
     "jobs": [],
@@ -7317,6 +7422,60 @@
     "split_strategy": "Temporal, one row per eligible alert event: train 2006-2019, eval 2020-2022, holdout 2023-2026 Q2 (file ends 2026-06-30). Measured at label window [D+1,D+7]: train 28,864 events / 3,638 positives (12.60%); eval 9,623 / 1,560 (16.21%); holdout 14,561 / 2,408 (16.54%). Positives occur in every year 2006-2026. Positives cluster by storm: 458 distinct year-weeks carry at least one positive (top week 2020-W7, Storms Ciara/Dennis, 324 same-window positives at the [D,D+7] definition). Report per-year metrics: a reporting-system migration in April 2017 (Floodline Warnings Direct -> Flood Warning System, per the EA's dataset description) is a candidate structural break.",
     "status": "investigating",
     "target": "Binary label: 1 if any warning-level message (TYPE 'flood warning', 'severe flood warning', or their 'update' variants, case-normalised) for any warning area W with register parent(W) == P has issue date in [D+1, D+7]; else 0. Source columns: DATE, CODE, TYPE in the Historic Flood Warnings ODS joined to fws_tacode->parent in the Flood Warning Areas register (WFS, properties-only). Alert events eligible only when P has at least one child warning area (53,048 of 62,897 alert-level messages)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "GB",
+    "domain": "flood risk management infrastructure / defence asset condition deterioration between inspections",
+    "id": "ea-flood-defence-asset-condition",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "condition_coverage_sample": "First 500 items via OGC API (non-random sample, default ordering): 83/500 carry a current_condition grade (value mix: '3' 49, '2' 23, '4' 7, '5' 2, '1' 1, '0' 1, empty 417); 466/500 carry last_inspection_date. A condition-graded subpopulation on the order of tens of thousands of assets, subject to a measured full-coverage count at collection time.",
+     "fields_measured_2026_11_06": "One feature from AIMS_Spatial_Flood_Defences_Including_Standardised_Attributes carries 37 property fields including current_condition, target_condition, last_inspection_date, next_inspection_date, asset_start_date, asset_length, asset_owner/operator/maintainer - the condition task's fields exist in the open product.",
+     "no_historical_vintages": "No dated prior captures of the bundle are published by the EA or found on data.gov.uk; the separate decommissioned-assets products carry lifecycle end dates, not condition histories. Forward collection is the only label channel.",
+     "panel_size_measured": "numberMatched = 141,416 assets in the flood-defences collection via the OGC API.",
+     "update_and_access": "Publisher: 'This data is updated daily'; 'no public access constraints'; OGC API answers anonymous requests; full-download size unmeasured (direct HEAD 404s; publisher states 7-8 minutes for the national dataset)."
+    },
+    "next_action": "No construction. If the operator wants this task, first step is a scheduled monthly bundle capture (staging-side; full download ~7-8 minutes per publisher, or O",
+    "packaged_at": null,
+    "path": "candidates/ea-flood-defence-asset-condition/record.json",
+    "prediction_time": "A scheduled monthly capture of the AIMS Asset Bundle (the publisher updates the extract daily and no dated vintages are published, so a feature vintage exists only from the moment collection starts; each capture is dated by its own retrieval).",
+    "publisher": "Environment Agency (England), an executive agency of Defra",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "Given the Environment Agency's AIMS flood-defence asset record as captured at a dated monthly snapshot, will an asset be recorded at a worse condition grade at its next inspection - the asset-maintenance prioritisation question the EA's own six-year capital programme answers with inspection resources? An infrastructure-maintenance prediction shape this bench does not yet cover.",
+    "region": "Europe",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "The shape is genuinely new for the bench (infrastructure asset-maintenance prediction with a real operator decision behind it), the licence is clean OGL v3 on the publisher's own record, and the feature fields for the task are present in the open product. The blocker is structural and measured, not speculative: without historical vintages there is no label for any past instant, and this bench does not run multi-year collection projects on spec.",
+    "sources": [
+     {
+      "licence": "Licence: Open Government Licence (v3), identified on the publisher's dataset record; attribution '\u00a9 Environment Agency copyright and/or database right 2020. All rights reserved.' (read 2026-11-06)",
+      "name": "AIMS Asset Bundle (AfA345) - Environment Agency flood defence assets, all asset types",
+      "url": "https://environment.data.gov.uk/dataset/019a8eaa-b27f-4ae6-a9fd-e8e27cdd101a"
+     },
+     {
+      "licence": "\u00a9 Environment Agency copyright and/or database right 2016 (attribution on the data.gov.uk record)",
+      "name": "Asset Information - Decommissioned Flood Defence Assets (point / polylines), data.gov.uk mirror",
+      "url": "https://www.data.gov.uk/dataset/4731d19e-2eac-4565-a2d6-530e3fdc2f9f/asset-information-decommissioned-flood-defence-assets-point"
+     }
+    ],
+    "split_strategy": "Not computable today: condition-transition labels require at least two observed condition states per asset, and the bundle is a current-state extract with no published historical vintages (no archive of prior bundles located). Split windows can only be defined after forward collection has accumulated observed transitions.",
+    "status": "parked",
+    "target": "Transition of current_condition for the same asset_id between consecutive observed inspections, captured as the diff of the condition/inspection fields across consecutive dated bundle captures (downgrade vs not). Label source fields (current_condition at the later capture, last_inspection_date) are excluded from features."
    },
    {
     "awaiting_operator": false,
@@ -11992,7 +12151,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 193.5,
+    "age_hours": 194.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -15911,7 +16070,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 42.7,
+    "age_hours": 43.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -16277,7 +16436,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 53.0,
+     "age_hours": 54.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -16451,7 +16610,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 193.5,
+     "age_hours": 194.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -16737,7 +16896,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 42.7,
+     "age_hours": 43.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -16917,7 +17076,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 53.0,
+     "age_hours": 54.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -17091,7 +17250,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 193.5,
+     "age_hours": 194.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -17377,7 +17536,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 42.7,
+     "age_hours": 43.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -17574,7 +17733,7 @@
    "ET": 1,
    "EU": 15,
    "FR": 3,
-   "GB": 16,
+   "GB": 18,
    "GH": 1,
    "HK": 2,
    "ID": 3,
@@ -17599,7 +17758,7 @@
   "by_region": {
    "Africa": 14,
    "East Asia": 9,
-   "Europe": 34,
+   "Europe": 36,
    "International organisations": 18,
    "Latin America": 12,
    "North America": 26,
@@ -17610,15 +17769,15 @@
    "dropped": 54,
    "investigating": 19,
    "packaged": 3,
-   "parked": 30,
+   "parked": 31,
    "published": 14,
    "qualified": 1,
-   "ready": 17
+   "ready": 18
   },
-  "candidates": 138,
-  "live": 54,
-  "live_non_us": 48,
-  "live_non_us_share": 0.889,
+  "candidates": 140,
+  "live": 55,
+  "live_non_us": 49,
+  "live_non_us_share": 0.891,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -17640,10 +17799,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-06T15:50:01.663667+00:00",
+    "last_run_at": "2026-11-06T16:50:01.619527+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-06T16:00:00+00:00",
+    "next_run_at": "2026-11-06T17:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -17664,10 +17823,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-06T15:50:01.095120+00:00",
+    "last_run_at": "2026-11-06T16:50:01.626406+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-06T15:55:00+00:00",
+    "next_run_at": "2026-11-06T16:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -17688,10 +17847,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-06T15:33:25.575872+00:00",
+    "last_run_at": "2026-11-06T16:48:02.049520+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-06T15:43:26.792478+00:00",
+    "next_run_at": "2026-11-06T16:53:02.049520+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -17700,10 +17859,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-06T15:50:01.131908+00:00",
+    "last_run_at": "2026-11-06T16:15:01.779430+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-06T15:55:00+00:00",
+    "next_run_at": "2026-11-06T16:25:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -17724,10 +17883,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-06T14:50:54.968067+00:00",
+    "last_run_at": "2026-11-06T15:50:54.199605+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-06T16:50:00+00:00",
+    "next_run_at": "2026-11-06T17:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -17736,10 +17895,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-06T14:55:01.005164+00:00",
+    "last_run_at": "2026-11-06T15:55:00.707319+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-06T15:55:00+00:00",
+    "next_run_at": "2026-11-06T16:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -17780,29 +17939,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-06T15:50:01.664845+00:00"
+  "updated_at": "2026-11-06T16:50:01.627776+00:00"
  },
- "generated_at": "2026-11-06T15:50:01+00:00",
+ "generated_at": "2026-11-06T16:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 138
+   "passing": 140
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-06T15:35:36Z",
-   "head_sha": "efbba90",
+   "created_at": "2026-11-06T16:17:44Z",
+   "head_sha": "27c7415",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42244484868"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42251022631"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 48/54 (89%)"
+   "summary": "live non-US: 49/55 (89%)"
   },
   "head": {
-   "at": "2026-11-06T15:35:31Z",
-   "sha": "efbba90",
-   "subject": "cpcb-aqi-exceedance HF destination opened: private Hub repo earino/cpcb-aqi-exceedance created (private:true confirmed b"
+   "at": "2026-11-06T16:17:40Z",
+   "sha": "27c7415",
+   "subject": "cpcb-aqi-hf-002 SUCCEEDED: HF bulk upload complete and verified - eval uploaded at the manifest digest (20210392 B e187f"
   },
   "tests": {
    "count": "723",
@@ -21201,15 +21360,23 @@
    "qualified": 1,
    "sessions_7d": 107,
    "tokens_7d": 38786579
+  },
+  {
+   "at": "2026-11-06T16:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 1,
+   "sessions_7d": 107,
+   "tokens_7d": 38112846
   }
  ],
  "notices": [
-  "A research session is running: lock held for 692s by scout-research"
+  "A research session is running: lock held for 1801s by scout-research"
  ],
  "panels": {
   "budget": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-06T15:50:01+00:00",
+   "age_minutes": 0.7,
+   "as_of": "2026-11-06T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -21218,8 +21385,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-06T15:50:01+00:00",
+   "age_minutes": 0.7,
+   "as_of": "2026-11-06T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -21228,8 +21395,8 @@
    "value": 20
   },
   "releases": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-06T15:50:01+00:00",
+   "age_minutes": 0.7,
+   "as_of": "2026-11-06T16:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -22061,7 +22228,7 @@
      "lo": 0.01
     },
     {
-     "count": 47,
+     "count": 48,
      "hi": 0.05,
      "lo": 0.02
     },
@@ -22088,10 +22255,10 @@
    ],
    "max": 0.6296,
    "median": 0.0139,
-   "n": 211,
+   "n": 212,
    "p90": 0.0573,
    "ref_rate": 0.06924,
-   "total": 6.27
+   "total": 6.3
   },
   "jobs": [
    {
@@ -22660,15 +22827,15 @@
    },
    {
     "created_at": "2026-11-06T15:49:00.899562+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-11-06T16:11:10.538252+00:00",
+    "eur": 0.0043,
+    "hours": 0.369,
     "id": "cpcb-aqi-hf-002",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0255,
     "rate_eur": 0.01152,
     "server_type": "cx23",
-    "status": "running"
+    "status": "deleted"
    },
    {
     "created_at": "2026-11-06T10:29:46.463846+00:00",
@@ -24639,18 +24806,18 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 50,
+  "jobs_this_month": 51,
   "jobs_total": 212,
   "lifetime_eur": 4.14,
   "live": {
-   "checked_at": "2026-11-06T15:50:40+00:00",
+   "checked_at": "2026-11-06T16:50:41+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 20.5,
+  "month_hours": 20.9,
   "month_to_date": 0.52,
   "months": [
    {
@@ -24666,46 +24833,18 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.5154,
-    "hours": 20.53,
-    "jobs": 50,
+    "eur": 0.5197,
+    "hours": 20.9,
+    "jobs": 51,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 2.58
+  "projected_month_eur": 2.6
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 2,
+  "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 281.1,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "1fd7233ea22da8654972d06978c90dfde8948a615d1a3983b95613152b114a31",
-    "ts": "2026-11-06T10:59:42.922850+00:00"
-   },
-   {
-    "elapsed_seconds": 4563.3,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "2f256b5a76a865b2d87dc986d350d8f6521ff7ea17fe9c195dfb5f996d436319",
-    "ts": "2026-11-06T12:16:05.638481+00:00"
-   },
    {
     "elapsed_seconds": 2138.1,
     "event": "session",
@@ -24760,6 +24899,34 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "9d623bd363a39c94665b5c3c6beb3851cd9484faeefaa66da17ddeb00fccc353",
     "ts": "2026-11-06T15:35:01.711550+00:00"
+   },
+   {
+    "elapsed_seconds": 912.6,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "d4eb29acf9d09733030d5b616ea03a7922d75fb225c461238351f04e88390ab7",
+    "ts": "2026-11-06T15:53:43.089116+00:00"
+   },
+   {
+    "elapsed_seconds": 1145.2,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "15dcde1a6298e45336d947235bff1c777ea8053e2bd6e72feb50d23c09789bd1",
+    "ts": "2026-11-06T16:17:53.661398+00:00"
    }
   ],
   "total": 40
