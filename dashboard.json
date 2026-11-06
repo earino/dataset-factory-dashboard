@@ -1,9 +1,9 @@
 {
  "alarms": [
   "Token use at 99% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (57.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (197.5h)",
-  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (46.7h)"
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (58.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (198.5h)",
+  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (47.7h)"
  ],
  "budget": {
   "config": {
@@ -21,16 +21,16 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-06T19:50:02.396040+00:00",
+   "moment": "2026-11-06T20:50:03.029440+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 39501091,
+   "research_tokens_last_7_days": 39742469,
    "runs_last_7_days": 106,
-   "runs_weighted_last_7_days": 122,
+   "runs_weighted_last_7_days": 121,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 16,
+   "sessions_over_token_cap": 15,
    "usage": {
     "auxiliary": {
      "calls": 20,
@@ -53,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 4765,
+     "calls": 4851,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 24678243,
-     "output_tokens": 4702482,
+     "input_tokens": 24844951,
+     "output_tokens": 4777925,
      "pricing_available": false
     }
    },
@@ -89,7 +89,7 @@
    "packaged": 4,
    "parked": 31,
    "published": 14,
-   "ready": 18
+   "ready": 19
   },
   "errors": [],
   "live": [
@@ -1677,6 +1677,72 @@
   ],
   "non_us_share": 94.7,
   "records": [
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "CA",
+    "domain": "wildfire operations - initial-attack escape and containment-duration prediction from the regulator's assessment record (per-incident classification, Alberta Forest Protection Area 2006-2025)",
+    "id": "ab-wildfire-ia-escape",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "access_caveat": "open.alberta.ca blocks plain HTTP clients (Cloudflare managed challenge, measured); construction must ship the sha256-pinned CSV in the job bundle or use the recorded browser procedure, and assert the digest in-build.",
+     "containment_duration": "assessment -> first under control: median 0.4 h, p90 24.4 h, >72 h for 4.72% overall (514/189/611 per window); 11,688/27,828 (42.0%) already under control at the assessment instant.",
+     "escape_base_rates": ">=100 ha: 297/104/257 (1.86%/1.85%/4.11%); >=200 ha: 235/76/217; >=4 ha: 1,167/433/705; full threshold table in probe_escape_base_rates_result.json with distinct-date clustered counts.",
+     "extraction_cost_measured": "one 10.4 MB CSV + one 193 KB dictionary PDF through the cleared browser context (~12 s transfer, ~25 s chunked export) on the coordinator container (4 vCPU); full-population probes run in ~3 s locally; construction is a single 10.4 MB parse on a worker. No bulk transfer beyond the source file.",
+     "feature_coverage_by_window": "assessment_datetime/assessment_hectares 100% in all windows; weather block (temperature, relative_humidity, wind_speed, wind_direction, weather_conditions_over_fire) 88.8%/86.4%/94.0%; fire_spread_rate 88.9%/86.7%/94.6%; fuel_type 68.8%/71.1%/81.6%; fire_type 89.2%/88.0%/96.0%; reported_date 100%; discovered_date 88.8%/72.4%/59.9% (dictionary: blank where unplanned detection); fire_start_date ~97.4% throughout.",
+     "instant_ordering": "assessment_datetime never precedes reported_date (27,828/27,828), discovered_date (21,977/21,977) or fire_start_date (27,109/27,109); dispatch_date falls after assessment for 670/27,813 (2.41%) and start_for_fire_date for 990/27,818 (3.56%) - dispatch block excluded from features on this mixed ordering evidence.",
+     "probe_scripts": "candidates/ab-wildfire-ia-escape/probe_escape_base_rates.py and probe_publisher_crosscheck.py, results in probe_escape_base_rates_result.json and probe_publisher_crosscheck_result.json; pinned inputs recorded in notes.md (CSV sha256 8b6ed447..., dictionary sha256 bfff81c0...)",
+     "provenance_mix": "detection channel drifts (lookouts 34% of 2006 -> 21% of 2025; unplanned 42% -> 59%); population definition (all FPA wildfires) is stable; full per-year mixes in probe result JSON.",
+     "publisher_cross_check": "current CSV hectares vs published season totals: 2020 3,274 vs 3,269; 2021 54,089 vs 54,047; 2022 131,272 vs 130,858; 2023 2,217,295 vs 2,211,900; 2024 714,874 vs 708,528 (<=1.0%); 2019 791,838 vs 883,411 (-10.4%), consistent with the dictionary's documented spring aerial-photography revision; fire counts differ from season PDFs because the CSV is year-round (e.g. 31 winter wildfires Nov-Dec 2025).",
+     "revision_sensitivity": "fires within +-20% of the 100 ha threshold: 89 (0.32% of rows); 40 ha: 146; 10 ha: 260; 4 ha: 383 - bounds the post-hoc area-revision label-flip exposure.",
+     "rows_and_uniqueness": "27,828 wildfires 2006-2025; (YEAR, FIRE_NUMBER) unique (0 duplicates); 0 unparseable timestamps; 0 current_size=0 rows; 0 size-class/current-size inconsistencies (A>=0-0.1, B>0.1-4, C>4-40, D>40-200, E>200 ha).",
+     "vintage_limitation": "single current compilation (portal updated 2026-02-17, covers through 2025); per-fire historical vintages are not published and not recoverable; the dictionary documents in-place revision of area burned (spring aerial-photography interpretation), cause (under-investigation -> final) and location (assessment GPS -> confirmed ignition area); the 2019 aggregate revision measured above is direct evidence. The task is therefore a current-compilation retrospective with explicit evaluation_contract assumptions - it does not claim operational point-in-time reproducibility of historical values."
+    },
+    "next_action": "Hand to construction (worker, advancement session): (1) acquire the CSV via bundle-shipped pinned copy or the recorded browser procedure and assert sha256 8b6ed",
+    "packaged_at": null,
+    "path": "candidates/ab-wildfire-ia-escape/record.json",
+    "prediction_time": "The initial assessment instant, assessment_datetime, documented by the publisher as 'the date and time the wildfire was originally assessed by Alberta Wildfire employees'. Every feature field's meaning is documented at that instant: assessment_hectares, fire_spread_rate, fire_type, fire_position_on_slope, the five in-situ weather fields and fuel_type all carry the publisher's wording 'at the time of initial assessment'; reported_date/discovered_date/fire_start_date/detection fields are documented pre-instant and measured never to fall after the instant (27,828/27,828 for reported_date). Post-instant families are excluded by design and measurement: cause classification (dictionary: 'under investigation' temporary cause, final cause updated later), dispatch block (2.41% of dispatch timestamps fall after the assessment - mixed ordering, so excluded), all suppression/milestone fields (initial_action_by, ia_*, fire_fighting_start_*, bucketing, first_bh/uc/to/ex) and the label sources (current_size, size_class). Timestamps carry no timezone; they are read as local Alberta operational time (America/Edmonton) - a declared assumption to be confirmed at construction and stated in quality.json.evaluation_contract.",
+    "publisher": "Government of Alberta - Ministry of Forestry and Parks / Alberta Wildfire (open.alberta.ca Open Government Program; federated on the federal open.canada.ca portal, package a221e7a0-4f46-4be7-9c5a-e29de9a3447e)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At Alberta Wildfire's recorded initial assessment of a newly discovered wildfire (assessment_datetime, 'originally assessed'), predict whether the wildfire will escape initial attack - final area burned at least 100 ha (variants at 4/40/200 ha) - and/or remain uncontained more than 72 hours (time from assessment to first under control), using only the crew-observed assessment record (size at assessment, rate of spread, fire behaviour type, position on slope, in-situ weather over the fire, FBP fuel type), pre-instant timing fields (estimated ignition, reported, detection channel), and calendar/geography. A useful prediction supports the actual initial-attack resourcing decision - airtanker/crew prioritization and same-day escalation - which the agency itself states happens at this instant.",
+    "region": "North America",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "All five discovery contracts reconciled against recorded evidence (probes and full transcripts in candidates/ab-wildfire-ia-escape/). (1) Redistribution: class A - OGL-Alberta v2.2 permits redistribution and derivatives; the attribution sentence and non-endorsement wording are recorded verbatim and carried into LICENSE.md; the personal-information exemption was checked against the shipped columns (position codes, not names). (2) Prediction timing: the instant is the publisher's own initial-assessment timestamp and every intended feature is documented 'at the time of initial assessment' by the publisher's dictionary - the strongest timing documentation of any source this bench has opened; post-instant families (cause, dispatch, suppression milestones) are excluded with measured ordering evidence; declared limitations: no timezone marker in timestamps (read as America/Edmonton, assumption to confirm) and a single current compilation (no historical per-fire vintages) - the task is labelled current-compilation retrospective, and evaluation_contract must state these assumptions plus the bounded revision-flip exposure (89 fires within +-20% of 100 ha). (3) Target: labels derive from the record's own post-instant fields (current_size, first_uc_date), excludable from shipped features; eligibility is assessment-based with 100% coverage - no outcome-conditioned selection; no censoring (terminal status on every row, 99.9% extinguished). (4) Split capacity: three disjoint year windows carry both classes for both labels (escape 1.86%/1.85%/4.11%; containment 3.2%/3.4%/9.8%), with same-day clustered counts recorded (independence scale = the extreme fire-weather day); the holdout's higher rate is the documented 2023 record season. (5) Not a mirror: the IA-escape family is precedented (WildfireIA US benchmark, Mesogeos, Zong et al. Alberta powerline subset, Korkola et al. Ontario, UAlberta IA-difficulty study) - none ships an all-cause, assessment-instant task on the regulator's own in-situ assessment observations with containment-milestone labels; WildfireIA's own abstract records that such 'response records' are non-public in the US, which is precisely the gap this source closes for a public jurisdiction. Novelty verdict 'differentiated' recorded by script. Residual uncertainties for construction: confirm the timezone reading against a publicly documented fire timeline; decide the already-controlled stratum's treatment for the containment label; winter/season scope decision.",
+    "sources": [
+     {
+      "licence": "Open Government Licence - Alberta v2.2",
+      "name": "Historical wildfire data 2006-2025 (per-fire incident records)",
+      "url": "https://open.alberta.ca/dataset/a221e7a0-4f46-4be7-9c5a-e29de9a3447e/resource/80480824-0c50-456c-9723-f9d4fc136141/download/fp-historical-wildfire-data-2006-2025.csv"
+     },
+     {
+      "licence": "Open Government Licence - Alberta v2.2",
+      "name": "Historical wildfire data dictionary 2006-2025 (field definitions)",
+      "url": "https://open.alberta.ca/dataset/a221e7a0-4f46-4be7-9c5a-e29de9a3447e/resource/1b635b8b-a937-4be4-857e-8aeef77365d2/download/fp-historical-wildfire-data-dictionary-2006-2025.pdf"
+     },
+     {
+      "licence": "Open Government Licence - Alberta v2.2",
+      "name": "Alberta wildfire season statistics (publisher cross-check product)",
+      "url": "https://open.alberta.ca/publications/alberta-wildfire-season-statistics"
+     }
+    ],
+    "split_strategy": "Temporal, disjoint by year: train 2006-2015 (15,944 fires), eval 2016-2020 (5,627), holdout 2021-2025 (6,257). Measured positives, primary escape label >= 100 ha: train 297 (1.86%), eval 104 (1.85%), holdout 257 (4.11%); containment > 72 h: 514 (3.2%), 189 (3.4%), 611 (9.8%). Both classes present in every window at every measured threshold (4/10/40/100/200/1000 ha). Positives cluster on extreme-weather days: distinct assessment dates of >=100 ha positives are 156/79/128 per window - report clustered counts and score with day-cluster awareness. The holdout escape rate is higher because 2021-2025 contains the 2023 record season - real, documented non-stationarity (see known-event fixtures in notes.md), not a construction defect.",
+    "status": "ready",
+    "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
+   },
    {
     "awaiting_operator": false,
     "baseline": {},
@@ -4637,7 +4703,7 @@
     "target": "Binary: 1 if VolumenAlm(Mm3) < threshold on at least one day with Fecha in (T, T+30] in the dam's SIH series, else 0. Label source column: VolumenAlm(Mm3) (the same column as the target variable), excluded from features by the Fecha <= T filter; no other column carries the answer. Threshold frame, two candidates measured in the sample: (a) discovery-time proxy = 25 percent of the dam's own observed maximum VolumenAlm (the SIH catalog carries no capacity column); (b) construction-time preferred frame = 25 percent of official capacity, published per dam in CONAGUA's weekly 'Almacenamiento de las Principales Presas del Pais' report (columns CAPACIDAD MUERTA / CAP. UTIL DISENO Mm3; archive at ftp://ftp.conagua.gob.mx/Gobmx/DisponibilidadenPresas/) and in the press-percentage frame (e.g. El Cuchillo capacity 1,123 Mm3 vs observed max 1,765.7 Mm3 including flood surcharge; the proxy threshold 441.4 Mm3 equals 39 percent of the official frame, so the proxy is the conservative/higher threshold and events under it are a subset of events under the official frame). Eligibility at T, from information available at prediction: dam has >= 365 prior daily VolumenAlm rows and VolumenAlm(T) >= threshold (onset formulation; days already below threshold are not prediction rows)."
    },
    {
-    "age_hours": 0.5,
+    "age_hours": 1.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "IN",
@@ -5466,7 +5532,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 57.0,
+    "age_hours": 58.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -11318,7 +11384,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 197.5,
+    "age_hours": 198.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -15237,7 +15303,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 46.7,
+    "age_hours": 47.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -15603,7 +15669,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 0.5,
+     "age_hours": 1.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "IN",
@@ -16432,7 +16498,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 57.0,
+     "age_hours": 58.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -16606,7 +16672,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 197.5,
+     "age_hours": 198.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -16892,7 +16958,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 46.7,
+     "age_hours": 47.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -17072,7 +17138,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 0.5,
+     "age_hours": 1.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "IN",
@@ -17901,7 +17967,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 57.0,
+     "age_hours": 58.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -18075,7 +18141,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 197.5,
+     "age_hours": 198.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -18361,7 +18427,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 46.7,
+     "age_hours": 47.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -18548,7 +18614,7 @@
    "AT": 2,
    "AU": 10,
    "BR": 5,
-   "CA": 16,
+   "CA": 17,
    "CH": 7,
    "CI": 1,
    "CL": 2,
@@ -18586,7 +18652,7 @@
    "Europe": 36,
    "International organisations": 18,
    "Latin America": 12,
-   "North America": 26,
+   "North America": 27,
    "Oceania": 12,
    "South & South-East Asia": 13
   },
@@ -18596,12 +18662,12 @@
    "packaged": 4,
    "parked": 31,
    "published": 14,
-   "ready": 18
+   "ready": 19
   },
-  "candidates": 140,
-  "live": 55,
-  "live_non_us": 49,
-  "live_non_us_share": 0.891,
+  "candidates": 141,
+  "live": 56,
+  "live_non_us": 50,
+  "live_non_us_share": 0.893,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -18623,10 +18689,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-06T19:50:01.493439+00:00",
+    "last_run_at": "2026-11-06T20:50:02.596429+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-06T20:00:00+00:00",
+    "next_run_at": "2026-11-06T21:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -18647,10 +18713,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-06T19:50:00.927092+00:00",
+    "last_run_at": "2026-11-06T20:50:00.980014+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-06T19:55:00+00:00",
+    "next_run_at": "2026-11-06T20:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -18671,10 +18737,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-06T19:48:53.731946+00:00",
+    "last_run_at": "2026-11-06T20:49:13.201771+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-06T19:53:53.731946+00:00",
+    "next_run_at": "2026-11-06T20:54:13.201771+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -18683,10 +18749,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-06T19:50:01.167908+00:00",
+    "last_run_at": "2026-11-06T20:50:00.883276+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-06T19:55:00+00:00",
+    "next_run_at": "2026-11-06T20:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -18707,10 +18773,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-06T18:50:54.432053+00:00",
+    "last_run_at": "2026-11-06T19:50:54.088505+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-06T20:50:00+00:00",
+    "next_run_at": "2026-11-06T21:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -18719,10 +18785,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-06T18:55:01.002265+00:00",
+    "last_run_at": "2026-11-06T19:55:01.202480+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-06T19:55:00+00:00",
+    "next_run_at": "2026-11-06T20:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -18763,29 +18829,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-06T19:50:01.494490+00:00"
+  "updated_at": "2026-11-06T20:50:02.597472+00:00"
  },
- "generated_at": "2026-11-06T19:50:01+00:00",
+ "generated_at": "2026-11-06T20:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 140
+   "passing": 141
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-06T19:40:15Z",
-   "head_sha": "82224f6",
+   "created_at": "2026-11-06T20:21:47Z",
+   "head_sha": "7b20fe1",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42281657799"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42287703127"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 49/55 (89%)"
+   "summary": "live non-US: 50/56 (89%)"
   },
   "head": {
-   "at": "2026-11-06T19:40:10Z",
-   "sha": "82224f6",
-   "subject": "cpcb-aqi-exceedance packaged: Hub tag v2026.11 (tag==main==2535150e) + both DESTINATIONS blocks recorded, record->packag"
+   "at": "2026-11-06T20:21:42Z",
+   "sha": "7b20fe1",
+   "subject": "discovery (Canada focus): ab-wildfire-ia-escape READY - Alberta Wildfire initial-assessment escape + containment-duratio"
   },
   "tests": {
    "count": "723",
@@ -22216,13 +22282,21 @@
    "qualified": 0,
    "sessions_7d": 106,
    "tokens_7d": 39501091
+  },
+  {
+   "at": "2026-11-06T20:50:01+00:00",
+   "live": 19,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 106,
+   "tokens_7d": 39742469
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-06T19:50:01+00:00",
+   "age_minutes": 0.7,
+   "as_of": "2026-11-06T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -22231,8 +22305,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-06T19:50:01+00:00",
+   "age_minutes": 0.7,
+   "as_of": "2026-11-06T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -22241,8 +22315,8 @@
    "value": 19
   },
   "releases": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-06T19:50:01+00:00",
+   "age_minutes": 0.7,
+   "as_of": "2026-11-06T20:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -25659,7 +25733,7 @@
   "jobs_total": 212,
   "lifetime_eur": 4.14,
   "live": {
-   "checked_at": "2026-11-06T19:50:40+00:00",
+   "checked_at": "2026-11-06T20:50:41+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -25694,20 +25768,6 @@
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 541.7,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "db349b531f8770db1951f8917a2c72855c54b4c344b19ba6b3a0bbc759ba69c8",
-    "ts": "2026-11-06T13:47:57.734496+00:00"
-   },
    {
     "elapsed_seconds": 5700.1,
     "event": "session",
@@ -25776,6 +25836,19 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "c493ab1cb771b6294a8c1975a6c698906061b536213bcf7ea5da63cfa7552884",
     "ts": "2026-11-06T19:35:01.241581+00:00"
+   },
+   {
+    "elapsed_seconds": 1381.5,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "980f87bac6da77d58627e0badd93b5ba3b5f511b918cff94361921af24f3e410",
+    "ts": "2026-11-06T20:23:04.308591+00:00"
    }
   ],
   "total": 40
