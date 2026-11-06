@@ -1,9 +1,9 @@
 {
  "alarms": [
-  "Token use at 95% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (37.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (177.5h)",
-  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (26.7h)"
+  "Token use at 94% of the weekly ceiling",
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (38.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (178.5h)",
+  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (27.7h)"
  ],
  "budget": {
   "config": {
@@ -21,12 +21,12 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-05T23:50:03.070517+00:00",
+   "moment": "2026-11-06T00:50:03.176074+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 37836030,
+   "research_tokens_last_7_days": 37743408,
    "runs_last_7_days": 104,
    "runs_weighted_last_7_days": 119,
    "session_cap_per_week": 200,
@@ -53,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 3756,
+     "calls": 3830,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 17555697,
-     "output_tokens": 3751661,
+     "input_tokens": 17647019,
+     "output_tokens": 3816851,
      "pricing_available": false
     }
    },
@@ -80,13 +80,14 @@
    "EU": 3,
    "GB": 3,
    "NZ": 2,
+   "TW": 1,
    "US": 1
   },
   "counts": {
    "dropped": 52,
-   "investigating": 18,
+   "investigating": 19,
    "packaged": 3,
-   "parked": 31,
+   "parked": 30,
    "published": 14,
    "ready": 17
   },
@@ -1608,9 +1609,78 @@
     "split_strategy": "Temporal splits on the LISTING publication date over the retrievable archive (candidate windows train 2021-2022 / eval 2023-2024 / holdout 2025-2026; the exact retrievable span and per-window counts are the named next measurement, not yet computed - sampled editions show both classes present and volumes of ~22-28 new applications per area-week in the east, ~6 in Wales). Both classes appear in every sampled edition (grants every week; refusals 0-4 per area-week, withdrawals 2-5, PI notices 1-8). Applications are one row each; an applicant can re-apply after refusal (repeat-applicant clustering must be measured at construction).",
     "status": "investigating",
     "target": "The outcome published in later editions of the same traffic area's AD gazette, linked EXACTLY by the application reference number (the OF-number, which is also the operator licence number; measured in both sample eras): Section 2.1/2.3 = granted without public inquiry; 2.2/2.4 = refused; 4.1 = withdrawn; 4.2 = grant not taken up; 5.1 = notice of public inquiry with a statutory ground code (S13 'Consideration of new application under Section 13' identifies application-related inquiries; S26 'disciplinary action under Section 26' belongs to existing holders and is excluded from this population), followed by 5.2 = decision taken at that inquiry. Candidate primary binary label (decided at construction, before any score): 1 = refused (2.2) or withdrawn/not taken up (4.1/4.2); 0 = granted. Label source columns (the outcome sections) are excluded from the feature set by construction."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "TW",
+    "domain": "water resources / drought indicators",
+    "id": "tw-reservoir-drought-storage",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "fhy_api_probes_2026_10_22": "fhyv2 SPA network capture (browser): API family https://fhy.wra.gov.tw/Api/v2/... (Rainfall/Station, Event/Year/{y}, Event/Active, Basic/City) plus /disaster/Reservoir/Comparison.",
+     "fhy_api_status_2026_10_22": "Plain-client GET of https://fhy.wra.gov.tw/Api/v2/Event/Year/2025 and /Api/v2/Event/Active -> HTTP 401 (91 bytes each); /disaster/Reservoir/Comparison -> 4,252-byte AngularJS HTML shell, not JSON.",
+     "fhy_construction_cost_2026_11_06": "Measured per-request cost (coordinator, fresh TLS each request): 1.1-1.7 s, ~9.5 KB for all 21 stations one day. Full daily panel 2003-2026 = one request per day, ~8,800 requests (or ~6,900 from 2008), ~65-85 MB total, est. 2.5-4.5 h serial at measured latency; keep-alive connection reuse and bounded concurrency to be measured on the worker. No rate limit hit at 8-request burst; WAF rejects some GET query shapes ('Request Rejected' page for /OpenApiv3 $filter=Time ge 2015-01-01 with spaces) but all form POSTs answered 200.",
+     "fhy_drought_episode_anchors_2026_11_06": "Known-episode anchors, all-21 single-day queries: 2015-03-15 (northern drought) 8 stations <0.30, 5 <0.25, min 0.1607; 2021-04-15 (island-wide drought) 14 <0.30, 12 <0.25, min 0.0175; 2024-04-15 (southern drought) 7 <0.30, 6 <0.25, min 0.0569; 2025-06-15 (non-drought mid-year) min 0.0811 with 3 stations <0.25 (20202, 20503, 30802) - chronic-low stations recorded; 2026-11-06 (today, queried ~08:45 Taipei) 18/21 rates present, min 0.0938. Output retained: probe/out_fhy_anchors_2026_11_06.json (command: probe_fhy_anchors_2026_11_06.py).",
+     "fhy_history_depth_2026_11_06": "Depth sampled via same-day queries (browser, then plain client): 2015-01-01 10201 rate 0.5584; 2010-01-01 rate 0.7669; 2003-01-01 and 1999-01-01 return records but CapacityRate null. All-21 probes: 2003-06-01 0/21 rates; 2005-01-01 0/21; 2008-01-01 6/21 (min 0.8655); 2015-03-15 18/21; 2021-04-15 19/21; 2024-04-15 19/21. Per-station panel-start years are a construction-side measurement from the full panel.",
+     "fhy_history_found_2026_11_06": "History channel found in the supported browser (2026-11-06): the SPA app bundle (https://fhy.wra.gov.tw/fhyv2/js/app.03b8c3b9.js, 8,942 B) defines API bases https://fhy.wra.gov.tw/Api/v2 and /OpenApiv3/v2 plus a front-end constant apikey header (d6dd3cd4-...) added by an axios interceptor - explaining the 2026-10-22 401s. The SPA's comparison tab iframes /disaster/Reservoir/Comparison (AngularJS legacy app); fetched same-origin from the SPA page (direct plain-client fetch gets a truncated ~4 KB shell) its /Disaster/bundles/Comparision.js (1,639 B) names POST /Disaster/api/ReservoirHistoryApi/GetComparision with payload {ST_NO: stations joined by ',', StartDate: 'YYYY/MM/DD', EndDate: 'YYYY/MM/DD'} and GET /Disaster/api/ReservoirStationsApi/GetAll. The 9-station limit ('\u8acb\u4e0d\u8981\u8d85\u904e9\u5ea7\u6c34\u5eab') is UI-side only.",
+     "fhy_history_plain_client_2026_11_06": "GetComparision measured from a PLAIN coordinator client (no cookies, no Referer, no apikey; urllib fresh-TLS per request): 6/6 requests HTTP 200; single-day single-station 465 B/1.66 s; all-21-stations one-day 9,458 B/1.24 s, n=21; all-21 3-day range 18,944 B/1.12 s, n=42 = 21 stations x 2 boundary dates (boundary semantics confirmed); latency 1.12-1.66 s across 6 requests; ~1.5 KB/record. Station list GetAll: 21 major reservoirs (10201 \u77f3\u9580, 20101 \u9bc9\u9b5a\u6f6d, 30401 \u66fe\u6587, 30502 \u70cf\u5c71\u982d, 10405 \u5fb7\u57fa and 16 others). Commands and full outputs: probe_fhy_history_2026_11_06.py (this directory).",
+     "no_history_conclusion_2026_10_22": "No anonymously retrievable historical daily storage series found: data.gov.tw 45501/41568 publish current-day snapshots only (45501 '\u66f4\u65b0\u983b\u7387 \u6bcf1\u6642', resources CSV/JSON/XML). SUPERSEDED 2026-11-06 by fhy_history_found_2026_11_06 - the conclusion missed the /Disaster/api/ family because the legacy comparison page serves a truncated HTML shell to plain clients without the fhyv2 session context, hiding the Comparision.js bundle that names the endpoint.",
+     "opendata_wra_unreachable_2026_10_22": "opendata.wra.gov.tw unreachable from the coordinator: SSL certificate fails strict verification (same Missing Subject Key Identifier failure as dgpa.gov.tw) and DNS resolution for the host failed intermittently; the Swagger UI could not be read from either client.",
+     "waf_and_session_notes_2026_11_06": "The /disaster/Reservoir/Comparison page HTML itself needs the fhyv2 session context (Referer) to serve full HTML; the POST history API does not need any session state. Browser harness quirk recorded: Runtime.evaluate waits max 5 s for the daemon - long multi-fetch JS loops must be split across calls or they time out without aborting navigation state."
+    },
+    "next_action": "REOPENED 2026-11-06 (parked 2026-10-22 on access/history; that blocker is now contradicted by measurement). The one remaining gate to ready is the split-capacit",
+    "packaged_at": null,
+    "path": "candidates/tw-reservoir-drought-storage/record.json",
+    "prediction_time": "Daily at 09:30 Taipei (UTC+8), after the day's 07:00 observation is entered (dataset 41568's own statement: managers enter the daily operation table by 09:30; measured once: the 2026-11-06 07:00 records were readable from the history API at ~08:45 Taipei the same day). Features are daily 07:00 records up to and including the instant day; the target window is the following 30 daily records, none of which precedes the instant.",
+    "publisher": "Water Resources Agency, Ministry of Economic Affairs (\u7d93\u6fdf\u90e8\u6c34\u5229\u7f72)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "Will a major Taiwan reservoir's effective storage ratio fall below a drought threshold (e.g. 20-30%) within the next 30 days, conditioned on it being above the threshold now (onset formulation)?",
+    "region": "East Asia",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Reopened 2026-11-06. The 2026-10-22 park was correct on the evidence it had (the /Api/v2 401s and the truncated AngularJS shell); the miss was that the legacy /Disaster/api/ family - the one the SPA's comparison tab actually uses for history - is anonymous plain-HTTP POST and was invisible until the SPA bundle chain was read in the browser. Five contracts now: redistribution SUPPORTED (class B, channel-page nuance recorded), timing SUPPORTED for a labelled retrospective task (07:00 observation, 09:30 entry statement, one same-day visibility measurement; historical vintage assumption to declare), target SUPPORTED (onset formulation; chronic-low censoring recorded), split capacity PARTIAL (depth and episode presence measured by sampling; exact counts need the worker panel pass), not-a-mirror SUPPORTED at search level. The candidate is NOT ready: split counts are an essential measurement that must not be replaced by samples.",
+    "sources": [
+     {
+      "licence": "Open Government Data License 1.0",
+      "name": "data.gov.tw 45501 \u6c34\u5eab\u6c34\u60c5\u8cc7\u6599 (reservoir water situation, real-time)",
+      "url": "https://data.gov.tw/dataset/45501"
+     },
+     {
+      "licence": "Open Government Data License 1.0",
+      "name": "data.gov.tw 41568 \u6c34\u5eab\u6bcf\u65e5\u71df\u904b\u72c0\u6cc1 (daily reservoir operation)",
+      "url": "https://data.gov.tw/dataset/41568"
+     },
+     {
+      "licence": "channel pages state only a copyright footer (\u7d93\u6fdf\u90e8\u6c34\u5229\u7f72\u00a92015 \u7248\u6b0a\u6240\u6709); the same series carries ODDL 1.0 on data.gov.tw 45501/41568",
+      "name": "WRA fhyv2 reservoir monitor SPA (discovery entry point)",
+      "url": "https://fhy.wra.gov.tw/fhyv2/monitor/reservoir"
+     },
+     {
+      "licence": "channel pages state only a copyright footer (\u7d93\u6fdf\u90e8\u6c34\u5229\u7f72\u00a92015 \u7248\u6b0a\u6240\u6709); the identical water-situation series carries ODDL 1.0 on data.gov.tw 45501, whose own note routes history queries to this site",
+      "name": "WRA Disaster Emergency Response System history API (the channel that reopens the candidate)",
+      "url": "https://fhy.wra.gov.tw/disaster/Reservoir/Comparison"
+     }
+    ],
+    "split_strategy": "",
+    "status": "investigating",
+    "target": "Binary onset: storage percentage (\u84c4\u6c34\u767e\u5206\u6bd4) of reservoir R crosses below the threshold on some daily record within (t, t+30] while above it at t. Label source column is the same series' future values; excluded from features by the window construction."
    }
   ],
-  "non_us_share": 94.4,
+  "non_us_share": 94.7,
   "records": [
    {
     "awaiting_operator": false,
@@ -4726,7 +4796,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 37.0,
+    "age_hours": 38.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -10453,7 +10523,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 177.5,
+    "age_hours": 178.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -12834,13 +12904,19 @@
     "measurements": {
      "fhy_api_probes_2026_10_22": "fhyv2 SPA network capture (browser): API family https://fhy.wra.gov.tw/Api/v2/... (Rainfall/Station, Event/Year/{y}, Event/Active, Basic/City) plus /disaster/Reservoir/Comparison.",
      "fhy_api_status_2026_10_22": "Plain-client GET of https://fhy.wra.gov.tw/Api/v2/Event/Year/2025 and /Api/v2/Event/Active -> HTTP 401 (91 bytes each); /disaster/Reservoir/Comparison -> 4,252-byte AngularJS HTML shell, not JSON.",
-     "no_history_conclusion_2026_10_22": "No anonymously retrievable historical daily storage series found: data.gov.tw 45501/41568 publish current-day snapshots only (45501 '\u66f4\u65b0\u983b\u7387 \u6bcf1\u6642', resources CSV/JSON/XML).",
-     "opendata_wra_unreachable_2026_10_22": "opendata.wra.gov.tw unreachable from the coordinator: SSL certificate fails strict verification (same Missing Subject Key Identifier failure as dgpa.gov.tw) and DNS resolution for the host failed intermittently; the Swagger UI could not be read from either client."
+     "fhy_construction_cost_2026_11_06": "Measured per-request cost (coordinator, fresh TLS each request): 1.1-1.7 s, ~9.5 KB for all 21 stations one day. Full daily panel 2003-2026 = one request per day, ~8,800 requests (or ~6,900 from 2008), ~65-85 MB total, est. 2.5-4.5 h serial at measured latency; keep-alive connection reuse and bounded concurrency to be measured on the worker. No rate limit hit at 8-request burst; WAF rejects some GET query shapes ('Request Rejected' page for /OpenApiv3 $filter=Time ge 2015-01-01 with spaces) but all form POSTs answered 200.",
+     "fhy_drought_episode_anchors_2026_11_06": "Known-episode anchors, all-21 single-day queries: 2015-03-15 (northern drought) 8 stations <0.30, 5 <0.25, min 0.1607; 2021-04-15 (island-wide drought) 14 <0.30, 12 <0.25, min 0.0175; 2024-04-15 (southern drought) 7 <0.30, 6 <0.25, min 0.0569; 2025-06-15 (non-drought mid-year) min 0.0811 with 3 stations <0.25 (20202, 20503, 30802) - chronic-low stations recorded; 2026-11-06 (today, queried ~08:45 Taipei) 18/21 rates present, min 0.0938. Output retained: probe/out_fhy_anchors_2026_11_06.json (command: probe_fhy_anchors_2026_11_06.py).",
+     "fhy_history_depth_2026_11_06": "Depth sampled via same-day queries (browser, then plain client): 2015-01-01 10201 rate 0.5584; 2010-01-01 rate 0.7669; 2003-01-01 and 1999-01-01 return records but CapacityRate null. All-21 probes: 2003-06-01 0/21 rates; 2005-01-01 0/21; 2008-01-01 6/21 (min 0.8655); 2015-03-15 18/21; 2021-04-15 19/21; 2024-04-15 19/21. Per-station panel-start years are a construction-side measurement from the full panel.",
+     "fhy_history_found_2026_11_06": "History channel found in the supported browser (2026-11-06): the SPA app bundle (https://fhy.wra.gov.tw/fhyv2/js/app.03b8c3b9.js, 8,942 B) defines API bases https://fhy.wra.gov.tw/Api/v2 and /OpenApiv3/v2 plus a front-end constant apikey header (d6dd3cd4-...) added by an axios interceptor - explaining the 2026-10-22 401s. The SPA's comparison tab iframes /disaster/Reservoir/Comparison (AngularJS legacy app); fetched same-origin from the SPA page (direct plain-client fetch gets a truncated ~4 KB shell) its /Disaster/bundles/Comparision.js (1,639 B) names POST /Disaster/api/ReservoirHistoryApi/GetComparision with payload {ST_NO: stations joined by ',', StartDate: 'YYYY/MM/DD', EndDate: 'YYYY/MM/DD'} and GET /Disaster/api/ReservoirStationsApi/GetAll. The 9-station limit ('\u8acb\u4e0d\u8981\u8d85\u904e9\u5ea7\u6c34\u5eab') is UI-side only.",
+     "fhy_history_plain_client_2026_11_06": "GetComparision measured from a PLAIN coordinator client (no cookies, no Referer, no apikey; urllib fresh-TLS per request): 6/6 requests HTTP 200; single-day single-station 465 B/1.66 s; all-21-stations one-day 9,458 B/1.24 s, n=21; all-21 3-day range 18,944 B/1.12 s, n=42 = 21 stations x 2 boundary dates (boundary semantics confirmed); latency 1.12-1.66 s across 6 requests; ~1.5 KB/record. Station list GetAll: 21 major reservoirs (10201 \u77f3\u9580, 20101 \u9bc9\u9b5a\u6f6d, 30401 \u66fe\u6587, 30502 \u70cf\u5c71\u982d, 10405 \u5fb7\u57fa and 16 others). Commands and full outputs: probe_fhy_history_2026_11_06.py (this directory).",
+     "no_history_conclusion_2026_10_22": "No anonymously retrievable historical daily storage series found: data.gov.tw 45501/41568 publish current-day snapshots only (45501 '\u66f4\u65b0\u983b\u7387 \u6bcf1\u6642', resources CSV/JSON/XML). SUPERSEDED 2026-11-06 by fhy_history_found_2026_11_06 - the conclusion missed the /Disaster/api/ family because the legacy comparison page serves a truncated HTML shell to plain clients without the fhyv2 session context, hiding the Comparision.js bundle that names the endpoint.",
+     "opendata_wra_unreachable_2026_10_22": "opendata.wra.gov.tw unreachable from the coordinator: SSL certificate fails strict verification (same Missing Subject Key Identifier failure as dgpa.gov.tw) and DNS resolution for the host failed intermittently; the Swagger UI could not be read from either client.",
+     "waf_and_session_notes_2026_11_06": "The /disaster/Reservoir/Comparison page HTML itself needs the fhyv2 session context (Referer) to serve full HTML; the POST history API does not need any session state. Browser harness quirk recorded: Runtime.evaluate waits max 5 s for the daemon - long multi-fetch JS loops must be split across calls or they time out without aborting navigation state."
     },
-    "next_action": "Unpark only if (a) the routine seeds a standing snapshot collector (fetch 45501/41568 daily, one row per major reservoir, into the private staging; splits becom",
+    "next_action": "REOPENED 2026-11-06 (parked 2026-10-22 on access/history; that blocker is now contradicted by measurement). The one remaining gate to ready is the split-capacit",
     "packaged_at": null,
     "path": "candidates/tw-reservoir-drought-storage/record.json",
-    "prediction_time": "Daily at the 07:00 observation instant (the dataset states \u6c34\u4f4d\u3001\u6709\u6548\u84c4\u6c34\u91cf\u53ca\u84c4\u6c34\u767e\u5206\u6bd4 are the current day's 07:00 values), using only snapshots up to that instant.",
+    "prediction_time": "Daily at 09:30 Taipei (UTC+8), after the day's 07:00 observation is entered (dataset 41568's own statement: managers enter the daily operation table by 09:30; measured once: the 2026-11-06 07:00 records were readable from the history API at ~08:45 Taipei the same day). Features are daily 07:00 records up to and including the instant day; the target window is the following 30 daily records, none of which precedes the instant.",
     "publisher": "Water Resources Agency, Ministry of Economic Affairs (\u7d93\u6fdf\u90e8\u6c34\u5229\u7f72)",
     "qualification": {
      "artifact_version": null,
@@ -12855,7 +12931,7 @@
      "reference": null
     },
     "release_splits": {},
-    "review": "",
+    "review": "Reopened 2026-11-06. The 2026-10-22 park was correct on the evidence it had (the /Api/v2 401s and the truncated AngularJS shell); the miss was that the legacy /Disaster/api/ family - the one the SPA's comparison tab actually uses for history - is anonymous plain-HTTP POST and was invisible until the SPA bundle chain was read in the browser. Five contracts now: redistribution SUPPORTED (class B, channel-page nuance recorded), timing SUPPORTED for a labelled retrospective task (07:00 observation, 09:30 entry statement, one same-day visibility measurement; historical vintage assumption to declare), target SUPPORTED (onset formulation; chronic-low censoring recorded), split capacity PARTIAL (depth and episode presence measured by sampling; exact counts need the worker panel pass), not-a-mirror SUPPORTED at search level. The candidate is NOT ready: split counts are an essential measurement that must not be replaced by samples.",
     "sources": [
      {
       "licence": "Open Government Data License 1.0",
@@ -12868,14 +12944,19 @@
       "url": "https://data.gov.tw/dataset/41568"
      },
      {
-      "licence": "WRA site terms (\u7d93\u6fdf\u90e8\u6c34\u5229\u7f72\u00a92015 \u7248\u6b0a\u6240\u6709 footer); open-data portal datasets carry ODDL 1.0",
-      "name": "WRA \u9632\u707d\u8cc7\u8a0a\u670d\u52d9\u7db2 fhyv2 reservoir viewer",
+      "licence": "channel pages state only a copyright footer (\u7d93\u6fdf\u90e8\u6c34\u5229\u7f72\u00a92015 \u7248\u6b0a\u6240\u6709); the same series carries ODDL 1.0 on data.gov.tw 45501/41568",
+      "name": "WRA fhyv2 reservoir monitor SPA (discovery entry point)",
       "url": "https://fhy.wra.gov.tw/fhyv2/monitor/reservoir"
+     },
+     {
+      "licence": "channel pages state only a copyright footer (\u7d93\u6fdf\u90e8\u6c34\u5229\u7f72\u00a92015 \u7248\u6b0a\u6240\u6709); the identical water-situation series carries ODDL 1.0 on data.gov.tw 45501, whose own note routes history queries to this site",
+      "name": "WRA Disaster Emergency Response System history API (the channel that reopens the candidate)",
+      "url": "https://fhy.wra.gov.tw/disaster/Reservoir/Comparison"
      }
     ],
     "split_strategy": "",
-    "status": "parked",
-    "target": "Binary onset: storage percentage (\u84c4\u6c34\u767e\u5206\u6bd4) of reservoir R crosses below the threshold on some day within (t, t+30] while above it at t. Label source column is the same series' future values; excluded from features by the window construction."
+    "status": "investigating",
+    "target": "Binary onset: storage percentage (\u84c4\u6c34\u767e\u5206\u6bd4) of reservoir R crosses below the threshold on some daily record within (t, t+30] while above it at t. Label source column is the same series' future values; excluded from features by the window construction."
    },
    {
     "awaiting_operator": false,
@@ -14197,7 +14278,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 26.7,
+    "age_hours": 27.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -14563,7 +14644,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 37.0,
+     "age_hours": 38.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -14737,7 +14818,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 177.5,
+     "age_hours": 178.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -15023,7 +15104,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 26.7,
+     "age_hours": 27.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -15203,7 +15284,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 37.0,
+     "age_hours": 38.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -15377,7 +15458,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 177.5,
+     "age_hours": 178.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -15663,7 +15744,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 26.7,
+     "age_hours": 27.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -15893,16 +15974,16 @@
   },
   "by_status": {
    "dropped": 52,
-   "investigating": 18,
+   "investigating": 19,
    "packaged": 3,
-   "parked": 31,
+   "parked": 30,
    "published": 14,
    "ready": 17
   },
   "candidates": 135,
-  "live": 52,
-  "live_non_us": 46,
-  "live_non_us_share": 0.885,
+  "live": 53,
+  "live_non_us": 47,
+  "live_non_us_share": 0.887,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -15924,10 +16005,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-05T23:50:02.335872+00:00",
+    "last_run_at": "2026-11-06T00:50:02.661829+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-06T00:00:00+00:00",
+    "next_run_at": "2026-11-06T01:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -15948,10 +16029,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-05T23:50:01.688083+00:00",
+    "last_run_at": "2026-11-06T00:50:01.551442+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-05T23:55:00+00:00",
+    "next_run_at": "2026-11-06T00:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -15972,10 +16053,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-05T23:45:34.839678+00:00",
+    "last_run_at": "2026-11-06T00:45:54.558708+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-05T23:50:34.839678+00:00",
+    "next_run_at": "2026-11-06T00:50:54.558708+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -15984,10 +16065,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-05T23:50:01.279327+00:00",
+    "last_run_at": "2026-11-06T00:50:01.189128+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-05T23:55:00+00:00",
+    "next_run_at": "2026-11-06T00:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -16008,10 +16089,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-05T22:50:54.518132+00:00",
+    "last_run_at": "2026-11-05T23:50:53.424081+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-06T00:50:00+00:00",
+    "next_run_at": "2026-11-06T01:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16020,10 +16101,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-05T22:55:00.968615+00:00",
+    "last_run_at": "2026-11-05T23:55:00.797919+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-05T23:55:00+00:00",
+    "next_run_at": "2026-11-06T00:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16064,9 +16145,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-05T23:50:02.337146+00:00"
+  "updated_at": "2026-11-06T00:50:02.662903+00:00"
  },
- "generated_at": "2026-11-05T23:50:01+00:00",
+ "generated_at": "2026-11-06T00:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16074,19 +16155,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-05T23:34:37Z",
-   "head_sha": "70ca98d",
+   "created_at": "2026-11-06T00:23:32Z",
+   "head_sha": "dd8026c",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42130427566"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42136471947"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 46/52 (88%)"
+   "summary": "live non-US: 47/53 (89%)"
   },
   "head": {
-   "at": "2026-11-05T23:34:33Z",
-   "sha": "70ca98d",
-   "subject": "cpcb-aqi-exceedance: construction design finalized pre-launch + build.py drafted and synthetic-smoked (UNTESTED through "
+   "at": "2026-11-06T00:23:29Z",
+   "sha": "dd8026c",
+   "subject": "runtime inventory: refresh dataset-discovery SKILL.md digest after the failure-mode row added in 14688f5 (repair for the"
   },
   "tests": {
    "count": "723",
@@ -19357,13 +19438,21 @@
    "qualified": 0,
    "sessions_7d": 104,
    "tokens_7d": 37836030
+  },
+  {
+   "at": "2026-11-06T00:50:01+00:00",
+   "live": 19,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 104,
+   "tokens_7d": 37743408
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.7,
-   "as_of": "2026-11-05T23:50:01+00:00",
+   "as_of": "2026-11-06T00:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -19373,17 +19462,17 @@
   },
   "candidates": {
    "age_minutes": 0.7,
-   "as_of": "2026-11-05T23:50:01+00:00",
+   "as_of": "2026-11-06T00:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 18
+   "value": 19
   },
   "releases": {
    "age_minutes": 0.7,
-   "as_of": "2026-11-05T23:50:01+00:00",
+   "as_of": "2026-11-06T00:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -22643,7 +22732,7 @@
   "jobs_total": 202,
   "lifetime_eur": 3.9,
   "live": {
-   "checked_at": "2026-11-05T23:50:40+00:00",
+   "checked_at": "2026-11-06T00:50:41+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -22672,26 +22761,12 @@
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 1.66
+  "projected_month_eur": 1.39
  },
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 337.8,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "f8ab84a65a76d7c4287fbd76e5841bd99bdd29ebaedbd7aeb60125c9c4f1c15a",
-    "ts": "2026-11-05T17:38:59.603986+00:00"
-   },
    {
     "elapsed_seconds": 2591.1,
     "event": "session",
@@ -22760,6 +22835,19 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "5cbd65b9639d4ea84809fb1c1232b28390e93ab0f2f68da347bb739c959959bf",
     "ts": "2026-11-05T23:34:43.828535+00:00"
+   },
+   {
+    "elapsed_seconds": 1510.9,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "da702665132697ca3c7aa339aa14576281fde5ec24335bd755f9306d1e381189",
+    "ts": "2026-11-06T00:25:12.572903+00:00"
    }
   ],
   "total": 40
