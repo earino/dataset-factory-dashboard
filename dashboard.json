@@ -1,9 +1,9 @@
 {
  "alarms": [
   "Token use at 92% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (45.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (185.5h)",
-  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (34.7h)"
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (46.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (186.5h)",
+  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (35.7h)"
  ],
  "budget": {
   "config": {
@@ -21,12 +21,12 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-06T07:50:02.478455+00:00",
+   "moment": "2026-11-06T08:50:02.535455+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 36880442,
+   "research_tokens_last_7_days": 36928692,
    "runs_last_7_days": 104,
    "runs_weighted_last_7_days": 118,
    "session_cap_per_week": 200,
@@ -53,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 4190,
+     "calls": 4249,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 18954765,
-     "output_tokens": 4106932,
+     "input_tokens": 19085896,
+     "output_tokens": 4189688,
      "pricing_available": false
     }
    },
@@ -84,12 +84,12 @@
    "US": 1
   },
   "counts": {
-   "dropped": 52,
+   "dropped": 53,
    "investigating": 20,
    "packaged": 3,
    "parked": 30,
    "published": 14,
-   "ready": 17
+   "ready": 18
   },
   "errors": [],
   "live": [
@@ -5304,7 +5304,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 45.0,
+    "age_hours": 46.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -11031,7 +11031,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 185.5,
+    "age_hours": 186.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -13705,6 +13705,57 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "DK",
+    "domain": "UN-system procurement: tender notices and contract-award notices across UN organizations",
+    "id": "ungm-un-procurement-awards",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "licence_triage_2026_11_06": "ungm.org/Public/Pages/Terms HTTP 200, 114,147 B, anonymous; clauses 1 (Materials definition incl. notices of award), 5.2, 5.3, 7.2 extracted and quoted. unops.org/terms-of-use HTTP 200, 212,125 B, same UN-style personal/non-commercial/no-derivatives clause. data.unops.org HTTP 200, 2,093 B JS shell, no licence strings. Web-search evidence used only to locate the pages, then verified on the publisher's own instrument.",
+     "task_probes_deliberately_not_run": "No task-shape, schema or volume probing after the class D instrument was read. Cost of this rejection: 4 direct fetches plus searches."
+    },
+    "next_action": "None - closed on licence grounds. Re-open only if (a) a UN organization attaches an explicit open licence (e.g. CC BY) to its own procurement/award data channel",
+    "packaged_at": null,
+    "path": "candidates/ungm-un-procurement-awards/record.json",
+    "prediction_time": "Would have been the publication instant of a tender notice (or the award notice's own date for award-side targets) - never reached: the licence triage (step 1 of the order of work) closed the source first.",
+    "publisher": "United Nations Global Marketplace (UNGM), the UN system's common procurement portal; UNGM Secretariat with UNOPS as service provider since 2008 - UNOPS is headquartered in Copenhagen, Denmark (Marmorvej 51, 2100 Copenhagen, per the UNGM Knowledge Centre UNOPS page)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "The lead probed was UNGM (United Nations Global Marketplace), the common procurement portal of the UN system - the only substantial un-probed case-grain register in this tick's region. The plausible task family was tender-level: at the publication instant of a UN organization's procurement notice, predict an observable award-side outcome (e.g. whether the DSB-style award lands within N months, whether the tender is cancelled, or award-value attributes), with complainant-analogue features (organization, country, UNSPSC category, notice type, deadline). The session closed the lead on licence grounds before any task probing: the portal's own terms prohibit redistribution of exactly the records a task would ship.",
+    "region": "International organisations",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "UNGM Terms & Conditions (fetched 2026-11-06): 'Materials' are DEFINED to include requests for proposals, invitations to bid, procurement notices, notices of cancellation AND 'Notices of award'. Clause 5.2: downloads allowed 'for their personal use only'; 'None of the material on the Site may be used for any commercial or public use, and no part of such material may be reproduced or stored in or transmitted to any other website.' Clause 5.3: 'No material on the Site may be disseminated in any form, either electronic or non-electronic, or included in any retrieval system or site without the prior written permission of UNGM.' Clause 7.2: procurement-opportunity Materials 'is copyrighted by these organizations. It may not be reproduced, stored, transmitted or photocopied in any form or by any means without the prior written consent of the respective organizations.'",
+      "name": "UNGM - United Nations Global Marketplace (www.ungm.org), the official procurement portal of the UN system; UNGM Secretariat with UNOPS as service provider since 2008 (UNOPS HQ Copenhagen). Publishes tender notices, contract award notices and LTAs for 40+ UN organizations and entities.",
+      "url": "https://www.ungm.org/Public/Pages/Terms (terms); https://www.ungm.org/Public/ContractAward/152334 (award page example); https://help.ungm.org/hc/en-us/articles/360012897239 (portal description)"
+     },
+     {
+      "licence": "UNOPS Terms of Use carries the standard UN-style notice: 'UNOPS grants permission to Users to visit the Site and to download and copy the information, documents and materials (collectively, \"Materials\") from the Site for the User's personal, non-commercial use, without any right to resell or redistribute them or to compile or create derivative works therefrom...' No dataset-level open licence found on data.unops.org or the transparency page (generic Legal / Terms of use links only).",
+      "name": "UNOPS own channels (the 7.2 escape route checked the same day): unops.org terms of use and data.unops.org (where UNOPS posts its award/PO information per its Procurement Manual 10.2.1)",
+      "url": "https://www.unops.org/terms-of-use (fetched 2026-11-06, 212,125 B); https://data.unops.org/ (HTTP 200, 2,093 B JS shell)"
+     }
+    ],
+    "split_strategy": "Not reached - licence class D stops the order of work at step 1. No schema, volume, base-rate or split probing was spent, by design. The only measured facts are the licence fetches above (4 HTTP requests).",
+    "status": "dropped",
+    "target": "Would have been an award-side observable (award occurrence/timing/cancellation) - never reached. Recorded only so the shape of the closed lead is documented; the verdict is a licence rejection, not a task finding."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "CH",
     "domain": "forced displacement / annual asylum-corridor entry events",
     "id": "unhcr-corridor-entry-surge",
@@ -14746,6 +14797,62 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "CH",
+    "domain": "International trade law / WTO dispute settlement: litigation escalation of formal trade disputes",
+    "id": "wto-dispute-panel-escalation",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "aggregate_files_2026_11_06": "numbers_of_disputes_by_stage_e.xlsx 50,297 B sha256 1f2f1a42f3635c56d200457120f42c77...; dates_of_key_stages_e.xlsx 117,180 B sha256 9cb85ce6bba5dc4c56df58116c4f3030... (both fetched anonymously 2026-11-06; dates file HTTP Last-Modified 2025-11-03). Retained in probe/out/; reproduction script probe/probe_wto_stage_files.py.",
+     "case_page_sample_2026_11_06": "probe/probe_wto_case_pages.py, output probe/out/case_pages_2026_11_06.json: 21/21 pages HTTP 200 across DS1-DS631 (1995-2025), mean 33,296 B, mean 0.06 s/page from the coordinator. Consultations dates extract on 20/21; complainant/agreement extraction 16/21 and 12/21 are regex lower bounds (phrase variants like 'Complaint by the United States'), not source absence: DS600's full page names complainant, respondents, agreements with articles and every stage date. DS620/DS631 (2023/2024 filings) show no establishment - censoring behaves as expected.",
+     "cross_check_2026_11_06": "Stage-file consultations 1995-2024 sum = 631, EXACTLY the stats page's own '631 requests for consultations' (as of 31 Dec 2024); through 2025 = 641. Panels established by DSB 1995-2025 = 326. Publisher's own summary product agrees with the artifact.",
+     "extraction_cost_2026_11_06": "Measured per-page on the 21-page sample (0.06 s, 33 KB/page, anonymous plain HTTP): full population ~641 DS pages = ~641 requests, ~21 MB, well under a minute of network time on a worker; plus the two aggregate files (167 KB total). No bulk download channel exists for the per-DS features (the Data Portal resources are search apps), so the build enumerates ds<N>_e.htm pages; the numbers are extrapolated from the measured sample, stated as such.",
+     "lag_distribution_2026_11_06": "Consultations->panel-establishment lags n=273: median 155 days, p10 96, p75 248, p90 387; 89.0% within 12 months, 94.5% within 18, 97.1% within 24. Data quirks measured: 1 negative lag, 2 absurd (malformed) dates, 5 TMB rows, 58 rows whose title does not yield a respondent by regex (respondents are explicit on case pages).",
+     "licence_note_2026_11_06": "Class A on two instruments: the dataset-level CC BY 4.0 license_id on both data.wto.org dispute packages, and the site copyright page's 'free for public use' grant for unrestricted official documents. Residual caveats recorded: (a) the Data Portal is marked BETA and the package records were created 2026-10-12 - a young instrument, but it is the publisher's own and dataset-specific; (b) the site-wide page restricts 'other material' (official publications) to non-commercial use with attribution - the shipped artifact redistributes no WTO prose, only structured facts from unrestricted official documents and the CC-BY database; (c) no-logo clause carries to LICENSE.md.",
+     "vintage_finding_2026_11_06": "dates_of_key_stages_e.xlsx ends at DS543 (newest consultations 04.04.2018) despite a 2025-11-03 Last-Modified; the 2019-2025 tail (~88 disputes) is only on the per-DS case pages (verified DS561/585/598/611/620/631 all HTTP 200 with current content). Construction must take the modern tail from case pages and reconcile against the stage-file counts."
+    },
+    "next_action": "Hand to construction (worker; discovery is complete and nothing was constructed or scored this session). (1) Enumerate the population: DS1..DS~641 via cases_e/d",
+    "packaged_at": null,
+    "path": "candidates/wto-dispute-panel-escalation/record.json",
+    "prediction_time": "The circulation date of the Request for Consultations for the DS number (all WTO dates are Geneva-local circulation dates, published the same day to all members). Features available at that instant: complainant(s), respondent(s), the WTO agreements and provisions cited (the request itself cites them and is circulated at the instant), the measure/subject short title, the calendar, and trailing strictly-prior dispute history for the complainant-respondent pair. Every later stage (request for panel establishment, DSB establishment, panel composition, report, adoption) is outcome-side and excluded from features.",
+    "publisher": "World Trade Organization (WTO), headquartered in Geneva, Switzerland (Centre William Rappard); the dispute data is authored by the Geneva-based Legal Affairs Division per the data.wto.org package records",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the instant a WTO member's Request for Consultations is circulated with a DS number - the moment a formal dispute enters the WTO dispute settlement system - will that dispute escalate to first-instance litigation (the Dispute Settlement Body establishes a panel for that DS number within the eligibility window), or will it end without one (settled in consultations, withdrawn, or lapsed)? The prospective user is a trade ministry or mission to the WTO in Geneva weighing litigation cost and coalition formation at filing time, and the research question the bench cares about: do the agreements cited, the measure/subject, and the pair's dispute history carry signal beyond complainant-respondent identity? The identity-prior risk is real (the afdb/wb-loan family defect) and is exactly what the pre-registered triad tests.",
+    "region": "International organisations",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "All five discovery contracts reconciled against recorded evidence (2026-11-06, discovery-only session; no construction, no score). (1) Redistribution SUPPORTED - class A: CC BY 4.0 dataset-level licence on both data.wto.org dispute packages (CKAN license_id measured via the API) plus the 'unrestricted official WTO documents and legal texts are free for public use' grant; caveats (BETA portal, non-commercial clause for publications, no-logo) recorded in measurements.licence_note_2026_11_06. (2) Prediction timing SUPPORTED - the instant is the circulation date of the DS-numbered request for consultations; every feature is documented by the publisher on the case page and in the request itself (agreements cited at filing); all later stage dates are outcome-side and excludable. Vintage: current-snapshot archive with a MEASURED coverage hole (the dates file ends DS543/2018; case pages carry 2019-2025) - the task is declared retrospective research with a current-vintage assumption (cpcb/afdb precedent); no operational as-of claim is made. (3) Target SUPPORTED - DSB panel establishment is the publisher's own procedural milestone, fully recorded per DS; censoring handled by a measured 24-month eligibility cutoff (97.1% resolution); 'no panel' is documented to mean not-established-by-cutoff, not settled (settlement notification is mostly absent - measured). (4) Split capacity SUPPORTED, measured from the publisher's own artifact: train 383/169, eval 100/67, holdout 55/37, both classes in every window, distinct positive pairs 89/48/28 (>20 minimum), plus a measured modern-tail extension option. (5) Not-a-mirror SUPPORTED - no ML-ready, split, scored task exists: prior art is econometric/game-theoretic escalation studies (Bernauer et al. 506-dyad selection models; KU Leuven SBI panel-phase model; Maggi & Staiger) and the Horn & Mavroidis legal-coding research dataset (507 disputes to 2016, 1,272 variables, 'only to be used for research purposes, and not for commercial purposes', World Bank/EUI mirrors) - a stale, research-terms coding dataset, not a benchmark; novelty verdict recorded via scripts/check-novelty.py. KNOWN RISK carried into construction: the label may be identity-dominated (complainant-respondent pair + era), the afdb/wb-loan family defect; the pre-registered triad must therefore include trailing pair/pair-year escalation rates and era priors as references to beat, with pair-clustered bootstrap intervals, and the deciding rule follows the standing order (headroom only if the model beats EVERY reference with a CI excluding zero; reference dominance -> drop).",
+    "sources": [
+     {
+      "licence": "license_id/license_title 'Attribution 4.0 International' (CC BY 4.0) on the package records, fetched 2026-11-06 via the CKAN API (JSON retained).",
+      "name": "WTO Data Portal (data.wto.org, CKAN) - Dispute Settlement Database package 'disputedb' and Dispute Settlement Documents package 'ds_db' (author: Legal Affairs Division; the per-DS gateway pages, the 'dispute settlement activity - some figures' page and the numbers_of_disputes_by_stage xlsx are listed resources)",
+      "url": "https://data.wto.org/dataset/disputedb ; https://data.wto.org/dataset/ds_db ; API: https://data.wto.org/api/3/action/package_show?id=disputedb (and id=ds_db)"
+     },
+     {
+      "licence": "WTO Copyright and permissions page: 'Unrestricted official WTO documents and legal texts are free for public use.' DS documents and the DS register facts derive from unrestricted official documents.",
+      "name": "WTO dispute settlement gateway + per-DS case pages (www.wto.org), incl. the two publisher aggregate files: numbers_of_disputes_by_stage_e.xlsx (per-year stage counts 1995-current) and dates_of_key_stages_e.xlsx (per-DS dates of key stages)",
+      "url": "https://www.wto.org/english/tratop_e/dispu_e/dispu_e.htm ; .../cases_e/ds<N>_e.htm ; .../numbers_of_disputes_by_stage_e.xlsx ; .../dates_of_key_stages_e.xlsx ; stats page .../dispustats_e.htm"
+     }
+    ],
+    "split_strategy": "Population: every DS-numbered request for consultations 1995-present (the publisher's own counting convention per the stats page technical note; joint multi-member requests may share a document across DS numbers - one row per DS number). MEASURED windows from the publisher's own dates file (543 rows / 542 distinct DS / 5 Textiles Monitoring Body rows excluded and counted): train consultations 1995-2008 = 383 rows / 169 positives (44.1%); eval 2009-2014 = 100 / 67 (67.0%); holdout 2015-2018 = 55 / 37 (67.3%). Both classes present in every window; distinct positive complainant-respondent pairs 89 / 48 / 28. CONSTRUCTION OPTION, measured on the stage file only (2019-2025: 20/11, 5/7, 9/10, 8/1, 6/5, 10/4, 10/4 consultations/establishments): extend the holdout to 2019-2021 by extracting the modern tail from case pages (the dates file ends at DS543); the era shift in the base rate (44% -> 67% after 2009) is a real property of the system to declare, not to tune away. Eligibility cutoff: consultations >= 24 months before the artifact cutoff (97.1% of establishments within 24 months, median 155 days, p90 387 days, n=273). Label = DSB panel establishment for the DS within the eligibility window.",
+    "status": "ready",
+    "target": "Binary: the DSB establishes a panel for this DS number within the eligibility window (consultations request at least 24 months before the artifact cutoff - measured: 97.1% of establishments occur within 24 months of consultations, median 155 days, n=273). Label source columns (all post-instant stage dates) are excluded from every shipped CSV. No external threshold is involved (the event is the publisher's own procedural milestone), so the known-event requirement is met by named disputes with their published outcomes: DS600 Malaysia v EU palm oil (consultations 15 Jan 2021, panel established 28 May 2021) and DS620/DS631 (2023/2024 filings, no establishment yet - the censoring behaviour working as expected). Right-censoring: consultations inside the 24-month eligibility tail are excluded and counted, never labelled negative. Settlements are mostly NOT formally notified (the dates file carries one MAS date; the stage file counts 156 'mutually agreed solutions, lapse of authority' events across the whole era), so the negative class means 'no panel established by cutoff', a documented meaning, not 'settled'."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "ZA",
     "domain": "country/portal coverage record - City of Cape Town Open Data Portal (Africa tick)",
     "id": "za-capetown-odp-coverage",
@@ -14843,7 +14950,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 34.7,
+    "age_hours": 35.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -15209,7 +15316,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 45.0,
+     "age_hours": 46.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -15383,7 +15490,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 185.5,
+     "age_hours": 186.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -15669,7 +15776,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 34.7,
+     "age_hours": 35.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -15849,7 +15956,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 45.0,
+     "age_hours": 46.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -16023,7 +16130,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 185.5,
+     "age_hours": 186.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -16309,7 +16416,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 34.7,
+     "age_hours": 35.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -16497,11 +16604,12 @@
    "AU": 10,
    "BR": 5,
    "CA": 16,
-   "CH": 6,
+   "CH": 7,
    "CI": 1,
    "CL": 2,
    "CO": 2,
    "DE": 2,
+   "DK": 1,
    "ET": 1,
    "EU": 15,
    "FR": 3,
@@ -16531,24 +16639,24 @@
    "Africa": 14,
    "East Asia": 9,
    "Europe": 34,
-   "International organisations": 16,
+   "International organisations": 18,
    "Latin America": 12,
    "North America": 26,
    "Oceania": 12,
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 52,
+   "dropped": 53,
    "investigating": 20,
    "packaged": 3,
    "parked": 30,
    "published": 14,
-   "ready": 17
+   "ready": 18
   },
-  "candidates": 136,
-  "live": 54,
-  "live_non_us": 48,
-  "live_non_us_share": 0.889,
+  "candidates": 138,
+  "live": 55,
+  "live_non_us": 49,
+  "live_non_us_share": 0.891,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -16570,10 +16678,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-06T07:50:02.075448+00:00",
+    "last_run_at": "2026-11-06T08:50:02.128212+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-06T08:00:00+00:00",
+    "next_run_at": "2026-11-06T09:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16594,10 +16702,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-06T07:50:01.445669+00:00",
+    "last_run_at": "2026-11-06T08:50:00.870058+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-06T07:55:00+00:00",
+    "next_run_at": "2026-11-06T08:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -16618,10 +16726,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-06T07:49:05.992105+00:00",
+    "last_run_at": "2026-11-06T08:49:23.971934+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-06T07:54:05.992105+00:00",
+    "next_run_at": "2026-11-06T08:54:23.971934+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -16630,10 +16738,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-06T07:50:01.206842+00:00",
+    "last_run_at": "2026-11-06T08:50:01.168814+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-06T07:55:00+00:00",
+    "next_run_at": "2026-11-06T08:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -16654,10 +16762,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-06T06:50:53.568425+00:00",
+    "last_run_at": "2026-11-06T07:50:52.999079+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-06T08:50:00+00:00",
+    "next_run_at": "2026-11-06T09:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16666,10 +16774,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-06T06:55:00.576409+00:00",
+    "last_run_at": "2026-11-06T07:55:01.097558+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-06T07:55:00+00:00",
+    "next_run_at": "2026-11-06T08:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16710,29 +16818,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-06T07:50:02.076475+00:00"
+  "updated_at": "2026-11-06T08:50:02.129245+00:00"
  },
- "generated_at": "2026-11-06T07:50:01+00:00",
+ "generated_at": "2026-11-06T08:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 136
+   "passing": 138
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-06T07:12:17Z",
-   "head_sha": "eac0945",
+   "created_at": "2026-11-06T08:29:51Z",
+   "head_sha": "12ddbf3",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42179325165"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42188088643"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 48/54 (89%)"
+   "summary": "live non-US: 49/55 (89%)"
   },
   "head": {
-   "at": "2026-11-06T07:12:07Z",
-   "sha": "eac0945",
-   "subject": "cpcb-aqi-exceedance: follow-up for build-003/-004 + baseline-001 - baseline verdict verified in collected bytes and reco"
+   "at": "2026-11-06T08:29:48Z",
+   "sha": "12ddbf3",
+   "subject": "discovery (International organisations tick): wto-dispute-panel-escalation opened and READY (WTO DS escalation at the co"
   },
   "tests": {
    "count": "723",
@@ -20067,13 +20175,21 @@
    "qualified": 0,
    "sessions_7d": 104,
    "tokens_7d": 36880442
+  },
+  {
+   "at": "2026-11-06T08:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 104,
+   "tokens_7d": 36928692
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-06T07:50:01+00:00",
+   "as_of": "2026-11-06T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -20083,7 +20199,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-06T07:50:01+00:00",
+   "as_of": "2026-11-06T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -20093,7 +20209,7 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-06T07:50:01+00:00",
+   "as_of": "2026-11-06T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -23413,7 +23529,7 @@
   "jobs_total": 207,
   "lifetime_eur": 4.0,
   "live": {
-   "checked_at": "2026-11-06T07:50:40+00:00",
+   "checked_at": "2026-11-06T08:50:40+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -23448,19 +23564,6 @@
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 1510.9,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "da702665132697ca3c7aa339aa14576281fde5ec24335bd755f9306d1e381189",
-    "ts": "2026-11-06T00:25:12.572903+00:00"
-   },
    {
     "elapsed_seconds": 3828.5,
     "event": "session",
@@ -23529,6 +23632,19 @@
     "run_budget": 900,
     "submitted_brief_sha256": "732b085e8660086bd311e00a5985850cb550895f340def231323cbf09589d975",
     "ts": "2026-11-06T07:13:53.365258+00:00"
+   },
+   {
+    "elapsed_seconds": 1856.8,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "b7466f4ecb2ae6100fa8219d931760fa6d04c9ad9c06fe2620c912b5a202d8f7",
+    "ts": "2026-11-06T08:30:59.667420+00:00"
    }
   ],
   "total": 40
