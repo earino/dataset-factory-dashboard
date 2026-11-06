@@ -1,10 +1,10 @@
 {
  "alarms": [
-  "scout-dashboard-refresh last status error (streak 1)",
+  "scout-research-session missed its window (2026-11-06T06:05:00+00:00); last status ok",
   "Token use at 94% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (43.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (183.5h)",
-  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (32.7h)"
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (44.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (184.5h)",
+  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (33.7h)"
  ],
  "budget": {
   "config": {
@@ -21,17 +21,19 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-11-06T05:50:02.696809+00:00",
+   "allowed": false,
+   "moment": "2026-11-06T06:50:03.000029+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 2999s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 37566481,
+   "research_tokens_last_7_days": 37753959,
    "runs_last_7_days": 104,
-   "runs_weighted_last_7_days": 119,
+   "runs_weighted_last_7_days": 118,
    "session_cap_per_week": 200,
-   "sessions_over_token_cap": 15,
+   "sessions_over_token_cap": 14,
    "usage": {
     "auxiliary": {
      "calls": 20,
@@ -54,14 +56,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 4043,
+     "calls": 4150,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 18780971,
-     "output_tokens": 4014556,
+     "input_tokens": 18903879,
+     "output_tokens": 4079968,
      "pricing_available": false
     }
    },
@@ -4714,6 +4716,21 @@
       "at": null,
       "id": "cpcb-aqi-build-002",
       "status": "failed_and_deleted"
+     },
+     {
+      "at": null,
+      "id": null,
+      "status": "failed_and_deleted"
+     },
+     {
+      "at": null,
+      "id": null,
+      "status": "succeeded"
+     },
+     {
+      "at": null,
+      "id": null,
+      "status": "running"
      }
     ],
     "licence_summary": {
@@ -4755,6 +4772,256 @@
       "found_by": "post-launch review of the bundled score.py while the job was running (the launch-time review had checked the build and the gate contract, not the reference table construction)",
       "job": "cpcb-aqi-build-002",
       "recorded_at": "2026-11-06T02:45:00+00:00"
+     },
+     "attempt_003_preflight_and_launch_2026_11_06": {
+      "dry_run_2026_11_06": {
+       "accept": "ACCEPTED synthetic artifact f5c72b1c25fde180f7f33d5ca771a5c27b930cbefbfaa6c2ee5c522788f0d194",
+       "build_rc": 0,
+       "failed_checks": [],
+       "gate_ok": true,
+       "gate_version": "1.5.0",
+       "note": "synthetic bytes only; exercises the machinery, says nothing about the real task's headroom",
+       "score_machinery_figures_synthetic_only": {
+        "majority_accuracy": 0.8904,
+        "state_season_climatology_auc": 0.8425,
+        "station_persistence_auc": 0.9522,
+        "station_train_rate_auc": 0.7241
+       },
+       "score_rc": 0,
+       "synthetic_counts": {
+        "eval": {
+         "positives": 180,
+         "rows": 1643
+        },
+        "holdout": {
+         "positives": 181,
+         "rows": 1670
+        },
+        "train": {
+         "positives": 650,
+         "rows": 6597
+        }
+       }
+      },
+      "launch": {
+       "command": "sh scripts/scout-factory worker launch .factory/jobs/cpcb-aqi-build-003/job.json",
+       "job_id": "cpcb-aqi-build-003",
+       "launched_at": "2026-11-06T06:05:10.237943+00:00",
+       "reservation_eur": 0.32,
+       "server_id": 174749145
+      },
+      "no_score_exists": "no real-data performance metric exists; the previous attempts' refusals happened before any gate, acceptance or score",
+      "recorded_at": "2026-11-06T06:06:46+00:00",
+      "repair_applied": "source/build.py per repair_for_attempt_003: HARD anchors kept (vintage pin exported_at 2026-09-30T11:25:11+00:00 + 196,521,834 rows; 549 stations; UNKNOWN_STATE sentinel for the 62 null-state stations; 2025 hole months asserted empty; Delhi 2024-11-18 fixture 38/36/36; monsoon 2023-08-15 bound >=300 complete / <=4 exceed). The exact panel-total and per-window station-day/positive assertions against the 2026-11-05 probe were DROPPED: the probe's values move to a non-asserting PROBE_REFERENCE, the build records its own measured counts in summary.json (with probe deltas reported, never asserted) and asserts internal consistency: windows partition the panel exactly (sum of per-window station-days == panel total) and an independent second pass with the label-rule operands (n>=18, mean>90) reproduces the per-window positives. Descriptive texts (meta.split_description, quality row_selection basis) now derive the 2025 tail counts from the build's own measurement instead of the probe's 47,566/829 literals. score.py's state-season climatology O(n^2) fix (rate table built once) was already in source and is carried unchanged. Population, label, threshold, splits, features, exclusions and timing block unchanged."
+     },
+     "attempt_003_refusal_2026_11_06": {
+      "count_repair_confirmed": {
+       "consistent_with": "attempt_002_refusal_2026_11_06.reconciliation: the +679 sits in the train/holdout windows where the probe's resumed scratch aggregation lost rows; eval and tail match the probe exactly",
+       "note": "measured by the -003 fetch itself, single clean pass; these are now the best available export facts (the 2026-11-05 probe totals were defective). Preserved in the staging-release container.log (release 436167238) and to be re-measured and recorded in summary.json by -004.",
+       "panel_rows_total": 717429,
+       "probe_deltas": {
+        "eval": 0,
+        "holdout": 480,
+        "tail": 0,
+        "total": 679,
+        "train": 199
+       },
+       "window_positives_n18": {
+        "eval_2023": 20773,
+        "holdout_2024": 19277,
+        "tail_2025_04_09": 829,
+        "train_2019_2022": 63748
+       },
+       "window_station_days": {
+        "eval_2023": 154003,
+        "holdout_2024": 176104,
+        "tail_2025_04_09": 47566,
+        "train_2019_2022": 339756
+       }
+      },
+      "diagnosis": {
+       "conclusion": "the anchor was transcribed from the preflight's panel-row count into a build that counts registry membership; the registry-based 39/36/36 matches the bulletin's own 36/39 denominator, so the repair adopts registry semantics rather than changing the build to count panel rows",
+       "defect_class": "known-event fixture operand mis-specification (first occurrence; distinct from the -002 count-anchor class)",
+       "evidence": [
+        "the fixture's substantive claims held exactly: complete_n18=36, pos_n18=36 (36/36 complete Delhi station-days exceed 90)",
+        "the 2026-11-05 preflight recorded station_days=38 from the PANEL (38 Delhi stations with rows on 2024-11-18; 2 thin n=11/n=9 -> 36 complete), but build.py counts REGISTRY MEMBERSHIP (fixture['station_days'] += 1 for every registry Delhi station)",
+        "retained probe/out/xkdr_stations_2026_11_04.json: 39 cpcb_caaqm Delhi stations (558-station snapshot, 0 non-cpcb Delhi), unchanged in the live registry the -003 build fetched",
+        "the publisher's own instrument: CPCB Daily AQI Bulletin 2024-11-18 says 'Delhi Severe 494, PM2.5, 36/39 stations' - denominator 39",
+        "the fixture never executed on real data before -003: -001 refused at the station registry, -002 at the count anchor"
+       ]
+      },
+      "job": "cpcb-aqi-build-003",
+      "no_score_exists": "no gate, acceptance or score ever ran on any cpcb artifact",
+      "outcome": "FAILED exit 1 at ~527 s, at the Delhi known-event fixture: {'station_days': 39, 'complete_n18': 36, 'pos_n18': 36} != {'station_days': 38, ...}. The fetch was clean (168 requests, 0 truncated, 0 unparseable, 54,138,890 B, 513.3 s) and the -002 count-anchor repair behaved exactly as designed: no count refusal, the internal-consistency checks passed, and the probe deltas were reported. Nothing was written, gated, accepted or scored.",
+      "recorded_at": "2026-11-06T06:22:21+00:00",
+      "repair_for_attempt_004": {
+       "budget_rule": "this is the one rebuild for the Delhi-fixture operand defect; a refusal at the same fixture again is a new finding requiring fresh diagnosis, not another retry",
+       "change": "ANCHORS['delhi_2024_11_18']['station_days']: 38 -> 39 (complete_n18=36, pos_n18=36 unchanged); docstring updated to state the registry-membership semantics and its evidence",
+       "dry_run_2026_11_06": "synthetic build rc=0 -> gate 1.5.0 ok=true failed_checks=[] -> --accept ACCEPTED (synthetic artifact f5c72b1c25fde180..., byte-identical to the -003 dry run) -> score.py rc=0; synthetic figures only, nothing about the real task",
+       "unchanged": "vintage pin, 549-station count, UNKNOWN_STATE sentinel, hole-month assertion, monsoon bound, internal-consistency checks, probe-reference reporting, population, label, threshold, splits, features, exclusions, timing block, score.py"
+      }
+     },
+     "attempt_004_accepted_artifact_2026_11_06": {
+      "commands": [
+       "sh scripts/scout-factory worker launch .factory/jobs/cpcb-aqi-build-004/job.json",
+       "sh scripts/scout-factory worker collect cpcb-aqi-build-004",
+       "sh scripts/scout-factory worker destroy cpcb-aqi-build-004",
+       "verify: .factory/cpcb-aqi-build-004/reports/ (6 assets fetched from staging release 436180445, every sha256 equal to the release manifest and the ledger)"
+      ],
+      "defects_recorded": {
+       "summary_job_label": "summary.json's 'job' field reads 'cpcb-aqi-build-003' (the literal was bumped for -003 and not re-bumped when job.json moved to -004). Auxiliary diagnostics file only: summary.json is not part of the runner layout, the gate does not read it, and the ledger, staging manifest and container.log all identify -004 correctly. To fix in any future rebuild; not an artifact defect."
+      },
+      "job": "cpcb-aqi-build-004",
+      "ladder": {
+       "accept": "ACCEPTED /output/extract matches the qualified artifact a749f0df2f9dd0103d0ba56524e1cc3638242fbc4710b0cac99603bcdef0d959",
+       "artifact_files": {
+        "eval.csv": {
+         "bytes": 20210392,
+         "sha256": "e187f645445e135e092898a280e74a2ecba6e75cb25ed9c5470d6f96f779c478"
+        },
+        "holdout.csv": {
+         "bytes": 22967353,
+         "sha256": "2dae0040cdc2c80fa4adc9cc3b48f26882a6a20f451a252ac3a72f10da8f460f"
+        },
+        "meta.json": {
+         "bytes": 1197,
+         "sha256": "1f59e74e4d6003f03371c4514ee9edda7e79e8ecfa3f995723b1520bac6e2fd7"
+        },
+        "quality.json": {
+         "bytes": 22603,
+         "sha256": "98250e9d2731f89da021aec360f5d5535fc374241a98db14f185397f9126849a"
+        },
+        "train.csv": {
+         "bytes": 45644743,
+         "sha256": "24b03a701c34d91834a7c5285d1c928ec33cda9282a2085405b06d541faa9c73"
+        }
+       },
+       "build_rc": 0,
+       "gate": {
+        "checks": "45/45",
+        "failed_checks": [],
+        "ok": true,
+        "version": "1.5.0"
+       },
+       "score_rc": 0
+      },
+      "measured_counts_adopted": {
+       "excluded": {
+        "outside_windows": 42638,
+        "thin_day": {
+         "eval": 18065,
+         "holdout": 20101,
+         "train": 33586
+        },
+        "unlabelable_next_day": {
+         "eval": 9368,
+         "holdout": 10879,
+         "train": 17416
+        }
+       },
+       "fixtures": {
+        "delhi_2024_11_18": {
+         "complete_n18": 36,
+         "pos_n18": 36,
+         "station_days": 39
+        },
+        "hole_2025_rows": 0,
+        "monsoon_2023_08_15": {
+         "complete_n18": 389,
+         "pos_n18": 1
+        }
+       },
+       "note": "measured by this build's own single-pass fetch (168 requests, 0 truncated, 0 unparseable, 54,138,890 B); they reproduce the -003 fetch exactly, and supersede the defective 2026-11-05 probe totals (deltas reported in summary.json, never asserted)",
+       "panel_rows_total": 717429,
+       "panel_stations_registered": 549,
+       "panel_stations_with_rows": 546,
+       "shipped_rows": {
+        "eval": {
+         "distinct_positive_days": 351,
+         "positive_rate": 0.156585,
+         "positives": 19819,
+         "rows": 126570
+        },
+        "holdout": {
+         "distinct_positive_days": 352,
+         "positive_rate": 0.125562,
+         "positives": 18222,
+         "rows": 145124
+        },
+        "train": {
+         "distinct_positive_days": 1248,
+         "positive_rate": 0.211512,
+         "positives": 61075,
+         "rows": 288754
+        }
+       },
+       "window_station_days": {
+        "eval_2023": 154003,
+        "holdout_2024": 176104,
+        "tail_2025_04_09": 47566,
+        "train_2019_2022": 339756
+       },
+       "window_valid_day_positives": {
+        "eval_2023": 20773,
+        "holdout_2024": 19277,
+        "tail_2025_04_09": 829,
+        "train_2019_2022": 63748
+       }
+      },
+      "prevalence_shift": {
+       "eval_2023": 0.156585,
+       "holdout_2024": 0.125562,
+       "note": "declining exceedance prevalence across the temporal split - an out-of-distribution property of the split, reported rather than adjusted (score.py prevalence_shift records the same)",
+       "train_2019_2022": 0.211512
+      },
+      "recorded_at": "2026-11-06T06:43:35+00:00",
+      "reference_triad_eval_2023": {
+       "clustered_paired_bootstrap": {
+        "station_persistence_vs_state_season_climatology": {
+         "ci95": [
+          0.095881,
+          0.120774
+         ],
+         "clusters": 509,
+         "mean": 0.107316,
+         "resamples": 1000
+        },
+        "vs_global_rate": "degenerate resamples (constant score has no ranking information); recorded, not inferred"
+       },
+       "command": "python3 /workspace/score.py --data /output/extract --accepted-report /output/qualification-cpcb-aqi-exceedance.json --report /output/references-cpcb-aqi-exceedance.json (run.sh stage 4, post-acceptance)",
+       "distinct_positive_days": 351,
+       "global_rate": {
+        "auc": null,
+        "brier": 0.13508330404901164,
+        "note": "degenerate constant member, no ranking information"
+       },
+       "holdout": "sealed; no reference reads private/holdout.csv",
+       "interpretation": "persistence dominates: the next-day exceedance label is largely carried by day-D PM2.5. Per the pre-registered deciding rule the FULL MODEL (baseline job) must beat EVERY member - station_persistence at 0.9689 is the bar; the deciding comparison runs in cpcb-aqi-baseline-001, never by re-tuning here",
+       "majority_class": {
+        "accuracy": 0.843414711226989
+       },
+       "per_season_persistence_auc": {
+        "DJF": 0.9541,
+        "JJAS": 0.9522,
+        "MAM": 0.9359,
+        "ON": "see references json"
+       },
+       "positives": 19819,
+       "rows": 126570,
+       "state_season_climatology": {
+        "auc": 0.861668549124152,
+        "brier": 0.09678794864992082,
+        "unseen_cell_rows": 144
+       },
+       "station_persistence": {
+        "auc": 0.9689109528605426,
+        "binary_agreement_accuracy": 0.9350161965710674,
+        "brier": 0.2830447212174809
+       },
+       "station_train_rate_supplementary": {
+        "auc": 0.7616362039606324
+       }
+      }
      },
      "construction_preflight_2026_11_06": {
       "dry_run": {
@@ -4943,7 +5210,7 @@
      "xkdr_delhi_sample_2026_10_20": "GET /v1/measurements?city=Delhi&parameter=PM2.5&start=2024-01-01&end=2024-03-31&agg=daily&format=csv: HTTP 200, 252,729 bytes, 3,384 data rows across 39 distinct station_ids; columns station_id, parameter_name, unit, period_start, mean, min, max, n. Base rate measured on this sample at the proposed threshold: 1,993/3,384 = 58.89% of station-days with mean PM2.5 > 90 micrograms/m3 (Delhi winter; not the annual rate). One request, ~3 s.",
      "xkdr_meta_2026_10_20": "GET https://airquality.xkdr.org/v1/meta with the published demo key: HTTP 200; measurements 196,521,834 rows over 207 months (2009-01..2026-03), 558 stations, 15 parameters; schema station_id, station_name, state_name, city_name, parameter_name, unit, collected_at (naive IST), value, source (cpcb_caaqm|us_embassy), year, month; demo tier capped at 10,000 rows/query, 30 s query timeout."
     },
-    "next_action": "ATTEMPT -003 (repair: count anchors restructured per measurements.attempt_002_refusal_2026_11_06.repair_for_attempt_003; score.py O(n^2) fix already in source).",
+    "next_action": "COLLECT cpcb-aqi-baseline-001 (`sh scripts/scout-factory worker collect cpcb-aqi-baseline-001`) and verify IN THE COLLECTED BYTES, in order: (1) re-accept ACCEP",
     "packaged_at": null,
     "path": "candidates/cpcb-aqi-exceedance/record.json",
     "prediction_time": "23:59 IST on day D: every hourly reading through day D is knowable at that instant and no D+1 reading exists yet. Features are the station's own trailing hourly/daily PM2.5 statistics and calendar terms only; every D+1 measurement is label source and never ships as a feature.",
@@ -4979,12 +5246,12 @@
       "url": "https://airquality.cpcb.gov.in/ccr/"
      }
     ],
-    "split_strategy": "Temporal by day on the cpcb_caaqm stream only (5 us_embassy DS* stations excluded; one instrumentation stream). MEASURED 2026-11-05 over the full 2019-2025 panel (166 requests, 716,750 station-days, threshold 90 ug/m3, n>=18h primary) and RE-CUT once before any score because the 2025 holdout is a winter-free partial tail (2025-01..03 and 2025-10..12 have no cpcb pm25 rows in the export; measured): train 2019-2022 339557 station-days / 63735 positives (0.1877) / 390 reporting stations / 85 state-x-season positive cells / 1267 distinct positive days; eval 2023 154003 / 20773 (0.1349) / 511 / 90 / 357; holdout 2024 175624 / 19254 (0.1096) / 529 / 92 / 358. Excluded and counted: the 2025-04..09 partial tail (47566 station-days / 829 positives / 329 stations). Positives are winter-clustered (monthly positive share Dec-Feb up to ~0.39, monsoon ~0.00-0.03) - construction evaluates with cluster-aware intervals (cluster = station and/or state x season). Both classes present in every window; eval/holdout clear the qualification gate's minimums with large margin.",
+    "split_strategy": "Temporal by day on the cpcb_caaqm stream only (5 us_embassy DS* stations excluded; one instrumentation stream). MEASURED 2026-11-06 by the accepted build cpcb-aqi-build-004 (single-pass fetch of the pinned XKDR export; the 2026-11-05 probe totals it replaces were defective - see measurements.attempt_002_refusal_2026_11_06): panel 717,429 station-days across 546 reporting stations (549 registered); windows train 2019-2022 339,756 / eval 2023 154,003 / holdout 2024 176,104 station-days; the 2025-04..09 partial tail 47,566 station-days / 829 valid-day positives is excluded and counted; the 2025-01..03 and 2025-10..12 hole months are asserted empty (0 rows). SHIPPED rows after eligibility (complete day D, labelable D+1): train 288,754 rows / 61,075 positives (21.15%) / 1,248 distinct positive days; eval 126,570 / 19,819 (15.66%) / 351; holdout 145,124 / 18,222 (12.56%) / 352. Excluded and counted per split: thin day D (33,586 / 18,065 / 20,101), unlabelable D+1 (17,416 / 9,368 / 10,879). Prevalence declines across the split (21.2% -> 15.7% -> 12.6%): an out-of-distribution property of the temporal split, reported rather than adjusted. Positives are winter-clustered (per-season eval prevalence DJF 33.0% vs JJAS 1.0%); construction evaluates with station-clustered intervals (cluster = station_id; 509 eval clusters). Both classes present in every window; eval/holdout clear the gate minimums with large margin.",
     "status": "ready",
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 43.0,
+    "age_hours": 44.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -10711,7 +10978,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 183.5,
+    "age_hours": 184.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -14523,7 +14790,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 32.7,
+    "age_hours": 33.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -14889,7 +15156,7 @@
   "release": {
    "awaiting": [
     {
-     "age_hours": 43.0,
+     "age_hours": 44.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -15063,7 +15330,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 183.5,
+     "age_hours": 184.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -15349,7 +15616,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 32.7,
+     "age_hours": 33.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -15529,7 +15796,7 @@
    ],
    "packaged": [
     {
-     "age_hours": 43.0,
+     "age_hours": 44.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -15703,7 +15970,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 183.5,
+     "age_hours": 184.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -15989,7 +16256,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 32.7,
+     "age_hours": 33.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -16250,10 +16517,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-06T05:50:02.294043+00:00",
+    "last_run_at": "2026-11-06T06:50:01.763054+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-06T06:00:00+00:00",
+    "next_run_at": "2026-11-06T07:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16274,10 +16541,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-06T05:50:00.754962+00:00",
+    "last_run_at": "2026-11-06T05:55:01.135542+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-06T05:55:00+00:00",
+    "next_run_at": "2026-11-06T06:05:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -16298,10 +16565,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-06T05:47:04.683547+00:00",
+    "last_run_at": "2026-11-06T06:47:20.780855+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-06T05:52:04.683547+00:00",
+    "next_run_at": "2026-11-06T06:52:20.780855+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -16310,10 +16577,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-06T05:50:00.682397+00:00",
+    "last_run_at": "2026-11-06T06:50:01.328559+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-06T05:55:00+00:00",
+    "next_run_at": "2026-11-06T06:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -16331,13 +16598,13 @@
    },
    {
     "enabled": true,
-    "failure_streak": 1,
+    "failure_streak": 0,
     "id": "4d8053a69ed2",
-    "last_error": "Script exited with code 1\nstdout:\ndashboard: generated 2026-11-06T04:50:02+00:00 live=20 published=True verified=False\n{'ok': False, 'pages': {'index.html': {'status': 200, 'fresh': True}, 'cost.html'",
-    "last_run_at": "2026-11-06T04:54:00.280443+00:00",
-    "last_status": "error",
+    "last_error": "",
+    "last_run_at": "2026-11-06T05:50:52.366563+00:00",
+    "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-06T06:50:00+00:00",
+    "next_run_at": "2026-11-06T07:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16346,10 +16613,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-06T04:55:01.256776+00:00",
+    "last_run_at": "2026-11-06T05:58:58.087970+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-06T05:55:00+00:00",
+    "next_run_at": "2026-11-06T06:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16390,9 +16657,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-06T05:50:02.295150+00:00"
+  "updated_at": "2026-11-06T06:50:02.465028+00:00"
  },
- "generated_at": "2026-11-06T05:50:01+00:00",
+ "generated_at": "2026-11-06T06:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16400,19 +16667,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-06T04:40:30Z",
-   "head_sha": "5572df0",
+   "created_at": "2026-11-06T06:46:39Z",
+   "head_sha": "75652fb",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42163894426"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42176590189"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 48/54 (89%)"
   },
   "head": {
-   "at": "2026-11-06T04:40:22Z",
-   "sha": "5572df0",
-   "subject": "discovery (Oceania tick): open plansa-da-register-decision (investigating) - SA statewide DA register, CC BY 3.0 AU on t"
+   "at": "2026-11-06T06:46:35Z",
+   "sha": "75652fb",
+   "subject": "cpcb-aqi-exceedance: build-003/-004 - count anchors restructured per the -002 repair, Delhi fixture operand diagnosed (r"
   },
   "tests": {
    "count": "723",
@@ -19731,13 +19998,23 @@
    "qualified": 0,
    "sessions_7d": 104,
    "tokens_7d": 37566481
+  },
+  {
+   "at": "2026-11-06T06:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 104,
+   "tokens_7d": 37753959
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 2999s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-06T05:50:01+00:00",
+   "as_of": "2026-11-06T06:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -19747,7 +20024,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-06T05:50:01+00:00",
+   "as_of": "2026-11-06T06:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -19757,7 +20034,7 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-06T05:50:01+00:00",
+   "as_of": "2026-11-06T06:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -20550,12 +20827,12 @@
      "lo": 0.005
     },
     {
-     "count": 57,
+     "count": 58,
      "hi": 0.02,
      "lo": 0.01
     },
     {
-     "count": 44,
+     "count": 45,
      "hi": 0.05,
      "lo": 0.02
     },
@@ -20581,11 +20858,11 @@
     }
    ],
    "max": 0.6296,
-   "median": 0.0132,
-   "n": 204,
+   "median": 0.0136,
+   "n": 206,
    "p90": 0.0569,
    "ref_rate": 0.06924,
-   "total": 6.0
+   "total": 6.04
   },
   "jobs": [
    {
@@ -21057,6 +21334,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-06T06:43:41.610409+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "cpcb-aqi-baseline-001",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "running"
+   },
+   {
     "created_at": "2026-11-06T02:27:40.590444+00:00",
     "deleted_at": "2026-11-06T02:33:50.146952+00:00",
     "eur": 0.0071,
@@ -21076,6 +21365,30 @@
     "id": "cpcb-aqi-build-002",
     "location": "hel1",
     "normalised_eur": 0.0295,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-06T06:05:10.237943+00:00",
+    "deleted_at": "2026-11-06T06:18:36.260146+00:00",
+    "eur": 0.0155,
+    "hours": 0.224,
+    "id": "cpcb-aqi-build-003",
+    "location": "hel1",
+    "normalised_eur": 0.0155,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-06T06:20:37.757924+00:00",
+    "deleted_at": "2026-11-06T06:41:44.527400+00:00",
+    "eur": 0.0244,
+    "hours": 0.352,
+    "id": "cpcb-aqi-build-004",
+    "location": "hel1",
+    "normalised_eur": 0.0244,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -23037,19 +23350,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 43,
-  "jobs_total": 204,
-  "lifetime_eur": 3.94,
+  "jobs_this_month": 45,
+  "jobs_total": 207,
+  "lifetime_eur": 3.98,
   "live": {
-   "checked_at": "2026-11-06T05:50:40+00:00",
+   "checked_at": "2026-11-06T06:50:40+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
-  "month_hours": 16.6,
-  "month_to_date": 0.31,
+  "month_hours": 17.2,
+  "month_to_date": 0.35,
   "months": [
    {
     "eur": 2.4452,
@@ -23064,13 +23377,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.3138,
-    "hours": 16.62,
-    "jobs": 43,
+    "eur": 0.3537,
+    "hours": 17.2,
+    "jobs": 45,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 1.57
+  "projected_month_eur": 1.77
  },
  "schema": 1,
  "sessions": {
