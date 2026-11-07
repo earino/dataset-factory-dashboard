@@ -1,9 +1,9 @@
 {
  "alarms": [
   "Token use at 87% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (69.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (209.5h)",
-  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (58.7h)"
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (70.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (210.5h)",
+  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (59.7h)"
  ],
  "budget": {
   "config": {
@@ -20,15 +20,17 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-11-07T07:50:02.735617+00:00",
+   "allowed": false,
+   "moment": "2026-11-07T08:50:03.101657+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 301s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 34712982,
-   "runs_last_7_days": 106,
-   "runs_weighted_last_7_days": 120,
+   "research_tokens_last_7_days": 34768110,
+   "runs_last_7_days": 107,
+   "runs_weighted_last_7_days": 121,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 14,
    "usage": {
@@ -53,14 +55,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 5446,
+     "calls": 5560,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 26670807,
-     "output_tokens": 5329691,
+     "input_tokens": 26834131,
+     "output_tokens": 5416567,
      "pricing_available": false
     }
    },
@@ -89,7 +91,7 @@
    "packaged": 5,
    "parked": 31,
    "published": 14,
-   "ready": 18
+   "ready": 19
   },
   "errors": [],
   "live": [
@@ -5206,7 +5208,7 @@
     "target": "Binary: 1 if VolumenAlm(Mm3) < threshold on at least one day with Fecha in (T, T+30] in the dam's SIH series, else 0. Label source column: VolumenAlm(Mm3) (the same column as the target variable), excluded from features by the Fecha <= T filter; no other column carries the answer. Threshold frame, two candidates measured in the sample: (a) discovery-time proxy = 25 percent of the dam's own observed maximum VolumenAlm (the SIH catalog carries no capacity column); (b) construction-time preferred frame = 25 percent of official capacity, published per dam in CONAGUA's weekly 'Almacenamiento de las Principales Presas del Pais' report (columns CAPACIDAD MUERTA / CAP. UTIL DISENO Mm3; archive at ftp://ftp.conagua.gob.mx/Gobmx/DisponibilidadenPresas/) and in the press-percentage frame (e.g. El Cuchillo capacity 1,123 Mm3 vs observed max 1,765.7 Mm3 including flood surcharge; the proxy threshold 441.4 Mm3 equals 39 percent of the official frame, so the proxy is the conservative/higher threshold and events under it are a subset of events under the official frame). Eligibility at T, from information available at prediction: dam has >= 365 prior daily VolumenAlm rows and VolumenAlm(T) >= threshold (onset formulation; days already below threshold are not prediction rows)."
    },
    {
-    "age_hours": 12.5,
+    "age_hours": 13.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "IN",
@@ -6035,7 +6037,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 69.0,
+    "age_hours": 70.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -11453,6 +11455,73 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "MY",
+    "domain": "urban transit operations - next-day station-pair rail ridership exceedance for the Klang Valley Rapid Rail network (LRT Kelana Jaya, LRT Ampang/Sri Petaling, Monorail, MRT Kajang, MRT Putrajaya), from anonymous tap-in/tap-out gate transactions published daily by the Malaysian national open-data platform",
+    "id": "my-rapidrail-od-exceedance",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": "CC0-1.0",
+     "source_spdx": "CC-BY-4.0",
+     "status": "CC BY 4.0, stated in the dataset page's embedded licence metadata (read 2026-11-07) and on the developer portal. Attribution required; redistribution and derivatives permitted."
+    },
+    "measurements": {
+     "coverage_and_editions": "Editions 2023-2026 exist; 2023/2024/2025 frozen (Last-Modified 2026-09-21 / 2026-09-23 / 2026-04-02), 2026 current-year updated daily (2026-11-07 08:03, data through 2026-11-06). The 2023/2024/2025 editions were (re)generated in 2026 - they are the publisher's current published form of completed years, not archival vintages; the task claims no operational historical availability (current-compilation retrospective). 2024 contains all 366 dates (sampled); the 2026 tail extends through 2026-11-06.",
+     "extraction_cost_measured": "Storage HEAD/Range probes from the coordinator vantage (2026-11-07): complete pair-year series for 5 pairs = 150 HTTP requests, 744,161 bytes fetched, 86.0 s wall (Python 3.14 stdlib, urllib); bounded 6-chunk Range samples = 1.5 MB per file. Construction inputs are the four parquet editions (5.37-6.10 MB each, ~22.7 MB total) - a trivial worker download; CSVs (310-376 MB/year) are unnecessary when parquet is used. No auth, no rate-limit hit, no bulk transfer through the coordinator.",
+     "novelty_search_scope": "Web searches 2026-11-07: 'Klang Valley Rapid Rail origin-destination ridership dataset machine learning benchmark prediction' and 'metro origin-destination passenger flow prediction benchmark dataset public transit exceedance classification'. Found: SHMetro/HZMetro and SHMOD/HZMOD benchmarks (Shanghai/Hangzhou, 15-minute inflow/OD regression, researcher-hosted, 2016/2019 snapshots), MTA Subway OD Ridership (monthly-average hourly OD, data.ny.gov), Nanjing/Beijing/Guangzhou/Shenzhen literature datasets (private or per-paper). No public ML-ready benchmark or scored task for any Klang Valley rail dataset; a UNITEN thesis used SNA on a 120-node/5,567-edge travel-history dataset (not public, not a prediction benchmark).",
+     "pair_year_series_2024": "Five complete pair-year series extracted (366/366 days, 0 missing dates, 0 zero-days for these active pairs): A0->AG01 (pseudo-station row, p50 4,374, weekday ~4,400 vs Sat 3,032/Sun 2,653, Eid 2024-04-10/11 dip to 1,854/2,013); KG16->KJ14 CBD interchange (p50 90, weekend INVERTED: Sat 120 vs Mon 76); KJ14->KG16 (p50 95, similar inversion); SP31->SP31 self-pair (p50 104, flat weekdays, 2024-05-23 spike 332); PYL33->KG16 low-demand pair (p50 13, flat). Full series in probe/pair_blocks_2024.json. Shows strong pair-type heterogeneity (commuter vs leisure vs low-demand), holiday signal (Eid al-Fitr), and weekday/weekend structure a solution must capture; pair-relative thresholds avoid collapsing this heterogeneity into one absolute scale.",
+     "panel_structure": "Columns: origin,destination,date,ridership (2024 CSV header measured). File sorted (origin, destination, date) - measured: a 1.7 MB window at offset ~50.3 MB contains 27,821 rows spanning exactly one origin's block boundary (12,621 rows of dates 2024-01-01..06-14 for the preceding origin + 76 rows dated 2024-06-15 + 15,124 rows of dates 2024-06-16..12-31), i.e. contiguous pair blocks each carrying a full year of rows. Station codes are line-specific and self-describing (e.g. 'KG16: Pasar Seni', 'KJ14: Pasar Seni' are the same physical interchange station on different lines; line prefix: AG Ampang, KG Sri Petaling, KJ Kelana Jaya, MR Monorail, SP MRT Kajang, PYL MRT Putrajaya).",
+     "platform_catalogue": "data.gov.my is a Next.js platform (not CKAN): /api/3/action 404; the documented Open API is api.data.gov.my (developer.data.gov.my). Catalogue enumeration via the data-catalogue page's __NEXT_DATA__: 355 dataset slugs on the catalogue page; full inventory retained in references/catalogue_inventory_2026-11-07.txt. The platform is overwhelmingly DOSM aggregate time series; the event-derived panels are the ridership OD sets (rapidrail daily, komuter hourly, ktmb services, brt), PriceCatcher (already published), a COVID-19 death line-list (closed coverage, saturated literature) and NPRA product registers (snapshots, no history).",
+     "probe_scripts": "candidates/my-rapidrail-od-exceedance/probe/: edition_head_inventory_2026_11_07.py (HEAD all editions - sizes, Last-Modified), edition_head_tail_2026_11_07.py (header + head/tail rows per edition), range_sample_2026_11_07.py (bounded ~1.5 MB Range samples per CSV), extract_pair_blocks_2026_11_07.py (complete pair-year series via block binary search; output pair_blocks_2024.json), dump_catalogue_2026_11_07.py (full platform catalogue enumeration; inventory in references/catalogue_inventory_2026-11-07.txt). All commands and outputs are reproduced in notes.md.",
+     "provenance_mix": "'A0: All Stations' pseudo-station rows appear as BOTH origin (file head: 'A0: All Stations,AG01: Sentul Timur,...') and destination ('KG06: Kota Damansara,A0: All Stations,2024-06-15,2702'), at station-scale magnitudes (not pair-scale). They must be excluded from the pair panel; whether they are aggregate totals or unknown-tap censored rows is a construction-time verification against station sums (recorded as an open check, not an assumption). PYL05+ destinations are censored (see target_definition); PYL origins are present."
+    },
+    "next_action": "READY -> hand to advancement/construction (NOT this discovery session): (1) worker downloads the four parquet editions, records sha256 per file + the dataset-pa",
+    "packaged_at": null,
+    "path": "candidates/my-rapidrail-od-exceedance/record.json",
+    "prediction_time": "07:00 Asia/Kuala_Lumpur on target day T, before the operating day begins. Every feature is a ridership row dated <= T-2, taken from the frozen annual edition (completed years) or the pinned current-year snapshot; all four source columns (origin, destination, date, ridership) are individually documented by the publisher (dataset page 'fields' metadata, measured 2026-11-07), and no undocumented column is used. Publication calendar is the publisher's own: the dataset page carries data_as_of 2026-11-06 23:59, last_updated 2026-11-07 16:03, next_update 2026-11-08 22:00, and the storage file rapidrail_2026_daily.csv (Content-Length 318,772,855) was last modified 2026-11-07 08:03:16 GMT with its last data row dated 2026-11-06 - a measured one-day publication lag. Frozen annual editions 2023 (374,488,341 B, Last-Modified 2026-09-21), 2024 (375,944,306 B, 2026-09-23), 2025 (309,579,953 B, 2026-04-02) pin the completed years; the 2026 edition updates daily and must be digest-pinned at build. Calendar features (day-of-week, month, elapsed-day) are available at any instant. This is a current-compilation retrospective: per-row historical vintages are not published, and no operational point-in-time reproducibility of past values is claimed - the same posture as ab-wildfire-ia-escape, to be stated in quality.json.evaluation_contract.",
+    "publisher": "data.gov.my (Jabatan Digital Negara / Ministry of Digital platform); data supplied by Prasarana Malaysia Berhad (Rapid Rail) via the Ministry of Transport",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At 07:00 Asia/Kuala_Lumpur on operating day T, using only the published origin-destination ridership history dated T-2 and earlier (the publication lag is one day, so day T-1's rows are not yet available at the instant - measured, see prediction_time), predict whether a given station-pair's ridership on day T (00:00-23:59 local) will exceed a fixed reference threshold for that pair. A useful prediction supports Rapid Rail's operational planning at the day-ahead horizon: train frequency, staff/crowd-control deployment at interchange stations, and event-day capacity decisions for the ~1M daily trips on the network.",
+    "region": "South & South-East Asia",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "CC BY 4.0 (page-embedded licence metadata, read 2026-11-07)",
+      "name": "Daily Origin-Destination Ridership: Rapid Rail (KV) - dataset page (fields, methodology, publication calendar, editions)",
+      "url": "https://data.gov.my/data-catalogue/ridership_od_rapidrail_daily"
+     },
+     {
+      "licence": "CC BY 4.0",
+      "name": "Annual edition files (CSV + Parquet), frozen per year",
+      "url": "https://storage.data.gov.my/transportation/rail/rapidrail_YYYY_daily.csv and .parquet"
+     },
+     {
+      "licence": "CC BY 4.0",
+      "name": "data.gov.my developer portal (Open API licence + platform documentation)",
+      "url": "https://developer.data.gov.my/"
+     },
+     {
+      "licence": "CC BY 4.0 (site content)",
+      "name": "Public data-request thread documenting the Putrajaya Line destination gap",
+      "url": "https://data.gov.my/data-request"
+     }
+    ],
+    "split_strategy": "Temporal, disjoint by calendar year of the TARGET day (Asia/Kuala_Lumpur): train 2023-01-01..2024-12-31 (frozen editions), eval 2025-01-01..2025-12-31 (frozen edition), holdout 2026-01-01..build-date (current-year file digest-pinned at build; the publisher's own frozen 2026 edition, due ~early 2027 by the observed 2025 pattern, is the durable re-verification target). Panel scale (measured, not full-counted): ~5.4M pair-day rows per year (2024 CSV 375,944,306 B at ~70 B/row; ~14-17k pair-rows per day sampled), so each window carries orders of magnitude more rows and positives than the bench needs at any candidate threshold. Full split counts (rows, pairs, positives at the chosen thresholds, day-clustered positive counts) are the FIRST construction step on the worker - sampled counts are never presented as full counts (same convention as datasus-sinasc-cesarean-share-decline). Positives cluster by day (network-wide events lift many pairs); clustered counts must be computed and recorded before any score is interpreted.",
+    "status": "ready",
+    "target": "Binary label per (origin, destination, day T): pair ridership on day T >= a fixed pair-specific reference threshold (construction selects: per-pair training-window percentile, e.g. p90, or a small set of absolute thresholds; candidate thresholds recorded from measured pair-year series in probe/pair_blocks_2024.json). Source column: 'ridership' (integer trips, publisher-documented as trips not necessarily passengers); it is the label source and is excludable from shipped features (shipped features are the SAME column's values at dates <= T-2 plus calendar - the label is its day-T value, which postdates the instant). Population: all ordered station pairs on the network with an active block in the source, excluding (a) rows with origin or destination 'A0: All Stations' (pseudo-station aggregate/censored rows, measured station-scale magnitudes ~4.4k/day, semantics to be verified against pair sums at construction), and (b) pairs whose destination is a Putrajaya Line station other than PYL03/PYL04 (32/34 PYL station codes never appear as destinations - confirmed by my own 2024-edition sampling AND by a public data-request thread id 216 dated 2026-10-24; censoring, not zero demand). Zero-ridership days are published as rows with value 0 (29.3% of pair rows on a sampled Saturday), so observed absence is distinguishable from missing data."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "NG",
     "domain": "food and fuel price monitoring / state-level monthly price panel (licence-blocked before construction)",
     "id": "ng-nbs-state-price-exceedance",
@@ -12084,7 +12153,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 209.5,
+    "age_hours": 210.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -16003,7 +16072,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 58.7,
+    "age_hours": 59.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -16715,7 +16784,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 12.5,
+     "age_hours": 13.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "IN",
@@ -17544,7 +17613,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 69.0,
+     "age_hours": 70.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -17718,7 +17787,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 209.5,
+     "age_hours": 210.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -18004,7 +18073,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 58.7,
+     "age_hours": 59.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -18530,7 +18599,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 12.5,
+     "age_hours": 13.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "IN",
@@ -19359,7 +19428,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 69.0,
+     "age_hours": 70.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -19533,7 +19602,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 209.5,
+     "age_hours": 210.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -19819,7 +19888,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 58.7,
+     "age_hours": 59.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -20026,7 +20095,7 @@
    "KR": 1,
    "MA": 1,
    "MX": 2,
-   "MY": 2,
+   "MY": 3,
    "NG": 2,
    "NL": 1,
    "NZ": 2,
@@ -20046,7 +20115,7 @@
    "Latin America": 14,
    "North America": 27,
    "Oceania": 12,
-   "South & South-East Asia": 13
+   "South & South-East Asia": 14
   },
   "by_status": {
    "dropped": 59,
@@ -20054,12 +20123,12 @@
    "packaged": 5,
    "parked": 31,
    "published": 14,
-   "ready": 18
+   "ready": 19
   },
-  "candidates": 147,
-  "live": 57,
-  "live_non_us": 51,
-  "live_non_us_share": 0.895,
+  "candidates": 148,
+  "live": 58,
+  "live_non_us": 52,
+  "live_non_us_share": 0.897,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -20081,10 +20150,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-07T07:50:02.093014+00:00",
+    "last_run_at": "2026-11-07T08:50:02.387957+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-07T08:00:00+00:00",
+    "next_run_at": "2026-11-07T09:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -20105,10 +20174,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-07T07:50:00.913766+00:00",
+    "last_run_at": "2026-11-07T08:40:01.559152+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-07T07:55:00+00:00",
+    "next_run_at": "2026-11-07T08:50:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -20129,10 +20198,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-07T07:47:53.126835+00:00",
+    "last_run_at": "2026-11-07T08:48:08.699806+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-07T07:52:53.126835+00:00",
+    "next_run_at": "2026-11-07T08:53:08.699806+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -20141,10 +20210,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-07T07:50:01.428016+00:00",
+    "last_run_at": "2026-11-07T08:50:00.718163+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-07T07:55:00+00:00",
+    "next_run_at": "2026-11-07T08:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -20165,10 +20234,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-07T06:50:53.587076+00:00",
+    "last_run_at": "2026-11-07T07:50:52.732588+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-07T08:50:00+00:00",
+    "next_run_at": "2026-11-07T09:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -20177,10 +20246,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-07T06:55:00.676831+00:00",
+    "last_run_at": "2026-11-07T07:55:00.566496+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-07T07:55:00+00:00",
+    "next_run_at": "2026-11-07T08:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -20221,29 +20290,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-07T07:50:02.094074+00:00"
+  "updated_at": "2026-11-07T08:50:02.389093+00:00"
  },
- "generated_at": "2026-11-07T07:50:01+00:00",
+ "generated_at": "2026-11-07T08:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 147
+   "passing": 148
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-07T07:05:27Z",
-   "head_sha": "5dc4b61",
+   "created_at": "2026-11-07T08:38:24Z",
+   "head_sha": "9c9f493",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42349787902"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42356337152"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 51/57 (90%)"
+   "summary": "live non-US: 52/58 (90%)"
   },
   "head": {
-   "at": "2026-11-07T07:05:11Z",
-   "sha": "5dc4b61",
-   "subject": "dvsa-mot-build-002 executed and failed at a NEW defect: the 2017-2023 DfT zips are Deflate64 (compress_type 9) - ABRVE r"
+   "at": "2026-11-07T08:38:15Z",
+   "sha": "9c9f493",
+   "subject": "discovery (South/Southeast Asia tick): new ready candidate my-rapidrail-od-exceedance - Klang Valley Rapid Rail day-ahea"
   },
   "tests": {
    "count": "723",
@@ -23770,13 +23839,23 @@
    "qualified": 0,
    "sessions_7d": 106,
    "tokens_7d": 34712982
+  },
+  {
+   "at": "2026-11-07T08:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 107,
+   "tokens_7d": 34768110
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 301s by scout-research"
+ ],
  "panels": {
   "budget": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-07T07:50:01+00:00",
+   "age_minutes": 0.7,
+   "as_of": "2026-11-07T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -23785,8 +23864,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-07T07:50:01+00:00",
+   "age_minutes": 0.7,
+   "as_of": "2026-11-07T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -23795,8 +23874,8 @@
    "value": 20
   },
   "releases": {
-   "age_minutes": 0.6,
-   "as_of": "2026-11-07T07:50:01+00:00",
+   "age_minutes": 0.7,
+   "as_of": "2026-11-07T08:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -24649,18 +24728,13 @@
  "resources": {
   "ceiling_eur": 20.0,
   "errors": [],
-  "eur_per_release": 0.3,
+  "eur_per_release": 0.49,
   "histogram": {
    "bins": [
     {
-     "count": 22,
-     "hi": 0.005,
-     "lo": 0.002
-    },
-    {
-     "count": 59,
+     "count": 81,
      "hi": 0.01,
-     "lo": 0.005
+     "lo": 0.002
     },
     {
      "count": 60,
@@ -24673,12 +24747,12 @@
      "lo": 0.02
     },
     {
-     "count": 22,
+     "count": 20,
      "hi": 0.1,
      "lo": 0.05
     },
     {
-     "count": 3,
+     "count": 4,
      "hi": 0.2,
      "lo": 0.1
     },
@@ -24689,16 +24763,26 @@
     },
     {
      "count": 2,
-     "hi": 0.635896,
+     "hi": 1,
      "lo": 0.5
+    },
+    {
+     "count": 0,
+     "hi": 2,
+     "lo": 1
+    },
+    {
+     "count": 1,
+     "hi": 2.675288,
+     "lo": 2
     }
    ],
-   "max": 0.6296,
+   "max": 2.6488,
    "median": 0.0136,
    "n": 218,
-   "p90": 0.0573,
+   "p90": 0.0604,
    "ref_rate": 0.06924,
-   "total": 6.4
+   "total": 9.08
   },
   "jobs": [
    {
@@ -25447,24 +25531,24 @@
    },
    {
     "created_at": "2026-11-05T18:33:02.397729+00:00",
-    "deleted_at": "2026-11-05T19:52:54.324033+00:00",
-    "eur": 0.0922,
-    "hours": 1.331,
+    "deleted_at": "2026-11-07T08:48:18.925340+00:00",
+    "eur": 2.6488,
+    "hours": 38.255,
     "id": "dvsa-mot-build-001",
     "location": "hel1",
-    "normalised_eur": 0.0922,
+    "normalised_eur": 2.6488,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
    },
    {
     "created_at": "2026-11-07T06:13:46.908834+00:00",
-    "deleted_at": "2026-11-07T07:03:08.183331+00:00",
-    "eur": 0.057,
-    "hours": 0.823,
+    "deleted_at": "2026-11-07T08:48:19.601370+00:00",
+    "eur": 0.1784,
+    "hours": 2.576,
     "id": "dvsa-mot-build-002",
     "location": "hel1",
-    "normalised_eur": 0.057,
+    "normalised_eur": 0.1784,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27320,17 +27404,17 @@
   ],
   "jobs_this_month": 57,
   "jobs_total": 218,
-  "lifetime_eur": 4.21,
+  "lifetime_eur": 6.89,
   "live": {
-   "checked_at": "2026-11-07T07:50:40+00:00",
+   "checked_at": "2026-11-07T08:50:40+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 22.3,
-  "month_to_date": 0.58,
+  "month_hours": 61.0,
+  "month_to_date": 3.26,
   "months": [
    {
     "eur": 2.4452,
@@ -27345,31 +27429,18 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.5837,
-    "hours": 22.33,
+    "eur": 3.2617,
+    "hours": 61.0,
     "jobs": 57,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 2.5
+  "projected_month_eur": 13.98
  },
  "schema": 1,
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 909.6,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "f4a9b9c160fc71d9bdd670a0b4a321b63d047710e7ea7c68699306a28055daeb",
-    "ts": "2026-11-07T00:15:12.341040+00:00"
-   },
    {
     "elapsed_seconds": 2178.8,
     "event": "session",
@@ -27438,6 +27509,19 @@
     "run_budget": 900,
     "submitted_brief_sha256": "c1390ed74bf57f6e7fe3b9235c48edaaf7d60be83d3be88488eb42a7df4f0ada",
     "ts": "2026-11-07T07:22:47.729895+00:00"
+   },
+   {
+    "elapsed_seconds": 2419.0,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "4a06b6c0e763f74ab93373305138d96c6d5c7081facf683a626892a36e57467f",
+    "ts": "2026-11-07T08:40:21.646635+00:00"
    }
   ],
   "total": 40
