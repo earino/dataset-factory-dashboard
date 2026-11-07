@@ -1,10 +1,9 @@
 {
  "alarms": [
-  "scout-research-session missed its window (2026-11-07T06:05:00+00:00); last status ok",
-  "Token use at 88% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (68.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (208.5h)",
-  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (57.7h)"
+  "Token use at 87% of the weekly ceiling",
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (69.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (209.5h)",
+  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (58.7h)"
  ],
  "budget": {
   "config": {
@@ -21,17 +20,15 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-11-07T06:50:02.571364+00:00",
+   "allowed": true,
+   "moment": "2026-11-07T07:50:02.735617+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 2999s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 35100044,
-   "runs_last_7_days": 107,
-   "runs_weighted_last_7_days": 121,
+   "research_tokens_last_7_days": 34712982,
+   "runs_last_7_days": 106,
+   "runs_weighted_last_7_days": 120,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 14,
    "usage": {
@@ -56,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 5398,
+     "calls": 5446,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 26617081,
-     "output_tokens": 5274102,
+     "input_tokens": 26670807,
+     "output_tokens": 5329691,
      "pricing_available": false
     }
    },
@@ -5209,7 +5206,7 @@
     "target": "Binary: 1 if VolumenAlm(Mm3) < threshold on at least one day with Fecha in (T, T+30] in the dam's SIH series, else 0. Label source column: VolumenAlm(Mm3) (the same column as the target variable), excluded from features by the Fecha <= T filter; no other column carries the answer. Threshold frame, two candidates measured in the sample: (a) discovery-time proxy = 25 percent of the dam's own observed maximum VolumenAlm (the SIH catalog carries no capacity column); (b) construction-time preferred frame = 25 percent of official capacity, published per dam in CONAGUA's weekly 'Almacenamiento de las Principales Presas del Pais' report (columns CAPACIDAD MUERTA / CAP. UTIL DISENO Mm3; archive at ftp://ftp.conagua.gob.mx/Gobmx/DisponibilidadenPresas/) and in the press-percentage frame (e.g. El Cuchillo capacity 1,123 Mm3 vs observed max 1,765.7 Mm3 including flood surcharge; the proxy threshold 441.4 Mm3 equals 39 percent of the official frame, so the proxy is the conservative/higher threshold and events under it are a subset of events under the official frame). Eligibility at T, from information available at prediction: dam has >= 365 prior daily VolumenAlm rows and VolumenAlm(T) >= threshold (onset formulation; days already below threshold are not prediction rows)."
    },
    {
-    "age_hours": 11.5,
+    "age_hours": 12.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "IN",
@@ -6038,7 +6035,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 68.0,
+    "age_hours": 69.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -6872,6 +6869,7 @@
     "measurements": {
      "artifact_allowance_check_2026_11_05": "PRE-COMPLETION CHECK (written 2026-11-05 19:2xZ, while dvsa-mot-build-001 was still running, BEFORE any outcome existed). The launched job declares max_artifact_mb = 8, and workers/upload.py refuses the WHOLE staging upload (reports included) when the bytes under /output plus source.tar plus container.log exceed that allowance. MEASURED inputs: 2024 source year = 7,667,648,876 B uncompressed (~64M rows at the prefix-measured ~120 B/row); first-4MB prefix of test_result_202408.csv = 34,924 rows with 19,328 distinct vehicle_ids; shipped extract = 21 plain-CSV columns. ESTIMATE (not a measurement): the md5 mod 1000 == 0 vehicle sample keeps ~0.1% of a multi-ten-million vehicle panel, so the pair panel plausibly lands in the hundreds-of-thousands of rows (~30-130 MB extract) - every other candidate in the catalog sized max_artifact_mb to its extract (austin 131 MB extract -> 400; msha 3.38 GB -> 4200; za-cct 8.4 MB -> 24), while this job's 8 MiB supports only ~60k rows at ~128 B/row. PREDICTION, not a finding: if the extract exceeds the allowance, publish() raises UploadError('Artifacts exceed job allowance') and NOTHING uploads - but executor.py still embeds /output/summary.json (<= 64 KiB) in /opt/scout/result.json and `worker collect` is designed to fetch exactly that, so the measured row counts, per-file sizes and the 19-file vintage sha256 pins survive for a correctly-sized rebuild. RESPONSE PRE-REGISTERED: one corrected rebuild (dvsa-mot-build-002, new job ID per the immutable-bundle rule) with max_artifact_mb sized from the collected per-file bytes with >= 2.5x headroom; construction logic unchanged - this is a job-descriptor defect, not a build defect; the gate/triad then rerun deterministically on the rebuilt bytes. If collect instead shows a clean upload, this entry is void and the baseline proceeds as recorded.",
      "build_failure_2015_abrve_2026_11_05": "MEASURED on the worker (dvsa-mot-build-001, container.log collected to .factory/dvsa-mot-build-001/ and preserved in staging release 435609197): the build fetched and parsed 2005-2014 cleanly - per-year rows_seen / class4 / sampled (md5 mod 1000 == 0): 2005 7,499,744/7,113,089/7,101; 2006 32,014,080/30,302,568/30,572; 2007 33,591,238/31,803,974/31,948; 2008 34,439,132/32,591,753/32,500; 2009 35,436,943/33,529,083/33,506; 2010 36,134,920/34,179,326/34,097; 2011 36,849,154/34,790,696/35,074; 2012 36,846,342/34,831,846/34,872; 2013 37,361,925/35,346,508/35,295; 2014 37,493,825/35,458,346/35,635. Per-year result histograms for P/F/PRS/ABR/ABA recorded in the log; ABR+ABA stays ~0.55-0.7% (the <0.6% pre-launch estimate was correct in scale). FAILURE at source_2015.txt.gz seq 18757: test_result='ABRVE' (row: test_id 1574076421, vehicle_id 192184530, test_date 2015-07-03, class 4, NT, test_mileage empty, postcode SK, VOLKSWAGEN GOLF PLUS, RED, DI, 1896, first_use 2006-07-07, completed_date empty). All other fields are well-formed, so this is a source VALUE anomaly, not a delimiter/parse shift; the empty mileage and completed_date match the abandoned-row shape. 'ABRVE' is not in the documented result-code set. CONSEQUENCES, both measured/derived: (1) the sampled panel is ~34-35k completed class-4 tests per year, so priors 2009-2023 is ~500k tests -> ~450-490k pair rows -> ~57-65 MB extract at the 21-column ~128 B/row - the launch's max_artifact_mb=8 would ALSO have refused the upload (see artifact_allowance_check_2026_11_05, directionally confirmed); (2) 2015-2024 result-value inventories remain unmeasured because the build died at 2015 (Range is ignored at data.dft.gov.uk, so a bounded coordinator-side probe is impossible - the repair must inventory them on the worker).",
+     "build_failure_2017_deflate64_2026_11_07": "MEASURED on the dvsa-mot-build-002 worker (still alive after the failure, server 174936753): (1) dft_test_result_2017.zip downloaded whole (data.dft.gov.uk ignores Range): 1,082,702,159 bytes, sha256 8b52a91e5392571d37cfa7aec99a92763282d8b663b70644820f4bc266ffc2ec, 17.2 s; central directory: 12 members (names test_result_31870.csv etc., NOT month-named like the 2024 zip), compress_type 9 for ALL members, each ~277-278 MB uncompressed / ~90 MB compressed; stdlib read of member 0 raises NotImplementedError, confirming the container.log traceback. (2) BOUNDED S3 tail probes (ranged reads, coordinator): the DVSA S3 origin does NOT host 2017-2021 (403 on every key), and its 2022/2023 mirrors (dft_test_result_2022.zip 1,164,809,596 B, 1 member test_result_2022.csv; dft_test_result_2023.zip 1,192,881,905 B, 1 member test_result.csv) are ALSO compress_type 9 - so switching URL sources cannot avoid Deflate64 for 2017-2023. The pinned 2024 zip was measured 2026-10-19 by ranged reads incl. partial member decompression, so it is standard deflate. (3) PACKAGE OPTIONS measured from PyPI metadata: zipfile-deflate64 0.2.0 has NO cp313 wheel (max cp310, specific ABI) and would need an sdist build (no gcc in python:3.13-slim) - NOT viable; inflate64 1.0.4 (miurahr, LGPL-2.1+, production-stable) ships cp313 manylinux x86_64 wheels and provides inflate64.Inflater().inflate(data), the raw Enhanced-Deflate decompressor, but no zipfile integration - the build must read members via explicit local-header parsing (30-byte fixed header + name/extra lengths, then compress_size bytes from the central-directory entry) and inflate them itself. (4) FIRST IN-CONTAINER VERIFICATION ATTEMPT of that path (python:3.13-slim + inflate64==1.0.4 on the worker) was OOM-KILLED (exit 137, oom=true) with no script output reaching the pipe - cause not yet isolated (buffered stdout lost the progress prints); the host shows 7.7 GB RAM total, 7.3 GB free after. The memory behaviour of a single-shot inflate of a ~90 MB member must be measured (RSS instrumentation, chunked feeding if supported) BEFORE any relaunch; a Deflate64 member decode that cannot run in ~1 GB is a repair-design blocker, not a relaunch candidate.",
      "construction_preflight_2026_11_05": {
       "dry_run_2026_11_05": "Full build+gate+accept+score machinery exercised on synthetic fixtures spanning all three file eras (headerless pipe 2005-2008, headered pipe 2009-2016, single-member zips 2017-2023, 12-member pinned 2024 zip), including duplicate rows, ABR rows, other-class rows and the censoring cutoff. Gate 1.5.0: 45/45 PASS on the synthetic extract; --accept ACCEPTED; the declared cross-row probe measured the blind-join exposure (synthetic eval coverage 420/570 rows, 0 mismatches - a later pair's prior_initial_fail equals the earlier pair's label by construction, which is exactly the exposure the probe exists to measure); access is isolated_rows. Fixture numbers are NOT findings and are never quoted.",
       "pre_registered_triad": "Deciding members (written before any construction or score, mirrored in source/score.py): persistence_prior_result (the prior test's own initial-fail flag - the last observed outcome), calendar_make_week (train-estimated rate per make x ISO week-of-year, make then global fallback), vehicle_train_rate (train-estimated rate per vehicle_id - the panel identity prior). Supplementary: global_rate (degenerate, Brier only), majority_class accuracy. DECIDING RULE: headroom ONLY if the full model beats EVERY deciding member with a cluster-aware paired bootstrap 95% CI excluding zero in the model's favour AND the model's own cluster-bootstrap AUC CI lies entirely above 0.5; triad dominance -> DROP. Clusters = vehicle_id. Per-prior-year reporting mandatory (May-2018 regime change; 2020-21 pandemic test extensions).",
@@ -6881,6 +6879,7 @@
       "vintage_pin": "The 2024 zip is byte-pinned to the 2026-10-19 measurement: 1,531,265,132 bytes, 12 monthly members test_result_202401..202412.csv, 15-column header verified verbatim; the build asserts all three and refuses on drift. The other 19 files were never fetched before, so the build RECORDS their sha256 as the construction vintage pin (a rebuild must match)."
      },
      "cross_check_against_published_summary_products": "Prefix initial-fail 22.1% / final-fail 17.7% (August 2024, all classes, predominantly class 4) against the publisher's DVSA/MOT/01: FY2025-26 classes 3&4 initial 27.51% / final 22.30%, classes 1&2 13.40%, class 7 34.00%. Same magnitude and class ordering (August is a historically lenient month and the prefix mixes classes); no contradiction.",
+     "deflate64_decode_verified_2026_11_07": "MEASURED on the build-002 worker (docker python:3.13-slim --memory 6g + inflate64==1.0.4, python -u, RSS from /proc/self/status): the explicit local-header + inflate64.Inflater().inflate(blob) decode of member test_result_31870.csv of dft_test_result_2017.zip (re-downloaded, byte-identical 1,082,702,159 B sha256 8b52a91e...) works: 90,093,684 compressed -> 277,437,970 bytes in 1.4 s, size_match true, decompressed sha256 568cf809b967729eececb7aee8a1e685c4051f499dea74f523809f046b9b5067, VmPeak 700,164 kB / VmRSS 399,576 kB - comfortable inside the job's 8192 MB. The earlier OOM-kill of the first verification attempt was the probe script's own text.splitlines() over whole members, NOT the decode path; the build must still stream lines from the decompressed blob (find/split incrementally, never splitlines on a full member). FORMAT DISCOVERY: the 2017 zip members are PIPE-delimited WITH a 14/15-column header and \\r\\n line ends (line1 = test_id|vehicle_id|test_date|...), i.e. the txt.gz-era schema inside a Deflate64 container - RowParser's delimiter detection + name mapping already handle this shape and the build's rstrip handles \\r.",
      "extraction_cost": "Measured on the coordinator class: the whole shape measurement was ~14 ranged requests / ~4.5 MB / seconds. Construction is worker-scale: 1.53 GB compressed per year (2024 measured; other years labelled estimates) and ~7.7 GB uncompressed per year, so a 2010-2024 build is roughly 23 GB download and ~115 GB uncompressed processing - ESTIMATE derived from the single measured year; re-measure one more year on the worker before committing to the full window. Bounding to class 4 plus adjacent classes cuts this sharply.",
      "key_uniqueness_warning_measured": "test_id is NOT unique: 6,336 test_id values appear more than once within the one-month prefix (top test_id 1934795005 appears 36 times; the file's first two rows are byte-identical). Construction must define a total order and dedup explicitly - keying or paging on test_id alone would repeat or drop rows.",
      "prefix_base_rate_2026_10_19": "First 4 MB of test_result_202408.csv = 34,924 rows: P 27,026 (77.3%), F 6,190 (17.7%), PRS 1,516 (4.3%), ABR 157, ABA 35 -> initial-fail 22.1%, final-fail 17.7%. test_type: NT 29,058 / RT 5,866. test_class_id: 4 -> 32,073; 7 -> 1,911; 2 -> 734; 1 -> 149; 5 -> 53; 3 -> 4. 19,328 distinct vehicle_ids.",
@@ -6891,7 +6890,7 @@
       "result": "MOT testing data results (2024).zip = 1,531,265,132 bytes compressed (Last-Modified 2025-05-13), 12 monthly members test_result_202401..202412.csv, 7,667,648,876 bytes uncompressed total (per-month 461-746 MB). S3 answers Range requests; construction is a worker job (ESTIMATE: other years are of similar per-year size - only 2024 was measured)."
      }
     },
-    "next_action": "dvsa-mot-build-002 RUNNING on worker 174936753 (cpx32, hel1, launched 2026-11-07T06:13:46Z, reservation 0.32 EUR, budget month 2026-11; this is the ONE rebuild ",
+    "next_action": "dvsa-mot-build-002 FAILED at the 2017 DfT zip: all members compress_type 9 (Deflate64), unsupported by stdlib zipfile (full diagnosis in measurements.build_fail",
     "packaged_at": null,
     "path": "candidates/dvsa-mot-next-test-outcome/record.json",
     "prediction_time": "The completion instant of the vehicle's previous test (completed_date in the prior test's row). Features are the vehicle's static attributes (make, model, colour, fuel_type, cylinder_capacity, first_use_date, test class) plus its full prior-test history (test dates, intervals, test types including NT/RT, prior results, mileage and mileage deltas, prior defect-item categories from the companion failure-item files). The next test's own fields (test_result, its test_mileage, its completed_date, its defect items) are the label source and never ship as features.",
@@ -12085,7 +12084,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 208.5,
+    "age_hours": 209.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -16004,7 +16003,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 57.7,
+    "age_hours": 58.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -16716,7 +16715,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 11.5,
+     "age_hours": 12.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "IN",
@@ -17545,7 +17544,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 68.0,
+     "age_hours": 69.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -17719,7 +17718,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 208.5,
+     "age_hours": 209.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -18005,7 +18004,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 57.7,
+     "age_hours": 58.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -18531,7 +18530,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 11.5,
+     "age_hours": 12.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "IN",
@@ -19360,7 +19359,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 68.0,
+     "age_hours": 69.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -19534,7 +19533,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 208.5,
+     "age_hours": 209.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -19820,7 +19819,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 57.7,
+     "age_hours": 58.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -20082,10 +20081,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-07T06:50:02.105058+00:00",
+    "last_run_at": "2026-11-07T07:50:02.093014+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-07T07:00:00+00:00",
+    "next_run_at": "2026-11-07T08:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -20106,10 +20105,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-07T05:55:00.810679+00:00",
+    "last_run_at": "2026-11-07T07:50:00.913766+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-07T06:05:00+00:00",
+    "next_run_at": "2026-11-07T07:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -20130,10 +20129,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-07T06:45:50.760342+00:00",
+    "last_run_at": "2026-11-07T07:47:53.126835+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-07T06:50:50.760342+00:00",
+    "next_run_at": "2026-11-07T07:52:53.126835+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -20142,10 +20141,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-07T06:50:02.232017+00:00",
+    "last_run_at": "2026-11-07T07:50:01.428016+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-07T06:55:00+00:00",
+    "next_run_at": "2026-11-07T07:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -20166,10 +20165,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-07T05:50:53.840175+00:00",
+    "last_run_at": "2026-11-07T06:50:53.587076+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-07T07:50:00+00:00",
+    "next_run_at": "2026-11-07T08:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -20178,10 +20177,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-07T05:55:00.973578+00:00",
+    "last_run_at": "2026-11-07T06:55:00.676831+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-07T06:55:00+00:00",
+    "next_run_at": "2026-11-07T07:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -20222,9 +20221,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-07T06:50:02.233039+00:00"
+  "updated_at": "2026-11-07T07:50:02.094074+00:00"
  },
- "generated_at": "2026-11-07T06:50:01+00:00",
+ "generated_at": "2026-11-07T07:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -20232,19 +20231,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-07T06:34:33Z",
-   "head_sha": "368db69",
+   "created_at": "2026-11-07T07:05:27Z",
+   "head_sha": "5dc4b61",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42347621315"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42349787902"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 51/57 (90%)"
   },
   "head": {
-   "at": "2026-11-07T06:34:30Z",
-   "sha": "368db69",
-   "subject": "dvsa-mot post-collection tooling pre-staged for dvsa-mot-build-002 (all digests read programmatically): probe/fetch_diag"
+   "at": "2026-11-07T07:05:11Z",
+   "sha": "5dc4b61",
+   "subject": "dvsa-mot-build-002 executed and failed at a NEW defect: the 2017-2023 DfT zips are Deflate64 (compress_type 9) - ABRVE r"
   },
   "tests": {
    "count": "723",
@@ -23763,15 +23762,21 @@
    "qualified": 0,
    "sessions_7d": 107,
    "tokens_7d": 35100044
+  },
+  {
+   "at": "2026-11-07T07:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 106,
+   "tokens_7d": 34712982
   }
  ],
- "notices": [
-  "A research session is running: lock held for 2999s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-07T06:50:01+00:00",
+   "as_of": "2026-11-07T07:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -23781,7 +23786,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-07T06:50:01+00:00",
+   "as_of": "2026-11-07T07:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -23791,7 +23796,7 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-07T06:50:01+00:00",
+   "as_of": "2026-11-07T07:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -24668,7 +24673,7 @@
      "lo": 0.02
     },
     {
-     "count": 21,
+     "count": 22,
      "hi": 0.1,
      "lo": 0.05
     },
@@ -24690,10 +24695,10 @@
    ],
    "max": 0.6296,
    "median": 0.0136,
-   "n": 217,
+   "n": 218,
    "p90": 0.0573,
    "ref_rate": 0.06924,
-   "total": 6.34
+   "total": 6.4
   },
   "jobs": [
    {
@@ -25454,15 +25459,15 @@
    },
    {
     "created_at": "2026-11-07T06:13:46.908834+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-11-07T07:03:08.183331+00:00",
+    "eur": 0.057,
+    "hours": 0.823,
     "id": "dvsa-mot-build-002",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.057,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
-    "status": "running"
+    "status": "deleted"
    },
    {
     "created_at": "2026-10-31T00:24:07.306988+00:00",
@@ -27313,19 +27318,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 56,
+  "jobs_this_month": 57,
   "jobs_total": 218,
-  "lifetime_eur": 4.15,
+  "lifetime_eur": 4.21,
   "live": {
-   "checked_at": "2026-11-07T06:50:39+00:00",
+   "checked_at": "2026-11-07T07:50:40+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 21.5,
-  "month_to_date": 0.53,
+  "month_hours": 22.3,
+  "month_to_date": 0.58,
   "months": [
    {
     "eur": 2.4452,
@@ -27340,46 +27345,18 @@
     "month": "2026-10"
    },
    {
-    "eur": 0.5267,
-    "hours": 21.5,
-    "jobs": 56,
+    "eur": 0.5837,
+    "hours": 22.33,
+    "jobs": 57,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 2.26
+  "projected_month_eur": 2.5
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 1,
+  "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 1910.1,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "754af0a555e62093b70e225e630bcc24109a3c80cc1cb54d047ba1f209a89edf",
-    "ts": "2026-11-06T23:41:51.392666+00:00"
-   },
-   {
-    "elapsed_seconds": 673.3,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "621647d76a4f9ef3ec79ce744c1dc3727832ad72aec42776fc773829dc75f23f",
-    "ts": "2026-11-06T23:57:57.482451+00:00"
-   },
    {
     "elapsed_seconds": 909.6,
     "event": "session",
@@ -27433,6 +27410,34 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "da642091ccd1946f9a106c92dafc99b6ccd94ad457dca3990e02bb3d85a1c9cf",
     "ts": "2026-11-07T04:24:22.667315+00:00"
+   },
+   {
+    "elapsed_seconds": 4025.9,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "770d0d0e00ffce8075dcf151ece7c65f1709034cbb4c3c3591c6286dd670ee97",
+    "ts": "2026-11-07T07:07:09.173518+00:00"
+   },
+   {
+    "elapsed_seconds": 709.4,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "c1390ed74bf57f6e7fe3b9235c48edaaf7d60be83d3be88488eb42a7df4f0ada",
+    "ts": "2026-11-07T07:22:47.729895+00:00"
    }
   ],
   "total": 40
