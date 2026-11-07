@@ -1,12 +1,10 @@
 {
  "alarms": [
   "Token use at 91% of the weekly ceiling",
-  "CI on 0d36ffc concluded failure",
-  "Test suite is failing",
-  "cpcb-aqi-exceedance has been packaged and actionable for 16.5h - shipping it outranks construction",
-  "cqc-care-home-deregistration has been packaged and actionable for 73.0h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration has been packaged and actionable for 213.5h - shipping it outranks construction",
-  "za-cct-substation-evening-peak-exceedance has been packaged and actionable for 62.7h - shipping it outranks construction"
+  "cpcb-aqi-exceedance has been packaged and actionable for 17.5h - shipping it outranks construction",
+  "cqc-care-home-deregistration has been packaged and actionable for 74.0h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration has been packaged and actionable for 214.5h - shipping it outranks construction",
+  "za-cct-substation-evening-peak-exceedance has been packaged and actionable for 63.7h - shipping it outranks construction"
  ],
  "budget": {
   "config": {
@@ -23,17 +21,15 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-11-07T11:50:02.811994+00:00",
+   "allowed": true,
+   "moment": "2026-11-07T12:50:02.993847+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 323s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 36369461,
-   "runs_last_7_days": 108,
-   "runs_weighted_last_7_days": 124,
+   "research_tokens_last_7_days": 36463367,
+   "runs_last_7_days": 109,
+   "runs_weighted_last_7_days": 125,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 16,
    "usage": {
@@ -58,14 +54,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 5882,
+     "calls": 5988,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 28527451,
-     "output_tokens": 5683194,
+     "input_tokens": 28721836,
+     "output_tokens": 5812697,
      "pricing_available": false
     }
    },
@@ -84,13 +80,14 @@
    "DE": 1,
    "EU": 2,
    "GB": 3,
+   "JP": 1,
    "NZ": 2,
    "TW": 1,
    "US": 1
   },
   "counts": {
    "dropped": 59,
-   "investigating": 20,
+   "investigating": 21,
    "packaged": 5,
    "parked": 31,
    "published": 14,
@@ -1294,6 +1291,76 @@
    {
     "awaiting_operator": false,
     "baseline": {},
+    "country": "JP",
+    "domain": "consumer product safety - per-recall lifecycle-update (scope expansion / countermeasure change) prediction from the Japanese Ministry of Economy, Trade and Industry consumer-product recall register (METI \u88fd\u54c1\u5b89\u5168\u30ac\u30a4\u30c9 \u30ea\u30b3\u30fc\u30eb\u60c5\u5831, amended Consumer Product Safety Act, coverage from 2007-05-14)",
+    "id": "jp-meti-recall-expansion",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "cross_category_marker_confirmation": "kagu page (rendered excerpt, 2026-11-07): 2025-01-24 \u6298\u308a\u305f\u305f\u307f\u6905\u5b50 -> 2025-02-19 \uff08\u5bfe\u8c61\u8ffd\u52a0\uff09 (\u682a\u5f0f\u4f1a\u793e\u826f\u54c1\u8a08\u753b); 2023-01-12 \u93e1 -> 2023-09-13 \uff08\u5bfe\u8c61\u8ffd\u52a0\uff09 (\u30a4\u30b1\u30a2\u30fb\u30b8\u30e3\u30d1\u30f3). The marker family exists across categories, in both full- and half-width parentheses.",
+     "detail_page_revision_finding": "AS-OF FINDING (measured, important): for the updated row 2014-05-28 -> \u54c1\u756a\u8ffd\u52a0\u30fb\u5bfe\u8c61\u671f\u9593\u62e1\u5927 2014-11-13, the register row's detail link points to file/141113-1.html - i.e. the row links to the CURRENT revision of the detail page, not the original. Feature values as of each row's own publication day therefore cannot be read from today's link for updated recalls; they need Wayback vintages (next_action step 3) or must be restricted to the register row's own stable fields. The detail page's \u6700\u7d42\u66f4\u65b0\u65e5 supports detecting that a detail page was revised, but does not reconstruct the original values.",
+     "detail_page_schema_2026_11_07": "Detail-page schema VERIFIED on one modern page (file/250825-1.html, the 2025-08-25 \u81ea\u8ee2\u8eca\u7528\u30e9\u30a4\u30c8 recall, fetched 2026-11-07 as a single spaced request, 200/15,314 bytes, utf-8; older pages are shift_jis-like - decoder must be pinned per era): fields = \u30ea\u30b3\u30fc\u30eb\u5b9f\u65bd\u65e5 | \u88fd\u54c1\u540d | \u30ea\u30b3\u30fc\u30eb\u4e8b\u696d\u8005\u540d + \u6cd5\u4eba\u756a\u53f7 (Japan corporate number - a structured, joinable business identifier) | \u30ea\u30b3\u30fc\u30eb\u5b9f\u65bd\u306e\u7406\u7531 (reason text) | \u30ea\u30b3\u30fc\u30eb\u5bfe\u7b56\u5185\u5bb9 (remedy: \u56de\u53ce\u30fb\u4ea4\u63db) | \u30ea\u30b3\u30fc\u30eb\u88fd\u54c1\u306e\u6982\u8981 table with \u5546\u54c1\u540d / EAN\u30b3\u30fc\u30c9 / \u30d0\u30c3\u30c1\u30b3\u30fc\u30c9 / \u8ca9\u58f2\u671f\u9593 (sales period, e.g. 2023\u5e745\u6708\u301c2025\u5e748\u6708) / \u5bfe\u8c61\u53f0\u6570 (affected units, e.g. 1,350\u53f0) | \u5bfe\u8c61\u88fd\u54c1\u306e\u5916\u89b3\u30fb\u78ba\u8a8d\u65b9\u6cd5 | \u4e8b\u696d\u8005\u554f\u3044\u5408\u308f\u305b\u5148 | \u4e8b\u696d\u8005\u30ea\u30b3\u30fc\u30eb\u60c5\u5831URL | \u6700\u7d42\u66f4\u65b0\u65e5 (the detail page's own last-updated date: 2025-08-26, one day after publication). So the at-publication feature set is richer and more structured than the register row alone: product codes, sales period, affected-unit counts, remedy type, corporate number.",
+     "encoding_caveat": "Register pages are mixed/legacy-encoded (shift_jis-like); naive utf-8 decoding destroys most content (0 dates found vs 225 with shift_jis/replace). Construction must pin the decoder per page.",
+     "extraction_cost_measured": "Coordinator, 2026-11-07: single sub-page fetch 63,763 bytes, ~1 s with TLS. ~20 known sub-pages -> ~1.3 MB, ~20 requests, a few minutes at the required polite pacing; detail-page count unknown until enumeration. The full enumeration is a bounded discovery pass, not bulk transfer.",
+     "host_constraints": "METI WAF measured 2026-11-07: hub pages 403 to plain clients (denki.html 403/5,045 bytes) while sub-pages serve 200; after a ~10-request burst, plain-client fetches receive empty 200s or an HTTP 202 challenge interstitial (2,483 bytes); spaced single fetches (>=3 s) with a browser-like UA succeed. urllib-style clients received empty 200s even for pages curl served normally - use curl-class clients or the supported browser. Full-register enumeration needs polite pacing.",
+     "novelty_prior_art_searched": "2026-11-07 searches (recall prediction/expansion ML benchmark; Japanese \u30ea\u30b3\u30fc\u30eb \u5bfe\u8c61\u8ffd\u52a0 \u4e88\u6e2c): closest published artefacts - RECALL-MM (arXiv 2503.23213; US CPSC recall dataset, 6,874 recalls 2000-2024, public on GitHub; hazard classification from text/product images and risk exploration) - a US hazard-classification dataset, not a lifecycle-update/expansion prediction task and not Japanese data; SemEval-2025 Task 9 (food hazard detection: hazard/product-category prediction from recall-announcement titles, 7,546 labeled announcements); an NHTSA ESV-28 paper (early detection of vehicle safety issues from complaint data, pre-recall). No ML-ready per-recall scope-expansion prediction task on a national recall register was found. Formal check-novelty.py with recorded queries runs at ready-review.",
+     "probe_scripts": "candidates/jp-meti-recall-expansion/probe/probe_meti_recall_counts_2026_11_07.py (reproduces the register counts; polite-paced plain-client); probe output JSON: probe/out_meti_denki5_2026_11_07.json",
+     "sample_page_structure_denki5": "225 dated tokens spanning 2007-2026 (by year: 2007:5 2008:5 2009:3 2010:5 2011:3 2012:3 2013:2 2014:9 2015:10 2016:16 2017:10 2018:13 2019:20 2020:16 2021:24 2022:13 2023:10 2024:17 2025:25 2026:16); ~210 recall rows; row schema \u30ea\u30b3\u30fc\u30eb\u65e5 | \u30ea\u30b3\u30fc\u30eb\u88fd\u54c1\u540d | \u30ea\u30b3\u30fc\u30eb\u5b9f\u65bd\u4e8b\u696d\u8005\u540d; business field marks \u6d77\u5916\u4e8b\u696d\u8005 (overseas) entries; red-text \u91cd\u5927\u88fd\u54c1\u4e8b\u6545\u5951\u6a5f\u30ea\u30b3\u30fc\u30eb marker present (1 on this page).",
+     "update_lag_examples_measured": "42-day class example (norimono category, from the publisher's rendered page as returned by a 2026-11-07 search fetch): 2022-06-20 recall -> 2022-08-01 (\u5bfe\u8c61\u8ffd\u52a0); 167-day example: 2014-05-28 -> 2014-11-13 \u54c1\u756a\u8ffd\u52a0\u30fb\u5bfe\u8c61\u671f\u9593\u62e1\u5927; long-tail example on denki_5: 2019-07-05 -> 2024-04-12 \u5bfe\u8c61\u8ffd\u52a0 (~4.9 years). The update-lag distribution must be measured on the full register before the target window is fixed.",
+     "update_marker_inventory_denki5": "second-date update entries with markers (authoritative counts from probe/out_meti_denki5_2026_11_07.json): \u5bfe\u8c61\u8ffd\u52a0 4, \u5bfe\u7b56\u5185\u5bb9(\u7b49)\u66f4\u65b0 2, \u578b\u756a\u8ffd\u52a0 1, \u54c1\u756a\u8ffd\u52a0\u30fb\u5bfe\u8c61\u671f\u9593\u62e1\u5927 1 (these classes = candidate label; 8 events of ~210 rows, sample base rate ~3-4%); cosmetic excluded: \u554f\u3044\u5408\u308f\u305b\u5148\u7b49\u66f4\u65b0 4, \u96fb\u8a71\u756a\u53f7\u66f4\u65b0 1, \u53d7\u4ed8\u6642\u9593\u7b49\u66f4\u65b0 3, \u4e8b\u696d\u8005\u30ea\u30b3\u30fc\u30eb\u60c5\u5831URL\u66f4\u65b0 2, \u56de\u53ce\u958b\u59cb 1. All 16 two-date update entries extracted with both dates in the probe output JSON."
+    },
+    "next_action": "Ordered handoff (discovery-owned, all steps bounded; NO construction while the operator's 2026-11-07 factory-repair directive stands - this record is buffer-onl",
+    "packaged_at": null,
+    "path": "candidates/jp-meti-recall-expansion/record.json",
+    "prediction_time": "The recall's first publication instant on the METI register - the row's \u30ea\u30b3\u30fc\u30eb\u65e5 as published, read as Asia/Tokyo. The register's own index states the ministry publishes recall information as a rule ('\u539f\u5247\u7d4c\u6e08\u7523\u696d\u7701\u306eWeb\u30da\u30fc\u30b8\u3067\u516c\u8868', measured 2026-11-07) and announces on X at posting. At-publication feature set verified on one modern detail page (measurements.detail_page_schema_2026_11_07): product codes (EAN/batch), \u8ca9\u58f2\u671f\u9593 sales period, \u5bfe\u8c61\u53f0\u6570 affected units, remedy, reason, business + \u6cd5\u4eba\u756a\u53f7, plus the register row's own fields (sub-category, red-text major-accident marker, overseas-business marker). AVAILABILITY CAVEAT (measured): updated rows link to the CURRENT detail-page revision (measurements.detail_page_revision_finding), and the register revises entries in place (two-date markers), so per-row feature values as of each row's own publication day need Wayback vintages or must be restricted to register-row stable fields; the task is a current-compilation retrospective (explicit evaluation_contract assumptions) unless the Wayback probe bounds historical availability. Detail-page field sets across eras (pre-2015 pages, category variations) still need the bounded verification named in next_action.",
+    "publisher": "Ministry of Economy, Trade and Industry (\u7d4c\u6e08\u7523\u696d\u7701), Consumer Product Safety - \u88fd\u54c1\u5b89\u5168\u30ac\u30a4\u30c9 \u30ea\u30b3\u30fc\u30eb\u60c5\u5831 register under the amended Consumer Product Safety Act (\u6539\u6b63\u6d88\u8cbb\u751f\u6d3b\u7528\u88fd\u54c1\u5b89\u5168\u6cd5, in force 2007-05-14)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At a consumer-product recall's first publication on the METI recall register (\u30ea\u30b3\u30fc\u30eb\u65e5/\u63b2\u8f09\u65e5, Asia/Tokyo), predict whether the register will later record a substantive lifecycle update on that recall - \u5bfe\u8c61\u8ffd\u52a0 (affected-scope addition), \u578b\u756a\u8ffd\u52a0 (model addition), \u54c1\u756a\u8ffd\u52a0\u30fb\u5bfe\u8c61\u671f\u9593\u62e1\u5927 (item/period expansion) or \u5bfe\u7b56\u5185\u5bb9\u66f4\u65b0 (countermeasure change) - within a pre-registered window, using only information published at the first instant (product sub-category, product name, implementing business incl. domestic/overseas-importer marker, initial date, sales period, affected-unit count, hazard/remedy fields - per-field availability to be verified on the detail pages). Cosmetic updates (\u554f\u3044\u5408\u308f\u305b\u5148/\u96fb\u8a71\u756a\u53f7/\u53d7\u4ed8\u6642\u9593/URL\u66f4\u65b0) are excluded from the label. A useful prediction supports METI/CAA post-publication scrutiny triage and the business's own scope review: an under-scoped recall leaves hazardous units in homes and forces repeat consumer notices.",
+    "region": "East Asia",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "\u516c\u5171\u30c7\u30fc\u30bf\u5229\u7528\u898f\u7d04\uff08\u7b2c1.0\u7248\uff09 PDL 1.0 via METI site terms (per-content default)",
+      "name": "METI \u88fd\u54c1\u5b89\u5168\u30ac\u30a4\u30c9 \u30ea\u30b3\u30fc\u30eb\u60c5\u5831 (recall register index + category pages)",
+      "url": "https://www.meti.go.jp/product_safety/recall/index.html"
+     },
+     {
+      "licence": "PDL 1.0 (METI site terms default)",
+      "name": "Sample register page measured in full: denki_5.html (\u30ea\u30c1\u30a6\u30e0\u96fb\u6c60\u4f7f\u7528\u88fd\u54c1, lithium-battery products)",
+      "url": "https://www.meti.go.jp/product_safety/recall/denki_5.html"
+     },
+     {
+      "licence": "NITE homepage terms: reproduction/transmission without permission is infringement; permission required",
+      "name": "NITE \u30ea\u30b3\u30fc\u30eb\u60c5\u5831 / SAFE-Lite (pre-2007 and searchable channel) - REJECTED channel",
+      "url": "https://www.nite.go.jp/jiko/jikojohou/recall_new/index.html"
+     },
+     {
+      "licence": "not assessed (channel rejected on volume before licence work)",
+      "name": "CAA \u30ea\u30b3\u30fc\u30eb\u60c5\u5831\u30b5\u30a4\u30c8 \u91cd\u8981\u306a\u304a\u77e5\u3089\u305b\u4e00\u89a7 (Consumer Affairs Agency major-notice list) - REJECTED channel",
+      "url": "https://www.recall.caa.go.jp/result/index.php?screenkbn=02"
+     }
+    ],
+    "split_strategy": "UNKNOWN - the recorded split-capacity gap. One sub-page (highest-volume category, ~210 rows 2007-2026) measured ~3-4% outcome-class update base rate. The full register (all ~20 sub-pages, expected O(1,500-3,000) recalls over 2007-2026, per-year volume rising) must be enumerated before split windows can be counted; positives cluster by business and incident (one defective product line produces multiple recalls and linked updates - e.g. EcoFlow/Anker multiple rows on denki_5), so clustered positive counts by (business, year) must be reported alongside raw counts. No figure from this session may be quoted as the register's count.",
+    "status": "investigating",
+    "target": "DRAFT: binary label = the same register row later carries a second date plus a substantive update marker (\u5bfe\u8c61\u8ffd\u52a0 / \u578b\u756a\u8ffd\u52a0 / \u54c1\u756a\u8ffd\u52a0\u30fb\u5bfe\u8c61\u671f\u9593\u62e1\u5927 / \u5bfe\u7b56\u5185\u5bb9\u66f4\u65b0) within the pre-registered window (365-day primary variant; the update-lag distribution must be measured from the full register first - measured examples span 42 days to ~4.9 years, so the window choice changes the base rate materially and must be set from full-register counts, not this sample). Label source columns (the second date and marker) are excludable from what ships. Population: every recall published on the METI register since 2007-05-14, one row per recall publication; eligibility is publication-based, never outcome-based."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
     "country": "US",
     "domain": "severe weather forecasting / NWS warning verification",
     "id": "nws-tornado-warning-verification",
@@ -1766,7 +1833,7 @@
     "target": "Binary onset: storage percentage (\u84c4\u6c34\u767e\u5206\u6bd4) of reservoir R crosses below the threshold on some daily record within (t, t+30] while above it at t. Label source column is the same series' future values; excluded from features by the window construction."
    }
   ],
-  "non_us_share": 95.0,
+  "non_us_share": 95.2,
   "records": [
    {
     "age_hours": null,
@@ -5211,7 +5278,7 @@
     "target": "Binary: 1 if VolumenAlm(Mm3) < threshold on at least one day with Fecha in (T, T+30] in the dam's SIH series, else 0. Label source column: VolumenAlm(Mm3) (the same column as the target variable), excluded from features by the Fecha <= T filter; no other column carries the answer. Threshold frame, two candidates measured in the sample: (a) discovery-time proxy = 25 percent of the dam's own observed maximum VolumenAlm (the SIH catalog carries no capacity column); (b) construction-time preferred frame = 25 percent of official capacity, published per dam in CONAGUA's weekly 'Almacenamiento de las Principales Presas del Pais' report (columns CAPACIDAD MUERTA / CAP. UTIL DISENO Mm3; archive at ftp://ftp.conagua.gob.mx/Gobmx/DisponibilidadenPresas/) and in the press-percentage frame (e.g. El Cuchillo capacity 1,123 Mm3 vs observed max 1,765.7 Mm3 including flood surcharge; the proxy threshold 441.4 Mm3 equals 39 percent of the official frame, so the proxy is the conservative/higher threshold and events under it are a subset of events under the official frame). Eligibility at T, from information available at prediction: dam has >= 365 prior daily VolumenAlm rows and VolumenAlm(T) >= threshold (onset formulation; days already below threshold are not prediction rows)."
    },
    {
-    "age_hours": 16.5,
+    "age_hours": 17.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6040,7 +6107,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 73.0,
+    "age_hours": 74.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -10521,6 +10588,76 @@
     "awaiting_operator": false,
     "baseline": {},
     "country": "JP",
+    "domain": "consumer product safety - per-recall lifecycle-update (scope expansion / countermeasure change) prediction from the Japanese Ministry of Economy, Trade and Industry consumer-product recall register (METI \u88fd\u54c1\u5b89\u5168\u30ac\u30a4\u30c9 \u30ea\u30b3\u30fc\u30eb\u60c5\u5831, amended Consumer Product Safety Act, coverage from 2007-05-14)",
+    "id": "jp-meti-recall-expansion",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "cross_category_marker_confirmation": "kagu page (rendered excerpt, 2026-11-07): 2025-01-24 \u6298\u308a\u305f\u305f\u307f\u6905\u5b50 -> 2025-02-19 \uff08\u5bfe\u8c61\u8ffd\u52a0\uff09 (\u682a\u5f0f\u4f1a\u793e\u826f\u54c1\u8a08\u753b); 2023-01-12 \u93e1 -> 2023-09-13 \uff08\u5bfe\u8c61\u8ffd\u52a0\uff09 (\u30a4\u30b1\u30a2\u30fb\u30b8\u30e3\u30d1\u30f3). The marker family exists across categories, in both full- and half-width parentheses.",
+     "detail_page_revision_finding": "AS-OF FINDING (measured, important): for the updated row 2014-05-28 -> \u54c1\u756a\u8ffd\u52a0\u30fb\u5bfe\u8c61\u671f\u9593\u62e1\u5927 2014-11-13, the register row's detail link points to file/141113-1.html - i.e. the row links to the CURRENT revision of the detail page, not the original. Feature values as of each row's own publication day therefore cannot be read from today's link for updated recalls; they need Wayback vintages (next_action step 3) or must be restricted to the register row's own stable fields. The detail page's \u6700\u7d42\u66f4\u65b0\u65e5 supports detecting that a detail page was revised, but does not reconstruct the original values.",
+     "detail_page_schema_2026_11_07": "Detail-page schema VERIFIED on one modern page (file/250825-1.html, the 2025-08-25 \u81ea\u8ee2\u8eca\u7528\u30e9\u30a4\u30c8 recall, fetched 2026-11-07 as a single spaced request, 200/15,314 bytes, utf-8; older pages are shift_jis-like - decoder must be pinned per era): fields = \u30ea\u30b3\u30fc\u30eb\u5b9f\u65bd\u65e5 | \u88fd\u54c1\u540d | \u30ea\u30b3\u30fc\u30eb\u4e8b\u696d\u8005\u540d + \u6cd5\u4eba\u756a\u53f7 (Japan corporate number - a structured, joinable business identifier) | \u30ea\u30b3\u30fc\u30eb\u5b9f\u65bd\u306e\u7406\u7531 (reason text) | \u30ea\u30b3\u30fc\u30eb\u5bfe\u7b56\u5185\u5bb9 (remedy: \u56de\u53ce\u30fb\u4ea4\u63db) | \u30ea\u30b3\u30fc\u30eb\u88fd\u54c1\u306e\u6982\u8981 table with \u5546\u54c1\u540d / EAN\u30b3\u30fc\u30c9 / \u30d0\u30c3\u30c1\u30b3\u30fc\u30c9 / \u8ca9\u58f2\u671f\u9593 (sales period, e.g. 2023\u5e745\u6708\u301c2025\u5e748\u6708) / \u5bfe\u8c61\u53f0\u6570 (affected units, e.g. 1,350\u53f0) | \u5bfe\u8c61\u88fd\u54c1\u306e\u5916\u89b3\u30fb\u78ba\u8a8d\u65b9\u6cd5 | \u4e8b\u696d\u8005\u554f\u3044\u5408\u308f\u305b\u5148 | \u4e8b\u696d\u8005\u30ea\u30b3\u30fc\u30eb\u60c5\u5831URL | \u6700\u7d42\u66f4\u65b0\u65e5 (the detail page's own last-updated date: 2025-08-26, one day after publication). So the at-publication feature set is richer and more structured than the register row alone: product codes, sales period, affected-unit counts, remedy type, corporate number.",
+     "encoding_caveat": "Register pages are mixed/legacy-encoded (shift_jis-like); naive utf-8 decoding destroys most content (0 dates found vs 225 with shift_jis/replace). Construction must pin the decoder per page.",
+     "extraction_cost_measured": "Coordinator, 2026-11-07: single sub-page fetch 63,763 bytes, ~1 s with TLS. ~20 known sub-pages -> ~1.3 MB, ~20 requests, a few minutes at the required polite pacing; detail-page count unknown until enumeration. The full enumeration is a bounded discovery pass, not bulk transfer.",
+     "host_constraints": "METI WAF measured 2026-11-07: hub pages 403 to plain clients (denki.html 403/5,045 bytes) while sub-pages serve 200; after a ~10-request burst, plain-client fetches receive empty 200s or an HTTP 202 challenge interstitial (2,483 bytes); spaced single fetches (>=3 s) with a browser-like UA succeed. urllib-style clients received empty 200s even for pages curl served normally - use curl-class clients or the supported browser. Full-register enumeration needs polite pacing.",
+     "novelty_prior_art_searched": "2026-11-07 searches (recall prediction/expansion ML benchmark; Japanese \u30ea\u30b3\u30fc\u30eb \u5bfe\u8c61\u8ffd\u52a0 \u4e88\u6e2c): closest published artefacts - RECALL-MM (arXiv 2503.23213; US CPSC recall dataset, 6,874 recalls 2000-2024, public on GitHub; hazard classification from text/product images and risk exploration) - a US hazard-classification dataset, not a lifecycle-update/expansion prediction task and not Japanese data; SemEval-2025 Task 9 (food hazard detection: hazard/product-category prediction from recall-announcement titles, 7,546 labeled announcements); an NHTSA ESV-28 paper (early detection of vehicle safety issues from complaint data, pre-recall). No ML-ready per-recall scope-expansion prediction task on a national recall register was found. Formal check-novelty.py with recorded queries runs at ready-review.",
+     "probe_scripts": "candidates/jp-meti-recall-expansion/probe/probe_meti_recall_counts_2026_11_07.py (reproduces the register counts; polite-paced plain-client); probe output JSON: probe/out_meti_denki5_2026_11_07.json",
+     "sample_page_structure_denki5": "225 dated tokens spanning 2007-2026 (by year: 2007:5 2008:5 2009:3 2010:5 2011:3 2012:3 2013:2 2014:9 2015:10 2016:16 2017:10 2018:13 2019:20 2020:16 2021:24 2022:13 2023:10 2024:17 2025:25 2026:16); ~210 recall rows; row schema \u30ea\u30b3\u30fc\u30eb\u65e5 | \u30ea\u30b3\u30fc\u30eb\u88fd\u54c1\u540d | \u30ea\u30b3\u30fc\u30eb\u5b9f\u65bd\u4e8b\u696d\u8005\u540d; business field marks \u6d77\u5916\u4e8b\u696d\u8005 (overseas) entries; red-text \u91cd\u5927\u88fd\u54c1\u4e8b\u6545\u5951\u6a5f\u30ea\u30b3\u30fc\u30eb marker present (1 on this page).",
+     "update_lag_examples_measured": "42-day class example (norimono category, from the publisher's rendered page as returned by a 2026-11-07 search fetch): 2022-06-20 recall -> 2022-08-01 (\u5bfe\u8c61\u8ffd\u52a0); 167-day example: 2014-05-28 -> 2014-11-13 \u54c1\u756a\u8ffd\u52a0\u30fb\u5bfe\u8c61\u671f\u9593\u62e1\u5927; long-tail example on denki_5: 2019-07-05 -> 2024-04-12 \u5bfe\u8c61\u8ffd\u52a0 (~4.9 years). The update-lag distribution must be measured on the full register before the target window is fixed.",
+     "update_marker_inventory_denki5": "second-date update entries with markers (authoritative counts from probe/out_meti_denki5_2026_11_07.json): \u5bfe\u8c61\u8ffd\u52a0 4, \u5bfe\u7b56\u5185\u5bb9(\u7b49)\u66f4\u65b0 2, \u578b\u756a\u8ffd\u52a0 1, \u54c1\u756a\u8ffd\u52a0\u30fb\u5bfe\u8c61\u671f\u9593\u62e1\u5927 1 (these classes = candidate label; 8 events of ~210 rows, sample base rate ~3-4%); cosmetic excluded: \u554f\u3044\u5408\u308f\u305b\u5148\u7b49\u66f4\u65b0 4, \u96fb\u8a71\u756a\u53f7\u66f4\u65b0 1, \u53d7\u4ed8\u6642\u9593\u7b49\u66f4\u65b0 3, \u4e8b\u696d\u8005\u30ea\u30b3\u30fc\u30eb\u60c5\u5831URL\u66f4\u65b0 2, \u56de\u53ce\u958b\u59cb 1. All 16 two-date update entries extracted with both dates in the probe output JSON."
+    },
+    "next_action": "Ordered handoff (discovery-owned, all steps bounded; NO construction while the operator's 2026-11-07 factory-repair directive stands - this record is buffer-onl",
+    "packaged_at": null,
+    "path": "candidates/jp-meti-recall-expansion/record.json",
+    "prediction_time": "The recall's first publication instant on the METI register - the row's \u30ea\u30b3\u30fc\u30eb\u65e5 as published, read as Asia/Tokyo. The register's own index states the ministry publishes recall information as a rule ('\u539f\u5247\u7d4c\u6e08\u7523\u696d\u7701\u306eWeb\u30da\u30fc\u30b8\u3067\u516c\u8868', measured 2026-11-07) and announces on X at posting. At-publication feature set verified on one modern detail page (measurements.detail_page_schema_2026_11_07): product codes (EAN/batch), \u8ca9\u58f2\u671f\u9593 sales period, \u5bfe\u8c61\u53f0\u6570 affected units, remedy, reason, business + \u6cd5\u4eba\u756a\u53f7, plus the register row's own fields (sub-category, red-text major-accident marker, overseas-business marker). AVAILABILITY CAVEAT (measured): updated rows link to the CURRENT detail-page revision (measurements.detail_page_revision_finding), and the register revises entries in place (two-date markers), so per-row feature values as of each row's own publication day need Wayback vintages or must be restricted to register-row stable fields; the task is a current-compilation retrospective (explicit evaluation_contract assumptions) unless the Wayback probe bounds historical availability. Detail-page field sets across eras (pre-2015 pages, category variations) still need the bounded verification named in next_action.",
+    "publisher": "Ministry of Economy, Trade and Industry (\u7d4c\u6e08\u7523\u696d\u7701), Consumer Product Safety - \u88fd\u54c1\u5b89\u5168\u30ac\u30a4\u30c9 \u30ea\u30b3\u30fc\u30eb\u60c5\u5831 register under the amended Consumer Product Safety Act (\u6539\u6b63\u6d88\u8cbb\u751f\u6d3b\u7528\u88fd\u54c1\u5b89\u5168\u6cd5, in force 2007-05-14)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At a consumer-product recall's first publication on the METI recall register (\u30ea\u30b3\u30fc\u30eb\u65e5/\u63b2\u8f09\u65e5, Asia/Tokyo), predict whether the register will later record a substantive lifecycle update on that recall - \u5bfe\u8c61\u8ffd\u52a0 (affected-scope addition), \u578b\u756a\u8ffd\u52a0 (model addition), \u54c1\u756a\u8ffd\u52a0\u30fb\u5bfe\u8c61\u671f\u9593\u62e1\u5927 (item/period expansion) or \u5bfe\u7b56\u5185\u5bb9\u66f4\u65b0 (countermeasure change) - within a pre-registered window, using only information published at the first instant (product sub-category, product name, implementing business incl. domestic/overseas-importer marker, initial date, sales period, affected-unit count, hazard/remedy fields - per-field availability to be verified on the detail pages). Cosmetic updates (\u554f\u3044\u5408\u308f\u305b\u5148/\u96fb\u8a71\u756a\u53f7/\u53d7\u4ed8\u6642\u9593/URL\u66f4\u65b0) are excluded from the label. A useful prediction supports METI/CAA post-publication scrutiny triage and the business's own scope review: an under-scoped recall leaves hazardous units in homes and forces repeat consumer notices.",
+    "region": "East Asia",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "",
+    "sources": [
+     {
+      "licence": "\u516c\u5171\u30c7\u30fc\u30bf\u5229\u7528\u898f\u7d04\uff08\u7b2c1.0\u7248\uff09 PDL 1.0 via METI site terms (per-content default)",
+      "name": "METI \u88fd\u54c1\u5b89\u5168\u30ac\u30a4\u30c9 \u30ea\u30b3\u30fc\u30eb\u60c5\u5831 (recall register index + category pages)",
+      "url": "https://www.meti.go.jp/product_safety/recall/index.html"
+     },
+     {
+      "licence": "PDL 1.0 (METI site terms default)",
+      "name": "Sample register page measured in full: denki_5.html (\u30ea\u30c1\u30a6\u30e0\u96fb\u6c60\u4f7f\u7528\u88fd\u54c1, lithium-battery products)",
+      "url": "https://www.meti.go.jp/product_safety/recall/denki_5.html"
+     },
+     {
+      "licence": "NITE homepage terms: reproduction/transmission without permission is infringement; permission required",
+      "name": "NITE \u30ea\u30b3\u30fc\u30eb\u60c5\u5831 / SAFE-Lite (pre-2007 and searchable channel) - REJECTED channel",
+      "url": "https://www.nite.go.jp/jiko/jikojohou/recall_new/index.html"
+     },
+     {
+      "licence": "not assessed (channel rejected on volume before licence work)",
+      "name": "CAA \u30ea\u30b3\u30fc\u30eb\u60c5\u5831\u30b5\u30a4\u30c8 \u91cd\u8981\u306a\u304a\u77e5\u3089\u305b\u4e00\u89a7 (Consumer Affairs Agency major-notice list) - REJECTED channel",
+      "url": "https://www.recall.caa.go.jp/result/index.php?screenkbn=02"
+     }
+    ],
+    "split_strategy": "UNKNOWN - the recorded split-capacity gap. One sub-page (highest-volume category, ~210 rows 2007-2026) measured ~3-4% outcome-class update base rate. The full register (all ~20 sub-pages, expected O(1,500-3,000) recalls over 2007-2026, per-year volume rising) must be enumerated before split windows can be counted; positives cluster by business and incident (one defective product line produces multiple recalls and linked updates - e.g. EcoFlow/Anker multiple rows on denki_5), so clustered positive counts by (business, year) must be reported alongside raw counts. No figure from this session may be quoted as the register's count.",
+    "status": "investigating",
+    "target": "DRAFT: binary label = the same register row later carries a second date plus a substantive update marker (\u5bfe\u8c61\u8ffd\u52a0 / \u578b\u756a\u8ffd\u52a0 / \u54c1\u756a\u8ffd\u52a0\u30fb\u5bfe\u8c61\u671f\u9593\u62e1\u5927 / \u5bfe\u7b56\u5185\u5bb9\u66f4\u65b0) within the pre-registered window (365-day primary variant; the update-lag distribution must be measured from the full register first - measured examples span 42 days to ~4.9 years, so the window choice changes the base rate materially and must be set from full-register counts, not this sample). Label source columns (the second date and marker) are excludable from what ships. Population: every recall published on the METI register since 2007-05-14, one row per recall publication; eligibility is publication-based, never outcome-based."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "JP",
     "domain": "public-health exposure / bioaerosol station-day exceedance prediction (Japan, MOE Hanako-san automatic pollen-counter archive, 2003-2021)",
     "id": "jp-moe-pollen-exceedance",
     "jobs": [],
@@ -10708,9 +10845,10 @@
      "kosis_openapi_page_2026_10_22": "GET https://kosis.kr/openapi/: HTTP 200, contains 'OPEN API \uc778\uc99d\ud0a4 \uc2e0\uccad \ubc14\ub85c\uac00\uae30' (direct API-key application link), \ud65c\uc6a9\uc2e0\uccad menu, \ud68c\uc6d0\uac00\uc785 menu - programmatic access is gated on a personal key.",
      "no_task_probed_2026_10_22": "No candidate task was opened: under the session rule 'a source that needs an authorisation we do not hold' and the anonymous-API preference, both portals were triaged out before any task probing.",
      "seoul_catalog_browser_sweep_2026_11_04": "Supported-browser enumeration (session 'seoul'): catalog = 6,537 public-data datasets (\uc804\uccb4 8,317 incl. statistics); plain-GET shell confirmed (0 datasetView links) but the browser renders items and the search form submits searchValue by POST. Keyword sweeps, all measured on-page: (1) '\ucd9c\ub3d9' -> 9 results; the FILE-type items (\uc18c\ubc29 \uad6c\uc870/\uad6c\uae09/\ud654\uc7ac \ucd9c\ub3d9 \ud604\ud669) are AGGREGATE monthly dispatch counts per \ubc95\uc815\ub3d9 - aggregate-series family (za-statsa-liquidations precedent: operator decision, not a discovery default); no per-incident dispatch register is published. (2) '\ud589\uc815\ucc98\ubd84' -> 122 results; strongest event-grain find: OA-23122 '\uc11c\uc6b8\uc2dc \uc2dd\ud488\uc548\uc804\uc815\ubcf4 \uc11c\ube44\uc2a4 - \uc2dd\ud488\ud589\uc815\ucc98\ubd84' (Seoul FSI food administrative dispositions), per-business register with columns \uc21c\ubc88/\ub300\ud45c\uc790/\uc5f0\ub77d\ucc98/\uc218\uc815\uc77c/\ucc98\ubd84\ubc88\ud638/\uc5c5\uccb4\uc18c\uc7ac\uc9c0/\uc704\ubc18\ubc95\ub839/\uc704\ubc18\uc21c\ubc88/\uc704\ubc18\ub0b4\uc6a9/\uc5c5\uccb4\uc8fc\uc18c/\ucc98\ubd84\uacf5\uace0\uc77c\uc790/\uc5c5\uc885\uba85/\uc704\ubc18\ubc88\ud638/\uc5c5\uccb4\uba85/\ucc98\ubd84\ud655\uc815\uc77c/\ucc98\ubd84\uc720\ud615/\ucc98\ubd84\uc885\ub8cc\uc77c/\ucc98\ubd84\uc124\uba85; \uac31\uc2e0\uc8fc\uae30 \ub9e4\uc77c1\ud68c (daily refresh), \ub370\uc774\ud130 \uac31\uc2e0\uc77c 2026-11-04; copyright \uc11c\uc6b8\ud2b9\ubcc4\uc2dc, third-party rights \uc5c6\uc74c, licence field value '\uc774\uc6a9\ud5c8\ub77d\ubc94\uc704 \uc81c\ud55c \uc5c6\uc74c' (unrestricted use - class A equivalent, this dataset's own instrument); CSV/JSON downloads offered (bulk; NOT fetched on the coordinator - sheet preview only, which is capped at 1,000 rows); observed preview rows carry addresses in \uacbd\uae30\ub3c4 (Gyeonggi) - the FSI register's coverage is NATIONAL, not Seoul-only; internal sequence numbers run into the 28.9M range (FSI-wide numbering; the table's own row count is unknown without a bulk download, which belongs on a worker). FAMILY VERDICT: this is an enforcement/inspection-outcome family member (bench: chicago-food-inspections and msha-enforcement-citations published, cqc-care-home-deregistration packaged, hc-cannabis-inspection-rating dropped on family) - opening it needs the operator family decision per the air4thai/hk-datagov-portal precedent; NOT opened as a candidate this tick. (3) homepage-browse of newest items: mixed aggregate monthly series and registers in mapped families (\ub178\ub3d9\uc870\ud569 \ud604\ud669, \uc0c1\ub2f4\uc2e4\uc801, \uc704\uc0dd\uc6a9\ud488 \uc81c\uc870\uc5c5 \ud604\ud669). Coverage statement: 3 keyword families + the newest-items browse of 6,537; NOT a full catalog sweep.",
+     "seoul_catalog_sweep_2026_11_07": "Bounded keyword sweep of the Seoul Open Data Plaza catalog executed 2026-11-07 (option (b) of the recorded next_action): 25 family keywords POSTed to the catalog's server-rendered search endpoint (dataList/datasetList.do, form fields pageIndex/sortColBy/searchValue - the same POST the browser submits; plain-client urllib works for this portal, unlike METI). Keywords: \uc0ac\uace0, \uc7ac\ub09c, \uc751\uae09, \ud654\uc7ac, \ubd95\uad34, \uac10\uc5fc, \uc2dd\uc911\ub3c5, \ub9ac\ucf5c, \ubbfc\uc6d0, \ub3c4\ub85c \ub178\uba74, \uacf5\uc0ac \uc9c0\uc5f0, \uc9c0\ud558\uc218, \ub3c4\uc2dc\uac00\uc2a4, \uc5d8\ub9ac\ubca0\uc774\ud130, \uc804\ub825 \uc0ac\uace0, \ud56d\uacf5, \ub204\uc218, \ub2e8\uc18d, \uc801\ubc1c, \uc2e0\uace0, \uc9c0\uc5f0, \uac00\ub85c\uc218, \uad50\ub7c9, \uc2dc\uc124\ubb3c \uc548\uc804, \uc790\ub3d9\ucc28\ubd80\ud488, \uacb0\ud568. RESULT: every hit is an aggregate statistical table from the Seoul Statistical Information System (\uc11c\uc6b8\uc2dc \ud1b5\uacc4\uc815\ubcf4\uc2dc\uc2a4\ud15c; by-district/by-month/by-age-group counts) - e.g. all 33 public-data cards under '\uc0ac\uace0' (67 hits incl. statistics) are \uad50\ud1b5\uc0ac\uace0/\ud654\uc7ac\ubc1c\uc0dd/\uac10\uc804\uc0ac\uace0 aggregate tables; '\ub204\uc218' -> leak-rate statistics; '\ub2e8\uc18d' -> enforcement-count statistics; '\ubbfc\uc6d0' -> complaint-processing aggregates. Zero hits for: \ub9ac\ucf5c, \uc801\ubc1c, \uc9c0\uc5f0, \uc5d8\ub9ac\ubca0\uc774\ud130, \uc804\ub825 \uc0ac\uace0, \ub3c4\ub85c \ub178\uba74, \uacf5\uc0ac \uc9c0\uc5f0, \uc2dc\uc124\ubb3c \uc548\uc804, \uc790\ub3d9\ucc28\ubd80\ud488, \uacb0\ud568, \ubd95\uad34(1 aggregate), \uac00\ub85c\uc218(1 stock count). NO event-grain register outside the bench's existing families was found; the only event-grain register in the catalog remains OA-23122 \uc2dd\ud488\ud589\uc815\ucc98\ubd84 (enforcement family, operator decision pending). Recipe: probe_kr_seoul_sweep_2026_11_07.py (this dir).",
      "seoul_portal_probe_2026_11_04": "NEW PUBLISHER PROBED (2026-11-04 East Asia tick, all anonymous, plain HTTP): Seoul Open Data Plaza data.seoul.go.kr - a different publisher from the two parked national portals, and the Korea-access picture is NOT uniform. (1) Access: homepage and per-dataset pages answer plain HTTP 200 with full server-rendered metadata (data.seoul.go.kr/ 99,650 B; datasetView.do for OA-23105 75,723 B; the catalog list pages are AJAX shells - datasetList.do renders nav only and datasetSearchList.do rejected guessed params, so catalog enumeration needs the supported browser, next tick's probe). (2) LICENCE, from the dataset's own page (the publisher's instrument, not a portal-wide policy): the metadata block states copyright holder=Seoul Metropolitan Government, third-party rights=none, and use-permission scope: '\uc774\uc6a9\ud5c8\ub77d\ubc94\uc704: \uacf5\uacf5\ub204\ub9ac 0\uc720\ud615 : \uc790\uc720\uc774\uc6a9 (\ucd9c\ucc98\ubbf8\ud45c\uae30)' (Korean Public Nuri Type 0: free use, attribution NOT required) - i.e. the most permissive Korean public-data licence, CC0-equivalent for our triage (class A), read verbatim on the page; a second variant on the same page reads '\uc774\uc6a9\uc81c\ud55c\uc5c6\uc74c : \uc790\uc720\uc774\uc6a9' (no usage restrictions). Per-dataset licence fields must be re-read for any specific dataset taken forward. (3) File downloads are JS-mediated: the page posts form fields (infId, infSeq, seq) to datafile.seoul.go.kr/bigfile/iot/inf/nio_download.do; naive parameterised POSTs are rejected with a Korean alert '\uc798\ubabb\ub41c \uc811\uadfc\uc785\ub2c8\ub2e4. \ud30c\uc77c \ubaa9\ub85d\uc5d0\uc11c \ub2e4\uc2dc \uc120\ud0dd\ud558\uc138\uc694' (invalid access, re-select from the file list) - one changed retry with Referer+cookie failed the same way; the supported browser is the construction path for bulk files, and each page also renders an on-page sheet preview (<=1,000 rows) plus an Open API that requires an \uc778\uc99d\ud0a4 (personal key), consistent with the KOSIS/KMA pattern. Commands retained: probe_kr_seoul_2026_11_04.py in this dir."
     },
-    "next_action": "KOSIS/KMA stay parked on the operator credential decision (unchanged). Seoul Open Data Plaza is measured open for discovery (anonymous browsing in the supported",
+    "next_action": "KOSIS/KMA stay parked on the operator credential decision (unchanged). Seoul Open Data Plaza is measured open for discovery, and the recorded catalog-sweep gate",
     "packaged_at": null,
     "path": "candidates/kr-kosis-kma-access/record.json",
     "prediction_time": "N/A - parked at access triage.",
@@ -12174,7 +12312,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 213.5,
+    "age_hours": 214.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16148,7 +16286,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 62.7,
+    "age_hours": 63.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16861,7 +16999,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 16.5,
+     "age_hours": 17.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "IN",
@@ -17690,7 +17828,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 73.0,
+     "age_hours": 74.0,
      "awaiting_operator": false,
      "baseline": {},
      "country": "GB",
@@ -17864,7 +18002,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 213.5,
+     "age_hours": 214.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -18205,7 +18343,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 62.7,
+     "age_hours": 63.7,
      "awaiting_operator": false,
      "baseline": {},
      "country": "ZA",
@@ -18731,7 +18869,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 16.5,
+     "age_hours": 17.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "IN",
@@ -19560,7 +19698,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 73.0,
+     "age_hours": 74.0,
      "awaiting_operator": false,
      "baseline": {},
      "country": "GB",
@@ -19734,7 +19872,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 213.5,
+     "age_hours": 214.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -20075,7 +20213,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 62.7,
+     "age_hours": 63.7,
      "awaiting_operator": false,
      "baseline": {},
      "country": "ZA",
@@ -20276,7 +20414,7 @@
    "HK": 2,
    "ID": 3,
    "IN": 3,
-   "JP": 3,
+   "JP": 4,
    "KE": 3,
    "KR": 1,
    "MA": 1,
@@ -20295,7 +20433,7 @@
   },
   "by_region": {
    "Africa": 18,
-   "East Asia": 9,
+   "East Asia": 10,
    "Europe": 36,
    "International organisations": 18,
    "Latin America": 14,
@@ -20305,16 +20443,16 @@
   },
   "by_status": {
    "dropped": 59,
-   "investigating": 20,
+   "investigating": 21,
    "packaged": 5,
    "parked": 31,
    "published": 14,
    "ready": 19
   },
-  "candidates": 148,
-  "live": 58,
-  "live_non_us": 52,
-  "live_non_us_share": 0.897,
+  "candidates": 149,
+  "live": 59,
+  "live_non_us": 53,
+  "live_non_us_share": 0.898,
   "unknown_jurisdiction": []
  },
  "cron": {
@@ -20336,10 +20474,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-07T11:50:02.432872+00:00",
+    "last_run_at": "2026-11-07T12:50:01.629857+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-07T12:00:00+00:00",
+    "next_run_at": "2026-11-07T13:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -20360,10 +20498,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-07T11:50:01.276403+00:00",
+    "last_run_at": "2026-11-07T12:50:01.517038+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-07T11:55:00+00:00",
+    "next_run_at": "2026-11-07T12:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -20384,10 +20522,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-07T11:39:38.872035+00:00",
+    "last_run_at": "2026-11-07T12:49:29.034249+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-07T11:49:39.496454+00:00",
+    "next_run_at": "2026-11-07T12:54:29.034249+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -20396,10 +20534,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-07T11:50:01.234584+00:00",
+    "last_run_at": "2026-11-07T12:50:00.886736+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-07T11:55:00+00:00",
+    "next_run_at": "2026-11-07T12:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -20420,10 +20558,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-07T10:50:54.523576+00:00",
+    "last_run_at": "2026-11-07T11:50:54.090774+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-07T12:50:00+00:00",
+    "next_run_at": "2026-11-07T13:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -20432,10 +20570,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-07T10:55:01.273234+00:00",
+    "last_run_at": "2026-11-07T11:55:01.039968+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-07T11:55:00+00:00",
+    "next_run_at": "2026-11-07T12:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -20476,33 +20614,33 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-07T11:50:02.433889+00:00"
+  "updated_at": "2026-11-07T12:50:01.631205+00:00"
  },
- "generated_at": "2026-11-07T11:50:01+00:00",
+ "generated_at": "2026-11-07T12:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 148
+   "passing": 149
   },
   "ci": {
-   "conclusion": "failure",
-   "created_at": "2026-11-07T11:25:16Z",
-   "head_sha": "0d36ffc",
+   "conclusion": "success",
+   "created_at": "2026-11-07T12:47:59Z",
+   "head_sha": "ead5584",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42368105029"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42374066010"
   },
   "coverage": {
    "ok": true,
-   "summary": "live non-US: 52/58 (90%)"
+   "summary": "live non-US: 53/59 (90%)"
   },
   "head": {
-   "at": "2026-11-07T11:25:13Z",
-   "sha": "0d36ffc",
-   "subject": "ns-bwa v2026.12 rebuild prepared + LAUNCHED (ns-bwa-002, server 174969934): all eight outcome-derived history columns dr"
+   "at": "2026-11-07T12:47:51Z",
+   "sha": "ead5584",
+   "subject": "East Asia discovery tick: Seoul catalog sweep gate answered negative (25 family keywords, all aggregate tables - Korea o"
   },
   "tests": {
    "count": "723",
-   "ok": false
+   "ok": true
   }
  },
  "history": [
@@ -24057,15 +24195,21 @@
    "qualified": 0,
    "sessions_7d": 108,
    "tokens_7d": 36369461
+  },
+  {
+   "at": "2026-11-07T12:50:01+00:00",
+   "live": 21,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 109,
+   "tokens_7d": 36463367
   }
  ],
- "notices": [
-  "A research session is running: lock held for 323s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.7,
-   "as_of": "2026-11-07T11:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-07T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -24074,18 +24218,18 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.7,
-   "as_of": "2026-11-07T11:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-07T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
    "stale": false,
    "status": "ok",
-   "value": 20
+   "value": 21
   },
   "releases": {
-   "age_minutes": 0.7,
-   "as_of": "2026-11-07T11:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-07T12:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -27664,7 +27808,7 @@
   "jobs_total": 222,
   "lifetime_eur": 7.01,
   "live": {
-   "checked_at": "2026-11-07T11:50:40+00:00",
+   "checked_at": "2026-11-07T12:50:40+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -27699,47 +27843,6 @@
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 709.4,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "c1390ed74bf57f6e7fe3b9235c48edaaf7d60be83d3be88488eb42a7df4f0ada",
-    "ts": "2026-11-07T07:22:47.729895+00:00"
-   },
-   {
-    "elapsed_seconds": 2419.0,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-discovery"
-    ],
-    "prompt_file": "discovery-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "4a06b6c0e763f74ab93373305138d96c6d5c7081facf683a626892a36e57467f",
-    "ts": "2026-11-07T08:40:21.646635+00:00"
-   },
-   {
-    "elapsed_seconds": 4279.7,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "f0d6da0897dab4aa5d1224eb89cdd8f21b2caa1ecc9c6d1c425d5fc43c9ff09b",
-    "ts": "2026-11-07T09:56:21.538789+00:00"
-   },
    {
     "elapsed_seconds": 642.7,
     "event": "session",
@@ -27781,6 +27884,47 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "dc4fe3f973eec509c7cb29d0e77b051932cae80c06a62b4242045e5358073db6",
     "ts": "2026-11-07T11:44:25.100465+00:00"
+   },
+   {
+    "elapsed_seconds": 385.4,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "exit 1",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "5443a8a3303f9e31137b9b5b347d26ca3e91920f8c27372d45cee67368213f7e",
+    "ts": "2026-11-07T11:51:05.584932+00:00"
+   },
+   {
+    "elapsed_seconds": 1091.7,
+    "event": "session",
+    "max_turns": 30,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "worker-watch-prompt.md",
+    "run_budget": 900,
+    "submitted_brief_sha256": "5443a8a3303f9e31137b9b5b347d26ca3e91920f8c27372d45cee67368213f7e",
+    "ts": "2026-11-07T12:14:18.767176+00:00"
+   },
+   {
+    "elapsed_seconds": 2044.8,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "eab29ac685c77630a1898dde09a964a13b2ac5b4a26b4255599fdcea9121ea5d",
+    "ts": "2026-11-07T12:49:06.329434+00:00"
    }
   ],
   "total": 40
