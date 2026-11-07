@@ -1,9 +1,10 @@
 {
  "alarms": [
-  "Token use at 87% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (67.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (207.5h)",
-  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (56.7h)"
+  "scout-research-session missed its window (2026-11-07T06:05:00+00:00); last status ok",
+  "Token use at 88% of the weekly ceiling",
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (68.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (208.5h)",
+  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (57.7h)"
  ],
  "budget": {
   "config": {
@@ -20,13 +21,15 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": true,
-   "moment": "2026-11-07T05:50:03.106825+00:00",
+   "allowed": false,
+   "moment": "2026-11-07T06:50:02.571364+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 2999s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 34929628,
+   "research_tokens_last_7_days": 35100044,
    "runs_last_7_days": 107,
    "runs_weighted_last_7_days": 121,
    "session_cap_per_week": 200,
@@ -53,14 +56,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 5316,
+     "calls": 5398,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 26501863,
-     "output_tokens": 5218046,
+     "input_tokens": 26617081,
+     "output_tokens": 5274102,
      "pricing_available": false
     }
    },
@@ -5206,7 +5209,7 @@
     "target": "Binary: 1 if VolumenAlm(Mm3) < threshold on at least one day with Fecha in (T, T+30] in the dam's SIH series, else 0. Label source column: VolumenAlm(Mm3) (the same column as the target variable), excluded from features by the Fecha <= T filter; no other column carries the answer. Threshold frame, two candidates measured in the sample: (a) discovery-time proxy = 25 percent of the dam's own observed maximum VolumenAlm (the SIH catalog carries no capacity column); (b) construction-time preferred frame = 25 percent of official capacity, published per dam in CONAGUA's weekly 'Almacenamiento de las Principales Presas del Pais' report (columns CAPACIDAD MUERTA / CAP. UTIL DISENO Mm3; archive at ftp://ftp.conagua.gob.mx/Gobmx/DisponibilidadenPresas/) and in the press-percentage frame (e.g. El Cuchillo capacity 1,123 Mm3 vs observed max 1,765.7 Mm3 including flood surcharge; the proxy threshold 441.4 Mm3 equals 39 percent of the official frame, so the proxy is the conservative/higher threshold and events under it are a subset of events under the official frame). Eligibility at T, from information available at prediction: dam has >= 365 prior daily VolumenAlm rows and VolumenAlm(T) >= threshold (onset formulation; days already below threshold are not prediction rows)."
    },
    {
-    "age_hours": 10.5,
+    "age_hours": 11.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "IN",
@@ -6035,7 +6038,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 67.0,
+    "age_hours": 68.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -6854,6 +6857,11 @@
       "at": null,
       "id": null,
       "status": null
+     },
+     {
+      "at": null,
+      "id": null,
+      "status": null
      }
     ],
     "licence_summary": {
@@ -6876,13 +6884,14 @@
      "extraction_cost": "Measured on the coordinator class: the whole shape measurement was ~14 ranged requests / ~4.5 MB / seconds. Construction is worker-scale: 1.53 GB compressed per year (2024 measured; other years labelled estimates) and ~7.7 GB uncompressed per year, so a 2010-2024 build is roughly 23 GB download and ~115 GB uncompressed processing - ESTIMATE derived from the single measured year; re-measure one more year on the worker before committing to the full window. Bounding to class 4 plus adjacent classes cuts this sharply.",
      "key_uniqueness_warning_measured": "test_id is NOT unique: 6,336 test_id values appear more than once within the one-month prefix (top test_id 1934795005 appears 36 times; the file's first two rows are byte-identical). Construction must define a total order and dedup explicitly - keying or paging on test_id alone would repeat or drop rows.",
      "prefix_base_rate_2026_10_19": "First 4 MB of test_result_202408.csv = 34,924 rows: P 27,026 (77.3%), F 6,190 (17.7%), PRS 1,516 (4.3%), ABR 157, ABA 35 -> initial-fail 22.1%, final-fail 17.7%. test_type: NT 29,058 / RT 5,866. test_class_id: 4 -> 32,073; 7 -> 1,911; 2 -> 734; 1 -> 149; 5 -> 53; 3 -> 4. 19,328 distinct vehicle_ids.",
+     "repair_dryrun_2026_11_07": "MEASURED on the coordinator before relaunch (probe/dryrun_abrve_2026_11_07.py, synthetic fixtures regenerated from the committed probe/dryrun_fixtures_2026_11_05.py with the exact 2015 ABRVE row from build_failure_2015_abrve_2026_11_05 injected verbatim plus an ABRVE and an ABR row for a real md5-bucket vehicle): RED - the pre-repair build.py (git HEAD, as launched for build-001) exits 1 on the ABRVE row with the exact recorded assertion, proving the dry run bites. GREEN - the repaired build.py exits 0; 2015 non_completed_rows >= 3 with non_completed_values carrying both ABRVE and ABR; the bucket vehicle's ABRVE/ABR tests are excluded from both sides of every pair (pairs.abandoned_rows counts them); result_histogram counts ABRVE. GATE 1.5.0 on the synthetic extract: 45/45 results PASS, failed_checks []; exact-byte --accept ACCEPTED; post-acceptance score.py triad machinery exit 0 (eval only). Fixture numbers are NOT findings and are never quoted as task evidence; this entry exists to show the repair changes construction behaviour only where the failure evidence said it must.",
      "row_schema_2026_10_19": "Header of test_result_202408.csv, verbatim: test_id,vehicle_id,test_date,test_class_id,test_type,test_result,test_mileage,postcode_area,make,model,colour,fuel_type,cylinder_capacity,first_use_date,completed_date. Sample row: 982603987,596187188,2024-08-19,4,NT,P,65494.0,HG,BENTLEY,CONTINENTAL,SILVER,PE,5998,2006-03-01,2024-08-19T14:10:35.000Z",
      "zip_shape_2026_10_19": {
       "method": "ranged HTTP reads only (zip central directory + partial member decompression; ~14 ranged requests, ~4.5 MB transferred for the whole measurement)",
       "result": "MOT testing data results (2024).zip = 1,531,265,132 bytes compressed (Last-Modified 2025-05-13), 12 monthly members test_result_202401..202412.csv, 7,667,648,876 bytes uncompressed total (per-month 461-746 MB). S3 answers Range requests; construction is a worker job (ESTIMATE: other years are of similar per-year size - only 2024 was measured)."
      }
     },
-    "next_action": "Repair dvsa-mot construction from the measured build_failure_2015_abrve_2026_11_05 evidence, then relaunch as dvsa-mot-build-002 (new job ID; bundles are immuta",
+    "next_action": "dvsa-mot-build-002 RUNNING on worker 174936753 (cpx32, hel1, launched 2026-11-07T06:13:46Z, reservation 0.32 EUR, budget month 2026-11; this is the ONE rebuild ",
     "packaged_at": null,
     "path": "candidates/dvsa-mot-next-test-outcome/record.json",
     "prediction_time": "The completion instant of the vehicle's previous test (completed_date in the prior test's row). Features are the vehicle's static attributes (make, model, colour, fuel_type, cylinder_capacity, first_use_date, test class) plus its full prior-test history (test dates, intervals, test types including NT/RT, prior results, mileage and mileage deltas, prior defect-item categories from the companion failure-item files). The next test's own fields (test_result, its test_mileage, its completed_date, its defect items) are the label source and never ship as features.",
@@ -12076,7 +12085,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 207.5,
+    "age_hours": 208.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -15995,7 +16004,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 56.7,
+    "age_hours": 57.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -16707,7 +16716,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 10.5,
+     "age_hours": 11.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "IN",
@@ -17536,7 +17545,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 67.0,
+     "age_hours": 68.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -17710,7 +17719,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 207.5,
+     "age_hours": 208.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -17996,7 +18005,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 56.7,
+     "age_hours": 57.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -18522,7 +18531,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 10.5,
+     "age_hours": 11.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "IN",
@@ -19351,7 +19360,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 67.0,
+     "age_hours": 68.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -19525,7 +19534,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 207.5,
+     "age_hours": 208.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -19811,7 +19820,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 56.7,
+     "age_hours": 57.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -20073,10 +20082,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-07T05:50:02.091664+00:00",
+    "last_run_at": "2026-11-07T06:50:02.105058+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-07T06:00:00+00:00",
+    "next_run_at": "2026-11-07T07:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -20097,10 +20106,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-07T05:50:01.005284+00:00",
+    "last_run_at": "2026-11-07T05:55:00.810679+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-07T05:55:00+00:00",
+    "next_run_at": "2026-11-07T06:05:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -20121,10 +20130,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-07T05:45:35.061060+00:00",
+    "last_run_at": "2026-11-07T06:45:50.760342+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-07T05:50:35.061060+00:00",
+    "next_run_at": "2026-11-07T06:50:50.760342+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -20133,10 +20142,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-07T05:50:01.573414+00:00",
+    "last_run_at": "2026-11-07T06:50:02.232017+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-07T05:55:00+00:00",
+    "next_run_at": "2026-11-07T06:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -20157,10 +20166,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-07T04:50:53.252546+00:00",
+    "last_run_at": "2026-11-07T05:50:53.840175+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-07T06:50:00+00:00",
+    "next_run_at": "2026-11-07T07:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -20169,10 +20178,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-07T04:55:00.713359+00:00",
+    "last_run_at": "2026-11-07T05:55:00.973578+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-07T05:55:00+00:00",
+    "next_run_at": "2026-11-07T06:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -20213,9 +20222,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-07T05:50:02.092903+00:00"
+  "updated_at": "2026-11-07T06:50:02.233039+00:00"
  },
- "generated_at": "2026-11-07T05:50:01+00:00",
+ "generated_at": "2026-11-07T06:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -20223,19 +20232,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-07T04:21:05Z",
-   "head_sha": "f7ce203",
+   "created_at": "2026-11-07T06:34:33Z",
+   "head_sha": "368db69",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42338065107"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42347621315"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 51/57 (90%)"
   },
   "head": {
-   "at": "2026-11-07T04:21:02Z",
-   "sha": "f7ce203",
-   "subject": "discovery (Africa tick): ke-ppra-ppip, gh-bog-treasury-auction, ng-nerc-grid-disturbance, gh-gss-coverage dropped on lic"
+   "at": "2026-11-07T06:34:30Z",
+   "sha": "368db69",
+   "subject": "dvsa-mot post-collection tooling pre-staged for dvsa-mot-build-002 (all digests read programmatically): probe/fetch_diag"
   },
   "tests": {
    "count": "723",
@@ -23746,13 +23755,23 @@
    "qualified": 0,
    "sessions_7d": 107,
    "tokens_7d": 34929628
+  },
+  {
+   "at": "2026-11-07T06:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 107,
+   "tokens_7d": 35100044
   }
  ],
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 2999s by scout-research"
+ ],
  "panels": {
   "budget": {
-   "age_minutes": 0.7,
-   "as_of": "2026-11-07T05:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-07T06:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -23761,8 +23780,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.7,
-   "as_of": "2026-11-07T05:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-07T06:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -23771,8 +23790,8 @@
    "value": 20
   },
   "releases": {
-   "age_minutes": 0.7,
-   "as_of": "2026-11-07T05:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-07T06:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -25432,6 +25451,18 @@
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-07T06:13:46.908834+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "dvsa-mot-build-002",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "running"
    },
    {
     "created_at": "2026-10-31T00:24:07.306988+00:00",
@@ -27283,15 +27314,15 @@
    }
   ],
   "jobs_this_month": 56,
-  "jobs_total": 217,
+  "jobs_total": 218,
   "lifetime_eur": 4.15,
   "live": {
-   "checked_at": "2026-11-07T05:50:41+00:00",
+   "checked_at": "2026-11-07T06:50:39+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
   "month_hours": 21.5,
   "month_to_date": 0.53,
