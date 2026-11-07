@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#07080a">
+<title>ng-nerc-grid-disturbance · Scout</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="top"><div class="wrap"><span class="brand"><span class="mark"></span>Scout</span>
+<nav class="topnav"><a href="index.html" class="on">Overview</a><a href="cost.html" class="">Cost</a><a href="resources.html" class="">Resources</a><a href="reliability.html" class="">Ops</a></nav>
+<span class="live"><span class="dot"></span>live 04:50 UTC</span></div></header>
+<main class="wrap">
+<section class="hero compact">
+  <div class="eyebrow"><a href="index.html" style="color:inherit;text-decoration:none">← all datasets</a>
+    · power systems / national grid disturbance (system collapse) prediction</div>
+  <h1>ng-nerc-grid-disturbance</h1>
+  <div class="statusline ">
+    <span class="dot" style="background:var(--coral)"></span>
+    <span><b>dropped</b> · NG
+    
+    </span>
+    <time>04:50 UTC</time>
+  </div>
+</section>
+<div class="grid">
+  <div class="col-12"><section class="card "><h3>The question</h3><div class="sub">what a model is asked to predict</div><div class="body"><p style="margin:0;line-height:1.6">At a day-ahead instant, predict whether the Nigerian national grid will record a total or partial system collapse on the following day, from published grid-operating history (generation, frequency, load). A useful prediction would support the system operator&#x27;s and large consumers&#x27; preparedness decisions. Closed at the licence gate before any task probing; the secondary task-shape and timing observations below are from the publisher&#x27;s published report text, not from a constructed dataset.</p></div></section></div>
+  <div class="col-6"><section class="card "><h3>What you predict</h3><div class="sub">target definition</div><div class="body"><p style="margin:0;line-height:1.6">Binary (collapse day vs non-collapse day; optionally total vs partial). Label source: NERC&#x27;s unit-level system-collapse event tables in quarterly and annual reports (date, time, type, immediate cause, restoration date/time; e.g. 2025 Annual Report Table 24 &#x27;System Collapses in 2019 - 2025&#x27;). Event-grain positives are sparse and declining: NERC order NERC/2023/035 (published figures) lists partial/total 2016: 6/22, 2017: 9/15, 2018: 1/12, 2019: 1/10, 2020: 0/4, 2021: 2/2, 2022: 2/4, 2023: 0/3; the 2024 Annual Report records 9 incidents in 2024; the 2025 Annual Report records 2; the 2026 Q1 report records 2 (one total 23 Jan, one partial 27 Jan). Roughly 90 events 2016-2025 against ~3,650 days, with positives clustered within crisis years. The deeper timing defect: daily-resolution features are NOT published in bulk - NERC&#x27;s operational data products are monthly/quarterly aggregates (average daily system frequency by month, average hourly generation) plus the event tables themselves, so a day-ahead operational task cannot be assembled from published features without a feature source that has not been identified.</p></div></section></div>
+  <div class="col-6"><section class="card "><h3>When the prediction is made</h3><div class="sub">the information cut-off</div><div class="body"><p style="margin:0;line-height:1.6">A day-ahead instant. Not further specified: the licence veto stands on its own, and the feature-timing contract is separately unresolved (see target_definition).</p></div></section></div>
+
+  <div class="col-6"><section class="card "><h3>Where the data comes from</h3><div class="sub">sources and their stated licence</div><div class="body"><div class="list"><div class="item"><div class="meta"><div class="name">NERC quarterly and annual reports (grid event tables and operational aggregates)</div><div class="desc">licence not stated on the source entry</div></div><div class="side"><a class="pill blue" href="https://nerc.gov.ng/resource-category/statistics-and-performance-data/" target="_blank" rel="noopener">open</a></div></div></div></div></section></div>
+  <div class="col-6"><section class="card "><h3>How it is split</h3><div class="sub">Not reached (licence veto). Scale planning on any reopen: ~90 recorded collapse </div><div class="body"><div class="tablewrap"><table><thead><tr><th class="">Split</th><th class="num">Rows</th><th class="num">Positive</th></tr></thead><tbody><tr><td colspan=3>splits not recorded yet</td></tr></tbody></table></div></div></section></div>
+
+  <div class="col-6"><section class="card "><h3>Measured</h3><div class="sub">from the released bytes</div><div class="body"><p class="sub">Not measured yet. A baseline runs on the released bytes before packaging.</p></div></section></div>
+  <div class="col-6"><section class="card "><h3>Licence</h3><div class="sub">recorded in the candidate&#x27;s license.json</div><div class="body"><div class="list"><div class="item"><div class="meta"><div class="name">Source</div><div class="desc">no licence decision recorded</div></div><div class="side"><span class="pill warn">undeclared</span></div></div><div class="item"><div class="meta"><div class="name">Our compilation</div><div class="desc">code and derived feature work</div></div><div class="side"><span class="pill warn">undeclared</span></div></div></div></div></section></div>
+
+  <div class="col-6"><section class="card "><h3>History</h3><div class="sub">worker jobs</div><div class="body"><div class="list"><p class="sub">no jobs recorded</p></div></div></section></div>
+  <div class="col-6"><section class="card "><h3>Next</h3><div class="sub">what unblocks it</div><div class="body"><p style="margin:0;line-height:1.6">Closed 2026-11-07. Reopen ONLY if: (a) NERC states terms permitting redistribution of derived event/operational rows on a publisher instrument (re-check the foo</p></div></section></div>
+</div>
+<footer>Generated from repository state at 2026-11-07T04:50:01+00:00. Every figure carries its source in the
+snapshot (<code>dashboard.json</code>); a missing input reads &ldquo;no data&rdquo; rather than zero.
+Source: candidates/ng-nerc-grid-disturbance/record.json. Generated from the record, not retyped.</footer></main>
+<nav class="bottomnav"><a href="index.html" class="on"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2.5-7 4 14 2.5-7H21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Overview</a><a href="cost.html" class=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Cost</a><a href="resources.html" class=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="13" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7" cy="7.5" r="1" fill="currentColor"/><circle cx="7" cy="16.5" r="1" fill="currentColor"/></svg>Resources</a><a href="reliability.html" class=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v6c0 4.4-3.4 7.4-8 8-4.6-.6-8-3.6-8-8V7l8-4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Ops</a></nav>
+</body></html>

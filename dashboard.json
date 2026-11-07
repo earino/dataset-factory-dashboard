@@ -1,9 +1,9 @@
 {
  "alarms": [
   "Token use at 88% of the weekly ceiling",
-  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (65.0h)",
-  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (205.5h)",
-  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (54.7h)"
+  "cqc-care-home-deregistration is verified and waiting on the operator for the public flip (66.0h)",
+  "ns-bwa-advisory-lift-duration is verified and waiting on the operator for the public flip (206.5h)",
+  "za-cct-substation-evening-peak-exceedance is verified and waiting on the operator for the public flip (55.7h)"
  ],
  "budget": {
   "config": {
@@ -21,12 +21,12 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-07T03:50:02.615140+00:00",
+   "moment": "2026-11-07T04:50:02.561450+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 35083738,
+   "research_tokens_last_7_days": 35112457,
    "runs_last_7_days": 107,
    "runs_weighted_last_7_days": 121,
    "session_cap_per_week": 200,
@@ -53,14 +53,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 5278,
+     "calls": 5316,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 26444082,
-     "output_tokens": 5175636,
+     "input_tokens": 26501863,
+     "output_tokens": 5218046,
      "pricing_available": false
     }
    },
@@ -84,7 +84,7 @@
    "US": 1
   },
   "counts": {
-   "dropped": 55,
+   "dropped": 59,
    "investigating": 20,
    "packaged": 5,
    "parked": 31,
@@ -5206,7 +5206,7 @@
     "target": "Binary: 1 if VolumenAlm(Mm3) < threshold on at least one day with Fecha in (T, T+30] in the dam's SIH series, else 0. Label source column: VolumenAlm(Mm3) (the same column as the target variable), excluded from features by the Fecha <= T filter; no other column carries the answer. Threshold frame, two candidates measured in the sample: (a) discovery-time proxy = 25 percent of the dam's own observed maximum VolumenAlm (the SIH catalog carries no capacity column); (b) construction-time preferred frame = 25 percent of official capacity, published per dam in CONAGUA's weekly 'Almacenamiento de las Principales Presas del Pais' report (columns CAPACIDAD MUERTA / CAP. UTIL DISENO Mm3; archive at ftp://ftp.conagua.gob.mx/Gobmx/DisponibilidadenPresas/) and in the press-percentage frame (e.g. El Cuchillo capacity 1,123 Mm3 vs observed max 1,765.7 Mm3 including flood surcharge; the proxy threshold 441.4 Mm3 equals 39 percent of the official frame, so the proxy is the conservative/higher threshold and events under it are a subset of events under the official frame). Eligibility at T, from information available at prediction: dam has >= 365 prior daily VolumenAlm rows and VolumenAlm(T) >= threshold (onset formulation; days already below threshold are not prediction rows)."
    },
    {
-    "age_hours": 8.5,
+    "age_hours": 9.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "IN",
@@ -6035,7 +6035,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 65.0,
+    "age_hours": 66.0,
     "awaiting_operator": true,
     "baseline": {},
     "country": "GB",
@@ -8601,6 +8601,102 @@
     "awaiting_operator": false,
     "baseline": {},
     "country": "GH",
+    "domain": "public debt markets / weekly Government of Ghana and Bank of Ghana bill auction outcomes (Ghana)",
+    "id": "gh-bog-treasury-auction",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "archive_observation_2026_11_07": "GOG results listing (via search-index renderings of the live pages, read 2026-11-07): weekly 'Results of GOG Tender N' pages, consecutive numbering observed Oct 2026 tenders 2026-2031, plus listing pages back through August 2026 and earlier-page links implying a longer archive. BOG results listing: tenders 880-886 Sept-Nov 2026, twice-weekly 'held on' dates. No per-tender fetch or parsing was done past the veto.",
+     "channel_sweep_2026_11_07": "Footer copyright observed on rendered pages; /terms-conditions/ HTTP 404 (site 404 page); /disclaimer/ 200 with accuracy-only text; /robots.txt nginx 404. Commands in notes.md."
+    },
+    "next_action": "Closed 2026-11-07. Reopen ONLY if: (a) the Bank of Ghana states a licence or terms permitting redistribution of derived auction rows on its own instrument (re-c",
+    "packaged_at": null,
+    "path": "candidates/gh-bog-treasury-auction/record.json",
+    "prediction_time": "Each auction's results-publication instant (results pages are dated, e.g. 'Results of GOG Tender 2031' Oct 30 2026; 'Results of Tender 886 Held on 4 November 2026' Nov 4 2026). Not further specified because the lead was closed at the licence gate.",
+    "publisher": "Bank of Ghana (bog.gov.gh)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the post-auction publication instant of a weekly Ghana Treasury/GOG tender (or Bank of Ghana bill tender), predict the next auction's marginal-rate direction and/or subscription coverage from the full published auction history. A useful prediction would support the same treasury/cash-management decision the weekly results exist for. The licence veto recorded below was established before any archive probing; no novelty claim is made in either direction.",
+    "region": "Africa",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Ghana's most task-shaped source found this tick (weekly unit-level auction outcomes, ongoing, dated, decision-relevant) killed at the licence gate before any archive work - the correct order. Future Ghana-focused sessions should read the BoG footer first; if a Ghana treasury-auction task is ever wanted, the blocker is the publisher's terms, not the data.",
+    "sources": [
+     {
+      "licence": "",
+      "name": "Bank of Ghana - weekly GOG T-Bill auction results archive",
+      "url": "https://www.bog.gov.gh/gog_auction_results/"
+     },
+     {
+      "licence": "",
+      "name": "Bank of Ghana - weekly BOG Bill auction results archive",
+      "url": "https://www.bog.gov.gh/bog_auction_results/"
+     }
+    ],
+    "split_strategy": "Not reached (licence veto). For scale planning on any reopen: two weekly auction series (GOG T-bills tender numbering ~2021-2032 by 2026-10; BOG bills tender ~886 by 2026-11-04, implying a longer continuous series back to the BOG bill's introduction), i.e. plausibly several hundred to ~900 weekly outcomes per series; window counts were never computed.",
+    "status": "dropped",
+    "target": "Direction of the next auction's accepted rate per tenor, and/or subscription coverage (bids tendered vs target amount). Label derivable from the published results pages. Not probed further: bare copyright veto."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "GH",
+    "domain": "national statistics / coverage sweep of the Ghana Statistical Service (Ghana)",
+    "id": "gh-gss-coverage",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "channel_sweep_2026_11_07": "GET https://statsghana.gov.gh/ rendered: bare-copyright footer, legal-mandate/privacy links only, 'Open Data for Africa' link to the AfDB platform record, headline aggregate indicators on the home surface. Commands in notes.md."
+    },
+    "next_action": "Closed 2026-11-07. Reopen ONLY if: (a) the Service states a data licence permitting redistribution of derived rows on its own instrument (re-check the footer an",
+    "packaged_at": null,
+    "path": "candidates/gh-gss-coverage/record.json",
+    "prediction_time": "Not applicable (coverage sweep, closed before any task formulation).",
+    "publisher": "Ghana Statistical Service (statsghana.gov.gh)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "Coverage sweep (no task formulated): is there a unit-level or event-grain ongoing series on the Ghana Statistical Service's own site that could carry a prediction task under a publishable licence? Answer: no - the visible catalogue is aggregate indicator releases and census tables, published under bare copyright, and the site's own 'Open Data' link points to the AfDB-hosted 'Open Data for Africa' aggregate gateway (the same republishing family already dropped with uneca-ecastats-coverage).",
+    "region": "Africa",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "Cheap, decisive and worth recording: the Ghana sweep now covers the open-data portal (unreachable), the statistics office (bare copyright + aggregates) and the central bank (bare copyright). The pattern matches Kenya's: Ghana's task-shaped channels exist, but none is publishable under current terms.",
+    "sources": [
+     {
+      "licence": "",
+      "name": "Ghana Statistical Service (statsghana.gov.gh)",
+      "url": "https://statsghana.gov.gh/"
+     }
+    ],
+    "split_strategy": "Not applicable (coverage sweep; closed at triage - bare copyright plus aggregate-only content).",
+    "status": "dropped",
+    "target": "Not applicable (coverage sweep)."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "GH",
     "domain": "national open-data infrastructure / statistical publishing (country portal record, Ghana)",
     "id": "gh-opendata-coverage",
     "jobs": [],
@@ -10455,6 +10551,53 @@
     "awaiting_operator": false,
     "baseline": {},
     "country": "KE",
+    "domain": "public procurement / tender-process outcome prediction (Kenya national + county governments)",
+    "id": "ke-ppra-ppip-procurement-outcome",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "ocp_mirror_sample_2018_2026_11_07": "data.open-contracting.org publication 147 year-file 2018.jsonl.gz: HTTP 200, 863,775 bytes, 0.39 s. Parsed 6,727 release records: top-level keys buyer/date/id/initiationType/language/ocid/parties/tag/tender; tender keys awardCriteria/id/mainProcurementCategory/procurementMethod/tenderPeriod/title; tender.status null on 6,727/6,727; >=1 award on 2,074 (30.8%); procurementMethod open 6,103 / selective 342 / direct 282; buyer names populated (sample: 'Kenya Ordnance factories corporation'). Probe retained at candidates/ke-ppra-ppip-procurement-outcome/probe_ocds_sample.py.",
+     "pip_api_rate_limited_2026_11_07": "GET https://tenders.go.ke/api/ocds/tenders?fy=2026-2027 twice (second attempt after 45 s): both HTTP 429, 6,619-byte Laravel 'Too Many Requests' page. Endpoint exists and answers; throttled from the coordinator IP, not absent.",
+     "portal_reachability_2026_11_07": "https://tenders.go.ke/ HTTP 200 in 1.17 s (curl) and rendered in the supported browser (SPA title 'PPIP'); /ocds and /helpdesk/ render. Access is not the blocker."
+    },
+    "next_action": "Closed 2026-11-07. Reopen ONLY if: (a) PPRA/PPIP states an open licence or terms permitting redistribution of derived rows on a publisher instrument (re-check t",
+    "packaged_at": null,
+    "path": "candidates/ke-ppra-ppip-procurement-outcome/record.json",
+    "prediction_time": "The tender-publication instant (release 'date' / tender first appearing in PPIP); only forward evidence of the outcome window follows it. Not further specified because the lead was closed at the licence gate.",
+    "publisher": "Public Procurement Regulatory Authority (PPRA) - Public Procurement Information Portal, tenders.go.ke",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At the tender-publication instant of a Kenyan public procurement process published on the Public Procurement Information Portal (PPIP), using only at-publication attributes (buyer entity, procurement method, main procurement category, award criteria, title text, tender-period dates), predict whether the process will end with at least one published contract award within a censoring window after the tender period closes, versus no award ever published (a mixture of cancellation, retender and non-publication that the portal does not distinguish - tender.status is null on 6,727/6,727 sampled 2018 records). A useful prediction would support PPRA's own compliance-monitoring question - which published tenders silently die - and citizen-oversight prioritisation. The licence veto recorded below was established before any task probing; no novelty claim is made in either direction.",
+    "region": "Africa",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "This was the Africa tick's most promising new lead before the licence gate: unit-level, ongoing, decision-relevant, cleanly standardised (OCDS), with a stateable publication instant and a target observable after it. Killed at the cheapest gate, before construction spend, exactly as the triage policy intends. The pattern now recorded twice in Kenya (CBK auction data, PPIP procurement data) is that Kenyan government data instruments default to bare 'All rights reserved' copyright even where an executive order mandates disclosure; future Kenya-focused sessions should read the footer FIRST and budget no more than a channel sweep before closing.",
+    "sources": [
+     {
+      "licence": "",
+      "name": "Public Procurement Information Portal (PPIP) - PPRA Open Contracting Data Standard publication",
+      "url": "https://tenders.go.ke/ocds"
+     }
+    ],
+    "split_strategy": "Not reached (licence veto). For scale planning on any reopen: OCP mirror year-files 2018 (<1 MB) through 2024 (11 MB gz) suggest tens of thousands of contracting processes per year (6,727 in 2018), so temporal split capacity would likely be measurable; the outcome base rate measured on 2018 is 30.8% with-award, but it is one year of a drift-prone publication and no window counts were computed.",
+    "status": "dropped",
+    "target": "Binary: >=1 published award on the process within the censoring window vs none. Label source column: awards array of the OCDS record (excludable by construction). Right-censoring (processes whose window has not closed) excluded by eligibility cutoff. Measured on the OCP mirror's 2018 year-file: 2,074/6,727 records (30.8%) carry >=1 award; 4,653 carry none. tender.status is null throughout, so no explicit cancelled status exists in this publication."
+   },
+   {
+    "awaiting_operator": false,
+    "baseline": {},
+    "country": "KE",
     "domain": "national open-data infrastructure / statistical publishing (country portal record, Kenya)",
     "id": "kenya-opendata-knbs",
     "jobs": [],
@@ -11358,6 +11501,52 @@
    },
    {
     "awaiting_operator": false,
+    "baseline": {},
+    "country": "NG",
+    "domain": "power systems / national grid disturbance (system collapse) prediction (Nigeria)",
+    "id": "ng-nerc-grid-disturbance",
+    "jobs": [],
+    "licence_summary": {
+     "compilation_spdx": null,
+     "source_spdx": null,
+     "status": null
+    },
+    "measurements": {
+     "channel_sweep_2026_11_07": "Homepage footer copyright (rendered, curl); /terms-conditions/ = WordPress critical error; no legal/licence pages in the navigation; commands in notes.md.",
+     "event_counts_from_publisher_text_2026_11_07": "Quoted figures only (not a constructed count): NERC/2023/035 Figure 2 collapse records 2016-2023; 2024 Annual Report: 9 incidents; 2025 Annual Report: 2; 2026 Q1 Report: 2. Transcribed in target_definition."
+    },
+    "next_action": "Closed 2026-11-07. Reopen ONLY if: (a) NERC states terms permitting redistribution of derived event/operational rows on a publisher instrument (re-check the foo",
+    "packaged_at": null,
+    "path": "candidates/ng-nerc-grid-disturbance/record.json",
+    "prediction_time": "A day-ahead instant. Not further specified: the licence veto stands on its own, and the feature-timing contract is separately unresolved (see target_definition).",
+    "publisher": "Nigerian Electricity Regulatory Commission (nerc.gov.ng)",
+    "qualification": {
+     "artifact_version": null,
+     "result": null,
+     "splits": null
+    },
+    "question": "At a day-ahead instant, predict whether the Nigerian national grid will record a total or partial system collapse on the following day, from published grid-operating history (generation, frequency, load). A useful prediction would support the system operator's and large consumers' preparedness decisions. Closed at the licence gate before any task probing; the secondary task-shape and timing observations below are from the publisher's published report text, not from a constructed dataset.",
+    "region": "Africa",
+    "release_baseline": {
+     "auc": null,
+     "display": null,
+     "reference": null
+    },
+    "release_splits": {},
+    "review": "The grid-collapse task is the most evocative Nigeria story this tick, and closing it took three cheap instruments to read, not three weeks of PDF scraping: footer, terms page, report front matter. The general lesson the record carries for Nigeria: NBS prohibited (class D), NERC silent-with-copyright (class C) - the two most task-shaped Nigerian publishers are both licence-blocked, so a Nigeria-focused session should budget for reading terms first and expect closures.",
+    "sources": [
+     {
+      "licence": "",
+      "name": "NERC quarterly and annual reports (grid event tables and operational aggregates)",
+      "url": "https://nerc.gov.ng/resource-category/statistics-and-performance-data/"
+     }
+    ],
+    "split_strategy": "Not reached (licence veto). Scale planning on any reopen: ~90 recorded collapse events 2016-2025 (publisher's own figures quoted in target_definition), declining sharply after 2020; three disjoint windows with both classes present is plausible on the day-grain population but positives are strongly year-clustered; no counts were computed.",
+    "status": "dropped",
+    "target": "Binary (collapse day vs non-collapse day; optionally total vs partial). Label source: NERC's unit-level system-collapse event tables in quarterly and annual reports (date, time, type, immediate cause, restoration date/time; e.g. 2025 Annual Report Table 24 'System Collapses in 2019 - 2025'). Event-grain positives are sparse and declining: NERC order NERC/2023/035 (published figures) lists partial/total 2016: 6/22, 2017: 9/15, 2018: 1/12, 2019: 1/10, 2020: 0/4, 2021: 2/2, 2022: 2/4, 2023: 0/3; the 2024 Annual Report records 9 incidents in 2024; the 2025 Annual Report records 2; the 2026 Q1 report records 2 (one total 23 Jan, one partial 27 Jan). Roughly 90 events 2016-2025 against ~3,650 days, with positives clustered within crisis years. The deeper timing defect: daily-resolution features are NOT published in bulk - NERC's operational data products are monthly/quarterly aggregates (average daily system frequency by month, average hourly generation) plus the event tables themselves, so a day-ahead operational task cannot be assembled from published features without a feature source that has not been identified."
+   },
+   {
+    "awaiting_operator": false,
     "baseline": {
      "accepted_artifact_version": "d871b45b667448a123bad9762cf066fd5d31c08700761b27ca8ff57a8a0690f9",
      "contract_ok": true,
@@ -11887,7 +12076,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 205.5,
+    "age_hours": 206.5,
     "awaiting_operator": true,
     "baseline": {},
     "country": "CA",
@@ -15806,7 +15995,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 54.7,
+    "age_hours": 55.7,
     "awaiting_operator": true,
     "baseline": {},
     "country": "ZA",
@@ -16518,7 +16707,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 8.5,
+     "age_hours": 9.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "IN",
@@ -17347,7 +17536,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 65.0,
+     "age_hours": 66.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -17521,7 +17710,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 205.5,
+     "age_hours": 206.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -17807,7 +17996,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 54.7,
+     "age_hours": 55.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -18333,7 +18522,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 8.5,
+     "age_hours": 9.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "IN",
@@ -19162,7 +19351,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 65.0,
+     "age_hours": 66.0,
      "awaiting_operator": true,
      "baseline": {},
      "country": "GB",
@@ -19336,7 +19525,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 205.5,
+     "age_hours": 206.5,
      "awaiting_operator": true,
      "baseline": {},
      "country": "CA",
@@ -19622,7 +19811,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 54.7,
+     "age_hours": 55.7,
      "awaiting_operator": true,
      "baseline": {},
      "country": "ZA",
@@ -19820,17 +20009,17 @@
    "EU": 15,
    "FR": 3,
    "GB": 18,
-   "GH": 1,
+   "GH": 3,
    "HK": 2,
    "ID": 3,
    "IN": 3,
    "JP": 3,
-   "KE": 2,
+   "KE": 3,
    "KR": 1,
    "MA": 1,
    "MX": 2,
    "MY": 2,
-   "NG": 1,
+   "NG": 2,
    "NL": 1,
    "NZ": 2,
    "PH": 2,
@@ -19842,7 +20031,7 @@
    "ZA": 7
   },
   "by_region": {
-   "Africa": 14,
+   "Africa": 18,
    "East Asia": 9,
    "Europe": 36,
    "International organisations": 18,
@@ -19852,14 +20041,14 @@
    "South & South-East Asia": 13
   },
   "by_status": {
-   "dropped": 55,
+   "dropped": 59,
    "investigating": 20,
    "packaged": 5,
    "parked": 31,
    "published": 14,
    "ready": 18
   },
-  "candidates": 143,
+  "candidates": 147,
   "live": 57,
   "live_non_us": 51,
   "live_non_us_share": 0.895,
@@ -19884,10 +20073,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-07T03:50:01.545058+00:00",
+    "last_run_at": "2026-11-07T04:50:02.657847+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-07T04:00:00+00:00",
+    "next_run_at": "2026-11-07T05:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -19908,10 +20097,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-07T03:50:01.019914+00:00",
+    "last_run_at": "2026-11-07T04:50:01.615000+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-07T03:55:00+00:00",
+    "next_run_at": "2026-11-07T04:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -19932,10 +20121,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-07T03:49:59.614663+00:00",
+    "last_run_at": "2026-11-07T04:45:16.058216+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-07T03:54:59.614663+00:00",
+    "next_run_at": "2026-11-07T04:50:16.058216+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -19944,10 +20133,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-07T03:50:01.450278+00:00",
+    "last_run_at": "2026-11-07T04:50:00.985362+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-07T03:55:00+00:00",
+    "next_run_at": "2026-11-07T04:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -19968,10 +20157,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-07T02:50:53.524961+00:00",
+    "last_run_at": "2026-11-07T03:50:53.653674+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-07T04:50:00+00:00",
+    "next_run_at": "2026-11-07T05:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -19980,10 +20169,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-07T02:55:00.814531+00:00",
+    "last_run_at": "2026-11-07T03:55:01.036801+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-07T03:55:00+00:00",
+    "next_run_at": "2026-11-07T04:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -20024,29 +20213,29 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-07T03:50:01.546138+00:00"
+  "updated_at": "2026-11-07T04:50:02.658857+00:00"
  },
- "generated_at": "2026-11-07T03:50:01+00:00",
+ "generated_at": "2026-11-07T04:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
-   "passing": 143
+   "passing": 147
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-07T02:52:55Z",
-   "head_sha": "1a2fe0d",
+   "created_at": "2026-11-07T04:21:05Z",
+   "head_sha": "f7ce203",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42331375976"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42338065107"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 51/57 (90%)"
   },
   "head": {
-   "at": "2026-11-07T02:52:52Z",
-   "sha": "1a2fe0d",
-   "subject": "follow-up (worker-status runner): abwildfire-consumer-001 + abwildfire-hf-001 SUCCEEDED - advancement 02:35Z recording c"
+   "at": "2026-11-07T04:21:02Z",
+   "sha": "f7ce203",
+   "subject": "discovery (Africa tick): ke-ppra-ppip, gh-bog-treasury-auction, ng-nerc-grid-disturbance, gh-gss-coverage dropped on lic"
   },
   "tests": {
    "count": "723",
@@ -23541,13 +23730,21 @@
    "qualified": 0,
    "sessions_7d": 107,
    "tokens_7d": 35083738
+  },
+  {
+   "at": "2026-11-07T04:50:01+00:00",
+   "live": 20,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 107,
+   "tokens_7d": 35112457
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-07T03:50:01+00:00",
+   "as_of": "2026-11-07T04:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -23557,7 +23754,7 @@
   },
   "candidates": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-07T03:50:01+00:00",
+   "as_of": "2026-11-07T04:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -23567,7 +23764,7 @@
   },
   "releases": {
    "age_minutes": 0.6,
-   "as_of": "2026-11-07T03:50:01+00:00",
+   "as_of": "2026-11-07T04:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -27081,7 +27278,7 @@
   "jobs_total": 217,
   "lifetime_eur": 4.15,
   "live": {
-   "checked_at": "2026-11-07T03:50:40+00:00",
+   "checked_at": "2026-11-07T04:50:40+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -27116,20 +27313,6 @@
  "sessions": {
   "failed_last_three": 1,
   "recent": [
-   {
-    "elapsed_seconds": 703.8,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "b32a0c0bcf7e568a25e0ed0924f6062e47beb63fae3ec6d888c2dc0290ab7cd1",
-    "ts": "2026-11-06T23:06:33.617026+00:00"
-   },
    {
     "elapsed_seconds": 1910.1,
     "event": "session",
@@ -27198,6 +27381,19 @@
     "run_budget": 900,
     "submitted_brief_sha256": "689ef52e8ac71cd129e3d1c6867ce51144f847458a03bdfb7acb890f07cc5627",
     "ts": "2026-11-07T02:54:41.976259+00:00"
+   },
+   {
+    "elapsed_seconds": 1460.1,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "da642091ccd1946f9a106c92dafc99b6ccd94ad457dca3990e02bb3d85a1c9cf",
+    "ts": "2026-11-07T04:24:22.667315+00:00"
    }
   ],
   "total": 40
