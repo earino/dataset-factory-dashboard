@@ -1,11 +1,10 @@
 {
  "alarms": [
-  "scout-discovery-session missed its window (2026-11-07T16:05:00+00:00); last status ok",
   "Token use at 91% of the weekly ceiling",
-  "cpcb-aqi-exceedance has been packaged and actionable for 21.5h - shipping it outranks construction",
-  "cqc-care-home-deregistration has been packaged and actionable for 78.0h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration has been packaged and actionable for 218.5h - shipping it outranks construction",
-  "za-cct-substation-evening-peak-exceedance has been packaged and actionable for 67.7h - shipping it outranks construction",
+  "cpcb-aqi-exceedance has been packaged and actionable for 22.5h - shipping it outranks construction",
+  "cqc-care-home-deregistration has been packaged and actionable for 79.0h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration has been packaged and actionable for 219.5h - shipping it outranks construction",
+  "za-cct-substation-evening-peak-exceedance has been packaged and actionable for 68.7h - shipping it outranks construction",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -23,17 +22,15 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
-   "moment": "2026-11-07T16:50:02.785118+00:00",
+   "allowed": true,
+   "moment": "2026-11-07T17:50:02.535977+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 2994s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 36558661,
-   "runs_last_7_days": 107,
-   "runs_weighted_last_7_days": 123,
+   "research_tokens_last_7_days": 36280885,
+   "runs_last_7_days": 106,
+   "runs_weighted_last_7_days": 122,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 16,
    "usage": {
@@ -48,24 +45,24 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 384,
+     "calls": 399,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 15506937,
-     "output_tokens": 358748,
+     "input_tokens": 16716359,
+     "output_tokens": 366496,
      "pricing_available": false
     },
     "research": {
-     "calls": 6129,
+     "calls": 6155,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 28978524,
-     "output_tokens": 5997087,
+     "input_tokens": 28993016,
+     "output_tokens": 6021998,
      "pricing_available": false
     }
    },
@@ -1604,14 +1601,22 @@
     "measurements": {
      "access_cost_2026_11_06": "plan.sa.gov.au returns 403 to plain curl (WAF) - supported browser required. In-session timings: Status-only search settles ~3-8 s; date-window searches settle 30-90 s (2026 window ~25-30 s; a 2021 window did not settle within 75 s); results render via bootstrap-table AJAX after the count text. perpage max 100 rows/page => ~3,000 pages for the full register, or windowed CSV exports via the payload endpoint (row cap unmeasured - the in-page click of 'Download .CSV of results' did not deliver a file to the browser workspace in-session; the payload recipe is recorded in sources[0].api).",
      "au_comparator_registers_2026_11_06": "data.gov.au catalogue sweep for DA/consent registers (anonymous package_search, scripts retained in probe/): City of Adelaide 'Current Development Applications' cc-by but ceased updating 2021-03-19 (dead); City of Playford per-year CSV DA register (2013 onward, cc-by, statutory Regulation 98 register - viable small fallback); ACT ACTGOV completed/active DAs via ACTmapi ArcGIS Hub (licence 'Other' - unverified); Moreton Bay QLD DAs via ArcGIS Hub (licence 'Other', weekly updates since 2016-02-01 - unverified); Victorian 'Building Permit Activity Data' per-year XLSB 2009-2026 (Building and Plumbing Commission, cc-by, >40 fields per permit, but permits issued with no decision-outcome field - carries no target). PlanSA is the only live statewide register with per-application decision statuses under a class-A licence.",
+     "csv_truncation_hazard_2026_11_07": "MEASURED (notes s6.4): the CSV export returns a NON-DETERMINISTIC ~789,151-byte subset when a window's full result exceeds that size - dual-fetch of the identical full-year-2020 decided query gave equal byte counts (789,151) but different content (in-page hash, t1!==t2); five identical calls parsed 2,287/3,022/3,052/4,188/4,349 rows, all below the backend's 5,235. Parser determinism proven by double-parse (identical counts). Sub-~780 KB windows are complete (Sep-2020 696 rows/102 KB; Q4-2020 1,266/299 KB; half-months 2021-2026 478-1,944/72-294 KB). Construction must enumerate in month-scale windows and reconcile against TotalRecords. Descriptions contain unquoted newlines (measured examples) - quote-aware parsing plus row validation required; one 2025-09 half-month response carried 250,490 bytes with only 80 parseable rows.",
+     "detail_channel_degradation_2026_11_07": "MEASURED (notes s6.3): after ~100 detail POSTs (bursts), the same query that returned full DecisionDetails for app 6154 began returning hollow children (children present, FieldValues empty), and a 30 s pause did not restore it in-session; a 16-POST foreground batch and all later reads came back hollow. Trigger undetermined (burst pacing vs backend load vs time-of-day) - unmeasured. Consequence: refusal prevalence and per-consent availability rate are UNMEASURED; extraction must pace (>= 1.5 s), validate every row, re-fetch on hollow reads, and never read an empty DecisionDetails as 'no decision'.",
      "detail_schema_2026_11_06": "Sample application 26037018 (192 THE PARADE NORWOOD SA 5067, lodged 5 November 2026, fetched 2026-11-06): Application summary tab shows Application ID, Lodged date, Application number ('N/A' for this one), Applicants, Assessment Pathway 'Accepted', Elements 'Internal fitout', Council area 'Norwood Payneham and St Peters', Title 'CT 5613/456 F139146 AL66', Public Notification 'Not applicable', status pill 'DECISION MADE'. Assessment tab shows per-consent decisions: 'This application requires Building Consent / Development Approval - Planning, Building' both 'Granted'. NO decision date displayed on this sample (decided within ~1 day; date-only display, so decision latency is measured to the day at best). List columns: Reference number, Applicant, Property address, Description, Lodged.",
+     "endpoint_layer_2026_11_07": "Three machine endpoints reverse-engineered from the page's own bundle and verified (notes s6.1): CSV export (GET plan.sa.gov.au/.../daregisterCSV?payload=btoa, 7 columns, coarse status only, m/d/yyyy date parsing - dd/mm strings with day>12 return 0 bytes), search (POST cdn.plan.sa.gov.au/prs/fFGE56_reg8R, TotalRecords authoritative), per-application detail (POST same endpoint, DataObject per register code: DAP->DAPRegisterDetail, LUA/LUC->LandUseRegisterDetail, LDE->LandDivisionRegisterDetail, MD->MajorDevelopmentRegisterDetail) with 9 named children; DecisionDetails rows carry [decision type, decision, decision date]. Verified example: app 6154 'Development Approval / Granted / 30 Apr 2021' (lodged 1 Apr 2021). plan.sa.gov.au and the CDN 403 plain curl; all recipes run from browser page context.",
+     "gen_star_ratings_probe_2026_11_07": "GEN (federal AU, the other recorded regional next action): Star Ratings quarterly data extract series verified on gen-agedcaredata.gov.au - 15 quarterly service-level extracts May 2023 -> October 2026 (publisher: Department of Health, Disability and Ageing; 1-5 overall + 4 sub-category ratings; latest released 13 Oct 2026; site licence CC BY 4.0 was read 2026-10-31 and recorded then). The extract itself (XLSX ~2 MB on health.gov.au) could NOT be fetched from this host: health.gov.au hangs/fails for curl (two attempts, HTTP/2 stream error rc=92 then timeout) and the browser download channel does not deliver files in this environment. No candidate opened; the one-extract probe stays recorded and blocked on a working fetch channel (worker fetch or operator network).",
      "nz_coverage_2026_11_06": "Per this tick's regional focus: data.govt.nz catalogue is bot-walled for plain HTTP (Imperva, 'Pardon Our Interruption') but opens in the supported browser. Search 'resource consents' returned 327 datasets, dominated by regional council GIS layers (Horizons 91, Environment Canterbury 86, Otago RC 33, ...), formats HTML 319 / ArcGIS REST 282 / CSV 275, licence facets showing ~79 CC-licensed vs 9 'Other licensing'. NZ council resource-consent registers are activity permits (discharges, water takes) - a different population from first-instance development decisions, and licence verification per publisher would be required before any probe. No NZ candidate opened this tick; existing NZ candidates fenz-incident-data and nz-ea-wholesale-price-exceedance remain with their owners.",
+     "pdi_year_counts_2026_11_07": "Search-backend TotalRecords per lodgement year (m/d/yyyy windows, Status filter; table in notes s6.5): decided 2020-2026 = 5,235 / 34,482 / 35,782 / 31,356 / 34,549 / 33,280 / 23,028 (sum 198,312); all-status 5,761 / 38,448 / 40,485 / 35,563 / 38,982 / 38,102 / 34,531; under assessment 252 / 1,613 / 2,428 / 2,403 / 2,862 / 3,867 / 11,101. All-time decided (status-only query): 260,311. Counts are the publisher's own backend totals read via the TotalRecords column; the response's Count field is unreliable (0 with rows present).",
+     "population_two_eras_2026_11_07": "Act filter totals (search backend, 2026-11-07): DEV 73,464 + PDI 226,568 = 300,032 (= register total). Decided rows lodged 2000-2009: 26,532; lodged 2010-2019: 36,067. The register ingests the old Development Act register back to at least 2000 - a different (state-referred) population from the PDI-era all-council register; excluded from the task frame. Register-code mix from CSV samples: 2020 LUA 736/LDE 2,649/DAP 803 (whole-year fetch); DAP ~99% from 2021; LUC appears 2026. Detail DataObject must be chosen per row's register code.",
      "prior_art_scan_2026_11_06": "Task-level prior art search (web, 2026-11-06): (1) ConfidentPlanner github.com/athuler/ConfidentPlanner - London planning approval-likelihood tool on the GLA London Planning Datahub (OGL v3), logistic regression + TF-IDF description embedding, AUC ~0.73, trained 2022-26; a tool with a trained model, NOT a published benchmark with splits/scored contract, and a different jurisdiction/decision system. (2) Lin et al. 2025, Sage J. Urban Planning 'Transforming urban planning through machine learning' - classifies Australian planning applications into development categories from description text (DeBERTa-v3 F1 0.944); text classification, not decision prediction; data available 'on reasonable request', not published ML-ready. (3) Aggregate accountability reporting only: Victoria reports '66% of all applications were processed within the statutory timeframes in 2023-24 (84 days median)'; NSW publishes council league tables of DA timeframes; RBA/Productivity-Commission 2025 housing-construction-productivity paper documents statutory-timeframe regimes per state (incl. SA) - all aggregate, none per-application, none a prediction task. Nearest family members in our own portfolio: pins-planning-appeal-outcome (GB, appeals of refused applications - different instant and population) and tc-gv-licence-application-outcome (operator licensing). No ML-ready per-application DA decision/latency benchmark with splits found anywhere; the statutory-timeframe compliance target in particular has no published predictor at all.",
      "register_totals_2026_11_06": "Read from the register's own result-count text in the supported browser session (UTC timestamps approximate, page clock 2026-11-06 03:30-04:15Z): default search 'We've found 299,858 development applications'; Status=Decision Made 260,174 (86.8% of all); Under Assessment 27,083; Lapsed 338; Withdrawn 10,538; Cancelled 1,725 (sum 299,858, consistent). Lodged 01/01/2026-06/11/2026: 17,733 (roughly 2,100/month, so a full lodgement year is on the order of 20k rows). Counts are the publisher's own displayed totals, not locally derived.",
+     "status_filter_validation_2026_11_07": "The coarse-status design is backend-enforced: search POSTs with Status='Decision Made' return TotalRecords 260,311 with rows, while Status in {Refused, Granted, Approved, Rejected} return no TotalRecords and no rows (same param shape, positive control working). There is no enumeration channel for refusals other than per-application detail fetches.",
      "status_vocabulary_2026_11_06": "Extracted from the register's own bundle public-register.min.js (PRstatusObj, verbatim descriptions): Lodged 'The application has been formally lodged by the applicant and is ready for assessment.'; Under Assessment '...awaiting decision.'; Approved 'The is approved.'; Decision Made 'Assessment of this application has completed and a decision has been made.'; Granted 'The is granted.'; Decision Under Appeal 'The decision made on the application by the relevant authority is being appealed in court, and may be upheld or overturned.'; Cancelled 'The was cancelled.'; Withdrawn 'The applicant has withdrawn this application from assessment and no decision may be made.'; Refused 'This was refused.'; Rejected 'This was rejected.'; Lapsed 'The decision made on this application has lapsed and is no longer valid.' The coarse search filter offers only Under Assessment/Decision Made/Lapsed/Withdrawn/Cancelled; Granted/Refused/Rejected/Approved/Decision Under Appeal are detail-level statuses.",
+     "statutory_timeframes_2026_11_07": "Pathway timeframes read 2026-11-07 from the publisher's own guidance (plan.sa.gov.au 'Stages and timeframes' + 'Guide to Development Assessment' PDI PDF, via web search snippets): planning consent deemed-to-satisfy 5 business days; performance-assessed 20 (no notification/referral) / 50 (referral, assessment manager) / 70 (public notification, panel or SCAP authority); restricted 95; building consent class 1/10 20 (+10 if SCAP referral); land division 60; all plus 5 business days verification and 2 business days to issue; performance-assessed clocks can be SUSPENDED for information requests (up to 12 weeks, clock restarts) - a per-application latency label must carry this as a declared limitation since suspensions are not published per application. Full regulation-text extraction (PDI (General) Regulations 2017) and a published-late-decision known-event fixture remain open items for construction design.",
      "worked_example_2026_11_06": "Dated example (all dates Australia/Adelaide, ACDT UTC+10:30; register displays dates only, so instants are day-granular): application 26037018, 192 The Parade Norwood SA 5067. Feature event window: everything up to lodgement on 05/11/2026 - description 'Commercial' (internal fitout), applicant Jones Lang LaSalle, Assessment Pathway 'Accepted', elements 'Internal fitout', council 'Norwood Payneham and St Peters'. First availability: present in the register search results when fetched 06/11/2026 ~03:55Z, i.e. within one day of lodgement (publication latency bounded at ~1 day by this one observation, not proven generally). Eligibility cutoff: lodged via the portal on/after 31/07/2020 (PDI Act); DEV-Act rows exist for some authorities. Prediction instant: lodgement, 05/11/2026 (ACDT). Target start/end: the decision event; observed status 'DECISION MADE' with 'Development Approval - Planning, Building - Granted' by fetch time 06/11/2026 ~04:15Z, so this application's decision window closed within ~1 day of lodgement (Accepted pathway; not representative of notified/assessed pathways). For a forward framing the whole target window follows the prediction instant; for this retrospective example the decision had already occurred at fetch time."
     },
-    "next_action": "Cheapest decisive probes, in order (all browser-first; no worker money needed for 1-2): (1) DECISION-DATE probe - open 3-5 Decision-Made applications lodged 202",
+    "next_action": "Discovery-owned paced detail pass (one session, no worker money): re-probe the detail channel in a quiet window with >= 1.5 s spacing and a hollow-read re-fetch",
     "packaged_at": null,
     "path": "candidates/plansa-da-register-decision/record.json",
     "prediction_time": "At lodgement of the application. Features displayed by the register that are documented at that instant: description (free text, e.g. 'Commercial', 'Verandah', 'Outbuilding (domestic storage shed)'), Assessment Pathway (e.g. 'Accepted'), Elements (e.g. 'Internal fitout', Demolition/Land division/Telecom codes DM/LD/TF/TA/RDT), Council area, Decision authority type (Assessment Manager / Assessment Panel / Council / DAC / Governor / Independent Assessor / Minister / SCAP / State Planning Commission), Act (DEV/PDI), applicant name, property address and title. Post-lodgement fields to exclude from features: status, decision, decision date, notification outcome, and any post-hoc reclassification. Two timing questions remain unresolved: (1) whether the displayed Assessment Pathway/category is exactly the value assigned at lodgement or a later-revised value (needs the PDI Act guidance pages); (2) no decision DATE has yet been observed on a detail page (only the decision TYPE on the Assessment tab), which blocks candidate A's latency label. The register is a current-state service: it showed applications lodged 05/11/2026 by the 06/11/2026 ~03:55Z fetch, and historical vintages are not archived, so a task built from it is retrospective with an explicit as-of assumption; decisions may also change after the fact (status vocabulary contains 'Decision Under Appeal', 'Lapsed').",
@@ -1621,7 +1626,7 @@
      "result": null,
      "splits": null
     },
-    "question": "OPEN between two candidate labels, to be fixed by the decision-date probe (next_action 1-2). Both share the same population (DAs lodged through the SA planning portal from 31/07/2020) and the same prediction instant (lodgement). Candidate A (preferred, higher utility): will this application be decided within the statutory timeframe applicable to its assessment pathway under the Planning, Development and Infrastructure Act 2016 - a per-application version of the statutory-timeframe KPI that SA/Vic/NSW report only as aggregate percentages. Candidate B: will the decision be a refusal (status in {Refused, Rejected}), with Withdrawn/Lapsed/Cancelled censored rather than negative. Prospective user: an applicant or their planning professional at/before lodgement, and councils forecasting assessment workload; a useful prediction supports pre-lodgement advice and resource allocation.",
+    "question": "FIXED 2026-11-07 (label sources measured, see notes s6.2): at the lodgement instant of a development application lodged through the SA PlanSA portal, predict whether the application will be decided within the statutory timeframe applicable to its assessment pathway under the PDI Act 2016 (primary; a per-application version of the statutory-timeframe KPI that SA/Vic/NSW publish only as aggregate percentages), with the per-consent decision outcome (refusal) as a secondary label. Prospective user: an applicant or their planning professional at/before lodgement, and councils forecasting assessment workload; a useful prediction supports pre-lodgement advice and resource allocation. Both labels derive from the register's per-application DecisionDetails (decision type / decision / decision date), measured available 2026-11-07 on a verified example (app 6154: 'Development Approval / Granted / 30 Apr 2021', lodged 1 Apr 2021) via a machine-readable detail endpoint - but that channel was also measured to degrade to hollow responses under sustained querying (notes s6.3), so label-row availability rate under a paced extraction is the last unmeasured input.",
     "region": "Oceania",
     "release_baseline": {
      "auc": null,
@@ -1642,9 +1647,9 @@
       "url": "https://data.gov.au/data/dataset/development-application-public-register"
      }
     ],
-    "split_strategy": "OPEN - per-year counts not yet measured in-session (date-window searches settle in 30-90 s in the browser and one 2021-window query did not settle within 75 s; per-year counts are a worker-side probe via Status-filtered searches or the CSV export). Population evidence so far: 299,858 DAs matched by the default search (2026-11-06); 260,174 with Status=Decision Made; 17,733 lodged 01/01/2026-06/11/2026. Rough intended design once counts exist: time-ordered windows by lodgement year (e.g. train 2020H2-2022, eval 2023-2024, holdout 2025-2026-to-date) with the label population restricted to decided applications; positives are expected to cluster by council and season (Christmas lodgement/decision lull), so record clustered counts (council-week) before claiming independence.",
+    "split_strategy": "Rows per window measured 2026-11-07 from the register's own search backend (TotalRecords; m/d/yyyy windows; see notes s6.5 table). PDI-era decided rows by lodgement year: 2020: 5,235; 2021: 34,482; 2022: 35,782; 2023: 31,356; 2024: 34,549; 2025: 33,280; 2026-to-date: 23,028 (sum 198,312; all-status totals 5,761/38,448/40,485/35,563/38,982/38,102/34,531; Under Assessment per year 252/1,613/2,428/2,403/2,862/3,867/11,101 - recent-year censoring is material for 2025-2026 windows). Intended windows (lodgement year, label population = decided rows): train 2020-2022 (75,499 decided rows), eval 2023-2024 (65,905), holdout 2025-2026-to-date (56,308). POSITIVES per window are NOT yet counted: refusal prevalence is unmeasured (the detail channel degraded before the sample could run, notes s6.3/s6.6) - the paced per-window detail sample is the one measurement gating the ready verdict, and the exact refusal count per window is construction's first worker step. Positives are expected to cluster by council and decision authority; clustered counts must be recorded before independence is claimed.",
     "status": "investigating",
-    "target": "OPEN - pending the decision-date probe. Candidate A: binary label 1 = decision made more than the PDI Act statutory timeframe (working days, per pathway/category, clock-stop rules documented in the PDI (General) Regulations 2017 - rules not yet extracted; a published example decision is needed as a known-event fixture). Source columns: lodged date + decision date + pathway, decision date NOT YET CONFIRMED displayed per application. Candidate B: binary label 1 = decision status in {Refused, Rejected} (statuses documented in the register's own vocabulary: 'Refused' orange, 'This was refused.'; 'Rejected' orange, 'This was rejected.'); 0 = granted/approved; Withdrawn ('the applicant has withdrawn this application from assessment and no decision may be made'), Lapsed, Cancelled and still-Under-Assessment rows are censored and excluded from the label population - they are not negatives. Label source columns are excludable from shipped features."
+    "target": "FIXED family 2026-11-07; prevalence unmeasured. Primary label, binary: statutory-timeframe latency = decision date (DecisionDetails DD, e.g. '30 Apr 2021') minus lodged date exceeds the PDI Act assessment timeframe for the application's pathway. Pathway timeframes documented from the publisher's own 'Stages and timeframes' page (read 2026-11-07): deemed-to-satisfy 5 business days; performance-assessed 20 (no notification/referral), 50 (referral, assessment manager), 70 (public notification, panel/SCAP); restricted 95; building consent class 1/10 20 (+10 SCAP referral); land division 60; plus 5 business days verification up front and 2 business days to issue; AND a documented clock-SUSPENSION confounder (info requests, up to 12 weeks, clock restarts) that the register does not publish per application - the latency label must declare this as a limitation, and a published late decision is still needed as the known-event fixture. Secondary label, binary: refusal = per-consent DecisionDetails DRT in {Refused, Rejected} for the planning consent; 0 = granted/approved; Withdrawn/Lapsed/Cancelled and still-Under-Assessment rows are censored, not negatives (coarse statuses are backend-enforced: Status=Refused/Granted search POSTs return no rows while Status='Decision Made' returns 260,311 + rows, negative validated by positive control, notes s6.5). Population: PDI-era applications (lodged >= 31 Jul 2020) in the statewide register; the register also carries 73,464 DEV-act-era rows (measured, incl. 36,067 decided 2010-2019 and 26,532 decided 2000-2009) which are a different, state-referred population and are EXCLUDED from the frame. Both label source fields live in a JSON child separate from every lodgement-time feature, so the label sources are excludable from what ships."
    },
    {
     "awaiting_operator": false,
@@ -5282,7 +5287,7 @@
     "target": "Binary: 1 if VolumenAlm(Mm3) < threshold on at least one day with Fecha in (T, T+30] in the dam's SIH series, else 0. Label source column: VolumenAlm(Mm3) (the same column as the target variable), excluded from features by the Fecha <= T filter; no other column carries the answer. Threshold frame, two candidates measured in the sample: (a) discovery-time proxy = 25 percent of the dam's own observed maximum VolumenAlm (the SIH catalog carries no capacity column); (b) construction-time preferred frame = 25 percent of official capacity, published per dam in CONAGUA's weekly 'Almacenamiento de las Principales Presas del Pais' report (columns CAPACIDAD MUERTA / CAP. UTIL DISENO Mm3; archive at ftp://ftp.conagua.gob.mx/Gobmx/DisponibilidadenPresas/) and in the press-percentage frame (e.g. El Cuchillo capacity 1,123 Mm3 vs observed max 1,765.7 Mm3 including flood surcharge; the proxy threshold 441.4 Mm3 equals 39 percent of the official frame, so the proxy is the conservative/higher threshold and events under it are a subset of events under the official frame). Eligibility at T, from information available at prediction: dam has >= 365 prior daily VolumenAlm rows and VolumenAlm(T) >= threshold (onset formulation; days already below threshold are not prediction rows)."
    },
    {
-    "age_hours": 21.5,
+    "age_hours": 22.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6111,7 +6116,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 78.0,
+    "age_hours": 79.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12316,7 +12321,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 218.5,
+    "age_hours": 219.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -14131,14 +14136,22 @@
     "measurements": {
      "access_cost_2026_11_06": "plan.sa.gov.au returns 403 to plain curl (WAF) - supported browser required. In-session timings: Status-only search settles ~3-8 s; date-window searches settle 30-90 s (2026 window ~25-30 s; a 2021 window did not settle within 75 s); results render via bootstrap-table AJAX after the count text. perpage max 100 rows/page => ~3,000 pages for the full register, or windowed CSV exports via the payload endpoint (row cap unmeasured - the in-page click of 'Download .CSV of results' did not deliver a file to the browser workspace in-session; the payload recipe is recorded in sources[0].api).",
      "au_comparator_registers_2026_11_06": "data.gov.au catalogue sweep for DA/consent registers (anonymous package_search, scripts retained in probe/): City of Adelaide 'Current Development Applications' cc-by but ceased updating 2021-03-19 (dead); City of Playford per-year CSV DA register (2013 onward, cc-by, statutory Regulation 98 register - viable small fallback); ACT ACTGOV completed/active DAs via ACTmapi ArcGIS Hub (licence 'Other' - unverified); Moreton Bay QLD DAs via ArcGIS Hub (licence 'Other', weekly updates since 2016-02-01 - unverified); Victorian 'Building Permit Activity Data' per-year XLSB 2009-2026 (Building and Plumbing Commission, cc-by, >40 fields per permit, but permits issued with no decision-outcome field - carries no target). PlanSA is the only live statewide register with per-application decision statuses under a class-A licence.",
+     "csv_truncation_hazard_2026_11_07": "MEASURED (notes s6.4): the CSV export returns a NON-DETERMINISTIC ~789,151-byte subset when a window's full result exceeds that size - dual-fetch of the identical full-year-2020 decided query gave equal byte counts (789,151) but different content (in-page hash, t1!==t2); five identical calls parsed 2,287/3,022/3,052/4,188/4,349 rows, all below the backend's 5,235. Parser determinism proven by double-parse (identical counts). Sub-~780 KB windows are complete (Sep-2020 696 rows/102 KB; Q4-2020 1,266/299 KB; half-months 2021-2026 478-1,944/72-294 KB). Construction must enumerate in month-scale windows and reconcile against TotalRecords. Descriptions contain unquoted newlines (measured examples) - quote-aware parsing plus row validation required; one 2025-09 half-month response carried 250,490 bytes with only 80 parseable rows.",
+     "detail_channel_degradation_2026_11_07": "MEASURED (notes s6.3): after ~100 detail POSTs (bursts), the same query that returned full DecisionDetails for app 6154 began returning hollow children (children present, FieldValues empty), and a 30 s pause did not restore it in-session; a 16-POST foreground batch and all later reads came back hollow. Trigger undetermined (burst pacing vs backend load vs time-of-day) - unmeasured. Consequence: refusal prevalence and per-consent availability rate are UNMEASURED; extraction must pace (>= 1.5 s), validate every row, re-fetch on hollow reads, and never read an empty DecisionDetails as 'no decision'.",
      "detail_schema_2026_11_06": "Sample application 26037018 (192 THE PARADE NORWOOD SA 5067, lodged 5 November 2026, fetched 2026-11-06): Application summary tab shows Application ID, Lodged date, Application number ('N/A' for this one), Applicants, Assessment Pathway 'Accepted', Elements 'Internal fitout', Council area 'Norwood Payneham and St Peters', Title 'CT 5613/456 F139146 AL66', Public Notification 'Not applicable', status pill 'DECISION MADE'. Assessment tab shows per-consent decisions: 'This application requires Building Consent / Development Approval - Planning, Building' both 'Granted'. NO decision date displayed on this sample (decided within ~1 day; date-only display, so decision latency is measured to the day at best). List columns: Reference number, Applicant, Property address, Description, Lodged.",
+     "endpoint_layer_2026_11_07": "Three machine endpoints reverse-engineered from the page's own bundle and verified (notes s6.1): CSV export (GET plan.sa.gov.au/.../daregisterCSV?payload=btoa, 7 columns, coarse status only, m/d/yyyy date parsing - dd/mm strings with day>12 return 0 bytes), search (POST cdn.plan.sa.gov.au/prs/fFGE56_reg8R, TotalRecords authoritative), per-application detail (POST same endpoint, DataObject per register code: DAP->DAPRegisterDetail, LUA/LUC->LandUseRegisterDetail, LDE->LandDivisionRegisterDetail, MD->MajorDevelopmentRegisterDetail) with 9 named children; DecisionDetails rows carry [decision type, decision, decision date]. Verified example: app 6154 'Development Approval / Granted / 30 Apr 2021' (lodged 1 Apr 2021). plan.sa.gov.au and the CDN 403 plain curl; all recipes run from browser page context.",
+     "gen_star_ratings_probe_2026_11_07": "GEN (federal AU, the other recorded regional next action): Star Ratings quarterly data extract series verified on gen-agedcaredata.gov.au - 15 quarterly service-level extracts May 2023 -> October 2026 (publisher: Department of Health, Disability and Ageing; 1-5 overall + 4 sub-category ratings; latest released 13 Oct 2026; site licence CC BY 4.0 was read 2026-10-31 and recorded then). The extract itself (XLSX ~2 MB on health.gov.au) could NOT be fetched from this host: health.gov.au hangs/fails for curl (two attempts, HTTP/2 stream error rc=92 then timeout) and the browser download channel does not deliver files in this environment. No candidate opened; the one-extract probe stays recorded and blocked on a working fetch channel (worker fetch or operator network).",
      "nz_coverage_2026_11_06": "Per this tick's regional focus: data.govt.nz catalogue is bot-walled for plain HTTP (Imperva, 'Pardon Our Interruption') but opens in the supported browser. Search 'resource consents' returned 327 datasets, dominated by regional council GIS layers (Horizons 91, Environment Canterbury 86, Otago RC 33, ...), formats HTML 319 / ArcGIS REST 282 / CSV 275, licence facets showing ~79 CC-licensed vs 9 'Other licensing'. NZ council resource-consent registers are activity permits (discharges, water takes) - a different population from first-instance development decisions, and licence verification per publisher would be required before any probe. No NZ candidate opened this tick; existing NZ candidates fenz-incident-data and nz-ea-wholesale-price-exceedance remain with their owners.",
+     "pdi_year_counts_2026_11_07": "Search-backend TotalRecords per lodgement year (m/d/yyyy windows, Status filter; table in notes s6.5): decided 2020-2026 = 5,235 / 34,482 / 35,782 / 31,356 / 34,549 / 33,280 / 23,028 (sum 198,312); all-status 5,761 / 38,448 / 40,485 / 35,563 / 38,982 / 38,102 / 34,531; under assessment 252 / 1,613 / 2,428 / 2,403 / 2,862 / 3,867 / 11,101. All-time decided (status-only query): 260,311. Counts are the publisher's own backend totals read via the TotalRecords column; the response's Count field is unreliable (0 with rows present).",
+     "population_two_eras_2026_11_07": "Act filter totals (search backend, 2026-11-07): DEV 73,464 + PDI 226,568 = 300,032 (= register total). Decided rows lodged 2000-2009: 26,532; lodged 2010-2019: 36,067. The register ingests the old Development Act register back to at least 2000 - a different (state-referred) population from the PDI-era all-council register; excluded from the task frame. Register-code mix from CSV samples: 2020 LUA 736/LDE 2,649/DAP 803 (whole-year fetch); DAP ~99% from 2021; LUC appears 2026. Detail DataObject must be chosen per row's register code.",
      "prior_art_scan_2026_11_06": "Task-level prior art search (web, 2026-11-06): (1) ConfidentPlanner github.com/athuler/ConfidentPlanner - London planning approval-likelihood tool on the GLA London Planning Datahub (OGL v3), logistic regression + TF-IDF description embedding, AUC ~0.73, trained 2022-26; a tool with a trained model, NOT a published benchmark with splits/scored contract, and a different jurisdiction/decision system. (2) Lin et al. 2025, Sage J. Urban Planning 'Transforming urban planning through machine learning' - classifies Australian planning applications into development categories from description text (DeBERTa-v3 F1 0.944); text classification, not decision prediction; data available 'on reasonable request', not published ML-ready. (3) Aggregate accountability reporting only: Victoria reports '66% of all applications were processed within the statutory timeframes in 2023-24 (84 days median)'; NSW publishes council league tables of DA timeframes; RBA/Productivity-Commission 2025 housing-construction-productivity paper documents statutory-timeframe regimes per state (incl. SA) - all aggregate, none per-application, none a prediction task. Nearest family members in our own portfolio: pins-planning-appeal-outcome (GB, appeals of refused applications - different instant and population) and tc-gv-licence-application-outcome (operator licensing). No ML-ready per-application DA decision/latency benchmark with splits found anywhere; the statutory-timeframe compliance target in particular has no published predictor at all.",
      "register_totals_2026_11_06": "Read from the register's own result-count text in the supported browser session (UTC timestamps approximate, page clock 2026-11-06 03:30-04:15Z): default search 'We've found 299,858 development applications'; Status=Decision Made 260,174 (86.8% of all); Under Assessment 27,083; Lapsed 338; Withdrawn 10,538; Cancelled 1,725 (sum 299,858, consistent). Lodged 01/01/2026-06/11/2026: 17,733 (roughly 2,100/month, so a full lodgement year is on the order of 20k rows). Counts are the publisher's own displayed totals, not locally derived.",
+     "status_filter_validation_2026_11_07": "The coarse-status design is backend-enforced: search POSTs with Status='Decision Made' return TotalRecords 260,311 with rows, while Status in {Refused, Granted, Approved, Rejected} return no TotalRecords and no rows (same param shape, positive control working). There is no enumeration channel for refusals other than per-application detail fetches.",
      "status_vocabulary_2026_11_06": "Extracted from the register's own bundle public-register.min.js (PRstatusObj, verbatim descriptions): Lodged 'The application has been formally lodged by the applicant and is ready for assessment.'; Under Assessment '...awaiting decision.'; Approved 'The is approved.'; Decision Made 'Assessment of this application has completed and a decision has been made.'; Granted 'The is granted.'; Decision Under Appeal 'The decision made on the application by the relevant authority is being appealed in court, and may be upheld or overturned.'; Cancelled 'The was cancelled.'; Withdrawn 'The applicant has withdrawn this application from assessment and no decision may be made.'; Refused 'This was refused.'; Rejected 'This was rejected.'; Lapsed 'The decision made on this application has lapsed and is no longer valid.' The coarse search filter offers only Under Assessment/Decision Made/Lapsed/Withdrawn/Cancelled; Granted/Refused/Rejected/Approved/Decision Under Appeal are detail-level statuses.",
+     "statutory_timeframes_2026_11_07": "Pathway timeframes read 2026-11-07 from the publisher's own guidance (plan.sa.gov.au 'Stages and timeframes' + 'Guide to Development Assessment' PDI PDF, via web search snippets): planning consent deemed-to-satisfy 5 business days; performance-assessed 20 (no notification/referral) / 50 (referral, assessment manager) / 70 (public notification, panel or SCAP authority); restricted 95; building consent class 1/10 20 (+10 if SCAP referral); land division 60; all plus 5 business days verification and 2 business days to issue; performance-assessed clocks can be SUSPENDED for information requests (up to 12 weeks, clock restarts) - a per-application latency label must carry this as a declared limitation since suspensions are not published per application. Full regulation-text extraction (PDI (General) Regulations 2017) and a published-late-decision known-event fixture remain open items for construction design.",
      "worked_example_2026_11_06": "Dated example (all dates Australia/Adelaide, ACDT UTC+10:30; register displays dates only, so instants are day-granular): application 26037018, 192 The Parade Norwood SA 5067. Feature event window: everything up to lodgement on 05/11/2026 - description 'Commercial' (internal fitout), applicant Jones Lang LaSalle, Assessment Pathway 'Accepted', elements 'Internal fitout', council 'Norwood Payneham and St Peters'. First availability: present in the register search results when fetched 06/11/2026 ~03:55Z, i.e. within one day of lodgement (publication latency bounded at ~1 day by this one observation, not proven generally). Eligibility cutoff: lodged via the portal on/after 31/07/2020 (PDI Act); DEV-Act rows exist for some authorities. Prediction instant: lodgement, 05/11/2026 (ACDT). Target start/end: the decision event; observed status 'DECISION MADE' with 'Development Approval - Planning, Building - Granted' by fetch time 06/11/2026 ~04:15Z, so this application's decision window closed within ~1 day of lodgement (Accepted pathway; not representative of notified/assessed pathways). For a forward framing the whole target window follows the prediction instant; for this retrospective example the decision had already occurred at fetch time."
     },
-    "next_action": "Cheapest decisive probes, in order (all browser-first; no worker money needed for 1-2): (1) DECISION-DATE probe - open 3-5 Decision-Made applications lodged 202",
+    "next_action": "Discovery-owned paced detail pass (one session, no worker money): re-probe the detail channel in a quiet window with >= 1.5 s spacing and a hollow-read re-fetch",
     "packaged_at": null,
     "path": "candidates/plansa-da-register-decision/record.json",
     "prediction_time": "At lodgement of the application. Features displayed by the register that are documented at that instant: description (free text, e.g. 'Commercial', 'Verandah', 'Outbuilding (domestic storage shed)'), Assessment Pathway (e.g. 'Accepted'), Elements (e.g. 'Internal fitout', Demolition/Land division/Telecom codes DM/LD/TF/TA/RDT), Council area, Decision authority type (Assessment Manager / Assessment Panel / Council / DAC / Governor / Independent Assessor / Minister / SCAP / State Planning Commission), Act (DEV/PDI), applicant name, property address and title. Post-lodgement fields to exclude from features: status, decision, decision date, notification outcome, and any post-hoc reclassification. Two timing questions remain unresolved: (1) whether the displayed Assessment Pathway/category is exactly the value assigned at lodgement or a later-revised value (needs the PDI Act guidance pages); (2) no decision DATE has yet been observed on a detail page (only the decision TYPE on the Assessment tab), which blocks candidate A's latency label. The register is a current-state service: it showed applications lodged 05/11/2026 by the 06/11/2026 ~03:55Z fetch, and historical vintages are not archived, so a task built from it is retrospective with an explicit as-of assumption; decisions may also change after the fact (status vocabulary contains 'Decision Under Appeal', 'Lapsed').",
@@ -14148,7 +14161,7 @@
      "result": null,
      "splits": null
     },
-    "question": "OPEN between two candidate labels, to be fixed by the decision-date probe (next_action 1-2). Both share the same population (DAs lodged through the SA planning portal from 31/07/2020) and the same prediction instant (lodgement). Candidate A (preferred, higher utility): will this application be decided within the statutory timeframe applicable to its assessment pathway under the Planning, Development and Infrastructure Act 2016 - a per-application version of the statutory-timeframe KPI that SA/Vic/NSW report only as aggregate percentages. Candidate B: will the decision be a refusal (status in {Refused, Rejected}), with Withdrawn/Lapsed/Cancelled censored rather than negative. Prospective user: an applicant or their planning professional at/before lodgement, and councils forecasting assessment workload; a useful prediction supports pre-lodgement advice and resource allocation.",
+    "question": "FIXED 2026-11-07 (label sources measured, see notes s6.2): at the lodgement instant of a development application lodged through the SA PlanSA portal, predict whether the application will be decided within the statutory timeframe applicable to its assessment pathway under the PDI Act 2016 (primary; a per-application version of the statutory-timeframe KPI that SA/Vic/NSW publish only as aggregate percentages), with the per-consent decision outcome (refusal) as a secondary label. Prospective user: an applicant or their planning professional at/before lodgement, and councils forecasting assessment workload; a useful prediction supports pre-lodgement advice and resource allocation. Both labels derive from the register's per-application DecisionDetails (decision type / decision / decision date), measured available 2026-11-07 on a verified example (app 6154: 'Development Approval / Granted / 30 Apr 2021', lodged 1 Apr 2021) via a machine-readable detail endpoint - but that channel was also measured to degrade to hollow responses under sustained querying (notes s6.3), so label-row availability rate under a paced extraction is the last unmeasured input.",
     "region": "Oceania",
     "release_baseline": {
      "auc": null,
@@ -14169,9 +14182,9 @@
       "url": "https://data.gov.au/data/dataset/development-application-public-register"
      }
     ],
-    "split_strategy": "OPEN - per-year counts not yet measured in-session (date-window searches settle in 30-90 s in the browser and one 2021-window query did not settle within 75 s; per-year counts are a worker-side probe via Status-filtered searches or the CSV export). Population evidence so far: 299,858 DAs matched by the default search (2026-11-06); 260,174 with Status=Decision Made; 17,733 lodged 01/01/2026-06/11/2026. Rough intended design once counts exist: time-ordered windows by lodgement year (e.g. train 2020H2-2022, eval 2023-2024, holdout 2025-2026-to-date) with the label population restricted to decided applications; positives are expected to cluster by council and season (Christmas lodgement/decision lull), so record clustered counts (council-week) before claiming independence.",
+    "split_strategy": "Rows per window measured 2026-11-07 from the register's own search backend (TotalRecords; m/d/yyyy windows; see notes s6.5 table). PDI-era decided rows by lodgement year: 2020: 5,235; 2021: 34,482; 2022: 35,782; 2023: 31,356; 2024: 34,549; 2025: 33,280; 2026-to-date: 23,028 (sum 198,312; all-status totals 5,761/38,448/40,485/35,563/38,982/38,102/34,531; Under Assessment per year 252/1,613/2,428/2,403/2,862/3,867/11,101 - recent-year censoring is material for 2025-2026 windows). Intended windows (lodgement year, label population = decided rows): train 2020-2022 (75,499 decided rows), eval 2023-2024 (65,905), holdout 2025-2026-to-date (56,308). POSITIVES per window are NOT yet counted: refusal prevalence is unmeasured (the detail channel degraded before the sample could run, notes s6.3/s6.6) - the paced per-window detail sample is the one measurement gating the ready verdict, and the exact refusal count per window is construction's first worker step. Positives are expected to cluster by council and decision authority; clustered counts must be recorded before independence is claimed.",
     "status": "investigating",
-    "target": "OPEN - pending the decision-date probe. Candidate A: binary label 1 = decision made more than the PDI Act statutory timeframe (working days, per pathway/category, clock-stop rules documented in the PDI (General) Regulations 2017 - rules not yet extracted; a published example decision is needed as a known-event fixture). Source columns: lodged date + decision date + pathway, decision date NOT YET CONFIRMED displayed per application. Candidate B: binary label 1 = decision status in {Refused, Rejected} (statuses documented in the register's own vocabulary: 'Refused' orange, 'This was refused.'; 'Rejected' orange, 'This was rejected.'); 0 = granted/approved; Withdrawn ('the applicant has withdrawn this application from assessment and no decision may be made'), Lapsed, Cancelled and still-Under-Assessment rows are censored and excluded from the label population - they are not negatives. Label source columns are excludable from shipped features."
+    "target": "FIXED family 2026-11-07; prevalence unmeasured. Primary label, binary: statutory-timeframe latency = decision date (DecisionDetails DD, e.g. '30 Apr 2021') minus lodged date exceeds the PDI Act assessment timeframe for the application's pathway. Pathway timeframes documented from the publisher's own 'Stages and timeframes' page (read 2026-11-07): deemed-to-satisfy 5 business days; performance-assessed 20 (no notification/referral), 50 (referral, assessment manager), 70 (public notification, panel/SCAP); restricted 95; building consent class 1/10 20 (+10 SCAP referral); land division 60; plus 5 business days verification up front and 2 business days to issue; AND a documented clock-SUSPENSION confounder (info requests, up to 12 weeks, clock restarts) that the register does not publish per application - the latency label must declare this as a limitation, and a published late decision is still needed as the known-event fixture. Secondary label, binary: refusal = per-consent DecisionDetails DRT in {Refused, Rejected} for the planning consent; 0 = granted/approved; Withdrawn/Lapsed/Cancelled and still-Under-Assessment rows are censored, not negatives (coarse statuses are backend-enforced: Status=Refused/Granted search POSTs return no rows while Status='Decision Made' returns 260,311 + rows, negative validated by positive control, notes s6.5). Population: PDI-era applications (lodged >= 31 Jul 2020) in the statewide register; the register also carries 73,464 DEV-act-era rows (measured, incl. 36,067 decided 2010-2019 and 26,532 decided 2000-2009) which are a different, state-referred population and are EXCLUDED from the frame. Both label source fields live in a JSON child separate from every lodgement-time feature, so the label sources are excludable from what ships."
    },
    {
     "awaiting_operator": false,
@@ -16290,7 +16303,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 67.7,
+    "age_hours": 68.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -17003,7 +17016,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 21.5,
+     "age_hours": 22.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "IN",
@@ -17832,7 +17845,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 78.0,
+     "age_hours": 79.0,
      "awaiting_operator": false,
      "baseline": {},
      "country": "GB",
@@ -18006,7 +18019,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 218.5,
+     "age_hours": 219.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -18347,7 +18360,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 67.7,
+     "age_hours": 68.7,
      "awaiting_operator": false,
      "baseline": {},
      "country": "ZA",
@@ -18873,7 +18886,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 21.5,
+     "age_hours": 22.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "IN",
@@ -19702,7 +19715,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 78.0,
+     "age_hours": 79.0,
      "awaiting_operator": false,
      "baseline": {},
      "country": "GB",
@@ -19876,7 +19889,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 218.5,
+     "age_hours": 219.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -20217,7 +20230,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 67.7,
+     "age_hours": 68.7,
      "awaiting_operator": false,
      "baseline": {},
      "country": "ZA",
@@ -20478,10 +20491,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-07T16:50:02.014299+00:00",
+    "last_run_at": "2026-11-07T17:50:02.207519+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-07T17:00:00+00:00",
+    "next_run_at": "2026-11-07T18:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -20502,10 +20515,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-07T16:50:01.420894+00:00",
+    "last_run_at": "2026-11-07T17:50:01.158282+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-07T16:55:00+00:00",
+    "next_run_at": "2026-11-07T17:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -20526,10 +20539,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-07T16:45:41.647654+00:00",
+    "last_run_at": "2026-11-07T17:45:56.839213+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-07T16:50:41.647654+00:00",
+    "next_run_at": "2026-11-07T17:50:56.839213+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -20538,10 +20551,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-07T15:55:00.934307+00:00",
+    "last_run_at": "2026-11-07T17:50:01.065104+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-07T16:05:00+00:00",
+    "next_run_at": "2026-11-07T17:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -20562,10 +20575,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-07T15:50:54.803075+00:00",
+    "last_run_at": "2026-11-07T16:50:54.794911+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-07T17:50:00+00:00",
+    "next_run_at": "2026-11-07T18:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -20574,10 +20587,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-07T15:55:00.619601+00:00",
+    "last_run_at": "2026-11-07T16:55:01.232545+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-07T16:55:00+00:00",
+    "next_run_at": "2026-11-07T17:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -20618,9 +20631,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-07T16:50:02.015551+00:00"
+  "updated_at": "2026-11-07T17:50:02.208727+00:00"
  },
- "generated_at": "2026-11-07T16:50:01+00:00",
+ "generated_at": "2026-11-07T17:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -20628,22 +20641,22 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-07T14:35:58Z",
-   "head_sha": "c999cca",
+   "created_at": "2026-11-07T17:45:51Z",
+   "head_sha": "a2578ed",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42382357676"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42397903413"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 53/59 (90%)"
   },
   "head": {
-   "at": "2026-11-07T14:35:47Z",
-   "sha": "c999cca",
-   "subject": "ns-bwa v2026.12 package fully prepared and locally verified; private staging deferred under the 2026-11-07 factory-repai"
+   "at": "2026-11-07T18:45:48+01:00",
+   "sha": "a2578ed",
+   "subject": "Merge pull request #27 from earino/codex/answer-artifact-scrubber"
   },
   "tests": {
-   "count": "723",
+   "count": "746",
    "ok": true
   }
  },
@@ -24239,15 +24252,21 @@
    "qualified": 0,
    "sessions_7d": 107,
    "tokens_7d": 36558661
+  },
+  {
+   "at": "2026-11-07T17:50:01+00:00",
+   "live": 21,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 106,
+   "tokens_7d": 36280885
   }
  ],
- "notices": [
-  "A research session is running: lock held for 2994s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 0.7,
-   "as_of": "2026-11-07T16:50:01+00:00",
+   "as_of": "2026-11-07T17:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -24257,7 +24276,7 @@
   },
   "candidates": {
    "age_minutes": 0.7,
-   "as_of": "2026-11-07T16:50:01+00:00",
+   "as_of": "2026-11-07T17:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -24267,7 +24286,7 @@
   },
   "releases": {
    "age_minutes": 0.7,
-   "as_of": "2026-11-07T16:50:01+00:00",
+   "as_of": "2026-11-07T17:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -27843,7 +27862,7 @@
   "jobs_total": 222,
   "lifetime_eur": 7.01,
   "live": {
-   "checked_at": "2026-11-07T16:50:40+00:00",
+   "checked_at": "2026-11-07T17:50:45+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -27878,20 +27897,6 @@
  "sessions": {
   "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 2892.7,
-    "event": "session",
-    "max_turns": 120,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "research-session-prompt.md",
-    "run_budget": 5400,
-    "submitted_brief_sha256": "4b989e61f57eb262c468a9a12ee6d14133b74cc5083724b3c3d96d3b74951bf3",
-    "ts": "2026-11-07T10:58:14.322367+00:00"
-   },
    {
     "elapsed_seconds": 2662.3,
     "event": "session",
@@ -27960,8 +27965,21 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "c67c5d353d6b94ac5f349f869ccf188f9b176c1bd9caef8f395eaf5193db2f17",
     "ts": "2026-11-07T14:37:58.191855+00:00"
+   },
+   {
+    "elapsed_seconds": 4195.5,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-discovery"
+    ],
+    "prompt_file": "discovery-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "b4b295a744d1cb987141c7725f6b2f0f028f8b0a42020f1e11d70a3b8b553b1d",
+    "ts": "2026-11-07T17:10:04.178405+00:00"
    }
   ],
-  "total": 40
+  "total": 38
  }
 }
