@@ -1,10 +1,11 @@
 {
  "alarms": [
-  "Token use at 91% of the weekly ceiling",
-  "cpcb-aqi-exceedance has been packaged and actionable for 18.5h - shipping it outranks construction",
-  "cqc-care-home-deregistration has been packaged and actionable for 75.0h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration has been packaged and actionable for 215.5h - shipping it outranks construction",
-  "za-cct-substation-evening-peak-exceedance has been packaged and actionable for 64.7h - shipping it outranks construction"
+  "Token use at 92% of the weekly ceiling",
+  "cpcb-aqi-exceedance has been packaged and actionable for 19.5h - shipping it outranks construction",
+  "cqc-care-home-deregistration has been packaged and actionable for 76.0h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration has been packaged and actionable for 216.5h - shipping it outranks construction",
+  "za-cct-substation-evening-peak-exceedance has been packaged and actionable for 65.7h - shipping it outranks construction",
+  "1 release(s) not fully verified"
  ],
  "budget": {
   "config": {
@@ -22,12 +23,12 @@
    "accounting_available": true,
    "allowance_usd": 30.0,
    "allowed": true,
-   "moment": "2026-11-07T13:50:02.822582+00:00",
+   "moment": "2026-11-07T14:50:03.427712+00:00",
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 36463367,
+   "research_tokens_last_7_days": 36724305,
    "runs_last_7_days": 109,
    "runs_weighted_last_7_days": 125,
    "session_cap_per_week": 200,
@@ -54,14 +55,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 5988,
+     "calls": 6067,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 28721836,
-     "output_tokens": 5812697,
+     "input_tokens": 28881783,
+     "output_tokens": 5914260,
      "pricing_available": false
     }
    },
@@ -5278,7 +5279,7 @@
     "target": "Binary: 1 if VolumenAlm(Mm3) < threshold on at least one day with Fecha in (T, T+30] in the dam's SIH series, else 0. Label source column: VolumenAlm(Mm3) (the same column as the target variable), excluded from features by the Fecha <= T filter; no other column carries the answer. Threshold frame, two candidates measured in the sample: (a) discovery-time proxy = 25 percent of the dam's own observed maximum VolumenAlm (the SIH catalog carries no capacity column); (b) construction-time preferred frame = 25 percent of official capacity, published per dam in CONAGUA's weekly 'Almacenamiento de las Principales Presas del Pais' report (columns CAPACIDAD MUERTA / CAP. UTIL DISENO Mm3; archive at ftp://ftp.conagua.gob.mx/Gobmx/DisponibilidadenPresas/) and in the press-percentage frame (e.g. El Cuchillo capacity 1,123 Mm3 vs observed max 1,765.7 Mm3 including flood surcharge; the proxy threshold 441.4 Mm3 equals 39 percent of the official frame, so the proxy is the conservative/higher threshold and events under it are a subset of events under the official frame). Eligibility at T, from information available at prediction: dam has >= 365 prior daily VolumenAlm rows and VolumenAlm(T) >= threshold (onset formulation; days already below threshold are not prediction rows)."
    },
    {
-    "age_hours": 18.5,
+    "age_hours": 19.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6107,7 +6108,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 75.0,
+    "age_hours": 76.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12312,7 +12313,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 215.5,
+    "age_hours": 216.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -12575,7 +12576,7 @@
      "register_totals": "2,649 advisories; 2,576 resolved (removal date present); 73 active/censored (removal blank); 1,116 distinct site names; facility types: Registered 2,491, Municipal 101, missing 57; reasons: Total Coliform Present 1,816, Chemical Exceedance 389, Other 186, E. Coli Present 83 + E.Coli Present 52 (spelling variants - same category), Lack of Disinfection 50, Failure of Treatment Processes 42, Ineffective Disinfection 14, others 13, missing 5.",
      "sibling_channels_checked_2026_10_27": "Newfoundland & Labrador 'Boil Water Advisories' (opendata.gov.nl.ca file-id=17146, nl-oglnl, 53,342 bytes, bounded header+rows sample read): carries BOIL_ADVISORY_ISSUE_DATE and rich system features (SUPPLY_TYPE, SOURCE_TYPE, NUM_OF_WELLS, CHLORINATION, POPULATION_SERVICED, REGION_*) but NO lift/rescinded date column - cannot support the duration task (measured negative). Manitoba 'Current BWAPWS' (mb-omb): current advisories only, no lifts. Quebec (donneesquebec.ca, qc-cc-by): one city (Repentigny). ECCC/CESI 'Boil water advisories' (ca-ogl-lgo): national aggregate indicator CSVs only. The NS register is the only per-advisory machine-readable channel with lift dates found this tick - the provincial municipal-water channel the isc-ltdwa record named as its reopening condition."
     },
-    "next_action": "REBUILD + BASELINE COMPLETE 2026-11-07: v2026.12 artifact 49bf4cfa427375c6b7bf90f85eb0330d78da0cc49197c119c396b6b7ea4c6144 qualified on the worker (gate 1.5.0, ",
+    "next_action": "v2026.12 PACKAGE PREPARED AND LOCALLY VERIFIED 2026-11-07 (artifact 49bf4cfa427375c6..., gate 1.5.0 44/44, check-package OK, suitability re-bound, docs Class-B-",
     "packaged_at": "2026-10-29T14:17:14Z",
     "path": "candidates/ns-bwa-advisory-lift-duration/record.json",
     "prediction_time": "The advisory issue date (register column 'Date Advisory Issued', calendar day, America/Halifax). Every shipped feature must be a value fixed at or before that day: the issuing row's own site name, county, facility type, reason for the report, and derived calendar features; site/county history features may only use rows with an earlier issue date. The label window is the 30 days that follow the issue date. No part of the target window precedes the instant.",
@@ -12607,8 +12608,8 @@
     "question": "At the moment a boil water advisory is issued for a public registered or municipal drinking water supply in Nova Scotia - known then: site name, county, facility type, reason for the report, calendar season, and the prior advisory history of the same site/county computed only from earlier advisories - will the advisory be lifted within 30 days?",
     "region": "North America",
     "release_baseline": {
-     "auc": 0.5086,
-     "display": "0.5086",
+     "auc": 0.5068,
+     "display": "0.5068",
      "reference": null
     },
     "release_splits": {
@@ -16286,7 +16287,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 64.7,
+    "age_hours": 65.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16999,7 +17000,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 18.5,
+     "age_hours": 19.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "IN",
@@ -17828,7 +17829,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 75.0,
+     "age_hours": 76.0,
      "awaiting_operator": false,
      "baseline": {},
      "country": "GB",
@@ -18002,7 +18003,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 215.5,
+     "age_hours": 216.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -18265,7 +18266,7 @@
       "register_totals": "2,649 advisories; 2,576 resolved (removal date present); 73 active/censored (removal blank); 1,116 distinct site names; facility types: Registered 2,491, Municipal 101, missing 57; reasons: Total Coliform Present 1,816, Chemical Exceedance 389, Other 186, E. Coli Present 83 + E.Coli Present 52 (spelling variants - same category), Lack of Disinfection 50, Failure of Treatment Processes 42, Ineffective Disinfection 14, others 13, missing 5.",
       "sibling_channels_checked_2026_10_27": "Newfoundland & Labrador 'Boil Water Advisories' (opendata.gov.nl.ca file-id=17146, nl-oglnl, 53,342 bytes, bounded header+rows sample read): carries BOIL_ADVISORY_ISSUE_DATE and rich system features (SUPPLY_TYPE, SOURCE_TYPE, NUM_OF_WELLS, CHLORINATION, POPULATION_SERVICED, REGION_*) but NO lift/rescinded date column - cannot support the duration task (measured negative). Manitoba 'Current BWAPWS' (mb-omb): current advisories only, no lifts. Quebec (donneesquebec.ca, qc-cc-by): one city (Repentigny). ECCC/CESI 'Boil water advisories' (ca-ogl-lgo): national aggregate indicator CSVs only. The NS register is the only per-advisory machine-readable channel with lift dates found this tick - the provincial municipal-water channel the isc-ltdwa record named as its reopening condition."
      },
-     "next_action": "REBUILD + BASELINE COMPLETE 2026-11-07: v2026.12 artifact 49bf4cfa427375c6b7bf90f85eb0330d78da0cc49197c119c396b6b7ea4c6144 qualified on the worker (gate 1.5.0, ",
+     "next_action": "v2026.12 PACKAGE PREPARED AND LOCALLY VERIFIED 2026-11-07 (artifact 49bf4cfa427375c6..., gate 1.5.0 44/44, check-package OK, suitability re-bound, docs Class-B-",
      "packaged_at": "2026-10-29T14:17:14Z",
      "path": "candidates/ns-bwa-advisory-lift-duration/record.json",
      "prediction_time": "The advisory issue date (register column 'Date Advisory Issued', calendar day, America/Halifax). Every shipped feature must be a value fixed at or before that day: the issuing row's own site name, county, facility type, reason for the report, and derived calendar features; site/county history features may only use rows with an earlier issue date. The label window is the 30 days that follow the issue date. No part of the target window precedes the instant.",
@@ -18297,8 +18298,8 @@
      "question": "At the moment a boil water advisory is issued for a public registered or municipal drinking water supply in Nova Scotia - known then: site name, county, facility type, reason for the report, calendar season, and the prior advisory history of the same site/county computed only from earlier advisories - will the advisory be lifted within 30 days?",
      "region": "North America",
      "release_baseline": {
-      "auc": 0.5086,
-      "display": "0.5086",
+      "auc": 0.5068,
+      "display": "0.5068",
       "reference": null
      },
      "release_splits": {
@@ -18343,7 +18344,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 64.7,
+     "age_hours": 65.7,
      "awaiting_operator": false,
      "baseline": {},
      "country": "ZA",
@@ -18869,7 +18870,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 18.5,
+     "age_hours": 19.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "IN",
@@ -19698,7 +19699,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 75.0,
+     "age_hours": 76.0,
      "awaiting_operator": false,
      "baseline": {},
      "country": "GB",
@@ -19872,7 +19873,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 215.5,
+     "age_hours": 216.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -20135,7 +20136,7 @@
       "register_totals": "2,649 advisories; 2,576 resolved (removal date present); 73 active/censored (removal blank); 1,116 distinct site names; facility types: Registered 2,491, Municipal 101, missing 57; reasons: Total Coliform Present 1,816, Chemical Exceedance 389, Other 186, E. Coli Present 83 + E.Coli Present 52 (spelling variants - same category), Lack of Disinfection 50, Failure of Treatment Processes 42, Ineffective Disinfection 14, others 13, missing 5.",
       "sibling_channels_checked_2026_10_27": "Newfoundland & Labrador 'Boil Water Advisories' (opendata.gov.nl.ca file-id=17146, nl-oglnl, 53,342 bytes, bounded header+rows sample read): carries BOIL_ADVISORY_ISSUE_DATE and rich system features (SUPPLY_TYPE, SOURCE_TYPE, NUM_OF_WELLS, CHLORINATION, POPULATION_SERVICED, REGION_*) but NO lift/rescinded date column - cannot support the duration task (measured negative). Manitoba 'Current BWAPWS' (mb-omb): current advisories only, no lifts. Quebec (donneesquebec.ca, qc-cc-by): one city (Repentigny). ECCC/CESI 'Boil water advisories' (ca-ogl-lgo): national aggregate indicator CSVs only. The NS register is the only per-advisory machine-readable channel with lift dates found this tick - the provincial municipal-water channel the isc-ltdwa record named as its reopening condition."
      },
-     "next_action": "REBUILD + BASELINE COMPLETE 2026-11-07: v2026.12 artifact 49bf4cfa427375c6b7bf90f85eb0330d78da0cc49197c119c396b6b7ea4c6144 qualified on the worker (gate 1.5.0, ",
+     "next_action": "v2026.12 PACKAGE PREPARED AND LOCALLY VERIFIED 2026-11-07 (artifact 49bf4cfa427375c6..., gate 1.5.0 44/44, check-package OK, suitability re-bound, docs Class-B-",
      "packaged_at": "2026-10-29T14:17:14Z",
      "path": "candidates/ns-bwa-advisory-lift-duration/record.json",
      "prediction_time": "The advisory issue date (register column 'Date Advisory Issued', calendar day, America/Halifax). Every shipped feature must be a value fixed at or before that day: the issuing row's own site name, county, facility type, reason for the report, and derived calendar features; site/county history features may only use rows with an earlier issue date. The label window is the 30 days that follow the issue date. No part of the target window precedes the instant.",
@@ -20167,8 +20168,8 @@
      "question": "At the moment a boil water advisory is issued for a public registered or municipal drinking water supply in Nova Scotia - known then: site name, county, facility type, reason for the report, calendar season, and the prior advisory history of the same site/county computed only from earlier advisories - will the advisory be lifted within 30 days?",
      "region": "North America",
      "release_baseline": {
-      "auc": 0.5086,
-      "display": "0.5086",
+      "auc": 0.5068,
+      "display": "0.5068",
       "reference": null
      },
      "release_splits": {
@@ -20213,7 +20214,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 64.7,
+     "age_hours": 65.7,
      "awaiting_operator": false,
      "baseline": {},
      "country": "ZA",
@@ -20474,10 +20475,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-07T13:50:01.466318+00:00",
+    "last_run_at": "2026-11-07T14:50:01.854033+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-07T14:00:00+00:00",
+    "next_run_at": "2026-11-07T15:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -20498,10 +20499,10 @@
     "failure_streak": 0,
     "id": "69a5bc676d10",
     "last_error": "",
-    "last_run_at": "2026-11-07T13:50:01.112376+00:00",
+    "last_run_at": "2026-11-07T14:50:01.776146+00:00",
     "last_status": "ok",
     "name": "scout-research-session",
-    "next_run_at": "2026-11-07T13:55:00+00:00",
+    "next_run_at": "2026-11-07T14:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -20522,10 +20523,10 @@
     "failure_streak": 0,
     "id": "98b45d983280",
     "last_error": "",
-    "last_run_at": "2026-11-07T13:49:49.414380+00:00",
+    "last_run_at": "2026-11-07T14:45:07.454735+00:00",
     "last_status": "ok",
     "name": "scout-worker-watch",
-    "next_run_at": "2026-11-07T13:54:49.414380+00:00",
+    "next_run_at": "2026-11-07T14:50:07.454735+00:00",
     "no_agent": true,
     "schedule": "every 5m"
    },
@@ -20534,10 +20535,10 @@
     "failure_streak": 0,
     "id": "86fe52e55ef9",
     "last_error": "",
-    "last_run_at": "2026-11-07T13:50:00.850693+00:00",
+    "last_run_at": "2026-11-07T14:50:01.971542+00:00",
     "last_status": "ok",
     "name": "scout-discovery-session",
-    "next_run_at": "2026-11-07T13:55:00+00:00",
+    "next_run_at": "2026-11-07T14:55:00+00:00",
     "no_agent": true,
     "schedule": "*/5 * * * *"
    },
@@ -20558,10 +20559,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-07T12:52:13.217463+00:00",
+    "last_run_at": "2026-11-07T13:50:54.063035+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-07T14:50:00+00:00",
+    "next_run_at": "2026-11-07T15:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -20570,10 +20571,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-07T12:55:01.251692+00:00",
+    "last_run_at": "2026-11-07T13:55:00.773919+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-07T13:55:00+00:00",
+    "next_run_at": "2026-11-07T14:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -20614,9 +20615,9 @@
     "schedule": "once at 2026-10-20 16:40"
    }
   ],
-  "updated_at": "2026-11-07T13:50:01.467321+00:00"
+  "updated_at": "2026-11-07T14:50:01.972623+00:00"
  },
- "generated_at": "2026-11-07T13:50:01+00:00",
+ "generated_at": "2026-11-07T14:50:02+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -20624,19 +20625,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-07T13:15:40Z",
-   "head_sha": "ead5584",
+   "created_at": "2026-11-07T14:35:58Z",
+   "head_sha": "c999cca",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42376139276"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42382357676"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 53/59 (90%)"
   },
   "head": {
-   "at": "2026-11-07T12:47:51Z",
-   "sha": "ead5584",
-   "subject": "East Asia discovery tick: Seoul catalog sweep gate answered negative (25 family keywords, all aggregate tables - Korea o"
+   "at": "2026-11-07T14:35:47Z",
+   "sha": "c999cca",
+   "subject": "ns-bwa v2026.12 package fully prepared and locally verified; private staging deferred under the 2026-11-07 factory-repai"
   },
   "tests": {
    "count": "723",
@@ -24211,13 +24212,21 @@
    "qualified": 0,
    "sessions_7d": 109,
    "tokens_7d": 36463367
+  },
+  {
+   "at": "2026-11-07T14:50:02+00:00",
+   "live": 21,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 109,
+   "tokens_7d": 36724305
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 0.7,
-   "as_of": "2026-11-07T13:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-07T14:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -24226,8 +24235,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 0.7,
-   "as_of": "2026-11-07T13:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-07T14:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -24236,8 +24245,8 @@
    "value": 21
   },
   "releases": {
-   "age_minutes": 0.7,
-   "as_of": "2026-11-07T13:50:01+00:00",
+   "age_minutes": 0.6,
+   "as_of": "2026-11-07T14:50:02+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -24785,8 +24794,8 @@
    {
     "assets": 5,
     "baseline_current": true,
-    "baseline_display": "0.5086",
-    "baseline_eval_auc": 0.5086,
+    "baseline_display": "0.5068",
+    "baseline_eval_auc": 0.5068,
     "baseline_evidence": "/opt/data/dataset-factory/release/ns-bwa-advisory-lift-duration/MANIFEST.json:baseline.contract.eval_auc_from_train_py",
     "baseline_per_config": {},
     "baseline_scope": null,
@@ -24796,7 +24805,7 @@
     "persistence_auc": null,
     "publication_note": "Prepared for human review. Nothing here has been published.",
     "published": false,
-    "release_tag": "v2026.10",
+    "release_tag": "v2026.12",
     "rows": 2325,
     "splits": {
      "eval": {
@@ -24812,12 +24821,9 @@
       "rows": 1069
      }
     },
-    "verified": {
-     "github": true,
-     "huggingface": true
-    },
-    "verified_all": true,
-    "verified_at": "2026-10-29T23:36:32Z"
+    "verified": {},
+    "verified_all": false,
+    "verified_at": null
    },
    {
     "assets": 5,
@@ -27816,7 +27822,7 @@
   "jobs_total": 222,
   "lifetime_eur": 7.01,
   "live": {
-   "checked_at": "2026-11-07T13:50:40+00:00",
+   "checked_at": "2026-11-07T14:50:41+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -27849,22 +27855,8 @@
  },
  "schema": 1,
  "sessions": {
-  "failed_last_three": 1,
+  "failed_last_three": 0,
   "recent": [
-   {
-    "elapsed_seconds": 642.7,
-    "event": "session",
-    "max_turns": 30,
-    "outcome": "completed",
-    "preloaded_skills": [
-     "dataset-qualification",
-     "dataset-release"
-    ],
-    "prompt_file": "worker-watch-prompt.md",
-    "run_budget": 900,
-    "submitted_brief_sha256": "00b88e754023e201a161b74820bc1220a9328aa08ba131893308f06c225b93eb",
-    "ts": "2026-11-07T10:09:15.269522+00:00"
-   },
    {
     "elapsed_seconds": 2892.7,
     "event": "session",
@@ -27933,6 +27925,20 @@
     "run_budget": 5400,
     "submitted_brief_sha256": "eab29ac685c77630a1898dde09a964a13b2ac5b4a26b4255599fdcea9121ea5d",
     "ts": "2026-11-07T12:49:06.329434+00:00"
+   },
+   {
+    "elapsed_seconds": 2275.0,
+    "event": "session",
+    "max_turns": 120,
+    "outcome": "completed",
+    "preloaded_skills": [
+     "dataset-qualification",
+     "dataset-release"
+    ],
+    "prompt_file": "research-session-prompt.md",
+    "run_budget": 5400,
+    "submitted_brief_sha256": "c67c5d353d6b94ac5f349f869ccf188f9b176c1bd9caef8f395eaf5193db2f17",
+    "ts": "2026-11-07T14:37:58.191855+00:00"
    }
   ],
   "total": 40
