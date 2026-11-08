@@ -1,12 +1,11 @@
 {
  "alarms": [
-  "Research gate refused the next session: 185 research session(s) already ran in the last 7 days, 15 of which overshot the 600,000-token cap and count double (cap 200)",
-  "Token use at 105% of the weekly ceiling",
+  "Token use at 107% of the weekly ceiling",
   "Test suite is failing",
-  "cpcb-aqi-exceedance has been packaged and actionable for 50.5h - shipping it outranks construction",
-  "cqc-care-home-deregistration has been packaged and actionable for 107.0h - shipping it outranks construction",
-  "ns-bwa-advisory-lift-duration has been packaged and actionable for 247.5h - shipping it outranks construction",
-  "za-cct-substation-evening-peak-exceedance has been packaged and actionable for 96.7h - shipping it outranks construction",
+  "cpcb-aqi-exceedance has been packaged and actionable for 51.5h - shipping it outranks construction",
+  "cqc-care-home-deregistration has been packaged and actionable for 108.0h - shipping it outranks construction",
+  "ns-bwa-advisory-lift-duration has been packaged and actionable for 248.5h - shipping it outranks construction",
+  "za-cct-substation-evening-peak-exceedance has been packaged and actionable for 97.7h - shipping it outranks construction",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -24,20 +23,21 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 30.0,
-   "allowed": false,
+   "allowed": true,
+   "development_runs_last_7_days": 88,
    "development_token_exemption_active": true,
-   "development_tokens_last_7_days": 6951316,
-   "moment": "2026-11-08T21:50:02.615753+00:00",
+   "development_tokens_last_7_days": 7698035,
+   "moment": "2026-11-08T22:50:03.055545+00:00",
+   "normal_operation_runs_last_7_days": 104,
+   "normal_operation_runs_weighted_last_7_days": 119,
    "normal_operation_tokens_last_7_days": 35094623,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "185 research session(s) already ran in the last 7 days, 15 of which overshot the 600,000-token cap and count double (cap 200)"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 42045939,
-   "runs_last_7_days": 185,
-   "runs_weighted_last_7_days": 200,
+   "research_tokens_last_7_days": 42792658,
+   "runs_last_7_days": 192,
+   "runs_weighted_last_7_days": 207,
    "session_cap_per_week": 200,
    "sessions_over_token_cap": 15,
    "usage": {
@@ -52,31 +52,31 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 998,
+     "calls": 1041,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 27959428,
-     "output_tokens": 890861,
+     "input_tokens": 29294190,
+     "output_tokens": 913658,
      "pricing_available": false
     },
     "research": {
-     "calls": 6830,
+     "calls": 6873,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 35827632,
-     "output_tokens": 8745851,
+     "input_tokens": 36322219,
+     "output_tokens": 8997983,
      "pricing_available": false
     }
    },
    "warnings": [
-    "Operator-authorized development: weekly token ceiling is not enforced during the recorded development window; usage is still measured",
+    "Operator-authorized development: weekly token and session ceilings are not enforced during the recorded development window; usage is still measured",
     "Research dollar spend and remaining allowance are unknown; development token exemption is active",
-    "6,951,316 measured development tokens are excluded from the normal-operation weekly ceiling"
+    "7,698,035 measured development tokens are excluded from the normal-operation weekly ceiling"
    ],
    "weekly_token_budget": 40000000
   }
@@ -5296,7 +5296,7 @@
     "target": "Binary: 1 if VolumenAlm(Mm3) < threshold on at least one day with Fecha in (T, T+30] in the dam's SIH series, else 0. Label source column: VolumenAlm(Mm3) (the same column as the target variable), excluded from features by the Fecha <= T filter; no other column carries the answer. Threshold frame, two candidates measured in the sample: (a) discovery-time proxy = 25 percent of the dam's own observed maximum VolumenAlm (the SIH catalog carries no capacity column); (b) construction-time preferred frame = 25 percent of official capacity, published per dam in CONAGUA's weekly 'Almacenamiento de las Principales Presas del Pais' report (columns CAPACIDAD MUERTA / CAP. UTIL DISENO Mm3; archive at ftp://ftp.conagua.gob.mx/Gobmx/DisponibilidadenPresas/) and in the press-percentage frame (e.g. El Cuchillo capacity 1,123 Mm3 vs observed max 1,765.7 Mm3 including flood surcharge; the proxy threshold 441.4 Mm3 equals 39 percent of the official frame, so the proxy is the conservative/higher threshold and events under it are a subset of events under the official frame). Eligibility at T, from information available at prediction: dam has >= 365 prior daily VolumenAlm rows and VolumenAlm(T) >= threshold (onset formulation; days already below threshold are not prediction rows)."
    },
    {
-    "age_hours": 50.5,
+    "age_hours": 51.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6125,7 +6125,7 @@
     "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
    },
    {
-    "age_hours": 107.0,
+    "age_hours": 108.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12330,7 +12330,7 @@
     "target": "Binary escalation label, Wales, analogous to the England task. Not built; the Welsh parent-linkage (the register attribute that carries the England join) is unverified for Wales."
    },
    {
-    "age_hours": 247.5,
+    "age_hours": 248.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16312,7 +16312,7 @@
     "target": "Binary surge label: 1 iff created-notification count for the (category [, suburb]) unit in the target window Wed..Tue exceeds 1.25x the median of that unit's counts for the 8 weeks ending before the prediction instant. Label source columns: CreatedOnDT (created date) with C3_Complaint_Type (and Suburb for the expansion); target-window rows are excluded from every shipped feature. Post-hoc columns (ChangedOnDT, CompletedDT) and the monthly-reconciled Suburb_Clean for weeks inside the reconciliation lag are excluded as features; Suburb_Clean backfill lag measured at 9.0% NULL pre-2026 vs 46.5% NULL for rows created since 2026-09-01."
    },
    {
-    "age_hours": 96.7,
+    "age_hours": 97.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -17025,7 +17025,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 50.5,
+     "age_hours": 51.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "IN",
@@ -17854,7 +17854,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 107.0,
+     "age_hours": 108.0,
      "awaiting_operator": false,
      "baseline": {},
      "country": "GB",
@@ -18028,7 +18028,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 247.5,
+     "age_hours": 248.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -18369,7 +18369,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 96.7,
+     "age_hours": 97.7,
      "awaiting_operator": false,
      "baseline": {},
      "country": "ZA",
@@ -18895,7 +18895,7 @@
      "target": "Primary label, binary: escape = final area burned (current_size, the publisher's 'final area burned of the wildfire') at or above the threshold (primary 100 ha; variants 4/40/200 ha measured). Secondary label, binary: containment = first under control (first_uc_date, 'sufficient suppression action to ensure no further spread') later than 72 hours after assessment_datetime; 42.0% of fires were already under control at the assessment instant (assessment == first_uc, a degenerate label-0 stratum the construction decision must handle and declare). Both labels derive entirely from the record's own post-instant fields; both source columns are excludable from what ships. Population: all wildfires in Alberta's Forest Protection Area, 2006-2025, one row per wildfire ((YEAR, FIRE_NUMBER) unique, measured); eligibility is assessment-based, not outcome-based (100% of discovered wildfires are assessed)."
     },
     {
-     "age_hours": 50.5,
+     "age_hours": 51.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "IN",
@@ -19724,7 +19724,7 @@
      "target": "Binary and mechanical from the source series: mean of the station's hourly PM2.5 values on D+1 > 90 micrograms/m3. The label source is the D+1 PM2.5 series itself, excluded from all shipped columns; the runner ships only the binary label. The threshold is a published, documented band edge (CPCB National AQI breakpoints), not a human judgement."
     },
     {
-     "age_hours": 107.0,
+     "age_hours": 108.0,
      "awaiting_operator": false,
      "baseline": {},
      "country": "GB",
@@ -19898,7 +19898,7 @@
      "target": "Binary: Location HSCA End Date in (T, T+365d]. Label source: CQC Deactivated Locations file (cumulative; Location HSCA End Date + Location Status; among care homes all-time: 17,046 Inactive-Dereg vs 131 Removed). Label-source columns never ship as features. Censoring: instants whose 12-month window extends past the deactivated file's coverage (2026-11-02 edition) are excluded. FRAMING: the target is the register event (deregistration of the location), which CQC notes can include services continuing under a new registration; not necessarily service cessation - see verdict.uncertainty."
     },
     {
-     "age_hours": 247.5,
+     "age_hours": 248.5,
      "awaiting_operator": false,
      "baseline": {},
      "country": "CA",
@@ -20239,7 +20239,7 @@
      "target": "Binary: advisory lifted within N days of issuance, N=30 primary (N=14 secondary; both base rates measured below). Label source columns: 'Date Advisory Removed' and 'Length of Advisory in Days' - label-only, excluded from shipped features. Publisher documents the censoring semantics on the dataset page: 'Values are not provided for boil advisories that are currently in effect.' (blank removal date = active). Scored rows require a removal date at the pinned vintage; censored rows are counted per window and excluded from scored sets, not treated as observed non-lifts."
     },
     {
-     "age_hours": 96.7,
+     "age_hours": 97.7,
      "awaiting_operator": false,
      "baseline": {},
      "country": "ZA",
@@ -20500,10 +20500,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-08T21:50:01.441530+00:00",
+    "last_run_at": "2026-11-08T22:50:02.300272+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-08T22:00:00+00:00",
+    "next_run_at": "2026-11-08T23:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -20584,10 +20584,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-08T20:51:28.219265+00:00",
+    "last_run_at": "2026-11-08T21:51:26.200084+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-08T22:50:00+00:00",
+    "next_run_at": "2026-11-08T23:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -20596,10 +20596,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-08T20:55:01.692612+00:00",
+    "last_run_at": "2026-11-08T21:55:01.064804+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-08T21:55:00+00:00",
+    "next_run_at": "2026-11-08T22:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -20640,14 +20640,14 @@
     "schedule": "once at 2026-10-20 16:40"
    },
    {
-    "enabled": true,
+    "enabled": false,
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-08T21:50:01.271730+00:00",
+    "last_run_at": "2026-11-08T22:45:02.860986+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-08T21:51:00+00:00",
+    "next_run_at": "2026-11-08T22:46:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -20664,32 +20664,32 @@
     "schedule": "once at 2026-11-08 19:07"
    }
   ],
-  "updated_at": "2026-11-08T21:50:01.442545+00:00"
+  "updated_at": "2026-11-08T22:50:02.301408+00:00"
  },
- "generated_at": "2026-11-08T21:50:01+00:00",
+ "generated_at": "2026-11-08T22:50:01+00:00",
  "health": {
   "checks": {
    "ok": true,
    "passing": 149
   },
   "ci": {
-   "conclusion": null,
-   "created_at": "2026-11-08T21:50:21Z",
-   "head_sha": "88c1a2f",
-   "status": "in_progress",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/42527185224"
+   "conclusion": "success",
+   "created_at": "2026-11-08T22:49:04Z",
+   "head_sha": "3b0ca2e",
+   "status": "completed",
+   "url": "https://github.com/earino/dataset-factory/actions/runs/42532109344"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 53/59 (90%)"
   },
   "head": {
-   "at": "2026-11-08T22:32:13+01:00",
-   "sha": "b740521",
-   "subject": "Recover saved proposals deferred by obsolete feature contract"
+   "at": "2026-11-08T23:49:01+01:00",
+   "sha": "3b0ca2e",
+   "subject": "Research observed source-access failures before bounded code repair"
   },
   "tests": {
-   "count": "954",
+   "count": "957",
    "ok": false
   }
  },
@@ -24517,13 +24517,21 @@
    "qualified": 0,
    "sessions_7d": 185,
    "tokens_7d": 42045939
+  },
+  {
+   "at": "2026-11-08T22:50:01+00:00",
+   "live": 21,
+   "published": 14,
+   "qualified": 0,
+   "sessions_7d": 192,
+   "tokens_7d": 42792658
   }
  ],
  "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-08T21:50:01+00:00",
+   "as_of": "2026-11-08T22:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -24533,7 +24541,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-08T21:50:01+00:00",
+   "as_of": "2026-11-08T22:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "candidates/*/record.json",
@@ -24543,7 +24551,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-08T21:50:01+00:00",
+   "as_of": "2026-11-08T22:50:01+00:00",
    "expected": null,
    "note": null,
    "source": "release/*/MANIFEST.json",
@@ -25397,7 +25405,7 @@
   "histogram": {
    "bins": [
     {
-     "count": 109,
+     "count": 111,
      "hi": 0.01,
      "lo": 0.002
     },
@@ -25444,10 +25452,10 @@
    ],
    "max": 2.6488,
    "median": 0.0118,
-   "n": 259,
-   "p90": 0.0561,
+   "n": 261,
+   "p90": 0.0542,
    "ref_rate": 0.06924,
-   "total": 9.55
+   "total": 9.56
   },
   "jobs": [
    {
@@ -28163,6 +28171,30 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-08T22:36:01.823830+00:00",
+    "deleted_at": "2026-11-08T22:40:16.348172+00:00",
+    "eur": 0.0049,
+    "hours": 0.071,
+    "id": "rw-b702d47ad634-build-8",
+    "location": "hel1",
+    "normalised_eur": 0.0049,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-08T22:44:08.783226+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "rw-ba904118ba27-build-1",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "running"
+   },
+   {
     "created_at": "2026-11-08T15:09:34.717425+00:00",
     "deleted_at": "2026-11-08T15:12:16.713447+00:00",
     "eur": 0.0031,
@@ -28194,6 +28226,18 @@
     "id": "rw-dfe241e4e784-build-5",
     "location": "hel1",
     "normalised_eur": 0.0033,
+    "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-08T22:26:38.315207+00:00",
+    "deleted_at": "2026-11-08T22:29:16.699789+00:00",
+    "eur": 0.003,
+    "hours": 0.044,
+    "id": "rw-f5c98eaf9558-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.003,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28559,19 +28603,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 98,
-  "jobs_total": 259,
-  "lifetime_eur": 7.33,
+  "jobs_this_month": 100,
+  "jobs_total": 262,
+  "lifetime_eur": 7.34,
   "live": {
-   "checked_at": "2026-11-08T21:51:12+00:00",
+   "checked_at": "2026-11-08T22:51:14+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
-  "month_hours": 67.9,
-  "month_to_date": 3.7,
+  "month_hours": 68.0,
+  "month_to_date": 3.71,
   "months": [
    {
     "eur": 2.4452,
@@ -28586,13 +28630,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 3.7035,
-    "hours": 67.86,
-    "jobs": 98,
+    "eur": 3.7114,
+    "hours": 67.98,
+    "jobs": 100,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 13.89
+  "projected_month_eur": 13.92
  },
  "schema": 1,
  "sessions": {
