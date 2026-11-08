@@ -3718,5 +3718,13 @@
   "tokens_7d": 34511460,
   "sessions_7d": 102,
   "qualified": 0
+ },
+ {
+  "at": "2026-11-08T09:50:02+00:00",
+  "published": 14,
+  "live": 21,
+  "tokens_7d": 34591017,
+  "sessions_7d": 103,
+  "qualified": 0
  }
 ]
