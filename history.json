@@ -1,13 +1,5 @@
 [
  {
-  "at": "2026-10-20T21:43:59+00:00",
-  "published": 5,
-  "live": 7,
-  "tokens_7d": 3274843,
-  "sessions_7d": 19,
-  "qualified": 0
- },
- {
   "at": "2026-10-20T22:50:01+00:00",
   "published": 5,
   "live": 8,
@@ -3996,6 +3988,14 @@
   "published": 14,
   "live": 21,
   "tokens_7d": 50051303,
+  "sessions_7d": 310,
+  "qualified": 0
+ },
+ {
+  "at": "2026-11-10T08:50:01+00:00",
+  "published": 14,
+  "live": 21,
+  "tokens_7d": 50108474,
   "sessions_7d": 310,
   "qualified": 0
  }
