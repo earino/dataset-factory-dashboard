@@ -24,17 +24,17 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-11T17:50:39.773966+00:00",
+   "moment": "2026-11-11T18:50:40.210541+00:00",
    "normal_operation_runs_last_7_days": 188,
    "normal_operation_runs_weighted_last_7_days": 200,
-   "normal_operation_tokens_last_7_days": 34522423,
+   "normal_operation_tokens_last_7_days": 34347831,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 45001390,
+   "research_tokens_last_7_days": 44826798,
    "runs_last_7_days": 312,
    "runs_weighted_last_7_days": 324,
    "session_cap_per_week": 200,
@@ -61,14 +61,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 7695,
+     "calls": 7697,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 44407309,
-     "output_tokens": 13011263,
+     "input_tokens": 44429321,
+     "output_tokens": 13033967,
      "pricing_available": false
     }
    },
@@ -103,8 +103,8 @@
     "dataset": "epa-green-book-nonattainment-exit",
     "domain": "Modern factory",
     "id": "source-000037",
-    "next_action": "Stage build: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T18:08:02.832886+00:00",
-    "next_run_at": "2026-11-11T18:08:02.832886+00:00",
+    "next_action": "Stage build: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T19:08:02.082353+00:00",
+    "next_run_at": "2026-11-11T19:08:02.082353+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The standard-level initial designation effective date for the area-standard, assigned from the 40 CFR Part 81 designation notices referenced by the Green Book. A per-area designation-date column is used when the export carries one; otherwise the standard-vintage effective date is applied. Per-area effective-date variation is not otherwise parsed.",
     "question": "At the moment an area is first designated nonattainment for a criteria-pollutant standard, will that area be redesignated to maintenance (i.e., leave nonattainment) within ten years?",
@@ -122,8 +122,8 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000038",
-    "next_action": "Stage discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T18:05:02.060238+00:00",
-    "next_run_at": "2026-11-11T18:05:02.060238+00:00",
+    "next_action": "Stage discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T19:05:01.744222+00:00",
+    "next_run_at": "2026-11-11T19:05:01.744222+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
@@ -964,8 +964,8 @@
     "dataset": "epa-green-book-nonattainment-exit",
     "domain": "Modern factory",
     "id": "source-000037",
-    "next_action": "Stage build: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T18:08:02.832886+00:00",
-    "next_run_at": "2026-11-11T18:08:02.832886+00:00",
+    "next_action": "Stage build: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T19:08:02.082353+00:00",
+    "next_run_at": "2026-11-11T19:08:02.082353+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The standard-level initial designation effective date for the area-standard, assigned from the 40 CFR Part 81 designation notices referenced by the Green Book. A per-area designation-date column is used when the export carries one; otherwise the standard-vintage effective date is applied. Per-area effective-date variation is not otherwise parsed.",
     "question": "At the moment an area is first designated nonattainment for a criteria-pollutant standard, will that area be redesignated to maintenance (i.e., leave nonattainment) within ten years?",
@@ -983,8 +983,8 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000038",
-    "next_action": "Stage discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T18:05:02.060238+00:00",
-    "next_run_at": "2026-11-11T18:05:02.060238+00:00",
+    "next_action": "Stage discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T19:05:01.744222+00:00",
+    "next_run_at": "2026-11-11T19:05:01.744222+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
@@ -4465,7 +4465,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 118.5,
+    "age_hours": 119.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5295,7 +5295,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 175.0,
+    "age_hours": 176.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -11577,7 +11577,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 315.6,
+    "age_hours": 316.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -15601,7 +15601,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 164.7,
+    "age_hours": 165.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16057,10 +16057,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-11T17:50:01.655121+00:00",
+    "last_run_at": "2026-11-11T18:50:01.596143+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-11T18:00:00+00:00",
+    "next_run_at": "2026-11-11T19:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16141,10 +16141,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-11T16:52:08.677579+00:00",
+    "last_run_at": "2026-11-11T17:52:05.674304+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-11T18:50:00+00:00",
+    "next_run_at": "2026-11-11T19:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16153,10 +16153,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-11T16:55:00.972485+00:00",
+    "last_run_at": "2026-11-11T17:55:01.427414+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-11T17:55:00+00:00",
+    "next_run_at": "2026-11-11T18:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16201,10 +16201,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-11T17:50:01.819047+00:00",
+    "last_run_at": "2026-11-11T18:50:01.802786+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-11T17:51:00+00:00",
+    "next_run_at": "2026-11-11T18:51:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16233,9 +16233,9 @@
     "schedule": "once at 2026-12-01 00:00"
    }
   ],
-  "updated_at": "2026-11-11T17:50:01.820057+00:00"
+  "updated_at": "2026-11-11T18:50:01.803842+00:00"
  },
- "generated_at": "2026-11-11T17:50:38+00:00",
+ "generated_at": "2026-11-11T18:50:39+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16263,14 +16263,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-22T03:50:00+00:00",
-   "live": 8,
-   "published": 7,
-   "qualified": 1,
-   "sessions_7d": 33,
-   "tokens_7d": 7079379
-  },
   {
    "at": "2026-10-22T04:50:01+00:00",
    "live": 8,
@@ -20278,6 +20270,16 @@
    "sessions_7d": 312,
    "tokens_7d": 34522423,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-11T18:50:39+00:00",
+   "live": 2,
+   "published": 20,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 312,
+   "tokens_7d": 34347831,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -20914,19 +20916,19 @@
    },
    {
     "attempt": {
-     "id": "rw-8823a11cb982-build-4",
-     "ordinal": 4,
+     "id": "rw-8823a11cb982-build-5",
+     "ordinal": 5,
      "stage": "build",
      "status": "running"
     },
     "created_at": "2026-11-11T06:58:01.925946+00:00",
     "dataset": "epa-green-book-nonattainment-exit",
     "id": "source-000037",
-    "next_run_at": "2026-11-11T18:08:02.832886+00:00",
+    "next_run_at": "2026-11-11T19:08:02.082353+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-11T17:08:02.832886+00:00"
+    "updated_at": "2026-11-11T18:08:02.082353+00:00"
    },
    {
     "attempt": {
@@ -20938,11 +20940,11 @@
     "created_at": "2026-11-11T12:13:02.168791+00:00",
     "dataset": null,
     "id": "source-000038",
-    "next_run_at": "2026-11-11T18:05:02.060238+00:00",
+    "next_run_at": "2026-11-11T19:05:01.744222+00:00",
     "published_verified": false,
     "running": true,
     "stage": "discover",
-    "updated_at": "2026-11-11T17:05:02.060238+00:00"
+    "updated_at": "2026-11-11T18:05:01.744222+00:00"
    }
   ],
   "counts": {
@@ -20952,7 +20954,7 @@
    "published": 6,
    "rejected": 5
   },
-  "observed_at": "2026-11-11T17:50:38.616408+00:00",
+  "observed_at": "2026-11-11T18:50:39.051963+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
@@ -20960,7 +20962,7 @@
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-11T17:50:38+00:00",
+   "as_of": "2026-11-11T18:50:39+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -20970,7 +20972,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-11T17:50:38+00:00",
+   "as_of": "2026-11-11T18:50:39+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -20980,7 +20982,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-11T17:50:38+00:00",
+   "as_of": "2026-11-11T18:50:39+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -22054,7 +22056,7 @@
   "histogram": {
    "bins": [
     {
-     "count": 183,
+     "count": 184,
      "hi": 0.01,
      "lo": 0.002
     },
@@ -22101,8 +22103,8 @@
    ],
    "max": 2.6488,
    "median": 0.0096,
-   "n": 350,
-   "p90": 0.0456,
+   "n": 351,
+   "p90": 0.0433,
    "ref_rate": 0.06924,
    "total": 10.18
   },
@@ -25228,6 +25230,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-11T18:04:00.364106+00:00",
+    "deleted_at": "2026-11-11T18:06:16.844850+00:00",
+    "eur": 0.0022,
+    "hours": 0.038,
+    "id": "rw-8823a11cb982-build-4",
+    "location": "hel1",
+    "normalised_eur": 0.0026,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-08T15:53:25.473746+00:00",
     "deleted_at": "2026-11-08T15:56:17.276562+00:00",
     "eur": 0.0033,
@@ -26308,11 +26322,11 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 189,
-  "jobs_total": 350,
+  "jobs_this_month": 190,
+  "jobs_total": 351,
   "lifetime_eur": 7.93,
   "live": {
-   "checked_at": "2026-11-11T17:51:51+00:00",
+   "checked_at": "2026-11-11T18:51:51+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -26335,13 +26349,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 4.308,
-    "hours": 76.87,
-    "jobs": 189,
+    "eur": 4.3102,
+    "hours": 76.91,
+    "jobs": 190,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 11.75
+  "projected_month_eur": 11.76
  },
  "runtime": {
   "max_workers": 1,
@@ -26369,13 +26383,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-11T17:50:01.552066+00:00",
+  "observed_at": "2026-11-11T18:50:01.096254+00:00",
   "releases": [
    {
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-11T17:50:01.579208+00:00",
+    "observed_at": "2026-11-11T18:50:01.123109+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -26384,7 +26398,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-11T17:50:08.194208+00:00",
+    "observed_at": "2026-11-11T18:50:07.361225+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -26393,7 +26407,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-11T17:50:14.571872+00:00",
+    "observed_at": "2026-11-11T18:50:13.751061+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -26402,7 +26416,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-11T17:50:20.384091+00:00",
+    "observed_at": "2026-11-11T18:50:20.376343+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -26411,7 +26425,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-11T17:50:26.195408+00:00",
+    "observed_at": "2026-11-11T18:50:26.425204+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -26420,7 +26434,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-11T17:50:32.075184+00:00",
+    "observed_at": "2026-11-11T18:50:32.518948+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
