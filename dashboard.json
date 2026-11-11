@@ -1,6 +1,5 @@
 {
  "alarms": [
-  "Website charity-register-five-year-exit: pending; data publication is separate",
   "Research gate refused the next session: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200)",
   "Token use at 87% of the weekly ceiling",
   "Local test suite failed on 6889214",
@@ -25,17 +24,17 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-11T13:50:56.114646+00:00",
+   "moment": "2026-11-11T14:51:01.247565+00:00",
    "normal_operation_runs_last_7_days": 188,
    "normal_operation_runs_weighted_last_7_days": 200,
-   "normal_operation_tokens_last_7_days": 34939576,
+   "normal_operation_tokens_last_7_days": 34897787,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 45418543,
+   "research_tokens_last_7_days": 45376754,
    "runs_last_7_days": 312,
    "runs_weighted_last_7_days": 324,
    "session_cap_per_week": 200,
@@ -62,14 +61,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 7678,
+     "calls": 7689,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 44246162,
-     "output_tokens": 12868648,
+     "input_tokens": 44359494,
+     "output_tokens": 12901915,
      "pricing_available": false
     }
    },
@@ -83,8 +82,9 @@
  "candidates": {
   "countries": {},
   "counts": {
+   "build": 1,
    "deferred": 25,
-   "discover": 2,
+   "discover": 1,
    "published": 6,
    "rejected": 5
   },
@@ -100,21 +100,21 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "epa-green-book-nonattainment-exit",
     "domain": "Modern factory",
     "id": "source-000037",
-    "next_action": "Stage discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T14:04:02.196544+00:00",
-    "next_run_at": "2026-11-11T14:04:02.196544+00:00",
+    "next_action": "Stage build: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T15:12:02.347966+00:00",
+    "next_run_at": "2026-11-11T15:12:02.347966+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
+    "prediction_time": "The standard's initial designation effective date for that area (published in 40 CFR Part 81 and reflected in the Green Book). Only information in the designation notice and the designation-time design value is used.",
+    "question": "At the moment an area is first designated nonattainment for a criteria-pollutant standard, will that area be redesignated to maintenance (i.e., leave nonattainment) within ten years?",
     "reason": "188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200)",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "split_strategy": "Chronological by designation effective date, fixed before any measurement: train = designations effective on or before 2009-12-31 (e.g. PM-10, CO, 1971 SO2, 1978 lead, 1997 and 2006 PM-2.5); eval = designations effective 2010-01-01 through 2012-12-31 (2008 lead, 2008 ozone); holdout = designations effective 2013-01-01 through 2015-12-31 (2010 SO2, 2010 NO2, 2012 PM-2.5). No embargo is needed because rows are separate areas and no row's features are derived from another row's outcome; the split is by cohort date, not by outcome date.",
+    "status": "build",
+    "target": "1 if the area-standard unit shows Status = 'Maint' (redesignated to maintenance) with a redesignation effective date on or before designation_date + 10 years, using NAYRO Effec_Rede; 0 otherwise (still Status = 'NAA' after ten years). Areas whose standard was revoked (Revoked_NA = 'Revoked') before the outcome is observed are excluded, because revocation is not redesignation.",
     "workflow": "modern"
    },
    {
@@ -122,8 +122,8 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000038",
-    "next_action": "Stage discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T14:14:02.311621+00:00",
-    "next_run_at": "2026-11-11T14:14:02.311621+00:00",
+    "next_action": "Stage discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T15:11:01.965006+00:00",
+    "next_run_at": "2026-11-11T15:11:01.965006+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
@@ -961,21 +961,21 @@
    },
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "epa-green-book-nonattainment-exit",
     "domain": "Modern factory",
     "id": "source-000037",
-    "next_action": "Stage discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T14:04:02.196544+00:00",
-    "next_run_at": "2026-11-11T14:04:02.196544+00:00",
+    "next_action": "Stage build: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T15:12:02.347966+00:00",
+    "next_run_at": "2026-11-11T15:12:02.347966+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
+    "prediction_time": "The standard's initial designation effective date for that area (published in 40 CFR Part 81 and reflected in the Green Book). Only information in the designation notice and the designation-time design value is used.",
+    "question": "At the moment an area is first designated nonattainment for a criteria-pollutant standard, will that area be redesignated to maintenance (i.e., leave nonattainment) within ten years?",
     "reason": "188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200)",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "split_strategy": "Chronological by designation effective date, fixed before any measurement: train = designations effective on or before 2009-12-31 (e.g. PM-10, CO, 1971 SO2, 1978 lead, 1997 and 2006 PM-2.5); eval = designations effective 2010-01-01 through 2012-12-31 (2008 lead, 2008 ozone); holdout = designations effective 2013-01-01 through 2015-12-31 (2010 SO2, 2010 NO2, 2012 PM-2.5). No embargo is needed because rows are separate areas and no row's features are derived from another row's outcome; the split is by cohort date, not by outcome date.",
+    "status": "build",
+    "target": "1 if the area-standard unit shows Status = 'Maint' (redesignated to maintenance) with a redesignation effective date on or before designation_date + 10 years, using NAYRO Effec_Rede; 0 otherwise (still Status = 'NAA' after ten years). Areas whose standard was revoked (Revoked_NA = 'Revoked') before the outcome is observed are excluded, because revocation is not redesignation.",
     "workflow": "modern"
    },
    {
@@ -983,8 +983,8 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000038",
-    "next_action": "Stage discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T14:14:02.311621+00:00",
-    "next_run_at": "2026-11-11T14:14:02.311621+00:00",
+    "next_action": "Stage discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T15:11:01.965006+00:00",
+    "next_run_at": "2026-11-11T15:11:01.965006+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
@@ -4465,7 +4465,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 114.5,
+    "age_hours": 115.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5295,7 +5295,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 171.0,
+    "age_hours": 172.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -11577,7 +11577,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 311.6,
+    "age_hours": 312.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -15601,7 +15601,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 160.7,
+    "age_hours": 161.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16057,10 +16057,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-11T13:50:02.011953+00:00",
+    "last_run_at": "2026-11-11T14:50:02.208034+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-11T14:00:00+00:00",
+    "next_run_at": "2026-11-11T15:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16141,10 +16141,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-11T12:52:26.566813+00:00",
+    "last_run_at": "2026-11-11T13:52:21.811172+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-11T14:50:00+00:00",
+    "next_run_at": "2026-11-11T15:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16153,10 +16153,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-11T12:55:01.141673+00:00",
+    "last_run_at": "2026-11-11T13:55:01.153993+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-11T13:55:00+00:00",
+    "next_run_at": "2026-11-11T14:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16201,10 +16201,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-11T13:50:02.117294+00:00",
+    "last_run_at": "2026-11-11T14:50:01.644373+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-11T13:51:00+00:00",
+    "next_run_at": "2026-11-11T14:52:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16233,9 +16233,9 @@
     "schedule": "once at 2026-12-01 00:00"
    }
   ],
-  "updated_at": "2026-11-11T13:50:02.118304+00:00"
+  "updated_at": "2026-11-11T14:51:00.502900+00:00"
  },
- "generated_at": "2026-11-11T13:50:54+00:00",
+ "generated_at": "2026-11-11T14:51:00+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16263,14 +16263,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-21T23:50:01+00:00",
-   "live": 6,
-   "published": 7,
-   "qualified": 0,
-   "sessions_7d": 31,
-   "tokens_7d": 6430954
-  },
   {
    "at": "2026-10-22T00:50:00+00:00",
    "live": 7,
@@ -20270,6 +20262,16 @@
    "sessions_7d": 312,
    "tokens_7d": 34939576,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-11T14:51:00+00:00",
+   "live": 2,
+   "published": 20,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 312,
+   "tokens_7d": 34897787,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -20906,19 +20908,19 @@
    },
    {
     "attempt": {
-     "id": "rw-8823a11cb982-discover-1",
+     "id": "rw-8823a11cb982-build-1",
      "ordinal": 1,
-     "stage": "discover",
+     "stage": "build",
      "status": "running"
     },
     "created_at": "2026-11-11T06:58:01.925946+00:00",
-    "dataset": null,
+    "dataset": "epa-green-book-nonattainment-exit",
     "id": "source-000037",
-    "next_run_at": "2026-11-11T14:04:02.196544+00:00",
+    "next_run_at": "2026-11-11T15:12:02.347966+00:00",
     "published_verified": false,
     "running": true,
-    "stage": "discover",
-    "updated_at": "2026-11-11T13:04:02.196544+00:00"
+    "stage": "build",
+    "updated_at": "2026-11-11T14:12:02.347966+00:00"
    },
    {
     "attempt": {
@@ -20930,20 +20932,21 @@
     "created_at": "2026-11-11T12:13:02.168791+00:00",
     "dataset": null,
     "id": "source-000038",
-    "next_run_at": "2026-11-11T14:14:02.311621+00:00",
+    "next_run_at": "2026-11-11T15:11:01.965006+00:00",
     "published_verified": false,
     "running": true,
     "stage": "discover",
-    "updated_at": "2026-11-11T13:14:02.311621+00:00"
+    "updated_at": "2026-11-11T14:11:01.965006+00:00"
    }
   ],
   "counts": {
+   "build": 1,
    "deferred": 25,
-   "discover": 2,
+   "discover": 1,
    "published": 6,
    "rejected": 5
   },
-  "observed_at": "2026-11-11T13:50:54.962978+00:00",
+  "observed_at": "2026-11-11T14:51:00.071215+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
@@ -20951,7 +20954,7 @@
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-11T13:50:54+00:00",
+   "as_of": "2026-11-11T14:51:00+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -20961,7 +20964,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-11T13:50:54+00:00",
+   "as_of": "2026-11-11T14:51:00+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -20971,7 +20974,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-11T13:50:54+00:00",
+   "as_of": "2026-11-11T14:51:00+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -26267,7 +26270,7 @@
   "jobs_total": 347,
   "lifetime_eur": 7.92,
   "live": {
-   "checked_at": "2026-11-11T13:52:07+00:00",
+   "checked_at": "2026-11-11T14:52:13+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -26324,22 +26327,22 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-11T13:50:01.043427+00:00",
+  "observed_at": "2026-11-11T14:50:01.080299+00:00",
   "releases": [
    {
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-11T13:50:01.071877+00:00",
+    "observed_at": "2026-11-11T14:50:01.106707+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
-    "status": "pending",
+    "status": "complete",
     "version": "v-6e90da65ff14dfeb"
    },
    {
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-11T13:50:24.183174+00:00",
+    "observed_at": "2026-11-11T14:50:25.690330+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -26348,7 +26351,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-11T13:50:30.503786+00:00",
+    "observed_at": "2026-11-11T14:50:31.864519+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -26357,7 +26360,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-11T13:50:36.444328+00:00",
+    "observed_at": "2026-11-11T14:50:39.814289+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -26366,7 +26369,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-11T13:50:42.373132+00:00",
+    "observed_at": "2026-11-11T14:50:46.895004+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -26375,12 +26378,12 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-11T13:50:48.506360+00:00",
+    "observed_at": "2026-11-11T14:50:53.153037+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
    }
   ],
-  "status": "pending"
+  "status": "ok"
  }
 }
