@@ -1,13 +1,8 @@
 {
  "alarms": [
-  "Website ucmr5-first-sample-pfas: pending; data publication is separate",
-  "Website cfpb-bank-account-monetary-relief: pending; data publication is separate",
-  "Website nhtsa-pe-recall: pending; data publication is separate",
-  "Website fdic-bank-branch-closure: pending; data publication is separate",
-  "Website nih-r01-competing-renewal: pending; data publication is separate",
   "Research gate refused the next session: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200)",
   "Token use at 88% of the weekly ceiling",
-  "Local test suite failed on a364181",
+  "Local test suite failed on 6a0241d",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -29,7 +24,7 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-11T11:06:12.942595+00:00",
+   "moment": "2026-11-11T11:14:13.304605+00:00",
    "normal_operation_runs_last_7_days": 188,
    "normal_operation_runs_weighted_last_7_days": 200,
    "normal_operation_tokens_last_7_days": 35064963,
@@ -56,13 +51,13 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 1240,
+     "calls": 1244,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 32984792,
-     "output_tokens": 1232978,
+     "input_tokens": 32990102,
+     "output_tokens": 1236186,
      "pricing_available": false
     },
     "research": {
@@ -4468,7 +4463,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 111.8,
+    "age_hours": 111.9,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5298,7 +5293,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 168.3,
+    "age_hours": 168.4,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -11580,7 +11575,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 308.8,
+    "age_hours": 308.9,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -15604,7 +15599,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 158.0,
+    "age_hours": 158.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16060,10 +16055,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-11T11:00:03.253902+00:00",
+    "last_run_at": "2026-11-11T11:10:02.405650+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-11T11:10:00+00:00",
+    "next_run_at": "2026-11-11T11:20:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16204,10 +16199,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-11T11:06:01.678098+00:00",
+    "last_run_at": "2026-11-11T11:14:02.026451+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-11T11:07:00+00:00",
+    "next_run_at": "2026-11-11T11:15:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16236,9 +16231,9 @@
     "schedule": "once at 2026-12-01 00:00"
    }
   ],
-  "updated_at": "2026-11-11T11:06:01.679069+00:00"
+  "updated_at": "2026-11-11T11:14:02.027395+00:00"
  },
- "generated_at": "2026-11-11T11:06:11+00:00",
+ "generated_at": "2026-11-11T11:14:12+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16246,34 +16241,26 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-11T11:05:52Z",
-   "head_sha": "8fa9fc4",
+   "created_at": "2026-11-11T11:11:55Z",
+   "head_sha": "6a0241d",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/43009087774"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/43009932470"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 53/59 (90%)"
   },
   "head": {
-   "at": "2026-11-11T12:00:16+01:00",
-   "sha": "a364181",
-   "subject": "Keep modern baseline headline labels readable in existing mobile tables"
+   "at": "2026-11-11T12:11:52+01:00",
+   "sha": "6a0241d",
+   "subject": "Restore short dataset names and all-time dashboard publication totals"
   },
   "tests": {
-   "count": "980",
+   "count": "981",
    "ok": false
   }
  },
  "history": [
-  {
-   "at": "2026-10-21T20:50:01+00:00",
-   "live": 9,
-   "published": 7,
-   "qualified": 1,
-   "sessions_7d": 30,
-   "tokens_7d": 6368361
-  },
   {
    "at": "2026-10-21T21:27:53+00:00",
    "live": 8,
@@ -20265,6 +20252,16 @@
    "qualified": 0,
    "sessions_7d": 312,
    "tokens_7d": 45679825
+  },
+  {
+   "at": "2026-11-11T11:14:12+00:00",
+   "live": 2,
+   "published": 19,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 312,
+   "tokens_7d": 35064963,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -20914,7 +20911,7 @@
    "published": 5,
    "rejected": 5
   },
-  "observed_at": "2026-11-11T11:06:11.715489+00:00",
+  "observed_at": "2026-11-11T11:14:12.084749+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
@@ -20922,7 +20919,7 @@
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-11T11:06:11+00:00",
+   "as_of": "2026-11-11T11:14:12+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -20932,7 +20929,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-11T11:06:11+00:00",
+   "as_of": "2026-11-11T11:14:12+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -20942,7 +20939,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-11T11:06:11+00:00",
+   "as_of": "2026-11-11T11:14:12+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -26193,7 +26190,7 @@
   "jobs_total": 346,
   "lifetime_eur": 7.92,
   "live": {
-   "checked_at": "2026-11-11T11:07:23+00:00",
+   "checked_at": "2026-11-11T11:15:24+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -26250,54 +26247,54 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-11T11:04:14.712829+00:00",
+  "observed_at": "2026-11-11T11:12:12.695103+00:00",
   "releases": [
    {
     "bundle": "761c8f6ef79531cc48d033d7",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-11T11:04:14.739333+00:00",
+    "observed_at": "2026-11-11T11:12:12.720760+00:00",
     "plan_sha256": "55fa108828d05e9ef5d5930f4a75f9b2da5a228ed904c66a5ee23672669f3776",
-    "status": "pending",
+    "status": "complete",
     "version": "v-4a630108a6e75a6b"
    },
    {
     "bundle": "7bd3fe32054066df9dc3260f",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-11T11:04:36.494130+00:00",
+    "observed_at": "2026-11-11T11:12:35.316919+00:00",
     "plan_sha256": "db2c89b62db794b6847aaf20f5405de58e383a1bb72b18dbc34b1e320608f632",
-    "status": "pending",
+    "status": "complete",
     "version": "v-fa7df05b0fd096d9"
    },
    {
     "bundle": "9465cca18a6ad133fd804749",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-11T11:04:57.856774+00:00",
+    "observed_at": "2026-11-11T11:12:57.567338+00:00",
     "plan_sha256": "7a0d12e83399f3f9ea9e8fe556ce2e6c0ba6eb3f9fd69a41b19aa2b6f1cbe002",
-    "status": "pending",
+    "status": "complete",
     "version": "v-76d064ad7e164c41"
    },
    {
     "bundle": "45d568b9dee9ef4c14b30272",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-11T11:05:19.196267+00:00",
+    "observed_at": "2026-11-11T11:13:03.197651+00:00",
     "plan_sha256": "3f15bf99576ecb7bbe3d899f02552c407178953565111bb5cfdbda85316d577b",
-    "status": "pending",
+    "status": "complete",
     "version": "v-94c52a9299cf0424"
    },
    {
     "bundle": "0215e8fdd9df32783d298170",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-11T11:05:43.380205+00:00",
+    "observed_at": "2026-11-11T11:13:09.261846+00:00",
     "plan_sha256": "3b8e36da2257dc4edfce0283835e4e51513b2c4bd31a7bc9f1574c019b032555",
-    "status": "pending",
+    "status": "complete",
     "version": "v-a00c2ae77f5ae167"
    }
   ],
-  "status": "pending"
+  "status": "ok"
  }
 }
