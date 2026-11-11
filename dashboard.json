@@ -2,7 +2,7 @@
  "alarms": [
   "Research gate refused the next session: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200)",
   "Token use at 88% of the weekly ceiling",
-  "Local test suite failed on 404dabf",
+  "Local test suite failed on 6889214",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -24,7 +24,7 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-11T11:25:05.672018+00:00",
+   "moment": "2026-11-11T11:50:32.699470+00:00",
    "normal_operation_runs_last_7_days": 188,
    "normal_operation_runs_weighted_last_7_days": 200,
    "normal_operation_tokens_last_7_days": 35064963,
@@ -51,13 +51,13 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 1249,
+     "calls": 1259,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 32996714,
-     "output_tokens": 1238121,
+     "input_tokens": 33009907,
+     "output_tokens": 1247727,
      "pricing_available": false
     },
     "research": {
@@ -103,8 +103,8 @@
     "dataset": "charity-register-five-year-exit",
     "domain": "Modern factory",
     "id": "source-000036",
-    "next_action": "Running evaluate: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T11:49:02.257726+00:00",
-    "next_run_at": "2026-11-11T11:49:02.257726+00:00",
+    "next_action": "Stage evaluate: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T12:50:02.820792+00:00",
+    "next_run_at": "2026-11-11T12:50:02.820792+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "date_of_registration, the day the charity is entered on the register. Only attributes present in the current daily extract are treated as registration-time descriptors; classification, area, governing-document and objects fields are not time-stamped, so their as-of-registration availability is assumed rather than verified.",
     "question": "Will a charity newly entered on the Register of Charities for England and Wales be removed from the register within five years of its registration date?",
@@ -139,8 +139,8 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000037",
-    "next_action": "Running discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T11:48:01.607733+00:00",
-    "next_run_at": "2026-11-11T11:48:01.607733+00:00",
+    "next_action": "Stage discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T12:48:02.755186+00:00",
+    "next_run_at": "2026-11-11T12:48:02.755186+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
@@ -161,7 +161,7 @@
     "dataset": "nid-dam-condition-screening",
     "domain": "Modern factory",
     "id": "source-000001",
-    "next_action": "Waiting in deferred: Attempt limit reached: Model invocation failed: {\"exit_code\": 1, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\"} \u00b7 next attempt 2026-11-08T13:25:54.378504+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Model invocation failed: {\"exit_code\": 1, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\"} \u00b7 next attempt 2026-11-08T13:25:54.378504+00:00",
     "next_run_at": "2026-11-08T13:25:54.378504+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The date the condition assessment was recorded (CONDITION_ASSESS_DATE), treated as the instant just before the field inspection and rating that produced the label. Only register facts about the structure, its purpose, ownership and downstream hazard are used; nothing from the inspection itself.",
@@ -180,7 +180,7 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000002",
-    "next_action": "Waiting in deferred: Attempt limit reached: Model response is not JSON \u00b7 next attempt 2026-11-08T12:40:02.236331+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Model response is not JSON \u00b7 next attempt 2026-11-08T12:40:02.236331+00:00",
     "next_run_at": "2026-11-08T12:40:02.236331+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
@@ -199,7 +199,7 @@
     "dataset": "hurdat2-atlantic-ts-to-hurricane-72h",
     "domain": "Modern factory",
     "id": "source-000003",
-    "next_action": "Waiting in deferred: Attempt limit reached: Model invocation failed: {\"exit_code\": 1, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"I ran out of steps for this turn (6 tool calls) before finishing, and couldn't prod \u00b7 next attempt 2026-11-08T14:22:07.462908+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Model invocation failed: {\"exit_code\": 1, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"I ran out of steps for this turn (6 tool calls) before finishing, and couldn't prod \u00b7 next attempt 2026-11-08T14:22:07.462908+00:00",
     "next_run_at": "2026-11-08T14:22:07.462908+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The UTC valid time of the first TS-intensity best-track entry for the storm. Only that entry and earlier entries in the same storm block are available; no later track entry may be used.",
@@ -218,7 +218,7 @@
     "dataset": "stats19-collision-ksi",
     "domain": "Modern factory",
     "id": "source-000004",
-    "next_action": "Waiting in deferred: Attempt limit reached: Model invocation failed: {\"exit_code\": 1, \"parser_error\": [], \"diagnostic\": \"Traceback (most recent call last):\\n  File \\\"[opaque-value].py\\\", line 42, in <module>\\n    main()\\n    ~~~~^^\\n  File \\\"[opaque-value].py\\\" \u00b7 next attempt 2026-11-08T14:54:07.545197+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Model invocation failed: {\"exit_code\": 1, \"parser_error\": [], \"diagnostic\": \"Traceback (most recent call last):\\n  File \\\"[opaque-value].py\\\", line 42, in <module>\\n    main()\\n    ~~~~^^\\n  File \\\"[opaque-value].py\\\" \u00b7 next attempt 2026-11-08T14:54:07.545197+00:00",
     "next_run_at": "2026-11-08T14:54:07.545197+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "At the moment the collision circumstances are recorded at/after the scene and before casualty severity has been finalised; every input is a property of the road environment or of the timing of the collision, none is an injury assessment.",
@@ -237,7 +237,7 @@
     "dataset": "bts-flight-arrival-disruption-24h",
     "domain": "Modern factory",
     "id": "source-000005",
-    "next_action": "Waiting in rejected: Publisher terms evidence could not support the source claim",
+    "next_action": "Stage rejected: Publisher terms evidence could not support the source claim",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "24 hours before the scheduled local departure time (FlightDate plus CRSDepTime minus 24h). At that instant only the schedule record exists: reporting carrier, flight number, origin and destination airports and states, city markets, scheduled departure and arrival clock times, scheduled elapsed time, non-stop distance, and the calendar date. No actual times, no delay minutes, no cause-of-delay minutes, no tail assignment.",
@@ -256,7 +256,7 @@
     "dataset": "fda-recall-class1-at-initiation",
     "domain": "Modern factory",
     "id": "source-000006",
-    "next_action": "Waiting in deferred: Attempt limit reached: Model invocation failed: {\"exit_code\": 1, \"parser_error\": [], \"diagnostic\": \"Traceback (most recent call last):\\n  File \\\"[opaque-value].py\\\", line 42, in <module>\\n    main()\\n    ~~~~^^\\n  File \\\"[opaque-value].py\\\" \u00b7 next attempt 2026-11-08T14:53:07.722504+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Model invocation failed: {\"exit_code\": 1, \"parser_error\": [], \"diagnostic\": \"Traceback (most recent call last):\\n  File \\\"[opaque-value].py\\\", line 42, in <module>\\n    main()\\n    ~~~~^^\\n  File \\\"[opaque-value].py\\\" \u00b7 next attempt 2026-11-08T14:53:07.722504+00:00",
     "next_run_at": "2026-11-08T14:53:07.722504+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "recall_initiation_date \u2014 the date the firm initiated the recall, i.e. strictly before FDA's center_classification_date. All inputs are fixed at that date (day granularity).",
@@ -275,7 +275,7 @@
     "dataset": "usfs-firestat-wildfire-100ac",
     "domain": "Modern factory",
     "id": "source-000007",
-    "next_action": "Waiting in rejected: Publisher terms evidence could not support the source claim",
+    "next_action": "Stage rejected: Publisher terms evidence could not support the source claim",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "At the first report/discovery timestamp, before initial attack and before suppression outcomes are known.",
@@ -294,7 +294,7 @@
     "dataset": "sba-7a-loan-chargeoff",
     "domain": "Modern factory",
     "id": "source-000008",
-    "next_action": "Waiting in rejected: Publisher terms evidence could not support the source claim",
+    "next_action": "Stage rejected: Publisher terms evidence could not support the source claim",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "Loan approval date (ApprovalDate). Every input is a field recorded at approval in the same record; no disbursement, status, or servicing field is used.",
@@ -313,7 +313,7 @@
     "dataset": "us-drinking-water-violation-resolution",
     "domain": "Modern factory",
     "id": "source-000009",
-    "next_action": "Waiting in deferred: Attempt limit reached: Model task exceeded its wall-clock limit \u00b7 next attempt 2026-11-08T16:03:36.757089+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Model task exceeded its wall-clock limit \u00b7 next attempt 2026-11-08T16:03:36.757089+00:00",
     "next_run_at": "2026-11-08T16:03:36.757089+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The violation's NON_COMPL_PER_BEGIN_DATE (noncompliance period begin date); only fields whose reported date is on or before that date are used, taken from the quarterly snapshot whose SUBMISSIONYEARQUARTER contains it.",
@@ -332,7 +332,7 @@
     "dataset": "nlrb-union-representation-election-wins",
     "domain": "Modern factory",
     "id": "source-000010",
-    "next_action": "Waiting in rejected: The supplied terms evidence is invalid. The cited https://catalog.data.gov/dataset/nlrb-elections-19622009 returns HTTP 404, and the archived record is a Department of Labor-harvested dataset that explicitly states \"License: No license info",
+    "next_action": "Stage rejected: The supplied terms evidence is invalid. The cited https://catalog.data.gov/dataset/nlrb-elections-19622009 returns HTTP 404, and the archived record is a Department of Labor-harvested dataset that explicitly states \"License: No license info",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "Election day, immediately before the ballots are counted (after the pre-election conference or direction of election has fixed the bargaining unit and the eligible-voter count). Date Filed, region, ballot type, unit description and unit location are all known strictly earlier than this instant.",
@@ -351,7 +351,7 @@
     "dataset": "rcra-cei-violation-finding",
     "domain": "Modern factory",
     "id": "source-000011",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-08T16:46:19.899482+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-08T16:46:19.899482+00:00",
     "next_run_at": "2026-11-08T16:46:19.899482+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "00:00 local time on EVALUATION_START_DATE, i.e. the first day of the inspection or record review, before any site visit, record request or observation.",
@@ -370,7 +370,7 @@
     "dataset": "nursing-home-next-survey-harm-citation",
     "domain": "Modern factory",
     "id": "source-000012",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-08T18:37:19.120298+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-08T18:37:19.120298+00:00",
     "next_run_at": "2026-11-08T18:37:19.120298+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The anchor survey date recorded in NH_SurveyDates (the day the standard health inspection is recorded as completed), using only information published on or before that date; the outcome survey begins at least 60 days later.",
@@ -425,7 +425,7 @@
     "dataset": "clinicaltrials-gov-early-termination",
     "domain": "Modern factory",
     "id": "source-000014",
-    "next_action": "Waiting in rejected: Not repaired. The failure is an access/renderability failure of the publisher's terms document, not a missing or wrong licence. I re-verified that https://clinicaltrials.gov/about-site/terms-conditions is a client-side-rendered single-page ",
+    "next_action": "Stage rejected: Not repaired. The failure is an access/renderability failure of the publisher's terms document, not a missing or wrong licence. I re-verified that https://clinicaltrials.gov/about-site/terms-conditions is a client-side-rendered single-page ",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "statusModule.studyFirstPostDateStruct \u2014 the date the registration record was first posted publicly, before any enrollment result or completion outcome exists.",
@@ -444,7 +444,7 @@
     "dataset": "nbi-bridge-poor-transition",
     "domain": "Modern factory",
     "id": "source-000015",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-08T23:39:19.514529+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-08T23:39:19.514529+00:00",
     "next_run_at": "2026-11-08T23:39:19.514529+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "June 15 of cohort year Y, the administrative date on which FHWA treats that annual NBI file as final. FHWA publishes shortly after that date and the exact publication day is not verified, so this is an administrative annual cutoff used as the decision instant, not a measured publication timestamp. Only fields from the same annual record are used.",
@@ -463,7 +463,7 @@
     "dataset": "fr-proposed-rule-finalization",
     "domain": "Modern factory",
     "id": "source-000016",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-09T19:16:21.742190+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-09T19:16:21.742190+00:00",
     "next_run_at": "2026-11-09T19:16:21.742190+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The publication date of the first eligible Federal Register Proposed Rule carrying the row RIN. Only fields from that NPRM record are model inputs; later Rule documents are used only to construct the label, and the backward-looking agency prior rate uses training-split labels only.",
@@ -482,7 +482,7 @@
     "dataset": "bsee-gom-platform-removal-25y",
     "domain": "Modern factory",
     "id": "source-000017",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction Python does not parse at line 26, column 131: unmatched '}' \u00b7 next attempt 2026-11-09T00:15:49.349196+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction Python does not parse at line 26, column 131: unmatched '}' \u00b7 next attempt 2026-11-09T00:15:49.349196+00:00",
     "next_run_at": "2026-11-09T00:15:49.349196+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "At INSTALL_DATE; when only the installation year is reliable, January 1 of the reported installation year.",
@@ -554,7 +554,7 @@
     "dataset": "eia860-proposed-generator-completion",
     "domain": "Modern factory",
     "id": "source-000019",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-09T21:27:20.423012+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-09T21:27:20.423012+00:00",
     "next_run_at": "2026-11-09T21:27:20.423012+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "2018-12-31 snapshot of the 2018 Form EIA-860 Proposed tab. Generator attributes and scheduled operation year are those reported in that filing. The planned_operation_date column is a cohort anchor at the first day of the reported Effective Month when available, or January 1 of the reported Effective Year when only a year is present; it is not the actual commercial operation date.",
@@ -609,7 +609,7 @@
     "dataset": "msha-e01-significant-substantial",
     "domain": "Modern factory",
     "id": "source-000021",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-09T23:01:28.975137+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-09T23:01:28.975137+00:00",
     "next_run_at": "2026-11-09T23:01:28.975137+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "INSPECTION_BEGIN_DT of the regular inspection; only source events whose INSPECTION_END_DT is earlier than that date may contribute prior labels. For eval and holdout, target-derived history is further restricted to training-period labels.",
@@ -628,7 +628,7 @@
     "dataset": "us-public-school-opening-survival",
     "domain": "Modern factory",
     "id": "source-000022",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-10T00:59:19.450944+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-10T00:59:19.450944+00:00",
     "next_run_at": "2026-11-10T00:59:19.450944+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "End of the school first reported school year, in spring of school year t, using only the year-t directory, membership and school-characteristics records. Later directory files are used only to construct the label.",
@@ -647,7 +647,7 @@
     "dataset": "usgs-comcat-aftershock-72h",
     "domain": "Modern factory",
     "id": "source-000023",
-    "next_action": "Waiting in deferred: Semantic repair limit reached: Population/selection, target arithmetic and units, the Ridgecrest source example, the chronological splits and 4-day embargo, feature provenance, cross-row label exposure, and the U.S. public-domain licence ba",
+    "next_action": "Stage deferred: Semantic repair limit reached: Population/selection, target arithmetic and units, the Ridgecrest source example, the chronological splits and 4-day embargo, feature provenance, cross-row label exposure, and the U.S. public-domain licence ba",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The mainshock origin time (UTC), using the event's own location, magnitude, and solution-quality metadata as recorded in the current USGS PDE snapshot. Historical first-automatic availability is unverified; later revisions may be present.",
@@ -719,7 +719,7 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000025",
-    "next_action": "Waiting in deferred: ICIS-NPDES is directly downloadable and EPA's standard open-data license places EPA-produced data in the public domain, but the bulk-download documentation says records are selected on the 'current permit record' and describes only the sepa",
+    "next_action": "Stage deferred: ICIS-NPDES is directly downloadable and EPA's standard open-data license places EPA-produced data in the public domain, but the bulk-download documentation says records are selected on the 'current permit record' and describes only the sepa",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
@@ -738,7 +738,7 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000026",
-    "next_action": "Waiting in deferred: Research reached the tool-iteration limit before I could verify a single source end-to-end (download URL, field definitions, and reuse terms all confirmed). The most promising candidate found is the FMCSA 'SMS Input - Motor Carrier Census I",
+    "next_action": "Stage deferred: Research reached the tool-iteration limit before I could verify a single source end-to-end (download URL, field definitions, and reuse terms all confirmed). The most promising candidate found is the FMCSA 'SMS Input - Motor Carrier Census I",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
@@ -757,7 +757,7 @@
     "dataset": "epa-npl-construction-completion-10y",
     "domain": "Modern factory",
     "id": "source-000027",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-10T05:48:20.241715+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-10T05:48:20.241715+00:00",
     "next_run_at": "2026-11-10T05:48:20.241715+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The site's final National Priorities List listing date (FINAL_DATE), before any later construction-completion outcome is observed.",
@@ -812,7 +812,7 @@
     "dataset": "us-interconnection-queue-withdrawal",
     "domain": "Modern factory",
     "id": "source-000029",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-10T07:29:19.999947+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-10T07:29:19.999947+00:00",
     "next_run_at": "2026-11-10T07:29:19.999947+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The interconnection request date q_date, when the project entered the queue. Only application-time and queue-assignment fields are used; q_status is terminal status from the end-2025 snapshot and is never a feature.",
@@ -831,7 +831,7 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000030",
-    "next_action": "Waiting in deferred: No candidate survived verification as a ready, no-account, label-complete source in this pass. (1) USPTO Trademark Case Files Dataset was the strongest task design (filing-time prediction of registration within N months, 12.7M cases, docume",
+    "next_action": "Stage deferred: No candidate survived verification as a ready, no-account, label-complete source in this pass. (1) USPTO Trademark Case Files Dataset was the strongest task design (filing-time prediction of registration within N months, 12.7M cases, docume",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
@@ -850,7 +850,7 @@
     "dataset": "lmop-landfill-capture-onset",
     "domain": "Modern factory",
     "id": "source-000031",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-10T14:57:20.301184+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-10T14:57:20.301184+00:00",
     "next_run_at": "2026-11-10T14:57:20.301184+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "31 December of the cohort year is the fixed decision convention. The 2009, 2014 and 2019 annual LMOP workbooks are used; their exact within-year snapshot dates are not documented. The 2009 workbook lacks several later fields, so only its published fields are used.",
@@ -869,7 +869,7 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000032",
-    "next_action": "Waiting in deferred: The data itself is a strong fit \u2014 a single 414 MB CSV zip of 12.69M trademark applications with documented filing-basis, mark-type, abandonment and registration date fields, and a real, fetchable download endpoint \u2014 but I could not finish t",
+    "next_action": "Stage deferred: The data itself is a strong fit \u2014 a single 414 MB CSV zip of 12.69M trademark applications with documented filing-basis, mark-type, abandonment and registration date fields, and a real, fetchable download endpoint \u2014 but I could not finish t",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
@@ -888,7 +888,7 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000033",
-    "next_action": "Waiting in deferred: Two candidate sources were researched to the level of a real download, documentation and terms, and both fail one required condition. (1) The FAA National Wildlife Strike Database is the best task fit (independent strike reports since 1990,",
+    "next_action": "Stage deferred: Two candidate sources were researched to the level of a real download, documentation and terms, and both fail one required condition. (1) The FAA National Wildlife Strike Database is the best task fit (independent strike reports since 1990,",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
@@ -907,7 +907,7 @@
     "dataset": "fjc-chapter13-dismissal-24m",
     "domain": "Modern factory",
     "id": "source-000034",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-11T06:58:16.402467+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-11T06:58:16.402467+00:00",
     "next_run_at": "2026-11-11T06:58:16.402467+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The original petition filing date (ORGFLDT, falling back to FILEDATE), before any plan, confirmation, motion or trustee action is observable.",
@@ -926,7 +926,7 @@
     "dataset": "frpp-federal-building-mission-exit",
     "domain": "Modern factory",
     "id": "source-000035",
-    "next_action": "Waiting in deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-11T05:25:19.315352+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-11T05:25:19.315352+00:00",
     "next_run_at": "2026-11-11T05:25:19.315352+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "30 September of fiscal year T, using only fields present in the FY T FRPP civilian detailed asset file.",
@@ -945,8 +945,8 @@
     "dataset": "charity-register-five-year-exit",
     "domain": "Modern factory",
     "id": "source-000036",
-    "next_action": "Running evaluate: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T11:49:02.257726+00:00",
-    "next_run_at": "2026-11-11T11:49:02.257726+00:00",
+    "next_action": "Stage evaluate: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T12:50:02.820792+00:00",
+    "next_run_at": "2026-11-11T12:50:02.820792+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "date_of_registration, the day the charity is entered on the register. Only attributes present in the current daily extract are treated as registration-time descriptors; classification, area, governing-document and objects fields are not time-stamped, so their as-of-registration availability is assumed rather than verified.",
     "question": "Will a charity newly entered on the Register of Charities for England and Wales be removed from the register within five years of its registration date?",
@@ -981,8 +981,8 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000037",
-    "next_action": "Running discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T11:48:01.607733+00:00",
-    "next_run_at": "2026-11-11T11:48:01.607733+00:00",
+    "next_action": "Stage discover: 188 normal-operation research session(s) already ran in the last 7 days, 12 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-11T12:48:02.755186+00:00",
+    "next_run_at": "2026-11-11T12:48:02.755186+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
@@ -4463,7 +4463,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 112.1,
+    "age_hours": 112.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5293,7 +5293,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 168.6,
+    "age_hours": 169.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -11575,7 +11575,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 309.1,
+    "age_hours": 309.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -15599,7 +15599,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 158.3,
+    "age_hours": 158.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16055,10 +16055,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-11T11:20:01.545929+00:00",
+    "last_run_at": "2026-11-11T11:50:01.747339+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-11T11:30:00+00:00",
+    "next_run_at": "2026-11-11T12:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16142,7 +16142,7 @@
     "last_run_at": "2026-11-11T10:51:27.468864+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-11T11:50:00+00:00",
+    "next_run_at": "2026-11-11T12:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16199,10 +16199,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-11T11:25:01.876676+00:00",
+    "last_run_at": "2026-11-11T11:50:02.874119+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-11T11:26:00+00:00",
+    "next_run_at": "2026-11-11T11:51:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16231,9 +16231,9 @@
     "schedule": "once at 2026-12-01 00:00"
    }
   ],
-  "updated_at": "2026-11-11T11:25:01.877695+00:00"
+  "updated_at": "2026-11-11T11:50:02.875236+00:00"
  },
- "generated_at": "2026-11-11T11:25:04+00:00",
+ "generated_at": "2026-11-11T11:50:31+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16241,19 +16241,19 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-11T11:21:00Z",
-   "head_sha": "404dabf",
+   "created_at": "2026-11-11T11:27:23Z",
+   "head_sha": "6889214",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/43011209067"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/43012087411"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 53/59 (90%)"
   },
   "head": {
-   "at": "2026-11-11T12:20:57+01:00",
-   "sha": "404dabf",
-   "subject": "Contain existing dashboard grid within narrow viewports"
+   "at": "2026-11-11T12:27:20+01:00",
+   "sha": "6889214",
+   "subject": "Describe held pipeline attempts without claiming active execution"
   },
   "tests": {
    "count": "981",
@@ -16261,14 +16261,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-21T21:27:53+00:00",
-   "live": 8,
-   "published": 7,
-   "qualified": 0,
-   "sessions_7d": 30,
-   "tokens_7d": 6368361
-  },
   {
    "at": "2026-10-21T21:50:02+00:00",
    "live": 6,
@@ -20262,6 +20254,16 @@
    "sessions_7d": 312,
    "tokens_7d": 35064963,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-11T11:50:31+00:00",
+   "live": 2,
+   "published": 19,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 312,
+   "tokens_7d": 35064963,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -20881,11 +20883,11 @@
     "created_at": "2026-11-11T05:25:01.727973+00:00",
     "dataset": "charity-register-five-year-exit",
     "id": "source-000036",
-    "next_run_at": "2026-11-11T11:49:02.257726+00:00",
+    "next_run_at": "2026-11-11T12:50:02.820792+00:00",
     "published_verified": false,
     "running": true,
     "stage": "evaluate",
-    "updated_at": "2026-11-11T10:49:02.257726+00:00"
+    "updated_at": "2026-11-11T11:50:02.820792+00:00"
    },
    {
     "attempt": {
@@ -20897,11 +20899,11 @@
     "created_at": "2026-11-11T06:58:01.925946+00:00",
     "dataset": null,
     "id": "source-000037",
-    "next_run_at": "2026-11-11T11:48:01.607733+00:00",
+    "next_run_at": "2026-11-11T12:48:02.755186+00:00",
     "published_verified": false,
     "running": true,
     "stage": "discover",
-    "updated_at": "2026-11-11T10:48:01.607733+00:00"
+    "updated_at": "2026-11-11T11:48:02.755186+00:00"
    }
   ],
   "counts": {
@@ -20911,7 +20913,7 @@
    "published": 5,
    "rejected": 5
   },
-  "observed_at": "2026-11-11T11:25:04.480668+00:00",
+  "observed_at": "2026-11-11T11:50:31.534945+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
@@ -20919,7 +20921,7 @@
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-11T11:25:04+00:00",
+   "as_of": "2026-11-11T11:50:31+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -20929,7 +20931,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-11T11:25:04+00:00",
+   "as_of": "2026-11-11T11:50:31+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -20939,7 +20941,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-11T11:25:04+00:00",
+   "as_of": "2026-11-11T11:50:31+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -26190,7 +26192,7 @@
   "jobs_total": 346,
   "lifetime_eur": 7.92,
   "live": {
-   "checked_at": "2026-11-11T11:26:16+00:00",
+   "checked_at": "2026-11-11T11:51:44+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -26247,13 +26249,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-11T11:23:40.680182+00:00",
+  "observed_at": "2026-11-11T11:50:01.029218+00:00",
   "releases": [
    {
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-11T11:23:40.709537+00:00",
+    "observed_at": "2026-11-11T11:50:01.056627+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -26262,7 +26264,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-11T11:24:02.174557+00:00",
+    "observed_at": "2026-11-11T11:50:07.395193+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -26271,7 +26273,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-11T11:24:23.776349+00:00",
+    "observed_at": "2026-11-11T11:50:13.427415+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -26280,7 +26282,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-11T11:24:29.386412+00:00",
+    "observed_at": "2026-11-11T11:50:19.498093+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -26289,7 +26291,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-11T11:24:34.942938+00:00",
+    "observed_at": "2026-11-11T11:50:25.284992+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
