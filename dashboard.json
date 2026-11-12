@@ -1,7 +1,7 @@
 {
  "alarms": [
   "Research gate refused the next session: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200)",
-  "Token use at 82% of the weekly ceiling",
+  "Token use at 81% of the weekly ceiling",
   "Local test suite failed on 6889214",
   "1 release(s) not fully verified"
  ],
@@ -24,17 +24,17 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-12T07:50:40.189698+00:00",
+   "moment": "2026-11-12T08:50:39.181758+00:00",
    "normal_operation_runs_last_7_days": 189,
    "normal_operation_runs_weighted_last_7_days": 200,
-   "normal_operation_tokens_last_7_days": 32763349,
+   "normal_operation_tokens_last_7_days": 32591395,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 43242316,
+   "research_tokens_last_7_days": 43070362,
    "runs_last_7_days": 313,
    "runs_weighted_last_7_days": 324,
    "session_cap_per_week": 200,
@@ -61,14 +61,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 7776,
+     "calls": 7778,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 45353896,
-     "output_tokens": 13382484,
+     "input_tokens": 45376329,
+     "output_tokens": 13387286,
      "pricing_available": false
     }
    },
@@ -82,9 +82,9 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "build": 1,
    "deferred": 27,
    "discover": 1,
+   "evaluate": 1,
    "published": 6,
    "rejected": 5
   },
@@ -103,17 +103,34 @@
     "dataset": "lust-release-longterm-status",
     "domain": "Modern factory",
     "id": "source-000039",
-    "next_action": "Stage build: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T08:18:02.294256+00:00",
-    "next_run_at": "2026-11-12T08:18:02.294256+00:00",
+    "next_action": "Stage evaluate: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T09:09:02.549488+00:00",
+    "next_run_at": "2026-11-12T09:09:02.549488+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "At the release report date recorded by the state program (Reported_Date), when the release first enters the state program record and before any cleanup status is known.",
     "question": "Will a leaking underground storage tank release reported between 2004 and 2008 still be classified Open, rather than No Further Action, at the 2018-2019 state data snapshot?",
     "reason": "189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200)",
-    "release_baseline": {},
-    "release_splits": {},
-    "sources": [],
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 8107
+     },
+     "holdout": {
+      "rows": 13170
+     },
+     "train": {
+      "rows": 16192
+     }
+    },
+    "sources": [
+     {
+      "name": "U.S. Environmental Protection Agency, Office of Underground Storage Tanks and Office of Research and Development, with the Association of State and Territorial Solid Waste Management Officials",
+      "url": "https://www.epa.gov/ust/ust-finder"
+     }
+    ],
     "split_strategy": "Fixed chronological boundaries by Reported_Date: train 2004-01-01 through 2005-12-31, eval 2006-01-01 through 2006-12-31, holdout 2007-01-01 through 2008-12-31. No embargo: rows are independent release events with features fixed at report, and the outcome is measured at one later snapshot.",
-    "status": "build",
+    "status": "evaluate",
     "target": "1 if Status equals 'Open' at the 2018-2019 state data snapshot; 0 if Status equals 'No Further Action'; records with 'Unknown' or missing Status are excluded.",
     "workflow": "modern"
    },
@@ -122,8 +139,8 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000040",
-    "next_action": "Stage discover: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T08:17:01.513910+00:00",
-    "next_run_at": "2026-11-12T08:17:01.513910+00:00",
+    "next_action": "Stage discover: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T09:03:01.828593+00:00",
+    "next_run_at": "2026-11-12T09:03:01.828593+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
@@ -1002,17 +1019,34 @@
     "dataset": "lust-release-longterm-status",
     "domain": "Modern factory",
     "id": "source-000039",
-    "next_action": "Stage build: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T08:18:02.294256+00:00",
-    "next_run_at": "2026-11-12T08:18:02.294256+00:00",
+    "next_action": "Stage evaluate: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T09:09:02.549488+00:00",
+    "next_run_at": "2026-11-12T09:09:02.549488+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "At the release report date recorded by the state program (Reported_Date), when the release first enters the state program record and before any cleanup status is known.",
     "question": "Will a leaking underground storage tank release reported between 2004 and 2008 still be classified Open, rather than No Further Action, at the 2018-2019 state data snapshot?",
     "reason": "189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200)",
-    "release_baseline": {},
-    "release_splits": {},
-    "sources": [],
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 8107
+     },
+     "holdout": {
+      "rows": 13170
+     },
+     "train": {
+      "rows": 16192
+     }
+    },
+    "sources": [
+     {
+      "name": "U.S. Environmental Protection Agency, Office of Underground Storage Tanks and Office of Research and Development, with the Association of State and Territorial Solid Waste Management Officials",
+      "url": "https://www.epa.gov/ust/ust-finder"
+     }
+    ],
     "split_strategy": "Fixed chronological boundaries by Reported_Date: train 2004-01-01 through 2005-12-31, eval 2006-01-01 through 2006-12-31, holdout 2007-01-01 through 2008-12-31. No embargo: rows are independent release events with features fixed at report, and the outcome is measured at one later snapshot.",
-    "status": "build",
+    "status": "evaluate",
     "target": "1 if Status equals 'Open' at the 2018-2019 state data snapshot; 0 if Status equals 'No Further Action'; records with 'Unknown' or missing Status are excluded.",
     "workflow": "modern"
    },
@@ -1021,8 +1055,8 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000040",
-    "next_action": "Stage discover: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T08:17:01.513910+00:00",
-    "next_run_at": "2026-11-12T08:17:01.513910+00:00",
+    "next_action": "Stage discover: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T09:03:01.828593+00:00",
+    "next_run_at": "2026-11-12T09:03:01.828593+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
@@ -4503,7 +4537,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 132.5,
+    "age_hours": 133.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5333,7 +5367,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 189.0,
+    "age_hours": 190.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -11615,7 +11649,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 329.6,
+    "age_hours": 330.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -15639,7 +15673,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 178.7,
+    "age_hours": 179.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16095,10 +16129,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-12T07:50:02.181332+00:00",
+    "last_run_at": "2026-11-12T08:50:01.677502+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-12T08:00:00+00:00",
+    "next_run_at": "2026-11-12T09:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16179,10 +16213,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-12T06:52:03.518571+00:00",
+    "last_run_at": "2026-11-12T07:52:05.160372+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-12T08:50:00+00:00",
+    "next_run_at": "2026-11-12T09:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16191,10 +16225,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-12T06:55:01.182743+00:00",
+    "last_run_at": "2026-11-12T07:55:01.075018+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-12T07:55:00+00:00",
+    "next_run_at": "2026-11-12T08:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16239,10 +16273,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-12T07:50:02.153215+00:00",
+    "last_run_at": "2026-11-12T08:50:02.533315+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-12T07:51:00+00:00",
+    "next_run_at": "2026-11-12T08:51:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16271,9 +16305,9 @@
     "schedule": "once at 2026-12-01 00:00"
    }
   ],
-  "updated_at": "2026-11-12T07:50:02.182324+00:00"
+  "updated_at": "2026-11-12T08:50:02.534398+00:00"
  },
- "generated_at": "2026-11-12T07:50:39+00:00",
+ "generated_at": "2026-11-12T08:50:38+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16301,14 +16335,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-22T15:50:01+00:00",
-   "live": 9,
-   "published": 10,
-   "qualified": 1,
-   "sessions_7d": 39,
-   "tokens_7d": 8361536
-  },
   {
    "at": "2026-10-22T16:50:01+00:00",
    "live": 10,
@@ -20344,6 +20370,16 @@
    "sessions_7d": 313,
    "tokens_7d": 32763349,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-12T08:50:38+00:00",
+   "live": 2,
+   "published": 20,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 313,
+   "tokens_7d": 32591395,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -21012,19 +21048,19 @@
    },
    {
     "attempt": {
-     "id": "rw-2bab5db6f7de-build-4",
-     "ordinal": 4,
-     "stage": "build",
+     "id": "rw-2bab5db6f7de-evaluate-1",
+     "ordinal": 1,
+     "stage": "evaluate",
      "status": "running"
     },
     "created_at": "2026-11-11T20:09:01.800668+00:00",
     "dataset": "lust-release-longterm-status",
     "id": "source-000039",
-    "next_run_at": "2026-11-12T08:18:02.294256+00:00",
+    "next_run_at": "2026-11-12T09:09:02.549488+00:00",
     "published_verified": false,
     "running": true,
-    "stage": "build",
-    "updated_at": "2026-11-12T07:18:02.294256+00:00"
+    "stage": "evaluate",
+    "updated_at": "2026-11-12T08:09:02.549488+00:00"
    },
    {
     "attempt": {
@@ -21036,21 +21072,21 @@
     "created_at": "2026-11-12T03:05:01.798903+00:00",
     "dataset": null,
     "id": "source-000040",
-    "next_run_at": "2026-11-12T08:17:01.513910+00:00",
+    "next_run_at": "2026-11-12T09:03:01.828593+00:00",
     "published_verified": false,
     "running": true,
     "stage": "discover",
-    "updated_at": "2026-11-12T07:17:01.513910+00:00"
+    "updated_at": "2026-11-12T08:03:01.828593+00:00"
    }
   ],
   "counts": {
-   "build": 1,
    "deferred": 27,
    "discover": 1,
+   "evaluate": 1,
    "published": 6,
    "rejected": 5
   },
-  "observed_at": "2026-11-12T07:50:39.005084+00:00",
+  "observed_at": "2026-11-12T08:50:38.021644+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
@@ -21058,7 +21094,7 @@
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-12T07:50:39+00:00",
+   "as_of": "2026-11-12T08:50:38+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -21068,7 +21104,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-12T07:50:39+00:00",
+   "as_of": "2026-11-12T08:50:38+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -21078,7 +21114,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-12T07:50:39+00:00",
+   "as_of": "2026-11-12T08:50:38+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -22152,7 +22188,7 @@
   "histogram": {
    "bins": [
     {
-     "count": 192,
+     "count": 193,
      "hi": 0.01,
      "lo": 0.002
     },
@@ -22198,11 +22234,11 @@
     }
    ],
    "max": 2.6488,
-   "median": 0.0095,
-   "n": 360,
+   "median": 0.0094,
+   "n": 361,
    "p90": 0.0433,
    "ref_rate": 0.06924,
-   "total": 10.22
+   "total": 10.23
   },
   "jobs": [
    {
@@ -24954,6 +24990,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-12T08:01:53.707926+00:00",
+    "deleted_at": "2026-11-12T08:08:16.795997+00:00",
+    "eur": 0.0062,
+    "hours": 0.106,
+    "id": "rw-2bab5db6f7de-build-4",
+    "location": "hel1",
+    "normalised_eur": 0.0073,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-08T17:12:02.411330+00:00",
     "deleted_at": "2026-11-08T17:16:16.273985+00:00",
     "eur": 0.0049,
@@ -26526,18 +26574,18 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 199,
-  "jobs_total": 360,
-  "lifetime_eur": 7.97,
+  "jobs_this_month": 200,
+  "jobs_total": 361,
+  "lifetime_eur": 7.98,
   "live": {
-   "checked_at": "2026-11-12T07:51:51+00:00",
+   "checked_at": "2026-11-12T08:51:51+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 77.5,
+  "month_hours": 77.6,
   "month_to_date": 4.35,
   "months": [
    {
@@ -26553,13 +26601,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 4.3468,
-    "hours": 77.53,
-    "jobs": 199,
+    "eur": 4.353,
+    "hours": 77.64,
+    "jobs": 200,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 10.87
+  "projected_month_eur": 10.88
  },
  "runtime": {
   "max_workers": 1,
@@ -26587,13 +26635,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-12T07:50:01.206906+00:00",
+  "observed_at": "2026-11-12T08:50:00.936341+00:00",
   "releases": [
    {
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-12T07:50:01.236333+00:00",
+    "observed_at": "2026-11-12T08:50:00.965366+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -26602,7 +26650,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-12T07:50:08.145239+00:00",
+    "observed_at": "2026-11-12T08:50:07.425547+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -26611,7 +26659,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-12T07:50:14.345830+00:00",
+    "observed_at": "2026-11-12T08:50:13.905331+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -26620,7 +26668,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-12T07:50:20.657002+00:00",
+    "observed_at": "2026-11-12T08:50:19.670385+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -26629,7 +26677,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-12T07:50:26.518903+00:00",
+    "observed_at": "2026-11-12T08:50:25.343950+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -26638,7 +26686,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-12T07:50:32.326694+00:00",
+    "observed_at": "2026-11-12T08:50:31.620790+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
