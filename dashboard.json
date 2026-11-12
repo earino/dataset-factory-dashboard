@@ -1,7 +1,7 @@
 {
  "alarms": [
   "Research gate refused the next session: 190 normal-operation research session(s) already ran in the last 7 days, 10 of which overshot the 600,000-token cap and count double (cap 200)",
-  "Token use at 82% of the weekly ceiling",
+  "Token use at 80% of the weekly ceiling",
   "Local test suite failed on 6889214",
   "1 release(s) not fully verified"
  ],
@@ -24,17 +24,17 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-12T10:50:44.998167+00:00",
+   "moment": "2026-11-12T11:50:41.649203+00:00",
    "normal_operation_runs_last_7_days": 190,
    "normal_operation_runs_weighted_last_7_days": 200,
-   "normal_operation_tokens_last_7_days": 32959694,
+   "normal_operation_tokens_last_7_days": 32177090,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "190 normal-operation research session(s) already ran in the last 7 days, 10 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 43438661,
+   "research_tokens_last_7_days": 42656057,
    "runs_last_7_days": 314,
    "runs_weighted_last_7_days": 324,
    "session_cap_per_week": 200,
@@ -102,8 +102,8 @@
     "dataset": "lust-release-longterm-status",
     "domain": "Modern factory",
     "id": "source-000039",
-    "next_action": "Stage build: 190 normal-operation research session(s) already ran in the last 7 days, 10 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T11:21:01.786958+00:00",
-    "next_run_at": "2026-11-12T11:21:01.786958+00:00",
+    "next_action": "Stage build: 190 normal-operation research session(s) already ran in the last 7 days, 10 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T12:21:02.249505+00:00",
+    "next_run_at": "2026-11-12T12:21:02.249505+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "At the release report date recorded by the state program (Reported_Date), when the release first enters the state program record and before any cleanup status is known.",
     "question": "Will a leaking underground storage tank release reported between 2004 and 2008 still be classified Open, rather than No Further Action, at the 2018-2019 state data snapshot?",
@@ -138,8 +138,8 @@
     "dataset": "nfip-flood-claim-zero-indemnity",
     "domain": "Modern factory",
     "id": "source-000040",
-    "next_action": "Stage build: 190 normal-operation research session(s) already ran in the last 7 days, 10 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T11:22:02.278027+00:00",
-    "next_run_at": "2026-11-12T11:22:02.278027+00:00",
+    "next_action": "Stage build: 190 normal-operation research session(s) already ran in the last 7 days, 10 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T12:23:01.938662+00:00",
+    "next_run_at": "2026-11-12T12:23:01.938662+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The claim open date (openDate, the date the claim was opened in the system, i.e. first notice of loss). Only policy-rating values and building attributes in force at that date, plus the reported date of loss, are inputs.",
     "question": "At the moment a flood loss is first reported to the National Flood Insurance Program, will the building portion of the claim close with no net indemnity payment?",
@@ -1018,8 +1018,8 @@
     "dataset": "lust-release-longterm-status",
     "domain": "Modern factory",
     "id": "source-000039",
-    "next_action": "Stage build: 190 normal-operation research session(s) already ran in the last 7 days, 10 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T11:21:01.786958+00:00",
-    "next_run_at": "2026-11-12T11:21:01.786958+00:00",
+    "next_action": "Stage build: 190 normal-operation research session(s) already ran in the last 7 days, 10 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T12:21:02.249505+00:00",
+    "next_run_at": "2026-11-12T12:21:02.249505+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "At the release report date recorded by the state program (Reported_Date), when the release first enters the state program record and before any cleanup status is known.",
     "question": "Will a leaking underground storage tank release reported between 2004 and 2008 still be classified Open, rather than No Further Action, at the 2018-2019 state data snapshot?",
@@ -1054,8 +1054,8 @@
     "dataset": "nfip-flood-claim-zero-indemnity",
     "domain": "Modern factory",
     "id": "source-000040",
-    "next_action": "Stage build: 190 normal-operation research session(s) already ran in the last 7 days, 10 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T11:22:02.278027+00:00",
-    "next_run_at": "2026-11-12T11:22:02.278027+00:00",
+    "next_action": "Stage build: 190 normal-operation research session(s) already ran in the last 7 days, 10 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T12:23:01.938662+00:00",
+    "next_run_at": "2026-11-12T12:23:01.938662+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The claim open date (openDate, the date the claim was opened in the system, i.e. first notice of loss). Only policy-rating values and building attributes in force at that date, plus the reported date of loss, are inputs.",
     "question": "At the moment a flood loss is first reported to the National Flood Insurance Program, will the building portion of the claim close with no net indemnity payment?",
@@ -4536,7 +4536,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 135.5,
+    "age_hours": 136.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5366,7 +5366,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 192.0,
+    "age_hours": 193.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -11648,7 +11648,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 332.6,
+    "age_hours": 333.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -15672,7 +15672,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 181.7,
+    "age_hours": 182.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16128,10 +16128,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-12T10:50:02.136077+00:00",
+    "last_run_at": "2026-11-12T11:50:01.890325+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-12T11:00:00+00:00",
+    "next_run_at": "2026-11-12T12:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16212,10 +16212,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-12T09:52:08.135195+00:00",
+    "last_run_at": "2026-11-12T10:52:11.412318+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-12T11:50:00+00:00",
+    "next_run_at": "2026-11-12T12:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16224,10 +16224,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-12T09:55:00.886750+00:00",
+    "last_run_at": "2026-11-12T10:55:01.242442+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-12T10:55:00+00:00",
+    "next_run_at": "2026-11-12T11:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16272,10 +16272,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-12T10:50:03.177130+00:00",
+    "last_run_at": "2026-11-12T11:50:01.754676+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-12T10:51:00+00:00",
+    "next_run_at": "2026-11-12T11:51:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16304,9 +16304,9 @@
     "schedule": "once at 2026-12-01 00:00"
    }
   ],
-  "updated_at": "2026-11-12T10:50:03.178088+00:00"
+  "updated_at": "2026-11-12T11:50:01.891389+00:00"
  },
- "generated_at": "2026-11-12T10:50:43+00:00",
+ "generated_at": "2026-11-12T11:50:40+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16334,14 +16334,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-22T18:50:01+00:00",
-   "live": 9,
-   "published": 11,
-   "qualified": 0,
-   "sessions_7d": 41,
-   "tokens_7d": 8718221
-  },
   {
    "at": "2026-10-22T19:50:01+00:00",
    "live": 9,
@@ -20383,6 +20375,16 @@
    "sessions_7d": 314,
    "tokens_7d": 32959694,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-12T11:50:40+00:00",
+   "live": 2,
+   "published": 20,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 314,
+   "tokens_7d": 32177090,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -21059,11 +21061,11 @@
     "created_at": "2026-11-11T20:09:01.800668+00:00",
     "dataset": "lust-release-longterm-status",
     "id": "source-000039",
-    "next_run_at": "2026-11-12T11:21:01.786958+00:00",
+    "next_run_at": "2026-11-12T12:21:02.249505+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-12T10:21:01.786958+00:00"
+    "updated_at": "2026-11-12T11:21:02.249505+00:00"
    },
    {
     "attempt": {
@@ -21075,11 +21077,11 @@
     "created_at": "2026-11-12T03:05:01.798903+00:00",
     "dataset": "nfip-flood-claim-zero-indemnity",
     "id": "source-000040",
-    "next_run_at": "2026-11-12T11:22:02.278027+00:00",
+    "next_run_at": "2026-11-12T12:23:01.938662+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-12T10:22:02.278027+00:00"
+    "updated_at": "2026-11-12T11:23:01.938662+00:00"
    }
   ],
   "counts": {
@@ -21088,7 +21090,7 @@
    "published": 6,
    "rejected": 5
   },
-  "observed_at": "2026-11-12T10:50:43.807417+00:00",
+  "observed_at": "2026-11-12T11:50:40.451120+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
@@ -21096,7 +21098,7 @@
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-12T10:50:43+00:00",
+   "as_of": "2026-11-12T11:50:40+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -21106,7 +21108,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-12T10:50:43+00:00",
+   "as_of": "2026-11-12T11:50:40+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -21116,7 +21118,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-12T10:50:43+00:00",
+   "as_of": "2026-11-12T11:50:40+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -26580,7 +26582,7 @@
   "jobs_total": 361,
   "lifetime_eur": 7.98,
   "live": {
-   "checked_at": "2026-11-12T10:51:58+00:00",
+   "checked_at": "2026-11-12T11:51:54+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -26637,13 +26639,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-12T10:50:02.256809+00:00",
+  "observed_at": "2026-11-12T11:50:01.382160+00:00",
   "releases": [
    {
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-12T10:50:02.286945+00:00",
+    "observed_at": "2026-11-12T11:50:01.414710+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -26652,7 +26654,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-12T10:50:10.111708+00:00",
+    "observed_at": "2026-11-12T11:50:08.125620+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -26661,7 +26663,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-12T10:50:16.641009+00:00",
+    "observed_at": "2026-11-12T11:50:14.583330+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -26670,7 +26672,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-12T10:50:23.056376+00:00",
+    "observed_at": "2026-11-12T11:50:20.821324+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -26679,7 +26681,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-12T10:50:29.328097+00:00",
+    "observed_at": "2026-11-12T11:50:26.942419+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -26688,7 +26690,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-12T10:50:36.443164+00:00",
+    "observed_at": "2026-11-12T11:50:33.599158+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
