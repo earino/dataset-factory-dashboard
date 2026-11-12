@@ -24,17 +24,17 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-12T02:50:37.325262+00:00",
+   "moment": "2026-11-12T03:50:41.014367+00:00",
    "normal_operation_runs_last_7_days": 189,
    "normal_operation_runs_weighted_last_7_days": 200,
-   "normal_operation_tokens_last_7_days": 33125999,
+   "normal_operation_tokens_last_7_days": 33080136,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
     "189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 43604966,
+   "research_tokens_last_7_days": 43559103,
    "runs_last_7_days": 313,
    "runs_weighted_last_7_days": 324,
    "session_cap_per_week": 200,
@@ -61,14 +61,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 7745,
+     "calls": 7757,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 45001817,
-     "output_tokens": 13244337,
+     "input_tokens": 45158318,
+     "output_tokens": 13258132,
      "pricing_available": false
     }
    },
@@ -82,9 +82,8 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "build": 1,
-   "deferred": 26,
-   "discover": 1,
+   "deferred": 27,
+   "discover": 2,
    "published": 6,
    "rejected": 5
   },
@@ -100,30 +99,30 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "osha-serious-citation",
+    "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000038",
-    "next_action": "Stage build: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T03:08:02.803948+00:00",
-    "next_run_at": "2026-11-12T03:08:02.803948+00:00",
+    "id": "source-000039",
+    "next_action": "Stage discover: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T04:03:02.471246+00:00",
+    "next_run_at": "2026-11-12T04:03:02.471246+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "At the inspection open date, before the walkaround, sampling, or any citation; only opening-time inspection fields, establishment attributes, and fixed pre-2010 enforcement history are used.",
-    "question": "Will an OSHA inspection opened at a known date produce a serious, willful, or repeat citation within one year?",
+    "prediction_time": "",
+    "question": "",
     "reason": "189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200)",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Fixed chronological boundaries: train 2010-01-01 to 2015-12-31; eval 2016-01-01 to 2017-12-31; holdout 2018-01-01 to 2018-12-31. No random row split. No embargo is required because each establishment appears once and all history features are frozen to 2005-2009, before every cohort row. Inspections opened in 2019 or later are excluded so the 365-day outcome window does not extend into the COVID-19 period.",
-    "status": "build",
-    "target": "Binary: 1 if the inspection has at least one non-deleted violation row with viol_type in {S,W,R} and issuance_date between open_date and open_date + 365 days; 0 otherwise.",
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
     "workflow": "modern"
    },
    {
     "country": "unknown",
     "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000039",
-    "next_action": "Stage discover: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T03:07:02.297106+00:00",
-    "next_run_at": "2026-11-12T03:07:02.297106+00:00",
+    "id": "source-000040",
+    "next_action": "Stage discover: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T04:05:02.247124+00:00",
+    "next_run_at": "2026-11-12T04:05:02.247124+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
@@ -983,17 +982,17 @@
     "dataset": "osha-serious-citation",
     "domain": "Modern factory",
     "id": "source-000038",
-    "next_action": "Stage build: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T03:08:02.803948+00:00",
-    "next_run_at": "2026-11-12T03:08:02.803948+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-12T03:05:19.403493+00:00",
+    "next_run_at": "2026-11-12T03:05:19.403493+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "At the inspection open date, before the walkaround, sampling, or any citation; only opening-time inspection fields, establishment attributes, and fixed pre-2010 enforcement history are used.",
     "question": "Will an OSHA inspection opened at a known date produce a serious, willful, or repeat citation within one year?",
-    "reason": "189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200)",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "Fixed chronological boundaries: train 2010-01-01 to 2015-12-31; eval 2016-01-01 to 2017-12-31; holdout 2018-01-01 to 2018-12-31. No random row split. No embargo is required because each establishment appears once and all history features are frozen to 2005-2009, before every cohort row. Inspections opened in 2019 or later are excluded so the 365-day outcome window does not extend into the COVID-19 period.",
-    "status": "build",
+    "status": "deferred",
     "target": "Binary: 1 if the inspection has at least one non-deleted violation row with viol_type in {S,W,R} and issuance_date between open_date and open_date + 365 days; 0 otherwise.",
     "workflow": "modern"
    },
@@ -1002,8 +1001,27 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000039",
-    "next_action": "Stage discover: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T03:07:02.297106+00:00",
-    "next_run_at": "2026-11-12T03:07:02.297106+00:00",
+    "next_action": "Stage discover: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T04:03:02.471246+00:00",
+    "next_run_at": "2026-11-12T04:03:02.471246+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200)",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000040",
+    "next_action": "Stage discover: 189 normal-operation research session(s) already ran in the last 7 days, 11 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T04:05:02.247124+00:00",
+    "next_run_at": "2026-11-12T04:05:02.247124+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
@@ -4484,7 +4502,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 127.5,
+    "age_hours": 128.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5314,7 +5332,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 184.0,
+    "age_hours": 185.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -11596,7 +11614,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 324.6,
+    "age_hours": 325.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -15620,7 +15638,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 173.7,
+    "age_hours": 174.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16076,10 +16094,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-12T02:50:01.557330+00:00",
+    "last_run_at": "2026-11-12T03:50:01.651994+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-12T03:00:00+00:00",
+    "next_run_at": "2026-11-12T04:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16160,10 +16178,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-12T01:52:04.403151+00:00",
+    "last_run_at": "2026-11-12T02:52:01.814526+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-12T03:50:00+00:00",
+    "next_run_at": "2026-11-12T04:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16172,10 +16190,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-12T01:55:01.206111+00:00",
+    "last_run_at": "2026-11-12T02:55:01.318760+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-12T02:55:00+00:00",
+    "next_run_at": "2026-11-12T03:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16220,10 +16238,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-12T02:50:01.596006+00:00",
+    "last_run_at": "2026-11-12T03:50:02.577353+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-12T02:51:00+00:00",
+    "next_run_at": "2026-11-12T03:51:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16252,9 +16270,9 @@
     "schedule": "once at 2026-12-01 00:00"
    }
   ],
-  "updated_at": "2026-11-12T02:50:01.597251+00:00"
+  "updated_at": "2026-11-12T03:50:02.578395+00:00"
  },
- "generated_at": "2026-11-12T02:50:36+00:00",
+ "generated_at": "2026-11-12T03:50:39+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16282,14 +16300,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-22T11:50:01+00:00",
-   "live": 8,
-   "published": 9,
-   "qualified": 1,
-   "sessions_7d": 37,
-   "tokens_7d": 7941533
-  },
   {
    "at": "2026-10-22T12:50:01+00:00",
    "live": 9,
@@ -20315,6 +20325,16 @@
    "sessions_7d": 313,
    "tokens_7d": 33125999,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-12T03:50:39+00:00",
+   "live": 2,
+   "published": 20,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 313,
+   "tokens_7d": 33080136,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -20970,16 +20990,16 @@
      "id": "rw-a91d19a09d29-build-5",
      "ordinal": 5,
      "stage": "build",
-     "status": "running"
+     "status": "retry"
     },
     "created_at": "2026-11-11T12:13:02.168791+00:00",
     "dataset": "osha-serious-citation",
     "id": "source-000038",
-    "next_run_at": "2026-11-12T03:08:02.803948+00:00",
+    "next_run_at": "2026-11-12T03:05:19.403493+00:00",
     "published_verified": false,
-    "running": true,
-    "stage": "build",
-    "updated_at": "2026-11-12T02:08:02.803948+00:00"
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-12T03:04:19.403493+00:00"
    },
    {
     "attempt": {
@@ -20991,21 +21011,36 @@
     "created_at": "2026-11-11T20:09:01.800668+00:00",
     "dataset": null,
     "id": "source-000039",
-    "next_run_at": "2026-11-12T03:07:02.297106+00:00",
+    "next_run_at": "2026-11-12T04:03:02.471246+00:00",
     "published_verified": false,
     "running": true,
     "stage": "discover",
-    "updated_at": "2026-11-12T02:07:02.297106+00:00"
+    "updated_at": "2026-11-12T03:03:02.471246+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-0fe329b753be-discover-1",
+     "ordinal": 1,
+     "stage": "discover",
+     "status": "running"
+    },
+    "created_at": "2026-11-12T03:05:01.798903+00:00",
+    "dataset": null,
+    "id": "source-000040",
+    "next_run_at": "2026-11-12T04:05:02.247124+00:00",
+    "published_verified": false,
+    "running": true,
+    "stage": "discover",
+    "updated_at": "2026-11-12T03:05:02.247124+00:00"
    }
   ],
   "counts": {
-   "build": 1,
-   "deferred": 26,
-   "discover": 1,
+   "deferred": 27,
+   "discover": 2,
    "published": 6,
    "rejected": 5
   },
-  "observed_at": "2026-11-12T02:50:36.156172+00:00",
+  "observed_at": "2026-11-12T03:50:39.806229+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
@@ -21013,7 +21048,7 @@
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-12T02:50:36+00:00",
+   "as_of": "2026-11-12T03:50:39+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -21023,7 +21058,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-12T02:50:36+00:00",
+   "as_of": "2026-11-12T03:50:39+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -21033,7 +21068,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-12T02:50:36+00:00",
+   "as_of": "2026-11-12T03:50:39+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -22107,7 +22142,7 @@
   "histogram": {
    "bins": [
     {
-     "count": 188,
+     "count": 189,
      "hi": 0.01,
      "lo": 0.002
     },
@@ -22154,7 +22189,7 @@
    ],
    "max": 2.6488,
    "median": 0.0096,
-   "n": 356,
+   "n": 357,
    "p90": 0.0433,
    "ref_rate": 0.06924,
    "total": 10.2
@@ -25521,6 +25556,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-12T03:01:38.868158+00:00",
+    "deleted_at": "2026-11-12T03:04:16.738008+00:00",
+    "eur": 0.0026,
+    "hours": 0.044,
+    "id": "rw-a91d19a09d29-build-5",
+    "location": "hel1",
+    "normalised_eur": 0.003,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-10T07:37:01.538366+00:00",
     "deleted_at": "2026-11-10T07:47:16.986823+00:00",
     "eur": 0.01,
@@ -26433,11 +26480,11 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 195,
-  "jobs_total": 356,
-  "lifetime_eur": 7.95,
+  "jobs_this_month": 196,
+  "jobs_total": 357,
+  "lifetime_eur": 7.96,
   "live": {
-   "checked_at": "2026-11-12T02:51:48+00:00",
+   "checked_at": "2026-11-12T03:51:51+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -26460,9 +26507,9 @@
     "month": "2026-10"
    },
    {
-    "eur": 4.3305,
-    "hours": 77.25,
-    "jobs": 195,
+    "eur": 4.3331,
+    "hours": 77.3,
+    "jobs": 196,
     "month": "2026-11"
    }
   ],
@@ -26494,13 +26541,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-12T02:50:01.050077+00:00",
+  "observed_at": "2026-11-12T03:50:01.701685+00:00",
   "releases": [
    {
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-12T02:50:01.076831+00:00",
+    "observed_at": "2026-11-12T03:50:01.728693+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -26509,7 +26556,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-12T02:50:06.920642+00:00",
+    "observed_at": "2026-11-12T03:50:07.965853+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -26518,7 +26565,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-12T02:50:12.804735+00:00",
+    "observed_at": "2026-11-12T03:50:14.107046+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -26527,7 +26574,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-12T02:50:18.912020+00:00",
+    "observed_at": "2026-11-12T03:50:22.028425+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -26536,7 +26583,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-12T02:50:24.531430+00:00",
+    "observed_at": "2026-11-12T03:50:27.683308+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -26545,7 +26592,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-12T02:50:30.008826+00:00",
+    "observed_at": "2026-11-12T03:50:33.391201+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
