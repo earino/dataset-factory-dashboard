@@ -1,13 +1,5 @@
 [
  {
-  "at": "2026-10-23T00:50:00+00:00",
-  "published": 9,
-  "live": 10,
-  "tokens_7d": 11072267,
-  "sessions_7d": 155,
-  "qualified": 1
- },
- {
   "at": "2026-10-23T01:50:00+00:00",
   "published": 9,
   "live": 10,
@@ -4060,6 +4052,16 @@
   "published": 21,
   "live": 2,
   "tokens_7d": 30735315,
+  "sessions_7d": 314,
+  "qualified": 0
+ },
+ {
+  "at": "2026-11-12T18:50:46+00:00",
+  "workflow": "modern",
+  "published_scope": "all_workflows",
+  "published": 21,
+  "live": 2,
+  "tokens_7d": 30581427,
   "sessions_7d": 314,
   "qualified": 0
  }
