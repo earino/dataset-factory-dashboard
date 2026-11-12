@@ -1,7 +1,6 @@
 {
  "alarms": [
-  "Research gate refused the next session: 191 normal-operation research session(s) already ran in the last 7 days, 9 of which overshot the 600,000-token cap and count double (cap 200)",
-  "Local test suite failed on 6889214",
+  "Local test suite failed on 6238b7d",
   "1 release(s) not fully verified"
  ],
  "budget": {
@@ -18,26 +17,31 @@
   },
   "decision": {
    "accounting_available": true,
-   "allowance_usd": 30.0,
-   "allowed": false,
+   "allowance_usd": 300.0,
+   "allowed": true,
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-12T20:50:46.353244+00:00",
+   "moment": "2026-11-12T21:24:43.182623+00:00",
    "normal_operation_runs_last_7_days": 191,
    "normal_operation_runs_weighted_last_7_days": 200,
-   "normal_operation_tokens_last_7_days": 29688494,
+   "normal_operation_tokens_last_7_days": 29573364,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "191 normal-operation research session(s) already ran in the last 7 days, 9 of which overshot the 600,000-token cap and count double (cap 200)"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 40167461,
+   "research_tokens_last_7_days": 40052331,
    "runs_last_7_days": 315,
    "runs_weighted_last_7_days": 324,
-   "session_cap_per_week": 200,
+   "session_admission_weighted": 0,
+   "session_cap_per_week": 2000,
+   "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 9,
+   "temporary_resource_window": {
+    "active": true,
+    "from": "2026-11-12T21:17:36.832062+00:00",
+    "until": "2026-11-20T23:00:00+00:00"
+   },
    "usage": {
     "auxiliary": {
      "calls": 27,
@@ -50,24 +54,24 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 1267,
+     "calls": 1276,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 33366309,
-     "output_tokens": 1257705,
+     "input_tokens": 33386096,
+     "output_tokens": 1272450,
      "pricing_available": false
     },
     "research": {
-     "calls": 7850,
+     "calls": 7858,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 46163882,
-     "output_tokens": 13821058,
+     "input_tokens": 46310735,
+     "output_tokens": 13834163,
      "pricing_available": false
     }
    },
@@ -75,7 +79,7 @@
     "Research dollar spend and remaining allowance are unknown; admission uses the configured measured token ceiling",
     "10,478,967 measured development tokens are excluded from the normal-operation weekly ceiling"
    ],
-   "weekly_token_budget": 40000000
+   "weekly_token_budget": 400000000
   }
  },
  "candidates": {
@@ -102,8 +106,8 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000041",
-    "next_action": "Stage discover: 191 normal-operation research session(s) already ran in the last 7 days, 9 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T21:32:01.953804+00:00",
-    "next_run_at": "2026-11-12T21:32:01.953804+00:00",
+    "next_action": "Stage discover: 191 normal-operation research session(s) already ran in the last 7 days, 9 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T22:20:01.797226+00:00",
+    "next_run_at": "2026-11-12T22:20:01.797226+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
@@ -121,12 +125,12 @@
     "dataset": "fra-grade-crossing-collision-5y",
     "domain": "Modern factory",
     "id": "source-000042",
-    "next_action": "Stage build: 191 normal-operation research session(s) already ran in the last 7 days, 9 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T21:33:01.931925+00:00",
-    "next_run_at": "2026-11-12T21:33:01.931925+00:00",
+    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-12T21:24:32.622541+00:00",
+    "next_run_at": "2026-11-12T21:24:32.622541+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The selected historical Form 71 Revision Date (Box A), the date the inventory entry was last updated. All inventory features are those recorded on that same revision, and prior incident counts use only Form 57 incident dates strictly before that revision date.",
     "question": "Given the attributes of a public at-grade highway-rail crossing as recorded in its most recent inventory revision in the study window, will that crossing be associated with at least one reported highway-rail grade crossing collision in the five years following that revision date?",
-    "reason": "191 normal-operation research session(s) already ran in the last 7 days, 9 of which overshot the 600,000-token cap and count double (cap 200)",
+    "reason": "Worker running",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -1056,8 +1060,8 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000041",
-    "next_action": "Stage discover: 191 normal-operation research session(s) already ran in the last 7 days, 9 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T21:32:01.953804+00:00",
-    "next_run_at": "2026-11-12T21:32:01.953804+00:00",
+    "next_action": "Stage discover: 191 normal-operation research session(s) already ran in the last 7 days, 9 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T22:20:01.797226+00:00",
+    "next_run_at": "2026-11-12T22:20:01.797226+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
@@ -1075,12 +1079,12 @@
     "dataset": "fra-grade-crossing-collision-5y",
     "domain": "Modern factory",
     "id": "source-000042",
-    "next_action": "Stage build: 191 normal-operation research session(s) already ran in the last 7 days, 9 of which overshot the 600,000-token cap and count double (cap 200) \u00b7 next attempt 2026-11-12T21:33:01.931925+00:00",
-    "next_run_at": "2026-11-12T21:33:01.931925+00:00",
+    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-12T21:24:32.622541+00:00",
+    "next_run_at": "2026-11-12T21:24:32.622541+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The selected historical Form 71 Revision Date (Box A), the date the inventory entry was last updated. All inventory features are those recorded on that same revision, and prior incident counts use only Form 57 incident dates strictly before that revision date.",
     "question": "Given the attributes of a public at-grade highway-rail crossing as recorded in its most recent inventory revision in the study window, will that crossing be associated with at least one reported highway-rail grade crossing collision in the five years following that revision date?",
-    "reason": "191 normal-operation research session(s) already ran in the last 7 days, 9 of which overshot the 600,000-token cap and count double (cap 200)",
+    "reason": "Worker running",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -4557,7 +4561,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 145.5,
+    "age_hours": 146.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5387,7 +5391,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 202.0,
+    "age_hours": 202.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -11669,7 +11673,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 342.6,
+    "age_hours": 343.1,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -15693,7 +15697,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 191.7,
+    "age_hours": 192.3,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16149,10 +16153,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-12T20:50:02.508233+00:00",
+    "last_run_at": "2026-11-12T21:20:02.297139+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-12T21:00:00+00:00",
+    "next_run_at": "2026-11-12T21:30:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16233,7 +16237,7 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-12T19:52:22.918408+00:00",
+    "last_run_at": "2026-11-12T20:52:12.181032+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
     "next_run_at": "2026-11-12T21:50:00+00:00",
@@ -16245,10 +16249,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-12T19:55:00.972196+00:00",
+    "last_run_at": "2026-11-12T20:55:01.802409+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-12T20:55:00+00:00",
+    "next_run_at": "2026-11-12T21:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16293,10 +16297,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-12T20:50:02.091215+00:00",
+    "last_run_at": "2026-11-12T21:24:02.677099+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-12T20:51:00+00:00",
+    "next_run_at": "2026-11-12T21:25:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16323,11 +16327,23 @@
     "next_run_at": "2026-12-01T00:00:00+00:00",
     "no_agent": true,
     "schedule": "once at 2026-12-01 00:00"
+   },
+   {
+    "enabled": true,
+    "failure_streak": 0,
+    "id": "dc8f49ebff51",
+    "last_error": "",
+    "last_run_at": null,
+    "last_status": null,
+    "name": "scout-worker-allowance-expiry-nov20",
+    "next_run_at": "2026-11-20T23:00:00+00:00",
+    "no_agent": true,
+    "schedule": "once at 2026-11-20 23:00"
    }
   ],
-  "updated_at": "2026-11-12T20:50:02.509275+00:00"
+  "updated_at": "2026-11-12T21:24:02.678113+00:00"
  },
- "generated_at": "2026-11-12T20:50:45+00:00",
+ "generated_at": "2026-11-12T21:24:41+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16335,34 +16351,26 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-12T12:53:30Z",
-   "head_sha": "8ff197d",
+   "created_at": "2026-11-12T21:21:37Z",
+   "head_sha": "6238b7d",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/43222077335"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/43309480626"
   },
   "coverage": {
    "ok": true,
    "summary": "live non-US: 53/59 (90%)"
   },
   "head": {
-   "at": "2026-11-11T12:27:20+01:00",
-   "sha": "6889214",
-   "subject": "Describe held pipeline attempts without claiming active execution"
+   "at": "2026-11-12T22:21:33+01:00",
+   "sha": "6238b7d",
+   "subject": "Refresh rule inventory for temporary allowance record"
   },
   "tests": {
-   "count": "981",
+   "count": "984",
    "ok": false
   }
  },
  "history": [
-  {
-   "at": "2026-10-23T03:50:00+00:00",
-   "live": 11,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 167,
-   "tokens_7d": 11862455
-  },
   {
    "at": "2026-10-23T04:50:01+00:00",
    "live": 12,
@@ -20424,6 +20432,16 @@
    "sessions_7d": 315,
    "tokens_7d": 29688494,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-12T21:24:41+00:00",
+   "live": 2,
+   "published": 21,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 315,
+   "tokens_7d": 29573364,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -21141,11 +21159,11 @@
     "created_at": "2026-11-12T14:15:01.878674+00:00",
     "dataset": null,
     "id": "source-000041",
-    "next_run_at": "2026-11-12T21:32:01.953804+00:00",
+    "next_run_at": "2026-11-12T22:20:01.797226+00:00",
     "published_verified": false,
     "running": true,
     "stage": "discover",
-    "updated_at": "2026-11-12T20:32:01.953804+00:00"
+    "updated_at": "2026-11-12T21:20:01.797226+00:00"
    },
    {
     "attempt": {
@@ -21157,11 +21175,11 @@
     "created_at": "2026-11-12T17:38:02.098583+00:00",
     "dataset": "fra-grade-crossing-collision-5y",
     "id": "source-000042",
-    "next_run_at": "2026-11-12T21:33:01.931925+00:00",
+    "next_run_at": "2026-11-12T21:24:32.622541+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-12T20:33:01.931925+00:00"
+    "updated_at": "2026-11-12T21:24:02.622541+00:00"
    }
   ],
   "counts": {
@@ -21171,7 +21189,7 @@
    "published": 7,
    "rejected": 5
   },
-  "observed_at": "2026-11-12T20:50:45.178212+00:00",
+  "observed_at": "2026-11-12T21:24:41.979093+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
@@ -21179,7 +21197,7 @@
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-12T20:50:45+00:00",
+   "as_of": "2026-11-12T21:24:41+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -21189,7 +21207,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-12T20:50:45+00:00",
+   "as_of": "2026-11-12T21:24:41+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -21199,7 +21217,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-12T20:50:45+00:00",
+   "as_of": "2026-11-12T21:24:41+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -22300,7 +22318,7 @@
   "head": null
  },
  "resources": {
-  "ceiling_eur": 45.0,
+  "ceiling_eur": 50.0,
   "errors": [],
   "eur_per_release": 0.38,
   "histogram": {
@@ -26368,6 +26386,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-12T21:19:00.248183+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "rw-f63d90f6fc37-build-2",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "running"
+   },
+   {
     "created_at": "2026-10-22T02:08:44.533980+00:00",
     "deleted_at": "2026-10-22T02:14:17.171323+00:00",
     "eur": 0.0011,
@@ -26729,15 +26759,15 @@
    }
   ],
   "jobs_this_month": 203,
-  "jobs_total": 364,
+  "jobs_total": 365,
   "lifetime_eur": 8.0,
   "live": {
-   "checked_at": "2026-11-12T20:51:58+00:00",
+   "checked_at": "2026-11-12T21:25:54+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
   "month_hours": 77.9,
   "month_to_date": 4.37,
