@@ -18,24 +18,22 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 300.0,
-   "allowed": false,
+   "allowed": true,
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-13T00:50:42.859274+00:00",
-   "normal_operation_runs_last_7_days": 210,
-   "normal_operation_runs_weighted_last_7_days": 218,
-   "normal_operation_tokens_last_7_days": 30299088,
+   "moment": "2026-11-13T01:50:44.814134+00:00",
+   "normal_operation_runs_last_7_days": 218,
+   "normal_operation_runs_weighted_last_7_days": 226,
+   "normal_operation_tokens_last_7_days": 31049328,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 37s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 40778055,
-   "runs_last_7_days": 334,
-   "runs_weighted_last_7_days": 342,
-   "session_admission_weighted": 21,
+   "research_tokens_last_7_days": 41528295,
+   "runs_last_7_days": 342,
+   "runs_weighted_last_7_days": 350,
+   "session_admission_weighted": 29,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 8,
@@ -66,14 +64,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 8010,
+     "calls": 8068,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 47775675,
-     "output_tokens": 14466250,
+     "input_tokens": 48237912,
+     "output_tokens": 14754253,
      "pricing_available": false
     }
    },
@@ -87,8 +85,9 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "deferred": 34,
-   "discover": 2,
+   "build": 1,
+   "deferred": 36,
+   "discover": 1,
    "published": 7,
    "rejected": 5
   },
@@ -104,34 +103,51 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "fjc-civil-trial-36m",
     "domain": "Modern factory",
-    "id": "source-000047",
-    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 332.554, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"que-accident view specifically so that each accident is one row, and documents \u00b7 next attempt 2026-11-13T00:50:39.302218+00:00",
-    "next_run_at": "2026-11-13T00:50:39.302218+00:00",
+    "id": "source-000048",
+    "next_action": "Stage build: Most of the construction matches the source documentation and the stated task rules. ORIGIN=1 selection, the fixed FY windows and 36-month maturity are consistent: train (2010-10-01..2014-09-30), eval (2017-10-01..2018-09-30) and holdout (2",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
-    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 332.554, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"que-accident view specifically so that each accident is one row, and documents",
-    "release_baseline": {},
-    "release_splits": {},
-    "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "prediction_time": "At case filing (the filing date, which is also the carried time column), using only civil cover-sheet and case-opening fields; no docket events after filing.",
+    "question": "Will a newly filed federal civil case reach trial within 36 months?",
+    "reason": "Most of the construction matches the source documentation and the stated task rules. ORIGIN=1 selection, the fixed FY windows and 36-month maturity are consistent: train (2010-10-01..2014-09-30), eval (2017-10-01..2018-09-30) and holdout (2",
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 124458
+     },
+     "holdout": {
+      "rows": 113131
+     },
+     "train": {
+      "rows": 597868
+     }
+    },
+    "sources": [
+     {
+      "name": "Federal Judicial Center (FJC), U.S. federal judiciary",
+      "url": "https://www.fjc.gov/sites/default/files/idb/codebooks/Civil%20Codebook%201988%20Forward%2010252023.pdf"
+     }
+    ],
+    "split_strategy": "Fixed chronological cohorts by FILEDATE with a 36-month label-maturity embargo: train 2010-10-01 to 2014-09-30 (FY2011-FY2014); eval 2017-10-01 to 2018-09-30 (FY2018); holdout 2021-10-01 to 2022-09-30 (FY2022). Train outcomes mature by 2017-09-30, eval by 2021-09-30, and holdout by 2025-09-30; unused gap years are discarded. No random shuffling.",
+    "status": "build",
+    "target": "1 if PROCPROG is 6, 7, 8, or 9 (case disposed during or after a court or jury trial) and TERMDATE is no later than FILEDATE plus 36 months; 0 otherwise, including cases still pending at 36 months.",
     "workflow": "modern"
    },
    {
     "country": "unknown",
     "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000048",
-    "next_action": "Stage discover",
-    "next_run_at": null,
+    "id": "source-000050",
+    "next_action": "Stage discover: Missing source evidence: attribution \u00b7 next attempt 2026-11-13T01:30:47.303605+00:00",
+    "next_run_at": "2026-11-13T01:30:47.303605+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
-    "reason": "",
+    "reason": "Missing source evidence: attribution",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -1175,17 +1191,72 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000047",
-    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 332.554, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"que-accident view specifically so that each accident is one row, and documents \u00b7 next attempt 2026-11-13T00:50:39.302218+00:00",
-    "next_run_at": "2026-11-13T00:50:39.302218+00:00",
+    "next_action": "Stage deferred: The source itself is real and live-verified (FEMA OpenFEMA DeclarationDenials and DisasterDeclarationsSummaries v2 return records through the public API, no account or key, with the exact fields needed to build a request-level binary approv",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
-    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 332.554, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"que-accident view specifically so that each accident is one row, and documents",
+    "reason": "The source itself is real and live-verified (FEMA OpenFEMA DeclarationDenials and DisasterDeclarationsSummaries v2 return records through the public API, no account or key, with the exact fields needed to build a request-level binary approv",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "",
-    "status": "discover",
+    "status": "deferred",
+    "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "fjc-civil-trial-36m",
+    "domain": "Modern factory",
+    "id": "source-000048",
+    "next_action": "Stage build: Most of the construction matches the source documentation and the stated task rules. ORIGIN=1 selection, the fixed FY windows and 36-month maturity are consistent: train (2010-10-01..2014-09-30), eval (2017-10-01..2018-09-30) and holdout (2",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "At case filing (the filing date, which is also the carried time column), using only civil cover-sheet and case-opening fields; no docket events after filing.",
+    "question": "Will a newly filed federal civil case reach trial within 36 months?",
+    "reason": "Most of the construction matches the source documentation and the stated task rules. ORIGIN=1 selection, the fixed FY windows and 36-month maturity are consistent: train (2010-10-01..2014-09-30), eval (2017-10-01..2018-09-30) and holdout (2",
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 124458
+     },
+     "holdout": {
+      "rows": 113131
+     },
+     "train": {
+      "rows": 597868
+     }
+    },
+    "sources": [
+     {
+      "name": "Federal Judicial Center (FJC), U.S. federal judiciary",
+      "url": "https://www.fjc.gov/sites/default/files/idb/codebooks/Civil%20Codebook%201988%20Forward%2010252023.pdf"
+     }
+    ],
+    "split_strategy": "Fixed chronological cohorts by FILEDATE with a 36-month label-maturity embargo: train 2010-10-01 to 2014-09-30 (FY2011-FY2014); eval 2017-10-01 to 2018-09-30 (FY2018); holdout 2021-10-01 to 2022-09-30 (FY2022). Train outcomes mature by 2017-09-30, eval by 2021-09-30, and holdout by 2025-09-30; unused gap years are discarded. No random shuffling.",
+    "status": "build",
+    "target": "1 if PROCPROG is 6, 7, 8, or 9 (case disposed during or after a court or jury trial) and TERMDATE is no later than FILEDATE plus 36 months; 0 otherwise, including cases still pending at 36 months.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000049",
+    "next_action": "Stage deferred: The most promising infrastructure datasets fail at least one hard selection test. The National Levee Database inspection ratings are not verifiably bulk-downloadable without an account: USACE says detailed levee data require login and Levee",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "The most promising infrastructure datasets fail at least one hard selection test. The National Levee Database inspection ratings are not verifiably bulk-downloadable without an account: USACE says detailed levee data require login and Levee",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "deferred",
     "target": "",
     "workflow": "modern"
    },
@@ -1193,13 +1264,13 @@
     "country": "unknown",
     "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000048",
-    "next_action": "Stage discover",
-    "next_run_at": null,
+    "id": "source-000050",
+    "next_action": "Stage discover: Missing source evidence: attribution \u00b7 next attempt 2026-11-13T01:30:47.303605+00:00",
+    "next_run_at": "2026-11-13T01:30:47.303605+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
-    "reason": "",
+    "reason": "Missing source evidence: attribution",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -4676,7 +4747,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 149.5,
+    "age_hours": 150.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5506,7 +5577,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 206.0,
+    "age_hours": 207.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -11788,7 +11859,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 346.6,
+    "age_hours": 347.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -15812,7 +15883,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 195.7,
+    "age_hours": 196.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16268,10 +16339,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-13T00:50:02.316835+00:00",
+    "last_run_at": "2026-11-13T01:50:01.850616+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-13T01:00:00+00:00",
+    "next_run_at": "2026-11-13T02:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16352,10 +16423,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-12T23:52:08.526305+00:00",
+    "last_run_at": "2026-11-13T00:52:09.785666+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-13T01:50:00+00:00",
+    "next_run_at": "2026-11-13T02:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16364,10 +16435,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-12T23:55:01.575932+00:00",
+    "last_run_at": "2026-11-13T00:55:01.149615+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-13T00:55:00+00:00",
+    "next_run_at": "2026-11-13T01:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16412,10 +16483,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-13T00:49:39.355670+00:00",
+    "last_run_at": "2026-11-13T01:46:06.024171+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-13T00:51:00+00:00",
+    "next_run_at": "2026-11-13T01:48:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16468,9 +16539,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-13T00:50:02.317890+00:00"
+  "updated_at": "2026-11-13T01:50:01.851783+00:00"
  },
- "generated_at": "2026-11-13T00:50:41+00:00",
+ "generated_at": "2026-11-13T01:50:43+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16498,14 +16569,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-23T08:50:01+00:00",
-   "live": 13,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 179,
-   "tokens_7d": 13096061
-  },
   {
    "at": "2026-10-23T09:50:01+00:00",
    "live": 14,
@@ -20577,6 +20640,16 @@
    "sessions_7d": 334,
    "tokens_7d": 30299088,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-13T01:50:43+00:00",
+   "live": 2,
+   "published": 21,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 342,
+   "tokens_7d": 31049328,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -21382,54 +21455,85 @@
    },
    {
     "attempt": {
-     "id": "rw-523d86249acf-discover-1",
-     "ordinal": 1,
+     "id": "rw-523d86249acf-discover-2",
+     "ordinal": 2,
      "stage": "discover",
-     "status": "retry"
+     "status": "defer"
     },
     "created_at": "2026-11-13T00:37:01.431586+00:00",
     "dataset": null,
     "id": "source-000047",
-    "next_run_at": "2026-11-13T00:50:39.302218+00:00",
+    "next_run_at": null,
     "published_verified": false,
     "running": false,
-    "stage": "discover",
-    "updated_at": "2026-11-13T00:49:39.302218+00:00"
+    "stage": "deferred",
+    "updated_at": "2026-11-13T01:13:03.604235+00:00"
    },
    {
     "attempt": {
-     "id": "rw-4e8c0bcd0d8c-discover-1",
-     "ordinal": 1,
-     "stage": "discover",
+     "id": "rw-4e8c0bcd0d8c-build-4",
+     "ordinal": 4,
+     "stage": "build",
      "status": "running"
     },
     "created_at": "2026-11-13T00:44:02.032360+00:00",
-    "dataset": null,
+    "dataset": "fjc-civil-trial-36m",
     "id": "source-000048",
     "next_run_at": null,
     "published_verified": false,
     "running": true,
+    "stage": "build",
+    "updated_at": "2026-11-13T01:50:04.153843+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-a183e93d5eca-discover-1",
+     "ordinal": 1,
+     "stage": "discover",
+     "status": "defer"
+    },
+    "created_at": "2026-11-13T01:14:02.033396+00:00",
+    "dataset": null,
+    "id": "source-000049",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-13T01:22:59.531392+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-e3d144fa19f1-discover-1",
+     "ordinal": 1,
+     "stage": "discover",
+     "status": "retry"
+    },
+    "created_at": "2026-11-13T01:23:01.458182+00:00",
+    "dataset": null,
+    "id": "source-000050",
+    "next_run_at": "2026-11-13T01:30:47.303605+00:00",
+    "published_verified": false,
+    "running": false,
     "stage": "discover",
-    "updated_at": "2026-11-13T00:44:02.032360+00:00"
+    "updated_at": "2026-11-13T01:29:47.303605+00:00"
    }
   ],
   "counts": {
-   "deferred": 34,
-   "discover": 2,
+   "build": 1,
+   "deferred": 36,
+   "discover": 1,
    "published": 7,
    "rejected": 5
   },
-  "observed_at": "2026-11-13T00:50:41.706051+00:00",
+  "observed_at": "2026-11-13T01:50:43.641431+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
- "notices": [
-  "A research session is running: lock held for 37s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T00:50:41+00:00",
+   "as_of": "2026-11-13T01:50:43+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -21439,7 +21543,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T00:50:41+00:00",
+   "as_of": "2026-11-13T01:50:43+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -21449,7 +21553,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T00:50:41+00:00",
+   "as_of": "2026-11-13T01:50:43+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -22556,12 +22660,12 @@
   "histogram": {
    "bins": [
     {
-     "count": 201,
+     "count": 202,
      "hi": 0.01,
      "lo": 0.002
     },
     {
-     "count": 85,
+     "count": 86,
      "hi": 0.02,
      "lo": 0.01
     },
@@ -22603,10 +22707,10 @@
    ],
    "max": 2.6488,
    "median": 0.0095,
-   "n": 373,
+   "n": 375,
    "p90": 0.0432,
    "ref_rate": 0.06924,
-   "total": 10.39
+   "total": 10.41
   },
   "jobs": [
    {
@@ -25742,6 +25846,42 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-13T01:14:37.630318+00:00",
+    "deleted_at": "2026-11-13T01:23:16.792886+00:00",
+    "eur": 0.0084,
+    "hours": 0.144,
+    "id": "rw-4e8c0bcd0d8c-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.01,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-13T01:31:22.123730+00:00",
+    "deleted_at": "2026-11-13T01:39:13.859117+00:00",
+    "eur": 0.0077,
+    "hours": 0.131,
+    "id": "rw-4e8c0bcd0d8c-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.0091,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-13T01:50:04.158732+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "rw-4e8c0bcd0d8c-build-4",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "running"
+   },
+   {
     "created_at": "2026-11-08T12:48:13.870342+00:00",
     "deleted_at": "2026-11-08T12:52:17.202330+00:00",
     "eur": 0.0047,
@@ -27086,19 +27226,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 212,
-  "jobs_total": 373,
-  "lifetime_eur": 8.11,
+  "jobs_this_month": 214,
+  "jobs_total": 376,
+  "lifetime_eur": 8.13,
   "live": {
-   "checked_at": "2026-11-13T00:51:54+00:00",
+   "checked_at": "2026-11-13T01:51:56+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
-  "month_hours": 79.9,
-  "month_to_date": 4.49,
+  "month_hours": 80.2,
+  "month_to_date": 4.5,
   "months": [
    {
     "eur": 2.4452,
@@ -27113,13 +27253,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 4.4876,
-    "hours": 79.93,
-    "jobs": 212,
+    "eur": 4.5037,
+    "hours": 80.21,
+    "jobs": 214,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 10.36
+  "projected_month_eur": 10.39
  },
  "runtime": {
   "max_workers": 1,
@@ -27147,13 +27287,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-13T00:50:01.628467+00:00",
+  "observed_at": "2026-11-13T01:50:01.281934+00:00",
   "releases": [
    {
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-13T00:50:01.659402+00:00",
+    "observed_at": "2026-11-13T01:50:01.313889+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -27162,7 +27302,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-13T00:50:07.949945+00:00",
+    "observed_at": "2026-11-13T01:50:07.624452+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -27171,7 +27311,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-13T00:50:13.926238+00:00",
+    "observed_at": "2026-11-13T01:50:13.523249+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -27180,7 +27320,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-13T00:50:19.432890+00:00",
+    "observed_at": "2026-11-13T01:50:19.395366+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -27189,7 +27329,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-13T00:50:24.823608+00:00",
+    "observed_at": "2026-11-13T01:50:25.931921+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -27198,7 +27338,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-13T00:50:30.209020+00:00",
+    "observed_at": "2026-11-13T01:50:31.612081+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -27207,7 +27347,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-13T00:50:35.658450+00:00",
+    "observed_at": "2026-11-13T01:50:37.198418+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
