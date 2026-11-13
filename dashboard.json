@@ -18,25 +18,27 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 300.0,
-   "allowed": true,
+   "allowed": false,
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-13T21:51:04.224716+00:00",
-   "normal_operation_runs_last_7_days": 290,
-   "normal_operation_runs_weighted_last_7_days": 293,
-   "normal_operation_tokens_last_7_days": 30689262,
+   "moment": "2026-11-13T22:51:00.301258+00:00",
+   "normal_operation_runs_last_7_days": 297,
+   "normal_operation_runs_weighted_last_7_days": 299,
+   "normal_operation_tokens_last_7_days": 31375596,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 115s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 41168229,
-   "runs_last_7_days": 414,
-   "runs_weighted_last_7_days": 417,
-   "session_admission_weighted": 119,
+   "research_tokens_last_7_days": 41854563,
+   "runs_last_7_days": 421,
+   "runs_weighted_last_7_days": 423,
+   "session_admission_weighted": 127,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
-   "sessions_over_token_cap": 3,
+   "sessions_over_token_cap": 2,
    "temporary_resource_window": {
     "active": true,
     "from": "2026-11-12T21:17:36.832062+00:00",
@@ -64,14 +66,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 8617,
+     "calls": 8679,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 53191307,
-     "output_tokens": 17599798,
+     "input_tokens": 53568815,
+     "output_tokens": 17909135,
      "pricing_available": false
     }
    },
@@ -85,8 +87,9 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "build": 2,
-   "deferred": 45,
+   "build": 1,
+   "deferred": 48,
+   "discover": 1,
    "published": 10,
    "rejected": 5
   },
@@ -102,40 +105,40 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "ficu-two-year-panel-exit",
+    "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000060",
-    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-13T21:55:02.082627+00:00",
-    "next_run_at": "2026-11-13T21:55:02.082627+00:00",
+    "id": "source-000064",
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 238.083, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"_file_in, trade_mark_in, serv_mark_in, cert_mark_in, coll_trade_mark_in, coll_ \u00b7 next attempt 2026-11-13T22:44:04.387164+00:00",
+    "next_run_at": "2026-11-13T22:44:04.387164+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "Last day of the third calendar month after each cohort reporting date, nominally 90 days after period end: 2018-03-31 for 2017Q4, 2021-03-31 for 2020Q4 and 2024-03-31 for 2023Q4. The one observed release in hand, 2025Q4 published 2026-03-06, was 65 days after period end, so the declared feature lag is 65 days and the declared instant lag is 90 days. This is a conservative fixed rule, not a claim that every historical file was posted exactly then. Only cohort and t-4 files are available at this instant.",
-    "question": "Will a federally insured U.S. credit union that files a Form 5300 Call Report for quarter t still be filing two years (eight quarters) later, or will it have left the federally insured credit union Call Report panel?",
-    "reason": "An active or interrupted job exists; reconcile it before launching another",
+    "prediction_time": "",
+    "question": "",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 238.083, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"_file_in, trade_mark_in, serv_mark_in, cert_mark_in, coll_trade_mark_in, coll_",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "One cohort quarter per split, frozen before any measurement. Train = 2017Q4 cohort (reports as of 2017-12-31, outcomes 2018Q1-2019Q4). Eval = 2020Q4 cohort (2020-12-31, outcomes 2021Q1-2022Q4). Holdout = 2023Q4 cohort (2023-12-31, outcomes 2024Q1-2025Q4). The three eight-quarter outcome windows are disjoint, so no embargo is needed. Each institution contributes at most one row per split, so no later row inside a split can reveal an earlier row's label; cohort quarters outside these three are never used and rows are never reassigned randomly.",
-    "status": "build",
-    "target": "Binary. Label 1 if the institution's CU_NUMBER (NCUA charter/insurance number) is absent from FOICU.txt in both the t+7 and the t+8 quarterly Call Report ZIPs; label 0 if it appears in either. The label is exit from the federally insured credit union panel, not any reported status field, and no input field can determine it.",
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
     "workflow": "modern"
    },
    {
     "country": "unknown",
-    "dataset": "dol-form5500-small-401k-termination",
+    "dataset": "england-storm-overflow-next-year-spills",
     "domain": "Modern factory",
-    "id": "source-000062",
-    "next_action": "Stage build: Upload recovery; expiry bounds retries \u00b7 next attempt 2026-11-13T21:52:02.704903+00:00",
-    "next_run_at": "2026-11-13T21:52:02.704903+00:00",
+    "id": "source-000065",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-13T22:49:18.896360+00:00",
+    "next_run_at": "2026-11-13T22:49:18.896360+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The DATE_RECEIVED receipt date printed on the plan's first Form 5500-SF return. Every input is a field of that same return and of no later filing, so the feature vector is complete at that instant.",
-    "question": "Given a small U.S. employer 401(k) plan's first annual Form 5500-SF return, will the plan file a final return (i.e., terminate) within 36 months of that first return being received by EFAST2?",
-    "reason": "Upload recovery; expiry bounds retries",
+    "prediction_time": "31 December of feature year Y, using the reporting company's own completed year-Y EDM records. The public annual return for Y is submitted by end February Y+1 and published by end March Y+1, so an external analyst could not reproduce the feature set on 31 December; this is a current-vintage retrospective reconstruction for the reporting company's decision user.",
+    "question": "Will this storm overflow report more than 30 counted spills in the next calendar year, i.e. breach the Environment Agency's one-year high-spill-frequency investigation trigger?",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Fixed, chronological by receipt date of the first return: training = first returns received in calendar 2013, 2014 and 2015; evaluation = returns received in 2016; holdout = returns received in 2017. The 36-month label window is anchored to each plan's own DATE_RECEIVED, so every plan contributes exactly one feature row to exactly one split and no later return can reveal an earlier plan's target. No embargo is needed because the split unit is the plan, not the calendar file: label windows of training plans overlapping 2016-2017 calendar time involve different plans from the evaluation and holdout plans, and no feature is taken from any return received after the cohort return. Boundaries are frozen before any performance measurement.",
+    "split_strategy": "Fixed chronological boundaries keyed on feature year Y. Train: Y = 2021 and 2022 (outcomes 2022-2023). Eval: Y = 2023 (outcome 2024). Holdout: Y = 2024 (outcome 2025). Each overflow contributes exactly one transition, drawn uniformly at random from its eligible transitions using frozen seed 20261113, so no overflow appears in more than one split and no later row can carry an earlier row's target. No embargo is required because the feature year closes on 31 December Y and the outcome window opens on 1 January Y+1. Boundaries and the >30 threshold are fixed here, before any measurement, and are not revised after holdout results.",
     "status": "build",
-    "target": "Binary: 1 if any Form 5500-SF or Form 5500 return for the same sponsor EIN and plan number, with FINAL_FILING_IND (SF_FINAL_FILING_IND in the short-form file) equal to '1', is received strictly after the cohort return's DATE_RECEIVED and no later than 36 months after it; 0 otherwise. Plans whose first return is itself a final return, or is flagged amended, are excluded from the population rather than labelled.",
+    "target": "1 if the year-(Y+1) EDM annual return reports a value strictly greater than 30 in the column 'Counted spills using 12-24h count method' for the same overflow; 0 if 30 or fewer. Rows where the year-(Y+1) spill count is missing or non-numeric are dropped, never labelled.",
     "workflow": "modern"
    }
   ],
@@ -1488,17 +1491,17 @@
     "dataset": "ficu-two-year-panel-exit",
     "domain": "Modern factory",
     "id": "source-000060",
-    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-13T21:55:02.082627+00:00",
-    "next_run_at": "2026-11-13T21:55:02.082627+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-13T22:12:20.205973+00:00",
+    "next_run_at": "2026-11-13T22:12:20.205973+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "Last day of the third calendar month after each cohort reporting date, nominally 90 days after period end: 2018-03-31 for 2017Q4, 2021-03-31 for 2020Q4 and 2024-03-31 for 2023Q4. The one observed release in hand, 2025Q4 published 2026-03-06, was 65 days after period end, so the declared feature lag is 65 days and the declared instant lag is 90 days. This is a conservative fixed rule, not a claim that every historical file was posted exactly then. Only cohort and t-4 files are available at this instant.",
     "question": "Will a federally insured U.S. credit union that files a Form 5300 Call Report for quarter t still be filing two years (eight quarters) later, or will it have left the federally insured credit union Call Report panel?",
-    "reason": "An active or interrupted job exists; reconcile it before launching another",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "One cohort quarter per split, frozen before any measurement. Train = 2017Q4 cohort (reports as of 2017-12-31, outcomes 2018Q1-2019Q4). Eval = 2020Q4 cohort (2020-12-31, outcomes 2021Q1-2022Q4). Holdout = 2023Q4 cohort (2023-12-31, outcomes 2024Q1-2025Q4). The three eight-quarter outcome windows are disjoint, so no embargo is needed. Each institution contributes at most one row per split, so no later row inside a split can reveal an earlier row's label; cohort quarters outside these three are never used and rows are never reassigned randomly.",
-    "status": "build",
+    "status": "deferred",
     "target": "Binary. Label 1 if the institution's CU_NUMBER (NCUA charter/insurance number) is absent from FOICU.txt in both the t+7 and the t+8 quarterly Call Report ZIPs; label 0 if it appears in either. The label is exit from the federally insured credit union panel, not any reported status field, and no input field can determine it.",
     "workflow": "modern"
    },
@@ -1526,18 +1529,75 @@
     "dataset": "dol-form5500-small-401k-termination",
     "domain": "Modern factory",
     "id": "source-000062",
-    "next_action": "Stage build: Upload recovery; expiry bounds retries \u00b7 next attempt 2026-11-13T21:52:02.704903+00:00",
-    "next_run_at": "2026-11-13T21:52:02.704903+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-13T22:22:17.861088+00:00",
+    "next_run_at": "2026-11-13T22:22:17.861088+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The DATE_RECEIVED receipt date printed on the plan's first Form 5500-SF return. Every input is a field of that same return and of no later filing, so the feature vector is complete at that instant.",
     "question": "Given a small U.S. employer 401(k) plan's first annual Form 5500-SF return, will the plan file a final return (i.e., terminate) within 36 months of that first return being received by EFAST2?",
-    "reason": "Upload recovery; expiry bounds retries",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "Fixed, chronological by receipt date of the first return: training = first returns received in calendar 2013, 2014 and 2015; evaluation = returns received in 2016; holdout = returns received in 2017. The 36-month label window is anchored to each plan's own DATE_RECEIVED, so every plan contributes exactly one feature row to exactly one split and no later return can reveal an earlier plan's target. No embargo is needed because the split unit is the plan, not the calendar file: label windows of training plans overlapping 2016-2017 calendar time involve different plans from the evaluation and holdout plans, and no feature is taken from any return received after the cohort return. Boundaries are frozen before any performance measurement.",
-    "status": "build",
+    "status": "deferred",
     "target": "Binary: 1 if any Form 5500-SF or Form 5500 return for the same sponsor EIN and plan number, with FINAL_FILING_IND (SF_FINAL_FILING_IND in the short-form file) equal to '1', is received strictly after the cohort return's DATE_RECEIVED and no later than 36 months after it; 0 otherwise. Plans whose first return is itself a final return, or is flagged amended, are excluded from the population rather than labelled.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000063",
+    "next_action": "Stage deferred: I could not establish a single verifiable, directly downloadable source that satisfies both the data-shape requirements and the rights requirements within this search. The strongest candidate I reached, FEMA OpenFEMA Public Assistance proje",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "I could not establish a single verifiable, directly downloadable source that satisfies both the data-shape requirements and the rights requirements within this search. The strongest candidate I reached, FEMA OpenFEMA Public Assistance proje",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "deferred",
+    "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000064",
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 238.083, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"_file_in, trade_mark_in, serv_mark_in, cert_mark_in, coll_trade_mark_in, coll_ \u00b7 next attempt 2026-11-13T22:44:04.387164+00:00",
+    "next_run_at": "2026-11-13T22:44:04.387164+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 238.083, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"_file_in, trade_mark_in, serv_mark_in, cert_mark_in, coll_trade_mark_in, coll_",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "england-storm-overflow-next-year-spills",
+    "domain": "Modern factory",
+    "id": "source-000065",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-13T22:49:18.896360+00:00",
+    "next_run_at": "2026-11-13T22:49:18.896360+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "31 December of feature year Y, using the reporting company's own completed year-Y EDM records. The public annual return for Y is submitted by end February Y+1 and published by end March Y+1, so an external analyst could not reproduce the feature set on 31 December; this is a current-vintage retrospective reconstruction for the reporting company's decision user.",
+    "question": "Will this storm overflow report more than 30 counted spills in the next calendar year, i.e. breach the Environment Agency's one-year high-spill-frequency investigation trigger?",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Fixed chronological boundaries keyed on feature year Y. Train: Y = 2021 and 2022 (outcomes 2022-2023). Eval: Y = 2023 (outcome 2024). Holdout: Y = 2024 (outcome 2025). Each overflow contributes exactly one transition, drawn uniformly at random from its eligible transitions using frozen seed 20261113, so no overflow appears in more than one split and no later row can carry an earlier row's target. No embargo is required because the feature year closes on 31 December Y and the outcome window opens on 1 January Y+1. Boundaries and the >30 threshold are fixed here, before any measurement, and are not revised after holdout results.",
+    "status": "build",
+    "target": "1 if the year-(Y+1) EDM annual return reports a value strictly greater than 30 in the column 'Counted spills using 12-24h count method' for the same overflow; 0 if 30 or fewer. Rows where the year-(Y+1) spill count is missing or non-numeric are dropped, never labelled.",
     "workflow": "modern"
    },
    {
@@ -5008,7 +5068,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 170.5,
+    "age_hours": 171.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5838,7 +5898,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 227.0,
+    "age_hours": 228.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12120,7 +12180,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 367.6,
+    "age_hours": 368.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16144,7 +16204,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 216.7,
+    "age_hours": 217.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16600,10 +16660,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-13T21:50:03.792091+00:00",
+    "last_run_at": "2026-11-13T22:50:02.423249+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-13T22:00:00+00:00",
+    "next_run_at": "2026-11-13T23:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16684,10 +16744,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-13T20:52:38.794301+00:00",
+    "last_run_at": "2026-11-13T21:52:30.281498+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-13T22:50:00+00:00",
+    "next_run_at": "2026-11-13T23:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16696,10 +16756,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-13T20:55:01.921143+00:00",
+    "last_run_at": "2026-11-13T21:55:01.625972+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-13T21:55:00+00:00",
+    "next_run_at": "2026-11-13T22:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16744,10 +16804,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-13T21:51:02.758623+00:00",
+    "last_run_at": "2026-11-13T22:48:18.955960+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-13T21:52:00+00:00",
+    "next_run_at": "2026-11-13T22:50:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16800,9 +16860,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-13T21:51:02.759749+00:00"
+  "updated_at": "2026-11-13T22:51:00.318735+00:00"
  },
- "generated_at": "2026-11-13T21:51:03+00:00",
+ "generated_at": "2026-11-13T22:50:59+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16830,14 +16890,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-23T20:50:02+00:00",
-   "live": 13,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 191,
-   "tokens_7d": 16082804
-  },
   {
    "at": "2026-10-23T21:50:01+00:00",
    "live": 13,
@@ -20933,6 +20985,16 @@
    "sessions_7d": 414,
    "tokens_7d": 30689262,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-13T22:50:59+00:00",
+   "live": 2,
+   "published": 24,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 421,
+   "tokens_7d": 31375596,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -21976,16 +22038,16 @@
      "id": "rw-3c5a623babd4-build-5",
      "ordinal": 5,
      "stage": "build",
-     "status": "running"
+     "status": "retry"
     },
     "created_at": "2026-11-13T19:19:01.794850+00:00",
     "dataset": "ficu-two-year-panel-exit",
     "id": "source-000060",
-    "next_run_at": "2026-11-13T21:55:02.082627+00:00",
+    "next_run_at": "2026-11-13T22:12:20.205973+00:00",
     "published_verified": false,
-    "running": true,
-    "stage": "build",
-    "updated_at": "2026-11-13T21:50:02.082627+00:00"
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-13T22:11:20.205973+00:00"
    },
    {
     "attempt": {
@@ -22005,36 +22067,87 @@
    },
    {
     "attempt": {
-     "id": "rw-7d6aa3671f1e-build-4",
-     "ordinal": 4,
+     "id": "rw-7d6aa3671f1e-build-5",
+     "ordinal": 5,
      "stage": "build",
-     "status": "running"
+     "status": "retry"
     },
     "created_at": "2026-11-13T20:22:01.549932+00:00",
     "dataset": "dol-form5500-small-401k-termination",
     "id": "source-000062",
-    "next_run_at": "2026-11-13T21:52:02.704903+00:00",
+    "next_run_at": "2026-11-13T22:22:17.861088+00:00",
+    "published_verified": false,
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-13T22:21:17.861088+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-8b2adbe64723-discover-1",
+     "ordinal": 1,
+     "stage": "discover",
+     "status": "defer"
+    },
+    "created_at": "2026-11-13T22:12:01.413955+00:00",
+    "dataset": null,
+    "id": "source-000063",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-13T22:19:07.833745+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-91ffa6294e52-discover-3",
+     "ordinal": 3,
+     "stage": "discover",
+     "status": "running"
+    },
+    "created_at": "2026-11-13T22:20:01.646257+00:00",
+    "dataset": null,
+    "id": "source-000064",
+    "next_run_at": "2026-11-13T22:44:04.387164+00:00",
     "published_verified": false,
     "running": true,
+    "stage": "discover",
+    "updated_at": "2026-11-13T22:43:04.387164+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-bae7d4036d95-build-2",
+     "ordinal": 2,
+     "stage": "build",
+     "status": "retry"
+    },
+    "created_at": "2026-11-13T22:22:01.470278+00:00",
+    "dataset": "england-storm-overflow-next-year-spills",
+    "id": "source-000065",
+    "next_run_at": "2026-11-13T22:49:18.896360+00:00",
+    "published_verified": false,
+    "running": false,
     "stage": "build",
-    "updated_at": "2026-11-13T21:51:02.704903+00:00"
+    "updated_at": "2026-11-13T22:48:18.896360+00:00"
    }
   ],
   "counts": {
-   "build": 2,
-   "deferred": 45,
+   "build": 1,
+   "deferred": 48,
+   "discover": 1,
    "published": 10,
    "rejected": 5
   },
-  "observed_at": "2026-11-13T21:51:03.053405+00:00",
+  "observed_at": "2026-11-13T22:50:59.100452+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 115s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T21:51:03+00:00",
+   "as_of": "2026-11-13T22:50:59+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -22044,7 +22157,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T21:51:03+00:00",
+   "as_of": "2026-11-13T22:50:59+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -22054,7 +22167,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T21:51:03+00:00",
+   "as_of": "2026-11-13T22:50:59+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -23260,7 +23373,7 @@
   "histogram": {
    "bins": [
     {
-     "count": 235,
+     "count": 239,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -23275,7 +23388,7 @@
      "lo": 0.02
     },
     {
-     "count": 23,
+     "count": 24,
      "hi": 0.1,
      "lo": 0.05
     },
@@ -23306,11 +23419,11 @@
     }
    ],
    "max": 2.6488,
-   "median": 0.0088,
-   "n": 412,
-   "p90": 0.0374,
+   "median": 0.0085,
+   "n": 417,
+   "p90": 0.0376,
    "ref_rate": 0.06924,
-   "total": 10.65
+   "total": 10.73
   },
   "jobs": [
    {
@@ -26482,6 +26595,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-13T22:08:02.167232+00:00",
+    "deleted_at": "2026-11-13T22:11:16.607884+00:00",
+    "eur": 0.0032,
+    "hours": 0.054,
+    "id": "rw-3c5a623babd4-build-5",
+    "location": "hel1",
+    "normalised_eur": 0.0037,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-13T04:36:47.795722+00:00",
     "deleted_at": "2026-11-13T04:46:17.033055+00:00",
     "eur": 0.0093,
@@ -26879,15 +27004,27 @@
    },
    {
     "created_at": "2026-11-13T21:06:50.150546+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-11-13T22:07:11.619858+00:00",
+    "eur": 0.059,
+    "hours": 1.006,
     "id": "rw-7d6aa3671f1e-build-4",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0697,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
-    "status": "running"
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-13T22:14:57.915108+00:00",
+    "deleted_at": "2026-11-13T22:21:14.016308+00:00",
+    "eur": 0.0061,
+    "hours": 0.104,
+    "id": "rw-7d6aa3671f1e-build-5",
+    "location": "hel1",
+    "normalised_eur": 0.0072,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
    },
    {
     "created_at": "2026-11-11T16:08:51.305105+00:00",
@@ -27474,6 +27611,30 @@
     "location": "hel1",
     "normalised_eur": 0.0096,
     "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-13T22:35:23.847463+00:00",
+    "deleted_at": "2026-11-13T22:38:16.649701+00:00",
+    "eur": 0.0028,
+    "hours": 0.048,
+    "id": "rw-bae7d4036d95-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0033,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-13T22:45:43.514425+00:00",
+    "deleted_at": "2026-11-13T22:48:16.060943+00:00",
+    "eur": 0.0025,
+    "hours": 0.042,
+    "id": "rw-bae7d4036d95-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.0029,
+    "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
    },
@@ -28270,19 +28431,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 251,
-  "jobs_total": 413,
-  "lifetime_eur": 8.33,
+  "jobs_this_month": 256,
+  "jobs_total": 417,
+  "lifetime_eur": 8.41,
   "live": {
-   "checked_at": "2026-11-13T21:52:16+00:00",
+   "checked_at": "2026-11-13T22:52:11+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 83.7,
-  "month_to_date": 4.71,
+  "month_hours": 85.0,
+  "month_to_date": 4.78,
   "months": [
    {
     "eur": 2.4452,
@@ -28297,13 +28458,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 4.709,
-    "hours": 83.71,
-    "jobs": 251,
+    "eur": 4.7826,
+    "hours": 84.96,
+    "jobs": 256,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 10.87
+  "projected_month_eur": 11.04
  },
  "runtime": {
   "max_workers": 1,
@@ -28331,13 +28492,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-13T21:50:02.276647+00:00",
+  "observed_at": "2026-11-13T22:50:01.142050+00:00",
   "releases": [
    {
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-13T21:50:02.319770+00:00",
+    "observed_at": "2026-11-13T22:50:01.187865+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -28346,7 +28507,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-13T21:50:08.755151+00:00",
+    "observed_at": "2026-11-13T22:50:07.075040+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -28355,7 +28516,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-13T21:50:14.941755+00:00",
+    "observed_at": "2026-11-13T22:50:13.027449+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -28364,7 +28525,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-13T21:50:20.616556+00:00",
+    "observed_at": "2026-11-13T22:50:18.834959+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -28373,7 +28534,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-13T21:50:26.635133+00:00",
+    "observed_at": "2026-11-13T22:50:24.986781+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -28382,7 +28543,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-13T21:50:32.829734+00:00",
+    "observed_at": "2026-11-13T22:50:30.769263+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -28391,7 +28552,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-13T21:50:39.156447+00:00",
+    "observed_at": "2026-11-13T22:50:36.358971+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -28400,7 +28561,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-13T21:50:45.016182+00:00",
+    "observed_at": "2026-11-13T22:50:41.891754+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -28409,7 +28570,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-13T21:50:50.799707+00:00",
+    "observed_at": "2026-11-13T22:50:47.509858+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -28418,7 +28579,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-13T21:50:56.845137+00:00",
+    "observed_at": "2026-11-13T22:50:52.917171+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
