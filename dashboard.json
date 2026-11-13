@@ -1,6 +1,5 @@
 {
  "alarms": [
-  "Website phmsa-pipeline-penalty-reduction: pending; data publication is separate",
   "Local test suite failed on 202b83b",
   "1 release(s) not fully verified"
  ],
@@ -23,20 +22,20 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-13T18:51:23.540537+00:00",
-   "normal_operation_runs_last_7_days": 270,
-   "normal_operation_runs_weighted_last_7_days": 273,
-   "normal_operation_tokens_last_7_days": 30424377,
+   "moment": "2026-11-13T19:51:26.308930+00:00",
+   "normal_operation_runs_last_7_days": 280,
+   "normal_operation_runs_weighted_last_7_days": 283,
+   "normal_operation_tokens_last_7_days": 29723829,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 18s by scout-research"
+    "lock held for 80s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 40903344,
-   "runs_last_7_days": 394,
-   "runs_weighted_last_7_days": 397,
-   "session_admission_weighted": 98,
+   "research_tokens_last_7_days": 40202796,
+   "runs_last_7_days": 404,
+   "runs_weighted_last_7_days": 407,
+   "session_admission_weighted": 108,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 3,
@@ -67,14 +66,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 8471,
+     "calls": 8544,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 51959044,
-     "output_tokens": 16592707,
+     "input_tokens": 52563335,
+     "output_tokens": 17020186,
      "pricing_available": false
     }
    },
@@ -89,7 +88,7 @@
   "countries": {},
   "counts": {
    "build": 1,
-   "deferred": 42,
+   "deferred": 43,
    "discover": 1,
    "published": 10,
    "rejected": 5
@@ -106,57 +105,40 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "us-epa-aqs-ozone-season-exceedance",
-    "domain": "Modern factory",
-    "id": "source-000057",
-    "next_action": "Stage build: Construction, population, target direction/units, chronological splits, licence basis and the no-label-derived-rate absence check are sound. The build keeps parameter 44201, Sample Duration '8-HR RUN AVG BEGIN HOUR', Event Type 'No Events'/",
-    "next_run_at": null,
-    "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "1 July of season year Y, after EPA's June AirData refresh publishes the completed year Y-1 annual summaries (certification of Y-1 is due 1 May). Features are frozen at data through 31 December Y-1; in-season Y observations are excluded. This supersedes the earlier 1 June and late-May wording carried in the attempt history: the download page describes a single June refresh that captures the complete prior year, so a 1 June instant could precede the publication event.",
-    "question": "At the spring release of the prior year's certified data, will this ozone monitoring site finish the coming calendar-year ozone season with an annual fourth-highest daily maximum 8-hour ozone concentration above the 2015 standard level of 0.070 ppm?",
-    "reason": "Construction, population, target direction/units, chronological splits, licence basis and the no-label-derived-rate absence check are sound. The build keeps parameter 44201, Sample Duration '8-HR RUN AVG BEGIN HOUR', Event Type 'No Events'/",
-    "release_baseline": {
-     "display": "See versioned evaluation.json; public validation only"
-    },
-    "release_splits": {
-     "eval": {
-      "rows": 2124
-     },
-     "holdout": {
-      "rows": 2132
-     },
-     "train": {
-      "rows": 5409
-     }
-    },
-    "sources": [
-     {
-      "name": "U.S. Environmental Protection Agency (EPA), Air Quality System (AQS) / AirData",
-      "url": "https://aqs.epa.gov/aqsweb/airdata/FileFormats.html"
-     }
-    ],
-    "split_strategy": "Fixed chronological boundaries by season year, never shuffled and never split at the monitor level: train = seasons 2015, 2016, 2017, 2018, 2019; evaluation = 2021, 2022; holdout = 2023, 2024. Season 2020 is dropped entirely as a buffer/embargo year (COVID-era NOx anomaly plus atypical smoke influence), so train and evaluation are separated by a full excluded season in addition to the year boundary. Because every row's features come only from years <= Y-1 and its label from year Y, no row's inputs post-date its own decision instant, and no later row can reveal an earlier row's target.",
-    "status": "build",
-    "target": "1 if the site's season-Y annual summary row for parameter code 44201, sample duration '8-HR RUN AVG BEGIN HOUR', pollutant standard 'Ozone 8-hour 2015', reports '4th Max Value' > 0.070 ppm (values are truncated to three decimals, so this means 0.071 or above); 0 if it is 0.070 or below. 1 June of year Y, immediately after EPA's late-May AirData refresh publishes certified year Y-1 annual summaries (certification for Y-1 is due 1 May). Features are deliberately frozen at data through 31 December Y-1; in-season Y observations already existing by 1 June are excluded so the label cannot leak.",
-    "workflow": "modern"
-   },
-   {
-    "country": "unknown",
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000059",
-    "next_action": "Stage discover",
-    "next_run_at": null,
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 451.704, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \" than hard-coding it. Keep SDWA_VIOLATIONS_ENFORCEMENT as a narrow projection  \u00b7 next attempt 2026-11-13T19:40:38.859221+00:00",
+    "next_run_at": "2026-11-13T19:40:38.859221+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
-    "reason": "",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 451.704, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \" than hard-coding it. Keep SDWA_VIOLATIONS_ENFORCEMENT as a narrow projection ",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "",
     "status": "discover",
     "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "ficu-two-year-panel-exit",
+    "domain": "Modern factory",
+    "id": "source-000060",
+    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-13T19:50:21.532715+00:00",
+    "next_run_at": "2026-11-13T19:50:21.532715+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "Last day of the third calendar month after each cohort reporting date: 2018-03-31 for 2017Q4, 2021-03-31 for 2020Q4 and 2024-03-31 for 2023Q4. This is a conservative fixed rule, not a claim that every historical file was posted exactly then; the observed 2025Q4 release on 2026-03-06 was about 65 days after quarter end. Only cohort and t-4 files are available at this instant.",
+    "question": "Will a federally insured U.S. credit union that files a Form 5300 Call Report for quarter t still be filing two years (eight quarters) later, or will it have left the federally insured credit union Call Report panel?",
+    "reason": "Worker running",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "One cohort quarter per split, frozen before any measurement. Train = 2017Q4 cohort (reports as of 2017-12-31, outcomes 2018Q1-2019Q4). Eval = 2020Q4 cohort (2020-12-31, outcomes 2021Q1-2022Q4). Holdout = 2023Q4 cohort (2023-12-31, outcomes 2024Q1-2025Q4). The three eight-quarter outcome windows are disjoint, so no embargo is needed. Each institution contributes at most one row per split, so no later row inside a split can reveal an earlier row's label; cohort quarters outside these three are never used and rows are never reassigned randomly.",
+    "status": "build",
+    "target": "Binary. Label 1 if the institution's CU_NUMBER (NCUA charter/insurance number) is absent from FOICU.txt in both the t+7 and the t+8 quarterly Call Report ZIPs; label 0 if it appears in either. The label is exit from the federally insured credit union panel, not any reported status field, and no input field can determine it.",
     "workflow": "modern"
    }
   ],
@@ -1435,12 +1417,12 @@
     "dataset": "us-epa-aqs-ozone-season-exceedance",
     "domain": "Modern factory",
     "id": "source-000057",
-    "next_action": "Stage build: Construction, population, target direction/units, chronological splits, licence basis and the no-label-derived-rate absence check are sound. The build keeps parameter 44201, Sample Duration '8-HR RUN AVG BEGIN HOUR', Event Type 'No Events'/",
+    "next_action": "Stage deferred: Semantic repair limit reached: The row construction is substantively sound: parameter 44201, duration 8-HR RUN AVG BEGIN HOUR, ppm units, one pinned eight-hour ozone standard per year, No Events preferred, POC collapse to the NAAQS primary ",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "1 July of season year Y, after EPA's June AirData refresh publishes the completed year Y-1 annual summaries (certification of Y-1 is due 1 May). Features are frozen at data through 31 December Y-1; in-season Y observations are excluded. This supersedes the earlier 1 June and late-May wording carried in the attempt history: the download page describes a single June refresh that captures the complete prior year, so a 1 June instant could precede the publication event.",
+    "prediction_time": "1 June of season year Y, after EPA's late-May AirData refresh publishes the completed year Y-1 annual summaries (certification of Y-1 is due 1 May). Features are frozen at data through 31 December Y-1; in-season Y observations are excluded. The publisher page also carries a leading statement about a June refresh; no per-file historical publication date was measured.",
     "question": "At the spring release of the prior year's certified data, will this ozone monitoring site finish the coming calendar-year ozone season with an annual fourth-highest daily maximum 8-hour ozone concentration above the 2015 standard level of 0.070 ppm?",
-    "reason": "Construction, population, target direction/units, chronological splits, licence basis and the no-label-derived-rate absence check are sound. The build keeps parameter 44201, Sample Duration '8-HR RUN AVG BEGIN HOUR', Event Type 'No Events'/",
+    "reason": "Semantic repair limit reached: The row construction is substantively sound: parameter 44201, duration 8-HR RUN AVG BEGIN HOUR, ppm units, one pinned eight-hour ozone standard per year, No Events preferred, POC collapse to the NAAQS primary ",
     "release_baseline": {
      "display": "See versioned evaluation.json; public validation only"
     },
@@ -1462,7 +1444,7 @@
      }
     ],
     "split_strategy": "Fixed chronological boundaries by season year, never shuffled and never split at the monitor level: train = seasons 2015, 2016, 2017, 2018, 2019; evaluation = 2021, 2022; holdout = 2023, 2024. Season 2020 is dropped entirely as a buffer/embargo year (COVID-era NOx anomaly plus atypical smoke influence), so train and evaluation are separated by a full excluded season in addition to the year boundary. Because every row's features come only from years <= Y-1 and its label from year Y, no row's inputs post-date its own decision instant, and no later row can reveal an earlier row's target.",
-    "status": "build",
+    "status": "deferred",
     "target": "1 if the site's season-Y annual summary row for parameter code 44201, sample duration '8-HR RUN AVG BEGIN HOUR', pollutant standard 'Ozone 8-hour 2015', reports '4th Max Value' > 0.070 ppm (values are truncated to three decimals, so this means 0.071 or above); 0 if it is 0.070 or below. 1 June of year Y, immediately after EPA's late-May AirData refresh publishes certified year Y-1 annual summaries (certification for Y-1 is due 1 May). Features are deliberately frozen at data through 31 December Y-1; in-season Y observations already existing by 1 June are excluded so the label cannot leak.",
     "workflow": "modern"
    },
@@ -1490,18 +1472,37 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000059",
-    "next_action": "Stage discover",
-    "next_run_at": null,
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 451.704, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \" than hard-coding it. Keep SDWA_VIOLATIONS_ENFORCEMENT as a narrow projection  \u00b7 next attempt 2026-11-13T19:40:38.859221+00:00",
+    "next_run_at": "2026-11-13T19:40:38.859221+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
-    "reason": "",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 451.704, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \" than hard-coding it. Keep SDWA_VIOLATIONS_ENFORCEMENT as a narrow projection ",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "",
     "status": "discover",
     "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "ficu-two-year-panel-exit",
+    "domain": "Modern factory",
+    "id": "source-000060",
+    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-13T19:50:21.532715+00:00",
+    "next_run_at": "2026-11-13T19:50:21.532715+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "Last day of the third calendar month after each cohort reporting date: 2018-03-31 for 2017Q4, 2021-03-31 for 2020Q4 and 2024-03-31 for 2023Q4. This is a conservative fixed rule, not a claim that every historical file was posted exactly then; the observed 2025Q4 release on 2026-03-06 was about 65 days after quarter end. Only cohort and t-4 files are available at this instant.",
+    "question": "Will a federally insured U.S. credit union that files a Form 5300 Call Report for quarter t still be filing two years (eight quarters) later, or will it have left the federally insured credit union Call Report panel?",
+    "reason": "Worker running",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "One cohort quarter per split, frozen before any measurement. Train = 2017Q4 cohort (reports as of 2017-12-31, outcomes 2018Q1-2019Q4). Eval = 2020Q4 cohort (2020-12-31, outcomes 2021Q1-2022Q4). Holdout = 2023Q4 cohort (2023-12-31, outcomes 2024Q1-2025Q4). The three eight-quarter outcome windows are disjoint, so no embargo is needed. Each institution contributes at most one row per split, so no later row inside a split can reveal an earlier row's label; cohort quarters outside these three are never used and rows are never reassigned randomly.",
+    "status": "build",
+    "target": "Binary. Label 1 if the institution's CU_NUMBER (NCUA charter/insurance number) is absent from FOICU.txt in both the t+7 and the t+8 quarterly Call Report ZIPs; label 0 if it appears in either. The label is exit from the federally insured credit union panel, not any reported status field, and no input field can determine it.",
     "workflow": "modern"
    },
    {
@@ -4972,7 +4973,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 167.5,
+    "age_hours": 168.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5802,7 +5803,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 224.0,
+    "age_hours": 225.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12084,7 +12085,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 364.6,
+    "age_hours": 365.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16108,7 +16109,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 213.7,
+    "age_hours": 214.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16564,10 +16565,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-13T18:50:02.789893+00:00",
+    "last_run_at": "2026-11-13T19:50:02.741845+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-13T19:00:00+00:00",
+    "next_run_at": "2026-11-13T20:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16648,10 +16649,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-13T18:14:45.756870+00:00",
+    "last_run_at": "2026-11-13T18:52:51.234579+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-13T19:50:00+00:00",
+    "next_run_at": "2026-11-13T20:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16660,10 +16661,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-13T18:11:47.689363+00:00",
+    "last_run_at": "2026-11-13T18:55:01.379806+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-13T18:55:00+00:00",
+    "next_run_at": "2026-11-13T19:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16708,10 +16709,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-13T18:50:31.445879+00:00",
+    "last_run_at": "2026-11-13T19:49:51.591118+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-13T18:52:00+00:00",
+    "next_run_at": "2026-11-13T19:51:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16764,9 +16765,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-13T18:51:00.615052+00:00"
+  "updated_at": "2026-11-13T19:51:01.997697+00:00"
  },
- "generated_at": "2026-11-13T18:51:22+00:00",
+ "generated_at": "2026-11-13T19:51:25+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16794,14 +16795,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-23T17:50:01+00:00",
-   "live": 13,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 187,
-   "tokens_7d": 15562718
-  },
   {
    "at": "2026-10-23T18:50:01+00:00",
    "live": 13,
@@ -20891,6 +20884,16 @@
    "sessions_7d": 394,
    "tokens_7d": 30424377,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-13T19:51:25+00:00",
+   "live": 2,
+   "published": 24,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 404,
+   "tokens_7d": 29723829,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -21883,19 +21886,19 @@
    },
    {
     "attempt": {
-     "id": "rw-11da79a259ae-build-7",
-     "ordinal": 7,
-     "stage": "build",
-     "status": "running"
+     "id": "rw-11da79a259ae-evaluate-9",
+     "ordinal": 9,
+     "stage": "evaluate",
+     "status": "repair"
     },
     "created_at": "2026-11-13T06:59:01.114229+00:00",
     "dataset": "us-epa-aqs-ozone-season-exceedance",
     "id": "source-000057",
     "next_run_at": null,
     "published_verified": false,
-    "running": true,
-    "stage": "build",
-    "updated_at": "2026-11-13T18:50:31.381440+00:00"
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-13T19:18:07.575707+00:00"
    },
    {
     "attempt": {
@@ -21915,39 +21918,55 @@
    },
    {
     "attempt": {
-     "id": null,
-     "ordinal": null,
-     "stage": null,
-     "status": null
+     "id": "rw-ab76adcada28-discover-4",
+     "ordinal": 4,
+     "stage": "discover",
+     "status": "running"
     },
     "created_at": "2026-11-13T18:28:01.802074+00:00",
     "dataset": null,
     "id": "source-000059",
-    "next_run_at": null,
+    "next_run_at": "2026-11-13T19:40:38.859221+00:00",
     "published_verified": false,
-    "running": false,
+    "running": true,
     "stage": "discover",
-    "updated_at": "2026-11-13T18:28:01.802074+00:00"
+    "updated_at": "2026-11-13T19:39:38.859221+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-3c5a623babd4-build-1",
+     "ordinal": 1,
+     "stage": "build",
+     "status": "running"
+    },
+    "created_at": "2026-11-13T19:19:01.794850+00:00",
+    "dataset": "ficu-two-year-panel-exit",
+    "id": "source-000060",
+    "next_run_at": "2026-11-13T19:50:21.532715+00:00",
+    "published_verified": false,
+    "running": true,
+    "stage": "build",
+    "updated_at": "2026-11-13T19:49:51.532715+00:00"
    }
   ],
   "counts": {
    "build": 1,
-   "deferred": 42,
+   "deferred": 43,
    "discover": 1,
    "published": 10,
    "rejected": 5
   },
-  "observed_at": "2026-11-13T18:51:22.336178+00:00",
+  "observed_at": "2026-11-13T19:51:25.066773+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
  "notices": [
-  "A research session is running: lock held for 18s by scout-research"
+  "A research session is running: lock held for 80s by scout-research"
  ],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T18:51:22+00:00",
+   "as_of": "2026-11-13T19:51:25+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -21957,7 +21976,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T18:51:22+00:00",
+   "as_of": "2026-11-13T19:51:25+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -21967,7 +21986,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T18:51:22+00:00",
+   "as_of": "2026-11-13T19:51:25+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -23173,7 +23192,7 @@
   "histogram": {
    "bins": [
     {
-     "count": 227,
+     "count": 229,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -23220,10 +23239,10 @@
    ],
    "max": 2.6488,
    "median": 0.0089,
-   "n": 403,
+   "n": 405,
    "p90": 0.0376,
    "ref_rate": 0.06924,
-   "total": 10.59
+   "total": 10.61
   },
   "jobs": [
    {
@@ -25927,6 +25946,30 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-13T18:55:26.954275+00:00",
+    "deleted_at": "2026-11-13T19:02:13.776805+00:00",
+    "eur": 0.0066,
+    "hours": 0.113,
+    "id": "rw-11da79a259ae-build-7",
+    "location": "hel1",
+    "normalised_eur": 0.0078,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-13T19:08:56.114399+00:00",
+    "deleted_at": "2026-11-13T19:15:13.380022+00:00",
+    "eur": 0.0062,
+    "hours": 0.105,
+    "id": "rw-11da79a259ae-build-8",
+    "location": "hel1",
+    "normalised_eur": 0.0073,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-13T06:52:01.556165+00:00",
     "deleted_at": "2026-11-13T06:54:19.607462+00:00",
     "eur": 0.0022,
@@ -26321,6 +26364,18 @@
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-13T19:49:02.258798+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "rw-3c5a623babd4-build-1",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "running"
    },
    {
     "created_at": "2026-11-13T04:36:47.795722+00:00",
@@ -28063,19 +28118,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 242,
-  "jobs_total": 403,
-  "lifetime_eur": 8.29,
+  "jobs_this_month": 244,
+  "jobs_total": 406,
+  "lifetime_eur": 8.3,
   "live": {
-   "checked_at": "2026-11-13T18:52:36+00:00",
+   "checked_at": "2026-11-13T19:52:38+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
-  "month_hours": 82.9,
-  "month_to_date": 4.66,
+  "month_hours": 83.1,
+  "month_to_date": 4.67,
   "months": [
    {
     "eur": 2.4452,
@@ -28090,13 +28145,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 4.6607,
-    "hours": 82.88,
-    "jobs": 242,
+    "eur": 4.6735,
+    "hours": 83.1,
+    "jobs": 244,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 10.76
+  "projected_month_eur": 10.79
  },
  "runtime": {
   "max_workers": 1,
@@ -28124,22 +28179,22 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-13T18:50:01.228776+00:00",
+  "observed_at": "2026-11-13T19:50:02.579071+00:00",
   "releases": [
    {
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-13T18:50:01.279646+00:00",
+    "observed_at": "2026-11-13T19:50:02.621689+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
-    "status": "pending",
+    "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
    },
    {
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-13T18:50:24.796571+00:00",
+    "observed_at": "2026-11-13T19:50:26.439897+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -28148,7 +28203,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-13T18:50:31.376368+00:00",
+    "observed_at": "2026-11-13T19:50:32.813947+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -28157,7 +28212,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-13T18:50:37.565032+00:00",
+    "observed_at": "2026-11-13T19:50:38.818788+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -28166,7 +28221,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-13T18:50:45.816325+00:00",
+    "observed_at": "2026-11-13T19:50:44.784485+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -28175,7 +28230,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-13T18:50:51.552121+00:00",
+    "observed_at": "2026-11-13T19:50:51.767561+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -28184,7 +28239,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-13T18:50:57.510818+00:00",
+    "observed_at": "2026-11-13T19:50:58.551301+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -28193,7 +28248,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-13T18:51:04.033556+00:00",
+    "observed_at": "2026-11-13T19:51:04.633482+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -28202,7 +28257,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-13T18:51:09.795524+00:00",
+    "observed_at": "2026-11-13T19:51:10.665946+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -28211,12 +28266,12 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-13T18:51:15.750352+00:00",
+    "observed_at": "2026-11-13T19:51:17.275321+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
    }
   ],
-  "status": "pending"
+  "status": "ok"
  }
 }
