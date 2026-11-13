@@ -1,5 +1,6 @@
 {
  "alarms": [
+  "Website fda-510k-five-year-recall: pending; data publication is separate",
   "Local test suite failed on 202b83b",
   "1 release(s) not fully verified"
  ],
@@ -22,20 +23,20 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-13T22:51:00.301258+00:00",
-   "normal_operation_runs_last_7_days": 297,
-   "normal_operation_runs_weighted_last_7_days": 299,
-   "normal_operation_tokens_last_7_days": 31375596,
+   "moment": "2026-11-13T23:51:28.436849+00:00",
+   "normal_operation_runs_last_7_days": 305,
+   "normal_operation_runs_weighted_last_7_days": 307,
+   "normal_operation_tokens_last_7_days": 31148327,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 115s by scout-research"
+    "lock held for 202s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 41854563,
-   "runs_last_7_days": 421,
-   "runs_weighted_last_7_days": 423,
-   "session_admission_weighted": 127,
+   "research_tokens_last_7_days": 41627294,
+   "runs_last_7_days": 429,
+   "runs_weighted_last_7_days": 431,
+   "session_admission_weighted": 138,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 2,
@@ -66,14 +67,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 8679,
+     "calls": 8744,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 53568815,
-     "output_tokens": 17909135,
+     "input_tokens": 54172702,
+     "output_tokens": 18406955,
      "pricing_available": false
     }
    },
@@ -87,10 +88,9 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "build": 1,
-   "deferred": 48,
-   "discover": 1,
-   "published": 10,
+   "deferred": 50,
+   "discover": 2,
+   "published": 11,
    "rejected": 5
   },
   "errors": [],
@@ -107,13 +107,13 @@
     "country": "unknown",
     "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000064",
-    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 238.083, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"_file_in, trade_mark_in, serv_mark_in, cert_mark_in, coll_trade_mark_in, coll_ \u00b7 next attempt 2026-11-13T22:44:04.387164+00:00",
-    "next_run_at": "2026-11-13T22:44:04.387164+00:00",
+    "id": "source-000067",
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 280.002, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"l event records from 2014 to present, with one entry per event.\\\",\\n      \\\"qu \u00b7 next attempt 2026-11-13T23:48:46.122310+00:00",
+    "next_run_at": "2026-11-13T23:48:46.122310+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
-    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 238.083, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"_file_in, trade_mark_in, serv_mark_in, cert_mark_in, coll_trade_mark_in, coll_",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 280.002, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"l event records from 2014 to present, with one entry per event.\\\",\\n      \\\"qu",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -124,21 +124,21 @@
    },
    {
     "country": "unknown",
-    "dataset": "england-storm-overflow-next-year-spills",
+    "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000065",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-13T22:49:18.896360+00:00",
-    "next_run_at": "2026-11-13T22:49:18.896360+00:00",
+    "id": "source-000068",
+    "next_action": "Stage discover",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "31 December of feature year Y, using the reporting company's own completed year-Y EDM records. The public annual return for Y is submitted by end February Y+1 and published by end March Y+1, so an external analyst could not reproduce the feature set on 31 December; this is a current-vintage retrospective reconstruction for the reporting company's decision user.",
-    "question": "Will this storm overflow report more than 30 counted spills in the next calendar year, i.e. breach the Environment Agency's one-year high-spill-frequency investigation trigger?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "prediction_time": "",
+    "question": "",
+    "reason": "",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Fixed chronological boundaries keyed on feature year Y. Train: Y = 2021 and 2022 (outcomes 2022-2023). Eval: Y = 2023 (outcome 2024). Holdout: Y = 2024 (outcome 2025). Each overflow contributes exactly one transition, drawn uniformly at random from its eligible transitions using frozen seed 20261113, so no overflow appears in more than one split and no later row can carry an earlier row's target. No embargo is required because the feature year closes on 31 December Y and the outcome window opens on 1 January Y+1. Boundaries and the >30 threshold are fixed here, before any measurement, and are not revised after holdout results.",
-    "status": "build",
-    "target": "1 if the year-(Y+1) EDM annual return reports a value strictly greater than 30 in the column 'Counted spills using 12-24h count method' for the same overflow; 0 if 30 or fewer. Rows where the year-(Y+1) spill count is missing or non-numeric are dropped, never labelled.",
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
     "workflow": "modern"
    }
   ],
@@ -1564,15 +1564,89 @@
    },
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "fda-510k-five-year-recall",
     "domain": "Modern factory",
     "id": "source-000064",
-    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 238.083, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"_file_in, trade_mark_in, serv_mark_in, cert_mark_in, coll_trade_mark_in, coll_ \u00b7 next attempt 2026-11-13T22:44:04.387164+00:00",
-    "next_run_at": "2026-11-13T22:44:04.387164+00:00",
+    "next_action": "Dataset publication complete; website synchronization is shown in Releases.",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "The clearance decision date recorded on the 510(k) record (decision_date). Only fields on that record plus counts of strictly earlier clearance dates are used.",
+    "question": "Will a medical device cleared by FDA through the 510(k) pathway appear in FDA's device recall enforcement reports, for a recall initiated within five years of the clearance decision?",
+    "reason": "Published and anonymously verified on GitHub and Hugging Face",
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 9046
+     },
+     "holdout": {
+      "rows": 9014
+     },
+     "train": {
+      "rows": 30563
+     }
+    },
+    "sources": [
+     {
+      "name": "U.S. Food and Drug Administration (openFDA, Center for Devices and Radiological Health)",
+      "url": "https://open.fda.gov/apis/device/510k/searchable-fields/"
+     }
+    ],
+    "split_strategy": "Fixed chronological boundaries on decision_date, no random sampling and no re-splitting: train 2004-01-01 to 2013-12-31, eval 2014-01-01 to 2016-12-31, holdout 2017-01-01 to 2019-12-31. All three windows end at least five years before the recall snapshot (last_updated 2026-11-12), so every row's horizon is observed. No embargo is required because each row is a single clearance event, no feature uses a recall outcome, and applicant_prior_clearances uses only strictly earlier decision dates. Splits, label rule and horizon are frozen before any performance measurement.",
+    "status": "published",
+    "target": "y = 1 if any openFDA device/recall product record lists the row's k_number in its k_numbers array and has event_date_initiated on or after the row's decision_date and on or before decision_date + 1826 days; y = 0 if that five-year window closes on or before the recall snapshot date (2026-11-12) and no such record exists. Rows whose window is not fully observed are dropped, not labelled 0.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "england-storm-overflow-next-year-spills",
+    "domain": "Modern factory",
+    "id": "source-000065",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-13T23:30:16.423108+00:00",
+    "next_run_at": "2026-11-13T23:30:16.423108+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "31 December of feature year Y, using the reporting company's own completed year-Y EDM records. The public annual return for Y is submitted by end February Y+1 and published by end March Y+1, so an external analyst could not reproduce the feature set on 31 December; this is a current-vintage retrospective reconstruction for the reporting company's decision user.",
+    "question": "Will this storm overflow report more than 30 counted spills in the next calendar year, i.e. breach the Environment Agency's one-year high-spill-frequency investigation trigger?",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Fixed chronological boundaries keyed on feature year Y. Train: Y = 2021 and 2022 (outcomes 2022-2023). Eval: Y = 2023 (outcome 2024). Holdout: Y = 2024 (outcome 2025). Each overflow contributes exactly one transition, drawn uniformly at random from its eligible transitions using frozen seed 20261113, so no overflow appears in more than one split and no later row can carry an earlier row's target. No embargo is required because the feature year closes on 31 December Y and the outcome window opens on 1 January Y+1. Boundaries and the >30 threshold are fixed here, before any measurement, and are not revised after holdout results.",
+    "status": "deferred",
+    "target": "1 if the year-(Y+1) EDM annual return reports a value strictly greater than 30 in the column 'Counted spills using 12-24h count method' for the same overflow; 0 if 30 or fewer. Rows where the year-(Y+1) spill count is missing or non-numeric are dropped, never labelled.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000066",
+    "next_action": "Stage deferred: Four candidate sources were checked against the hard requirements (direct download, no account, documented fields, label computable without post-outcome leakage). Each failed a specific one, so no source is frozen. (1) Companies House Free ",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
-    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 238.083, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"_file_in, trade_mark_in, serv_mark_in, cert_mark_in, coll_trade_mark_in, coll_",
+    "reason": "Four candidate sources were checked against the hard requirements (direct download, no account, documented fields, label computable without post-outcome leakage). Each failed a specific one, so no source is frozen. (1) Companies House Free ",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "deferred",
+    "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000067",
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 280.002, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"l event records from 2014 to present, with one entry per event.\\\",\\n      \\\"qu \u00b7 next attempt 2026-11-13T23:48:46.122310+00:00",
+    "next_run_at": "2026-11-13T23:48:46.122310+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 280.002, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"l event records from 2014 to present, with one entry per event.\\\",\\n      \\\"qu",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -1583,21 +1657,21 @@
    },
    {
     "country": "unknown",
-    "dataset": "england-storm-overflow-next-year-spills",
+    "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000065",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-13T22:49:18.896360+00:00",
-    "next_run_at": "2026-11-13T22:49:18.896360+00:00",
+    "id": "source-000068",
+    "next_action": "Stage discover",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "31 December of feature year Y, using the reporting company's own completed year-Y EDM records. The public annual return for Y is submitted by end February Y+1 and published by end March Y+1, so an external analyst could not reproduce the feature set on 31 December; this is a current-vintage retrospective reconstruction for the reporting company's decision user.",
-    "question": "Will this storm overflow report more than 30 counted spills in the next calendar year, i.e. breach the Environment Agency's one-year high-spill-frequency investigation trigger?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "prediction_time": "",
+    "question": "",
+    "reason": "",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Fixed chronological boundaries keyed on feature year Y. Train: Y = 2021 and 2022 (outcomes 2022-2023). Eval: Y = 2023 (outcome 2024). Holdout: Y = 2024 (outcome 2025). Each overflow contributes exactly one transition, drawn uniformly at random from its eligible transitions using frozen seed 20261113, so no overflow appears in more than one split and no later row can carry an earlier row's target. No embargo is required because the feature year closes on 31 December Y and the outcome window opens on 1 January Y+1. Boundaries and the >30 threshold are fixed here, before any measurement, and are not revised after holdout results.",
-    "status": "build",
-    "target": "1 if the year-(Y+1) EDM annual return reports a value strictly greater than 30 in the column 'Counted spills using 12-24h count method' for the same overflow; 0 if 30 or fewer. Rows where the year-(Y+1) spill count is missing or non-numeric are dropped, never labelled.",
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
     "workflow": "modern"
    },
    {
@@ -5068,7 +5142,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 171.5,
+    "age_hours": 172.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5898,7 +5972,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 228.0,
+    "age_hours": 229.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12180,7 +12254,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 368.6,
+    "age_hours": 369.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16204,7 +16278,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 217.7,
+    "age_hours": 218.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16660,10 +16734,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-13T22:50:02.423249+00:00",
+    "last_run_at": "2026-11-13T23:50:02.264768+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-13T23:00:00+00:00",
+    "next_run_at": "2026-11-14T00:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16744,10 +16818,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-13T21:52:30.281498+00:00",
+    "last_run_at": "2026-11-13T22:52:25.237432+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-13T23:50:00+00:00",
+    "next_run_at": "2026-11-14T00:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16756,10 +16830,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-13T21:55:01.625972+00:00",
+    "last_run_at": "2026-11-13T22:55:01.339418+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-13T22:55:00+00:00",
+    "next_run_at": "2026-11-13T23:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16804,10 +16878,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-13T22:48:18.955960+00:00",
+    "last_run_at": "2026-11-13T23:47:46.173687+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-13T22:50:00+00:00",
+    "next_run_at": "2026-11-13T23:49:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16860,9 +16934,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-13T22:51:00.318735+00:00"
+  "updated_at": "2026-11-13T23:51:00.982328+00:00"
  },
- "generated_at": "2026-11-13T22:50:59+00:00",
+ "generated_at": "2026-11-13T23:51:27+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16870,10 +16944,10 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-13T18:16:10Z",
+   "created_at": "2026-11-13T23:40:00Z",
    "head_sha": "202b83b",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/43480974784"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/43528789963"
   },
   "coverage": {
    "ok": true,
@@ -16890,14 +16964,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-23T21:50:01+00:00",
-   "live": 13,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 193,
-   "tokens_7d": 16314156
-  },
   {
    "at": "2026-10-23T22:50:01+00:00",
    "live": 13,
@@ -20995,6 +21061,16 @@
    "sessions_7d": 421,
    "tokens_7d": 31375596,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-13T23:51:27+00:00",
+   "live": 2,
+   "published": 25,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 429,
+   "tokens_7d": 31148327,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -22099,55 +22175,111 @@
    },
    {
     "attempt": {
-     "id": "rw-91ffa6294e52-discover-3",
-     "ordinal": 3,
-     "stage": "discover",
-     "status": "running"
+     "id": "rw-91ffa6294e52-publish-1",
+     "ordinal": 1,
+     "stage": "publish",
+     "status": "done"
     },
     "created_at": "2026-11-13T22:20:01.646257+00:00",
-    "dataset": null,
+    "dataset": "fda-510k-five-year-recall",
     "id": "source-000064",
-    "next_run_at": "2026-11-13T22:44:04.387164+00:00",
-    "published_verified": false,
-    "running": true,
-    "stage": "discover",
-    "updated_at": "2026-11-13T22:43:04.387164+00:00"
+    "next_run_at": null,
+    "publication": {
+     "artifact_version": "4402989d50d250e5d9eab6a8f93c00997c3be07ffecedd577a04ceddd1c15d15",
+     "dataset": "fda-510k-five-year-recall",
+     "repositories": {
+      "github": "earino/factory-fda-510k-five-year-recall",
+      "huggingface": "earino/factory-fda-510k-five-year-recall"
+     },
+     "version": "v-68e59a5ac91ad404"
+    },
+    "published_verified": true,
+    "running": false,
+    "stage": "published",
+    "updated_at": "2026-11-13T23:42:15.349488+00:00"
    },
    {
     "attempt": {
-     "id": "rw-bae7d4036d95-build-2",
-     "ordinal": 2,
+     "id": "rw-bae7d4036d95-build-6",
+     "ordinal": 6,
      "stage": "build",
      "status": "retry"
     },
     "created_at": "2026-11-13T22:22:01.470278+00:00",
     "dataset": "england-storm-overflow-next-year-spills",
     "id": "source-000065",
-    "next_run_at": "2026-11-13T22:49:18.896360+00:00",
+    "next_run_at": "2026-11-13T23:30:16.423108+00:00",
     "published_verified": false,
     "running": false,
-    "stage": "build",
-    "updated_at": "2026-11-13T22:48:18.896360+00:00"
+    "stage": "deferred",
+    "updated_at": "2026-11-13T23:29:16.423108+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-3de6f61b7f54-discover-1",
+     "ordinal": 1,
+     "stage": "discover",
+     "status": "defer"
+    },
+    "created_at": "2026-11-13T23:30:01.529273+00:00",
+    "dataset": null,
+    "id": "source-000066",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-13T23:35:05.674263+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-af0a34c3dcd2-discover-2",
+     "ordinal": 2,
+     "stage": "discover",
+     "status": "retry"
+    },
+    "created_at": "2026-11-13T23:36:01.956476+00:00",
+    "dataset": null,
+    "id": "source-000067",
+    "next_run_at": "2026-11-13T23:48:46.122310+00:00",
+    "published_verified": false,
+    "running": false,
+    "stage": "discover",
+    "updated_at": "2026-11-13T23:47:46.122310+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-f2cd4d4b5a2d-discover-1",
+     "ordinal": 1,
+     "stage": "discover",
+     "status": "running"
+    },
+    "created_at": "2026-11-13T23:43:01.321342+00:00",
+    "dataset": null,
+    "id": "source-000068",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": true,
+    "stage": "discover",
+    "updated_at": "2026-11-13T23:43:01.321342+00:00"
    }
   ],
   "counts": {
-   "build": 1,
-   "deferred": 48,
-   "discover": 1,
-   "published": 10,
+   "deferred": 50,
+   "discover": 2,
+   "published": 11,
    "rejected": 5
   },
-  "observed_at": "2026-11-13T22:50:59.100452+00:00",
+  "observed_at": "2026-11-13T23:51:27.199040+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
  "notices": [
-  "A research session is running: lock held for 115s by scout-research"
+  "A research session is running: lock held for 202s by scout-research"
  ],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T22:50:59+00:00",
+   "as_of": "2026-11-13T23:51:27+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -22157,7 +22289,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T22:50:59+00:00",
+   "as_of": "2026-11-13T23:51:27+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -22167,13 +22299,13 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T22:50:59+00:00",
+   "as_of": "2026-11-13T23:51:27+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
    "stale": false,
    "status": "ok",
-   "value": 32
+   "value": 33
   }
  },
  "releases": {
@@ -22507,6 +22639,39 @@
     },
     "verified_all": true,
     "verified_at": "2026-11-13T07:53:15.783341+00:00",
+    "workflow": "modern"
+   },
+   {
+    "artifact_version": "4402989d50d250e5d9eab6a8f93c00997c3be07ffecedd577a04ceddd1c15d15",
+    "assets": 33,
+    "baseline_display": "See versioned evaluation.json; public validation only",
+    "dataset": "fda-510k-five-year-recall",
+    "destinations": {
+     "github": "https://github.com/earino/factory-fda-510k-five-year-recall/releases/tag/v-68e59a5ac91ad404",
+     "huggingface": "https://huggingface.co/datasets/earino/factory-fda-510k-five-year-recall"
+    },
+    "detail_id": "source-000064",
+    "disposition": "public",
+    "published": true,
+    "release_tag": "v-68e59a5ac91ad404",
+    "rows": 48623,
+    "splits": {
+     "eval": {
+      "rows": 9046
+     },
+     "holdout": {
+      "rows": 9014
+     },
+     "train": {
+      "rows": 30563
+     }
+    },
+    "verified": {
+     "github": true,
+     "huggingface": true
+    },
+    "verified_all": true,
+    "verified_at": "2026-11-13T23:42:15.349488+00:00",
     "workflow": "modern"
    },
    {
@@ -23369,11 +23534,11 @@
  "resources": {
   "ceiling_eur": 50.0,
   "errors": [],
-  "eur_per_release": 0.35,
+  "eur_per_release": 0.34,
   "histogram": {
    "bins": [
     {
-     "count": 239,
+     "count": 245,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -23419,11 +23584,11 @@
     }
    ],
    "max": 2.6488,
-   "median": 0.0085,
-   "n": 417,
-   "p90": 0.0376,
+   "median": 0.0084,
+   "n": 423,
+   "p90": 0.0374,
    "ref_rate": 0.06924,
-   "total": 10.73
+   "total": 10.76
   },
   "jobs": [
    {
@@ -27099,6 +27264,42 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-13T23:13:02.236574+00:00",
+    "deleted_at": "2026-11-13T23:16:14.017014+00:00",
+    "eur": 0.0031,
+    "hours": 0.053,
+    "id": "rw-91ffa6294e52-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0037,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-13T23:18:56.513387+00:00",
+    "deleted_at": "2026-11-13T23:23:13.129517+00:00",
+    "eur": 0.0042,
+    "hours": 0.071,
+    "id": "rw-91ffa6294e52-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.0049,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-13T23:36:01.980246+00:00",
+    "deleted_at": "2026-11-13T23:42:12.944328+00:00",
+    "eur": 0.006,
+    "hours": 0.103,
+    "id": "rw-91ffa6294e52-publish-1",
+    "location": "hel1",
+    "normalised_eur": 0.0071,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-09T20:15:01.259388+00:00",
     "deleted_at": "2026-11-09T20:17:16.595666+00:00",
     "eur": 0.0026,
@@ -27634,6 +27835,42 @@
     "id": "rw-bae7d4036d95-build-2",
     "location": "hel1",
     "normalised_eur": 0.0029,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-13T22:55:40.867112+00:00",
+    "deleted_at": "2026-11-13T23:00:15.746391+00:00",
+    "eur": 0.0045,
+    "hours": 0.076,
+    "id": "rw-bae7d4036d95-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.0053,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-13T23:05:59.346876+00:00",
+    "deleted_at": "2026-11-13T23:08:13.364559+00:00",
+    "eur": 0.0022,
+    "hours": 0.037,
+    "id": "rw-bae7d4036d95-build-4",
+    "location": "hel1",
+    "normalised_eur": 0.0026,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-13T23:27:01.827616+00:00",
+    "deleted_at": "2026-11-13T23:29:13.774787+00:00",
+    "eur": 0.0022,
+    "hours": 0.037,
+    "id": "rw-bae7d4036d95-build-6",
+    "location": "hel1",
+    "normalised_eur": 0.0026,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28431,19 +28668,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 256,
-  "jobs_total": 417,
-  "lifetime_eur": 8.41,
+  "jobs_this_month": 262,
+  "jobs_total": 423,
+  "lifetime_eur": 8.43,
   "live": {
-   "checked_at": "2026-11-13T22:52:11+00:00",
+   "checked_at": "2026-11-13T23:52:39+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 85.0,
-  "month_to_date": 4.78,
+  "month_hours": 85.3,
+  "month_to_date": 4.8,
   "months": [
    {
     "eur": 2.4452,
@@ -28458,13 +28695,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 4.7826,
-    "hours": 84.96,
-    "jobs": 256,
+    "eur": 4.8048,
+    "hours": 85.34,
+    "jobs": 262,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 11.04
+  "projected_month_eur": 11.09
  },
  "runtime": {
   "max_workers": 1,
@@ -28492,13 +28729,22 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-13T22:50:01.142050+00:00",
+  "observed_at": "2026-11-13T23:50:01.267272+00:00",
   "releases": [
+   {
+    "bundle": "f04b3ab5e15416612113d2b3",
+    "candidate": "source-000064",
+    "dataset": "fda-510k-five-year-recall",
+    "observed_at": "2026-11-13T23:50:01.312044+00:00",
+    "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
+    "status": "pending",
+    "version": "v-68e59a5ac91ad404"
+   },
    {
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-13T22:50:01.187865+00:00",
+    "observed_at": "2026-11-13T23:50:26.747892+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -28507,7 +28753,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-13T22:50:07.075040+00:00",
+    "observed_at": "2026-11-13T23:50:33.086168+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -28516,7 +28762,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-13T22:50:13.027449+00:00",
+    "observed_at": "2026-11-13T23:50:39.119933+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -28525,7 +28771,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-13T22:50:18.834959+00:00",
+    "observed_at": "2026-11-13T23:50:45.209600+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -28534,7 +28780,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-13T22:50:24.986781+00:00",
+    "observed_at": "2026-11-13T23:50:51.467847+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -28543,7 +28789,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-13T22:50:30.769263+00:00",
+    "observed_at": "2026-11-13T23:50:57.213148+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -28552,7 +28798,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-13T22:50:36.358971+00:00",
+    "observed_at": "2026-11-13T23:51:03.117420+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -28561,7 +28807,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-13T22:50:41.891754+00:00",
+    "observed_at": "2026-11-13T23:51:08.915595+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -28570,7 +28816,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-13T22:50:47.509858+00:00",
+    "observed_at": "2026-11-13T23:51:15.207757+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -28579,12 +28825,12 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-13T22:50:52.917171+00:00",
+    "observed_at": "2026-11-13T23:51:20.896711+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
    }
   ],
-  "status": "ok"
+  "status": "pending"
  }
 }
