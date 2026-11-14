@@ -22,7 +22,7 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-14T08:51:18.254532+00:00",
+   "moment": "2026-11-14T09:51:20.131592+00:00",
    "normal_operation_runs_last_7_days": 355,
    "normal_operation_runs_weighted_last_7_days": 357,
    "normal_operation_tokens_last_7_days": 35259654,
@@ -105,8 +105,8 @@
     "dataset": "epa-biosolids-part503-violation",
     "domain": "Modern factory",
     "id": "source-000073",
-    "next_action": "Stage build: Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve) \u00b7 next attempt 2026-11-14T08:53:02.610525+00:00",
-    "next_run_at": "2026-11-14T08:53:02.610525+00:00",
+    "next_action": "Stage build: Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve) \u00b7 next attempt 2026-11-14T09:51:02.319756+00:00",
+    "next_run_at": "2026-11-14T09:51:02.319756+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "1 October of year Y+1, after the 19 February federal annual-report deadline and the September state filing wave; only reports with ReportingYear at or before Y and violation records with start dates before that date may be used.",
     "question": "Given a large U.S. publicly owned treatment works' biosolids annual report for reporting year Y - its sludge volume, management-practice mix, pathogen class, treatment train, and per-pollutant monitoring results against Part 503 limits - will that facility be recorded with at least one Part 503 biosolids violation starting in the following twelve months?",
@@ -124,8 +124,8 @@
     "dataset": "us-house-bill-house-passage",
     "domain": "Modern factory",
     "id": "source-000074",
-    "next_action": "Stage build: Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve) \u00b7 next attempt 2026-11-14T08:55:02.046175+00:00",
-    "next_run_at": "2026-11-14T08:55:02.046175+00:00",
+    "next_action": "Stage build: Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve) \u00b7 next attempt 2026-11-14T09:53:02.094449+00:00",
+    "next_run_at": "2026-11-14T09:53:02.094449+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "30 calendar days after the bill's introducedDate. Only elements carrying a date on or before that instant are used (cosponsor sponsorshipDate and withdrawal dates, committee referral activity dates, introducedDate, bill number, titles as introduced).",
     "question": "Will an H.R. bill that is still pending in the House 30 days after introduction go on to pass the House before the end of that Congress?",
@@ -1803,8 +1803,8 @@
     "dataset": "epa-biosolids-part503-violation",
     "domain": "Modern factory",
     "id": "source-000073",
-    "next_action": "Stage build: Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve) \u00b7 next attempt 2026-11-14T08:53:02.610525+00:00",
-    "next_run_at": "2026-11-14T08:53:02.610525+00:00",
+    "next_action": "Stage build: Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve) \u00b7 next attempt 2026-11-14T09:51:02.319756+00:00",
+    "next_run_at": "2026-11-14T09:51:02.319756+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "1 October of year Y+1, after the 19 February federal annual-report deadline and the September state filing wave; only reports with ReportingYear at or before Y and violation records with start dates before that date may be used.",
     "question": "Given a large U.S. publicly owned treatment works' biosolids annual report for reporting year Y - its sludge volume, management-practice mix, pathogen class, treatment train, and per-pollutant monitoring results against Part 503 limits - will that facility be recorded with at least one Part 503 biosolids violation starting in the following twelve months?",
@@ -1822,8 +1822,8 @@
     "dataset": "us-house-bill-house-passage",
     "domain": "Modern factory",
     "id": "source-000074",
-    "next_action": "Stage build: Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve) \u00b7 next attempt 2026-11-14T08:55:02.046175+00:00",
-    "next_run_at": "2026-11-14T08:55:02.046175+00:00",
+    "next_action": "Stage build: Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve) \u00b7 next attempt 2026-11-14T09:53:02.094449+00:00",
+    "next_run_at": "2026-11-14T09:53:02.094449+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "30 calendar days after the bill's introducedDate. Only elements carrying a date on or before that instant are used (cosponsor sponsorshipDate and withdrawal dates, committee referral activity dates, introducedDate, bill number, titles as introduced).",
     "question": "Will an H.R. bill that is still pending in the House 30 days after introduction go on to pass the House before the end of that Congress?",
@@ -5304,7 +5304,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 181.5,
+    "age_hours": 182.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6134,7 +6134,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 238.0,
+    "age_hours": 239.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12416,7 +12416,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 378.6,
+    "age_hours": 379.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16440,7 +16440,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 227.7,
+    "age_hours": 228.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16896,10 +16896,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-14T08:50:01.622530+00:00",
+    "last_run_at": "2026-11-14T09:50:01.676749+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-14T09:00:00+00:00",
+    "next_run_at": "2026-11-14T10:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16980,10 +16980,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-14T07:52:40.275714+00:00",
+    "last_run_at": "2026-11-14T08:52:42.482523+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-14T09:50:00+00:00",
+    "next_run_at": "2026-11-14T10:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16992,10 +16992,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-14T07:55:01.048125+00:00",
+    "last_run_at": "2026-11-14T08:55:01.183755+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-14T08:55:00+00:00",
+    "next_run_at": "2026-11-14T09:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -17040,10 +17040,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-14T08:51:01.128124+00:00",
+    "last_run_at": "2026-11-14T09:51:01.539672+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-14T08:52:00+00:00",
+    "next_run_at": "2026-11-14T09:52:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -17096,9 +17096,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-14T08:51:01.129202+00:00"
+  "updated_at": "2026-11-14T09:51:01.540637+00:00"
  },
- "generated_at": "2026-11-14T08:51:17+00:00",
+ "generated_at": "2026-11-14T09:51:18+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17126,14 +17126,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-24T06:50:01+00:00",
-   "live": 13,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-24T07:50:01+00:00",
    "live": 13,
@@ -21251,6 +21243,16 @@
    "sessions_7d": 479,
    "tokens_7d": 35259654,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-14T09:51:18+00:00",
+   "live": 2,
+   "published": 27,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 479,
+   "tokens_7d": 35259654,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -22534,11 +22536,11 @@
     "created_at": "2026-11-14T03:54:01.413884+00:00",
     "dataset": "epa-biosolids-part503-violation",
     "id": "source-000073",
-    "next_run_at": "2026-11-14T08:53:02.610525+00:00",
+    "next_run_at": "2026-11-14T09:51:02.319756+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-14T08:48:02.610525+00:00"
+    "updated_at": "2026-11-14T09:46:02.319756+00:00"
    },
    {
     "attempt": {
@@ -22550,11 +22552,11 @@
     "created_at": "2026-11-14T04:37:01.125925+00:00",
     "dataset": "us-house-bill-house-passage",
     "id": "source-000074",
-    "next_run_at": "2026-11-14T08:55:02.046175+00:00",
+    "next_run_at": "2026-11-14T09:53:02.094449+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-14T08:50:02.046175+00:00"
+    "updated_at": "2026-11-14T09:48:02.094449+00:00"
    }
   ],
   "counts": {
@@ -22563,7 +22565,7 @@
    "published": 13,
    "rejected": 6
   },
-  "observed_at": "2026-11-14T08:51:17.041337+00:00",
+  "observed_at": "2026-11-14T09:51:18.876739+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
@@ -22571,7 +22573,7 @@
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T08:51:17+00:00",
+   "as_of": "2026-11-14T09:51:18+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -22581,7 +22583,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T08:51:17+00:00",
+   "as_of": "2026-11-14T09:51:18+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -22591,7 +22593,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T08:51:17+00:00",
+   "as_of": "2026-11-14T09:51:18+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -29378,7 +29380,7 @@
   "jobs_total": 452,
   "lifetime_eur": 8.57,
   "live": {
-   "checked_at": "2026-11-14T08:52:28+00:00",
+   "checked_at": "2026-11-14T09:52:32+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -29435,13 +29437,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-14T08:50:01.546470+00:00",
+  "observed_at": "2026-11-14T09:50:01.593828+00:00",
   "releases": [
    {
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-14T08:50:01.598982+00:00",
+    "observed_at": "2026-11-14T09:50:01.646471+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -29450,7 +29452,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-14T08:50:07.522822+00:00",
+    "observed_at": "2026-11-14T09:50:07.878026+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -29459,7 +29461,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-14T08:50:13.811757+00:00",
+    "observed_at": "2026-11-14T09:50:13.541018+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -29468,7 +29470,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-14T08:50:19.594824+00:00",
+    "observed_at": "2026-11-14T09:50:18.949997+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -29477,7 +29479,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-14T08:50:25.602593+00:00",
+    "observed_at": "2026-11-14T09:50:24.810868+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -29486,7 +29488,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-14T08:50:30.972328+00:00",
+    "observed_at": "2026-11-14T09:50:31.593027+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -29495,7 +29497,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-14T08:50:36.998291+00:00",
+    "observed_at": "2026-11-14T09:50:37.270888+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -29504,7 +29506,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-14T08:50:42.592069+00:00",
+    "observed_at": "2026-11-14T09:50:42.874354+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -29513,7 +29515,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-14T08:50:48.158568+00:00",
+    "observed_at": "2026-11-14T09:50:48.973855+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -29522,7 +29524,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-14T08:50:53.772983+00:00",
+    "observed_at": "2026-11-14T09:50:54.703671+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -29531,7 +29533,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-14T08:50:59.442945+00:00",
+    "observed_at": "2026-11-14T09:51:00.686753+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -29540,7 +29542,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-14T08:51:05.355692+00:00",
+    "observed_at": "2026-11-14T09:51:06.234452+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -29549,7 +29551,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-14T08:51:11.002697+00:00",
+    "observed_at": "2026-11-14T09:51:12.557523+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
