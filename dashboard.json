@@ -18,22 +18,24 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 300.0,
-   "allowed": true,
+   "allowed": false,
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-14T20:51:16.876312+00:00",
-   "normal_operation_runs_last_7_days": 373,
-   "normal_operation_runs_weighted_last_7_days": 373,
-   "normal_operation_tokens_last_7_days": 34707878,
+   "moment": "2026-11-14T21:51:20.062223+00:00",
+   "normal_operation_runs_last_7_days": 381,
+   "normal_operation_runs_weighted_last_7_days": 381,
+   "normal_operation_tokens_last_7_days": 35127607,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 14s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 45186845,
-   "runs_last_7_days": 497,
-   "runs_weighted_last_7_days": 497,
-   "session_admission_weighted": 227,
+   "research_tokens_last_7_days": 45606574,
+   "runs_last_7_days": 505,
+   "runs_weighted_last_7_days": 505,
+   "session_admission_weighted": 236,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -64,14 +66,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 9322,
+     "calls": 9353,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 59126927,
-     "output_tokens": 22132288,
+     "input_tokens": 59390107,
+     "output_tokens": 22562979,
      "pricing_available": false
     }
    },
@@ -85,8 +87,9 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "build": 2,
-   "deferred": 58,
+   "build": 1,
+   "deferred": 59,
+   "evaluate": 1,
    "published": 13,
    "rejected": 6
   },
@@ -102,40 +105,57 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "cms-pos-home-health-exit",
+    "dataset": "caa-fce-hpv-escalation",
     "domain": "Modern factory",
-    "id": "source-000078",
-    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-14T20:42:17.462231+00:00",
-    "next_run_at": "2026-11-14T20:42:17.462231+00:00",
+    "id": "source-000079",
+    "next_action": "Stage evaluate: Full artifact constructed, qualified, accepted and measured on worker",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The agency's original Medicare participation date (orgnl_prtcptn_dt), the date the provider is first approved to participate and the first day of the three-year follow-up window.",
-    "question": "Will a newly Medicare-certified U.S. home health agency terminate its Medicare participation within three years of original certification?",
-    "reason": "Worker running",
-    "release_baseline": {},
-    "release_splits": {},
-    "sources": [],
-    "split_strategy": "Fixed chronological splits by orgnl_prtcptn_dt: train 2015-01-01 to 2018-12-31; 90-day embargo 2019-01-01 to 2019-03-31; eval 2019-04-01 to 2020-06-30; 90-day embargo 2020-07-01 to 2020-09-30; holdout 2020-10-01 to 2021-12-31. One row per CCN, with no lagged or rolling features, so no row can reveal another row's label.",
-    "status": "build",
-    "target": "Binary: 1 if the agency's POS record shows a program termination (pgm_trmntn_cd populated) with trmntn_exprtn_dt no later than 1,095 days after orgnl_prtcptn_dt; 0 if the agency is still active at the file processing date or its termination date is more than 1,095 days after entry.",
+    "prediction_time": "ACTUAL_END_DATE, normalized to a date, at the end of the full compliance evaluation; the decision is made after the evaluation report is entered. All historical features use records dated strictly before t. Static facility attributes and program or pollutant membership are current-snapshot approximations, not historical as-of values.",
+    "question": "After a Clean Air Act source completes a full compliance evaluation with no active High Priority Violator episode, will that source enter High Priority Violator (HPV) status within the next 12 months?",
+    "reason": "Full artifact constructed, qualified, accepted and measured on worker",
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 36500
+     },
+     "holdout": {
+      "rows": 20011
+     },
+     "train": {
+      "rows": 58183
+     }
+    },
+    "sources": [
+     {
+      "name": "U.S. Environmental Protection Agency, Enforcement and Compliance History Online (ECHO) \u2014 ICIS-Air",
+      "url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+     }
+    ],
+    "split_strategy": "Frozen calendar boundaries on ACTUAL_END_DATE, set from date coverage only and never from label performance: train 2015-01-01 to 2018-12-31; all of 2019 excluded as a 365-day embargo; eval 2020-01-01 to 2022-12-31; all of 2023 excluded as embargo; holdout 2024-01-01 to 2025-06-30 (2025-06-30 + 365 days = 2026-06-30, inside the 2026-11-07 extract). No shuffling. Because the same facility can appear in several years, the fixed robustness variant assigns each facility to the split holding its earliest eligible evaluation and drops that facility's later rows from eval and holdout scoring.",
+    "status": "evaluate",
+    "target": "1 if the facility has at least one HPV_DAYZERO_DATE in the interval (t, t+365 days], where t is the evaluation's ACTUAL_END_DATE; 0 otherwise. Evaluations at sources already in an active HPV episode at t (HPV_DAYZERO_DATE <= t with no HPV_RESOLVED_DATE <= t), and same-day day-zero dates, are excluded rather than labelled 0, because the label must post-date the decision instant.",
     "workflow": "modern"
    },
    {
     "country": "unknown",
-    "dataset": "caa-fce-hpv-escalation",
+    "dataset": "england-school-inspection-qoe-fall",
     "domain": "Modern factory",
-    "id": "source-000079",
-    "next_action": "Stage build: Source researched with access, terms and task evidence",
-    "next_run_at": null,
+    "id": "source-000080",
+    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-14T21:54:44.648265+00:00",
+    "next_run_at": "2026-11-14T21:54:44.648265+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "End of the compliance evaluation (ACTUAL_END_DATE); operationally the first decision point after the evaluation report is entered. Every input is restricted to records with dates on or before that date.",
-    "question": "After a Clean Air Act source completes a full compliance evaluation with no active High Priority Violator episode, will that source enter High Priority Violator (HPV) status within the next 12 months?",
-    "reason": "Source researched with access, terms and task evidence",
+    "prediction_time": "The publication date of the previous graded inspection report, carried on the outcome row as Previous publication date; only the prior report contents and register attributes known at that date are used.",
+    "question": "When a state-funded school in England has just been rated Good or Outstanding, will its next graded inspection rate quality of education below Good (requires improvement or inadequate)?",
+    "reason": "An active or interrupted job exists; reconcile it before launching another",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Frozen calendar boundaries on ACTUAL_END_DATE, set from date coverage only and never from label performance: train 2015-01-01 to 2018-12-31; all of 2019 excluded as a 365-day embargo; eval 2020-01-01 to 2022-12-31; all of 2023 excluded as embargo; holdout 2024-01-01 to 2025-06-30 (2025-06-30 + 365 days = 2026-06-30, inside the 2026-11-07 extract). No shuffling. Because the same facility can appear in several years, the fixed robustness variant assigns each facility to the split holding its earliest eligible evaluation and drops that facility's later rows from eval and holdout scoring.",
+    "split_strategy": "Fixed calendar boundaries applied to the decision instant ('Previous publication date'), never to the outcome date: training = decision before 1 September 2017; evaluation = 1 September 2017 to 31 August 2020; holdout = on or after 1 September 2020. No embargo is applied, because each school contributes at most one row and every feature is fixed before its own decision instant, so no outcome can reach across a boundary; boundaries were fixed in advance on framework and pandemic epoch grounds rather than tuned.",
     "status": "build",
-    "target": "1 if the facility has at least one HPV_DAYZERO_DATE in the interval (t, t+365 days], where t is the evaluation's ACTUAL_END_DATE; 0 otherwise. Evaluations at sources already in an active HPV episode at t (HPV_DAYZERO_DATE <= t with no HPV_RESOLVED_DATE <= t), and same-day day-zero dates, are excluded rather than labelled 0, because the label must post-date the decision instant.",
+    "target": "1 if the school's next graded section 5 inspection, published on or before 31 August 2025, records 'Quality of education' equal to 3 (requires improvement) or 4 (inadequate); 0 if it records 1 (outstanding) or 2 (good). Rows with a missing judgement, a '9'/not-judged code, or no further graded inspection are excluded rather than labelled 0.",
     "workflow": "modern"
    }
   ],
@@ -1898,17 +1918,17 @@
     "dataset": "cms-pos-home-health-exit",
     "domain": "Modern factory",
     "id": "source-000078",
-    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-14T20:42:17.462231+00:00",
-    "next_run_at": "2026-11-14T20:42:17.462231+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-14T21:37:19.377832+00:00",
+    "next_run_at": "2026-11-14T21:37:19.377832+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The agency's original Medicare participation date (orgnl_prtcptn_dt), the date the provider is first approved to participate and the first day of the three-year follow-up window.",
     "question": "Will a newly Medicare-certified U.S. home health agency terminate its Medicare participation within three years of original certification?",
-    "reason": "Worker running",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "Fixed chronological splits by orgnl_prtcptn_dt: train 2015-01-01 to 2018-12-31; 90-day embargo 2019-01-01 to 2019-03-31; eval 2019-04-01 to 2020-06-30; 90-day embargo 2020-07-01 to 2020-09-30; holdout 2020-10-01 to 2021-12-31. One row per CCN, with no lagged or rolling features, so no row can reveal another row's label.",
-    "status": "build",
+    "status": "deferred",
     "target": "Binary: 1 if the agency's POS record shows a program termination (pgm_trmntn_cd populated) with trmntn_exprtn_dt no later than 1,095 days after orgnl_prtcptn_dt; 0 if the agency is still active at the file processing date or its termination date is more than 1,095 days after entry.",
     "workflow": "modern"
    },
@@ -1917,18 +1937,54 @@
     "dataset": "caa-fce-hpv-escalation",
     "domain": "Modern factory",
     "id": "source-000079",
-    "next_action": "Stage build: Source researched with access, terms and task evidence",
+    "next_action": "Stage evaluate: Full artifact constructed, qualified, accepted and measured on worker",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "End of the compliance evaluation (ACTUAL_END_DATE); operationally the first decision point after the evaluation report is entered. Every input is restricted to records with dates on or before that date.",
+    "prediction_time": "ACTUAL_END_DATE, normalized to a date, at the end of the full compliance evaluation; the decision is made after the evaluation report is entered. All historical features use records dated strictly before t. Static facility attributes and program or pollutant membership are current-snapshot approximations, not historical as-of values.",
     "question": "After a Clean Air Act source completes a full compliance evaluation with no active High Priority Violator episode, will that source enter High Priority Violator (HPV) status within the next 12 months?",
-    "reason": "Source researched with access, terms and task evidence",
+    "reason": "Full artifact constructed, qualified, accepted and measured on worker",
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 36500
+     },
+     "holdout": {
+      "rows": 20011
+     },
+     "train": {
+      "rows": 58183
+     }
+    },
+    "sources": [
+     {
+      "name": "U.S. Environmental Protection Agency, Enforcement and Compliance History Online (ECHO) \u2014 ICIS-Air",
+      "url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
+     }
+    ],
+    "split_strategy": "Frozen calendar boundaries on ACTUAL_END_DATE, set from date coverage only and never from label performance: train 2015-01-01 to 2018-12-31; all of 2019 excluded as a 365-day embargo; eval 2020-01-01 to 2022-12-31; all of 2023 excluded as embargo; holdout 2024-01-01 to 2025-06-30 (2025-06-30 + 365 days = 2026-06-30, inside the 2026-11-07 extract). No shuffling. Because the same facility can appear in several years, the fixed robustness variant assigns each facility to the split holding its earliest eligible evaluation and drops that facility's later rows from eval and holdout scoring.",
+    "status": "evaluate",
+    "target": "1 if the facility has at least one HPV_DAYZERO_DATE in the interval (t, t+365 days], where t is the evaluation's ACTUAL_END_DATE; 0 otherwise. Evaluations at sources already in an active HPV episode at t (HPV_DAYZERO_DATE <= t with no HPV_RESOLVED_DATE <= t), and same-day day-zero dates, are excluded rather than labelled 0, because the label must post-date the decision instant.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "england-school-inspection-qoe-fall",
+    "domain": "Modern factory",
+    "id": "source-000080",
+    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-14T21:54:44.648265+00:00",
+    "next_run_at": "2026-11-14T21:54:44.648265+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "The publication date of the previous graded inspection report, carried on the outcome row as Previous publication date; only the prior report contents and register attributes known at that date are used.",
+    "question": "When a state-funded school in England has just been rated Good or Outstanding, will its next graded inspection rate quality of education below Good (requires improvement or inadequate)?",
+    "reason": "An active or interrupted job exists; reconcile it before launching another",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Frozen calendar boundaries on ACTUAL_END_DATE, set from date coverage only and never from label performance: train 2015-01-01 to 2018-12-31; all of 2019 excluded as a 365-day embargo; eval 2020-01-01 to 2022-12-31; all of 2023 excluded as embargo; holdout 2024-01-01 to 2025-06-30 (2025-06-30 + 365 days = 2026-06-30, inside the 2026-11-07 extract). No shuffling. Because the same facility can appear in several years, the fixed robustness variant assigns each facility to the split holding its earliest eligible evaluation and drops that facility's later rows from eval and holdout scoring.",
+    "split_strategy": "Fixed calendar boundaries applied to the decision instant ('Previous publication date'), never to the outcome date: training = decision before 1 September 2017; evaluation = 1 September 2017 to 31 August 2020; holdout = on or after 1 September 2020. No embargo is applied, because each school contributes at most one row and every feature is fixed before its own decision instant, so no outcome can reach across a boundary; boundaries were fixed in advance on framework and pandemic epoch grounds rather than tuned.",
     "status": "build",
-    "target": "1 if the facility has at least one HPV_DAYZERO_DATE in the interval (t, t+365 days], where t is the evaluation's ACTUAL_END_DATE; 0 otherwise. Evaluations at sources already in an active HPV episode at t (HPV_DAYZERO_DATE <= t with no HPV_RESOLVED_DATE <= t), and same-day day-zero dates, are excluded rather than labelled 0, because the label must post-date the decision instant.",
+    "target": "1 if the school's next graded section 5 inspection, published on or before 31 August 2025, records 'Quality of education' equal to 3 (requires improvement) or 4 (inadequate); 0 if it records 1 (outstanding) or 2 (good). Rows with a missing judgement, a '9'/not-judged code, or no further graded inspection are excluded rather than labelled 0.",
     "workflow": "modern"
    },
    {
@@ -5399,7 +5455,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 193.5,
+    "age_hours": 194.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6229,7 +6285,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 250.0,
+    "age_hours": 251.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12511,7 +12567,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 390.6,
+    "age_hours": 391.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16535,7 +16591,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 239.7,
+    "age_hours": 240.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16991,10 +17047,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-14T20:50:01.734221+00:00",
+    "last_run_at": "2026-11-14T21:50:02.172286+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-14T21:00:00+00:00",
+    "next_run_at": "2026-11-14T22:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -17075,10 +17131,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-14T19:52:46.426801+00:00",
+    "last_run_at": "2026-11-14T20:52:43.544428+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-14T21:50:00+00:00",
+    "next_run_at": "2026-11-14T22:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -17087,10 +17143,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-14T19:55:01.659923+00:00",
+    "last_run_at": "2026-11-14T20:55:01.187890+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-14T20:55:00+00:00",
+    "next_run_at": "2026-11-14T21:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -17135,10 +17191,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-14T20:51:15.764482+00:00",
+    "last_run_at": "2026-11-14T21:50:20.522310+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-14T20:52:00+00:00",
+    "next_run_at": "2026-11-14T21:52:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -17191,9 +17247,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-14T20:51:15.765465+00:00"
+  "updated_at": "2026-11-14T21:51:01.048849+00:00"
  },
- "generated_at": "2026-11-14T20:51:15+00:00",
+ "generated_at": "2026-11-14T21:51:18+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17221,14 +17277,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-24T18:50:01+00:00",
-   "live": 14,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-24T19:50:01+00:00",
    "live": 14,
@@ -21370,6 +21418,16 @@
    "sessions_7d": 497,
    "tokens_7d": 34707878,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-14T21:51:18+00:00",
+   "live": 2,
+   "published": 27,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 505,
+   "tokens_7d": 35127607,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -22725,52 +22783,71 @@
    },
    {
     "attempt": {
-     "id": "rw-f45832b80902-build-1",
-     "ordinal": 1,
+     "id": "rw-f45832b80902-build-5",
+     "ordinal": 5,
      "stage": "build",
-     "status": "running"
+     "status": "retry"
     },
     "created_at": "2026-11-14T19:45:01.524845+00:00",
     "dataset": "cms-pos-home-health-exit",
     "id": "source-000078",
-    "next_run_at": "2026-11-14T20:42:17.462231+00:00",
+    "next_run_at": "2026-11-14T21:37:19.377832+00:00",
     "published_verified": false,
-    "running": true,
-    "stage": "build",
-    "updated_at": "2026-11-14T20:51:01.209943+00:00"
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-14T21:36:19.377832+00:00"
    },
    {
     "attempt": {
-     "id": "rw-be5838ec23c9-discover-4",
-     "ordinal": 4,
-     "stage": "discover",
-     "status": "done"
+     "id": "rw-be5838ec23c9-evaluate-1",
+     "ordinal": 1,
+     "stage": "evaluate",
+     "status": "running"
     },
     "created_at": "2026-11-14T19:46:02.309057+00:00",
     "dataset": "caa-fce-hpv-escalation",
     "id": "source-000079",
     "next_run_at": null,
     "published_verified": false,
-    "running": false,
+    "running": true,
+    "stage": "evaluate",
+    "updated_at": "2026-11-14T21:50:20.468910+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-58e90277d81d-build-1",
+     "ordinal": 1,
+     "stage": "build",
+     "status": "running"
+    },
+    "created_at": "2026-11-14T21:37:01.498320+00:00",
+    "dataset": "england-school-inspection-qoe-fall",
+    "id": "source-000080",
+    "next_run_at": "2026-11-14T21:54:44.648265+00:00",
+    "published_verified": false,
+    "running": true,
     "stage": "build",
-    "updated_at": "2026-11-14T20:50:09.139652+00:00"
+    "updated_at": "2026-11-14T21:49:44.648265+00:00"
    }
   ],
   "counts": {
-   "build": 2,
-   "deferred": 58,
+   "build": 1,
+   "deferred": 59,
+   "evaluate": 1,
    "published": 13,
    "rejected": 6
   },
-  "observed_at": "2026-11-14T20:51:15.703509+00:00",
+  "observed_at": "2026-11-14T21:51:18.815110+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 14s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T20:51:15+00:00",
+   "as_of": "2026-11-14T21:51:18+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -22780,7 +22857,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T20:51:15+00:00",
+   "as_of": "2026-11-14T21:51:18+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -22790,7 +22867,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T20:51:15+00:00",
+   "as_of": "2026-11-14T21:51:18+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -24090,24 +24167,24 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "25.00",
-   "completed_estimate_eur": "24.96",
-   "completed_jobs": 305,
+   "charged_eur": "25.40",
+   "completed_estimate_eur": "25.36",
+   "completed_jobs": 310,
    "reserved_jobs": 1,
    "retained_reservations_eur": "0.04"
   },
   "ceiling_eur": 50.0,
   "errors": [],
-  "eur_per_release": 1.04,
+  "eur_per_release": 1.05,
   "histogram": {
    "bins": [
     {
-     "count": 285,
+     "count": 289,
      "hi": 0.01,
      "lo": 0.001
     },
     {
-     "count": 93,
+     "count": 94,
      "hi": 0.02,
      "lo": 0.01
     },
@@ -24149,10 +24226,10 @@
    ],
    "max": 2.6488,
    "median": 0.0078,
-   "n": 466,
-   "p90": 0.0361,
+   "n": 471,
+   "p90": 0.0358,
    "ref_rate": 0.06924,
-   "total": 11.0
+   "total": 11.03
   },
   "jobs": [
    {
@@ -28752,6 +28829,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-14T21:45:01.324745+00:00",
+    "deleted_at": "2026-11-14T21:50:14.142755+00:00",
+    "eur": 0.05868,
+    "hours": 0.087,
+    "id": "rw-be5838ec23c9-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.006,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-10T01:37:01.765726+00:00",
     "deleted_at": "2026-11-10T01:45:17.455580+00:00",
     "eur": 0.06924,
@@ -29095,6 +29184,54 @@
     "id": "rw-f45832b80902-build-1",
     "location": "hel1",
     "normalised_eur": 0.0118,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T21:00:02.565591+00:00",
+    "deleted_at": "2026-11-14T21:11:13.544853+00:00",
+    "eur": 0.05868,
+    "hours": 0.186,
+    "id": "rw-f45832b80902-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.0129,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T21:16:32.663840+00:00",
+    "deleted_at": "2026-11-14T21:20:14.103099+00:00",
+    "eur": 0.05868,
+    "hours": 0.062,
+    "id": "rw-f45832b80902-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.0043,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T21:24:45.297212+00:00",
+    "deleted_at": "2026-11-14T21:28:12.994527+00:00",
+    "eur": 0.05868,
+    "hours": 0.058,
+    "id": "rw-f45832b80902-build-4",
+    "location": "hel1",
+    "normalised_eur": 0.004,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T21:32:29.386833+00:00",
+    "deleted_at": "2026-11-14T21:36:16.723430+00:00",
+    "eur": 0.05868,
+    "hours": 0.063,
+    "id": "rw-f45832b80902-build-5",
+    "location": "hel1",
+    "normalised_eur": 0.0044,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29748,19 +29885,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 304,
-  "jobs_total": 466,
-  "lifetime_eur": 27.95,
+  "jobs_this_month": 309,
+  "jobs_total": 471,
+  "lifetime_eur": 28.25,
   "live": {
-   "checked_at": "2026-11-14T20:52:28+00:00",
+   "checked_at": "2026-11-14T21:52:31+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 85.3,
-  "month_to_date": 19.74,
+  "month_hours": 85.8,
+  "month_to_date": 20.04,
   "months": [
    {
     "eur": 5.02,
@@ -29775,13 +29912,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 19.7436,
-    "hours": 85.32,
-    "jobs": 304,
+    "eur": 20.037,
+    "hours": 85.78,
+    "jobs": 309,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 42.31,
+  "projected_month_eur": 42.94,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -29810,13 +29947,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-14T20:50:01.293486+00:00",
+  "observed_at": "2026-11-14T21:50:01.656883+00:00",
   "releases": [
    {
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-14T20:50:01.368389+00:00",
+    "observed_at": "2026-11-14T21:50:01.715399+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -29825,7 +29962,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-14T20:50:07.888880+00:00",
+    "observed_at": "2026-11-14T21:50:08.722292+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -29834,7 +29971,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-14T20:50:13.786954+00:00",
+    "observed_at": "2026-11-14T21:50:14.381523+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -29843,7 +29980,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-14T20:50:19.204890+00:00",
+    "observed_at": "2026-11-14T21:50:20.326333+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -29852,7 +29989,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-14T20:50:24.736027+00:00",
+    "observed_at": "2026-11-14T21:50:26.027830+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -29861,7 +29998,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-14T20:50:30.716732+00:00",
+    "observed_at": "2026-11-14T21:50:31.728660+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -29870,7 +30007,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-14T20:50:36.487477+00:00",
+    "observed_at": "2026-11-14T21:50:37.382784+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -29879,7 +30016,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-14T20:50:42.037545+00:00",
+    "observed_at": "2026-11-14T21:50:43.795443+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -29888,7 +30025,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-14T20:50:47.585035+00:00",
+    "observed_at": "2026-11-14T21:50:49.377940+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -29897,7 +30034,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-14T20:50:52.937513+00:00",
+    "observed_at": "2026-11-14T21:50:55.156552+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -29906,7 +30043,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-14T20:50:58.379422+00:00",
+    "observed_at": "2026-11-14T21:51:00.823556+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -29915,7 +30052,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-14T20:51:03.737713+00:00",
+    "observed_at": "2026-11-14T21:51:06.640113+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -29924,7 +30061,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-14T20:51:09.424986+00:00",
+    "observed_at": "2026-11-14T21:51:12.561897+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
