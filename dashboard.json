@@ -1,5 +1,6 @@
 {
  "alarms": [
+  "Website sbir-phase1-to-phase2-conversion: pending; data publication is separate",
   "Website t100-new-route-survival: pending; data publication is separate",
   "Local test suite failed on 202b83b",
   "1 release(s) not fully verified"
@@ -19,24 +20,22 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 300.0,
-   "allowed": false,
+   "allowed": true,
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-14T03:51:24.873033+00:00",
-   "normal_operation_runs_last_7_days": 343,
-   "normal_operation_runs_weighted_last_7_days": 345,
-   "normal_operation_tokens_last_7_days": 34389801,
+   "moment": "2026-11-14T04:51:51.370509+00:00",
+   "normal_operation_runs_last_7_days": 352,
+   "normal_operation_runs_weighted_last_7_days": 354,
+   "normal_operation_tokens_last_7_days": 35188079,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 139s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 44868768,
-   "runs_last_7_days": 467,
-   "runs_weighted_last_7_days": 469,
-   "session_admission_weighted": 179,
+   "research_tokens_last_7_days": 45667046,
+   "runs_last_7_days": 476,
+   "runs_weighted_last_7_days": 478,
+   "session_admission_weighted": 189,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 2,
@@ -67,14 +66,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 8972,
+     "calls": 9059,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 56410071,
-     "output_tokens": 20078415,
+     "input_tokens": 56938068,
+     "output_tokens": 20448887,
      "pricing_available": false
     }
    },
@@ -90,9 +89,9 @@
   "counts": {
    "build": 1,
    "deferred": 53,
-   "evaluate": 1,
-   "published": 12,
-   "rejected": 5
+   "discover": 1,
+   "published": 13,
+   "rejected": 6
   },
   "errors": [],
   "legacy_counts": {
@@ -106,57 +105,40 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "npdes-permit-reissuance-timeliness",
+    "dataset": "epa-biosolids-part503-violation",
     "domain": "Modern factory",
-    "id": "source-000069",
-    "next_action": "Stage evaluate: Full artifact constructed, qualified, accepted and measured on worker",
-    "next_run_at": null,
-    "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "T equals the evaluated permit version EXPIRATION_DATE minus 365 calendar days. Every shipped history feature uses permit rows, inspections, quarterly noncompliance records, enforcement actions or version-history rows dated strictly before T. The undated NPDES_NAICS and NPDES_PERM_FEATURE_COORDS or NPDES_PERM_COMPONENTS members are excluded because no version or effective-date column lets a join be restricted to records dated before T. Permit and facility descriptors such as STATE_CODE, MAJOR_MINOR_STATUS_FLAG, FACILITY_TYPE_CODE, FACILITY_TYPE_INDICATOR, AGENCY_TYPE_CODE, PRETREATMENT_INDICATOR_CODE, TMDL_INTERFACE_FLAG, IMPAIRED_WATERS and the hydrologic code come from ICIS_PERMITS with an ICIS_FACILITIES fallback only when the permit row is blank; those fallbacks are treated as static attributes already fixed at T, which is an assumption rather than a measured availability ledger. The shipped time column carries EXPIRATION_DATE, a fixed one-year offset from T.",
-    "question": "At 12 months before an individual NPDES permit's stated expiration date, will the permitting authority have a successor full-term permit in effect on or before that expiration date, or will the permit run past expiration and continue only administratively?",
-    "reason": "Full artifact constructed, qualified, accepted and measured on worker",
-    "release_baseline": {
-     "display": "See versioned evaluation.json; public validation only"
-    },
-    "release_splits": {
-     "eval": {
-      "rows": 6853
-     },
-     "holdout": {
-      "rows": 4842
-     },
-     "train": {
-      "rows": 27625
-     }
-    },
-    "sources": [
-     {
-      "name": "U.S. Environmental Protection Agency, Office of Enforcement and Compliance Assurance \u2014 Enforcement and Compliance History Online (ECHO), ICIS-NPDES national download",
-      "url": "https://echo.epa.gov/tools/data-downloads/icis-npdes-download-summary"
-     }
-    ],
-    "split_strategy": "Fixed chronological boundaries on EXPIRATION_DATE, which is equivalent to splitting on the decision instant T since T is always EXPIRATION_DATE \u2212 365 days: train 2012-01-01..2017-12-31, eval 2018-01-01..2020-12-31, holdout 2021-01-01..2023-12-31. No embargo is needed because every feature is frozen at T and each NPDES_ID appears exactly once, so no permit, facility or successor record straddles a boundary.",
-    "status": "evaluate",
-    "target": "Per permit version v (one row per NPDES_ID), with versions of the same NPDES_ID ordered by EFFECTIVE_DATE and v's next later version denoted v+1: label 1 (late / no on-time reissuance) if no successor version exists with EFFECTIVE_DATE <= v.EXPIRATION_DATE AND EXPIRATION_DATE > v.EXPIRATION_DATE; label 0 (timely) if such a successor full-term version exists. Requiring the successor's own EXPIRATION_DATE to be later than v's prevents same-expiration modifications from counting as reissuance. Permits whose TERMINATION_DATE or RETIREMENT_DATE falls on or before v.EXPIRATION_DATE are excluded as not requiring reissuance (a post-hoc label-definition exclusion, not a feature).",
-    "workflow": "modern"
-   },
-   {
-    "country": "unknown",
-    "dataset": "sbir-phase1-to-phase2-conversion",
-    "domain": "Modern factory",
-    "id": "source-000072",
+    "id": "source-000073",
     "next_action": "Stage build: Source researched with access, terms and task evidence",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The Phase I award date, operationally the federal fiscal year recorded in award_year, because proposal_award_date is documented as mandatory only for agencies other than HHS. Only fields stored on that Phase I award record are read.",
-    "question": "Will a firm's first-ever SBIR/STTR Phase I award convert into a Phase II award from the same agency within four fiscal years?",
+    "prediction_time": "1 October of year Y+1, after both the 19 February federal annual-report deadline and the September state filing wave; only the facility's annual reports for reporting years <= Y and violation records starting before that date may be used.",
+    "question": "Given a large U.S. publicly owned treatment works' biosolids annual report for reporting year Y - its sludge volume, management-practice mix, pathogen class, treatment train, and per-pollutant monitoring results against Part 503 limits - will that facility be recorded with at least one Part 503 biosolids violation starting in the following twelve months?",
     "reason": "Source researched with access, terms and task evidence",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Chronological on Phase I award_year, fixed before any measurement: train 2005-2014, eval 2015-2016, holdout 2017-2018. No embargo is applied, because every feature is read from the Phase I record at its own award year and no label value is ever an input; the only timing rule is that each row's four-year window (ending at most 2022 for the 2018 cohort) must be closed inside the frozen file.",
+    "split_strategy": "Cohorts are defined by annual-report reporting year Y. Warm-up history only: 2016-2017. Train: Y = 2018, 2019, 2020. Embargo: Y = 2021, excluded because it is the Texas onboarding year and sits directly adjacent to the evaluation cohort. Eval: Y = 2022. Holdout: Y = 2023. Cohorts 2024-2025 are dropped because their 12-month label windows are not fully observable in the November 2026 extract. Each row's label window is a fixed 12 months starting at its own decision instant, so label windows of different cohorts never overlap and no embargo beyond the dropped year is required; a facility may appear in several cohorts, but its features at cohort Y use only reports with ReportingYear <= Y and violations starting before 1 Oct Y+1.",
     "status": "build",
-    "target": "1 if the same firm (matched on UEI, else DUNS, else normalised company name plus state) has any Phase II record from the same agency with award_year in {y+1, y+2, y+3, y+4}, where y is the Phase I award_year; 0 if no such record exists in the frozen file. Rows are dropped when no firm identifier can be resolved or when y+4 exceeds the last complete award year in the file.",
+    "target": "Binary. Label = 1 if the facility's NPDES ID (finalroot.npdesId_u1) has at least one row in biosolidsViolations.csv with violationStartDate in the half-open window [1 Oct Y+1, 1 Oct Y+2); else 0. Violation rows are matched on the facility NPDES ID (npdesId_u0), not through the year-(Y+1) report key, so no field of the outcome-year report can be pulled into features. Facilities with no violation record in the window are negatives.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000074",
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 384.504, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"REPORTS table with mdbtools: `mdb-tables file.accdb` to confirm the table name \u00b7 next attempt 2026-11-14T04:48:30.479945+00:00",
+    "next_run_at": "2026-11-14T04:48:30.479945+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 384.504, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"REPORTS table with mdbtools: `mdb-tables file.accdb` to confirm the table name",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
     "workflow": "modern"
    }
   ],
@@ -1714,12 +1696,12 @@
     "dataset": "npdes-permit-reissuance-timeliness",
     "domain": "Modern factory",
     "id": "source-000069",
-    "next_action": "Stage evaluate: Full artifact constructed, qualified, accepted and measured on worker",
+    "next_action": "Stage rejected: The prior split-policy item is still unresolved in the supplied task text, and a new material source-interpretation error invalidates the label as constructed. EPA documents RET ('Retired') as the status assigned to the previous permit vers",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "T equals the evaluated permit version EXPIRATION_DATE minus 365 calendar days. Every shipped history feature uses permit rows, inspections, quarterly noncompliance records, enforcement actions or version-history rows dated strictly before T. The undated NPDES_NAICS and NPDES_PERM_FEATURE_COORDS or NPDES_PERM_COMPONENTS members are excluded because no version or effective-date column lets a join be restricted to records dated before T. Permit and facility descriptors such as STATE_CODE, MAJOR_MINOR_STATUS_FLAG, FACILITY_TYPE_CODE, FACILITY_TYPE_INDICATOR, AGENCY_TYPE_CODE, PRETREATMENT_INDICATOR_CODE, TMDL_INTERFACE_FLAG, IMPAIRED_WATERS and the hydrologic code come from ICIS_PERMITS with an ICIS_FACILITIES fallback only when the permit row is blank; those fallbacks are treated as static attributes already fixed at T, which is an assumption rather than a measured availability ledger. The shipped time column carries EXPIRATION_DATE, a fixed one-year offset from T.",
     "question": "At 12 months before an individual NPDES permit's stated expiration date, will the permitting authority have a successor full-term permit in effect on or before that expiration date, or will the permit run past expiration and continue only administratively?",
-    "reason": "Full artifact constructed, qualified, accepted and measured on worker",
+    "reason": "The prior split-policy item is still unresolved in the supplied task text, and a new material source-interpretation error invalidates the label as constructed. EPA documents RET ('Retired') as the status assigned to the previous permit vers",
     "release_baseline": {
      "display": "See versioned evaluation.json; public validation only"
     },
@@ -1741,7 +1723,7 @@
      }
     ],
     "split_strategy": "Fixed chronological boundaries on EXPIRATION_DATE, which is equivalent to splitting on the decision instant T since T is always EXPIRATION_DATE \u2212 365 days: train 2012-01-01..2017-12-31, eval 2018-01-01..2020-12-31, holdout 2021-01-01..2023-12-31. No embargo is needed because every feature is frozen at T and each NPDES_ID appears exactly once, so no permit, facility or successor record straddles a boundary.",
-    "status": "evaluate",
+    "status": "rejected",
     "target": "Per permit version v (one row per NPDES_ID), with versions of the same NPDES_ID ordered by EFFECTIVE_DATE and v's next later version denoted v+1: label 1 (late / no on-time reissuance) if no successor version exists with EFFECTIVE_DATE <= v.EXPIRATION_DATE AND EXPIRATION_DATE > v.EXPIRATION_DATE; label 0 (timely) if such a successor full-term version exists. Requiring the successor's own EXPIRATION_DATE to be later than v's prevents same-expiration modifications from counting as reissuance. Permits whose TERMINATION_DATE or RETIREMENT_DATE falls on or before v.EXPIRATION_DATE are excluded as not requiring reissuance (a post-hoc label-definition exclusion, not a feature).",
     "workflow": "modern"
    },
@@ -1788,18 +1770,73 @@
     "dataset": "sbir-phase1-to-phase2-conversion",
     "domain": "Modern factory",
     "id": "source-000072",
+    "next_action": "Dataset publication complete; website synchronization is shown in Releases.",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "The Phase I award date: proposal_award_date when published and inside the federal fiscal year of award_year; otherwise the fiscal year end of award_year. Only fields on the index Phase I award record are read.",
+    "question": "Will a firm's first-ever SBIR/STTR Phase I award convert into a Phase II award from the same agency within four fiscal years?",
+    "reason": "Published and anonymously verified on GitHub and Hugging Face",
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 1408
+     },
+     "holdout": {
+      "rows": 1704
+     },
+     "train": {
+      "rows": 6574
+     }
+    },
+    "sources": [
+     {
+      "name": "U.S. Small Business Administration (SBIR.gov)",
+      "url": "https://www.sbir.gov/data-resources/data-dictionary/award"
+     }
+    ],
+    "split_strategy": "Chronological on Phase I award_year, fixed before any measurement: train 2005-2014, eval 2015-2016, holdout 2017-2018. No embargo is applied, because every feature is read from the Phase I record at its own award year and no label value is ever an input; the only timing rule is that each row's four-year window (ending at most 2022 for the 2018 cohort) must be closed inside the frozen file.",
+    "status": "published",
+    "target": "1 if the same firm (matched on UEI, else DUNS, else normalised company name plus state) has any Phase II record from the same agency with award_year in {y+1, y+2, y+3, y+4}, where y is the Phase I award_year; 0 if no such record exists in the frozen file. Rows are dropped when no firm identifier can be resolved or when y+4 exceeds the last complete award year in the file.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "epa-biosolids-part503-violation",
+    "domain": "Modern factory",
+    "id": "source-000073",
     "next_action": "Stage build: Source researched with access, terms and task evidence",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The Phase I award date, operationally the federal fiscal year recorded in award_year, because proposal_award_date is documented as mandatory only for agencies other than HHS. Only fields stored on that Phase I award record are read.",
-    "question": "Will a firm's first-ever SBIR/STTR Phase I award convert into a Phase II award from the same agency within four fiscal years?",
+    "prediction_time": "1 October of year Y+1, after both the 19 February federal annual-report deadline and the September state filing wave; only the facility's annual reports for reporting years <= Y and violation records starting before that date may be used.",
+    "question": "Given a large U.S. publicly owned treatment works' biosolids annual report for reporting year Y - its sludge volume, management-practice mix, pathogen class, treatment train, and per-pollutant monitoring results against Part 503 limits - will that facility be recorded with at least one Part 503 biosolids violation starting in the following twelve months?",
     "reason": "Source researched with access, terms and task evidence",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Chronological on Phase I award_year, fixed before any measurement: train 2005-2014, eval 2015-2016, holdout 2017-2018. No embargo is applied, because every feature is read from the Phase I record at its own award year and no label value is ever an input; the only timing rule is that each row's four-year window (ending at most 2022 for the 2018 cohort) must be closed inside the frozen file.",
+    "split_strategy": "Cohorts are defined by annual-report reporting year Y. Warm-up history only: 2016-2017. Train: Y = 2018, 2019, 2020. Embargo: Y = 2021, excluded because it is the Texas onboarding year and sits directly adjacent to the evaluation cohort. Eval: Y = 2022. Holdout: Y = 2023. Cohorts 2024-2025 are dropped because their 12-month label windows are not fully observable in the November 2026 extract. Each row's label window is a fixed 12 months starting at its own decision instant, so label windows of different cohorts never overlap and no embargo beyond the dropped year is required; a facility may appear in several cohorts, but its features at cohort Y use only reports with ReportingYear <= Y and violations starting before 1 Oct Y+1.",
     "status": "build",
-    "target": "1 if the same firm (matched on UEI, else DUNS, else normalised company name plus state) has any Phase II record from the same agency with award_year in {y+1, y+2, y+3, y+4}, where y is the Phase I award_year; 0 if no such record exists in the frozen file. Rows are dropped when no firm identifier can be resolved or when y+4 exceeds the last complete award year in the file.",
+    "target": "Binary. Label = 1 if the facility's NPDES ID (finalroot.npdesId_u1) has at least one row in biosolidsViolations.csv with violationStartDate in the half-open window [1 Oct Y+1, 1 Oct Y+2); else 0. Violation rows are matched on the facility NPDES ID (npdesId_u0), not through the year-(Y+1) report key, so no field of the outcome-year report can be pulled into features. Facilities with no violation record in the window are negatives.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000074",
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 384.504, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"REPORTS table with mdbtools: `mdb-tables file.accdb` to confirm the table name \u00b7 next attempt 2026-11-14T04:48:30.479945+00:00",
+    "next_run_at": "2026-11-14T04:48:30.479945+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 384.504, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"REPORTS table with mdbtools: `mdb-tables file.accdb` to confirm the table name",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
     "workflow": "modern"
    },
    {
@@ -5270,7 +5307,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 176.5,
+    "age_hours": 177.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6100,7 +6137,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 233.0,
+    "age_hours": 234.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12382,7 +12419,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 373.6,
+    "age_hours": 374.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16406,7 +16443,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 222.7,
+    "age_hours": 223.8,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16862,10 +16899,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-14T03:50:02.167702+00:00",
+    "last_run_at": "2026-11-14T04:50:01.740504+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-14T04:00:00+00:00",
+    "next_run_at": "2026-11-14T05:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16946,10 +16983,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-14T02:52:59.857340+00:00",
+    "last_run_at": "2026-11-14T03:52:51.184480+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-14T04:50:00+00:00",
+    "next_run_at": "2026-11-14T05:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16958,10 +16995,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-14T02:55:01.444477+00:00",
+    "last_run_at": "2026-11-14T03:55:01.963386+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-14T03:55:00+00:00",
+    "next_run_at": "2026-11-14T04:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -17006,10 +17043,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-14T03:48:20.164871+00:00",
+    "last_run_at": "2026-11-14T04:51:46.142930+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-14T03:50:00+00:00",
+    "next_run_at": "2026-11-14T04:52:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -17062,9 +17099,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-14T03:51:00.909579+00:00"
+  "updated_at": "2026-11-14T04:51:46.144222+00:00"
  },
- "generated_at": "2026-11-14T03:51:23+00:00",
+ "generated_at": "2026-11-14T04:51:50+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17092,14 +17129,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-24T01:50:01+00:00",
-   "live": 13,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-24T02:50:01+00:00",
    "live": 13,
@@ -21207,6 +21236,16 @@
    "sessions_7d": 467,
    "tokens_7d": 34389801,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-14T04:51:50+00:00",
+   "live": 2,
+   "published": 27,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 476,
+   "tokens_7d": 35188079,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -22412,16 +22451,16 @@
      "id": "rw-64e7b0c7d522-evaluate-5",
      "ordinal": 5,
      "stage": "evaluate",
-     "status": "running"
+     "status": "reject"
     },
     "created_at": "2026-11-14T00:53:01.190982+00:00",
     "dataset": "npdes-permit-reissuance-timeliness",
     "id": "source-000069",
     "next_run_at": null,
     "published_verified": false,
-    "running": true,
-    "stage": "evaluate",
-    "updated_at": "2026-11-14T03:48:20.111345+00:00"
+    "running": false,
+    "stage": "rejected",
+    "updated_at": "2026-11-14T03:53:16.844777+00:00"
    },
    {
     "attempt": {
@@ -22457,39 +22496,78 @@
    },
    {
     "attempt": {
-     "id": "rw-9f58fbd0fa13-discover-2",
-     "ordinal": 2,
-     "stage": "discover",
+     "id": "rw-9f58fbd0fa13-publish-1",
+     "ordinal": 1,
+     "stage": "publish",
      "status": "done"
     },
     "created_at": "2026-11-14T03:12:01.628352+00:00",
     "dataset": "sbir-phase1-to-phase2-conversion",
     "id": "source-000072",
     "next_run_at": null,
+    "publication": {
+     "artifact_version": "a1f22706a52ba521dcb070d0a85877c552f5c62e8752af292e4a31ec27fdbe72",
+     "dataset": "sbir-phase1-to-phase2-conversion",
+     "repositories": {
+      "github": "earino/factory-sbir-phase1-to-phase2-conversion",
+      "huggingface": "earino/factory-sbir-phase1-to-phase2-conversion"
+     },
+     "version": "v-0d2e623e604ecf78"
+    },
+    "published_verified": true,
+    "running": false,
+    "stage": "published",
+    "updated_at": "2026-11-14T04:36:15.599185+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-b6daec6d3aba-discover-5",
+     "ordinal": 5,
+     "stage": "discover",
+     "status": "done"
+    },
+    "created_at": "2026-11-14T03:54:01.413884+00:00",
+    "dataset": "epa-biosolids-part503-violation",
+    "id": "source-000073",
+    "next_run_at": null,
     "published_verified": false,
     "running": false,
     "stage": "build",
-    "updated_at": "2026-11-14T03:41:37.836757+00:00"
+    "updated_at": "2026-11-14T04:51:46.093181+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-f83a982816f8-discover-1",
+     "ordinal": 1,
+     "stage": "discover",
+     "status": "retry"
+    },
+    "created_at": "2026-11-14T04:37:01.125925+00:00",
+    "dataset": null,
+    "id": "source-000074",
+    "next_run_at": "2026-11-14T04:48:30.479945+00:00",
+    "published_verified": false,
+    "running": false,
+    "stage": "discover",
+    "updated_at": "2026-11-14T04:47:30.479945+00:00"
    }
   ],
   "counts": {
    "build": 1,
    "deferred": 53,
-   "evaluate": 1,
-   "published": 12,
-   "rejected": 5
+   "discover": 1,
+   "published": 13,
+   "rejected": 6
   },
-  "observed_at": "2026-11-14T03:51:23.533306+00:00",
+  "observed_at": "2026-11-14T04:51:50.018461+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
- "notices": [
-  "A research session is running: lock held for 139s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T03:51:23+00:00",
+   "as_of": "2026-11-14T04:51:50+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -22499,7 +22577,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T03:51:23+00:00",
+   "as_of": "2026-11-14T04:51:50+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -22509,13 +22587,13 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T03:51:23+00:00",
+   "as_of": "2026-11-14T04:51:50+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
    "stale": false,
    "status": "ok",
-   "value": 34
+   "value": 35
   }
  },
  "releases": {
@@ -22915,6 +22993,39 @@
     },
     "verified_all": true,
     "verified_at": "2026-11-14T02:04:19.792527+00:00",
+    "workflow": "modern"
+   },
+   {
+    "artifact_version": "a1f22706a52ba521dcb070d0a85877c552f5c62e8752af292e4a31ec27fdbe72",
+    "assets": 33,
+    "baseline_display": "See versioned evaluation.json; public validation only",
+    "dataset": "sbir-phase1-to-phase2-conversion",
+    "destinations": {
+     "github": "https://github.com/earino/factory-sbir-phase1-to-phase2-conversion/releases/tag/v-0d2e623e604ecf78",
+     "huggingface": "https://huggingface.co/datasets/earino/factory-sbir-phase1-to-phase2-conversion"
+    },
+    "detail_id": "source-000072",
+    "disposition": "public",
+    "published": true,
+    "release_tag": "v-0d2e623e604ecf78",
+    "rows": 9686,
+    "splits": {
+     "eval": {
+      "rows": 1408
+     },
+     "holdout": {
+      "rows": 1704
+     },
+     "train": {
+      "rows": 6574
+     }
+    },
+    "verified": {
+     "github": true,
+     "huggingface": true
+    },
+    "verified_all": true,
+    "verified_at": "2026-11-14T04:36:15.599185+00:00",
     "workflow": "modern"
    },
    {
@@ -23777,11 +23888,11 @@
  "resources": {
   "ceiling_eur": 50.0,
   "errors": [],
-  "eur_per_release": 0.33,
+  "eur_per_release": 0.32,
   "histogram": {
    "bins": [
     {
-     "count": 266,
+     "count": 270,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -23828,10 +23939,10 @@
    ],
    "max": 2.6488,
    "median": 0.008,
-   "n": 446,
+   "n": 450,
    "p90": 0.0372,
    "ref_rate": 0.06924,
-   "total": 10.89
+   "total": 10.91
   },
   "jobs": [
    {
@@ -27759,6 +27870,54 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-14T03:57:22.164786+00:00",
+    "deleted_at": "2026-11-14T04:00:22.901368+00:00",
+    "eur": 0.0029,
+    "hours": 0.05,
+    "id": "rw-9f58fbd0fa13-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0035,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T04:09:37.275625+00:00",
+    "deleted_at": "2026-11-14T04:12:14.349486+00:00",
+    "eur": 0.0026,
+    "hours": 0.044,
+    "id": "rw-9f58fbd0fa13-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.003,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T04:21:18.963633+00:00",
+    "deleted_at": "2026-11-14T04:24:14.132878+00:00",
+    "eur": 0.0029,
+    "hours": 0.049,
+    "id": "rw-9f58fbd0fa13-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.0034,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T04:28:04.353854+00:00",
+    "deleted_at": "2026-11-14T04:36:13.267708+00:00",
+    "eur": 0.008,
+    "hours": 0.136,
+    "id": "rw-9f58fbd0fa13-publish-1",
+    "location": "hel1",
+    "normalised_eur": 0.0094,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-13T03:14:42.937469+00:00",
     "deleted_at": "2026-11-13T03:16:16.275081+00:00",
     "eur": 0.0015,
@@ -29187,19 +29346,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 285,
-  "jobs_total": 446,
-  "lifetime_eur": 8.54,
+  "jobs_this_month": 289,
+  "jobs_total": 450,
+  "lifetime_eur": 8.55,
   "live": {
-   "checked_at": "2026-11-14T03:52:38+00:00",
+   "checked_at": "2026-11-14T04:53:02+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 87.2,
-  "month_to_date": 4.91,
+  "month_hours": 87.5,
+  "month_to_date": 4.93,
   "months": [
    {
     "eur": 2.4452,
@@ -29214,13 +29373,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 4.9143,
-    "hours": 87.21,
-    "jobs": 285,
+    "eur": 4.9307,
+    "hours": 87.49,
+    "jobs": 289,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 10.53
+  "projected_month_eur": 10.57
  },
  "runtime": {
   "max_workers": 1,
@@ -29248,13 +29407,22 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-14T03:50:01.518872+00:00",
+  "observed_at": "2026-11-14T04:50:01.727643+00:00",
   "releases": [
+   {
+    "bundle": "65eea01262c0af87a0d3e3e5",
+    "candidate": "source-000072",
+    "dataset": "sbir-phase1-to-phase2-conversion",
+    "observed_at": "2026-11-14T04:50:01.777842+00:00",
+    "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
+    "status": "pending",
+    "version": "v-0d2e623e604ecf78"
+   },
    {
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-14T03:50:01.576919+00:00",
+    "observed_at": "2026-11-14T04:50:26.573340+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "pending",
     "version": "v-d32decf32c315be4"
@@ -29263,7 +29431,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-14T03:50:22.948994+00:00",
+    "observed_at": "2026-11-14T04:50:46.650981+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -29272,7 +29440,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-14T03:50:28.448084+00:00",
+    "observed_at": "2026-11-14T04:50:52.397678+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -29281,7 +29449,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-14T03:50:33.710735+00:00",
+    "observed_at": "2026-11-14T04:50:57.768835+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -29290,7 +29458,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-14T03:50:39.069536+00:00",
+    "observed_at": "2026-11-14T04:51:03.466804+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -29299,7 +29467,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-14T03:50:44.443893+00:00",
+    "observed_at": "2026-11-14T04:51:09.669109+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -29308,7 +29476,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-14T03:50:49.904718+00:00",
+    "observed_at": "2026-11-14T04:51:15.497140+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -29317,7 +29485,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-14T03:50:55.482443+00:00",
+    "observed_at": "2026-11-14T04:51:21.185703+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -29326,7 +29494,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-14T03:51:00.916252+00:00",
+    "observed_at": "2026-11-14T04:51:26.926675+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -29335,7 +29503,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-14T03:51:06.731361+00:00",
+    "observed_at": "2026-11-14T04:51:32.450438+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -29344,7 +29512,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-14T03:51:12.238596+00:00",
+    "observed_at": "2026-11-14T04:51:38.089216+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -29353,7 +29521,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-14T03:51:17.618318+00:00",
+    "observed_at": "2026-11-14T04:51:43.522477+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
