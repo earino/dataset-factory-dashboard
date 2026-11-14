@@ -1,5 +1,6 @@
 {
  "alarms": [
+  "Website caa-fce-hpv-escalation: pending; data publication is separate",
   "Local test suite failed on 2157157",
   "1 release(s) not fully verified"
  ],
@@ -22,20 +23,20 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-14T22:51:16.293579+00:00",
-   "normal_operation_runs_last_7_days": 387,
-   "normal_operation_runs_weighted_last_7_days": 387,
-   "normal_operation_tokens_last_7_days": 35508643,
+   "moment": "2026-11-14T23:51:45.627898+00:00",
+   "normal_operation_runs_last_7_days": 397,
+   "normal_operation_runs_weighted_last_7_days": 397,
+   "normal_operation_tokens_last_7_days": 36238345,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 70s by scout-research"
+    "lock held for 16s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 45987610,
-   "runs_last_7_days": 511,
-   "runs_weighted_last_7_days": 511,
-   "session_admission_weighted": 244,
+   "research_tokens_last_7_days": 46717312,
+   "runs_last_7_days": 521,
+   "runs_weighted_last_7_days": 521,
+   "session_admission_weighted": 254,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -66,14 +67,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 9408,
+     "calls": 9493,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 59916033,
-     "output_tokens": 22908550,
+     "input_tokens": 60457598,
+     "output_tokens": 23298718,
      "pricing_available": false
     }
    },
@@ -87,11 +88,11 @@
  "candidates": {
   "countries": {},
   "counts": {
+   "build": 1,
    "deferred": 60,
    "discover": 1,
-   "publish": 1,
-   "published": 13,
-   "rejected": 6
+   "published": 14,
+   "rejected": 7
   },
   "errors": [],
   "legacy_counts": {
@@ -105,51 +106,34 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "caa-fce-hpv-escalation",
+    "dataset": "fema-pa-permanent-work-cost-growth",
     "domain": "Modern factory",
-    "id": "source-000079",
-    "next_action": "Stage publish: Worker running \u00b7 next attempt 2026-11-14T22:50:17.009980+00:00",
-    "next_run_at": "2026-11-14T22:50:17.009980+00:00",
+    "id": "source-000081",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-14T23:42:16.202528+00:00",
+    "next_run_at": "2026-11-14T23:42:16.202528+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "ACTUAL_END_DATE, normalized to a date, at the end of the full compliance evaluation; the decision is made after the evaluation report is entered. All historical features use records dated strictly before t. Static facility attributes and program or pollutant membership are current-snapshot approximations, not historical as-of values.",
-    "question": "After a Clean Air Act source completes a full compliance evaluation with no active High Priority Violator episode, will that source enter High Priority Violator (HPV) status within the next 12 months?",
-    "reason": "Worker running",
-    "release_baseline": {
-     "display": "See versioned evaluation.json; public validation only"
-    },
-    "release_splits": {
-     "eval": {
-      "rows": 36500
-     },
-     "holdout": {
-      "rows": 20011
-     },
-     "train": {
-      "rows": 58183
-     }
-    },
-    "sources": [
-     {
-      "name": "U.S. Environmental Protection Agency, Enforcement and Compliance History Online (ECHO) \u2014 ICIS-Air",
-      "url": "https://echo.epa.gov/tools/data-downloads/icis-air-download-summary"
-     }
-    ],
-    "split_strategy": "Frozen calendar boundaries on ACTUAL_END_DATE, set from date coverage only and never from label performance: train 2015-01-01 to 2018-12-31; all of 2019 excluded as a 365-day embargo; eval 2020-01-01 to 2022-12-31; all of 2023 excluded as embargo; holdout 2024-01-01 to 2025-06-30 (2025-06-30 + 365 days = 2026-06-30, inside the 2026-11-07 extract). No shuffling. Because the same facility can appear in several years, the fixed robustness variant assigns each facility to the split holding its earliest eligible evaluation and drops that facility's later rows from eval and holdout scoring.",
-    "status": "publish",
-    "target": "1 if the facility has at least one HPV_DAYZERO_DATE in the interval (t, t+365 days], where t is the evaluation's ACTUAL_END_DATE; 0 otherwise. Evaluations at sources already in an active HPV episode at t (HPV_DAYZERO_DATE <= t with no HPV_RESOLVED_DATE <= t), and same-day day-zero dates, are excluded rather than labelled 0, because the label must post-date the decision instant.",
+    "prediction_time": "The version-0 dateObligated, the first obligation date. All predictors are version-0 or declaration fields known on that date; later version rows are used only to compute the label.",
+    "question": "Will this FEMA Public Assistance permanent-work project's federal funding grow by 25% or more within three years of its first obligation?",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Cohorts are defined by the version-0 obligation date, and every disasterNumber is confined to a single split (any disasterNumber whose version-0 projects fall in more than one split is dropped from all splits). Train: 1998-01-01 to 2012-12-31. Embargo: 2013-01-01 to 2015-12-31 (dropped). Eval: 2016-01-01 to 2018-12-31. Embargo: 2019-01-01 to 2021-12-31 (dropped). Holdout: 2022-01-01 to 2022-12-31. Each cohort's 36-month label window closes at least 36 months before the next cohort begins and by 2025-12-31, before the 2026-11 data snapshot, so no cohort is right-censored.",
+    "status": "build",
+    "target": "label = 1 if the sum of federalShareObligated over all project version records with dateObligated on or before (version-0 dateObligated + 36 calendar months) is at least 1.25 times the version-0 federalShareObligated; otherwise 0. Negative version amounts (deobligations) are summed, not ignored.",
     "workflow": "modern"
    },
    {
     "country": "unknown",
     "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000081",
-    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 375.357, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"tutory public-domain basis for HUD-authored federal works\\\", \\\"quote\\\": \\\"Copy \u00b7 next attempt 2026-11-14T22:49:21.743944+00:00",
-    "next_run_at": "2026-11-14T22:49:21.743944+00:00",
+    "id": "source-000083",
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 367.841, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"rters are excluded.\\\",\\n    \\\"split_policy\\\": \\\"Chronological by cohort year Y \u00b7 next attempt 2026-11-14T23:49:14.669096+00:00",
+    "next_run_at": "2026-11-14T23:49:14.669096+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
-    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 375.357, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"tutory public-domain basis for HUD-authored federal works\\\", \\\"quote\\\": \\\"Copy",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 367.841, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"rters are excluded.\\\",\\n    \\\"split_policy\\\": \\\"Chronological by cohort year Y",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -1937,12 +1921,12 @@
     "dataset": "caa-fce-hpv-escalation",
     "domain": "Modern factory",
     "id": "source-000079",
-    "next_action": "Stage publish: Worker running \u00b7 next attempt 2026-11-14T22:50:17.009980+00:00",
-    "next_run_at": "2026-11-14T22:50:17.009980+00:00",
+    "next_action": "Dataset publication complete; website synchronization is shown in Releases.",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "ACTUAL_END_DATE, normalized to a date, at the end of the full compliance evaluation; the decision is made after the evaluation report is entered. All historical features use records dated strictly before t. Static facility attributes and program or pollutant membership are current-snapshot approximations, not historical as-of values.",
     "question": "After a Clean Air Act source completes a full compliance evaluation with no active High Priority Violator episode, will that source enter High Priority Violator (HPV) status within the next 12 months?",
-    "reason": "Worker running",
+    "reason": "Published and anonymously verified on GitHub and Hugging Face",
     "release_baseline": {
      "display": "See versioned evaluation.json; public validation only"
     },
@@ -1964,7 +1948,7 @@
      }
     ],
     "split_strategy": "Frozen calendar boundaries on ACTUAL_END_DATE, set from date coverage only and never from label performance: train 2015-01-01 to 2018-12-31; all of 2019 excluded as a 365-day embargo; eval 2020-01-01 to 2022-12-31; all of 2023 excluded as embargo; holdout 2024-01-01 to 2025-06-30 (2025-06-30 + 365 days = 2026-06-30, inside the 2026-11-07 extract). No shuffling. Because the same facility can appear in several years, the fixed robustness variant assigns each facility to the split holding its earliest eligible evaluation and drops that facility's later rows from eval and holdout scoring.",
-    "status": "publish",
+    "status": "published",
     "target": "1 if the facility has at least one HPV_DAYZERO_DATE in the interval (t, t+365 days], where t is the evaluation's ACTUAL_END_DATE; 0 otherwise. Evaluations at sources already in an active HPV episode at t (HPV_DAYZERO_DATE <= t with no HPV_RESOLVED_DATE <= t), and same-day day-zero dates, are excluded rather than labelled 0, because the label must post-date the decision instant.",
     "workflow": "modern"
    },
@@ -1989,15 +1973,70 @@
    },
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "fema-pa-permanent-work-cost-growth",
     "domain": "Modern factory",
     "id": "source-000081",
-    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 375.357, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"tutory public-domain basis for HUD-authored federal works\\\", \\\"quote\\\": \\\"Copy \u00b7 next attempt 2026-11-14T22:49:21.743944+00:00",
-    "next_run_at": "2026-11-14T22:49:21.743944+00:00",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-14T23:42:16.202528+00:00",
+    "next_run_at": "2026-11-14T23:42:16.202528+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "The version-0 dateObligated, the first obligation date. All predictors are version-0 or declaration fields known on that date; later version rows are used only to compute the label.",
+    "question": "Will this FEMA Public Assistance permanent-work project's federal funding grow by 25% or more within three years of its first obligation?",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Cohorts are defined by the version-0 obligation date, and every disasterNumber is confined to a single split (any disasterNumber whose version-0 projects fall in more than one split is dropped from all splits). Train: 1998-01-01 to 2012-12-31. Embargo: 2013-01-01 to 2015-12-31 (dropped). Eval: 2016-01-01 to 2018-12-31. Embargo: 2019-01-01 to 2021-12-31 (dropped). Holdout: 2022-01-01 to 2022-12-31. Each cohort's 36-month label window closes at least 36 months before the next cohort begins and by 2025-12-31, before the 2026-11 data snapshot, so no cohort is right-censored.",
+    "status": "build",
+    "target": "label = 1 if the sum of federalShareObligated over all project version records with dateObligated on or before (version-0 dateObligated + 36 calendar months) is at least 1.25 times the version-0 federalShareObligated; otherwise 0. Negative version amounts (deobligations) are summed, not ignored.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "fac-single-audit-going-concern",
+    "domain": "Modern factory",
+    "id": "source-000082",
+    "next_action": "Stage rejected: The artifact does not implement the declared task. The declared dataset is the FAC Single Audit going-concern prediction (source.dataset_id 'fac-single-audit-going-concern', bulk files at app.fac.gov, label = next audit is_going_concern_inc",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "The grant served date on the scored authority record (ORIG_SERVED_DATE). Only fields of that same record are shipped as features; the disposition columns that define the label are never shipped.",
+    "question": "At the moment an auditee's annual Single Audit is accepted by the FAC, will that auditee's next annual Single Audit disclose going-concern doubt about its ability to continue?",
+    "reason": "The artifact does not implement the declared task. The declared dataset is the FAC Single Audit going-concern prediction (source.dataset_id 'fac-single-audit-going-concern', bulk files at app.fac.gov, label = next audit is_going_concern_inc",
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 67731
+     },
+     "holdout": {
+      "rows": 96941
+     },
+     "train": {
+      "rows": 387551
+     }
+    },
+    "sources": [
+     {
+      "name": "U.S. General Services Administration (GSA), Federal Audit Clearinghouse (FAC)",
+      "url": "https://www.fac.gov/data/download/current-dictionary/"
+     }
+    ],
+    "split_strategy": "Rows are placed by the fiscal year end of the scored submission, never by acceptance date. Train: fy_end_date 2016-07-01 to 2019-06-30. Embargo, excluded from all splits: 2019-07-01 to 2020-06-30. Eval: 2020-07-01 to 2021-06-30. Embargo, excluded from all splits: 2021-07-01 to 2022-06-30. Holdout: 2022-07-01 to 2023-06-30. The 12-month embargo bands guarantee that no row's 12-month forward label window reaches into another segment's feature rows, which is the only channel by which a later row could reveal an earlier target. Within a segment only one submission per salted-UEI auditee is retained, and features are drawn exclusively from that same submission.",
+    "status": "rejected",
+    "target": "y = 1 if the auditee's next annual Single Audit submission (audit_period_covered = 'annual', later fac_accepted_date, fy_end_date between 300 and 430 days after the scored submission's fy_end_date, deduplicated to the latest resubmission_version) has is_going_concern_included = 'Yes'; y = 0 if that submission has is_going_concern_included = 'No'. Rows whose label value is 'GSA_MIGRATION', or with no qualifying next submission, are dropped, not imputed.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000083",
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 367.841, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"rters are excluded.\\\",\\n    \\\"split_policy\\\": \\\"Chronological by cohort year Y \u00b7 next attempt 2026-11-14T23:49:14.669096+00:00",
+    "next_run_at": "2026-11-14T23:49:14.669096+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
-    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 375.357, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"tutory public-domain basis for HUD-authored federal works\\\", \\\"quote\\\": \\\"Copy",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 367.841, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"rters are excluded.\\\",\\n    \\\"split_policy\\\": \\\"Chronological by cohort year Y",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -5474,7 +5513,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 195.5,
+    "age_hours": 196.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6304,7 +6343,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 252.0,
+    "age_hours": 253.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12586,7 +12625,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 392.6,
+    "age_hours": 393.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16610,7 +16649,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 241.7,
+    "age_hours": 242.8,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -17066,10 +17105,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-14T22:50:02.314484+00:00",
+    "last_run_at": "2026-11-14T23:50:01.759171+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-14T23:00:00+00:00",
+    "next_run_at": "2026-11-15T00:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -17150,10 +17189,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-14T21:52:48.424455+00:00",
+    "last_run_at": "2026-11-14T22:52:41.595929+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-14T23:50:00+00:00",
+    "next_run_at": "2026-11-15T00:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -17162,10 +17201,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-14T21:55:01.102091+00:00",
+    "last_run_at": "2026-11-14T22:55:02.170317+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-14T22:55:00+00:00",
+    "next_run_at": "2026-11-14T23:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -17210,10 +17249,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-14T22:49:47.067873+00:00",
+    "last_run_at": "2026-11-14T23:48:14.721635+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-14T22:51:00+00:00",
+    "next_run_at": "2026-11-14T23:50:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -17266,9 +17305,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-14T22:51:00.682051+00:00"
+  "updated_at": "2026-11-14T23:51:01.264952+00:00"
  },
- "generated_at": "2026-11-14T22:51:15+00:00",
+ "generated_at": "2026-11-14T23:51:44+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17296,14 +17335,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-24T20:50:01+00:00",
-   "live": 14,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-24T21:50:01+00:00",
    "live": 14,
@@ -21449,6 +21480,16 @@
    "sessions_7d": 511,
    "tokens_7d": 35508643,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-14T23:51:44+00:00",
+   "live": 2,
+   "published": 28,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 521,
+   "tokens_7d": 36238345,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -22823,16 +22864,25 @@
      "id": "rw-be5838ec23c9-publish-2",
      "ordinal": 2,
      "stage": "publish",
-     "status": "running"
+     "status": "done"
     },
     "created_at": "2026-11-14T19:46:02.309057+00:00",
     "dataset": "caa-fce-hpv-escalation",
     "id": "source-000079",
-    "next_run_at": "2026-11-14T22:50:17.009980+00:00",
-    "published_verified": false,
-    "running": true,
-    "stage": "publish",
-    "updated_at": "2026-11-14T22:49:47.009980+00:00"
+    "next_run_at": null,
+    "publication": {
+     "artifact_version": "2a1b8fe5efdf2f0bae9a7777de98d0019bb70404c8aafbe0291a615e93f0573b",
+     "dataset": "caa-fce-hpv-escalation",
+     "repositories": {
+      "github": "earino/factory-caa-fce-hpv-escalation",
+      "huggingface": "earino/factory-caa-fce-hpv-escalation"
+     },
+     "version": "v-fd86cbb0bc96aaca"
+    },
+    "published_verified": true,
+    "running": false,
+    "stage": "published",
+    "updated_at": "2026-11-14T22:55:16.477819+00:00"
    },
    {
     "attempt": {
@@ -22852,39 +22902,71 @@
    },
    {
     "attempt": {
-     "id": "rw-17210db0fb94-discover-4",
+     "id": "rw-17210db0fb94-build-4",
      "ordinal": 4,
-     "stage": "discover",
+     "stage": "build",
      "status": "running"
     },
     "created_at": "2026-11-14T22:24:01.721340+00:00",
-    "dataset": null,
+    "dataset": "fema-pa-permanent-work-cost-growth",
     "id": "source-000081",
-    "next_run_at": "2026-11-14T22:49:21.743944+00:00",
+    "next_run_at": "2026-11-14T23:42:16.202528+00:00",
     "published_verified": false,
     "running": true,
+    "stage": "build",
+    "updated_at": "2026-11-14T23:51:24.635137+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-978461e02d49-evaluate-1",
+     "ordinal": 1,
+     "stage": "evaluate",
+     "status": "reject"
+    },
+    "created_at": "2026-11-14T22:56:02.146354+00:00",
+    "dataset": "fac-single-audit-going-concern",
+    "id": "source-000082",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": false,
+    "stage": "rejected",
+    "updated_at": "2026-11-14T23:36:34.132792+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-7048eece2e81-discover-1",
+     "ordinal": 1,
+     "stage": "discover",
+     "status": "retry"
+    },
+    "created_at": "2026-11-14T23:37:01.123310+00:00",
+    "dataset": null,
+    "id": "source-000083",
+    "next_run_at": "2026-11-14T23:49:14.669096+00:00",
+    "published_verified": false,
+    "running": false,
     "stage": "discover",
-    "updated_at": "2026-11-14T22:48:21.743944+00:00"
+    "updated_at": "2026-11-14T23:48:14.669096+00:00"
    }
   ],
   "counts": {
+   "build": 1,
    "deferred": 60,
    "discover": 1,
-   "publish": 1,
-   "published": 13,
-   "rejected": 6
+   "published": 14,
+   "rejected": 7
   },
-  "observed_at": "2026-11-14T22:51:15.023567+00:00",
+  "observed_at": "2026-11-14T23:51:44.389188+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
  "notices": [
-  "A research session is running: lock held for 70s by scout-research"
+  "A research session is running: lock held for 16s by scout-research"
  ],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T22:51:15+00:00",
+   "as_of": "2026-11-14T23:51:44+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -22894,7 +22976,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T22:51:15+00:00",
+   "as_of": "2026-11-14T23:51:44+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -22904,13 +22986,13 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T22:51:15+00:00",
+   "as_of": "2026-11-14T23:51:44+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
    "stale": false,
    "status": "ok",
-   "value": 35
+   "value": 36
   }
  },
  "releases": {
@@ -23343,6 +23425,39 @@
     },
     "verified_all": true,
     "verified_at": "2026-11-14T04:36:15.599185+00:00",
+    "workflow": "modern"
+   },
+   {
+    "artifact_version": "2a1b8fe5efdf2f0bae9a7777de98d0019bb70404c8aafbe0291a615e93f0573b",
+    "assets": 33,
+    "baseline_display": "See versioned evaluation.json; public validation only",
+    "dataset": "caa-fce-hpv-escalation",
+    "destinations": {
+     "github": "https://github.com/earino/factory-caa-fce-hpv-escalation/releases/tag/v-fd86cbb0bc96aaca",
+     "huggingface": "https://huggingface.co/datasets/earino/factory-caa-fce-hpv-escalation"
+    },
+    "detail_id": "source-000079",
+    "disposition": "public",
+    "published": true,
+    "release_tag": "v-fd86cbb0bc96aaca",
+    "rows": 114694,
+    "splits": {
+     "eval": {
+      "rows": 36500
+     },
+     "holdout": {
+      "rows": 20011
+     },
+     "train": {
+      "rows": 58183
+     }
+    },
+    "verified": {
+     "github": true,
+     "huggingface": true
+    },
+    "verified_all": true,
+    "verified_at": "2026-11-14T22:55:16.477819+00:00",
     "workflow": "modern"
    },
    {
@@ -24204,24 +24319,24 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "26.12",
-   "completed_estimate_eur": "25.84",
-   "completed_jobs": 316,
-   "reserved_jobs": 2,
-   "retained_reservations_eur": "0.28"
+   "charged_eur": "26.28",
+   "completed_estimate_eur": "26.24",
+   "completed_jobs": 321,
+   "reserved_jobs": 1,
+   "retained_reservations_eur": "0.04"
   },
   "ceiling_eur": 50.0,
   "errors": [],
-  "eur_per_release": 1.06,
+  "eur_per_release": 1.03,
   "histogram": {
    "bins": [
     {
-     "count": 294,
+     "count": 298,
      "hi": 0.01,
      "lo": 0.001
     },
     {
-     "count": 95,
+     "count": 96,
      "hi": 0.02,
      "lo": 0.01
     },
@@ -24263,10 +24378,10 @@
    ],
    "max": 2.6488,
    "median": 0.0076,
-   "n": 477,
-   "p90": 0.0358,
+   "n": 482,
+   "p90": 0.0356,
    "ref_rate": 0.06924,
-   "total": 11.05
+   "total": 11.08
   },
   "jobs": [
    {
@@ -27054,6 +27169,42 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-14T22:59:30.014102+00:00",
+    "deleted_at": "2026-11-14T23:01:13.680527+00:00",
+    "eur": 0.05868,
+    "hours": 0.029,
+    "id": "rw-17210db0fb94-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.002,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T23:13:50.512018+00:00",
+    "deleted_at": "2026-11-14T23:19:13.454200+00:00",
+    "eur": 0.05868,
+    "hours": 0.09,
+    "id": "rw-17210db0fb94-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.0062,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T23:39:17.267227+00:00",
+    "deleted_at": "2026-11-14T23:41:13.637310+00:00",
+    "eur": 0.05868,
+    "hours": 0.032,
+    "id": "rw-17210db0fb94-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.0022,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-08T13:30:16.390471+00:00",
     "deleted_at": "2026-11-08T13:32:39.469201+00:00",
     "eur": 0.06924,
@@ -28254,6 +28405,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-14T23:25:28.618873+00:00",
+    "deleted_at": "2026-11-14T23:34:13.702101+00:00",
+    "eur": 0.05868,
+    "hours": 0.146,
+    "id": "rw-978461e02d49-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0101,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-14T03:57:22.164786+00:00",
     "deleted_at": "2026-11-14T04:00:22.901368+00:00",
     "eur": 0.05868,
@@ -28951,15 +29114,15 @@
    },
    {
     "created_at": "2026-11-14T22:49:03.612920+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-11-14T22:55:14.163220+00:00",
+    "eur": 0.05868,
+    "hours": 0.103,
     "id": "rw-be5838ec23c9-publish-2",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0071,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
-    "status": "running"
+    "status": "deleted"
    },
    {
     "created_at": "2026-11-10T01:37:01.765726+00:00",
@@ -30006,19 +30169,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 315,
-  "jobs_total": 478,
-  "lifetime_eur": 28.6,
+  "jobs_this_month": 320,
+  "jobs_total": 482,
+  "lifetime_eur": 28.89,
   "live": {
-   "checked_at": "2026-11-14T22:52:28+00:00",
+   "checked_at": "2026-11-14T23:52:56+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 86.2,
-  "month_to_date": 20.39,
+  "month_hours": 86.6,
+  "month_to_date": 20.68,
   "months": [
    {
     "eur": 5.02,
@@ -30033,13 +30196,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 20.3891,
-    "hours": 86.18,
-    "jobs": 315,
+    "eur": 20.6825,
+    "hours": 86.58,
+    "jobs": 320,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 43.69,
+  "projected_month_eur": 44.32,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -30068,13 +30231,22 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-14T22:50:01.280575+00:00",
+  "observed_at": "2026-11-14T23:50:01.275890+00:00",
   "releases": [
+   {
+    "bundle": "b5fa95c50e2409546408cff8",
+    "candidate": "source-000079",
+    "dataset": "caa-fce-hpv-escalation",
+    "observed_at": "2026-11-14T23:50:01.338503+00:00",
+    "plan_sha256": "f8e4e5f5e545adea1ba12a8ea1694e8d9ad6a77e4b1377f98ad59acd8b0339f3",
+    "status": "pending",
+    "version": "v-fd86cbb0bc96aaca"
+   },
    {
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-14T22:50:01.340980+00:00",
+    "observed_at": "2026-11-14T23:50:29.584481+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -30083,7 +30255,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-14T22:50:07.307413+00:00",
+    "observed_at": "2026-11-14T23:50:35.490894+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -30092,7 +30264,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-14T22:50:13.290767+00:00",
+    "observed_at": "2026-11-14T23:50:41.017953+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -30101,7 +30273,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-14T22:50:18.922387+00:00",
+    "observed_at": "2026-11-14T23:50:46.627140+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -30110,7 +30282,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-14T22:50:24.649297+00:00",
+    "observed_at": "2026-11-14T23:50:52.111770+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -30119,7 +30291,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-14T22:50:30.106279+00:00",
+    "observed_at": "2026-11-14T23:50:57.997168+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -30128,7 +30300,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-14T22:50:35.669129+00:00",
+    "observed_at": "2026-11-14T23:51:03.682301+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -30137,7 +30309,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-14T22:50:40.994541+00:00",
+    "observed_at": "2026-11-14T23:51:09.648277+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -30146,7 +30318,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-14T22:50:47.526882+00:00",
+    "observed_at": "2026-11-14T23:51:15.689202+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -30155,7 +30327,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-14T22:50:52.898794+00:00",
+    "observed_at": "2026-11-14T23:51:21.394042+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -30164,7 +30336,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-14T22:50:58.255921+00:00",
+    "observed_at": "2026-11-14T23:51:27.065939+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -30173,7 +30345,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-14T22:51:03.614769+00:00",
+    "observed_at": "2026-11-14T23:51:32.561437+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -30182,12 +30354,12 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-14T22:51:09.001054+00:00",
+    "observed_at": "2026-11-14T23:51:38.084208+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
    }
   ],
-  "status": "ok"
+  "status": "pending"
  }
 }
