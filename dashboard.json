@@ -19,24 +19,22 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 300.0,
-   "allowed": false,
+   "allowed": true,
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-13T23:51:28.436849+00:00",
-   "normal_operation_runs_last_7_days": 305,
-   "normal_operation_runs_weighted_last_7_days": 307,
-   "normal_operation_tokens_last_7_days": 31148327,
+   "moment": "2026-11-14T00:51:21.512624+00:00",
+   "normal_operation_runs_last_7_days": 316,
+   "normal_operation_runs_weighted_last_7_days": 318,
+   "normal_operation_tokens_last_7_days": 32111737,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 202s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 41627294,
-   "runs_last_7_days": 429,
-   "runs_weighted_last_7_days": 431,
-   "session_admission_weighted": 138,
+   "research_tokens_last_7_days": 42590704,
+   "runs_last_7_days": 440,
+   "runs_weighted_last_7_days": 442,
+   "session_admission_weighted": 150,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 2,
@@ -67,14 +65,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 8744,
+     "calls": 8838,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 54172702,
-     "output_tokens": 18406955,
+     "input_tokens": 54993089,
+     "output_tokens": 18892025,
      "pricing_available": false
     }
    },
@@ -88,8 +86,8 @@
  "candidates": {
   "countries": {},
   "counts": {
+   "build": 2,
    "deferred": 50,
-   "discover": 2,
    "published": 11,
    "rejected": 5
   },
@@ -105,40 +103,40 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "phmsa-hazardous-liquid-release-ignition",
     "domain": "Modern factory",
     "id": "source-000067",
-    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 280.002, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"l event records from 2014 to present, with one entry per event.\\\",\\n      \\\"qu \u00b7 next attempt 2026-11-13T23:48:46.122310+00:00",
-    "next_run_at": "2026-11-13T23:48:46.122310+00:00",
+    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-14T00:50:54.222718+00:00",
+    "next_run_at": "2026-11-14T00:50:54.222718+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
-    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 280.002, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"l event records from 2014 to present, with one entry per event.\\\",\\n      \\\"qu",
+    "prediction_time": "Form item A13, the local date and time the operator first identified the failure, which is when the response is mobilised. Every predictor is an asset or operating attribute of the same report that exists at or before that instant.",
+    "question": "At the moment an operator first identifies a hazardous-liquid (or CO2) pipeline release, will the released commodity catch fire?",
+    "reason": "Worker running",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "split_strategy": "Frozen before any modelling. Train: accident dates 2010-01-01 to 2019-12-31. Eval: 2020-01-01 to 2022-12-31. Holdout: 2023-01-01 to 2024-12-31. Reports dated after 2024-12-31 are excluded because supplemental reporting is still being finalised. No time embargo is applied: no feature is built from any other row or from prior rows, and every predictor is a static or same-instant attribute of the same report, so a later row cannot carry an earlier row's label.",
+    "status": "build",
+    "target": "1 if item A22 'Did the commodity ignite?' is answered Yes on that accident report; 0 if answered No. One row per accident report; reports with A22 missing are dropped.",
     "workflow": "modern"
    },
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "t100-new-route-survival",
     "domain": "Modern factory",
     "id": "source-000068",
-    "next_action": "Stage discover",
-    "next_run_at": null,
+    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-14T00:56:02.385426+00:00",
+    "next_run_at": "2026-11-14T00:56:02.385426+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
-    "reason": "",
+    "prediction_time": "The last day of the entry month M, after the carrier first month of reported service. Only T-100 records for months at or before M may enter features; months after M are unseen.",
+    "question": "When a U.S. certificated carrier starts scheduled passenger nonstop service on a domestic city market pair it has not served in the previous 12 months, will that service still be operating in the anniversary quarter 12-14 months later?",
+    "reason": "An active or interrupted job exists; reconcile it before launching another",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "split_strategy": "Frozen chronological boundaries by entry month, set before any modelling: train = entries in 2011-01..2014-06; eval (validation) = 2015-10..2016-09; holdout = 2018-01..2018-12. Two 15-month embargo gaps drop all entries in 2014-07..2015-09 and 2016-10..2017-12 so that no split's 14-month label window overlaps the next split's decision period. No entries after 2018-12 are used at all, because their anniversary windows fall inside the COVID-19 schedule collapse and would change the label's meaning. Data pulls cover 2010-01..2020-02 only.",
+    "status": "build",
+    "target": "label = 1 if the carrier's summed DepPerformed (departures performed) on the directed city-market pair over months M+12, M+13 and M+14 equals 0, i.e. the route is not operating at its one-year anniversary; label = 0 if any departures were performed in that three-month anniversary window.",
     "workflow": "modern"
    }
   ],
@@ -1638,40 +1636,40 @@
    },
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "phmsa-hazardous-liquid-release-ignition",
     "domain": "Modern factory",
     "id": "source-000067",
-    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 280.002, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"l event records from 2014 to present, with one entry per event.\\\",\\n      \\\"qu \u00b7 next attempt 2026-11-13T23:48:46.122310+00:00",
-    "next_run_at": "2026-11-13T23:48:46.122310+00:00",
+    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-14T00:50:54.222718+00:00",
+    "next_run_at": "2026-11-14T00:50:54.222718+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
-    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 280.002, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"l event records from 2014 to present, with one entry per event.\\\",\\n      \\\"qu",
+    "prediction_time": "Form item A13, the local date and time the operator first identified the failure, which is when the response is mobilised. Every predictor is an asset or operating attribute of the same report that exists at or before that instant.",
+    "question": "At the moment an operator first identifies a hazardous-liquid (or CO2) pipeline release, will the released commodity catch fire?",
+    "reason": "Worker running",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "split_strategy": "Frozen before any modelling. Train: accident dates 2010-01-01 to 2019-12-31. Eval: 2020-01-01 to 2022-12-31. Holdout: 2023-01-01 to 2024-12-31. Reports dated after 2024-12-31 are excluded because supplemental reporting is still being finalised. No time embargo is applied: no feature is built from any other row or from prior rows, and every predictor is a static or same-instant attribute of the same report, so a later row cannot carry an earlier row's label.",
+    "status": "build",
+    "target": "1 if item A22 'Did the commodity ignite?' is answered Yes on that accident report; 0 if answered No. One row per accident report; reports with A22 missing are dropped.",
     "workflow": "modern"
    },
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "t100-new-route-survival",
     "domain": "Modern factory",
     "id": "source-000068",
-    "next_action": "Stage discover",
-    "next_run_at": null,
+    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-14T00:56:02.385426+00:00",
+    "next_run_at": "2026-11-14T00:56:02.385426+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
-    "reason": "",
+    "prediction_time": "The last day of the entry month M, after the carrier first month of reported service. Only T-100 records for months at or before M may enter features; months after M are unseen.",
+    "question": "When a U.S. certificated carrier starts scheduled passenger nonstop service on a domestic city market pair it has not served in the previous 12 months, will that service still be operating in the anniversary quarter 12-14 months later?",
+    "reason": "An active or interrupted job exists; reconcile it before launching another",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "split_strategy": "Frozen chronological boundaries by entry month, set before any modelling: train = entries in 2011-01..2014-06; eval (validation) = 2015-10..2016-09; holdout = 2018-01..2018-12. Two 15-month embargo gaps drop all entries in 2014-07..2015-09 and 2016-10..2017-12 so that no split's 14-month label window overlaps the next split's decision period. No entries after 2018-12 are used at all, because their anniversary windows fall inside the COVID-19 schedule collapse and would change the label's meaning. Data pulls cover 2010-01..2020-02 only.",
+    "status": "build",
+    "target": "label = 1 if the carrier's summed DepPerformed (departures performed) on the directed city-market pair over months M+12, M+13 and M+14 equals 0, i.e. the route is not operating at its one-year anniversary; label = 0 if any departures were performed in that three-month anniversary window.",
     "workflow": "modern"
    },
    {
@@ -5142,7 +5140,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 172.5,
+    "age_hours": 173.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5972,7 +5970,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 229.0,
+    "age_hours": 230.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12254,7 +12252,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 369.6,
+    "age_hours": 370.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16278,7 +16276,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 218.7,
+    "age_hours": 219.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16734,10 +16732,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-13T23:50:02.264768+00:00",
+    "last_run_at": "2026-11-14T00:50:01.606223+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-14T00:00:00+00:00",
+    "next_run_at": "2026-11-14T01:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16818,10 +16816,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-13T22:52:25.237432+00:00",
+    "last_run_at": "2026-11-13T23:52:57.639608+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-14T00:50:00+00:00",
+    "next_run_at": "2026-11-14T01:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16830,10 +16828,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-13T22:55:01.339418+00:00",
+    "last_run_at": "2026-11-13T23:55:01.651198+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-13T23:55:00+00:00",
+    "next_run_at": "2026-11-14T00:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16878,10 +16876,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-13T23:47:46.173687+00:00",
+    "last_run_at": "2026-11-14T00:51:02.438304+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-13T23:49:00+00:00",
+    "next_run_at": "2026-11-14T00:52:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16934,9 +16932,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-13T23:51:00.982328+00:00"
+  "updated_at": "2026-11-14T00:51:02.439338+00:00"
  },
- "generated_at": "2026-11-13T23:51:27+00:00",
+ "generated_at": "2026-11-14T00:51:20+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16964,14 +16962,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-23T22:50:01+00:00",
-   "live": 13,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 196,
-   "tokens_7d": 16727407
-  },
   {
    "at": "2026-10-23T23:29:25+00:00",
    "live": 13,
@@ -21071,6 +21061,16 @@
    "sessions_7d": 429,
    "tokens_7d": 31148327,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-14T00:51:20+00:00",
+   "live": 2,
+   "published": 25,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 440,
+   "tokens_7d": 32111737,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -22232,54 +22232,52 @@
    },
    {
     "attempt": {
-     "id": "rw-af0a34c3dcd2-discover-2",
-     "ordinal": 2,
-     "stage": "discover",
-     "status": "retry"
+     "id": "rw-af0a34c3dcd2-build-5",
+     "ordinal": 5,
+     "stage": "build",
+     "status": "running"
     },
     "created_at": "2026-11-13T23:36:01.956476+00:00",
-    "dataset": null,
+    "dataset": "phmsa-hazardous-liquid-release-ignition",
     "id": "source-000067",
-    "next_run_at": "2026-11-13T23:48:46.122310+00:00",
+    "next_run_at": "2026-11-14T00:50:54.222718+00:00",
     "published_verified": false,
-    "running": false,
-    "stage": "discover",
-    "updated_at": "2026-11-13T23:47:46.122310+00:00"
+    "running": true,
+    "stage": "build",
+    "updated_at": "2026-11-14T00:50:24.222718+00:00"
    },
    {
     "attempt": {
-     "id": "rw-f2cd4d4b5a2d-discover-1",
-     "ordinal": 1,
-     "stage": "discover",
+     "id": "rw-f2cd4d4b5a2d-build-3",
+     "ordinal": 3,
+     "stage": "build",
      "status": "running"
     },
     "created_at": "2026-11-13T23:43:01.321342+00:00",
-    "dataset": null,
+    "dataset": "t100-new-route-survival",
     "id": "source-000068",
-    "next_run_at": null,
+    "next_run_at": "2026-11-14T00:56:02.385426+00:00",
     "published_verified": false,
     "running": true,
-    "stage": "discover",
-    "updated_at": "2026-11-13T23:43:01.321342+00:00"
+    "stage": "build",
+    "updated_at": "2026-11-14T00:51:02.385426+00:00"
    }
   ],
   "counts": {
+   "build": 2,
    "deferred": 50,
-   "discover": 2,
    "published": 11,
    "rejected": 5
   },
-  "observed_at": "2026-11-13T23:51:27.199040+00:00",
+  "observed_at": "2026-11-14T00:51:20.118396+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
- "notices": [
-  "A research session is running: lock held for 202s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T23:51:27+00:00",
+   "as_of": "2026-11-14T00:51:20+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -22289,7 +22287,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T23:51:27+00:00",
+   "as_of": "2026-11-14T00:51:20+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -22299,7 +22297,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-13T23:51:27+00:00",
+   "as_of": "2026-11-14T00:51:20+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -23538,7 +23536,7 @@
   "histogram": {
    "bins": [
     {
-     "count": 245,
+     "count": 251,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -23584,11 +23582,11 @@
     }
    ],
    "max": 2.6488,
-   "median": 0.0084,
-   "n": 423,
+   "median": 0.0082,
+   "n": 429,
    "p90": 0.0374,
    "ref_rate": 0.06924,
-   "total": 10.76
+   "total": 10.79
   },
   "jobs": [
    {
@@ -27576,6 +27574,66 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-14T00:03:53.842362+00:00",
+    "deleted_at": "2026-11-14T00:10:14.065573+00:00",
+    "eur": 0.0062,
+    "hours": 0.106,
+    "id": "rw-af0a34c3dcd2-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0073,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T00:26:01.367565+00:00",
+    "deleted_at": "2026-11-14T00:31:13.180019+00:00",
+    "eur": 0.0051,
+    "hours": 0.087,
+    "id": "rw-af0a34c3dcd2-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.006,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T00:34:50.020100+00:00",
+    "deleted_at": "2026-11-14T00:37:17.124582+00:00",
+    "eur": 0.0024,
+    "hours": 0.041,
+    "id": "rw-af0a34c3dcd2-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.0028,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T00:42:22.895758+00:00",
+    "deleted_at": "2026-11-14T00:45:14.468793+00:00",
+    "eur": 0.0028,
+    "hours": 0.048,
+    "id": "rw-af0a34c3dcd2-build-4",
+    "location": "hel1",
+    "normalised_eur": 0.0033,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T00:49:40.338145+00:00",
+    "deleted_at": "2026-11-14T00:52:13.924368+00:00",
+    "eur": 0.0025,
+    "hours": 0.043,
+    "id": "rw-af0a34c3dcd2-build-5",
+    "location": "hel1",
+    "normalised_eur": 0.003,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-10T07:37:01.538366+00:00",
     "deleted_at": "2026-11-10T07:47:16.986823+00:00",
     "eur": 0.01,
@@ -28140,6 +28198,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-14T00:15:58.153818+00:00",
+    "deleted_at": "2026-11-14T00:20:14.086935+00:00",
+    "eur": 0.0042,
+    "hours": 0.071,
+    "id": "rw-f2cd4d4b5a2d-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0049,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-13T05:38:01.338397+00:00",
     "deleted_at": "2026-11-13T05:40:16.476487+00:00",
     "eur": 0.0022,
@@ -28668,19 +28738,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 262,
-  "jobs_total": 423,
-  "lifetime_eur": 8.43,
+  "jobs_this_month": 268,
+  "jobs_total": 429,
+  "lifetime_eur": 8.45,
   "live": {
-   "checked_at": "2026-11-13T23:52:39+00:00",
+   "checked_at": "2026-11-14T00:52:32+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 85.3,
-  "month_to_date": 4.8,
+  "month_hours": 85.7,
+  "month_to_date": 4.83,
   "months": [
    {
     "eur": 2.4452,
@@ -28695,13 +28765,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 4.8048,
-    "hours": 85.34,
-    "jobs": 262,
+    "eur": 4.828,
+    "hours": 85.73,
+    "jobs": 268,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 11.09
+  "projected_month_eur": 10.35
  },
  "runtime": {
   "max_workers": 1,
@@ -28729,13 +28799,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-13T23:50:01.267272+00:00",
+  "observed_at": "2026-11-14T00:50:01.093240+00:00",
   "releases": [
    {
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-13T23:50:01.312044+00:00",
+    "observed_at": "2026-11-14T00:50:01.140324+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "pending",
     "version": "v-68e59a5ac91ad404"
@@ -28744,7 +28814,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-13T23:50:26.747892+00:00",
+    "observed_at": "2026-11-14T00:50:22.221071+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -28753,7 +28823,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-13T23:50:33.086168+00:00",
+    "observed_at": "2026-11-14T00:50:27.728965+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -28762,7 +28832,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-13T23:50:39.119933+00:00",
+    "observed_at": "2026-11-14T00:50:33.069332+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -28771,7 +28841,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-13T23:50:45.209600+00:00",
+    "observed_at": "2026-11-14T00:50:38.341421+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -28780,7 +28850,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-13T23:50:51.467847+00:00",
+    "observed_at": "2026-11-14T00:50:44.845526+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -28789,7 +28859,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-13T23:50:57.213148+00:00",
+    "observed_at": "2026-11-14T00:50:50.242514+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -28798,7 +28868,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-13T23:51:03.117420+00:00",
+    "observed_at": "2026-11-14T00:50:55.942829+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -28807,7 +28877,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-13T23:51:08.915595+00:00",
+    "observed_at": "2026-11-14T00:51:02.771123+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -28816,7 +28886,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-13T23:51:15.207757+00:00",
+    "observed_at": "2026-11-14T00:51:08.047550+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -28825,7 +28895,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-13T23:51:20.896711+00:00",
+    "observed_at": "2026-11-14T00:51:13.838935+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
