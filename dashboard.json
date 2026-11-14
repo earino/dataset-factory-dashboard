@@ -1,6 +1,5 @@
 {
  "alarms": [
-  "Website fda-510k-five-year-recall: pending; data publication is separate",
   "Local test suite failed on 202b83b",
   "1 release(s) not fully verified"
  ],
@@ -23,18 +22,18 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-14T00:51:21.512624+00:00",
-   "normal_operation_runs_last_7_days": 316,
-   "normal_operation_runs_weighted_last_7_days": 318,
-   "normal_operation_tokens_last_7_days": 32111737,
+   "moment": "2026-11-14T01:51:23.144279+00:00",
+   "normal_operation_runs_last_7_days": 325,
+   "normal_operation_runs_weighted_last_7_days": 327,
+   "normal_operation_tokens_last_7_days": 32679938,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 42590704,
-   "runs_last_7_days": 440,
-   "runs_weighted_last_7_days": 442,
-   "session_admission_weighted": 150,
+   "research_tokens_last_7_days": 43158905,
+   "runs_last_7_days": 449,
+   "runs_weighted_last_7_days": 451,
+   "session_admission_weighted": 159,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 2,
@@ -65,14 +64,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 8838,
+     "calls": 8867,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 54993089,
-     "output_tokens": 18892025,
+     "input_tokens": 55308909,
+     "output_tokens": 19144406,
      "pricing_available": false
     }
    },
@@ -86,8 +85,9 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "build": 2,
-   "deferred": 50,
+   "build": 1,
+   "deferred": 51,
+   "publish": 1,
    "published": 11,
    "rejected": 5
   },
@@ -103,40 +103,57 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "phmsa-hazardous-liquid-release-ignition",
+    "dataset": "t100-new-route-survival",
     "domain": "Modern factory",
-    "id": "source-000067",
-    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-14T00:50:54.222718+00:00",
-    "next_run_at": "2026-11-14T00:50:54.222718+00:00",
+    "id": "source-000068",
+    "next_action": "Stage publish: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-14T01:53:04.592327+00:00",
+    "next_run_at": "2026-11-14T01:53:04.592327+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "Form item A13, the local date and time the operator first identified the failure, which is when the response is mobilised. Every predictor is an asset or operating attribute of the same report that exists at or before that instant.",
-    "question": "At the moment an operator first identifies a hazardous-liquid (or CO2) pipeline release, will the released commodity catch fire?",
-    "reason": "Worker running",
-    "release_baseline": {},
-    "release_splits": {},
-    "sources": [],
-    "split_strategy": "Frozen before any modelling. Train: accident dates 2010-01-01 to 2019-12-31. Eval: 2020-01-01 to 2022-12-31. Holdout: 2023-01-01 to 2024-12-31. Reports dated after 2024-12-31 are excluded because supplemental reporting is still being finalised. No time embargo is applied: no feature is built from any other row or from prior rows, and every predictor is a static or same-instant attribute of the same report, so a later row cannot carry an earlier row's label.",
-    "status": "build",
-    "target": "1 if item A22 'Did the commodity ignite?' is answered Yes on that accident report; 0 if answered No. One row per accident report; reports with A22 missing are dropped.",
+    "prediction_time": "Ninety days after the end of entry month M, after the monthly T-100 compilation for M is assumed available. Only T-100 records for months at or before M may enter features; months after M are unseen.",
+    "question": "When a U.S. certificated carrier starts scheduled passenger nonstop service on a domestic city market pair it has not served in the previous 12 months, will that service still be operating in the anniversary quarter 12-14 months later?",
+    "reason": "An active or interrupted job exists; reconcile it before launching another",
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 834
+     },
+     "holdout": {
+      "rows": 1209
+     },
+     "train": {
+      "rows": 3734
+     }
+    },
+    "sources": [
+     {
+      "name": "U.S. Department of Transportation, Bureau of Transportation Statistics (Office of Airline Information), distributed via TranStats",
+      "url": "https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FIM"
+     }
+    ],
+    "split_strategy": "Frozen chronological boundaries by entry month, set before any modelling: train = entries in 2011-01..2014-06; eval (validation) = 2015-10..2016-09; holdout = 2018-01..2018-12. Two 15-month embargo gaps drop all entries in 2014-07..2015-09 and 2016-10..2017-12 so that no split's 14-month label window overlaps the next split's decision period. No entries after 2018-12 are used at all, because their anniversary windows fall inside the COVID-19 schedule collapse and would change the label's meaning. Data pulls cover 2010-01..2020-02 only.",
+    "status": "publish",
+    "target": "label = 1 if the carrier's summed DepPerformed (departures performed) on the directed city-market pair over months M+12, M+13 and M+14 equals 0, i.e. the route is not operating at its one-year anniversary; label = 0 if any departures were performed in that three-month anniversary window.",
     "workflow": "modern"
    },
    {
     "country": "unknown",
-    "dataset": "t100-new-route-survival",
+    "dataset": "npdes-permit-reissuance-timeliness",
     "domain": "Modern factory",
-    "id": "source-000068",
-    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-14T00:56:02.385426+00:00",
-    "next_run_at": "2026-11-14T00:56:02.385426+00:00",
+    "id": "source-000069",
+    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-14T01:51:33.262024+00:00",
+    "next_run_at": "2026-11-14T01:51:33.262024+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The last day of the entry month M, after the carrier first month of reported service. Only T-100 records for months at or before M may enter features; months after M are unseen.",
-    "question": "When a U.S. certificated carrier starts scheduled passenger nonstop service on a domestic city market pair it has not served in the previous 12 months, will that service still be operating in the anniversary quarter 12-14 months later?",
-    "reason": "An active or interrupted job exists; reconcile it before launching another",
+    "prediction_time": "T equals the evaluated permit version's EXPIRATION_DATE minus 365 calendar days. Every feature uses only permit rows, inspections, quarterly noncompliance records, enforcement actions and NAICS rows dated strictly before T. The shipped time column carries EXPIRATION_DATE, which is a fixed one-year offset from T.",
+    "question": "At 12 months before an individual NPDES permit's stated expiration date, will the permitting authority have a successor full-term permit in effect on or before that expiration date, or will the permit run past expiration and continue only administratively?",
+    "reason": "Worker running",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Frozen chronological boundaries by entry month, set before any modelling: train = entries in 2011-01..2014-06; eval (validation) = 2015-10..2016-09; holdout = 2018-01..2018-12. Two 15-month embargo gaps drop all entries in 2014-07..2015-09 and 2016-10..2017-12 so that no split's 14-month label window overlaps the next split's decision period. No entries after 2018-12 are used at all, because their anniversary windows fall inside the COVID-19 schedule collapse and would change the label's meaning. Data pulls cover 2010-01..2020-02 only.",
+    "split_strategy": "Fixed chronological boundaries on EXPIRATION_DATE, which is equivalent to splitting on the decision instant T since T is always EXPIRATION_DATE \u2212 365 days: train 2012-01-01..2017-12-31, eval 2018-01-01..2020-12-31, holdout 2021-01-01..2023-12-31. No embargo is needed because every feature is frozen at T and each NPDES_ID appears exactly once, so no permit, facility or successor record straddles a boundary.",
     "status": "build",
-    "target": "label = 1 if the carrier's summed DepPerformed (departures performed) on the directed city-market pair over months M+12, M+13 and M+14 equals 0, i.e. the route is not operating at its one-year anniversary; label = 0 if any departures were performed in that three-month anniversary window.",
+    "target": "Per permit version v (one row per NPDES_ID), with versions of the same NPDES_ID ordered by EFFECTIVE_DATE and v's next later version denoted v+1: label 1 (late / no on-time reissuance) if no successor version exists with EFFECTIVE_DATE <= v.EXPIRATION_DATE AND EXPIRATION_DATE > v.EXPIRATION_DATE; label 0 (timely) if such a successor full-term version exists. Requiring the successor's own EXPIRATION_DATE to be later than v's prevents same-expiration modifications from counting as reissuance. Permits whose TERMINATION_DATE or RETIREMENT_DATE falls on or before v.EXPIRATION_DATE are excluded as not requiring reissuance (a post-hoc label-definition exclusion, not a feature).",
     "workflow": "modern"
    }
   ],
@@ -1639,17 +1656,17 @@
     "dataset": "phmsa-hazardous-liquid-release-ignition",
     "domain": "Modern factory",
     "id": "source-000067",
-    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-14T00:50:54.222718+00:00",
-    "next_run_at": "2026-11-14T00:50:54.222718+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-14T00:53:16.675676+00:00",
+    "next_run_at": "2026-11-14T00:53:16.675676+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "Form item A13, the local date and time the operator first identified the failure, which is when the response is mobilised. Every predictor is an asset or operating attribute of the same report that exists at or before that instant.",
     "question": "At the moment an operator first identifies a hazardous-liquid (or CO2) pipeline release, will the released commodity catch fire?",
-    "reason": "Worker running",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "Frozen before any modelling. Train: accident dates 2010-01-01 to 2019-12-31. Eval: 2020-01-01 to 2022-12-31. Holdout: 2023-01-01 to 2024-12-31. Reports dated after 2024-12-31 are excluded because supplemental reporting is still being finalised. No time embargo is applied: no feature is built from any other row or from prior rows, and every predictor is a static or same-instant attribute of the same report, so a later row cannot carry an earlier row's label.",
-    "status": "build",
+    "status": "deferred",
     "target": "1 if item A22 'Did the commodity ignite?' is answered Yes on that accident report; 0 if answered No. One row per accident report; reports with A22 missing are dropped.",
     "workflow": "modern"
    },
@@ -1658,18 +1675,54 @@
     "dataset": "t100-new-route-survival",
     "domain": "Modern factory",
     "id": "source-000068",
-    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-14T00:56:02.385426+00:00",
-    "next_run_at": "2026-11-14T00:56:02.385426+00:00",
+    "next_action": "Stage publish: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-14T01:53:04.592327+00:00",
+    "next_run_at": "2026-11-14T01:53:04.592327+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The last day of the entry month M, after the carrier first month of reported service. Only T-100 records for months at or before M may enter features; months after M are unseen.",
+    "prediction_time": "Ninety days after the end of entry month M, after the monthly T-100 compilation for M is assumed available. Only T-100 records for months at or before M may enter features; months after M are unseen.",
     "question": "When a U.S. certificated carrier starts scheduled passenger nonstop service on a domestic city market pair it has not served in the previous 12 months, will that service still be operating in the anniversary quarter 12-14 months later?",
     "reason": "An active or interrupted job exists; reconcile it before launching another",
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 834
+     },
+     "holdout": {
+      "rows": 1209
+     },
+     "train": {
+      "rows": 3734
+     }
+    },
+    "sources": [
+     {
+      "name": "U.S. Department of Transportation, Bureau of Transportation Statistics (Office of Airline Information), distributed via TranStats",
+      "url": "https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FIM"
+     }
+    ],
+    "split_strategy": "Frozen chronological boundaries by entry month, set before any modelling: train = entries in 2011-01..2014-06; eval (validation) = 2015-10..2016-09; holdout = 2018-01..2018-12. Two 15-month embargo gaps drop all entries in 2014-07..2015-09 and 2016-10..2017-12 so that no split's 14-month label window overlaps the next split's decision period. No entries after 2018-12 are used at all, because their anniversary windows fall inside the COVID-19 schedule collapse and would change the label's meaning. Data pulls cover 2010-01..2020-02 only.",
+    "status": "publish",
+    "target": "label = 1 if the carrier's summed DepPerformed (departures performed) on the directed city-market pair over months M+12, M+13 and M+14 equals 0, i.e. the route is not operating at its one-year anniversary; label = 0 if any departures were performed in that three-month anniversary window.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "npdes-permit-reissuance-timeliness",
+    "domain": "Modern factory",
+    "id": "source-000069",
+    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-14T01:51:33.262024+00:00",
+    "next_run_at": "2026-11-14T01:51:33.262024+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "T equals the evaluated permit version's EXPIRATION_DATE minus 365 calendar days. Every feature uses only permit rows, inspections, quarterly noncompliance records, enforcement actions and NAICS rows dated strictly before T. The shipped time column carries EXPIRATION_DATE, which is a fixed one-year offset from T.",
+    "question": "At 12 months before an individual NPDES permit's stated expiration date, will the permitting authority have a successor full-term permit in effect on or before that expiration date, or will the permit run past expiration and continue only administratively?",
+    "reason": "Worker running",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Frozen chronological boundaries by entry month, set before any modelling: train = entries in 2011-01..2014-06; eval (validation) = 2015-10..2016-09; holdout = 2018-01..2018-12. Two 15-month embargo gaps drop all entries in 2014-07..2015-09 and 2016-10..2017-12 so that no split's 14-month label window overlaps the next split's decision period. No entries after 2018-12 are used at all, because their anniversary windows fall inside the COVID-19 schedule collapse and would change the label's meaning. Data pulls cover 2010-01..2020-02 only.",
+    "split_strategy": "Fixed chronological boundaries on EXPIRATION_DATE, which is equivalent to splitting on the decision instant T since T is always EXPIRATION_DATE \u2212 365 days: train 2012-01-01..2017-12-31, eval 2018-01-01..2020-12-31, holdout 2021-01-01..2023-12-31. No embargo is needed because every feature is frozen at T and each NPDES_ID appears exactly once, so no permit, facility or successor record straddles a boundary.",
     "status": "build",
-    "target": "label = 1 if the carrier's summed DepPerformed (departures performed) on the directed city-market pair over months M+12, M+13 and M+14 equals 0, i.e. the route is not operating at its one-year anniversary; label = 0 if any departures were performed in that three-month anniversary window.",
+    "target": "Per permit version v (one row per NPDES_ID), with versions of the same NPDES_ID ordered by EFFECTIVE_DATE and v's next later version denoted v+1: label 1 (late / no on-time reissuance) if no successor version exists with EFFECTIVE_DATE <= v.EXPIRATION_DATE AND EXPIRATION_DATE > v.EXPIRATION_DATE; label 0 (timely) if such a successor full-term version exists. Requiring the successor's own EXPIRATION_DATE to be later than v's prevents same-expiration modifications from counting as reissuance. Permits whose TERMINATION_DATE or RETIREMENT_DATE falls on or before v.EXPIRATION_DATE are excluded as not requiring reissuance (a post-hoc label-definition exclusion, not a feature).",
     "workflow": "modern"
    },
    {
@@ -5140,7 +5193,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 173.5,
+    "age_hours": 174.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -5970,7 +6023,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 230.0,
+    "age_hours": 231.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12252,7 +12305,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 370.6,
+    "age_hours": 371.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16276,7 +16329,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 219.7,
+    "age_hours": 220.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16732,10 +16785,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-14T00:50:01.606223+00:00",
+    "last_run_at": "2026-11-14T01:50:01.398567+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-14T01:00:00+00:00",
+    "next_run_at": "2026-11-14T02:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16816,10 +16869,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-13T23:52:57.639608+00:00",
+    "last_run_at": "2026-11-14T00:52:45.987940+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-14T01:50:00+00:00",
+    "next_run_at": "2026-11-14T02:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16828,10 +16881,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-13T23:55:01.651198+00:00",
+    "last_run_at": "2026-11-14T00:55:01.642374+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-14T00:55:00+00:00",
+    "next_run_at": "2026-11-14T01:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -16876,10 +16929,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-14T00:51:02.438304+00:00",
+    "last_run_at": "2026-11-14T01:51:03.313155+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-14T00:52:00+00:00",
+    "next_run_at": "2026-11-14T01:52:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -16932,9 +16985,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-14T00:51:02.439338+00:00"
+  "updated_at": "2026-11-14T01:51:03.314102+00:00"
  },
- "generated_at": "2026-11-14T00:51:20+00:00",
+ "generated_at": "2026-11-14T01:51:21+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -16962,14 +17015,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-23T23:29:25+00:00",
-   "live": 13,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 196,
-   "tokens_7d": 16823077
-  },
   {
    "at": "2026-10-23T23:50:01+00:00",
    "live": 13,
@@ -21071,6 +21116,16 @@
    "sessions_7d": 440,
    "tokens_7d": 32111737,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-14T01:51:21+00:00",
+   "live": 2,
+   "published": 25,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 449,
+   "tokens_7d": 32679938,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -22235,41 +22290,58 @@
      "id": "rw-af0a34c3dcd2-build-5",
      "ordinal": 5,
      "stage": "build",
-     "status": "running"
+     "status": "retry"
     },
     "created_at": "2026-11-13T23:36:01.956476+00:00",
     "dataset": "phmsa-hazardous-liquid-release-ignition",
     "id": "source-000067",
-    "next_run_at": "2026-11-14T00:50:54.222718+00:00",
+    "next_run_at": "2026-11-14T00:53:16.675676+00:00",
     "published_verified": false,
-    "running": true,
-    "stage": "build",
-    "updated_at": "2026-11-14T00:50:24.222718+00:00"
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-14T00:52:16.675676+00:00"
    },
    {
     "attempt": {
-     "id": "rw-f2cd4d4b5a2d-build-3",
-     "ordinal": 3,
-     "stage": "build",
+     "id": "rw-f2cd4d4b5a2d-publish-1",
+     "ordinal": 1,
+     "stage": "publish",
      "status": "running"
     },
     "created_at": "2026-11-13T23:43:01.321342+00:00",
     "dataset": "t100-new-route-survival",
     "id": "source-000068",
-    "next_run_at": "2026-11-14T00:56:02.385426+00:00",
+    "next_run_at": "2026-11-14T01:53:04.592327+00:00",
+    "published_verified": false,
+    "running": true,
+    "stage": "publish",
+    "updated_at": "2026-11-14T01:48:04.592327+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-64e7b0c7d522-build-4",
+     "ordinal": 4,
+     "stage": "build",
+     "status": "running"
+    },
+    "created_at": "2026-11-14T00:53:01.190982+00:00",
+    "dataset": "npdes-permit-reissuance-timeliness",
+    "id": "source-000069",
+    "next_run_at": "2026-11-14T01:51:33.262024+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-14T00:51:02.385426+00:00"
+    "updated_at": "2026-11-14T01:51:03.262024+00:00"
    }
   ],
   "counts": {
-   "build": 2,
-   "deferred": 50,
+   "build": 1,
+   "deferred": 51,
+   "publish": 1,
    "published": 11,
    "rejected": 5
   },
-  "observed_at": "2026-11-14T00:51:20.118396+00:00",
+  "observed_at": "2026-11-14T01:51:21.981803+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
@@ -22277,7 +22349,7 @@
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T00:51:20+00:00",
+   "as_of": "2026-11-14T01:51:21+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -22287,7 +22359,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T00:51:20+00:00",
+   "as_of": "2026-11-14T01:51:21+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -22297,7 +22369,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T00:51:20+00:00",
+   "as_of": "2026-11-14T01:51:21+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -23536,12 +23608,12 @@
   "histogram": {
    "bins": [
     {
-     "count": 251,
+     "count": 257,
      "hi": 0.01,
      "lo": 0.001
     },
     {
-     "count": 90,
+     "count": 91,
      "hi": 0.02,
      "lo": 0.01
     },
@@ -23583,10 +23655,10 @@
    ],
    "max": 2.6488,
    "median": 0.0082,
-   "n": 429,
-   "p90": 0.0374,
+   "n": 436,
+   "p90": 0.0373,
    "ref_rate": 0.06924,
-   "total": 10.79
+   "total": 10.83
   },
   "jobs": [
    {
@@ -27118,6 +27190,42 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-14T01:05:30.736432+00:00",
+    "deleted_at": "2026-11-14T01:08:13.483478+00:00",
+    "eur": 0.0026,
+    "hours": 0.045,
+    "id": "rw-64e7b0c7d522-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.0031,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T01:19:36.083631+00:00",
+    "deleted_at": "2026-11-14T01:24:13.179147+00:00",
+    "eur": 0.0045,
+    "hours": 0.077,
+    "id": "rw-64e7b0c7d522-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.0053,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T01:47:02.043480+00:00",
+    "deleted_at": "2026-11-14T01:52:13.494726+00:00",
+    "eur": 0.0051,
+    "hours": 0.087,
+    "id": "rw-64e7b0c7d522-build-4",
+    "location": "hel1",
+    "normalised_eur": 0.006,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-08T18:44:19.805950+00:00",
     "deleted_at": "2026-11-08T18:46:16.105034+00:00",
     "eur": 0.0022,
@@ -28210,6 +28318,54 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-14T00:58:01.200513+00:00",
+    "deleted_at": "2026-11-14T01:04:17.072037+00:00",
+    "eur": 0.0061,
+    "hours": 0.104,
+    "id": "rw-f2cd4d4b5a2d-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.0072,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T01:10:20.579800+00:00",
+    "deleted_at": "2026-11-14T01:16:13.743515+00:00",
+    "eur": 0.0058,
+    "hours": 0.098,
+    "id": "rw-f2cd4d4b5a2d-build-4",
+    "location": "hel1",
+    "normalised_eur": 0.0068,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T01:26:38.259191+00:00",
+    "deleted_at": "2026-11-14T01:35:17.914931+00:00",
+    "eur": 0.0084,
+    "hours": 0.144,
+    "id": "rw-f2cd4d4b5a2d-build-5",
+    "location": "hel1",
+    "normalised_eur": 0.01,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T01:37:28.358720+00:00",
+    "deleted_at": "2026-11-14T01:44:13.576010+00:00",
+    "eur": 0.0066,
+    "hours": 0.113,
+    "id": "rw-f2cd4d4b5a2d-build-6",
+    "location": "hel1",
+    "normalised_eur": 0.0078,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-13T05:38:01.338397+00:00",
     "deleted_at": "2026-11-13T05:40:16.476487+00:00",
     "eur": 0.0022,
@@ -28738,19 +28894,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 268,
-  "jobs_total": 429,
-  "lifetime_eur": 8.45,
+  "jobs_this_month": 275,
+  "jobs_total": 436,
+  "lifetime_eur": 8.49,
   "live": {
-   "checked_at": "2026-11-14T00:52:32+00:00",
+   "checked_at": "2026-11-14T01:52:34+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 85.7,
-  "month_to_date": 4.83,
+  "month_hours": 86.4,
+  "month_to_date": 4.87,
   "months": [
    {
     "eur": 2.4452,
@@ -28765,13 +28921,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 4.828,
-    "hours": 85.73,
-    "jobs": 268,
+    "eur": 4.8671,
+    "hours": 86.4,
+    "jobs": 275,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 10.35
+  "projected_month_eur": 10.43
  },
  "runtime": {
   "max_workers": 1,
@@ -28799,22 +28955,22 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-14T00:50:01.093240+00:00",
+  "observed_at": "2026-11-14T01:50:01.110361+00:00",
   "releases": [
    {
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-14T00:50:01.140324+00:00",
+    "observed_at": "2026-11-14T01:50:01.161518+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
-    "status": "pending",
+    "status": "complete",
     "version": "v-68e59a5ac91ad404"
    },
    {
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-14T00:50:22.221071+00:00",
+    "observed_at": "2026-11-14T01:50:23.265154+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -28823,7 +28979,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-14T00:50:27.728965+00:00",
+    "observed_at": "2026-11-14T01:50:29.011200+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -28832,7 +28988,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-14T00:50:33.069332+00:00",
+    "observed_at": "2026-11-14T01:50:34.645608+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -28841,7 +28997,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-14T00:50:38.341421+00:00",
+    "observed_at": "2026-11-14T01:50:40.253702+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -28850,7 +29006,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-14T00:50:44.845526+00:00",
+    "observed_at": "2026-11-14T01:50:46.408137+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -28859,7 +29015,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-14T00:50:50.242514+00:00",
+    "observed_at": "2026-11-14T01:50:52.092984+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -28868,7 +29024,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-14T00:50:55.942829+00:00",
+    "observed_at": "2026-11-14T01:50:57.463109+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -28877,7 +29033,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-14T00:51:02.771123+00:00",
+    "observed_at": "2026-11-14T01:51:03.541793+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -28886,7 +29042,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-14T00:51:08.047550+00:00",
+    "observed_at": "2026-11-14T01:51:09.618559+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -28895,12 +29051,12 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-14T00:51:13.838935+00:00",
+    "observed_at": "2026-11-14T01:51:15.725053+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
    }
   ],
-  "status": "pending"
+  "status": "ok"
  }
 }
