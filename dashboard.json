@@ -22,18 +22,18 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-14T17:34:36.447571+00:00",
-   "normal_operation_runs_last_7_days": 347,
-   "normal_operation_runs_weighted_last_7_days": 347,
-   "normal_operation_tokens_last_7_days": 32434970,
+   "moment": "2026-11-14T17:51:17.744481+00:00",
+   "normal_operation_runs_last_7_days": 349,
+   "normal_operation_runs_weighted_last_7_days": 349,
+   "normal_operation_tokens_last_7_days": 32616650,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 42913937,
-   "runs_last_7_days": 471,
-   "runs_weighted_last_7_days": 471,
-   "session_admission_weighted": 196,
+   "research_tokens_last_7_days": 43095617,
+   "runs_last_7_days": 473,
+   "runs_weighted_last_7_days": 473,
+   "session_admission_weighted": 198,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -44,34 +44,34 @@
    },
    "usage": {
     "auxiliary": {
-     "calls": 28,
+     "calls": 31,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 86121,
-     "output_tokens": 90749,
+     "input_tokens": 89323,
+     "output_tokens": 90761,
      "pricing_available": false
     },
     "interactive": {
-     "calls": 1332,
+     "calls": 1342,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 34037752,
-     "output_tokens": 1348955,
+     "input_tokens": 34043559,
+     "output_tokens": 1362197,
      "pricing_available": false
     },
     "research": {
-     "calls": 9084,
+     "calls": 9098,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 57144618,
-     "output_tokens": 20784333,
+     "input_tokens": 57258905,
+     "output_tokens": 20851726,
      "pricing_available": false
     }
    },
@@ -105,12 +105,12 @@
     "dataset": "epa-biosolids-part503-violation",
     "domain": "Modern factory",
     "id": "source-000073",
-    "next_action": "Stage build: Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve) \u00b7 next attempt 2026-11-14T17:33:02.750304+00:00",
-    "next_run_at": "2026-11-14T17:33:02.750304+00:00",
+    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-14T17:52:01.934009+00:00",
+    "next_run_at": "2026-11-14T17:52:01.934009+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "1 October of year Y+1, after the 19 February federal annual-report deadline and the September state filing wave; only reports with ReportingYear at or before Y and violation records with start dates before that date may be used.",
     "question": "Given a large U.S. publicly owned treatment works' biosolids annual report for reporting year Y - its sludge volume, management-practice mix, pathogen class, treatment train, and per-pollutant monitoring results against Part 503 limits - will that facility be recorded with at least one Part 503 biosolids violation starting in the following twelve months?",
-    "reason": "Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve)",
+    "reason": "An active or interrupted job exists; reconcile it before launching another",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -124,12 +124,12 @@
     "dataset": "us-house-bill-house-passage",
     "domain": "Modern factory",
     "id": "source-000074",
-    "next_action": "Stage build: Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve) \u00b7 next attempt 2026-11-14T17:36:02.154936+00:00",
-    "next_run_at": "2026-11-14T17:36:02.154936+00:00",
+    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-14T17:51:32.356308+00:00",
+    "next_run_at": "2026-11-14T17:51:32.356308+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "30 calendar days after the bill's introducedDate. Only elements carrying a date on or before that instant are used (cosponsor sponsorshipDate and withdrawal dates, committee referral activity dates, introducedDate, bill number, titles as introduced).",
     "question": "Will an H.R. bill that is still pending in the House 30 days after introduction go on to pass the House before the end of that Congress?",
-    "reason": "Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve)",
+    "reason": "Worker running",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -1803,12 +1803,12 @@
     "dataset": "epa-biosolids-part503-violation",
     "domain": "Modern factory",
     "id": "source-000073",
-    "next_action": "Stage build: Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve) \u00b7 next attempt 2026-11-14T17:33:02.750304+00:00",
-    "next_run_at": "2026-11-14T17:33:02.750304+00:00",
+    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-14T17:52:01.934009+00:00",
+    "next_run_at": "2026-11-14T17:52:01.934009+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "1 October of year Y+1, after the 19 February federal annual-report deadline and the September state filing wave; only reports with ReportingYear at or before Y and violation records with start dates before that date may be used.",
     "question": "Given a large U.S. publicly owned treatment works' biosolids annual report for reporting year Y - its sludge volume, management-practice mix, pathogen class, treatment train, and per-pollutant monitoring results against Part 503 limits - will that facility be recorded with at least one Part 503 biosolids violation starting in the following twelve months?",
-    "reason": "Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve)",
+    "reason": "An active or interrupted job exists; reconcile it before launching another",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -1822,12 +1822,12 @@
     "dataset": "us-house-bill-house-passage",
     "domain": "Modern factory",
     "id": "source-000074",
-    "next_action": "Stage build: Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve) \u00b7 next attempt 2026-11-14T17:36:02.154936+00:00",
-    "next_run_at": "2026-11-14T17:36:02.154936+00:00",
+    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-14T17:51:32.356308+00:00",
+    "next_run_at": "2026-11-14T17:51:32.356308+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "30 calendar days after the bill's introducedDate. Only elements carrying a date on or before that instant are used (cosponsor sponsorshipDate and withdrawal dates, committee referral activity dates, introducedDate, bill number, titles as introduced).",
     "question": "Will an H.R. bill that is still pending in the House 30 days after introduction go on to pass the House before the end of that Congress?",
-    "reason": "Conservative monthly cost reservations would exceed the construction allowance (EUR 45 after the EUR 5 release reserve)",
+    "reason": "Worker running",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -5304,7 +5304,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 190.2,
+    "age_hours": 190.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6134,7 +6134,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 246.7,
+    "age_hours": 247.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12416,7 +12416,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 387.3,
+    "age_hours": 387.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16440,7 +16440,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 236.5,
+    "age_hours": 236.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16896,10 +16896,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-14T17:30:02.672567+00:00",
+    "last_run_at": "2026-11-14T17:50:01.574763+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-14T17:40:00+00:00",
+    "next_run_at": "2026-11-14T18:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16983,7 +16983,7 @@
     "last_run_at": "2026-11-14T16:52:45.728633+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-14T17:50:00+00:00",
+    "next_run_at": "2026-11-14T18:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -17040,10 +17040,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-14T17:33:01.533124+00:00",
+    "last_run_at": "2026-11-14T17:51:02.410782+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-14T17:35:00+00:00",
+    "next_run_at": "2026-11-14T17:52:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -17096,9 +17096,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-14T17:34:01.332256+00:00"
+  "updated_at": "2026-11-14T17:51:02.411772+00:00"
  },
- "generated_at": "2026-11-14T17:34:35+00:00",
+ "generated_at": "2026-11-14T17:51:16+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17106,10 +17106,10 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-14T17:31:16Z",
-   "head_sha": "2157157",
+   "created_at": "2026-11-14T17:40:06Z",
+   "head_sha": "ff20286",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/43621546533"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/43622345085"
   },
   "coverage": {
    "ok": true,
@@ -22544,35 +22544,35 @@
    },
    {
     "attempt": {
-     "id": "rw-b6daec6d3aba-build-3",
-     "ordinal": 3,
+     "id": "rw-b6daec6d3aba-build-4",
+     "ordinal": 4,
      "stage": "build",
      "status": "running"
     },
     "created_at": "2026-11-14T03:54:01.413884+00:00",
     "dataset": "epa-biosolids-part503-violation",
     "id": "source-000073",
-    "next_run_at": "2026-11-14T17:33:02.750304+00:00",
+    "next_run_at": "2026-11-14T17:52:01.934009+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-14T17:34:02.128950+00:00"
+    "updated_at": "2026-11-14T17:47:01.934009+00:00"
    },
    {
     "attempt": {
-     "id": "rw-f83a982816f8-build-3",
-     "ordinal": 3,
+     "id": "rw-f83a982816f8-build-4",
+     "ordinal": 4,
      "stage": "build",
      "status": "running"
     },
     "created_at": "2026-11-14T04:37:01.125925+00:00",
     "dataset": "us-house-bill-house-passage",
     "id": "source-000074",
-    "next_run_at": "2026-11-14T17:36:02.154936+00:00",
+    "next_run_at": "2026-11-14T17:51:32.356308+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-14T17:31:02.154936+00:00"
+    "updated_at": "2026-11-14T17:51:02.356308+00:00"
    }
   ],
   "counts": {
@@ -22581,7 +22581,7 @@
    "published": 13,
    "rejected": 6
   },
-  "observed_at": "2026-11-14T17:34:35.279162+00:00",
+  "observed_at": "2026-11-14T17:51:16.532902+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
@@ -22589,7 +22589,7 @@
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T17:34:35+00:00",
+   "as_of": "2026-11-14T17:51:16+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -22599,7 +22599,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T17:34:35+00:00",
+   "as_of": "2026-11-14T17:51:16+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -22609,7 +22609,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T17:34:35+00:00",
+   "as_of": "2026-11-14T17:51:16+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -23909,19 +23909,19 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "24.04",
-   "completed_estimate_eur": "23.84",
-   "completed_jobs": 291,
-   "reserved_jobs": 2,
-   "retained_reservations_eur": "0.20"
+   "charged_eur": "24.12",
+   "completed_estimate_eur": "24.08",
+   "completed_jobs": 294,
+   "reserved_jobs": 1,
+   "retained_reservations_eur": "0.04"
   },
   "ceiling_eur": 50.0,
   "errors": [],
-  "eur_per_release": 1.0,
+  "eur_per_release": 1.01,
   "histogram": {
    "bins": [
     {
-     "count": 272,
+     "count": 275,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -23968,10 +23968,10 @@
    ],
    "max": 2.6488,
    "median": 0.008,
-   "n": 452,
+   "n": 455,
    "p90": 0.037,
    "ref_rate": 0.06924,
-   "total": 10.92
+   "total": 10.94
   },
   "jobs": [
    {
@@ -28356,15 +28356,15 @@
    },
    {
     "created_at": "2026-11-14T17:34:02.134163+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-11-14T17:36:12.945825+00:00",
+    "eur": 0.05868,
+    "hours": 0.036,
     "id": "rw-b6daec6d3aba-build-3",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0025,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
-    "status": "running"
+    "status": "deleted"
    },
    {
     "created_at": "2026-11-08T23:18:10.630285+00:00",
@@ -29051,6 +29051,30 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-14T17:37:01.872089+00:00",
+    "deleted_at": "2026-11-14T17:40:13.526019+00:00",
+    "eur": 0.05868,
+    "hours": 0.053,
+    "id": "rw-f83a982816f8-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.0037,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T17:45:38.346797+00:00",
+    "deleted_at": "2026-11-14T17:52:13.235222+00:00",
+    "eur": 0.05868,
+    "hours": 0.11,
+    "id": "rw-f83a982816f8-build-4",
+    "location": "hel1",
+    "normalised_eur": 0.0076,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-10-22T02:08:44.533980+00:00",
     "deleted_at": "2026-10-22T02:14:17.171323+00:00",
     "eur": 0.01152,
@@ -29411,19 +29435,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 290,
-  "jobs_total": 453,
-  "lifetime_eur": 27.13,
+  "jobs_this_month": 293,
+  "jobs_total": 455,
+  "lifetime_eur": 27.31,
   "live": {
-   "checked_at": "2026-11-14T17:35:46+00:00",
+   "checked_at": "2026-11-14T17:52:29+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 84.3,
-  "month_to_date": 18.92,
+  "month_hours": 84.5,
+  "month_to_date": 19.1,
   "months": [
    {
     "eur": 5.02,
@@ -29438,13 +29462,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 18.9221,
-    "hours": 84.26,
-    "jobs": 290,
+    "eur": 19.0981,
+    "hours": 84.46,
+    "jobs": 293,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 40.55,
+  "projected_month_eur": 40.92,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -29473,13 +29497,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-14T16:50:01.556962+00:00",
+  "observed_at": "2026-11-14T17:50:01.202243+00:00",
   "releases": [
    {
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-14T16:50:01.608493+00:00",
+    "observed_at": "2026-11-14T17:50:01.254595+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -29488,7 +29512,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-14T16:50:08.518708+00:00",
+    "observed_at": "2026-11-14T17:50:07.067619+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -29497,7 +29521,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-14T16:50:14.158221+00:00",
+    "observed_at": "2026-11-14T17:50:12.927044+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -29506,7 +29530,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-14T16:50:19.956324+00:00",
+    "observed_at": "2026-11-14T17:50:18.466048+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -29515,7 +29539,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-14T16:50:25.479479+00:00",
+    "observed_at": "2026-11-14T17:50:23.954964+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -29524,7 +29548,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-14T16:50:31.255373+00:00",
+    "observed_at": "2026-11-14T17:50:29.388521+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -29533,7 +29557,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-14T16:50:37.353947+00:00",
+    "observed_at": "2026-11-14T17:50:34.719134+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -29542,7 +29566,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-14T16:50:42.929345+00:00",
+    "observed_at": "2026-11-14T17:50:40.451097+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -29551,7 +29575,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-14T16:50:48.863222+00:00",
+    "observed_at": "2026-11-14T17:50:47.298076+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -29560,7 +29584,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-14T16:50:54.534533+00:00",
+    "observed_at": "2026-11-14T17:50:52.897047+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -29569,7 +29593,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-14T16:50:59.907956+00:00",
+    "observed_at": "2026-11-14T17:50:58.683012+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -29578,7 +29602,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-14T16:51:05.443400+00:00",
+    "observed_at": "2026-11-14T17:51:04.295460+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -29587,7 +29611,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-14T16:51:11.247484+00:00",
+    "observed_at": "2026-11-14T17:51:10.094371+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
