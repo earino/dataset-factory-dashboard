@@ -18,22 +18,24 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 300.0,
-   "allowed": true,
+   "allowed": false,
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-14T17:51:17.744481+00:00",
-   "normal_operation_runs_last_7_days": 349,
-   "normal_operation_runs_weighted_last_7_days": 349,
-   "normal_operation_tokens_last_7_days": 32616650,
+   "moment": "2026-11-14T18:51:18.993549+00:00",
+   "normal_operation_runs_last_7_days": 357,
+   "normal_operation_runs_weighted_last_7_days": 357,
+   "normal_operation_tokens_last_7_days": 33472811,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 253s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 43095617,
-   "runs_last_7_days": 473,
-   "runs_weighted_last_7_days": 473,
-   "session_admission_weighted": 198,
+   "research_tokens_last_7_days": 43951778,
+   "runs_last_7_days": 481,
+   "runs_weighted_last_7_days": 481,
+   "session_admission_weighted": 207,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -64,14 +66,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 9098,
+     "calls": 9168,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 57258905,
-     "output_tokens": 20851726,
+     "input_tokens": 57767577,
+     "output_tokens": 21199671,
      "pricing_available": false
     }
    },
@@ -85,8 +87,8 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "build": 2,
-   "deferred": 53,
+   "deferred": 56,
+   "discover": 2,
    "published": 13,
    "rejected": 6
   },
@@ -102,40 +104,40 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "epa-biosolids-part503-violation",
+    "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000073",
-    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-14T17:52:01.934009+00:00",
-    "next_run_at": "2026-11-14T17:52:01.934009+00:00",
+    "id": "source-000076",
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 469.922, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"are each DOT_NUMBER's earliest crash inside each intake window; label joins us \u00b7 next attempt 2026-11-14T18:36:56.465200+00:00",
+    "next_run_at": "2026-11-14T18:36:56.465200+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "1 October of year Y+1, after the 19 February federal annual-report deadline and the September state filing wave; only reports with ReportingYear at or before Y and violation records with start dates before that date may be used.",
-    "question": "Given a large U.S. publicly owned treatment works' biosolids annual report for reporting year Y - its sludge volume, management-practice mix, pathogen class, treatment train, and per-pollutant monitoring results against Part 503 limits - will that facility be recorded with at least one Part 503 biosolids violation starting in the following twelve months?",
-    "reason": "An active or interrupted job exists; reconcile it before launching another",
+    "prediction_time": "",
+    "question": "",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 469.922, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"are each DOT_NUMBER's earliest crash inside each intake window; label joins us",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Cohorts are defined by annual-report reporting year Y. Warm-up history only: 2016-2017. Train: Y = 2018, 2019, 2020. Embargo: Y = 2021, excluded because it is the Texas onboarding year and sits directly adjacent to the evaluation cohort. Eval: Y = 2022. Holdout: Y = 2023. Cohorts 2024-2025 are dropped because their 12-month label windows are not fully observable in the November 2026 extract. Each row's label window is a fixed 12 months starting at its own decision instant, so label windows of different cohorts never overlap and no embargo beyond the dropped year is required; a facility may appear in several cohorts, but its features at cohort Y use only reports with ReportingYear <= Y and violations starting before 1 Oct Y+1.",
-    "status": "build",
-    "target": "Binary. Label = 1 if the facility's NPDES ID (finalroot.npdesId_u1) has at least one row in biosolidsViolations.csv with violationStartDate in the half-open window [1 Oct Y+1, 1 Oct Y+2); else 0. Violation rows are matched on the facility NPDES ID (npdesId_u0), not through the year-(Y+1) report key, so no field of the outcome-year report can be pulled into features. Facilities with no violation record in the window are negatives.",
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
     "workflow": "modern"
    },
    {
     "country": "unknown",
-    "dataset": "us-house-bill-house-passage",
+    "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000074",
-    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-14T17:51:32.356308+00:00",
-    "next_run_at": "2026-11-14T17:51:32.356308+00:00",
+    "id": "source-000077",
+    "next_action": "Stage discover",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "30 calendar days after the bill's introducedDate. Only elements carrying a date on or before that instant are used (cosponsor sponsorshipDate and withdrawal dates, committee referral activity dates, introducedDate, bill number, titles as introduced).",
-    "question": "Will an H.R. bill that is still pending in the House 30 days after introduction go on to pass the House before the end of that Congress?",
-    "reason": "Worker running",
+    "prediction_time": "",
+    "question": "",
+    "reason": "",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Fixed chronological boundaries aligned to Congress boundaries, by introducedDate: train 2013-01-03 to 2018-12-31 (113th-115th); eval 2019-01-03 to 2022-12-31 (116th-117th); holdout 2023-01-03 to 2024-12-31 (118th). The 119th Congress is excluded because its labels are unresolved. No embargo is applied: rows are independent bills and no lagged or rolling cross-bill features are used; no Congress spans two splits, so a bill's features and its label never cross a split boundary.",
-    "status": "build",
-    "target": "y = 1 if the bill's BILLSTATUS record contains at least one action item with actionCode 8000 ('Passed/agreed to in House') dated after the decision instant and on or before the last day of that Congress; y = 0 otherwise. Bills whose only House-passage action is dated on or before the decision instant are excluded by the population rule, not labelled.",
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
     "workflow": "modern"
    }
   ],
@@ -1803,17 +1805,17 @@
     "dataset": "epa-biosolids-part503-violation",
     "domain": "Modern factory",
     "id": "source-000073",
-    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-14T17:52:01.934009+00:00",
-    "next_run_at": "2026-11-14T17:52:01.934009+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-14T18:03:17.417974+00:00",
+    "next_run_at": "2026-11-14T18:03:17.417974+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "1 October of year Y+1, after the 19 February federal annual-report deadline and the September state filing wave; only reports with ReportingYear at or before Y and violation records with start dates before that date may be used.",
     "question": "Given a large U.S. publicly owned treatment works' biosolids annual report for reporting year Y - its sludge volume, management-practice mix, pathogen class, treatment train, and per-pollutant monitoring results against Part 503 limits - will that facility be recorded with at least one Part 503 biosolids violation starting in the following twelve months?",
-    "reason": "An active or interrupted job exists; reconcile it before launching another",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "Cohorts are defined by annual-report reporting year Y. Warm-up history only: 2016-2017. Train: Y = 2018, 2019, 2020. Embargo: Y = 2021, excluded because it is the Texas onboarding year and sits directly adjacent to the evaluation cohort. Eval: Y = 2022. Holdout: Y = 2023. Cohorts 2024-2025 are dropped because their 12-month label windows are not fully observable in the November 2026 extract. Each row's label window is a fixed 12 months starting at its own decision instant, so label windows of different cohorts never overlap and no embargo beyond the dropped year is required; a facility may appear in several cohorts, but its features at cohort Y use only reports with ReportingYear <= Y and violations starting before 1 Oct Y+1.",
-    "status": "build",
+    "status": "deferred",
     "target": "Binary. Label = 1 if the facility's NPDES ID (finalroot.npdesId_u1) has at least one row in biosolidsViolations.csv with violationStartDate in the half-open window [1 Oct Y+1, 1 Oct Y+2); else 0. Violation rows are matched on the facility NPDES ID (npdesId_u0), not through the year-(Y+1) report key, so no field of the outcome-year report can be pulled into features. Facilities with no violation record in the window are negatives.",
     "workflow": "modern"
    },
@@ -1822,18 +1824,75 @@
     "dataset": "us-house-bill-house-passage",
     "domain": "Modern factory",
     "id": "source-000074",
-    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-14T17:51:32.356308+00:00",
-    "next_run_at": "2026-11-14T17:51:32.356308+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-14T18:47:20.475848+00:00",
+    "next_run_at": "2026-11-14T18:47:20.475848+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "30 calendar days after the bill's introducedDate. Only elements carrying a date on or before that instant are used (cosponsor sponsorshipDate and withdrawal dates, committee referral activity dates, introducedDate, bill number, titles as introduced).",
     "question": "Will an H.R. bill that is still pending in the House 30 days after introduction go on to pass the House before the end of that Congress?",
-    "reason": "Worker running",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "Fixed chronological boundaries aligned to Congress boundaries, by introducedDate: train 2013-01-03 to 2018-12-31 (113th-115th); eval 2019-01-03 to 2022-12-31 (116th-117th); holdout 2023-01-03 to 2024-12-31 (118th). The 119th Congress is excluded because its labels are unresolved. No embargo is applied: rows are independent bills and no lagged or rolling cross-bill features are used; no Congress spans two splits, so a bill's features and its label never cross a split boundary.",
-    "status": "build",
+    "status": "deferred",
     "target": "y = 1 if the bill's BILLSTATUS record contains at least one action item with actionCode 8000 ('Passed/agreed to in House') dated after the decision instant and on or before the last day of that Congress; y = 0 otherwise. Bills whose only House-passage action is dated on or before the decision instant are excluded by the population rule, not labelled.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000075",
+    "next_action": "Stage deferred: Defer: the strongest civil-infrastructure candidates each fail a selection gate. FHWA NTI is directly downloadable as annual Excel/XML files for 2018-2026 and is documented, but the national tunnel universe is only about 600 structures and ",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "Defer: the strongest civil-infrastructure candidates each fail a selection gate. FHWA NTI is directly downloadable as annual Excel/XML files for 2018-2026 and is documented, but the national tunnel universe is only about 600 structures and ",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "deferred",
+    "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000076",
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 469.922, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"are each DOT_NUMBER's earliest crash inside each intake window; label joins us \u00b7 next attempt 2026-11-14T18:36:56.465200+00:00",
+    "next_run_at": "2026-11-14T18:36:56.465200+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 469.922, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"are each DOT_NUMBER's earliest crash inside each intake window; label joins us",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000077",
+    "next_action": "Stage discover",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
     "workflow": "modern"
    },
    {
@@ -5304,7 +5363,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 190.5,
+    "age_hours": 191.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6134,7 +6193,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 247.0,
+    "age_hours": 248.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12416,7 +12475,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 387.6,
+    "age_hours": 388.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16440,7 +16499,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 236.7,
+    "age_hours": 237.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -16896,10 +16955,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-14T17:50:01.574763+00:00",
+    "last_run_at": "2026-11-14T18:50:01.856985+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-14T18:00:00+00:00",
+    "next_run_at": "2026-11-14T19:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -16980,10 +17039,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-14T16:52:45.728633+00:00",
+    "last_run_at": "2026-11-14T17:52:43.224584+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-14T18:50:00+00:00",
+    "next_run_at": "2026-11-14T19:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -16992,10 +17051,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-14T16:55:00.852218+00:00",
+    "last_run_at": "2026-11-14T17:55:01.123746+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-14T17:55:00+00:00",
+    "next_run_at": "2026-11-14T18:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -17040,10 +17099,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-14T17:51:02.410782+00:00",
+    "last_run_at": "2026-11-14T18:46:20.528761+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-14T17:52:00+00:00",
+    "next_run_at": "2026-11-14T18:48:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -17096,9 +17155,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-14T17:51:02.411772+00:00"
+  "updated_at": "2026-11-14T18:51:00.620640+00:00"
  },
- "generated_at": "2026-11-14T17:51:16+00:00",
+ "generated_at": "2026-11-14T18:51:17+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17126,14 +17185,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-24T15:50:01+00:00",
-   "live": 14,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-24T16:50:01+00:00",
    "live": 14,
@@ -21269,6 +21320,16 @@
    "sessions_7d": 471,
    "tokens_7d": 32434970,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-14T18:51:17+00:00",
+   "live": 2,
+   "published": 27,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 481,
+   "tokens_7d": 33472811,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -22544,52 +22605,102 @@
    },
    {
     "attempt": {
-     "id": "rw-b6daec6d3aba-build-4",
-     "ordinal": 4,
+     "id": "rw-b6daec6d3aba-build-5",
+     "ordinal": 5,
      "stage": "build",
-     "status": "running"
+     "status": "retry"
     },
     "created_at": "2026-11-14T03:54:01.413884+00:00",
     "dataset": "epa-biosolids-part503-violation",
     "id": "source-000073",
-    "next_run_at": "2026-11-14T17:52:01.934009+00:00",
+    "next_run_at": "2026-11-14T18:03:17.417974+00:00",
     "published_verified": false,
-    "running": true,
-    "stage": "build",
-    "updated_at": "2026-11-14T17:47:01.934009+00:00"
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-14T18:02:17.417974+00:00"
    },
    {
     "attempt": {
-     "id": "rw-f83a982816f8-build-4",
-     "ordinal": 4,
+     "id": "rw-f83a982816f8-build-7",
+     "ordinal": 7,
      "stage": "build",
-     "status": "running"
+     "status": "retry"
     },
     "created_at": "2026-11-14T04:37:01.125925+00:00",
     "dataset": "us-house-bill-house-passage",
     "id": "source-000074",
-    "next_run_at": "2026-11-14T17:51:32.356308+00:00",
+    "next_run_at": "2026-11-14T18:47:20.475848+00:00",
+    "published_verified": false,
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-14T18:46:20.475848+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-e66801b3a1a3-discover-3",
+     "ordinal": 3,
+     "stage": "discover",
+     "status": "defer"
+    },
+    "created_at": "2026-11-14T18:03:01.090372+00:00",
+    "dataset": null,
+    "id": "source-000075",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-14T18:23:07.210500+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-fc9a71924d7b-discover-2",
+     "ordinal": 2,
+     "stage": "discover",
+     "status": "running"
+    },
+    "created_at": "2026-11-14T18:24:02.147577+00:00",
+    "dataset": null,
+    "id": "source-000076",
+    "next_run_at": "2026-11-14T18:36:56.465200+00:00",
     "published_verified": false,
     "running": true,
-    "stage": "build",
-    "updated_at": "2026-11-14T17:51:02.356308+00:00"
+    "stage": "discover",
+    "updated_at": "2026-11-14T18:35:56.465200+00:00"
+   },
+   {
+    "attempt": {
+     "id": null,
+     "ordinal": null,
+     "stage": null,
+     "status": null
+    },
+    "created_at": "2026-11-14T18:47:01.248650+00:00",
+    "dataset": null,
+    "id": "source-000077",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": false,
+    "stage": "discover",
+    "updated_at": "2026-11-14T18:47:01.248650+00:00"
    }
   ],
   "counts": {
-   "build": 2,
-   "deferred": 53,
+   "deferred": 56,
+   "discover": 2,
    "published": 13,
    "rejected": 6
   },
-  "observed_at": "2026-11-14T17:51:16.532902+00:00",
+  "observed_at": "2026-11-14T18:51:17.770341+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 253s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T17:51:16+00:00",
+   "as_of": "2026-11-14T18:51:17+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -22599,7 +22710,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T17:51:16+00:00",
+   "as_of": "2026-11-14T18:51:17+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -22609,7 +22720,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-14T17:51:16+00:00",
+   "as_of": "2026-11-14T18:51:17+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -23909,19 +24020,19 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "24.12",
-   "completed_estimate_eur": "24.08",
-   "completed_jobs": 294,
+   "charged_eur": "24.52",
+   "completed_estimate_eur": "24.48",
+   "completed_jobs": 299,
    "reserved_jobs": 1,
    "retained_reservations_eur": "0.04"
   },
   "ceiling_eur": 50.0,
   "errors": [],
-  "eur_per_release": 1.01,
+  "eur_per_release": 1.02,
   "histogram": {
    "bins": [
     {
-     "count": 275,
+     "count": 280,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -23968,10 +24079,10 @@
    ],
    "max": 2.6488,
    "median": 0.008,
-   "n": 455,
+   "n": 460,
    "p90": 0.037,
    "ref_rate": 0.06924,
-   "total": 10.94
+   "total": 10.96
   },
   "jobs": [
    {
@@ -28367,6 +28478,30 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-14T17:53:01.537335+00:00",
+    "deleted_at": "2026-11-14T17:56:13.838598+00:00",
+    "eur": 0.05868,
+    "hours": 0.053,
+    "id": "rw-b6daec6d3aba-build-4",
+    "location": "hel1",
+    "normalised_eur": 0.0037,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T17:59:22.451085+00:00",
+    "deleted_at": "2026-11-14T18:02:13.768289+00:00",
+    "eur": 0.05868,
+    "hours": 0.048,
+    "id": "rw-b6daec6d3aba-build-5",
+    "location": "hel1",
+    "normalised_eur": 0.0033,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-08T23:18:10.630285+00:00",
     "deleted_at": "2026-11-08T23:21:16.161458+00:00",
     "eur": 0.06924,
@@ -29075,6 +29210,42 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-14T18:11:01.606738+00:00",
+    "deleted_at": "2026-11-14T18:19:16.547982+00:00",
+    "eur": 0.05868,
+    "hours": 0.137,
+    "id": "rw-f83a982816f8-build-5",
+    "location": "hel1",
+    "normalised_eur": 0.0095,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T18:25:24.156488+00:00",
+    "deleted_at": "2026-11-14T18:27:12.798550+00:00",
+    "eur": 0.05868,
+    "hours": 0.03,
+    "id": "rw-f83a982816f8-build-6",
+    "location": "hel1",
+    "normalised_eur": 0.0021,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-14T18:37:44.488386+00:00",
+    "deleted_at": "2026-11-14T18:46:16.778979+00:00",
+    "eur": 0.05868,
+    "hours": 0.142,
+    "id": "rw-f83a982816f8-build-7",
+    "location": "hel1",
+    "normalised_eur": 0.0098,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-10-22T02:08:44.533980+00:00",
     "deleted_at": "2026-10-22T02:14:17.171323+00:00",
     "eur": 0.01152,
@@ -29435,19 +29606,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 293,
-  "jobs_total": 455,
-  "lifetime_eur": 27.31,
+  "jobs_this_month": 298,
+  "jobs_total": 460,
+  "lifetime_eur": 27.6,
   "live": {
-   "checked_at": "2026-11-14T17:52:29+00:00",
+   "checked_at": "2026-11-14T18:52:31+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 84.5,
-  "month_to_date": 19.1,
+  "month_hours": 84.9,
+  "month_to_date": 19.39,
   "months": [
    {
     "eur": 5.02,
@@ -29462,13 +29633,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 19.0981,
-    "hours": 84.46,
-    "jobs": 293,
+    "eur": 19.3915,
+    "hours": 84.87,
+    "jobs": 298,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 40.92,
+  "projected_month_eur": 41.55,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -29497,13 +29668,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-14T17:50:01.202243+00:00",
+  "observed_at": "2026-11-14T18:50:01.225483+00:00",
   "releases": [
    {
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-14T17:50:01.254595+00:00",
+    "observed_at": "2026-11-14T18:50:01.291534+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -29512,7 +29683,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-14T17:50:07.067619+00:00",
+    "observed_at": "2026-11-14T18:50:07.528379+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -29521,7 +29692,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-14T17:50:12.927044+00:00",
+    "observed_at": "2026-11-14T18:50:13.340042+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -29530,7 +29701,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-14T17:50:18.466048+00:00",
+    "observed_at": "2026-11-14T18:50:19.241188+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -29539,7 +29710,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-14T17:50:23.954964+00:00",
+    "observed_at": "2026-11-14T18:50:25.276588+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -29548,7 +29719,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-14T17:50:29.388521+00:00",
+    "observed_at": "2026-11-14T18:50:30.970215+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -29557,7 +29728,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-14T17:50:34.719134+00:00",
+    "observed_at": "2026-11-14T18:50:36.665780+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -29566,7 +29737,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-14T17:50:40.451097+00:00",
+    "observed_at": "2026-11-14T18:50:42.436428+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -29575,7 +29746,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-14T17:50:47.298076+00:00",
+    "observed_at": "2026-11-14T18:50:48.396538+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -29584,7 +29755,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-14T17:50:52.897047+00:00",
+    "observed_at": "2026-11-14T18:50:54.170217+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -29593,7 +29764,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-14T17:50:58.683012+00:00",
+    "observed_at": "2026-11-14T18:50:59.639196+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -29602,7 +29773,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-14T17:51:04.295460+00:00",
+    "observed_at": "2026-11-14T18:51:05.325662+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -29611,7 +29782,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-14T17:51:10.094371+00:00",
+    "observed_at": "2026-11-14T18:51:11.362383+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
