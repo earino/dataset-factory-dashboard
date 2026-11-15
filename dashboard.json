@@ -1,5 +1,6 @@
 {
  "alarms": [
+  "Website faa-wildlife-strike-substantial-damage: pending; data publication is separate",
   "Local test suite failed on 2157157",
   "1 release(s) not fully verified"
  ],
@@ -18,24 +19,22 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 300.0,
-   "allowed": false,
+   "allowed": true,
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-15T08:51:27.184454+00:00",
-   "normal_operation_runs_last_7_days": 481,
-   "normal_operation_runs_weighted_last_7_days": 481,
-   "normal_operation_tokens_last_7_days": 44228660,
+   "moment": "2026-11-15T09:52:10.591419+00:00",
+   "normal_operation_runs_last_7_days": 489,
+   "normal_operation_runs_weighted_last_7_days": 489,
+   "normal_operation_tokens_last_7_days": 45130798,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 80s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 54707627,
-   "runs_last_7_days": 605,
-   "runs_weighted_last_7_days": 605,
-   "session_admission_weighted": 338,
+   "research_tokens_last_7_days": 55609765,
+   "runs_last_7_days": 613,
+   "runs_weighted_last_7_days": 613,
+   "session_admission_weighted": 347,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -46,34 +45,34 @@
    },
    "usage": {
     "auxiliary": {
-     "calls": 31,
+     "calls": 33,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 89323,
-     "output_tokens": 90761,
+     "input_tokens": 92098,
+     "output_tokens": 90769,
      "pricing_available": false
     },
     "interactive": {
-     "calls": 1342,
+     "calls": 1356,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 34043559,
-     "output_tokens": 1362197,
+     "input_tokens": 34217611,
+     "output_tokens": 1375820,
      "pricing_available": false
     },
     "research": {
-     "calls": 10032,
+     "calls": 10093,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 64721306,
-     "output_tokens": 27025325,
+     "input_tokens": 65207480,
+     "output_tokens": 27442221,
      "pricing_available": false
     }
    },
@@ -88,8 +87,8 @@
   "countries": {},
   "counts": {
    "build": 2,
-   "deferred": 72,
-   "published": 15,
+   "deferred": 74,
+   "published": 16,
    "rejected": 7
   },
   "errors": [],
@@ -104,57 +103,40 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "fema-hma-subapplication-selection",
+    "dataset": "snap-retailer-authorization-exit",
     "domain": "Modern factory",
-    "id": "source-000095",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T08:49:16.524249+00:00",
-    "next_run_at": "2026-11-15T08:49:16.524249+00:00",
+    "id": "source-000098",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T09:37:19.770668+00:00",
+    "next_run_at": "2026-11-15T09:37:19.770668+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The instant of transmission to FEMA, recorded as dateSubmittedToFema, the date and time the project was submitted by the applicant or recipient. All inputs are subapplication fields documented as present at submission; dateMitigationPlanApproved is shipped only when it is on or before dateSubmittedToFema, and later approval dates are censored to blank.",
-    "question": "At the moment a local government, tribe or public body transmits a hazard-mitigation subapplication to FEMA, will FEMA's Selection Phase record that subapplication as identified for further review (moving toward award), or record it as not selected / not meeting HMA requirements?",
+    "prediction_time": "The first day of the store's first observed authorization spell, which is day 0. Available then: the store type code, street address, state, county, ZIP5 and coordinates carried on that authorization record, the authorization date itself, and local market counts reconstructed from authorizations that had already begun before day 0.",
+    "question": "Will a newly SNAP-authorized store still hold SNAP authorization three years later, or will its authorization coverage lapse within 36 months?",
     "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Fixed chronological boundaries on dateSubmittedToFema: train <= 2021-09-30, eval 2021-10-01..2022-09-30, holdout 2022-10-01..2023-09-30; label eligibility requires dateSubmittedToFema <= snapshot minus 24 months. No embargo is needed because every feature is submission-time and no rolling or lagged outcome histories are constructed; if any applicant- or state-level rate encoding is used it must be fitted on train-period rows only and applied forward.",
+    "split_strategy": "Fixed chronological boundaries on the authorization date: train 2006-01-01 to 2015-12-31, eval 2016-01-01 to 2017-12-31, holdout 2018-01-01 to 2019-12-31. No embargo is applied, because each store contributes exactly one row, every feature is dated on or before its own authorization date, the label is store-specific, and no store's own future record enters any feature - so calendar overlap between adjacent cohorts cannot transmit a label. The last holdout window closes 2022-12-31, three years before the 2025-12-31 cutoff. Authorizations from 2005 and post-2019 authorizations are used only to build as-of features, never as training rows.",
     "status": "build",
-    "target": "Binary: y = 1 if selectionStatus equals 'Identified for Further Review'; y = 0 if selectionStatus is 'Not Selected' or 'Did Not Meet HMA Requirements'; rows with any other or blank selectionStatus are dropped as unresolved, never coded as negatives.",
+    "target": "y = 1 if the store's continuous SNAP authorization coverage ends on or before day 0 + 36 months, where coverage is the store's first authorization spell (consecutive authorization records for the same Record ID whose next Authorization Date begins no more than 90 days after the running coverage end are merged into one spell; a gap longer than 90 days terminates coverage). y = 0 if coverage is still open at the 2025-12-31 cutoff or extends past day 0 + 36 months.",
     "workflow": "modern"
    },
    {
     "country": "unknown",
-    "dataset": "faa-wildlife-strike-substantial-damage",
+    "dataset": "fra-form54-hazmat-release",
     "domain": "Modern factory",
-    "id": "source-000096",
-    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-15T08:52:04.296999+00:00",
-    "next_run_at": "2026-11-15T08:52:04.296999+00:00",
+    "id": "source-000099",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T09:48:16.694148+00:00",
+    "next_run_at": "2026-11-15T09:48:16.694148+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "At the strike report, on the day of the strike, before the post-flight maintenance inspection and before laboratory species identification. Features are aircraft descriptors, encounter geometry, pilot observations, date/location and operator class; DAMAGE and all post-strike fields are excluded.",
-    "question": "Given only what is known when a wildlife strike is reported, will the aircraft be assessed as substantially damaged or destroyed (ICAO major damage)?",
-    "reason": "An active or interrupted job exists; reconcile it before launching another",
-    "release_baseline": {
-     "display": "See versioned evaluation.json; public validation only"
-    },
-    "release_splits": {
-     "eval": {
-      "rows": 33250
-     },
-     "holdout": {
-      "rows": 25425
-     },
-     "train": {
-      "rows": 84196
-     }
-    },
-    "sources": [
-     {
-      "name": "Federal Aviation Administration (FAA) and U.S. Department of Agriculture, Wildlife Services (USDA/WS), National Wildlife Strike Database",
-      "url": "https://wildlife.faa.gov/assets/fieldlist.pdf"
-     }
-    ],
-    "split_strategy": "Fixed cut on INCIDENT_DATE, no random resampling: train 1990-01-01 to 2013-12-31; eval 2014-01-01 to 2018-12-31; holdout 2019-01-01 to 2022-12-31. No embargo is required inside the series because each row is one independent strike and every feature is fixed at strike time, so a later row cannot reveal an earlier label; the 2022-12-31 end cut is a reporting/validation lag buffer of about 3.7 years against a snapshot current to August 2026. Boundaries are frozen before any modelling.",
+    "prediction_time": "At first notification of the accident, when the crew and dispatcher report it and before Form FRA 6180.54 is prepared. Only circumstances a responder can observe or obtain on scene are shipped: consist counts and tonnage, speed, track type and class, weather, visibility, temperature, the apparent accident type, carrier identity and state.",
+    "question": "At the moment a U.S. train accident involving hazardous-material cars is first reported, will at least one of those cars release hazardous material?",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Fixed chronological boundaries on accident year, one row per accident, no random shuffling: train = accidents through 1999-12-31 (~13,100 hazmat-car accidents, ~1,400 releases); eval = 2000-01-01 to 2012-12-31 (~8,000 accidents, ~330 releases); holdout = 2013-01-01 onward (~5,900 accidents, ~185 releases; 2026 is partial). No embargo is applied because the label is realized inside the same accident record rather than in a forward window, so there is no label-overlap span to purge; the design also has no lag or rolling-history features, and each accident appears exactly once, so no later row can encode an earlier row's label.",
     "status": "build",
-    "target": "1 if DAMAGE is S (substantial) or D (destroyed); 0 if DAMAGE is N (none), M (minor) or M? (undetermined level). Rows with a blank DAMAGE are dropped, not labelled 0.",
+    "target": "hazmatreleasedcars >= 1, i.e. at least one railcar released hazardous material, among accidents whose train consist included at least one car carrying regulated hazardous materials (hazmatcars >= 1)",
     "workflow": "modern"
    }
   ],
@@ -2291,17 +2273,17 @@
     "dataset": "fema-hma-subapplication-selection",
     "domain": "Modern factory",
     "id": "source-000095",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T08:49:16.524249+00:00",
-    "next_run_at": "2026-11-15T08:49:16.524249+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T08:56:16.041462+00:00",
+    "next_run_at": "2026-11-15T08:56:16.041462+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The instant of transmission to FEMA, recorded as dateSubmittedToFema, the date and time the project was submitted by the applicant or recipient. All inputs are subapplication fields documented as present at submission; dateMitigationPlanApproved is shipped only when it is on or before dateSubmittedToFema, and later approval dates are censored to blank.",
     "question": "At the moment a local government, tribe or public body transmits a hazard-mitigation subapplication to FEMA, will FEMA's Selection Phase record that subapplication as identified for further review (moving toward award), or record it as not selected / not meeting HMA requirements?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "Fixed chronological boundaries on dateSubmittedToFema: train <= 2021-09-30, eval 2021-10-01..2022-09-30, holdout 2022-10-01..2023-09-30; label eligibility requires dateSubmittedToFema <= snapshot minus 24 months. No embargo is needed because every feature is submission-time and no rolling or lagged outcome histories are constructed; if any applicant- or state-level rate encoding is used it must be fitted on train-period rows only and applied forward.",
-    "status": "build",
+    "status": "deferred",
     "target": "Binary: y = 1 if selectionStatus equals 'Identified for Further Review'; y = 0 if selectionStatus is 'Not Selected' or 'Did Not Meet HMA Requirements'; rows with any other or blank selectionStatus are dropped as unresolved, never coded as negatives.",
     "workflow": "modern"
    },
@@ -2310,12 +2292,12 @@
     "dataset": "faa-wildlife-strike-substantial-damage",
     "domain": "Modern factory",
     "id": "source-000096",
-    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-15T08:52:04.296999+00:00",
-    "next_run_at": "2026-11-15T08:52:04.296999+00:00",
+    "next_action": "Dataset publication complete; website synchronization is shown in Releases.",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "At the strike report, on the day of the strike, before the post-flight maintenance inspection and before laboratory species identification. Features are aircraft descriptors, encounter geometry, pilot observations, date/location and operator class; DAMAGE and all post-strike fields are excluded.",
     "question": "Given only what is known when a wildlife strike is reported, will the aircraft be assessed as substantially damaged or destroyed (ICAO major damage)?",
-    "reason": "An active or interrupted job exists; reconcile it before launching another",
+    "reason": "Published and anonymously verified on GitHub and Hugging Face",
     "release_baseline": {
      "display": "See versioned evaluation.json; public validation only"
     },
@@ -2337,8 +2319,65 @@
      }
     ],
     "split_strategy": "Fixed cut on INCIDENT_DATE, no random resampling: train 1990-01-01 to 2013-12-31; eval 2014-01-01 to 2018-12-31; holdout 2019-01-01 to 2022-12-31. No embargo is required inside the series because each row is one independent strike and every feature is fixed at strike time, so a later row cannot reveal an earlier label; the 2022-12-31 end cut is a reporting/validation lag buffer of about 3.7 years against a snapshot current to August 2026. Boundaries are frozen before any modelling.",
-    "status": "build",
+    "status": "published",
     "target": "1 if DAMAGE is S (substantial) or D (destroyed); 0 if DAMAGE is N (none), M (minor) or M? (undetermined level). Rows with a blank DAMAGE are dropped, not labelled 0.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000097",
+    "next_action": "Stage deferred: I could not complete source selection within the research budget. The two closest candidates each fail a hard requirement. FAA Obstruction Evaluation/Airport Airspace Analysis (OE/AAA) offers exactly the right task shape \u2014 independent Form ",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "I could not complete source selection within the research budget. The two closest candidates each fail a hard requirement. FAA Obstruction Evaluation/Airport Airspace Analysis (OE/AAA) offers exactly the right task shape \u2014 independent Form ",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "deferred",
+    "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "snap-retailer-authorization-exit",
+    "domain": "Modern factory",
+    "id": "source-000098",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T09:37:19.770668+00:00",
+    "next_run_at": "2026-11-15T09:37:19.770668+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "The first day of the store's first observed authorization spell, which is day 0. Available then: the store type code, street address, state, county, ZIP5 and coordinates carried on that authorization record, the authorization date itself, and local market counts reconstructed from authorizations that had already begun before day 0.",
+    "question": "Will a newly SNAP-authorized store still hold SNAP authorization three years later, or will its authorization coverage lapse within 36 months?",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Fixed chronological boundaries on the authorization date: train 2006-01-01 to 2015-12-31, eval 2016-01-01 to 2017-12-31, holdout 2018-01-01 to 2019-12-31. No embargo is applied, because each store contributes exactly one row, every feature is dated on or before its own authorization date, the label is store-specific, and no store's own future record enters any feature - so calendar overlap between adjacent cohorts cannot transmit a label. The last holdout window closes 2022-12-31, three years before the 2025-12-31 cutoff. Authorizations from 2005 and post-2019 authorizations are used only to build as-of features, never as training rows.",
+    "status": "build",
+    "target": "y = 1 if the store's continuous SNAP authorization coverage ends on or before day 0 + 36 months, where coverage is the store's first authorization spell (consecutive authorization records for the same Record ID whose next Authorization Date begins no more than 90 days after the running coverage end are merged into one spell; a gap longer than 90 days terminates coverage). y = 0 if coverage is still open at the 2025-12-31 cutoff or extends past day 0 + 36 months.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "fra-form54-hazmat-release",
+    "domain": "Modern factory",
+    "id": "source-000099",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T09:48:16.694148+00:00",
+    "next_run_at": "2026-11-15T09:48:16.694148+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "At first notification of the accident, when the crew and dispatcher report it and before Form FRA 6180.54 is prepared. Only circumstances a responder can observe or obtain on scene are shipped: consist counts and tonnage, speed, track type and class, weather, visibility, temperature, the apparent accident type, carrier identity and state.",
+    "question": "At the moment a U.S. train accident involving hazardous-material cars is first reported, will at least one of those cars release hazardous material?",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Fixed chronological boundaries on accident year, one row per accident, no random shuffling: train = accidents through 1999-12-31 (~13,100 hazmat-car accidents, ~1,400 releases); eval = 2000-01-01 to 2012-12-31 (~8,000 accidents, ~330 releases); holdout = 2013-01-01 onward (~5,900 accidents, ~185 releases; 2026 is partial). No embargo is applied because the label is realized inside the same accident record rather than in a forward window, so there is no label-overlap span to purge; the design also has no lag or rolling-history features, and each accident appears exactly once, so no later row can encode an earlier row's label.",
+    "status": "build",
+    "target": "hazmatreleasedcars >= 1, i.e. at least one railcar released hazardous material, among accidents whose train consist included at least one car carrying regulated hazardous materials (hazmatcars >= 1)",
     "workflow": "modern"
    },
    {
@@ -5809,7 +5848,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 205.5,
+    "age_hours": 206.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6639,7 +6678,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 262.0,
+    "age_hours": 263.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12921,7 +12960,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 402.6,
+    "age_hours": 403.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16945,7 +16984,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 251.7,
+    "age_hours": 252.8,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -17401,10 +17440,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-15T08:50:01.743189+00:00",
+    "last_run_at": "2026-11-15T09:50:02.321577+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-15T09:00:00+00:00",
+    "next_run_at": "2026-11-15T10:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -17485,10 +17524,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-15T07:52:55.491314+00:00",
+    "last_run_at": "2026-11-15T08:52:52.864812+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-15T09:50:00+00:00",
+    "next_run_at": "2026-11-15T10:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -17497,10 +17536,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-15T07:55:01.703185+00:00",
+    "last_run_at": "2026-11-15T08:55:02.015694+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-15T08:55:00+00:00",
+    "next_run_at": "2026-11-15T09:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -17545,10 +17584,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-15T08:49:01.163712+00:00",
+    "last_run_at": "2026-11-15T09:47:16.746223+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-15T08:51:00+00:00",
+    "next_run_at": "2026-11-15T09:49:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -17596,14 +17635,14 @@
     "last_run_at": null,
     "last_status": null,
     "name": "scout-prospective-study-close-export",
-    "next_run_at": "2026-11-17T17:00:00+00:00",
+    "next_run_at": "2026-11-16T07:00:00+00:00",
     "no_agent": true,
-    "schedule": "once at 2026-11-17 17:00"
+    "schedule": "once at 2026-11-16 07:00"
    }
   ],
-  "updated_at": "2026-11-15T08:51:01.223969+00:00"
+  "updated_at": "2026-11-15T09:52:01.558211+00:00"
  },
- "generated_at": "2026-11-15T08:51:25+00:00",
+ "generated_at": "2026-11-15T09:52:09+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17611,10 +17650,10 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-15T06:46:35Z",
-   "head_sha": "2157157",
+   "created_at": "2026-11-15T09:05:45Z",
+   "head_sha": "8975ab6",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/43686967320"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/43697566002"
   },
   "coverage": {
    "ok": true,
@@ -17631,14 +17670,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-25T06:50:01+00:00",
-   "live": 14,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-25T07:50:01+00:00",
    "live": 14,
@@ -21804,6 +21835,16 @@
    "sessions_7d": 605,
    "tokens_7d": 44228660,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-15T09:52:09+00:00",
+   "live": 2,
+   "published": 30,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 613,
+   "tokens_7d": 45130798,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -23452,51 +23493,106 @@
      "id": "rw-5869f2b669ee-build-6",
      "ordinal": 6,
      "stage": "build",
-     "status": "running"
+     "status": "retry"
     },
     "created_at": "2026-11-15T07:27:02.601092+00:00",
     "dataset": "fema-hma-subapplication-selection",
     "id": "source-000095",
-    "next_run_at": "2026-11-15T08:49:16.524249+00:00",
+    "next_run_at": "2026-11-15T08:56:16.041462+00:00",
     "published_verified": false,
-    "running": true,
-    "stage": "build",
-    "updated_at": "2026-11-15T08:50:02.050999+00:00"
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-15T08:55:16.041462+00:00"
    },
    {
     "attempt": {
-     "id": "rw-ac5b99da5882-build-3",
-     "ordinal": 3,
-     "stage": "build",
-     "status": "running"
+     "id": "rw-ac5b99da5882-publish-1",
+     "ordinal": 1,
+     "stage": "publish",
+     "status": "done"
     },
     "created_at": "2026-11-15T07:31:01.192161+00:00",
     "dataset": "faa-wildlife-strike-substantial-damage",
     "id": "source-000096",
-    "next_run_at": "2026-11-15T08:52:04.296999+00:00",
+    "next_run_at": null,
+    "publication": {
+     "artifact_version": "ae75ab5acd1b27aeb29c4d414aa78610d797fe43068062bafd1574bb272dc2f9",
+     "dataset": "faa-wildlife-strike-substantial-damage",
+     "repositories": {
+      "github": "earino/factory-faa-wildlife-strike-substantial-damage",
+      "huggingface": "earino/factory-faa-wildlife-strike-substantial-damage"
+     },
+     "version": "v-d654c9f4ddfcf60c"
+    },
+    "published_verified": true,
+    "running": false,
+    "stage": "published",
+    "updated_at": "2026-11-15T09:22:16.250788+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-85f29244862c-discover-1",
+     "ordinal": 1,
+     "stage": "discover",
+     "status": "defer"
+    },
+    "created_at": "2026-11-15T08:56:01.911611+00:00",
+    "dataset": null,
+    "id": "source-000097",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-15T09:02:05.483737+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-d5055b6671fa-build-2",
+     "ordinal": 2,
+     "stage": "build",
+     "status": "running"
+    },
+    "created_at": "2026-11-15T09:03:02.154324+00:00",
+    "dataset": "snap-retailer-authorization-exit",
+    "id": "source-000098",
+    "next_run_at": "2026-11-15T09:37:19.770668+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-15T08:47:04.296999+00:00"
+    "updated_at": "2026-11-15T09:51:11.913427+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-3d1fe6826c77-build-2",
+     "ordinal": 2,
+     "stage": "build",
+     "status": "retry"
+    },
+    "created_at": "2026-11-15T09:23:01.852038+00:00",
+    "dataset": "fra-form54-hazmat-release",
+    "id": "source-000099",
+    "next_run_at": "2026-11-15T09:48:16.694148+00:00",
+    "published_verified": false,
+    "running": false,
+    "stage": "build",
+    "updated_at": "2026-11-15T09:47:16.694148+00:00"
    }
   ],
   "counts": {
    "build": 2,
-   "deferred": 72,
-   "published": 15,
+   "deferred": 74,
+   "published": 16,
    "rejected": 7
   },
-  "observed_at": "2026-11-15T08:51:25.931952+00:00",
+  "observed_at": "2026-11-15T09:52:09.371880+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
- "notices": [
-  "A research session is running: lock held for 80s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T08:51:25+00:00",
+   "as_of": "2026-11-15T09:52:09+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -23506,7 +23602,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T08:51:25+00:00",
+   "as_of": "2026-11-15T09:52:09+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -23516,13 +23612,13 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T08:51:25+00:00",
+   "as_of": "2026-11-15T09:52:09+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
    "stale": false,
    "status": "ok",
-   "value": 37
+   "value": 38
   }
  },
  "releases": {
@@ -24021,6 +24117,39 @@
     },
     "verified_all": true,
     "verified_at": "2026-11-15T01:17:16.726399+00:00",
+    "workflow": "modern"
+   },
+   {
+    "artifact_version": "ae75ab5acd1b27aeb29c4d414aa78610d797fe43068062bafd1574bb272dc2f9",
+    "assets": 33,
+    "baseline_display": "See versioned evaluation.json; public validation only",
+    "dataset": "faa-wildlife-strike-substantial-damage",
+    "destinations": {
+     "github": "https://github.com/earino/factory-faa-wildlife-strike-substantial-damage/releases/tag/v-d654c9f4ddfcf60c",
+     "huggingface": "https://huggingface.co/datasets/earino/factory-faa-wildlife-strike-substantial-damage"
+    },
+    "detail_id": "source-000096",
+    "disposition": "public",
+    "published": true,
+    "release_tag": "v-d654c9f4ddfcf60c",
+    "rows": 142871,
+    "splits": {
+     "eval": {
+      "rows": 33250
+     },
+     "holdout": {
+      "rows": 25425
+     },
+     "train": {
+      "rows": 84196
+     }
+    },
+    "verified": {
+     "github": true,
+     "huggingface": true
+    },
+    "verified_all": true,
+    "verified_at": "2026-11-15T09:22:16.250788+00:00",
     "workflow": "modern"
    },
    {
@@ -24882,19 +25011,19 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "29.48",
-   "completed_estimate_eur": "29.44",
-   "completed_jobs": 361,
-   "reserved_jobs": 1,
-   "retained_reservations_eur": "0.04"
+   "charged_eur": "30.04",
+   "completed_estimate_eur": "29.84",
+   "completed_jobs": 366,
+   "reserved_jobs": 2,
+   "retained_reservations_eur": "0.20"
   },
   "ceiling_eur": 50.0,
   "errors": [],
-  "eur_per_release": 1.08,
+  "eur_per_release": 1.05,
   "histogram": {
    "bins": [
     {
-     "count": 366,
+     "count": 371,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -24941,10 +25070,10 @@
    ],
    "max": 2.2448,
    "median": 0.0062,
-   "n": 522,
+   "n": 527,
    "p90": 0.0283,
    "ref_rate": 0.05868,
-   "total": 9.62
+   "total": 9.66
   },
   "jobs": [
    {
@@ -28272,6 +28401,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-15T09:37:33.514395+00:00",
+    "deleted_at": "2026-11-15T09:47:13.052947+00:00",
+    "eur": 0.05868,
+    "hours": 0.161,
+    "id": "rw-3d1fe6826c77-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.0094,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-13T04:36:47.795722+00:00",
     "deleted_at": "2026-11-13T04:46:17.033055+00:00",
     "eur": 0.05868,
@@ -28603,6 +28744,18 @@
     "id": "rw-5869f2b669ee-build-5",
     "location": "hel1",
     "normalised_eur": 0.0043,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T08:52:45.783545+00:00",
+    "deleted_at": "2026-11-15T08:55:13.426424+00:00",
+    "eur": 0.05868,
+    "hours": 0.041,
+    "id": "rw-5869f2b669ee-build-6",
+    "location": "hel1",
+    "normalised_eur": 0.0024,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29556,6 +29709,30 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-15T09:03:02.192765+00:00",
+    "deleted_at": "2026-11-15T09:11:17.373585+00:00",
+    "eur": 0.05868,
+    "hours": 0.138,
+    "id": "rw-ac5b99da5882-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.0081,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T09:15:04.341760+00:00",
+    "deleted_at": "2026-11-15T09:22:13.814643+00:00",
+    "eur": 0.05868,
+    "hours": 0.119,
+    "id": "rw-ac5b99da5882-publish-1",
+    "location": "hel1",
+    "normalised_eur": 0.007,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-15T02:09:42.424243+00:00",
     "deleted_at": "2026-11-15T02:12:13.894763+00:00",
     "eur": 0.05868,
@@ -30286,6 +30463,30 @@
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T09:32:01.293678+00:00",
+    "deleted_at": "2026-11-15T09:36:17.077049+00:00",
+    "eur": 0.05868,
+    "hours": 0.071,
+    "id": "rw-d5055b6671fa-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0042,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T09:51:11.918637+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "rw-d5055b6671fa-build-2",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "running"
    },
    {
     "created_at": "2026-11-09T23:08:01.658087+00:00",
@@ -31212,19 +31413,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 360,
-  "jobs_total": 522,
-  "lifetime_eur": 31.24,
+  "jobs_this_month": 365,
+  "jobs_total": 528,
+  "lifetime_eur": 31.53,
   "live": {
-   "checked_at": "2026-11-15T08:52:39+00:00",
+   "checked_at": "2026-11-15T09:53:23+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
-  "month_hours": 90.5,
-  "month_to_date": 23.03,
+  "month_hours": 91.0,
+  "month_to_date": 23.32,
   "months": [
    {
     "eur": 5.02,
@@ -31239,13 +31440,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 23.0297,
-    "hours": 90.5,
-    "jobs": 360,
+    "eur": 23.3231,
+    "hours": 91.03,
+    "jobs": 365,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 46.06,
+  "projected_month_eur": 46.65,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -31274,13 +31475,22 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-15T08:50:01.132252+00:00",
+  "observed_at": "2026-11-15T09:50:02.138594+00:00",
   "releases": [
+   {
+    "bundle": "ef18cc02f31026fc146f25a1",
+    "candidate": "source-000096",
+    "dataset": "faa-wildlife-strike-substantial-damage",
+    "observed_at": "2026-11-15T09:50:02.215618+00:00",
+    "plan_sha256": "62f4c3450ae5c267889e21bccc409e4b8ad2f85327307c6281b9b46090b65939",
+    "status": "pending",
+    "version": "v-d654c9f4ddfcf60c"
+   },
    {
     "bundle": "3ddd5f05944a2e3ef0e94845",
     "candidate": "source-000083",
     "dataset": "wser-effluent-exceedance",
-    "observed_at": "2026-11-15T08:50:01.210262+00:00",
+    "observed_at": "2026-11-15T09:50:39.796382+00:00",
     "plan_sha256": "edd78fa8ffe359c90aedb0d3b07c24a52da0967526cd80a80ea618101b09b9f1",
     "status": "complete",
     "version": "v-3ceae5479cda761c"
@@ -31289,7 +31499,7 @@
     "bundle": "b5fa95c50e2409546408cff8",
     "candidate": "source-000079",
     "dataset": "caa-fce-hpv-escalation",
-    "observed_at": "2026-11-15T08:50:07.283676+00:00",
+    "observed_at": "2026-11-15T09:50:45.752022+00:00",
     "plan_sha256": "f8e4e5f5e545adea1ba12a8ea1694e8d9ad6a77e4b1377f98ad59acd8b0339f3",
     "status": "complete",
     "version": "v-fd86cbb0bc96aaca"
@@ -31298,7 +31508,7 @@
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-15T08:50:12.984288+00:00",
+    "observed_at": "2026-11-15T09:50:51.460904+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -31307,7 +31517,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-15T08:50:18.519467+00:00",
+    "observed_at": "2026-11-15T09:50:57.107810+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -31316,7 +31526,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-15T08:50:23.963417+00:00",
+    "observed_at": "2026-11-15T09:51:02.893684+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -31325,7 +31535,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-15T08:50:29.799336+00:00",
+    "observed_at": "2026-11-15T09:51:09.099596+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -31334,7 +31544,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-15T08:50:35.144049+00:00",
+    "observed_at": "2026-11-15T09:51:15.113869+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -31343,7 +31553,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-15T08:50:40.825684+00:00",
+    "observed_at": "2026-11-15T09:51:20.855921+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -31352,7 +31562,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-15T08:50:46.811318+00:00",
+    "observed_at": "2026-11-15T09:51:26.659901+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -31361,7 +31571,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-15T08:50:52.243616+00:00",
+    "observed_at": "2026-11-15T09:51:33.461099+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -31370,7 +31580,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-15T08:50:57.870129+00:00",
+    "observed_at": "2026-11-15T09:51:39.496055+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -31379,7 +31589,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-15T08:51:03.272119+00:00",
+    "observed_at": "2026-11-15T09:51:45.314501+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -31388,7 +31598,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-15T08:51:08.920166+00:00",
+    "observed_at": "2026-11-15T09:51:51.059044+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -31397,7 +31607,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-15T08:51:14.452167+00:00",
+    "observed_at": "2026-11-15T09:51:56.734480+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -31406,12 +31616,12 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-15T08:51:20.093862+00:00",
+    "observed_at": "2026-11-15T09:52:02.740434+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
    }
   ],
-  "status": "ok"
+  "status": "pending"
  }
 }
