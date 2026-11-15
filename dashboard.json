@@ -1,6 +1,5 @@
 {
  "alarms": [
-  "Website wser-effluent-exceedance: pending; data publication is separate",
   "Local test suite failed on 2157157",
   "1 release(s) not fully verified"
  ],
@@ -19,22 +18,24 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 300.0,
-   "allowed": true,
+   "allowed": false,
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-15T03:51:46.672912+00:00",
-   "normal_operation_runs_last_7_days": 433,
-   "normal_operation_runs_weighted_last_7_days": 433,
-   "normal_operation_tokens_last_7_days": 39497255,
+   "moment": "2026-11-15T04:51:42.014112+00:00",
+   "normal_operation_runs_last_7_days": 437,
+   "normal_operation_runs_weighted_last_7_days": 437,
+   "normal_operation_tokens_last_7_days": 39995671,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 336s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 49976222,
-   "runs_last_7_days": 557,
-   "runs_weighted_last_7_days": 557,
-   "session_admission_weighted": 290,
+   "research_tokens_last_7_days": 50474638,
+   "runs_last_7_days": 561,
+   "runs_weighted_last_7_days": 561,
+   "session_admission_weighted": 294,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -65,14 +66,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 9695,
+     "calls": 9731,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 62121242,
-     "output_tokens": 24893984,
+     "input_tokens": 62415637,
+     "output_tokens": 25098005,
      "pricing_available": false
     }
    },
@@ -86,8 +87,9 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "build": 2,
-   "deferred": 63,
+   "build": 1,
+   "deferred": 65,
+   "discover": 1,
    "published": 15,
    "rejected": 7
   },
@@ -106,12 +108,12 @@
     "dataset": "faca-advisory-committee-charter-renewal",
     "domain": "Modern factory",
     "id": "source-000086",
-    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-15T03:55:02.587654+00:00",
-    "next_run_at": "2026-11-15T03:55:02.587654+00:00",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T04:46:16.592101+00:00",
+    "next_run_at": "2026-11-15T04:46:16.592101+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "D minus 60 days, where D is the committee renewal date (field 6 Expected Renewal Date, fallback field 5 Current Charter plus 24 months). Only fiscal-year records whose fiscal year closed on or before D minus 60 days supply features. Whether those records were publicly retrievable at D minus 60 days is not documented by the publisher and is recorded as an assumption.",
     "question": "One year after a federal advisory committee's current charter reaches its renewal date, does the sponsoring agency file a successor charter for that committee, or does the charter lapse with no successor?",
-    "reason": "An active or interrupted job exists; reconcile it before launching another",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -122,21 +124,21 @@
    },
    {
     "country": "unknown",
-    "dataset": "coops-high-tide-flood-day",
+    "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000087",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T03:52:19.425443+00:00",
-    "next_run_at": "2026-11-15T03:52:19.425443+00:00",
+    "id": "source-000089",
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 418.46, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"vidence\\\": [\\n  {\\\"url\\\": \\\"[url] \\\"claim\\\": \\\"The dataset is a documented Open \u00b7 next attempt 2026-11-15T04:45:04.856120+00:00",
+    "next_run_at": "2026-11-15T04:45:04.856120+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "12:00 local standard time on day D-1, using only observations timestamped at or before 11:00 LST on D-1 plus published tide predictions for day D. Lead time is 12 hours to the start of day D and up to 36 hours to its end.",
-    "question": "At a given NOAA water-level station, will the next local calendar day be a high tide flood day - that is, will verified hourly water level reach or exceed that station's NOS minor flood threshold?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "prediction_time": "",
+    "question": "",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 418.46, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"vidence\\\": [\\n  {\\\"url\\\": \\\"[url] \\\"claim\\\": \\\"The dataset is a documented Open",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Frozen chronological boundaries: train 1998-01-01 to 2012-12-31, eval 2013-01-01 to 2017-12-31, holdout 2018-01-01 to 2022-12-31. A 7-day embargo is applied at each boundary by dropping 2013-01-01 to 2013-01-07 and 2018-01-01 to 2018-01-07, so a single synoptic flood event cannot straddle two segments. All stations appear in all three segments (this is forward prediction at the same network, not transfer to new stations), and station-month climatology features are recomputed from pre-segment years only, frozen at each boundary. No metric is computed until these boundaries are written into the construction script.",
-    "status": "build",
-    "target": "1 if the maximum verified hourly height at the station during local calendar day D is greater than or equal to the station's NOS minor flood threshold (nos_minor, station datum; equivalently converted to the MHHW datum as nos_minor minus the station's MHHW datum value), else 0. Days with fewer than 20 of 24 verified hourly values are dropped rather than labelled.",
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
     "workflow": "modern"
    }
   ],
@@ -2102,12 +2104,12 @@
     "dataset": "faca-advisory-committee-charter-renewal",
     "domain": "Modern factory",
     "id": "source-000086",
-    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-15T03:55:02.587654+00:00",
-    "next_run_at": "2026-11-15T03:55:02.587654+00:00",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T04:46:16.592101+00:00",
+    "next_run_at": "2026-11-15T04:46:16.592101+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "D minus 60 days, where D is the committee renewal date (field 6 Expected Renewal Date, fallback field 5 Current Charter plus 24 months). Only fiscal-year records whose fiscal year closed on or before D minus 60 days supply features. Whether those records were publicly retrievable at D minus 60 days is not documented by the publisher and is recorded as an assumption.",
     "question": "One year after a federal advisory committee's current charter reaches its renewal date, does the sponsoring agency file a successor charter for that committee, or does the charter lapse with no successor?",
-    "reason": "An active or interrupted job exists; reconcile it before launching another",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -2121,18 +2123,56 @@
     "dataset": "coops-high-tide-flood-day",
     "domain": "Modern factory",
     "id": "source-000087",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T03:52:19.425443+00:00",
-    "next_run_at": "2026-11-15T03:52:19.425443+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T04:28:18.568758+00:00",
+    "next_run_at": "2026-11-15T04:28:18.568758+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "12:00 local standard time on day D-1, using only observations timestamped at or before 11:00 LST on D-1 plus published tide predictions for day D. Lead time is 12 hours to the start of day D and up to 36 hours to its end.",
     "question": "At a given NOAA water-level station, will the next local calendar day be a high tide flood day - that is, will verified hourly water level reach or exceed that station's NOS minor flood threshold?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "Frozen chronological boundaries: train 1998-01-01 to 2012-12-31, eval 2013-01-01 to 2017-12-31, holdout 2018-01-01 to 2022-12-31. A 7-day embargo is applied at each boundary by dropping 2013-01-01 to 2013-01-07 and 2018-01-01 to 2018-01-07, so a single synoptic flood event cannot straddle two segments. All stations appear in all three segments (this is forward prediction at the same network, not transfer to new stations), and station-month climatology features are recomputed from pre-segment years only, frozen at each boundary. No metric is computed until these boundaries are written into the construction script.",
-    "status": "build",
+    "status": "deferred",
     "target": "1 if the maximum verified hourly height at the station during local calendar day D is greater than or equal to the station's NOS minor flood threshold (nos_minor, station datum; equivalently converted to the MHHW datum as nos_minor minus the station's MHHW datum value), else 0. Days with fewer than 20 of 24 verified hourly values are dropped rather than labelled.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000088",
+    "next_action": "Stage deferred: Two candidates were checked to the field level and both fail on task definition, not on access. (1) FAA Releasable Aircraft Database: the daily ZIP is live and the layout is fully documented, but the only forward outcome in the data is a re",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "Two candidates were checked to the field level and both fail on task definition, not on access. (1) FAA Releasable Aircraft Database: the daily ZIP is live and the layout is fully documented, but the only forward outcome in the data is a re",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "deferred",
+    "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000089",
+    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 418.46, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"vidence\\\": [\\n  {\\\"url\\\": \\\"[url] \\\"claim\\\": \\\"The dataset is a documented Open \u00b7 next attempt 2026-11-15T04:45:04.856120+00:00",
+    "next_run_at": "2026-11-15T04:45:04.856120+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 418.46, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"vidence\\\": [\\n  {\\\"url\\\": \\\"[url] \\\"claim\\\": \\\"The dataset is a documented Open",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "discover",
+    "target": "",
     "workflow": "modern"
    },
    {
@@ -5603,7 +5643,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 200.5,
+    "age_hours": 201.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6433,7 +6473,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 257.0,
+    "age_hours": 258.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12715,7 +12755,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 397.6,
+    "age_hours": 398.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16739,7 +16779,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 246.8,
+    "age_hours": 247.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -17195,10 +17235,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-15T03:50:01.705222+00:00",
+    "last_run_at": "2026-11-15T04:50:01.521400+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-15T04:00:00+00:00",
+    "next_run_at": "2026-11-15T05:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -17279,10 +17319,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-15T02:53:09.483475+00:00",
+    "last_run_at": "2026-11-15T03:53:12.446409+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-15T04:50:00+00:00",
+    "next_run_at": "2026-11-15T05:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -17291,10 +17331,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-15T02:55:01.928752+00:00",
+    "last_run_at": "2026-11-15T03:55:01.458802+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-15T03:55:00+00:00",
+    "next_run_at": "2026-11-15T04:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -17339,10 +17379,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-15T03:51:19.481502+00:00",
+    "last_run_at": "2026-11-15T04:45:16.645795+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-15T03:52:00+00:00",
+    "next_run_at": "2026-11-15T04:47:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -17395,9 +17435,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-15T03:51:19.482627+00:00"
+  "updated_at": "2026-11-15T04:51:01.218982+00:00"
  },
- "generated_at": "2026-11-15T03:51:45+00:00",
+ "generated_at": "2026-11-15T04:51:40+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17425,14 +17465,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-25T01:50:01+00:00",
-   "live": 14,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-25T02:50:01+00:00",
    "live": 14,
@@ -21588,6 +21620,16 @@
    "sessions_7d": 557,
    "tokens_7d": 39497255,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-15T04:51:40+00:00",
+   "live": 2,
+   "published": 29,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 561,
+   "tokens_7d": 39995671,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -23092,49 +23134,84 @@
      "id": "rw-adcfc5406f64-build-3",
      "ordinal": 3,
      "stage": "build",
-     "status": "running"
+     "status": "retry"
     },
     "created_at": "2026-11-15T01:25:01.602124+00:00",
     "dataset": "faca-advisory-committee-charter-renewal",
     "id": "source-000086",
-    "next_run_at": "2026-11-15T03:55:02.587654+00:00",
+    "next_run_at": "2026-11-15T04:46:16.592101+00:00",
     "published_verified": false,
-    "running": true,
+    "running": false,
     "stage": "build",
-    "updated_at": "2026-11-15T03:50:02.587654+00:00"
+    "updated_at": "2026-11-15T04:45:16.592101+00:00"
    },
    {
     "attempt": {
-     "id": "rw-9b0bc4edbf98-build-4",
-     "ordinal": 4,
+     "id": "rw-9b0bc4edbf98-build-5",
+     "ordinal": 5,
      "stage": "build",
      "status": "retry"
     },
     "created_at": "2026-11-15T02:36:01.735501+00:00",
     "dataset": "coops-high-tide-flood-day",
     "id": "source-000087",
-    "next_run_at": "2026-11-15T03:52:19.425443+00:00",
+    "next_run_at": "2026-11-15T04:28:18.568758+00:00",
     "published_verified": false,
     "running": false,
-    "stage": "build",
-    "updated_at": "2026-11-15T03:51:19.425443+00:00"
+    "stage": "deferred",
+    "updated_at": "2026-11-15T04:27:18.568758+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-e7432c990c09-discover-1",
+     "ordinal": 1,
+     "stage": "discover",
+     "status": "defer"
+    },
+    "created_at": "2026-11-15T04:28:01.314499+00:00",
+    "dataset": null,
+    "id": "source-000088",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-15T04:35:14.829206+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-5bf7599d000f-discover-2",
+     "ordinal": 2,
+     "stage": "discover",
+     "status": "running"
+    },
+    "created_at": "2026-11-15T04:36:01.715359+00:00",
+    "dataset": null,
+    "id": "source-000089",
+    "next_run_at": "2026-11-15T04:45:04.856120+00:00",
+    "published_verified": false,
+    "running": true,
+    "stage": "discover",
+    "updated_at": "2026-11-15T04:44:04.856120+00:00"
    }
   ],
   "counts": {
-   "build": 2,
-   "deferred": 63,
+   "build": 1,
+   "deferred": 65,
+   "discover": 1,
    "published": 15,
    "rejected": 7
   },
-  "observed_at": "2026-11-15T03:51:45.488489+00:00",
+  "observed_at": "2026-11-15T04:51:40.617794+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 336s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T03:51:45+00:00",
+   "as_of": "2026-11-15T04:51:40+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -23144,7 +23221,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T03:51:45+00:00",
+   "as_of": "2026-11-15T04:51:40+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -23154,7 +23231,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T03:51:45+00:00",
+   "as_of": "2026-11-15T04:51:40+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -24520,9 +24597,9 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "27.88",
-   "completed_estimate_eur": "27.84",
-   "completed_jobs": 341,
+   "charged_eur": "28.04",
+   "completed_estimate_eur": "28.00",
+   "completed_jobs": 343,
    "reserved_jobs": 1,
    "retained_reservations_eur": "0.04"
   },
@@ -24532,7 +24609,7 @@
   "histogram": {
    "bins": [
     {
-     "count": 348,
+     "count": 349,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -24542,7 +24619,7 @@
      "lo": 0.01
     },
     {
-     "count": 53,
+     "count": 54,
      "hi": 0.05,
      "lo": 0.02
     },
@@ -24579,10 +24656,10 @@
    ],
    "max": 2.2448,
    "median": 0.0063,
-   "n": 502,
-   "p90": 0.0301,
+   "n": 504,
+   "p90": 0.0302,
    "ref_rate": 0.05868,
-   "total": 9.51
+   "total": 9.55
   },
   "jobs": [
    {
@@ -28774,6 +28851,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-15T03:54:24.241410+00:00",
+    "deleted_at": "2026-11-15T04:27:16.699417+00:00",
+    "eur": 0.05868,
+    "hours": 0.548,
+    "id": "rw-9b0bc4edbf98-build-5",
+    "location": "hel1",
+    "normalised_eur": 0.0322,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-14T03:57:22.164786+00:00",
     "deleted_at": "2026-11-14T04:00:22.901368+00:00",
     "eur": 0.05868,
@@ -29045,6 +29134,18 @@
     "id": "rw-adcfc5406f64-build-2",
     "location": "hel1",
     "normalised_eur": 0.0051,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T04:36:01.753627+00:00",
+    "deleted_at": "2026-11-15T04:45:13.961297+00:00",
+    "eur": 0.05868,
+    "hours": 0.153,
+    "id": "rw-adcfc5406f64-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.009,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -30610,19 +30711,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 340,
-  "jobs_total": 502,
-  "lifetime_eur": 30.07,
+  "jobs_this_month": 342,
+  "jobs_total": 504,
+  "lifetime_eur": 30.18,
   "live": {
-   "checked_at": "2026-11-15T03:52:58+00:00",
+   "checked_at": "2026-11-15T04:52:54+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 88.6,
-  "month_to_date": 21.86,
+  "month_hours": 89.3,
+  "month_to_date": 21.97,
   "months": [
    {
     "eur": 5.02,
@@ -30637,13 +30738,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 21.8561,
-    "hours": 88.57,
-    "jobs": 340,
+    "eur": 21.9734,
+    "hours": 89.27,
+    "jobs": 342,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 43.71,
+  "projected_month_eur": 43.95,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -30672,22 +30773,22 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-15T03:50:01.302862+00:00",
+  "observed_at": "2026-11-15T04:50:01.834470+00:00",
   "releases": [
    {
     "bundle": "3ddd5f05944a2e3ef0e94845",
     "candidate": "source-000083",
     "dataset": "wser-effluent-exceedance",
-    "observed_at": "2026-11-15T03:50:01.382506+00:00",
+    "observed_at": "2026-11-15T04:50:01.916068+00:00",
     "plan_sha256": "edd78fa8ffe359c90aedb0d3b07c24a52da0967526cd80a80ea618101b09b9f1",
-    "status": "pending",
+    "status": "complete",
     "version": "v-3ceae5479cda761c"
    },
    {
     "bundle": "b5fa95c50e2409546408cff8",
     "candidate": "source-000079",
     "dataset": "caa-fce-hpv-escalation",
-    "observed_at": "2026-11-15T03:50:23.026449+00:00",
+    "observed_at": "2026-11-15T04:50:23.031840+00:00",
     "plan_sha256": "f8e4e5f5e545adea1ba12a8ea1694e8d9ad6a77e4b1377f98ad59acd8b0339f3",
     "status": "complete",
     "version": "v-fd86cbb0bc96aaca"
@@ -30696,7 +30797,7 @@
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-15T03:50:28.873843+00:00",
+    "observed_at": "2026-11-15T04:50:28.630726+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -30705,7 +30806,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-15T03:50:34.749784+00:00",
+    "observed_at": "2026-11-15T04:50:34.028836+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -30714,7 +30815,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-15T03:50:40.256073+00:00",
+    "observed_at": "2026-11-15T04:50:39.561327+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -30723,7 +30824,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-15T03:50:46.303520+00:00",
+    "observed_at": "2026-11-15T04:50:45.081988+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -30732,7 +30833,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-15T03:50:51.785678+00:00",
+    "observed_at": "2026-11-15T04:50:50.635505+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -30741,7 +30842,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-15T03:50:57.715730+00:00",
+    "observed_at": "2026-11-15T04:50:56.281215+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -30750,7 +30851,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-15T03:51:03.196230+00:00",
+    "observed_at": "2026-11-15T04:51:01.839235+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -30759,7 +30860,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-15T03:51:08.698803+00:00",
+    "observed_at": "2026-11-15T04:51:07.228822+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -30768,7 +30869,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-15T03:51:15.552706+00:00",
+    "observed_at": "2026-11-15T04:51:12.835638+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -30777,7 +30878,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-15T03:51:21.786967+00:00",
+    "observed_at": "2026-11-15T04:51:18.431118+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -30786,7 +30887,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-15T03:51:28.145512+00:00",
+    "observed_at": "2026-11-15T04:51:24.084641+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -30795,7 +30896,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-15T03:51:33.636897+00:00",
+    "observed_at": "2026-11-15T04:51:29.577660+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -30804,12 +30905,12 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-15T03:51:39.138307+00:00",
+    "observed_at": "2026-11-15T04:51:34.807293+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
    }
   ],
-  "status": "pending"
+  "status": "ok"
  }
 }
