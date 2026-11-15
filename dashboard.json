@@ -1,8 +1,5 @@
 {
  "alarms": [
-  "Website fra-form54-hazmat-release: pending; data publication is separate",
-  "Website seattle-building-permit-completion: pending; data publication is separate",
-  "Website faa-wildlife-strike-substantial-damage: pending; data publication is separate",
   "Local test suite failed on 2157157",
   "1 release(s) not fully verified"
  ],
@@ -22,23 +19,23 @@
    "accounting_available": true,
    "allowance_usd": 300.0,
    "allowed": false,
-   "development_runs_last_7_days": 123,
+   "development_runs_last_7_days": 117,
    "development_token_exemption_active": false,
-   "development_tokens_last_7_days": 10424827,
-   "moment": "2026-11-15T11:52:54.924080+00:00",
-   "normal_operation_runs_last_7_days": 505,
-   "normal_operation_runs_weighted_last_7_days": 505,
-   "normal_operation_tokens_last_7_days": 46505623,
+   "development_tokens_last_7_days": 10129377,
+   "moment": "2026-11-15T12:52:34.131901+00:00",
+   "normal_operation_runs_last_7_days": 517,
+   "normal_operation_runs_weighted_last_7_days": 517,
+   "normal_operation_tokens_last_7_days": 47823383,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 168s by scout-research"
+    "lock held for 8s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 56930450,
-   "runs_last_7_days": 628,
-   "runs_weighted_last_7_days": 628,
-   "session_admission_weighted": 364,
+   "research_tokens_last_7_days": 57952760,
+   "runs_last_7_days": 634,
+   "runs_weighted_last_7_days": 634,
+   "session_admission_weighted": 376,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -69,20 +66,20 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 10196,
+     "calls": 10283,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 66489894,
-     "output_tokens": 28116863,
+     "input_tokens": 67422114,
+     "output_tokens": 28502403,
      "pricing_available": false
     }
    },
    "warnings": [
     "Research dollar spend and remaining allowance are unknown; admission uses the configured measured token ceiling",
-    "10,424,827 measured development tokens are excluded from the normal-operation weekly ceiling"
+    "10,129,377 measured development tokens are excluded from the normal-operation weekly ceiling"
    ],
    "weekly_token_budget": 400000000
   }
@@ -90,9 +87,8 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "build": 1,
-   "deferred": 75,
-   "discover": 1,
+   "build": 2,
+   "deferred": 77,
    "published": 18,
    "rejected": 7
   },
@@ -108,30 +104,11 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": null,
-    "domain": "Modern factory",
-    "id": "source-000101",
-    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 307.221, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"lock-years per calendar year across 22 label years, order of 3,000-4,500 rows  \u00b7 next attempt 2026-11-15T11:50:13.344458+00:00",
-    "next_run_at": "2026-11-15T11:50:13.344458+00:00",
-    "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
-    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 307.221, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"lock-years per calendar year across 22 label years, order of 3,000-4,500 rows ",
-    "release_baseline": {},
-    "release_splits": {},
-    "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
-    "workflow": "modern"
-   },
-   {
-    "country": "unknown",
     "dataset": "sec-edgar-late-annual-report",
     "domain": "Modern factory",
     "id": "source-000102",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T11:44:16.361019+00:00",
-    "next_run_at": "2026-11-15T11:44:16.361019+00:00",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T12:50:19.185915+00:00",
+    "next_run_at": "2026-11-15T12:50:19.185915+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "Close of the EDGAR business day on which the triggering Form 10-K is filed, using date_filed as the event key. Every feature is computed only from index rows for the same CIK with Date Filed on or before date_filed; no row dated after date_filed is used for that observation.",
     "question": "Given a registrant's annual report (Form 10-K) and its EDGAR filing history up to the moment that report is filed, will the registrant file a Form NT 10-K (notification of inability to timely file) for its next annual reporting cycle?",
@@ -142,6 +119,25 @@
     "split_strategy": "Fixed chronological boundaries on d with an embargo longer than the label horizon: train 2015-01-01 to 2019-06-30; embargo 2019-07-01 to 2020-12-31 (550 days, greater than the 480-day horizon, so no training label window touches the eval period); eval 2021-01-01 to 2022-06-30; embargo 2022-07-01 to 2023-12-31; holdout 2024-01-01 to 2024-12-31. Boundaries and the label rule are frozen before any model is fitted.",
     "status": "build",
     "target": "y = 1 if the same CIK has at least one index row with form type exactly 'NT 10-K' or 'NT 10-K/A' and Date Filed strictly greater than d and less than or equal to d + 480 days; otherwise y = 0. Rows whose 480-day window extends past the last downloaded index date are dropped, not coded 0.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "gb-mot-first-test-failure",
+    "domain": "Modern factory",
+    "id": "source-000104",
+    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-15T12:53:16.742618+00:00",
+    "next_run_at": "2026-11-15T12:53:16.742618+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "At the start of the first normal MOT test in 2023, after the vehicle is presented and the odometer is read, before any inspection result or defect item is recorded.",
+    "question": "Will a class 4 car or light van fail its first mandatory MOT test at about age three?",
+    "reason": "An active or interrupted job exists; reconcile it before launching another",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Fixed chronological splits by test_date: train 2023-01-01 to 2023-04-30; eval 2023-05-01 to 2023-08-31; holdout 2023-09-01 to 2023-12-31. Before splitting, keep only the earliest NT test per vehicle_id so no vehicle_id crosses splits. No embargo is needed because the label is recorded during the same visit and no future outcome is used.",
+    "status": "build",
+    "target": "1 if TEST_RESULT == 'F'; 0 if TEST_RESULT == 'P'; exclude PRS, ABA, and ABR as non-evaluable outcomes.",
     "workflow": "modern"
    }
   ],
@@ -2443,17 +2439,17 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000101",
-    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 307.221, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"lock-years per calendar year across 22 label years, order of 3,000-4,500 rows  \u00b7 next attempt 2026-11-15T11:50:13.344458+00:00",
-    "next_run_at": "2026-11-15T11:50:13.344458+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 418.067, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"ree stocking.\\\"}\\n ],\\n \\\"construction\\\": {\\n  \\\"format \u00b7 next attempt 2026-11-15T12:09:04.856781+00:00",
+    "next_run_at": "2026-11-15T12:09:04.856781+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
-    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 307.221, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"lock-years per calendar year across 22 label years, order of 3,000-4,500 rows ",
+    "reason": "Attempt limit reached: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 418.067, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"ree stocking.\\\"}\\n ],\\n \\\"construction\\\": {\\n  \\\"format",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "",
-    "status": "discover",
+    "status": "deferred",
     "target": "",
     "workflow": "modern"
    },
@@ -2462,8 +2458,8 @@
     "dataset": "sec-edgar-late-annual-report",
     "domain": "Modern factory",
     "id": "source-000102",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T11:44:16.361019+00:00",
-    "next_run_at": "2026-11-15T11:44:16.361019+00:00",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T12:50:19.185915+00:00",
+    "next_run_at": "2026-11-15T12:50:19.185915+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "Close of the EDGAR business day on which the triggering Form 10-K is filed, using date_filed as the event key. Every feature is computed only from index rows for the same CIK with Date Filed on or before date_filed; no row dated after date_filed is used for that observation.",
     "question": "Given a registrant's annual report (Form 10-K) and its EDGAR filing history up to the moment that report is filed, will the registrant file a Form NT 10-K (notification of inability to timely file) for its next annual reporting cycle?",
@@ -2474,6 +2470,44 @@
     "split_strategy": "Fixed chronological boundaries on d with an embargo longer than the label horizon: train 2015-01-01 to 2019-06-30; embargo 2019-07-01 to 2020-12-31 (550 days, greater than the 480-day horizon, so no training label window touches the eval period); eval 2021-01-01 to 2022-06-30; embargo 2022-07-01 to 2023-12-31; holdout 2024-01-01 to 2024-12-31. Boundaries and the label rule are frozen before any model is fitted.",
     "status": "build",
     "target": "y = 1 if the same CIK has at least one index row with form type exactly 'NT 10-K' or 'NT 10-K/A' and Date Filed strictly greater than d and less than or equal to d + 480 days; otherwise y = 0. Rows whose 480-day window extends past the last downloaded index date are dropped, not coded 0.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000103",
+    "next_action": "Stage deferred: Best candidate examined was EPA's ACRES brownfields property data reachable directly through the Envirofacts REST service, but the two facts the task hinges on could not be verified: (1) no property-level 'cleanup completed' date field was ",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "Best candidate examined was EPA's ACRES brownfields property data reachable directly through the Envirofacts REST service, but the two facts the task hinges on could not be verified: (1) no property-level 'cleanup completed' date field was ",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "deferred",
+    "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "gb-mot-first-test-failure",
+    "domain": "Modern factory",
+    "id": "source-000104",
+    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-15T12:53:16.742618+00:00",
+    "next_run_at": "2026-11-15T12:53:16.742618+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "At the start of the first normal MOT test in 2023, after the vehicle is presented and the odometer is read, before any inspection result or defect item is recorded.",
+    "question": "Will a class 4 car or light van fail its first mandatory MOT test at about age three?",
+    "reason": "An active or interrupted job exists; reconcile it before launching another",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Fixed chronological splits by test_date: train 2023-01-01 to 2023-04-30; eval 2023-05-01 to 2023-08-31; holdout 2023-09-01 to 2023-12-31. Before splitting, keep only the earliest NT test per vehicle_id so no vehicle_id crosses splits. No embargo is needed because the label is recorded during the same visit and no future outcome is used.",
+    "status": "build",
+    "target": "1 if TEST_RESULT == 'F'; 0 if TEST_RESULT == 'P'; exclude PRS, ABA, and ABR as non-evaluable outcomes.",
     "workflow": "modern"
    },
    {
@@ -5944,7 +5978,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 208.5,
+    "age_hours": 209.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6774,7 +6808,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 265.0,
+    "age_hours": 266.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -13056,7 +13090,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 405.6,
+    "age_hours": 406.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -17080,7 +17114,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 254.8,
+    "age_hours": 255.8,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -17536,10 +17570,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-15T11:50:02.190444+00:00",
+    "last_run_at": "2026-11-15T12:50:01.303053+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-15T12:00:00+00:00",
+    "next_run_at": "2026-11-15T13:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -17620,10 +17654,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-15T10:53:16.364529+00:00",
+    "last_run_at": "2026-11-15T11:54:48.093402+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-15T12:50:00+00:00",
+    "next_run_at": "2026-11-15T13:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -17632,10 +17666,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-15T10:55:01.202099+00:00",
+    "last_run_at": "2026-11-15T11:55:02.052249+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-15T11:55:00+00:00",
+    "next_run_at": "2026-11-15T12:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -17680,10 +17714,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-15T11:49:13.401082+00:00",
+    "last_run_at": "2026-11-15T12:50:01.458529+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-15T11:51:00+00:00",
+    "next_run_at": "2026-11-15T12:52:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -17736,9 +17770,9 @@
     "schedule": "once at 2026-11-16 07:00"
    }
   ],
-  "updated_at": "2026-11-15T11:52:01.183800+00:00"
+  "updated_at": "2026-11-15T12:52:00.432382+00:00"
  },
- "generated_at": "2026-11-15T11:52:53+00:00",
+ "generated_at": "2026-11-15T12:52:32+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17766,14 +17800,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-25T09:50:01+00:00",
-   "live": 14,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-25T10:50:02+00:00",
    "live": 14,
@@ -21945,6 +21971,16 @@
    "sessions_7d": 628,
    "tokens_7d": 46505623,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-15T12:52:32+00:00",
+   "live": 2,
+   "published": 32,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 634,
+   "tokens_7d": 47823383,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -23713,55 +23749,86 @@
    },
    {
     "attempt": {
-     "id": "rw-7067c1a1c069-discover-3",
-     "ordinal": 3,
+     "id": "rw-7067c1a1c069-discover-5",
+     "ordinal": 5,
      "stage": "discover",
      "status": "retry"
     },
     "created_at": "2026-11-15T11:14:01.891595+00:00",
     "dataset": null,
     "id": "source-000101",
-    "next_run_at": "2026-11-15T11:50:13.344458+00:00",
+    "next_run_at": "2026-11-15T12:09:04.856781+00:00",
     "published_verified": false,
     "running": false,
-    "stage": "discover",
-    "updated_at": "2026-11-15T11:49:13.344458+00:00"
+    "stage": "deferred",
+    "updated_at": "2026-11-15T12:08:04.856781+00:00"
    },
    {
     "attempt": {
-     "id": "rw-025dcb36b1dc-build-2",
-     "ordinal": 2,
+     "id": "rw-025dcb36b1dc-build-6",
+     "ordinal": 6,
      "stage": "build",
      "status": "running"
     },
     "created_at": "2026-11-15T11:23:01.227440+00:00",
     "dataset": "sec-edgar-late-annual-report",
     "id": "source-000102",
-    "next_run_at": "2026-11-15T11:44:16.361019+00:00",
+    "next_run_at": "2026-11-15T12:50:19.185915+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-15T11:50:02.026429+00:00"
+    "updated_at": "2026-11-15T12:52:21.097080+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-03acd90bb7e6-discover-1",
+     "ordinal": 1,
+     "stage": "discover",
+     "status": "defer"
+    },
+    "created_at": "2026-11-15T12:09:01.258629+00:00",
+    "dataset": null,
+    "id": "source-000103",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-15T12:18:52.796601+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-328f52635acd-build-2",
+     "ordinal": 2,
+     "stage": "build",
+     "status": "running"
+    },
+    "created_at": "2026-11-15T12:19:02.169809+00:00",
+    "dataset": "gb-mot-first-test-failure",
+    "id": "source-000104",
+    "next_run_at": "2026-11-15T12:53:16.742618+00:00",
+    "published_verified": false,
+    "running": true,
+    "stage": "build",
+    "updated_at": "2026-11-15T12:48:16.742618+00:00"
    }
   ],
   "counts": {
-   "build": 1,
-   "deferred": 75,
-   "discover": 1,
+   "build": 2,
+   "deferred": 77,
    "published": 18,
    "rejected": 7
   },
-  "observed_at": "2026-11-15T11:52:53.565461+00:00",
+  "observed_at": "2026-11-15T12:52:32.857001+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
  "notices": [
-  "A research session is running: lock held for 168s by scout-research"
+  "A research session is running: lock held for 8s by scout-research"
  ],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T11:52:53+00:00",
+   "as_of": "2026-11-15T12:52:32+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -23771,7 +23838,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T11:52:53+00:00",
+   "as_of": "2026-11-15T12:52:32+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -23781,7 +23848,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T11:52:53+00:00",
+   "as_of": "2026-11-15T12:52:32+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -25246,11 +25313,11 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "30.92",
-   "completed_estimate_eur": "30.72",
-   "completed_jobs": 377,
-   "reserved_jobs": 2,
-   "retained_reservations_eur": "0.20"
+   "charged_eur": "31.08",
+   "completed_estimate_eur": "31.04",
+   "completed_jobs": 381,
+   "reserved_jobs": 1,
+   "retained_reservations_eur": "0.04"
   },
   "ceiling_eur": 50.0,
   "errors": [],
@@ -25258,7 +25325,7 @@
   "histogram": {
    "bins": [
     {
-     "count": 381,
+     "count": 385,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -25305,10 +25372,10 @@
    ],
    "max": 2.2448,
    "median": 0.0062,
-   "n": 538,
-   "p90": 0.028,
+   "n": 542,
+   "p90": 0.0276,
    "ref_rate": 0.05868,
-   "total": 9.71
+   "total": 9.73
   },
   "jobs": [
    {
@@ -27713,15 +27780,39 @@
    },
    {
     "created_at": "2026-11-15T11:52:59.249691+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-11-15T12:00:19.058671+00:00",
+    "eur": 0.05868,
+    "hours": 0.122,
     "id": "rw-025dcb36b1dc-build-2",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0072,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
-    "status": "running"
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T12:21:41.720087+00:00",
+    "deleted_at": "2026-11-15T12:29:13.813872+00:00",
+    "eur": 0.05868,
+    "hours": 0.126,
+    "id": "rw-025dcb36b1dc-build-4",
+    "location": "hel1",
+    "normalised_eur": 0.0074,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T12:44:57.287381+00:00",
+    "deleted_at": "2026-11-15T12:49:16.413305+00:00",
+    "eur": 0.05868,
+    "hours": 0.072,
+    "id": "rw-025dcb36b1dc-build-5",
+    "location": "hel1",
+    "normalised_eur": 0.0042,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
    },
    {
     "created_at": "2026-11-09T21:57:32.104892+00:00",
@@ -28535,6 +28626,18 @@
     "id": "rw-2e60ed342d55-build-3",
     "location": "hel1",
     "normalised_eur": 0.0022,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T12:37:38.652752+00:00",
+    "deleted_at": "2026-11-15T12:40:13.281132+00:00",
+    "eur": 0.05868,
+    "hours": 0.043,
+    "id": "rw-328f52635acd-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0025,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -31780,19 +31883,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 376,
-  "jobs_total": 539,
-  "lifetime_eur": 32.18,
+  "jobs_this_month": 380,
+  "jobs_total": 542,
+  "lifetime_eur": 32.41,
   "live": {
-   "checked_at": "2026-11-15T11:54:07+00:00",
+   "checked_at": "2026-11-15T12:53:47+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 92.0,
-  "month_to_date": 23.97,
+  "month_hours": 92.4,
+  "month_to_date": 24.2,
   "months": [
    {
     "eur": 5.02,
@@ -31807,13 +31910,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 23.9686,
-    "hours": 92.0,
-    "jobs": 376,
+    "eur": 24.2033,
+    "hours": 92.36,
+    "jobs": 380,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 47.94,
+  "projected_month_eur": 48.41,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -31842,40 +31945,40 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-15T11:50:01.337269+00:00",
+  "observed_at": "2026-11-15T12:50:01.028017+00:00",
   "releases": [
    {
     "bundle": "aa6a43f243713c68b0d35cb4",
     "candidate": "source-000099",
     "dataset": "fra-form54-hazmat-release",
-    "observed_at": "2026-11-15T11:50:01.418343+00:00",
+    "observed_at": "2026-11-15T12:50:01.108099+00:00",
     "plan_sha256": "20a77f8fbc5c6a21f9844d1befc0efcc15eb8a403fc82d8d16088b06356ac404",
-    "status": "pending",
+    "status": "complete",
     "version": "v-c59d614ee9c4ce97"
    },
    {
     "bundle": "2e22aecc0868a441c362537c",
     "candidate": "source-000100",
     "dataset": "seattle-building-permit-completion",
-    "observed_at": "2026-11-15T11:50:30.231051+00:00",
+    "observed_at": "2026-11-15T12:50:24.956838+00:00",
     "plan_sha256": "091541b8ecd58e8e07653a2e15847f9108b77b26b3d15ffc1dc0cca082b1a101",
-    "status": "pending",
+    "status": "complete",
     "version": "v-67a46c698fa813cc"
    },
    {
     "bundle": "ef18cc02f31026fc146f25a1",
     "candidate": "source-000096",
     "dataset": "faa-wildlife-strike-substantial-damage",
-    "observed_at": "2026-11-15T11:51:03.255145+00:00",
+    "observed_at": "2026-11-15T12:50:46.146821+00:00",
     "plan_sha256": "62f4c3450ae5c267889e21bccc409e4b8ad2f85327307c6281b9b46090b65939",
-    "status": "pending",
+    "status": "complete",
     "version": "v-d654c9f4ddfcf60c"
    },
    {
     "bundle": "3ddd5f05944a2e3ef0e94845",
     "candidate": "source-000083",
     "dataset": "wser-effluent-exceedance",
-    "observed_at": "2026-11-15T11:51:23.841785+00:00",
+    "observed_at": "2026-11-15T12:51:07.686086+00:00",
     "plan_sha256": "edd78fa8ffe359c90aedb0d3b07c24a52da0967526cd80a80ea618101b09b9f1",
     "status": "complete",
     "version": "v-3ceae5479cda761c"
@@ -31884,7 +31987,7 @@
     "bundle": "b5fa95c50e2409546408cff8",
     "candidate": "source-000079",
     "dataset": "caa-fce-hpv-escalation",
-    "observed_at": "2026-11-15T11:51:30.102552+00:00",
+    "observed_at": "2026-11-15T12:51:13.452152+00:00",
     "plan_sha256": "f8e4e5f5e545adea1ba12a8ea1694e8d9ad6a77e4b1377f98ad59acd8b0339f3",
     "status": "complete",
     "version": "v-fd86cbb0bc96aaca"
@@ -31893,7 +31996,7 @@
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-15T11:51:36.827709+00:00",
+    "observed_at": "2026-11-15T12:51:19.163443+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -31902,7 +32005,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-15T11:51:42.370027+00:00",
+    "observed_at": "2026-11-15T12:51:24.638335+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -31911,7 +32014,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-15T11:51:48.556664+00:00",
+    "observed_at": "2026-11-15T12:51:30.219936+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -31920,7 +32023,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-15T11:51:54.160521+00:00",
+    "observed_at": "2026-11-15T12:51:35.990260+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -31929,7 +32032,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-15T11:51:59.955191+00:00",
+    "observed_at": "2026-11-15T12:51:41.531717+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -31938,7 +32041,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-15T11:52:06.022064+00:00",
+    "observed_at": "2026-11-15T12:51:47.447111+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -31947,7 +32050,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-15T11:52:12.006056+00:00",
+    "observed_at": "2026-11-15T12:51:52.923463+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -31956,7 +32059,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-15T11:52:17.748123+00:00",
+    "observed_at": "2026-11-15T12:51:58.851538+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -31965,7 +32068,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-15T11:52:24.034488+00:00",
+    "observed_at": "2026-11-15T12:52:04.523158+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -31974,7 +32077,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-15T11:52:29.801500+00:00",
+    "observed_at": "2026-11-15T12:52:10.177184+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -31983,7 +32086,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-15T11:52:35.640959+00:00",
+    "observed_at": "2026-11-15T12:52:15.588260+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -31992,7 +32095,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-15T11:52:41.515324+00:00",
+    "observed_at": "2026-11-15T12:52:21.153767+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -32001,12 +32104,12 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-15T11:52:47.143282+00:00",
+    "observed_at": "2026-11-15T12:52:26.726090+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
    }
   ],
-  "status": "pending"
+  "status": "ok"
  }
 }
