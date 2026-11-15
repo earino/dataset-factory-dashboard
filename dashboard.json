@@ -19,24 +19,22 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 300.0,
-   "allowed": false,
+   "allowed": true,
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-15T02:51:41.991183+00:00",
-   "normal_operation_runs_last_7_days": 429,
-   "normal_operation_runs_weighted_last_7_days": 429,
-   "normal_operation_tokens_last_7_days": 39128223,
+   "moment": "2026-11-15T03:51:46.672912+00:00",
+   "normal_operation_runs_last_7_days": 433,
+   "normal_operation_runs_weighted_last_7_days": 433,
+   "normal_operation_tokens_last_7_days": 39497255,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 96s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 49607190,
-   "runs_last_7_days": 553,
-   "runs_weighted_last_7_days": 553,
-   "session_admission_weighted": 286,
+   "research_tokens_last_7_days": 49976222,
+   "runs_last_7_days": 557,
+   "runs_weighted_last_7_days": 557,
+   "session_admission_weighted": 290,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -67,14 +65,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 9686,
+     "calls": 9695,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 62011406,
-     "output_tokens": 24634788,
+     "input_tokens": 62121242,
+     "output_tokens": 24893984,
      "pricing_available": false
     }
    },
@@ -108,12 +106,12 @@
     "dataset": "faca-advisory-committee-charter-renewal",
     "domain": "Modern factory",
     "id": "source-000086",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T02:50:16.830119+00:00",
-    "next_run_at": "2026-11-15T02:50:16.830119+00:00",
+    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-15T03:55:02.587654+00:00",
+    "next_run_at": "2026-11-15T03:55:02.587654+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "D minus 60 days, where D is the committee renewal date (field 6 Expected Renewal Date, fallback field 5 Current Charter plus 24 months). Only fiscal-year records whose fiscal year closed on or before D minus 60 days supply features. Whether those records were publicly retrievable at D minus 60 days is not documented by the publisher and is recorded as an assumption.",
     "question": "One year after a federal advisory committee's current charter reaches its renewal date, does the sponsoring agency file a successor charter for that committee, or does the charter lapse with no successor?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "reason": "An active or interrupted job exists; reconcile it before launching another",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -127,12 +125,12 @@
     "dataset": "coops-high-tide-flood-day",
     "domain": "Modern factory",
     "id": "source-000087",
-    "next_action": "Stage build: Source researched with access, terms and task evidence",
-    "next_run_at": null,
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T03:52:19.425443+00:00",
+    "next_run_at": "2026-11-15T03:52:19.425443+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "12:00 local standard time (LST) on day D-1, using only observations timestamped at or before 11:00 LST on D-1 plus published tide predictions for day D. Lead time to the start of the outcome window is 12 hours, and up to 36 hours to its end.",
+    "prediction_time": "12:00 local standard time on day D-1, using only observations timestamped at or before 11:00 LST on D-1 plus published tide predictions for day D. Lead time is 12 hours to the start of day D and up to 36 hours to its end.",
     "question": "At a given NOAA water-level station, will the next local calendar day be a high tide flood day - that is, will verified hourly water level reach or exceed that station's NOS minor flood threshold?",
-    "reason": "Source researched with access, terms and task evidence",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -2104,12 +2102,12 @@
     "dataset": "faca-advisory-committee-charter-renewal",
     "domain": "Modern factory",
     "id": "source-000086",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T02:50:16.830119+00:00",
-    "next_run_at": "2026-11-15T02:50:16.830119+00:00",
+    "next_action": "Stage build: An active or interrupted job exists; reconcile it before launching another \u00b7 next attempt 2026-11-15T03:55:02.587654+00:00",
+    "next_run_at": "2026-11-15T03:55:02.587654+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "D minus 60 days, where D is the committee renewal date (field 6 Expected Renewal Date, fallback field 5 Current Charter plus 24 months). Only fiscal-year records whose fiscal year closed on or before D minus 60 days supply features. Whether those records were publicly retrievable at D minus 60 days is not documented by the publisher and is recorded as an assumption.",
     "question": "One year after a federal advisory committee's current charter reaches its renewal date, does the sponsoring agency file a successor charter for that committee, or does the charter lapse with no successor?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "reason": "An active or interrupted job exists; reconcile it before launching another",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -2123,12 +2121,12 @@
     "dataset": "coops-high-tide-flood-day",
     "domain": "Modern factory",
     "id": "source-000087",
-    "next_action": "Stage build: Source researched with access, terms and task evidence",
-    "next_run_at": null,
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T03:52:19.425443+00:00",
+    "next_run_at": "2026-11-15T03:52:19.425443+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "12:00 local standard time (LST) on day D-1, using only observations timestamped at or before 11:00 LST on D-1 plus published tide predictions for day D. Lead time to the start of the outcome window is 12 hours, and up to 36 hours to its end.",
+    "prediction_time": "12:00 local standard time on day D-1, using only observations timestamped at or before 11:00 LST on D-1 plus published tide predictions for day D. Lead time is 12 hours to the start of day D and up to 36 hours to its end.",
     "question": "At a given NOAA water-level station, will the next local calendar day be a high tide flood day - that is, will verified hourly water level reach or exceed that station's NOS minor flood threshold?",
-    "reason": "Source researched with access, terms and task evidence",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -5605,7 +5603,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 199.5,
+    "age_hours": 200.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6435,7 +6433,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 256.0,
+    "age_hours": 257.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12717,7 +12715,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 396.6,
+    "age_hours": 397.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16741,7 +16739,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 245.7,
+    "age_hours": 246.8,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -17197,10 +17195,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-15T02:50:02.618924+00:00",
+    "last_run_at": "2026-11-15T03:50:01.705222+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-15T03:00:00+00:00",
+    "next_run_at": "2026-11-15T04:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -17281,10 +17279,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-15T01:53:30.551092+00:00",
+    "last_run_at": "2026-11-15T02:53:09.483475+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-15T03:50:00+00:00",
+    "next_run_at": "2026-11-15T04:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -17293,10 +17291,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-15T01:55:01.688083+00:00",
+    "last_run_at": "2026-11-15T02:55:01.928752+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-15T02:55:00+00:00",
+    "next_run_at": "2026-11-15T03:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -17341,10 +17339,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-15T02:49:16.883737+00:00",
+    "last_run_at": "2026-11-15T03:51:19.481502+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-15T02:51:00+00:00",
+    "next_run_at": "2026-11-15T03:52:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -17397,9 +17395,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-15T02:51:00.938317+00:00"
+  "updated_at": "2026-11-15T03:51:19.482627+00:00"
  },
- "generated_at": "2026-11-15T02:51:40+00:00",
+ "generated_at": "2026-11-15T03:51:45+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17427,14 +17425,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-25T00:50:02+00:00",
-   "live": 14,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-25T01:50:01+00:00",
    "live": 14,
@@ -21588,6 +21578,16 @@
    "sessions_7d": 553,
    "tokens_7d": 39128223,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-15T03:51:45+00:00",
+   "live": 2,
+   "published": 29,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 557,
+   "tokens_7d": 39497255,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -23089,35 +23089,35 @@
    },
    {
     "attempt": {
-     "id": "rw-adcfc5406f64-build-2",
-     "ordinal": 2,
+     "id": "rw-adcfc5406f64-build-3",
+     "ordinal": 3,
      "stage": "build",
-     "status": "retry"
+     "status": "running"
     },
     "created_at": "2026-11-15T01:25:01.602124+00:00",
     "dataset": "faca-advisory-committee-charter-renewal",
     "id": "source-000086",
-    "next_run_at": "2026-11-15T02:50:16.830119+00:00",
+    "next_run_at": "2026-11-15T03:55:02.587654+00:00",
     "published_verified": false,
-    "running": false,
+    "running": true,
     "stage": "build",
-    "updated_at": "2026-11-15T02:49:16.830119+00:00"
+    "updated_at": "2026-11-15T03:50:02.587654+00:00"
    },
    {
     "attempt": {
-     "id": "rw-9b0bc4edbf98-build-1",
-     "ordinal": 1,
+     "id": "rw-9b0bc4edbf98-build-4",
+     "ordinal": 4,
      "stage": "build",
-     "status": "running"
+     "status": "retry"
     },
     "created_at": "2026-11-15T02:36:01.735501+00:00",
     "dataset": "coops-high-tide-flood-day",
     "id": "source-000087",
-    "next_run_at": null,
+    "next_run_at": "2026-11-15T03:52:19.425443+00:00",
     "published_verified": false,
-    "running": true,
+    "running": false,
     "stage": "build",
-    "updated_at": "2026-11-15T02:48:47.616725+00:00"
+    "updated_at": "2026-11-15T03:51:19.425443+00:00"
    }
   ],
   "counts": {
@@ -23126,17 +23126,15 @@
    "published": 15,
    "rejected": 7
   },
-  "observed_at": "2026-11-15T02:51:40.622632+00:00",
+  "observed_at": "2026-11-15T03:51:45.488489+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
- "notices": [
-  "A research session is running: lock held for 96s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T02:51:40+00:00",
+   "as_of": "2026-11-15T03:51:45+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -23146,7 +23144,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T02:51:40+00:00",
+   "as_of": "2026-11-15T03:51:45+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -23156,7 +23154,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T02:51:40+00:00",
+   "as_of": "2026-11-15T03:51:45+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -24522,19 +24520,19 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "27.56",
-   "completed_estimate_eur": "27.52",
-   "completed_jobs": 337,
+   "charged_eur": "27.88",
+   "completed_estimate_eur": "27.84",
+   "completed_jobs": 341,
    "reserved_jobs": 1,
    "retained_reservations_eur": "0.04"
   },
   "ceiling_eur": 50.0,
   "errors": [],
-  "eur_per_release": 1.03,
+  "eur_per_release": 1.04,
   "histogram": {
    "bins": [
     {
-     "count": 345,
+     "count": 348,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -24544,7 +24542,7 @@
      "lo": 0.01
     },
     {
-     "count": 52,
+     "count": 53,
      "hi": 0.05,
      "lo": 0.02
     },
@@ -24581,10 +24579,10 @@
    ],
    "max": 2.2448,
    "median": 0.0063,
-   "n": 498,
+   "n": 502,
    "p90": 0.0301,
    "ref_rate": 0.05868,
-   "total": 9.47
+   "total": 9.51
   },
   "jobs": [
    {
@@ -28728,6 +28726,54 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-15T02:53:05.963697+00:00",
+    "deleted_at": "2026-11-15T02:57:14.019738+00:00",
+    "eur": 0.05868,
+    "hours": 0.069,
+    "id": "rw-9b0bc4edbf98-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.004,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T03:03:57.872785+00:00",
+    "deleted_at": "2026-11-15T03:36:13.632526+00:00",
+    "eur": 0.05868,
+    "hours": 0.538,
+    "id": "rw-9b0bc4edbf98-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.0316,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T03:39:38.368855+00:00",
+    "deleted_at": "2026-11-15T03:44:13.136087+00:00",
+    "eur": 0.05868,
+    "hours": 0.076,
+    "id": "rw-9b0bc4edbf98-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.0045,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T03:48:20.434253+00:00",
+    "deleted_at": "2026-11-15T03:51:17.409292+00:00",
+    "eur": 0.05868,
+    "hours": 0.049,
+    "id": "rw-9b0bc4edbf98-build-4",
+    "location": "hel1",
+    "normalised_eur": 0.0029,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-14T03:57:22.164786+00:00",
     "deleted_at": "2026-11-14T04:00:22.901368+00:00",
     "eur": 0.05868,
@@ -30564,19 +30610,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 336,
-  "jobs_total": 498,
-  "lifetime_eur": 29.83,
+  "jobs_this_month": 340,
+  "jobs_total": 502,
+  "lifetime_eur": 30.07,
   "live": {
-   "checked_at": "2026-11-15T02:52:54+00:00",
+   "checked_at": "2026-11-15T03:52:58+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 87.8,
-  "month_to_date": 21.62,
+  "month_hours": 88.6,
+  "month_to_date": 21.86,
   "months": [
    {
     "eur": 5.02,
@@ -30591,13 +30637,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 21.6214,
-    "hours": 87.84,
-    "jobs": 336,
+    "eur": 21.8561,
+    "hours": 88.57,
+    "jobs": 340,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 43.24,
+  "projected_month_eur": 43.71,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -30626,13 +30672,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-15T02:50:01.321781+00:00",
+  "observed_at": "2026-11-15T03:50:01.302862+00:00",
   "releases": [
    {
     "bundle": "3ddd5f05944a2e3ef0e94845",
     "candidate": "source-000083",
     "dataset": "wser-effluent-exceedance",
-    "observed_at": "2026-11-15T02:50:01.387115+00:00",
+    "observed_at": "2026-11-15T03:50:01.382506+00:00",
     "plan_sha256": "edd78fa8ffe359c90aedb0d3b07c24a52da0967526cd80a80ea618101b09b9f1",
     "status": "pending",
     "version": "v-3ceae5479cda761c"
@@ -30641,7 +30687,7 @@
     "bundle": "b5fa95c50e2409546408cff8",
     "candidate": "source-000079",
     "dataset": "caa-fce-hpv-escalation",
-    "observed_at": "2026-11-15T02:50:23.251880+00:00",
+    "observed_at": "2026-11-15T03:50:23.026449+00:00",
     "plan_sha256": "f8e4e5f5e545adea1ba12a8ea1694e8d9ad6a77e4b1377f98ad59acd8b0339f3",
     "status": "complete",
     "version": "v-fd86cbb0bc96aaca"
@@ -30650,7 +30696,7 @@
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-15T02:50:28.993047+00:00",
+    "observed_at": "2026-11-15T03:50:28.873843+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -30659,7 +30705,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-15T02:50:34.440390+00:00",
+    "observed_at": "2026-11-15T03:50:34.749784+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -30668,7 +30714,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-15T02:50:40.079509+00:00",
+    "observed_at": "2026-11-15T03:50:40.256073+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -30677,7 +30723,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-15T02:50:45.682855+00:00",
+    "observed_at": "2026-11-15T03:50:46.303520+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -30686,7 +30732,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-15T02:50:51.026864+00:00",
+    "observed_at": "2026-11-15T03:50:51.785678+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -30695,7 +30741,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-15T02:50:56.290875+00:00",
+    "observed_at": "2026-11-15T03:50:57.715730+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -30704,7 +30750,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-15T02:51:01.818867+00:00",
+    "observed_at": "2026-11-15T03:51:03.196230+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -30713,7 +30759,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-15T02:51:07.495476+00:00",
+    "observed_at": "2026-11-15T03:51:08.698803+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -30722,7 +30768,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-15T02:51:12.931603+00:00",
+    "observed_at": "2026-11-15T03:51:15.552706+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -30731,7 +30777,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-15T02:51:18.379240+00:00",
+    "observed_at": "2026-11-15T03:51:21.786967+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -30740,7 +30786,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-15T02:51:23.688751+00:00",
+    "observed_at": "2026-11-15T03:51:28.145512+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -30749,7 +30795,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-15T02:51:29.263518+00:00",
+    "observed_at": "2026-11-15T03:51:33.636897+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -30758,7 +30804,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-15T02:51:34.632212+00:00",
+    "observed_at": "2026-11-15T03:51:39.138307+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
