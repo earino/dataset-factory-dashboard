@@ -1,6 +1,6 @@
 {
  "alarms": [
-  "Website wser-effluent-exceedance: failed; data publication is separate",
+  "Website wser-effluent-exceedance: pending; data publication is separate",
   "Local test suite failed on 2157157",
   "1 release(s) not fully verified"
  ],
@@ -23,20 +23,20 @@
    "development_runs_last_7_days": 124,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 10478967,
-   "moment": "2026-11-15T01:52:02.754222+00:00",
-   "normal_operation_runs_last_7_days": 419,
-   "normal_operation_runs_weighted_last_7_days": 419,
-   "normal_operation_tokens_last_7_days": 38215256,
+   "moment": "2026-11-15T02:51:41.991183+00:00",
+   "normal_operation_runs_last_7_days": 429,
+   "normal_operation_runs_weighted_last_7_days": 429,
+   "normal_operation_tokens_last_7_days": 39128223,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 176s by scout-research"
+    "lock held for 96s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 48694223,
-   "runs_last_7_days": 543,
-   "runs_weighted_last_7_days": 543,
-   "session_admission_weighted": 276,
+   "research_tokens_last_7_days": 49607190,
+   "runs_last_7_days": 553,
+   "runs_weighted_last_7_days": 553,
+   "session_admission_weighted": 286,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -67,14 +67,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 9609,
+     "calls": 9686,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 61459210,
-     "output_tokens": 24274017,
+     "input_tokens": 62011406,
+     "output_tokens": 24634788,
      "pricing_available": false
     }
    },
@@ -88,9 +88,8 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "build": 1,
-   "deferred": 62,
-   "discover": 1,
+   "build": 2,
+   "deferred": 63,
    "published": 15,
    "rejected": 7
   },
@@ -106,40 +105,40 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "usda-organic-integrity-cert-lapse",
+    "dataset": "faca-advisory-committee-charter-renewal",
     "domain": "Modern factory",
-    "id": "source-000084",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T01:49:15.869080+00:00",
-    "next_run_at": "2026-11-15T01:49:15.869080+00:00",
+    "id": "source-000086",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T02:50:16.830119+00:00",
+    "next_run_at": "2026-11-15T02:50:16.830119+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The year-end annual INTEGRITY list for year Y. AMS does not publish the exact extraction timestamp; the builder fixes 31 December of year Y as the decision date for days_since_certification and days_to_anniversary. It does not infer or publish a separate capture date from the maximum effective date present. Only fields in the year-Y workbook are inputs, but non-date fields may reflect the file's actual extraction instant, which is unverified.",
-    "question": "Will a U.S. farm or food business that was newly certified organic in the last quarter of year Y still hold continuous USDA organic certification at the year-end snapshot three years later?",
+    "prediction_time": "D minus 60 days, where D is the committee renewal date (field 6 Expected Renewal Date, fallback field 5 Current Charter plus 24 months). Only fiscal-year records whose fiscal year closed on or before D minus 60 days supply features. Whether those records were publicly retrievable at D minus 60 days is not documented by the publisher and is recorded as an assumption.",
+    "question": "One year after a federal advisory committee's current charter reaches its renewal date, does the sponsoring agency file a successor charter for that committee, or does the charter lapse with no successor?",
     "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Fixed chronological boundaries by cohort year, frozen before any modelling: train = Q4-2018 and Q4-2019 cohorts (labels from the 2021 and 2022 workbooks); excluded embargo cohort = Q4-2020 (its decision instant falls inside the training label windows and overlaps the pandemic period); eval = Q4-2021 cohort (labels from the 2024 workbook); holdout = Q4-2022 cohort (labels from the 2025 workbook). An NOP ID enters at most one split, at its first cohort window; later re-entries are dropped. Rows are distinct operations, so overlapping label calendars do not create row-level dependence. Certifier aggregates are computed from the decision-time cross-section only, never from any row's label.",
+    "split_strategy": "Fixed chronological boundaries on D, one row per committee (its first eligible D only, so no committee appears in two splits): train D before 2021-10-01; eval 2021-10-01 through 2022-09-30; holdout 2022-10-01 through 2023-09-30. Embargo of 180 days before each boundary - drop rows with D in 2021-04-04..2021-09-30 and 2022-04-04..2022-09-30 - so 365-day outcome windows never straddle a split. Renewals dated in FY2024-FY2025 (the 2025 mass-termination period) are excluded from all three splits and used only for descriptive checks.",
     "status": "build",
-    "target": "label=1 if the operation's 10-digit NOP ID is absent from the year Y+3 annual workbook, OR present there with Operation Certification Status other than 'Certified', OR present as 'Certified' with an Effective Date of Operation Status later than its year-Y cohort certification date (a certification restart after a break). label=0 only if present as 'Certified' with the same original effective date. Operations whose status dates were corrected retroactively are noise, not signal, and are documented as such.",
+    "target": "Binary. 1 if a successor charter for the same committee number begins on a date after D and no later than D plus 365 days (a later 'Current Charter' or 'Date of Renewal Charter' strictly greater than D). 0 if no successor charter appears in that window and the later record shows the charter lapsed or the committee ended ('Was Terminated During Fiscal Year?' = Yes with an actual term date on or before D plus 365 days, or no charter period covering D plus 365 days).",
     "workflow": "modern"
    },
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "coops-high-tide-flood-day",
     "domain": "Modern factory",
-    "id": "source-000086",
-    "next_action": "Stage discover: Source evidence requires public HTTPS URLs without credentials \u00b7 next attempt 2026-11-15T01:43:10.256396+00:00",
-    "next_run_at": "2026-11-15T01:43:10.256396+00:00",
+    "id": "source-000087",
+    "next_action": "Stage build: Source researched with access, terms and task evidence",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
-    "reason": "Source evidence requires public HTTPS URLs without credentials",
+    "prediction_time": "12:00 local standard time (LST) on day D-1, using only observations timestamped at or before 11:00 LST on D-1 plus published tide predictions for day D. Lead time to the start of the outcome window is 12 hours, and up to 36 hours to its end.",
+    "question": "At a given NOAA water-level station, will the next local calendar day be a high tide flood day - that is, will verified hourly water level reach or exceed that station's NOS minor flood threshold?",
+    "reason": "Source researched with access, terms and task evidence",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "split_strategy": "Frozen chronological boundaries: train 1998-01-01 to 2012-12-31, eval 2013-01-01 to 2017-12-31, holdout 2018-01-01 to 2022-12-31. A 7-day embargo is applied at each boundary by dropping 2013-01-01 to 2013-01-07 and 2018-01-01 to 2018-01-07, so a single synoptic flood event cannot straddle two segments. All stations appear in all three segments (this is forward prediction at the same network, not transfer to new stations), and station-month climatology features are recomputed from pre-segment years only, frozen at each boundary. No metric is computed until these boundaries are written into the construction script.",
+    "status": "build",
+    "target": "1 if the maximum verified hourly height at the station during local calendar day D is greater than or equal to the station's NOS minor flood threshold (nos_minor, station datum; equivalently converted to the MHHW datum as nos_minor minus the station's MHHW datum value), else 0. Days with fewer than 20 of 24 verified hourly values are dropped rather than labelled.",
     "workflow": "modern"
    }
   ],
@@ -2067,17 +2066,17 @@
     "dataset": "usda-organic-integrity-cert-lapse",
     "domain": "Modern factory",
     "id": "source-000084",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T01:49:15.869080+00:00",
-    "next_run_at": "2026-11-15T01:49:15.869080+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T02:36:41.305620+00:00",
+    "next_run_at": "2026-11-15T02:36:41.305620+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The year-end annual INTEGRITY list for year Y. AMS does not publish the exact extraction timestamp; the builder fixes 31 December of year Y as the decision date for days_since_certification and days_to_anniversary. It does not infer or publish a separate capture date from the maximum effective date present. Only fields in the year-Y workbook are inputs, but non-date fields may reflect the file's actual extraction instant, which is unverified.",
     "question": "Will a U.S. farm or food business that was newly certified organic in the last quarter of year Y still hold continuous USDA organic certification at the year-end snapshot three years later?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "Fixed chronological boundaries by cohort year, frozen before any modelling: train = Q4-2018 and Q4-2019 cohorts (labels from the 2021 and 2022 workbooks); excluded embargo cohort = Q4-2020 (its decision instant falls inside the training label windows and overlaps the pandemic period); eval = Q4-2021 cohort (labels from the 2024 workbook); holdout = Q4-2022 cohort (labels from the 2025 workbook). An NOP ID enters at most one split, at its first cohort window; later re-entries are dropped. Rows are distinct operations, so overlapping label calendars do not create row-level dependence. Certifier aggregates are computed from the decision-time cross-section only, never from any row's label.",
-    "status": "build",
+    "status": "deferred",
     "target": "label=1 if the operation's 10-digit NOP ID is absent from the year Y+3 annual workbook, OR present there with Operation Certification Status other than 'Certified', OR present as 'Certified' with an Effective Date of Operation Status later than its year-Y cohort certification date (a certification restart after a break). label=0 only if present as 'Certified' with the same original effective date. Operations whose status dates were corrected retroactively are noise, not signal, and are documented as such.",
     "workflow": "modern"
    },
@@ -2102,21 +2101,40 @@
    },
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "faca-advisory-committee-charter-renewal",
     "domain": "Modern factory",
     "id": "source-000086",
-    "next_action": "Stage discover: Source evidence requires public HTTPS URLs without credentials \u00b7 next attempt 2026-11-15T01:43:10.256396+00:00",
-    "next_run_at": "2026-11-15T01:43:10.256396+00:00",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-15T02:50:16.830119+00:00",
+    "next_run_at": "2026-11-15T02:50:16.830119+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
-    "reason": "Source evidence requires public HTTPS URLs without credentials",
+    "prediction_time": "D minus 60 days, where D is the committee renewal date (field 6 Expected Renewal Date, fallback field 5 Current Charter plus 24 months). Only fiscal-year records whose fiscal year closed on or before D minus 60 days supply features. Whether those records were publicly retrievable at D minus 60 days is not documented by the publisher and is recorded as an assumption.",
+    "question": "One year after a federal advisory committee's current charter reaches its renewal date, does the sponsoring agency file a successor charter for that committee, or does the charter lapse with no successor?",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "split_strategy": "Fixed chronological boundaries on D, one row per committee (its first eligible D only, so no committee appears in two splits): train D before 2021-10-01; eval 2021-10-01 through 2022-09-30; holdout 2022-10-01 through 2023-09-30. Embargo of 180 days before each boundary - drop rows with D in 2021-04-04..2021-09-30 and 2022-04-04..2022-09-30 - so 365-day outcome windows never straddle a split. Renewals dated in FY2024-FY2025 (the 2025 mass-termination period) are excluded from all three splits and used only for descriptive checks.",
+    "status": "build",
+    "target": "Binary. 1 if a successor charter for the same committee number begins on a date after D and no later than D plus 365 days (a later 'Current Charter' or 'Date of Renewal Charter' strictly greater than D). 0 if no successor charter appears in that window and the later record shows the charter lapsed or the committee ended ('Was Terminated During Fiscal Year?' = Yes with an actual term date on or before D plus 365 days, or no charter period covering D plus 365 days).",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "coops-high-tide-flood-day",
+    "domain": "Modern factory",
+    "id": "source-000087",
+    "next_action": "Stage build: Source researched with access, terms and task evidence",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "12:00 local standard time (LST) on day D-1, using only observations timestamped at or before 11:00 LST on D-1 plus published tide predictions for day D. Lead time to the start of the outcome window is 12 hours, and up to 36 hours to its end.",
+    "question": "At a given NOAA water-level station, will the next local calendar day be a high tide flood day - that is, will verified hourly water level reach or exceed that station's NOS minor flood threshold?",
+    "reason": "Source researched with access, terms and task evidence",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Frozen chronological boundaries: train 1998-01-01 to 2012-12-31, eval 2013-01-01 to 2017-12-31, holdout 2018-01-01 to 2022-12-31. A 7-day embargo is applied at each boundary by dropping 2013-01-01 to 2013-01-07 and 2018-01-01 to 2018-01-07, so a single synoptic flood event cannot straddle two segments. All stations appear in all three segments (this is forward prediction at the same network, not transfer to new stations), and station-month climatology features are recomputed from pre-segment years only, frozen at each boundary. No metric is computed until these boundaries are written into the construction script.",
+    "status": "build",
+    "target": "1 if the maximum verified hourly height at the station during local calendar day D is greater than or equal to the station's NOS minor flood threshold (nos_minor, station datum; equivalently converted to the MHHW datum as nos_minor minus the station's MHHW datum value), else 0. Days with fewer than 20 of 24 verified hourly values are dropped rather than labelled.",
     "workflow": "modern"
    },
    {
@@ -5587,7 +5605,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 198.5,
+    "age_hours": 199.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -6417,7 +6435,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 255.0,
+    "age_hours": 256.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -12699,7 +12717,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 395.6,
+    "age_hours": 396.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -16723,7 +16741,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 244.8,
+    "age_hours": 245.7,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -17179,10 +17197,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-15T01:50:01.298486+00:00",
+    "last_run_at": "2026-11-15T02:50:02.618924+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-15T02:00:00+00:00",
+    "next_run_at": "2026-11-15T03:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -17263,10 +17281,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-15T00:53:01.856948+00:00",
+    "last_run_at": "2026-11-15T01:53:30.551092+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-15T02:50:00+00:00",
+    "next_run_at": "2026-11-15T03:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -17275,10 +17293,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-15T00:55:01.289477+00:00",
+    "last_run_at": "2026-11-15T01:55:01.688083+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-15T01:55:00+00:00",
+    "next_run_at": "2026-11-15T02:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -17323,10 +17341,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-15T01:48:15.926264+00:00",
+    "last_run_at": "2026-11-15T02:49:16.883737+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-15T01:50:00+00:00",
+    "next_run_at": "2026-11-15T02:51:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -17379,9 +17397,9 @@
     "schedule": "once at 2026-11-17 17:00"
    }
   ],
-  "updated_at": "2026-11-15T01:52:01.301896+00:00"
+  "updated_at": "2026-11-15T02:51:00.938317+00:00"
  },
- "generated_at": "2026-11-15T01:52:01+00:00",
+ "generated_at": "2026-11-15T02:51:40+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -17409,14 +17427,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-24T23:50:01+00:00",
-   "live": 14,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-25T00:50:02+00:00",
    "live": 14,
@@ -21568,6 +21578,16 @@
    "sessions_7d": 543,
    "tokens_7d": 38215256,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-15T02:51:40+00:00",
+   "live": 2,
+   "published": 29,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 553,
+   "tokens_7d": 39128223,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -23037,19 +23057,19 @@
    },
    {
     "attempt": {
-     "id": "rw-b12097e1cb7a-build-5",
-     "ordinal": 5,
+     "id": "rw-b12097e1cb7a-build-9",
+     "ordinal": 9,
      "stage": "build",
      "status": "retry"
     },
     "created_at": "2026-11-15T00:54:01.595097+00:00",
     "dataset": "usda-organic-integrity-cert-lapse",
     "id": "source-000084",
-    "next_run_at": "2026-11-15T01:49:15.869080+00:00",
+    "next_run_at": "2026-11-15T02:36:41.305620+00:00",
     "published_verified": false,
     "running": false,
-    "stage": "build",
-    "updated_at": "2026-11-15T01:48:15.869080+00:00"
+    "stage": "deferred",
+    "updated_at": "2026-11-15T02:35:41.305620+00:00"
    },
    {
     "attempt": {
@@ -23069,39 +23089,54 @@
    },
    {
     "attempt": {
-     "id": "rw-adcfc5406f64-discover-3",
-     "ordinal": 3,
-     "stage": "discover",
-     "status": "running"
+     "id": "rw-adcfc5406f64-build-2",
+     "ordinal": 2,
+     "stage": "build",
+     "status": "retry"
     },
     "created_at": "2026-11-15T01:25:01.602124+00:00",
-    "dataset": null,
+    "dataset": "faca-advisory-committee-charter-renewal",
     "id": "source-000086",
-    "next_run_at": "2026-11-15T01:43:10.256396+00:00",
+    "next_run_at": "2026-11-15T02:50:16.830119+00:00",
+    "published_verified": false,
+    "running": false,
+    "stage": "build",
+    "updated_at": "2026-11-15T02:49:16.830119+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-9b0bc4edbf98-build-1",
+     "ordinal": 1,
+     "stage": "build",
+     "status": "running"
+    },
+    "created_at": "2026-11-15T02:36:01.735501+00:00",
+    "dataset": "coops-high-tide-flood-day",
+    "id": "source-000087",
+    "next_run_at": null,
     "published_verified": false,
     "running": true,
-    "stage": "discover",
-    "updated_at": "2026-11-15T01:42:10.256396+00:00"
+    "stage": "build",
+    "updated_at": "2026-11-15T02:48:47.616725+00:00"
    }
   ],
   "counts": {
-   "build": 1,
-   "deferred": 62,
-   "discover": 1,
+   "build": 2,
+   "deferred": 63,
    "published": 15,
    "rejected": 7
   },
-  "observed_at": "2026-11-15T01:52:01.389500+00:00",
+  "observed_at": "2026-11-15T02:51:40.622632+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
  "notices": [
-  "A research session is running: lock held for 176s by scout-research"
+  "A research session is running: lock held for 96s by scout-research"
  ],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T01:52:01+00:00",
+   "as_of": "2026-11-15T02:51:40+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -23111,7 +23146,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T01:52:01+00:00",
+   "as_of": "2026-11-15T02:51:40+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -23121,7 +23156,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-15T01:52:01+00:00",
+   "as_of": "2026-11-15T02:51:40+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -24487,34 +24522,34 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "27.08",
-   "completed_estimate_eur": "27.04",
-   "completed_jobs": 331,
+   "charged_eur": "27.56",
+   "completed_estimate_eur": "27.52",
+   "completed_jobs": 337,
    "reserved_jobs": 1,
    "retained_reservations_eur": "0.04"
   },
   "ceiling_eur": 50.0,
   "errors": [],
-  "eur_per_release": 1.02,
+  "eur_per_release": 1.03,
   "histogram": {
    "bins": [
     {
-     "count": 308,
+     "count": 345,
      "hi": 0.01,
      "lo": 0.001
     },
     {
-     "count": 96,
+     "count": 77,
      "hi": 0.02,
      "lo": 0.01
     },
     {
-     "count": 55,
+     "count": 52,
      "hi": 0.05,
      "lo": 0.02
     },
     {
-     "count": 24,
+     "count": 16,
      "hi": 0.1,
      "lo": 0.05
     },
@@ -24529,7 +24564,7 @@
      "lo": 0.2
     },
     {
-     "count": 2,
+     "count": 1,
      "hi": 1,
      "lo": 0.5
     },
@@ -24540,16 +24575,16 @@
     },
     {
      "count": 1,
-     "hi": 2.675288,
+     "hi": 2.267248,
      "lo": 2
     }
    ],
-   "max": 2.6488,
-   "median": 0.0075,
-   "n": 492,
-   "p90": 0.0355,
-   "ref_rate": 0.06924,
-   "total": 11.14
+   "max": 2.2448,
+   "median": 0.0063,
+   "n": 498,
+   "p90": 0.0301,
+   "ref_rate": 0.05868,
+   "total": 9.47
   },
   "jobs": [
    {
@@ -24559,7 +24594,7 @@
     "hours": 0.202,
     "id": "abs-001",
     "location": "hel1",
-    "normalised_eur": 0.014,
+    "normalised_eur": 0.0119,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24571,7 +24606,7 @@
     "hours": 0.147,
     "id": "abs-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0102,
+    "normalised_eur": 0.0086,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24583,7 +24618,7 @@
     "hours": 0.182,
     "id": "abwildfire-baseline-002",
     "location": "hel1",
-    "normalised_eur": 0.0126,
+    "normalised_eur": 0.0107,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24595,7 +24630,7 @@
     "hours": 0.159,
     "id": "abwildfire-build-001",
     "location": "hel1",
-    "normalised_eur": 0.011,
+    "normalised_eur": 0.0093,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24607,7 +24642,7 @@
     "hours": 0.128,
     "id": "abwildfire-consumer-001",
     "location": "hel1",
-    "normalised_eur": 0.0089,
+    "normalised_eur": 0.0075,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24619,7 +24654,7 @@
     "hours": 0.077,
     "id": "abwildfire-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0053,
+    "normalised_eur": 0.0045,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24631,7 +24666,7 @@
     "hours": 0.06,
     "id": "abwildfire-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0042,
+    "normalised_eur": 0.0035,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24643,7 +24678,7 @@
     "hours": 0.822,
     "id": "acnc-001",
     "location": "hel1",
-    "normalised_eur": 0.0569,
+    "normalised_eur": 0.0482,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24655,7 +24690,7 @@
     "hours": 0.538,
     "id": "acnc-002",
     "location": "hel1",
-    "normalised_eur": 0.0373,
+    "normalised_eur": 0.0316,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24667,7 +24702,7 @@
     "hours": 0.201,
     "id": "acnc-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0139,
+    "normalised_eur": 0.0118,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24679,7 +24714,7 @@
     "hours": 0.23,
     "id": "acnc-diag-001",
     "location": "hel1",
-    "normalised_eur": 0.0159,
+    "normalised_eur": 0.0135,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24691,7 +24726,7 @@
     "hours": 0.517,
     "id": "acnc-diag-002",
     "location": "hel1",
-    "normalised_eur": 0.0358,
+    "normalised_eur": 0.0303,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24703,7 +24738,7 @@
     "hours": 0.147,
     "id": "afdb-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0102,
+    "normalised_eur": 0.0086,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24715,7 +24750,7 @@
     "hours": 0.225,
     "id": "afdb-build-001",
     "location": "hel1",
-    "normalised_eur": 0.0156,
+    "normalised_eur": 0.0132,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24727,7 +24762,7 @@
     "hours": 0.16,
     "id": "afdb-panel-probe-001",
     "location": "hel1",
-    "normalised_eur": 0.0111,
+    "normalised_eur": 0.0094,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24739,7 +24774,7 @@
     "hours": 0.238,
     "id": "austin-001",
     "location": "hel1",
-    "normalised_eur": 0.0165,
+    "normalised_eur": 0.014,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24751,7 +24786,7 @@
     "hours": 0.183,
     "id": "austin-002",
     "location": "hel1",
-    "normalised_eur": 0.0127,
+    "normalised_eur": 0.0107,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24763,7 +24798,7 @@
     "hours": 0.181,
     "id": "austin-003",
     "location": "hel1",
-    "normalised_eur": 0.0125,
+    "normalised_eur": 0.0106,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24775,7 +24810,7 @@
     "hours": 0.371,
     "id": "austin-adapter-smoke-001",
     "location": "hel1",
-    "normalised_eur": 0.0257,
+    "normalised_eur": 0.0218,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24787,7 +24822,7 @@
     "hours": 0.424,
     "id": "austin-adapter-smoke-002",
     "location": "hel1",
-    "normalised_eur": 0.0294,
+    "normalised_eur": 0.0249,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24799,7 +24834,7 @@
     "hours": 0.254,
     "id": "austin-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0176,
+    "normalised_eur": 0.0149,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24811,7 +24846,7 @@
     "hours": 0.171,
     "id": "austin-baseline-002",
     "location": "hel1",
-    "normalised_eur": 0.0118,
+    "normalised_eur": 0.01,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24823,7 +24858,7 @@
     "hours": 0.061,
     "id": "austin-consumer-001",
     "location": "hel1",
-    "normalised_eur": 0.0042,
+    "normalised_eur": 0.0036,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24835,7 +24870,7 @@
     "hours": 0.082,
     "id": "austin-consumer-002",
     "location": "hel1",
-    "normalised_eur": 0.0057,
+    "normalised_eur": 0.0048,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24847,7 +24882,7 @@
     "hours": 0.227,
     "id": "austin-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0157,
+    "normalised_eur": 0.0133,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -24859,7 +24894,7 @@
     "hours": 0.117,
     "id": "austin-hf-002",
     "location": "hel1",
-    "normalised_eur": 0.0081,
+    "normalised_eur": 0.0069,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -24871,7 +24906,7 @@
     "hours": 0.152,
     "id": "austin-hf-003",
     "location": "hel1",
-    "normalised_eur": 0.0105,
+    "normalised_eur": 0.0089,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -24883,7 +24918,7 @@
     "hours": 0.118,
     "id": "austin-hf-004",
     "location": "hel1",
-    "normalised_eur": 0.0082,
+    "normalised_eur": 0.0069,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -24895,7 +24930,7 @@
     "hours": 0.086,
     "id": "austin-hf-005",
     "location": "hel1",
-    "normalised_eur": 0.006,
+    "normalised_eur": 0.005,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -24907,7 +24942,7 @@
     "hours": 0.105,
     "id": "austin-hf-006",
     "location": "hel1",
-    "normalised_eur": 0.0073,
+    "normalised_eur": 0.0062,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -24919,7 +24954,7 @@
     "hours": 0.29,
     "id": "austin-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0201,
+    "normalised_eur": 0.017,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24931,7 +24966,7 @@
     "hours": 0.071,
     "id": "austin-publish-002",
     "location": "hel1",
-    "normalised_eur": 0.0049,
+    "normalised_eur": 0.0042,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24943,7 +24978,7 @@
     "hours": 0.054,
     "id": "austin-publish-003",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0032,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24955,7 +24990,7 @@
     "hours": 0.295,
     "id": "camara-001",
     "location": "hel1",
-    "normalised_eur": 0.0204,
+    "normalised_eur": 0.0173,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24967,7 +25002,7 @@
     "hours": 0.394,
     "id": "camara-002",
     "location": "hel1",
-    "normalised_eur": 0.0273,
+    "normalised_eur": 0.0231,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -24979,7 +25014,7 @@
     "hours": 0.98,
     "id": "chicago-001",
     "location": "hel1",
-    "normalised_eur": 0.0679,
+    "normalised_eur": 0.0575,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -24991,7 +25026,7 @@
     "hours": 1.146,
     "id": "chicago-002",
     "location": "hel1",
-    "normalised_eur": 0.0793,
+    "normalised_eur": 0.0672,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25003,7 +25038,7 @@
     "hours": 0.783,
     "id": "chicago-003",
     "location": "hel1",
-    "normalised_eur": 0.0542,
+    "normalised_eur": 0.0459,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25015,7 +25050,7 @@
     "hours": 0.693,
     "id": "chicago-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.048,
+    "normalised_eur": 0.0407,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25027,7 +25062,7 @@
     "hours": 0.406,
     "id": "chicago-consumer-001",
     "location": "hel1",
-    "normalised_eur": 0.0281,
+    "normalised_eur": 0.0238,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25039,7 +25074,7 @@
     "hours": 0.444,
     "id": "chicago-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0307,
+    "normalised_eur": 0.0261,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25051,7 +25086,7 @@
     "hours": 0.391,
     "id": "cl-tender-002",
     "location": "hel1",
-    "normalised_eur": 0.0271,
+    "normalised_eur": 0.0229,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25063,7 +25098,7 @@
     "hours": 0.943,
     "id": "cl-tender-003",
     "location": "hel1",
-    "normalised_eur": 0.0653,
+    "normalised_eur": 0.0553,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25075,7 +25110,7 @@
     "hours": 0.132,
     "id": "cl-tender-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0091,
+    "normalised_eur": 0.0077,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25087,7 +25122,7 @@
     "hours": 0.354,
     "id": "cpcb-aqi-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0245,
+    "normalised_eur": 0.0208,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25099,7 +25134,7 @@
     "hours": 0.103,
     "id": "cpcb-aqi-build-001",
     "location": "hel1",
-    "normalised_eur": 0.0071,
+    "normalised_eur": 0.006,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25111,7 +25146,7 @@
     "hours": 0.426,
     "id": "cpcb-aqi-build-002",
     "location": "hel1",
-    "normalised_eur": 0.0295,
+    "normalised_eur": 0.025,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25123,7 +25158,7 @@
     "hours": 0.224,
     "id": "cpcb-aqi-build-003",
     "location": "hel1",
-    "normalised_eur": 0.0155,
+    "normalised_eur": 0.0131,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25135,7 +25170,7 @@
     "hours": 0.352,
     "id": "cpcb-aqi-build-004",
     "location": "hel1",
-    "normalised_eur": 0.0244,
+    "normalised_eur": 0.0207,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25147,7 +25182,7 @@
     "hours": 1.239,
     "id": "cpcb-aqi-consumer-001",
     "location": "hel1",
-    "normalised_eur": 0.0858,
+    "normalised_eur": 0.0727,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25159,7 +25194,7 @@
     "hours": 0.543,
     "id": "cpcb-aqi-consumer-002",
     "location": "hel1",
-    "normalised_eur": 0.0376,
+    "normalised_eur": 0.0319,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25171,7 +25206,7 @@
     "hours": 1.082,
     "id": "cpcb-aqi-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0749,
+    "normalised_eur": 0.0635,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25183,7 +25218,7 @@
     "hours": 0.369,
     "id": "cpcb-aqi-hf-002",
     "location": "hel1",
-    "normalised_eur": 0.0255,
+    "normalised_eur": 0.0217,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25195,7 +25230,7 @@
     "hours": 0.11,
     "id": "cpcb-aqi-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0076,
+    "normalised_eur": 0.0065,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25207,7 +25242,7 @@
     "hours": 2.208,
     "id": "cqc-chd-001",
     "location": "hel1",
-    "normalised_eur": 0.1529,
+    "normalised_eur": 0.1296,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25219,7 +25254,7 @@
     "hours": 0.212,
     "id": "cqc-chd-002",
     "location": "hel1",
-    "normalised_eur": 0.0147,
+    "normalised_eur": 0.0124,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25231,7 +25266,7 @@
     "hours": 0.223,
     "id": "cqc-chd-003",
     "location": "hel1",
-    "normalised_eur": 0.0154,
+    "normalised_eur": 0.0131,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25243,7 +25278,7 @@
     "hours": 0.169,
     "id": "cqc-chd-004",
     "location": "hel1",
-    "normalised_eur": 0.0117,
+    "normalised_eur": 0.0099,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25255,7 +25290,7 @@
     "hours": 0.377,
     "id": "cqc-chd-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0261,
+    "normalised_eur": 0.0221,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25267,7 +25302,7 @@
     "hours": 0.182,
     "id": "cqc-consumer-001",
     "location": "hel1",
-    "normalised_eur": 0.0126,
+    "normalised_eur": 0.0107,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25279,7 +25314,7 @@
     "hours": 0.266,
     "id": "cqc-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0184,
+    "normalised_eur": 0.0156,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25291,7 +25326,7 @@
     "hours": 0.158,
     "id": "cqc-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0109,
+    "normalised_eur": 0.0093,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25303,7 +25338,7 @@
     "hours": 38.255,
     "id": "dvsa-mot-build-001",
     "location": "hel1",
-    "normalised_eur": 2.6488,
+    "normalised_eur": 2.2448,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25315,7 +25350,7 @@
     "hours": 2.576,
     "id": "dvsa-mot-build-002",
     "location": "hel1",
-    "normalised_eur": 0.1784,
+    "normalised_eur": 0.1512,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25327,7 +25362,7 @@
     "hours": 0.727,
     "id": "dvsa-mot-build-003",
     "location": "hel1",
-    "normalised_eur": 0.0503,
+    "normalised_eur": 0.0427,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25339,7 +25374,7 @@
     "hours": 1.02,
     "id": "dvsa-mot-build-004",
     "location": "hel1",
-    "normalised_eur": 0.0706,
+    "normalised_eur": 0.0599,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25351,7 +25386,7 @@
     "hours": 0.078,
     "id": "east-asia-measure-001",
     "location": "hel1",
-    "normalised_eur": 0.0054,
+    "normalised_eur": 0.0046,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25363,7 +25398,7 @@
     "hours": 0.221,
     "id": "east-asia-measure-002",
     "location": "hel1",
-    "normalised_eur": 0.0153,
+    "normalised_eur": 0.013,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25375,7 +25410,7 @@
     "hours": 0.283,
     "id": "ec-merger-001",
     "location": "hel1",
-    "normalised_eur": 0.0196,
+    "normalised_eur": 0.0166,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25387,7 +25422,7 @@
     "hours": 0.097,
     "id": "ec-merger-002",
     "location": "hel1",
-    "normalised_eur": 0.0067,
+    "normalised_eur": 0.0057,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25399,7 +25434,7 @@
     "hours": 0.078,
     "id": "ec-merger-003",
     "location": "hel1",
-    "normalised_eur": 0.0054,
+    "normalised_eur": 0.0046,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25411,7 +25446,7 @@
     "hours": 0.083,
     "id": "ec-merger-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0057,
+    "normalised_eur": 0.0049,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25423,7 +25458,7 @@
     "hours": 0.078,
     "id": "ecm-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0054,
+    "normalised_eur": 0.0046,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25435,7 +25470,7 @@
     "hours": 0.997,
     "id": "ecm-hf-002",
     "location": "hel1",
-    "normalised_eur": 0.069,
+    "normalised_eur": 0.0585,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25447,7 +25482,7 @@
     "hours": 0.069,
     "id": "ecm-hf-003",
     "location": "hel1",
-    "normalised_eur": 0.0048,
+    "normalised_eur": 0.004,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25459,7 +25494,7 @@
     "hours": 0.249,
     "id": "ecm-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0172,
+    "normalised_eur": 0.0146,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25471,7 +25506,7 @@
     "hours": 0.1,
     "id": "ecm-publish-002",
     "location": "hel1",
-    "normalised_eur": 0.0069,
+    "normalised_eur": 0.0059,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25483,7 +25518,7 @@
     "hours": 0.184,
     "id": "ecm-publish-003",
     "location": "hel1",
-    "normalised_eur": 0.0127,
+    "normalised_eur": 0.0108,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25495,7 +25530,7 @@
     "hours": 1.157,
     "id": "ecm-requal-001",
     "location": "hel1",
-    "normalised_eur": 0.0801,
+    "normalised_eur": 0.0679,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25507,7 +25542,7 @@
     "hours": 0.54,
     "id": "ecm-requal-002",
     "location": "hel1",
-    "normalised_eur": 0.0374,
+    "normalised_eur": 0.0317,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25519,7 +25554,7 @@
     "hours": 0.114,
     "id": "eutl-001",
     "location": "hel1",
-    "normalised_eur": 0.0079,
+    "normalised_eur": 0.0067,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25531,7 +25566,7 @@
     "hours": 0.047,
     "id": "eutl-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0033,
+    "normalised_eur": 0.0028,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25543,7 +25578,7 @@
     "hours": 0.167,
     "id": "eutl-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0116,
+    "normalised_eur": 0.0098,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25555,7 +25590,7 @@
     "hours": 0.202,
     "id": "eutl-hf-002",
     "location": "hel1",
-    "normalised_eur": 0.014,
+    "normalised_eur": 0.0119,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25567,7 +25602,7 @@
     "hours": 0.159,
     "id": "eutl-hf-003",
     "location": "hel1",
-    "normalised_eur": 0.011,
+    "normalised_eur": 0.0093,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25579,7 +25614,7 @@
     "hours": 0.123,
     "id": "eutl-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0085,
+    "normalised_eur": 0.0072,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25591,7 +25626,7 @@
     "hours": 0.143,
     "id": "flunet-001",
     "location": "hel1",
-    "normalised_eur": 0.0099,
+    "normalised_eur": 0.0084,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25603,7 +25638,7 @@
     "hours": 0.089,
     "id": "flunet-002",
     "location": "hel1",
-    "normalised_eur": 0.0062,
+    "normalised_eur": 0.0052,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25615,7 +25650,7 @@
     "hours": 0.126,
     "id": "flunet-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0087,
+    "normalised_eur": 0.0074,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25627,7 +25662,7 @@
     "hours": 0.08,
     "id": "flunet-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0055,
+    "normalised_eur": 0.0047,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25639,7 +25674,7 @@
     "hours": 0.624,
     "id": "food-001",
     "location": "hel1",
-    "normalised_eur": 0.0432,
+    "normalised_eur": 0.0366,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25651,7 +25686,7 @@
     "hours": 0.25,
     "id": "food-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0173,
+    "normalised_eur": 0.0147,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25663,7 +25698,7 @@
     "hours": 0.742,
     "id": "food-baseline-002",
     "location": "hel1",
-    "normalised_eur": 0.0514,
+    "normalised_eur": 0.0435,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25675,7 +25710,7 @@
     "hours": 0.534,
     "id": "food-baseline-003",
     "location": "hel1",
-    "normalised_eur": 0.037,
+    "normalised_eur": 0.0313,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25687,7 +25722,7 @@
     "hours": 0.268,
     "id": "food-consumer-001",
     "location": "hel1",
-    "normalised_eur": 0.0186,
+    "normalised_eur": 0.0157,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25699,7 +25734,7 @@
     "hours": 0.259,
     "id": "food-consumer-002",
     "location": "hel1",
-    "normalised_eur": 0.0179,
+    "normalised_eur": 0.0152,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25711,7 +25746,7 @@
     "hours": 0.882,
     "id": "food-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0611,
+    "normalised_eur": 0.0518,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25723,7 +25758,7 @@
     "hours": 0.76,
     "id": "food-hf-002",
     "location": "hel1",
-    "normalised_eur": 0.0526,
+    "normalised_eur": 0.0446,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25735,7 +25770,7 @@
     "hours": 0.324,
     "id": "food-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0224,
+    "normalised_eur": 0.019,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25747,7 +25782,7 @@
     "hours": 0.119,
     "id": "food-publish-002",
     "location": "hel1",
-    "normalised_eur": 0.0082,
+    "normalised_eur": 0.007,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25759,7 +25794,7 @@
     "hours": 0.886,
     "id": "fts-appeal-001",
     "location": "hel1",
-    "normalised_eur": 0.0613,
+    "normalised_eur": 0.052,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25771,7 +25806,7 @@
     "hours": 0.396,
     "id": "fts-appeal-002",
     "location": "hel1",
-    "normalised_eur": 0.0274,
+    "normalised_eur": 0.0232,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25783,7 +25818,7 @@
     "hours": 0.625,
     "id": "fts-appeal-003",
     "location": "hel1",
-    "normalised_eur": 0.0433,
+    "normalised_eur": 0.0367,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25795,7 +25830,7 @@
     "hours": 0.119,
     "id": "fts-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0082,
+    "normalised_eur": 0.007,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25807,7 +25842,7 @@
     "hours": 0.1,
     "id": "fts-baseline-002",
     "location": "hel1",
-    "normalised_eur": 0.0069,
+    "normalised_eur": 0.0059,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25819,7 +25854,7 @@
     "hours": 0.066,
     "id": "fts-baseline-003",
     "location": "hel1",
-    "normalised_eur": 0.0046,
+    "normalised_eur": 0.0039,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25831,7 +25866,7 @@
     "hours": 0.061,
     "id": "fts-baseline-004",
     "location": "hel1",
-    "normalised_eur": 0.0042,
+    "normalised_eur": 0.0036,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25843,7 +25878,7 @@
     "hours": 0.061,
     "id": "fts-baseline-005",
     "location": "hel1",
-    "normalised_eur": 0.0042,
+    "normalised_eur": 0.0036,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25855,7 +25890,7 @@
     "hours": 0.054,
     "id": "fts-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0032,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25867,7 +25902,7 @@
     "hours": 0.05,
     "id": "fts-hf-002",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25879,7 +25914,7 @@
     "hours": 0.05,
     "id": "fts-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25891,7 +25926,7 @@
     "hours": 0.081,
     "id": "fts-publish-002",
     "location": "hel1",
-    "normalised_eur": 0.0056,
+    "normalised_eur": 0.0048,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25903,7 +25938,7 @@
     "hours": 0.056,
     "id": "fts-requal-001",
     "location": "hel1",
-    "normalised_eur": 0.0039,
+    "normalised_eur": 0.0033,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25915,7 +25950,7 @@
     "hours": 0.095,
     "id": "ibama-build-001",
     "location": "hel1",
-    "normalised_eur": 0.0066,
+    "normalised_eur": 0.0056,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25927,7 +25962,7 @@
     "hours": 0.088,
     "id": "ibama-build-002",
     "location": "hel1",
-    "normalised_eur": 0.0061,
+    "normalised_eur": 0.0052,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25939,7 +25974,7 @@
     "hours": 0.076,
     "id": "ibama-probe-001",
     "location": "hel1",
-    "normalised_eur": 0.0053,
+    "normalised_eur": 0.0045,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25951,7 +25986,7 @@
     "hours": 0.095,
     "id": "ibama-probe-002",
     "location": "hel1",
-    "normalised_eur": 0.0066,
+    "normalised_eur": 0.0056,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25963,7 +25998,7 @@
     "hours": 0.827,
     "id": "india-portal-probe-001",
     "location": "hel1",
-    "normalised_eur": 0.0573,
+    "normalised_eur": 0.0485,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -25975,7 +26010,7 @@
     "hours": 0.069,
     "id": "infra-smoke-001",
     "location": "hel1",
-    "normalised_eur": 0.0048,
+    "normalised_eur": 0.004,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25987,7 +26022,7 @@
     "hours": 0.758,
     "id": "infra-smoke-expiry-01",
     "location": "hel1",
-    "normalised_eur": 0.0525,
+    "normalised_eur": 0.0445,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -25999,7 +26034,7 @@
     "hours": 0.059,
     "id": "infra-smoke-fail-01",
     "location": "hel1",
-    "normalised_eur": 0.0041,
+    "normalised_eur": 0.0035,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26011,7 +26046,7 @@
     "hours": 0.078,
     "id": "infra-smoke-recov-01",
     "location": "hel1",
-    "normalised_eur": 0.0054,
+    "normalised_eur": 0.0046,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26023,7 +26058,7 @@
     "hours": 0.301,
     "id": "ipa-tm-001",
     "location": "hel1",
-    "normalised_eur": 0.0208,
+    "normalised_eur": 0.0177,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26035,7 +26070,7 @@
     "hours": 0.399,
     "id": "ipa-tm-002",
     "location": "hel1",
-    "normalised_eur": 0.0276,
+    "normalised_eur": 0.0234,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26047,7 +26082,7 @@
     "hours": 0.619,
     "id": "ipo-tm-001",
     "location": "hel1",
-    "normalised_eur": 0.0429,
+    "normalised_eur": 0.0363,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26059,7 +26094,7 @@
     "hours": 0.958,
     "id": "ipo-tm-002",
     "location": "hel1",
-    "normalised_eur": 0.0663,
+    "normalised_eur": 0.0562,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26071,7 +26106,7 @@
     "hours": 0.244,
     "id": "ipo-tm-003",
     "location": "hel1",
-    "normalised_eur": 0.0169,
+    "normalised_eur": 0.0143,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26083,7 +26118,7 @@
     "hours": 0.105,
     "id": "ipo-tm-004",
     "location": "hel1",
-    "normalised_eur": 0.0073,
+    "normalised_eur": 0.0062,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26095,7 +26130,7 @@
     "hours": 0.201,
     "id": "ipo-tm-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0139,
+    "normalised_eur": 0.0118,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26107,7 +26142,7 @@
     "hours": 0.234,
     "id": "ipo-tm-consumer-001",
     "location": "hel1",
-    "normalised_eur": 0.0162,
+    "normalised_eur": 0.0137,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26119,7 +26154,7 @@
     "hours": 0.15,
     "id": "ipo-tm-diag-001",
     "location": "hel1",
-    "normalised_eur": 0.0104,
+    "normalised_eur": 0.0088,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26131,7 +26166,7 @@
     "hours": 0.317,
     "id": "ipo-tm-diag-002",
     "location": "hel1",
-    "normalised_eur": 0.0219,
+    "normalised_eur": 0.0186,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26143,7 +26178,7 @@
     "hours": 0.074,
     "id": "ipo-tm-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0051,
+    "normalised_eur": 0.0043,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26155,7 +26190,7 @@
     "hours": 0.081,
     "id": "ipo-tm-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0056,
+    "normalised_eur": 0.0048,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26167,7 +26202,7 @@
     "hours": 0.513,
     "id": "msha-001",
     "location": "hel1",
-    "normalised_eur": 0.0355,
+    "normalised_eur": 0.0301,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26179,7 +26214,7 @@
     "hours": 0.47,
     "id": "msha-002",
     "location": "hel1",
-    "normalised_eur": 0.0325,
+    "normalised_eur": 0.0276,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26191,7 +26226,7 @@
     "hours": 0.197,
     "id": "msha-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0136,
+    "normalised_eur": 0.0116,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26203,7 +26238,7 @@
     "hours": 0.38,
     "id": "msha-consumer-001",
     "location": "hel1",
-    "normalised_eur": 0.0263,
+    "normalised_eur": 0.0223,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26215,7 +26250,7 @@
     "hours": 0.625,
     "id": "msha-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0433,
+    "normalised_eur": 0.0367,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -26227,7 +26262,7 @@
     "hours": 0.574,
     "id": "msha-hf-002",
     "location": "hel1",
-    "normalised_eur": 0.0397,
+    "normalised_eur": 0.0337,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -26239,7 +26274,7 @@
     "hours": 0.343,
     "id": "msha-hf-003",
     "location": "hel1",
-    "normalised_eur": 0.0237,
+    "normalised_eur": 0.0201,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -26251,7 +26286,7 @@
     "hours": 0.287,
     "id": "msha-hf-004",
     "location": "hel1",
-    "normalised_eur": 0.0199,
+    "normalised_eur": 0.0168,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -26263,7 +26298,7 @@
     "hours": 0.282,
     "id": "msha-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0195,
+    "normalised_eur": 0.0165,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26275,7 +26310,7 @@
     "hours": 0.133,
     "id": "nhsae-001",
     "location": "hel1",
-    "normalised_eur": 0.0092,
+    "normalised_eur": 0.0078,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26287,7 +26322,7 @@
     "hours": 0.295,
     "id": "nhsae-002",
     "location": "hel1",
-    "normalised_eur": 0.0204,
+    "normalised_eur": 0.0173,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26299,7 +26334,7 @@
     "hours": 0.218,
     "id": "nhsae-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0151,
+    "normalised_eur": 0.0128,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26311,7 +26346,7 @@
     "hours": 0.059,
     "id": "nhsae-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0041,
+    "normalised_eur": 0.0035,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26323,7 +26358,7 @@
     "hours": 0.054,
     "id": "nhsae-hf-002",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0032,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26335,7 +26370,7 @@
     "hours": 0.144,
     "id": "nhsae-hf-003",
     "location": "hel1",
-    "normalised_eur": 0.01,
+    "normalised_eur": 0.0084,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26347,7 +26382,7 @@
     "hours": 0.325,
     "id": "nhsae-hf-004",
     "location": "hel1",
-    "normalised_eur": 0.0225,
+    "normalised_eur": 0.0191,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26359,7 +26394,7 @@
     "hours": 0.082,
     "id": "nhsae-hf-005",
     "location": "hel1",
-    "normalised_eur": 0.0057,
+    "normalised_eur": 0.0048,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26371,7 +26406,7 @@
     "hours": 0.08,
     "id": "nhsae-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0055,
+    "normalised_eur": 0.0047,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26383,7 +26418,7 @@
     "hours": 2.059,
     "id": "noaa-001",
     "location": "hel1",
-    "normalised_eur": 0.1426,
+    "normalised_eur": 0.1208,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26395,7 +26430,7 @@
     "hours": 9.093,
     "id": "noaa-002",
     "location": "hel1",
-    "normalised_eur": 0.6296,
+    "normalised_eur": 0.5336,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26407,7 +26442,7 @@
     "hours": 7.245,
     "id": "noaa-003",
     "location": "hel1",
-    "normalised_eur": 0.5016,
+    "normalised_eur": 0.4251,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26419,7 +26454,7 @@
     "hours": 0.81,
     "id": "noaa-004",
     "location": "hel1",
-    "normalised_eur": 0.0561,
+    "normalised_eur": 0.0475,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26431,7 +26466,7 @@
     "hours": 4.543,
     "id": "noaa-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.3146,
+    "normalised_eur": 0.2666,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26443,7 +26478,7 @@
     "hours": 0.514,
     "id": "noaa-baseline-002",
     "location": "hel1",
-    "normalised_eur": 0.0356,
+    "normalised_eur": 0.0302,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26455,7 +26490,7 @@
     "hours": 0.262,
     "id": "noaa-consumer-001",
     "location": "hel1",
-    "normalised_eur": 0.0181,
+    "normalised_eur": 0.0154,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26467,7 +26502,7 @@
     "hours": 0.105,
     "id": "noaa-consumer-002",
     "location": "hel1",
-    "normalised_eur": 0.0073,
+    "normalised_eur": 0.0062,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26479,7 +26514,7 @@
     "hours": 0.138,
     "id": "noaa-consumer-003",
     "location": "hel1",
-    "normalised_eur": 0.0096,
+    "normalised_eur": 0.0081,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26491,7 +26526,7 @@
     "hours": 0.46,
     "id": "noaa-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0319,
+    "normalised_eur": 0.027,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -26503,7 +26538,7 @@
     "hours": 0.171,
     "id": "noaa-hf-002",
     "location": "hel1",
-    "normalised_eur": 0.0118,
+    "normalised_eur": 0.01,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -26515,7 +26550,7 @@
     "hours": 0.11,
     "id": "noaa-hf-003",
     "location": "hel1",
-    "normalised_eur": 0.0076,
+    "normalised_eur": 0.0065,
     "rate_eur": 0.13464,
     "server_type": "cpx42",
     "status": "deleted"
@@ -26527,7 +26562,7 @@
     "hours": 0.097,
     "id": "noaa-hf-004",
     "location": "hel1",
-    "normalised_eur": 0.0067,
+    "normalised_eur": 0.0057,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26539,7 +26574,7 @@
     "hours": 0.146,
     "id": "noaa-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0101,
+    "normalised_eur": 0.0086,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26551,7 +26586,7 @@
     "hours": 0.295,
     "id": "noaa-publish-002",
     "location": "hel1",
-    "normalised_eur": 0.0204,
+    "normalised_eur": 0.0173,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26563,7 +26598,7 @@
     "hours": 0.118,
     "id": "ns-bwa-001",
     "location": "hel1",
-    "normalised_eur": 0.0082,
+    "normalised_eur": 0.0069,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26575,7 +26610,7 @@
     "hours": 0.197,
     "id": "ns-bwa-002",
     "location": "hel1",
-    "normalised_eur": 0.0136,
+    "normalised_eur": 0.0116,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26587,7 +26622,7 @@
     "hours": 1.387,
     "id": "ns-bwa-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.096,
+    "normalised_eur": 0.0814,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26599,7 +26634,7 @@
     "hours": 0.199,
     "id": "ns-bwa-baseline-002",
     "location": "hel1",
-    "normalised_eur": 0.0138,
+    "normalised_eur": 0.0117,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26611,7 +26646,7 @@
     "hours": 0.064,
     "id": "ns-bwa-diag-001",
     "location": "hel1",
-    "normalised_eur": 0.0044,
+    "normalised_eur": 0.0038,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26623,7 +26658,7 @@
     "hours": 0.162,
     "id": "ns-bwa-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0112,
+    "normalised_eur": 0.0095,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26635,7 +26670,7 @@
     "hours": 0.168,
     "id": "ns-bwa-hf-002",
     "location": "hel1",
-    "normalised_eur": 0.0116,
+    "normalised_eur": 0.0099,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26647,7 +26682,7 @@
     "hours": 0.185,
     "id": "ns-bwa-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0128,
+    "normalised_eur": 0.0109,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26659,7 +26694,7 @@
     "hours": 0.872,
     "id": "nws-tornado-build-001",
     "location": "hel1",
-    "normalised_eur": 0.0604,
+    "normalised_eur": 0.0512,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26671,7 +26706,7 @@
     "hours": 1.388,
     "id": "nz-ea-001",
     "location": "hel1",
-    "normalised_eur": 0.0961,
+    "normalised_eur": 0.0814,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26683,7 +26718,7 @@
     "hours": 1.689,
     "id": "nz-ea-002",
     "location": "hel1",
-    "normalised_eur": 0.1169,
+    "normalised_eur": 0.0991,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26695,7 +26730,7 @@
     "hours": 0.123,
     "id": "nz-ea-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0085,
+    "normalised_eur": 0.0072,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26707,7 +26742,7 @@
     "hours": 0.201,
     "id": "nz-ea-baseline-002",
     "location": "hel1",
-    "normalised_eur": 0.0139,
+    "normalised_eur": 0.0118,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26719,7 +26754,7 @@
     "hours": 0.153,
     "id": "nz-ea-baseline-003",
     "location": "hel1",
-    "normalised_eur": 0.0106,
+    "normalised_eur": 0.009,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26731,7 +26766,7 @@
     "hours": 0.301,
     "id": "nz-ea-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0208,
+    "normalised_eur": 0.0177,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26743,7 +26778,7 @@
     "hours": 0.14,
     "id": "nz-ea-hf-002",
     "location": "hel1",
-    "normalised_eur": 0.0097,
+    "normalised_eur": 0.0082,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26755,7 +26790,7 @@
     "hours": 0.084,
     "id": "nz-ea-hf-003",
     "location": "hel1",
-    "normalised_eur": 0.0058,
+    "normalised_eur": 0.0049,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26767,7 +26802,7 @@
     "hours": 0.273,
     "id": "nz-ea-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0189,
+    "normalised_eur": 0.016,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26779,7 +26814,7 @@
     "hours": 0.362,
     "id": "pins-consumer-001",
     "location": "hel1",
-    "normalised_eur": 0.0251,
+    "normalised_eur": 0.0212,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26791,7 +26826,7 @@
     "hours": 0.482,
     "id": "pins-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0334,
+    "normalised_eur": 0.0283,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26803,7 +26838,7 @@
     "hours": 0.396,
     "id": "pins-planning-001",
     "location": "hel1",
-    "normalised_eur": 0.0274,
+    "normalised_eur": 0.0232,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26815,7 +26850,7 @@
     "hours": 0.093,
     "id": "pins-planning-002",
     "location": "hel1",
-    "normalised_eur": 0.0064,
+    "normalised_eur": 0.0055,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26827,7 +26862,7 @@
     "hours": 0.151,
     "id": "pins-planning-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0105,
+    "normalised_eur": 0.0089,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26839,7 +26874,7 @@
     "hours": 0.105,
     "id": "pins-planning-baseline-002",
     "location": "hel1",
-    "normalised_eur": 0.0073,
+    "normalised_eur": 0.0062,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26851,7 +26886,7 @@
     "hours": 0.537,
     "id": "pins-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0372,
+    "normalised_eur": 0.0315,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26863,7 +26898,7 @@
     "hours": 0.778,
     "id": "resilience-a1-cpcb-001",
     "location": "hel1",
-    "normalised_eur": 0.0539,
+    "normalised_eur": 0.0457,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26875,7 +26910,7 @@
     "hours": 0.101,
     "id": "resilience-a1-fixtures-001",
     "location": "hel1",
-    "normalised_eur": 0.007,
+    "normalised_eur": 0.0059,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26887,7 +26922,7 @@
     "hours": 0.08,
     "id": "resilience-a1-small-002",
     "location": "hel1",
-    "normalised_eur": 0.0055,
+    "normalised_eur": 0.0047,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -26899,7 +26934,7 @@
     "hours": 0.221,
     "id": "resilience-a2-large-01-001",
     "location": "hel1",
-    "normalised_eur": 0.0153,
+    "normalised_eur": 0.013,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26911,7 +26946,7 @@
     "hours": 0.365,
     "id": "resilience-a2-large-02-001",
     "location": "hel1",
-    "normalised_eur": 0.0253,
+    "normalised_eur": 0.0214,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26923,7 +26958,7 @@
     "hours": 0.291,
     "id": "resilience-a2-small-001",
     "location": "hel1",
-    "normalised_eur": 0.0201,
+    "normalised_eur": 0.0171,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26935,7 +26970,7 @@
     "hours": 0.416,
     "id": "resilience-a4-blocked-004",
     "location": "hel1",
-    "normalised_eur": 0.0288,
+    "normalised_eur": 0.0244,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26947,7 +26982,7 @@
     "hours": 0.046,
     "id": "rw-058e0530b62e-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0032,
+    "normalised_eur": 0.0027,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26959,7 +26994,7 @@
     "hours": 0.036,
     "id": "rw-058e0530b62e-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0025,
+    "normalised_eur": 0.0021,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26971,7 +27006,7 @@
     "hours": 0.038,
     "id": "rw-058e0530b62e-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26983,7 +27018,7 @@
     "hours": 0.087,
     "id": "rw-058e0530b62e-build-5",
     "location": "hel1",
-    "normalised_eur": 0.006,
+    "normalised_eur": 0.0051,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -26995,7 +27030,7 @@
     "hours": 0.064,
     "id": "rw-058e0530b62e-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0044,
+    "normalised_eur": 0.0038,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27007,7 +27042,7 @@
     "hours": 0.103,
     "id": "rw-080e85a65cfd-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0071,
+    "normalised_eur": 0.006,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27019,7 +27054,7 @@
     "hours": 0.137,
     "id": "rw-080e85a65cfd-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0095,
+    "normalised_eur": 0.008,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27031,7 +27066,7 @@
     "hours": 0.139,
     "id": "rw-080e85a65cfd-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0096,
+    "normalised_eur": 0.0082,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27043,7 +27078,7 @@
     "hours": 0.067,
     "id": "rw-080e85a65cfd-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0046,
+    "normalised_eur": 0.0039,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27055,7 +27090,7 @@
     "hours": 0.045,
     "id": "rw-080e85a65cfd-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0031,
+    "normalised_eur": 0.0026,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27067,7 +27102,7 @@
     "hours": 0.078,
     "id": "rw-095ffec624f2-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0054,
+    "normalised_eur": 0.0046,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27079,7 +27114,7 @@
     "hours": 0.054,
     "id": "rw-095ffec624f2-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0032,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27091,7 +27126,7 @@
     "hours": 0.105,
     "id": "rw-095ffec624f2-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0073,
+    "normalised_eur": 0.0062,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27103,7 +27138,7 @@
     "hours": 0.05,
     "id": "rw-095ffec624f2-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27115,7 +27150,7 @@
     "hours": 0.153,
     "id": "rw-095ffec624f2-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0106,
+    "normalised_eur": 0.009,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27127,7 +27162,7 @@
     "hours": 0.049,
     "id": "rw-11d5eb5fe67f-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0034,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27139,7 +27174,7 @@
     "hours": 0.155,
     "id": "rw-11d5eb5fe67f-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0107,
+    "normalised_eur": 0.0091,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27151,7 +27186,7 @@
     "hours": 0.049,
     "id": "rw-11d5eb5fe67f-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0034,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27163,7 +27198,7 @@
     "hours": 0.041,
     "id": "rw-11d5eb5fe67f-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0028,
+    "normalised_eur": 0.0024,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27175,7 +27210,7 @@
     "hours": 0.049,
     "id": "rw-11d5eb5fe67f-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0034,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27187,7 +27222,7 @@
     "hours": 0.138,
     "id": "rw-11da79a259ae-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0096,
+    "normalised_eur": 0.0081,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27199,7 +27234,7 @@
     "hours": 0.112,
     "id": "rw-11da79a259ae-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0078,
+    "normalised_eur": 0.0066,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27211,7 +27246,7 @@
     "hours": 0.088,
     "id": "rw-11da79a259ae-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0061,
+    "normalised_eur": 0.0052,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27223,7 +27258,7 @@
     "hours": 0.066,
     "id": "rw-11da79a259ae-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0046,
+    "normalised_eur": 0.0039,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27235,7 +27270,7 @@
     "hours": 0.099,
     "id": "rw-11da79a259ae-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0069,
+    "normalised_eur": 0.0058,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27247,7 +27282,7 @@
     "hours": 0.095,
     "id": "rw-11da79a259ae-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0066,
+    "normalised_eur": 0.0056,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27259,7 +27294,7 @@
     "hours": 0.113,
     "id": "rw-11da79a259ae-build-7",
     "location": "hel1",
-    "normalised_eur": 0.0078,
+    "normalised_eur": 0.0066,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27271,7 +27306,7 @@
     "hours": 0.105,
     "id": "rw-11da79a259ae-build-8",
     "location": "hel1",
-    "normalised_eur": 0.0073,
+    "normalised_eur": 0.0062,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27283,7 +27318,7 @@
     "hours": 0.038,
     "id": "rw-1299c545ed28-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27295,7 +27330,7 @@
     "hours": 0.05,
     "id": "rw-1299c545ed28-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27307,7 +27342,7 @@
     "hours": 0.049,
     "id": "rw-1299c545ed28-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0034,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27319,7 +27354,7 @@
     "hours": 0.052,
     "id": "rw-1299c545ed28-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0036,
+    "normalised_eur": 0.0031,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27331,7 +27366,7 @@
     "hours": 0.119,
     "id": "rw-1299c545ed28-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.0082,
+    "normalised_eur": 0.007,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27343,7 +27378,7 @@
     "hours": 0.029,
     "id": "rw-17210db0fb94-build-1",
     "location": "hel1",
-    "normalised_eur": 0.002,
+    "normalised_eur": 0.0017,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27355,7 +27390,7 @@
     "hours": 0.09,
     "id": "rw-17210db0fb94-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0062,
+    "normalised_eur": 0.0053,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27367,7 +27402,7 @@
     "hours": 0.032,
     "id": "rw-17210db0fb94-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0022,
+    "normalised_eur": 0.0019,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27379,7 +27414,7 @@
     "hours": 0.117,
     "id": "rw-17210db0fb94-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0081,
+    "normalised_eur": 0.0069,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27391,7 +27426,7 @@
     "hours": 0.07,
     "id": "rw-17210db0fb94-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0048,
+    "normalised_eur": 0.0041,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27403,7 +27438,7 @@
     "hours": 0.04,
     "id": "rw-17b5d37bd413-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0028,
+    "normalised_eur": 0.0023,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27415,7 +27450,7 @@
     "hours": 0.053,
     "id": "rw-17b5d37bd413-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0031,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27427,7 +27462,7 @@
     "hours": 0.194,
     "id": "rw-17b5d37bd413-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0134,
+    "normalised_eur": 0.0114,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27439,7 +27474,7 @@
     "hours": 0.039,
     "id": "rw-1c32c3661eba-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0027,
+    "normalised_eur": 0.0023,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27451,7 +27486,7 @@
     "hours": 0.038,
     "id": "rw-1c8d6061c611-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27463,7 +27498,7 @@
     "hours": 0.155,
     "id": "rw-1c8d6061c611-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0107,
+    "normalised_eur": 0.0091,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27475,7 +27510,7 @@
     "hours": 0.079,
     "id": "rw-1c8d6061c611-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0055,
+    "normalised_eur": 0.0046,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27487,7 +27522,7 @@
     "hours": 0.136,
     "id": "rw-1c8d6061c611-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0094,
+    "normalised_eur": 0.008,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27499,7 +27534,7 @@
     "hours": 0.103,
     "id": "rw-1c8d6061c611-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.0071,
+    "normalised_eur": 0.006,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27511,7 +27546,7 @@
     "hours": 0.05,
     "id": "rw-23dda8cd1e5a-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27523,7 +27558,7 @@
     "hours": 0.13,
     "id": "rw-23dda8cd1e5a-build-2",
     "location": "hel1",
-    "normalised_eur": 0.009,
+    "normalised_eur": 0.0076,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27535,7 +27570,7 @@
     "hours": 0.052,
     "id": "rw-23dda8cd1e5a-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0036,
+    "normalised_eur": 0.0031,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27547,7 +27582,7 @@
     "hours": 0.035,
     "id": "rw-2bab5db6f7de-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0024,
+    "normalised_eur": 0.0021,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27559,7 +27594,7 @@
     "hours": 0.099,
     "id": "rw-2bab5db6f7de-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0069,
+    "normalised_eur": 0.0058,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27571,7 +27606,7 @@
     "hours": 0.098,
     "id": "rw-2bab5db6f7de-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0068,
+    "normalised_eur": 0.0058,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27583,7 +27618,7 @@
     "hours": 0.106,
     "id": "rw-2bab5db6f7de-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0073,
+    "normalised_eur": 0.0062,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27595,7 +27630,7 @@
     "hours": 0.123,
     "id": "rw-2bab5db6f7de-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0085,
+    "normalised_eur": 0.0072,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27607,7 +27642,7 @@
     "hours": 0.137,
     "id": "rw-2bab5db6f7de-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.0095,
+    "normalised_eur": 0.008,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27619,7 +27654,7 @@
     "hours": 0.071,
     "id": "rw-2ce60e8ae8f7-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0049,
+    "normalised_eur": 0.0042,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27631,7 +27666,7 @@
     "hours": 0.073,
     "id": "rw-2ce60e8ae8f7-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0051,
+    "normalised_eur": 0.0043,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27643,7 +27678,7 @@
     "hours": 0.103,
     "id": "rw-2ce60e8ae8f7-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0071,
+    "normalised_eur": 0.006,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27655,7 +27690,7 @@
     "hours": 0.054,
     "id": "rw-2ce60e8ae8f7-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0032,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27667,7 +27702,7 @@
     "hours": 0.068,
     "id": "rw-2ce60e8ae8f7-build-7",
     "location": "hel1",
-    "normalised_eur": 0.0047,
+    "normalised_eur": 0.004,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27679,7 +27714,7 @@
     "hours": 0.088,
     "id": "rw-2ce60e8ae8f7-build-8",
     "location": "hel1",
-    "normalised_eur": 0.0061,
+    "normalised_eur": 0.0052,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27691,7 +27726,7 @@
     "hours": 0.066,
     "id": "rw-2ce60e8ae8f7-build-9",
     "location": "hel1",
-    "normalised_eur": 0.0046,
+    "normalised_eur": 0.0039,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27703,7 +27738,7 @@
     "hours": 0.086,
     "id": "rw-2ce60e8ae8f7-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.006,
+    "normalised_eur": 0.005,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27715,7 +27750,7 @@
     "hours": 0.171,
     "id": "rw-2ce60e8ae8f7-publish-2",
     "location": "hel1",
-    "normalised_eur": 0.0118,
+    "normalised_eur": 0.01,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27727,7 +27762,7 @@
     "hours": 0.087,
     "id": "rw-2ce60e8ae8f7-publish-3",
     "location": "hel1",
-    "normalised_eur": 0.006,
+    "normalised_eur": 0.0051,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27739,7 +27774,7 @@
     "hours": 0.052,
     "id": "rw-359604032c14-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0036,
+    "normalised_eur": 0.0031,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27751,7 +27786,7 @@
     "hours": 0.055,
     "id": "rw-359604032c14-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0038,
+    "normalised_eur": 0.0032,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27763,7 +27798,7 @@
     "hours": 0.048,
     "id": "rw-359604032c14-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0033,
+    "normalised_eur": 0.0028,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27775,7 +27810,7 @@
     "hours": 0.05,
     "id": "rw-359604032c14-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27787,7 +27822,7 @@
     "hours": 0.053,
     "id": "rw-359604032c14-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0031,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27799,7 +27834,7 @@
     "hours": 0.187,
     "id": "rw-3c5a623babd4-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0129,
+    "normalised_eur": 0.011,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27811,7 +27846,7 @@
     "hours": 0.03,
     "id": "rw-3c5a623babd4-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0021,
+    "normalised_eur": 0.0018,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27823,7 +27858,7 @@
     "hours": 0.133,
     "id": "rw-3c5a623babd4-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0092,
+    "normalised_eur": 0.0078,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27835,7 +27870,7 @@
     "hours": 0.054,
     "id": "rw-3c5a623babd4-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0032,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27847,7 +27882,7 @@
     "hours": 0.054,
     "id": "rw-3c5a623babd4-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0032,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27859,7 +27894,7 @@
     "hours": 0.158,
     "id": "rw-3e29b2d88d00-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0109,
+    "normalised_eur": 0.0093,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27871,7 +27906,7 @@
     "hours": 0.053,
     "id": "rw-3e29b2d88d00-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0031,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27883,7 +27918,7 @@
     "hours": 0.106,
     "id": "rw-3e29b2d88d00-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0073,
+    "normalised_eur": 0.0062,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27895,7 +27930,7 @@
     "hours": 0.087,
     "id": "rw-3e29b2d88d00-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.006,
+    "normalised_eur": 0.0051,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27907,7 +27942,7 @@
     "hours": 0.095,
     "id": "rw-421901bf1837-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0066,
+    "normalised_eur": 0.0056,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27919,7 +27954,7 @@
     "hours": 0.121,
     "id": "rw-421901bf1837-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0084,
+    "normalised_eur": 0.0071,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27931,7 +27966,7 @@
     "hours": 0.129,
     "id": "rw-421901bf1837-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0089,
+    "normalised_eur": 0.0076,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27943,7 +27978,7 @@
     "hours": 0.142,
     "id": "rw-421901bf1837-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0098,
+    "normalised_eur": 0.0083,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27955,7 +27990,7 @@
     "hours": 0.043,
     "id": "rw-421901bf1837-build-5",
     "location": "hel1",
-    "normalised_eur": 0.003,
+    "normalised_eur": 0.0025,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27967,7 +28002,7 @@
     "hours": 0.154,
     "id": "rw-421901bf1837-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0107,
+    "normalised_eur": 0.009,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27979,7 +28014,7 @@
     "hours": 0.108,
     "id": "rw-421901bf1837-build-7",
     "location": "hel1",
-    "normalised_eur": 0.0075,
+    "normalised_eur": 0.0063,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -27991,7 +28026,7 @@
     "hours": 0.102,
     "id": "rw-421901bf1837-build-8",
     "location": "hel1",
-    "normalised_eur": 0.0071,
+    "normalised_eur": 0.006,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28003,7 +28038,7 @@
     "hours": 0.05,
     "id": "rw-4b31be89313d-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28015,7 +28050,7 @@
     "hours": 0.104,
     "id": "rw-4b31be89313d-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0072,
+    "normalised_eur": 0.0061,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28027,7 +28062,7 @@
     "hours": 0.044,
     "id": "rw-4b31be89313d-build-3",
     "location": "hel1",
-    "normalised_eur": 0.003,
+    "normalised_eur": 0.0026,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28039,7 +28074,7 @@
     "hours": 0.056,
     "id": "rw-4b31be89313d-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0039,
+    "normalised_eur": 0.0033,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28051,7 +28086,7 @@
     "hours": 0.075,
     "id": "rw-4b31be89313d-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0052,
+    "normalised_eur": 0.0044,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28063,7 +28098,7 @@
     "hours": 0.087,
     "id": "rw-4b31be89313d-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.006,
+    "normalised_eur": 0.0051,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28075,7 +28110,7 @@
     "hours": 0.144,
     "id": "rw-4e8c0bcd0d8c-build-2",
     "location": "hel1",
-    "normalised_eur": 0.01,
+    "normalised_eur": 0.0084,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28087,7 +28122,7 @@
     "hours": 0.131,
     "id": "rw-4e8c0bcd0d8c-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0091,
+    "normalised_eur": 0.0077,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28099,7 +28134,7 @@
     "hours": 0.137,
     "id": "rw-4e8c0bcd0d8c-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0095,
+    "normalised_eur": 0.008,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28111,7 +28146,7 @@
     "hours": 0.138,
     "id": "rw-4e8c0bcd0d8c-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0096,
+    "normalised_eur": 0.0081,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28123,7 +28158,7 @@
     "hours": 0.137,
     "id": "rw-4e8c0bcd0d8c-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.0095,
+    "normalised_eur": 0.008,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28135,7 +28170,7 @@
     "hours": 0.068,
     "id": "rw-4fa4bc1fda01-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0047,
+    "normalised_eur": 0.004,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28147,7 +28182,7 @@
     "hours": 0.037,
     "id": "rw-58e90277d81d-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28159,7 +28194,7 @@
     "hours": 0.038,
     "id": "rw-58e90277d81d-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28171,7 +28206,7 @@
     "hours": 0.048,
     "id": "rw-58e90277d81d-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0033,
+    "normalised_eur": 0.0028,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28183,7 +28218,7 @@
     "hours": 0.045,
     "id": "rw-58e90277d81d-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0031,
+    "normalised_eur": 0.0026,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28195,7 +28230,7 @@
     "hours": 0.045,
     "id": "rw-58e90277d81d-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0031,
+    "normalised_eur": 0.0026,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28207,7 +28242,7 @@
     "hours": 0.05,
     "id": "rw-60bb36fb023a-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28219,7 +28254,7 @@
     "hours": 0.075,
     "id": "rw-60bb36fb023a-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0052,
+    "normalised_eur": 0.0044,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28231,7 +28266,7 @@
     "hours": 0.051,
     "id": "rw-60bb36fb023a-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.003,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28243,7 +28278,7 @@
     "hours": 0.046,
     "id": "rw-60bb36fb023a-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0032,
+    "normalised_eur": 0.0027,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28255,7 +28290,7 @@
     "hours": 0.042,
     "id": "rw-60bb36fb023a-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0029,
+    "normalised_eur": 0.0025,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28267,7 +28302,7 @@
     "hours": 0.092,
     "id": "rw-64e7b0c7d522-build-10",
     "location": "hel1",
-    "normalised_eur": 0.0064,
+    "normalised_eur": 0.0054,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28279,7 +28314,7 @@
     "hours": 0.045,
     "id": "rw-64e7b0c7d522-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0031,
+    "normalised_eur": 0.0026,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28291,7 +28326,7 @@
     "hours": 0.077,
     "id": "rw-64e7b0c7d522-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0053,
+    "normalised_eur": 0.0045,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28303,7 +28338,7 @@
     "hours": 0.087,
     "id": "rw-64e7b0c7d522-build-4",
     "location": "hel1",
-    "normalised_eur": 0.006,
+    "normalised_eur": 0.0051,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28315,7 +28350,7 @@
     "hours": 0.155,
     "id": "rw-64e7b0c7d522-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0107,
+    "normalised_eur": 0.0091,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28327,7 +28362,7 @@
     "hours": 0.104,
     "id": "rw-64e7b0c7d522-build-7",
     "location": "hel1",
-    "normalised_eur": 0.0072,
+    "normalised_eur": 0.0061,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28339,7 +28374,7 @@
     "hours": 0.092,
     "id": "rw-64e7b0c7d522-build-8",
     "location": "hel1",
-    "normalised_eur": 0.0064,
+    "normalised_eur": 0.0054,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28351,7 +28386,7 @@
     "hours": 0.122,
     "id": "rw-7048eece2e81-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0084,
+    "normalised_eur": 0.0072,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28363,7 +28398,7 @@
     "hours": 0.052,
     "id": "rw-7048eece2e81-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0036,
+    "normalised_eur": 0.0031,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28375,7 +28410,7 @@
     "hours": 0.044,
     "id": "rw-7048eece2e81-build-3",
     "location": "hel1",
-    "normalised_eur": 0.003,
+    "normalised_eur": 0.0026,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28387,7 +28422,7 @@
     "hours": 0.071,
     "id": "rw-7048eece2e81-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0049,
+    "normalised_eur": 0.0042,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28399,7 +28434,7 @@
     "hours": 0.081,
     "id": "rw-7048eece2e81-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0056,
+    "normalised_eur": 0.0048,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28411,7 +28446,7 @@
     "hours": 0.12,
     "id": "rw-7048eece2e81-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0083,
+    "normalised_eur": 0.007,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28423,7 +28458,7 @@
     "hours": 0.103,
     "id": "rw-7048eece2e81-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.0071,
+    "normalised_eur": 0.006,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28435,7 +28470,7 @@
     "hours": 0.032,
     "id": "rw-72e1332cd9b8-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0022,
+    "normalised_eur": 0.0019,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28447,7 +28482,7 @@
     "hours": 0.069,
     "id": "rw-7d6aa3671f1e-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0048,
+    "normalised_eur": 0.004,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28459,7 +28494,7 @@
     "hours": 0.039,
     "id": "rw-7d6aa3671f1e-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0027,
+    "normalised_eur": 0.0023,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28471,7 +28506,7 @@
     "hours": 0.092,
     "id": "rw-7d6aa3671f1e-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0064,
+    "normalised_eur": 0.0054,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28483,7 +28518,7 @@
     "hours": 1.006,
     "id": "rw-7d6aa3671f1e-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0697,
+    "normalised_eur": 0.059,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28495,7 +28530,7 @@
     "hours": 0.104,
     "id": "rw-7d6aa3671f1e-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0072,
+    "normalised_eur": 0.0061,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28507,7 +28542,7 @@
     "hours": 0.057,
     "id": "rw-8823a11cb982-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0039,
+    "normalised_eur": 0.0033,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28519,7 +28554,7 @@
     "hours": 0.058,
     "id": "rw-8823a11cb982-build-2",
     "location": "hel1",
-    "normalised_eur": 0.004,
+    "normalised_eur": 0.0034,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28531,7 +28566,7 @@
     "hours": 0.048,
     "id": "rw-8823a11cb982-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0033,
+    "normalised_eur": 0.0028,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28543,7 +28578,7 @@
     "hours": 0.038,
     "id": "rw-8823a11cb982-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28555,7 +28590,7 @@
     "hours": 0.059,
     "id": "rw-8823a11cb982-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0041,
+    "normalised_eur": 0.0035,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28567,7 +28602,7 @@
     "hours": 0.048,
     "id": "rw-8e9e6e3f2d3e-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0033,
+    "normalised_eur": 0.0028,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28579,7 +28614,7 @@
     "hours": 0.053,
     "id": "rw-91ffa6294e52-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0031,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28591,7 +28626,7 @@
     "hours": 0.071,
     "id": "rw-91ffa6294e52-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0049,
+    "normalised_eur": 0.0042,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28603,7 +28638,7 @@
     "hours": 0.103,
     "id": "rw-91ffa6294e52-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.0071,
+    "normalised_eur": 0.006,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28615,7 +28650,7 @@
     "hours": 0.038,
     "id": "rw-95d877b91529-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28627,7 +28662,7 @@
     "hours": 0.177,
     "id": "rw-95d877b91529-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0123,
+    "normalised_eur": 0.0104,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28639,7 +28674,7 @@
     "hours": 0.057,
     "id": "rw-95d877b91529-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0039,
+    "normalised_eur": 0.0033,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28651,7 +28686,7 @@
     "hours": 0.047,
     "id": "rw-95d877b91529-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0033,
+    "normalised_eur": 0.0028,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28663,7 +28698,7 @@
     "hours": 0.055,
     "id": "rw-95d877b91529-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0038,
+    "normalised_eur": 0.0032,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28675,7 +28710,7 @@
     "hours": 0.03,
     "id": "rw-971b880e058d-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0021,
+    "normalised_eur": 0.0018,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28687,7 +28722,7 @@
     "hours": 0.146,
     "id": "rw-978461e02d49-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0101,
+    "normalised_eur": 0.0086,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28699,7 +28734,7 @@
     "hours": 0.05,
     "id": "rw-9f58fbd0fa13-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28711,7 +28746,7 @@
     "hours": 0.044,
     "id": "rw-9f58fbd0fa13-build-2",
     "location": "hel1",
-    "normalised_eur": 0.003,
+    "normalised_eur": 0.0026,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28723,7 +28758,7 @@
     "hours": 0.049,
     "id": "rw-9f58fbd0fa13-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0034,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28735,7 +28770,7 @@
     "hours": 0.136,
     "id": "rw-9f58fbd0fa13-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.0094,
+    "normalised_eur": 0.008,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28747,7 +28782,7 @@
     "hours": 0.026,
     "id": "rw-a0e68561ec00-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0018,
+    "normalised_eur": 0.0015,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28759,7 +28794,7 @@
     "hours": 0.171,
     "id": "rw-a0e68561ec00-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0118,
+    "normalised_eur": 0.01,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28771,7 +28806,7 @@
     "hours": 0.115,
     "id": "rw-a0e68561ec00-build-5",
     "location": "hel1",
-    "normalised_eur": 0.008,
+    "normalised_eur": 0.0067,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28783,7 +28818,7 @@
     "hours": 0.12,
     "id": "rw-a0e68561ec00-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0083,
+    "normalised_eur": 0.007,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28795,7 +28830,7 @@
     "hours": 0.107,
     "id": "rw-a0e68561ec00-build-7",
     "location": "hel1",
-    "normalised_eur": 0.0074,
+    "normalised_eur": 0.0063,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28807,7 +28842,7 @@
     "hours": 0.094,
     "id": "rw-a75a5c6cac9e-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0065,
+    "normalised_eur": 0.0055,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28819,7 +28854,7 @@
     "hours": 0.127,
     "id": "rw-a75a5c6cac9e-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0088,
+    "normalised_eur": 0.0075,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28831,7 +28866,7 @@
     "hours": 0.098,
     "id": "rw-a75a5c6cac9e-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0068,
+    "normalised_eur": 0.0058,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28843,7 +28878,7 @@
     "hours": 0.145,
     "id": "rw-a75a5c6cac9e-build-4",
     "location": "hel1",
-    "normalised_eur": 0.01,
+    "normalised_eur": 0.0085,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28855,7 +28890,7 @@
     "hours": 0.138,
     "id": "rw-a75a5c6cac9e-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0096,
+    "normalised_eur": 0.0081,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28867,7 +28902,7 @@
     "hours": 0.142,
     "id": "rw-a75a5c6cac9e-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0098,
+    "normalised_eur": 0.0083,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28879,7 +28914,7 @@
     "hours": 0.137,
     "id": "rw-a75a5c6cac9e-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.0095,
+    "normalised_eur": 0.008,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28891,7 +28926,7 @@
     "hours": 0.037,
     "id": "rw-a91d19a09d29-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28903,7 +28938,7 @@
     "hours": 0.046,
     "id": "rw-a91d19a09d29-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0032,
+    "normalised_eur": 0.0027,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28915,7 +28950,7 @@
     "hours": 0.158,
     "id": "rw-a91d19a09d29-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0109,
+    "normalised_eur": 0.0093,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28927,7 +28962,7 @@
     "hours": 0.045,
     "id": "rw-a91d19a09d29-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0031,
+    "normalised_eur": 0.0026,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28939,7 +28974,31 @@
     "hours": 0.044,
     "id": "rw-a91d19a09d29-build-5",
     "location": "hel1",
-    "normalised_eur": 0.003,
+    "normalised_eur": 0.0026,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T02:09:42.424243+00:00",
+    "deleted_at": "2026-11-15T02:12:13.894763+00:00",
+    "eur": 0.05868,
+    "hours": 0.042,
+    "id": "rw-adcfc5406f64-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0025,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T02:44:01.245119+00:00",
+    "deleted_at": "2026-11-15T02:49:14.087152+00:00",
+    "eur": 0.05868,
+    "hours": 0.087,
+    "id": "rw-adcfc5406f64-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.0051,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28951,7 +29010,7 @@
     "hours": 0.106,
     "id": "rw-af0a34c3dcd2-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0073,
+    "normalised_eur": 0.0062,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28963,7 +29022,7 @@
     "hours": 0.087,
     "id": "rw-af0a34c3dcd2-build-2",
     "location": "hel1",
-    "normalised_eur": 0.006,
+    "normalised_eur": 0.0051,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28975,7 +29034,7 @@
     "hours": 0.041,
     "id": "rw-af0a34c3dcd2-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0028,
+    "normalised_eur": 0.0024,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28987,7 +29046,7 @@
     "hours": 0.048,
     "id": "rw-af0a34c3dcd2-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0033,
+    "normalised_eur": 0.0028,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -28999,7 +29058,7 @@
     "hours": 0.043,
     "id": "rw-af0a34c3dcd2-build-5",
     "location": "hel1",
-    "normalised_eur": 0.003,
+    "normalised_eur": 0.0025,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29011,7 +29070,7 @@
     "hours": 0.171,
     "id": "rw-b009bfe3c46d-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0118,
+    "normalised_eur": 0.01,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29023,7 +29082,7 @@
     "hours": 0.058,
     "id": "rw-b009bfe3c46d-build-2",
     "location": "hel1",
-    "normalised_eur": 0.004,
+    "normalised_eur": 0.0034,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29035,7 +29094,7 @@
     "hours": 0.045,
     "id": "rw-b009bfe3c46d-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0031,
+    "normalised_eur": 0.0026,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29047,7 +29106,7 @@
     "hours": 0.049,
     "id": "rw-b009bfe3c46d-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0034,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29059,7 +29118,7 @@
     "hours": 0.04,
     "id": "rw-b009bfe3c46d-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0028,
+    "normalised_eur": 0.0023,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29071,7 +29130,55 @@
     "hours": 0.042,
     "id": "rw-b12097e1cb7a-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0029,
+    "normalised_eur": 0.0025,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T01:59:01.145765+00:00",
+    "deleted_at": "2026-11-15T02:06:13.743015+00:00",
+    "eur": 0.05868,
+    "hours": 0.12,
+    "id": "rw-b12097e1cb7a-build-6",
+    "location": "hel1",
+    "normalised_eur": 0.007,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T02:16:14.732098+00:00",
+    "deleted_at": "2026-11-15T02:22:14.029136+00:00",
+    "eur": 0.05868,
+    "hours": 0.1,
+    "id": "rw-b12097e1cb7a-build-7",
+    "location": "hel1",
+    "normalised_eur": 0.0059,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T02:25:57.333330+00:00",
+    "deleted_at": "2026-11-15T02:28:13.337655+00:00",
+    "eur": 0.05868,
+    "hours": 0.038,
+    "id": "rw-b12097e1cb7a-build-8",
+    "location": "hel1",
+    "normalised_eur": 0.0022,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-15T02:32:26.756325+00:00",
+    "deleted_at": "2026-11-15T02:35:38.624019+00:00",
+    "eur": 0.05868,
+    "hours": 0.053,
+    "id": "rw-b12097e1cb7a-build-9",
+    "location": "hel1",
+    "normalised_eur": 0.0031,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29083,7 +29190,7 @@
     "hours": 0.18,
     "id": "rw-b519336e6481-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0125,
+    "normalised_eur": 0.0106,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29095,7 +29202,7 @@
     "hours": 0.115,
     "id": "rw-b519336e6481-build-2",
     "location": "hel1",
-    "normalised_eur": 0.008,
+    "normalised_eur": 0.0067,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29107,7 +29214,7 @@
     "hours": 0.171,
     "id": "rw-b519336e6481-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0118,
+    "normalised_eur": 0.01,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29119,7 +29226,7 @@
     "hours": 0.11,
     "id": "rw-b519336e6481-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0076,
+    "normalised_eur": 0.0065,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29131,7 +29238,7 @@
     "hours": 0.05,
     "id": "rw-b519336e6481-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.0029,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29143,7 +29250,7 @@
     "hours": 0.138,
     "id": "rw-b6daec6d3aba-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0096,
+    "normalised_eur": 0.0081,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29155,7 +29262,7 @@
     "hours": 0.041,
     "id": "rw-b6daec6d3aba-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0028,
+    "normalised_eur": 0.0024,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29167,7 +29274,7 @@
     "hours": 0.036,
     "id": "rw-b6daec6d3aba-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0025,
+    "normalised_eur": 0.0021,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29179,7 +29286,7 @@
     "hours": 0.053,
     "id": "rw-b6daec6d3aba-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0031,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29191,7 +29298,7 @@
     "hours": 0.048,
     "id": "rw-b6daec6d3aba-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0033,
+    "normalised_eur": 0.0028,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29203,7 +29310,7 @@
     "hours": 0.052,
     "id": "rw-b702d47ad634-build-10",
     "location": "hel1",
-    "normalised_eur": 0.0036,
+    "normalised_eur": 0.0031,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29215,7 +29322,7 @@
     "hours": 0.088,
     "id": "rw-b702d47ad634-build-11",
     "location": "hel1",
-    "normalised_eur": 0.0061,
+    "normalised_eur": 0.0052,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29227,7 +29334,7 @@
     "hours": 0.107,
     "id": "rw-b702d47ad634-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0074,
+    "normalised_eur": 0.0063,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29239,7 +29346,7 @@
     "hours": 0.071,
     "id": "rw-b702d47ad634-build-8",
     "location": "hel1",
-    "normalised_eur": 0.0049,
+    "normalised_eur": 0.0042,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29251,7 +29358,7 @@
     "hours": 0.042,
     "id": "rw-b702d47ad634-build-9",
     "location": "hel1",
-    "normalised_eur": 0.0029,
+    "normalised_eur": 0.0025,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29263,7 +29370,7 @@
     "hours": 0.136,
     "id": "rw-ba904118ba27-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0094,
+    "normalised_eur": 0.008,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29275,7 +29382,7 @@
     "hours": 0.206,
     "id": "rw-ba904118ba27-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0143,
+    "normalised_eur": 0.0121,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29287,7 +29394,7 @@
     "hours": 0.116,
     "id": "rw-ba904118ba27-build-3",
     "location": "hel1",
-    "normalised_eur": 0.008,
+    "normalised_eur": 0.0068,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29299,7 +29406,7 @@
     "hours": 0.156,
     "id": "rw-ba904118ba27-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0108,
+    "normalised_eur": 0.0092,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29311,7 +29418,7 @@
     "hours": 0.139,
     "id": "rw-ba904118ba27-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0096,
+    "normalised_eur": 0.0082,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29323,7 +29430,7 @@
     "hours": 0.048,
     "id": "rw-bae7d4036d95-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0033,
+    "normalised_eur": 0.0028,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29335,7 +29442,7 @@
     "hours": 0.042,
     "id": "rw-bae7d4036d95-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0029,
+    "normalised_eur": 0.0025,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29347,7 +29454,7 @@
     "hours": 0.076,
     "id": "rw-bae7d4036d95-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0053,
+    "normalised_eur": 0.0045,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29359,7 +29466,7 @@
     "hours": 0.037,
     "id": "rw-bae7d4036d95-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29371,7 +29478,7 @@
     "hours": 0.037,
     "id": "rw-bae7d4036d95-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29383,7 +29490,7 @@
     "hours": 0.087,
     "id": "rw-be5838ec23c9-build-2",
     "location": "hel1",
-    "normalised_eur": 0.006,
+    "normalised_eur": 0.0051,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29395,7 +29502,7 @@
     "hours": 0.187,
     "id": "rw-be5838ec23c9-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.0129,
+    "normalised_eur": 0.011,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29407,7 +29514,7 @@
     "hours": 0.103,
     "id": "rw-be5838ec23c9-publish-2",
     "location": "hel1",
-    "normalised_eur": 0.0071,
+    "normalised_eur": 0.006,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29419,7 +29526,7 @@
     "hours": 0.138,
     "id": "rw-c68bf5e7b617-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0096,
+    "normalised_eur": 0.0081,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29431,7 +29538,7 @@
     "hours": 0.038,
     "id": "rw-c68bf5e7b617-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29443,7 +29550,7 @@
     "hours": 0.14,
     "id": "rw-c68bf5e7b617-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0097,
+    "normalised_eur": 0.0082,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29455,7 +29562,7 @@
     "hours": 0.247,
     "id": "rw-c68bf5e7b617-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0171,
+    "normalised_eur": 0.0145,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29467,7 +29574,7 @@
     "hours": 0.255,
     "id": "rw-c68bf5e7b617-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0177,
+    "normalised_eur": 0.015,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29479,7 +29586,7 @@
     "hours": 0.103,
     "id": "rw-c68bf5e7b617-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.0071,
+    "normalised_eur": 0.006,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29491,7 +29598,7 @@
     "hours": 0.079,
     "id": "rw-cc94c0f3bfff-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0055,
+    "normalised_eur": 0.0046,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29503,7 +29610,7 @@
     "hours": 0.092,
     "id": "rw-cc94c0f3bfff-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0064,
+    "normalised_eur": 0.0054,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29515,7 +29622,7 @@
     "hours": 0.12,
     "id": "rw-cc94c0f3bfff-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.0083,
+    "normalised_eur": 0.007,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29527,7 +29634,7 @@
     "hours": 0.045,
     "id": "rw-d144626c2b54-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0031,
+    "normalised_eur": 0.0026,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29539,7 +29646,7 @@
     "hours": 0.171,
     "id": "rw-df1dd22f646d-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0118,
+    "normalised_eur": 0.01,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29551,7 +29658,7 @@
     "hours": 0.304,
     "id": "rw-df1dd22f646d-build-3",
     "location": "hel1",
-    "normalised_eur": 0.021,
+    "normalised_eur": 0.0178,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29563,7 +29670,7 @@
     "hours": 0.286,
     "id": "rw-df1dd22f646d-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0198,
+    "normalised_eur": 0.0168,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29575,7 +29682,7 @@
     "hours": 0.271,
     "id": "rw-df1dd22f646d-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0188,
+    "normalised_eur": 0.0159,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29587,7 +29694,7 @@
     "hours": 0.248,
     "id": "rw-df1dd22f646d-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0172,
+    "normalised_eur": 0.0146,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29599,7 +29706,7 @@
     "hours": 0.037,
     "id": "rw-dfe241e4e784-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29611,7 +29718,7 @@
     "hours": 0.048,
     "id": "rw-dfe241e4e784-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0033,
+    "normalised_eur": 0.0028,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29623,7 +29730,7 @@
     "hours": 0.035,
     "id": "rw-e0a69ec27858-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0024,
+    "normalised_eur": 0.0021,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29635,7 +29742,7 @@
     "hours": 0.051,
     "id": "rw-e0a69ec27858-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.003,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29647,7 +29754,7 @@
     "hours": 0.051,
     "id": "rw-e0a69ec27858-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.003,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29659,7 +29766,7 @@
     "hours": 0.184,
     "id": "rw-e0a69ec27858-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0127,
+    "normalised_eur": 0.0108,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29671,7 +29778,7 @@
     "hours": 0.07,
     "id": "rw-e0a69ec27858-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0048,
+    "normalised_eur": 0.0041,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29683,7 +29790,7 @@
     "hours": 0.071,
     "id": "rw-f2cd4d4b5a2d-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0049,
+    "normalised_eur": 0.0042,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29695,7 +29802,7 @@
     "hours": 0.104,
     "id": "rw-f2cd4d4b5a2d-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0072,
+    "normalised_eur": 0.0061,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29707,7 +29814,7 @@
     "hours": 0.098,
     "id": "rw-f2cd4d4b5a2d-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0068,
+    "normalised_eur": 0.0058,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29719,7 +29826,7 @@
     "hours": 0.144,
     "id": "rw-f2cd4d4b5a2d-build-5",
     "location": "hel1",
-    "normalised_eur": 0.01,
+    "normalised_eur": 0.0084,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29731,7 +29838,7 @@
     "hours": 0.113,
     "id": "rw-f2cd4d4b5a2d-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0078,
+    "normalised_eur": 0.0066,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29743,7 +29850,7 @@
     "hours": 0.104,
     "id": "rw-f2cd4d4b5a2d-publish-1",
     "location": "hel1",
-    "normalised_eur": 0.0072,
+    "normalised_eur": 0.0061,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29755,7 +29862,7 @@
     "hours": 0.17,
     "id": "rw-f45832b80902-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0118,
+    "normalised_eur": 0.01,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29767,7 +29874,7 @@
     "hours": 0.186,
     "id": "rw-f45832b80902-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0129,
+    "normalised_eur": 0.0109,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29779,7 +29886,7 @@
     "hours": 0.062,
     "id": "rw-f45832b80902-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0043,
+    "normalised_eur": 0.0036,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29791,7 +29898,7 @@
     "hours": 0.058,
     "id": "rw-f45832b80902-build-4",
     "location": "hel1",
-    "normalised_eur": 0.004,
+    "normalised_eur": 0.0034,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29803,7 +29910,7 @@
     "hours": 0.063,
     "id": "rw-f45832b80902-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0044,
+    "normalised_eur": 0.0037,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29815,7 +29922,7 @@
     "hours": 0.038,
     "id": "rw-f4eeb53e5bf2-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29827,7 +29934,7 @@
     "hours": 0.161,
     "id": "rw-f4eeb53e5bf2-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0111,
+    "normalised_eur": 0.0094,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29839,7 +29946,7 @@
     "hours": 0.119,
     "id": "rw-f4eeb53e5bf2-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0082,
+    "normalised_eur": 0.007,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29851,7 +29958,7 @@
     "hours": 0.046,
     "id": "rw-f4eeb53e5bf2-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0032,
+    "normalised_eur": 0.0027,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29863,7 +29970,7 @@
     "hours": 0.052,
     "id": "rw-f4eeb53e5bf2-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0036,
+    "normalised_eur": 0.0031,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29875,7 +29982,7 @@
     "hours": 0.044,
     "id": "rw-f5c98eaf9558-build-1",
     "location": "hel1",
-    "normalised_eur": 0.003,
+    "normalised_eur": 0.0026,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29887,7 +29994,7 @@
     "hours": 0.038,
     "id": "rw-f5c98eaf9558-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0026,
+    "normalised_eur": 0.0022,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29899,7 +30006,7 @@
     "hours": 0.054,
     "id": "rw-f5c98eaf9558-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0032,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29911,7 +30018,7 @@
     "hours": 0.062,
     "id": "rw-f5c98eaf9558-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0043,
+    "normalised_eur": 0.0036,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29923,7 +30030,7 @@
     "hours": 0.051,
     "id": "rw-f63d90f6fc37-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0035,
+    "normalised_eur": 0.003,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29935,7 +30042,7 @@
     "hours": 0.171,
     "id": "rw-f63d90f6fc37-build-2",
     "location": "hel1",
-    "normalised_eur": 0.0118,
+    "normalised_eur": 0.01,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29947,7 +30054,7 @@
     "hours": 0.521,
     "id": "rw-f63d90f6fc37-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0361,
+    "normalised_eur": 0.0306,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29959,7 +30066,7 @@
     "hours": 0.354,
     "id": "rw-f63d90f6fc37-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0245,
+    "normalised_eur": 0.0208,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29971,7 +30078,7 @@
     "hours": 0.448,
     "id": "rw-f63d90f6fc37-build-5",
     "location": "hel1",
-    "normalised_eur": 0.031,
+    "normalised_eur": 0.0263,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29983,7 +30090,7 @@
     "hours": 0.053,
     "id": "rw-f83a982816f8-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0037,
+    "normalised_eur": 0.0031,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -29995,7 +30102,7 @@
     "hours": 0.11,
     "id": "rw-f83a982816f8-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0076,
+    "normalised_eur": 0.0065,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -30007,7 +30114,7 @@
     "hours": 0.137,
     "id": "rw-f83a982816f8-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0095,
+    "normalised_eur": 0.008,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -30019,7 +30126,7 @@
     "hours": 0.03,
     "id": "rw-f83a982816f8-build-6",
     "location": "hel1",
-    "normalised_eur": 0.0021,
+    "normalised_eur": 0.0018,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -30031,7 +30138,7 @@
     "hours": 0.142,
     "id": "rw-f83a982816f8-build-7",
     "location": "hel1",
-    "normalised_eur": 0.0098,
+    "normalised_eur": 0.0083,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -30043,7 +30150,7 @@
     "hours": 0.035,
     "id": "rw-fc9a71924d7b-build-1",
     "location": "hel1",
-    "normalised_eur": 0.0024,
+    "normalised_eur": 0.0021,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -30055,7 +30162,7 @@
     "hours": 0.044,
     "id": "rw-fc9a71924d7b-build-2",
     "location": "hel1",
-    "normalised_eur": 0.003,
+    "normalised_eur": 0.0026,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -30067,7 +30174,7 @@
     "hours": 0.046,
     "id": "rw-fc9a71924d7b-build-3",
     "location": "hel1",
-    "normalised_eur": 0.0032,
+    "normalised_eur": 0.0027,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -30079,7 +30186,7 @@
     "hours": 0.084,
     "id": "rw-fc9a71924d7b-build-4",
     "location": "hel1",
-    "normalised_eur": 0.0058,
+    "normalised_eur": 0.0049,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -30091,7 +30198,7 @@
     "hours": 0.074,
     "id": "rw-fc9a71924d7b-build-5",
     "location": "hel1",
-    "normalised_eur": 0.0051,
+    "normalised_eur": 0.0043,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
@@ -30103,7 +30210,7 @@
     "hours": 0.092,
     "id": "tsb-001",
     "location": "hel1",
-    "normalised_eur": 0.0064,
+    "normalised_eur": 0.0054,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30115,7 +30222,7 @@
     "hours": 0.097,
     "id": "tsb-002",
     "location": "hel1",
-    "normalised_eur": 0.0067,
+    "normalised_eur": 0.0057,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30127,7 +30234,7 @@
     "hours": 0.068,
     "id": "tsb-003",
     "location": "hel1",
-    "normalised_eur": 0.0047,
+    "normalised_eur": 0.004,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30139,7 +30246,7 @@
     "hours": 0.202,
     "id": "tsb-004",
     "location": "hel1",
-    "normalised_eur": 0.014,
+    "normalised_eur": 0.0119,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30151,7 +30258,7 @@
     "hours": 0.196,
     "id": "tsb-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0136,
+    "normalised_eur": 0.0115,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30163,7 +30270,7 @@
     "hours": 0.083,
     "id": "tsb-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0057,
+    "normalised_eur": 0.0049,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30175,7 +30282,7 @@
     "hours": 0.11,
     "id": "tsb-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0076,
+    "normalised_eur": 0.0065,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30187,7 +30294,7 @@
     "hours": 0.252,
     "id": "unhcr-001",
     "location": "hel1",
-    "normalised_eur": 0.0174,
+    "normalised_eur": 0.0148,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30199,7 +30306,7 @@
     "hours": 0.34,
     "id": "unhcr-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0235,
+    "normalised_eur": 0.02,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30211,7 +30318,7 @@
     "hours": 3.407,
     "id": "unhcr-corridor-001",
     "location": "hel1",
-    "normalised_eur": 0.2359,
+    "normalised_eur": 0.1999,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30223,7 +30330,7 @@
     "hours": 0.659,
     "id": "unhcr-corridor-002",
     "location": "hel1",
-    "normalised_eur": 0.0456,
+    "normalised_eur": 0.0387,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30235,7 +30342,7 @@
     "hours": 0.153,
     "id": "unhcr-corridor-003",
     "location": "hel1",
-    "normalised_eur": 0.0106,
+    "normalised_eur": 0.009,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30247,7 +30354,7 @@
     "hours": 0.099,
     "id": "unhcr-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0069,
+    "normalised_eur": 0.0058,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30259,7 +30366,7 @@
     "hours": 0.076,
     "id": "unhcr-hf-002",
     "location": "hel1",
-    "normalised_eur": 0.0053,
+    "normalised_eur": 0.0045,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30271,7 +30378,7 @@
     "hours": 0.143,
     "id": "unhcr-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.0099,
+    "normalised_eur": 0.0084,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30283,7 +30390,7 @@
     "hours": 0.04,
     "id": "unhcr-publish-002",
     "location": "hel1",
-    "normalised_eur": 0.0028,
+    "normalised_eur": 0.0023,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30295,7 +30402,7 @@
     "hours": 0.075,
     "id": "unhcr-requal-001",
     "location": "hel1",
-    "normalised_eur": 0.0052,
+    "normalised_eur": 0.0044,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30307,7 +30414,7 @@
     "hours": 0.056,
     "id": "unhcr-requal-002",
     "location": "hel1",
-    "normalised_eur": 0.0039,
+    "normalised_eur": 0.0033,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30319,7 +30426,7 @@
     "hours": 0.149,
     "id": "wb-001",
     "location": "hel1",
-    "normalised_eur": 0.0103,
+    "normalised_eur": 0.0087,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30331,7 +30438,7 @@
     "hours": 0.255,
     "id": "wb-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0177,
+    "normalised_eur": 0.015,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30343,7 +30450,7 @@
     "hours": 0.227,
     "id": "wb-holdout-001",
     "location": "hel1",
-    "normalised_eur": 0.0157,
+    "normalised_eur": 0.0133,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30355,7 +30462,7 @@
     "hours": 0.138,
     "id": "wb-sol-001",
     "location": "hel1",
-    "normalised_eur": 0.0096,
+    "normalised_eur": 0.0081,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30367,7 +30474,7 @@
     "hours": 0.108,
     "id": "wb-sol-002",
     "location": "hel1",
-    "normalised_eur": 0.0075,
+    "normalised_eur": 0.0063,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30379,7 +30486,7 @@
     "hours": 0.175,
     "id": "wb-sol-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0121,
+    "normalised_eur": 0.0103,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30391,7 +30498,7 @@
     "hours": 0.328,
     "id": "za-cct-001",
     "location": "hel1",
-    "normalised_eur": 0.0227,
+    "normalised_eur": 0.0192,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30403,7 +30510,7 @@
     "hours": 0.688,
     "id": "za-cct-baseline-001",
     "location": "hel1",
-    "normalised_eur": 0.0476,
+    "normalised_eur": 0.0404,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30415,7 +30522,7 @@
     "hours": 0.076,
     "id": "za-cct-consumer-001",
     "location": "hel1",
-    "normalised_eur": 0.0053,
+    "normalised_eur": 0.0045,
     "rate_eur": 0.06924,
     "server_type": "cpx32",
     "status": "deleted"
@@ -30427,7 +30534,7 @@
     "hours": 0.084,
     "id": "za-cct-hf-001",
     "location": "hel1",
-    "normalised_eur": 0.0058,
+    "normalised_eur": 0.0049,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30439,7 +30546,7 @@
     "hours": 0.029,
     "id": "za-cct-publish-001",
     "location": "hel1",
-    "normalised_eur": 0.002,
+    "normalised_eur": 0.0017,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
@@ -30451,25 +30558,25 @@
     "hours": 0.477,
     "id": "za-dws-access-001",
     "location": "hel1",
-    "normalised_eur": 0.033,
+    "normalised_eur": 0.028,
     "rate_eur": 0.01152,
     "server_type": "cx23",
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 330,
-  "jobs_total": 492,
-  "lifetime_eur": 29.48,
+  "jobs_this_month": 336,
+  "jobs_total": 498,
+  "lifetime_eur": 29.83,
   "live": {
-   "checked_at": "2026-11-15T01:53:13+00:00",
+   "checked_at": "2026-11-15T02:52:54+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 87.4,
-  "month_to_date": 21.27,
+  "month_hours": 87.8,
+  "month_to_date": 21.62,
   "months": [
    {
     "eur": 5.02,
@@ -30484,13 +30591,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 21.2693,
-    "hours": 87.4,
-    "jobs": 330,
+    "eur": 21.6214,
+    "hours": 87.84,
+    "jobs": 336,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 42.54,
+  "projected_month_eur": 43.24,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -30519,21 +30626,22 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-15T01:50:01.566241+00:00",
+  "observed_at": "2026-11-15T02:50:01.321781+00:00",
   "releases": [
    {
+    "bundle": "3ddd5f05944a2e3ef0e94845",
     "candidate": "source-000083",
     "dataset": "wser-effluent-exceedance",
-    "error": "FactoryError",
-    "observed_at": "2026-11-15T01:50:01.630088+00:00",
-    "status": "failed",
+    "observed_at": "2026-11-15T02:50:01.387115+00:00",
+    "plan_sha256": "edd78fa8ffe359c90aedb0d3b07c24a52da0967526cd80a80ea618101b09b9f1",
+    "status": "pending",
     "version": "v-3ceae5479cda761c"
    },
    {
     "bundle": "b5fa95c50e2409546408cff8",
     "candidate": "source-000079",
     "dataset": "caa-fce-hpv-escalation",
-    "observed_at": "2026-11-15T01:50:25.230206+00:00",
+    "observed_at": "2026-11-15T02:50:23.251880+00:00",
     "plan_sha256": "f8e4e5f5e545adea1ba12a8ea1694e8d9ad6a77e4b1377f98ad59acd8b0339f3",
     "status": "complete",
     "version": "v-fd86cbb0bc96aaca"
@@ -30542,7 +30650,7 @@
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-15T01:50:46.078027+00:00",
+    "observed_at": "2026-11-15T02:50:28.993047+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -30551,7 +30659,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-15T01:50:51.456571+00:00",
+    "observed_at": "2026-11-15T02:50:34.440390+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -30560,7 +30668,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-15T01:50:56.828643+00:00",
+    "observed_at": "2026-11-15T02:50:40.079509+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -30569,7 +30677,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-15T01:51:02.467449+00:00",
+    "observed_at": "2026-11-15T02:50:45.682855+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -30578,7 +30686,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-15T01:51:08.067120+00:00",
+    "observed_at": "2026-11-15T02:50:51.026864+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -30587,7 +30695,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-15T01:51:13.874909+00:00",
+    "observed_at": "2026-11-15T02:50:56.290875+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -30596,7 +30704,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-15T01:51:19.342912+00:00",
+    "observed_at": "2026-11-15T02:51:01.818867+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -30605,7 +30713,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-15T01:51:25.033413+00:00",
+    "observed_at": "2026-11-15T02:51:07.495476+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -30614,7 +30722,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-15T01:51:32.203587+00:00",
+    "observed_at": "2026-11-15T02:51:12.931603+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -30623,7 +30731,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-15T01:51:37.869712+00:00",
+    "observed_at": "2026-11-15T02:51:18.379240+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -30632,7 +30740,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-15T01:51:43.431442+00:00",
+    "observed_at": "2026-11-15T02:51:23.688751+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -30641,7 +30749,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-15T01:51:49.090521+00:00",
+    "observed_at": "2026-11-15T02:51:29.263518+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -30650,12 +30758,12 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-15T01:51:54.833544+00:00",
+    "observed_at": "2026-11-15T02:51:34.632212+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
    }
   ],
-  "status": "failed"
+  "status": "pending"
  }
 }
