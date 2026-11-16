@@ -5,7 +5,7 @@
 <title>source-000141 · Scout</title><link rel="stylesheet" href="style.css"></head><body>
 <header class="top"><div class="wrap"><span class="brand"><span class="mark"></span>Scout</span>
 <nav class="topnav"><a href="index.html" class="on">Overview</a><a href="cost.html" class="">Cost</a><a href="resources.html" class="">Resources</a><a href="reliability.html" class="">Ops</a></nav>
-<span class="live"><span class="dot"></span>live 16:52 UTC</span></div></header>
+<span class="live"><span class="dot"></span>live 17:52 UTC</span></div></header>
 <main class="wrap">
 <section class="hero compact">
   <div class="eyebrow"><a href="index.html" style="color:inherit;text-decoration:none">← all datasets</a>
@@ -13,16 +13,16 @@
   <h1>source-000141</h1>
   <div class="statusline ">
     <span class="dot" style="background:var(--blue)"></span>
-    <span><b>build</b> · unknown
+    <span><b>deferred</b> · unknown
     
     </span>
-    <time>16:52 UTC</time>
+    <time>17:52 UTC</time>
   </div>
 </section>
 <div class="grid">
   <div class="col-12"><section class="card "><h3>The question</h3><div class="sub">what a model is asked to predict</div><div class="body"><p style="margin:0;line-height:1.6">A mining operation has just filed its first quarterly employment and production report. Will it report no work hours at all over the next two years?</p></div></section></div>
   <div class="col-6"><section class="card "><h3>What you predict</h3><div class="sub">target definition</div><div class="body"><p style="margin:0;line-height:1.6">1 if total HOURS_WORKED summed across all subunits is zero in every one of the eight quarters immediately following the decision quarter, counting a quarter with no Form 7000-2 record as zero hours; 0 if any of those eight quarters has positive reported hours.</p></div></section></div>
-  <div class="col-6"><section class="card "><h3>When the prediction is made</h3><div class="sub">the information cut-off</div><div class="body"><p style="margin:0;line-height:1.6">Close of the mine first quarter with positive total reported hours, as observable when MSHA posts the quarterly extract (30 to 45 days after quarter end, and the publisher states first Friday of the second month following the quarter). Entry-quarter filing values are available then; current-vintage Mines inventory attributes are assumed low-volatility proxies rather than as-of-decision records.</p></div></section></div>
+  <div class="col-6"><section class="card "><h3>When the prediction is made</h3><div class="sub">the information cut-off</div><div class="body"><p style="margin:0;line-height:1.6">Close of the mine first quarter with positive total reported hours, as observable when MSHA posts the quarterly extract. The portal states the bulk files are refreshed weekly on Friday afternoons; the exact quarter-to-post lag is not verified here, so 45 days is used only as a conservative planning bound. Entry-quarter filing values are available then; current-vintage Mines inventory attributes are assumed low-volatility proxies rather than as-of-decision records.</p></div></section></div>
 
   <div class="col-6"><section class="card "><h3>Where the data comes from</h3><div class="sub">sources and their stated licence</div><div class="body"><div class="list"><div class="item"><div class="meta"><div class="name">U.S. Department of Labor, Mine Safety and Health Administration (MSHA)</div><div class="desc">licence not stated on the source entry</div></div><div class="side"><a class="pill blue" href="https://arlweb.msha.gov/opengovernmentdata/ogimsha.asp" target="_blank" rel="noopener">open</a></div></div></div></div></section></div>
   <div class="col-6"><section class="card "><h3>How it is split</h3><div class="sub">Splits are fixed on decision quarter before any modelling: train 2001Q1 to 2011Q</div><div class="body"><div class="tablewrap"><table><thead><tr><th class="">Split</th><th class="num">Rows</th><th class="num">Positive</th></tr></thead><tbody><tr><td>eval</td><td class="num">4,183</td><td class="num">—</td></tr><tr><td>holdout</td><td class="num">2,725</td><td class="num">—</td></tr><tr><td>train</td><td class="num">7,102</td><td class="num">—</td></tr></tbody></table></div></div></section></div>
@@ -31,9 +31,9 @@
   <div class="col-6"><section class="card "><h3>Licence</h3><div class="sub">recorded in the candidate&#x27;s license.json</div><div class="body"><div class="list"><div class="item"><div class="meta"><div class="name">Source</div><div class="desc">no licence decision recorded</div></div><div class="side"><span class="pill warn">undeclared</span></div></div><div class="item"><div class="meta"><div class="name">Our compilation</div><div class="desc">code and derived feature work</div></div><div class="side"><span class="pill warn">undeclared</span></div></div></div></div></section></div>
 
   <div class="col-6"><section class="card "><h3>History</h3><div class="sub">worker jobs</div><div class="body"><div class="list"><p class="sub">no jobs recorded</p></div></div></section></div>
-  <div class="col-6"><section class="card "><h3>Next</h3><div class="sub">what unblocks it</div><div class="body"><p style="margin:0;line-height:1.6">Stage build: An active or interrupted job exists; reconcile it before launching another · next attempt 2026-11-16T16:47:02.143291+00:00</p></div></section></div>
+  <div class="col-6"><section class="card "><h3>Next</h3><div class="sub">what unblocks it</div><div class="body"><p style="margin:0;line-height:1.6">Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted · next attempt 2026-11-16T17:24:19.245915+00:00</p></div></section></div>
 </div>
-<footer>Generated from repository state at 2026-11-16T16:52:19+00:00. Every figure carries its source in the
+<footer>Generated from repository state at 2026-11-16T17:52:18+00:00. Every figure carries its source in the
 snapshot (<code>dashboard.json</code>); a missing input reads &ldquo;no data&rdquo; rather than zero.
 Source: .factory/pipeline.sqlite3. Generated from the record, not retyped.</footer></main>
 <nav class="bottomnav"><a href="index.html" class="on"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2.5-7 4 14 2.5-7H21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Overview</a><a href="cost.html" class=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Cost</a><a href="resources.html" class=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="13" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7" cy="7.5" r="1" fill="currentColor"/><circle cx="7" cy="16.5" r="1" fill="currentColor"/></svg>Resources</a><a href="reliability.html" class=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v6c0 4.4-3.4 7.4-8 8-4.6-.6-8-3.6-8-8V7l8-4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Ops</a></nav>
