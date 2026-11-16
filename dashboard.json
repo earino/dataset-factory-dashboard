@@ -23,20 +23,20 @@
    "development_runs_last_7_days": 16,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 1407350,
-   "moment": "2026-11-16T00:52:21.173259+00:00",
-   "normal_operation_runs_last_7_days": 621,
-   "normal_operation_runs_weighted_last_7_days": 621,
-   "normal_operation_tokens_last_7_days": 60929059,
+   "moment": "2026-11-16T01:52:22.380425+00:00",
+   "normal_operation_runs_last_7_days": 631,
+   "normal_operation_runs_weighted_last_7_days": 631,
+   "normal_operation_tokens_last_7_days": 62052785,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "lock held for 195s by scout-research"
+    "lock held for 136s by scout-research"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 62336409,
-   "runs_last_7_days": 637,
-   "runs_weighted_last_7_days": 637,
-   "session_admission_weighted": 480,
+   "research_tokens_last_7_days": 63460135,
+   "runs_last_7_days": 647,
+   "runs_weighted_last_7_days": 647,
+   "session_admission_weighted": 490,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -57,24 +57,24 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 1378,
+     "calls": 1380,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 34834378,
-     "output_tokens": 1405229,
+     "input_tokens": 35071083,
+     "output_tokens": 1406240,
      "pricing_available": false
     },
     "research": {
-     "calls": 10997,
+     "calls": 11083,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 76312210,
-     "output_tokens": 32717983,
+     "input_tokens": 76978437,
+     "output_tokens": 33175482,
      "pricing_available": false
     }
    },
@@ -88,9 +88,8 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "build": 1,
-   "deferred": 95,
-   "discover": 1,
+   "build": 2,
+   "deferred": 96,
    "published": 20,
    "rejected": 7
   },
@@ -106,40 +105,40 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "sec-fsds-forward-net-loss",
+    "dataset": "neiss-ed-admission",
     "domain": "Modern factory",
-    "id": "source-000122",
-    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-16T00:49:03.962819+00:00",
-    "next_run_at": "2026-11-16T00:49:03.962819+00:00",
+    "id": "source-000124",
+    "next_action": "Stage build: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 168.092, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"ote\\\":\\\"Title 17 U.S.C. Section 105 provides that there can be no copyright in \u00b7 next attempt 2026-11-16T01:49:54.425260+00:00",
+    "next_run_at": "2026-11-16T01:49:54.425260+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The EDGAR acceptance timestamp (SUB field accepted) of the fiscal-year-t 10-K. Every feature value is rendered in that same submission: face-statement facts under the publisher period, unit and dimension codes, plus the EDGAR-derived sic and afs assignments in force at that filing date. No value from a later filing enters the row; the later annual report is used only to build the target.",
-    "question": "Will a currently profitable, revenue-generating U.S. non-financial company that has just filed its annual 10-K report a net loss in its next fiscal year?",
-    "reason": "Worker running",
+    "prediction_time": "At the disposition decision during the treatment-date ED visit, after initial clinical evaluation and before the admit, transfer, observe or release decision. Inputs exclude Disposition, narrative text written from the completed record, sample-design variables Stratum, PSU and Weight, and any post-disposition information.",
+    "question": "Will this emergency-department visit for a consumer-product injury end in admission, transfer or observation rather than treat-and-release?",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 168.092, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"ote\\\":\\\"Title 17 U.S.C. Section 105 provides that there can be no copyright in",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Fixed chronological boundaries on the year-t balance-sheet date: train 2011-01-01 to 2014-12-31, eval 2016-01-01 to 2017-12-31, holdout 2019-01-01 to 2020-12-31. Fiscal years 2015 and 2018 are dropped as one-year embargoes so that no single 10-K serves as both a label source for one split and a feature source for the next (train labels come from filings with periods 2012\u20132015, eval features from 2016\u20132017, eval labels from 2017\u20132018, holdout features from 2019\u20132020). Within a split, each row's features come only from its own submission: no cross-row lags, rolling histories, or firm-level panel aggregates.",
+    "split_strategy": "Fixed chronological boundaries on Treatment_Date: train 2019-01-01 through 2022-12-31; eval 2023-01-01 through 2023-12-31; holdout 2024-01-01 through 2024-12-31. Whole calendar years only, no random row sampling, no re-shuffling, no cross-year mixing, and no tuning on holdout. No embargo is required: the label is contemporaneous with the row and no feature is drawn from any other row (cases are independent ED visits with no patient identifier). Treatment year 2025 is deliberately left unused because CPSC revises recent vintages.",
     "status": "build",
-    "target": "1 if the firm's next annual 10-K (same cik, balance-sheet date 330\u2013430 days after the year-t period) reports NetIncomeLoss < 0 (fallback ProfitLoss < 0); 0 if that value is >= 0. Firms with no qualifying next annual 10-K are excluded from the dataset, not labelled 0.",
+    "target": "1 if Disposition is 2 (treated and transferred to another hospital), 4 (treated and admitted for hospitalization within the same facility) or 5 (held for observation) - CPSC's own 'Admitted to Hospital' grouping (codes 2, 4 and 5); 0 if Disposition is 1 (treated and released, or examined and released without treatment). Disposition 6 (left without being seen / against medical advice), 8 (fatality) and 9 (not recorded) are dropped from every split.",
     "workflow": "modern"
    },
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "blm-onshore-oil-gas-lease-parcel-bid",
     "domain": "Modern factory",
-    "id": "source-000124",
-    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 530.018, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"hed.\\\",\\n    \\\"expected_size\\\": \\\"526.81 MB ZIP and a multi-gigabyte XML docum \u00b7 next attempt 2026-11-16T00:45:56.691944+00:00",
-    "next_run_at": "2026-11-16T00:45:56.691944+00:00",
+    "id": "source-000125",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T01:50:17.068134+00:00",
+    "next_run_at": "2026-11-16T01:50:17.068134+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
-    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 530.018, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"hed.\\\",\\n    \\\"expected_size\\\": \\\"526.81 MB ZIP and a multi-gigabyte XML docum",
+    "prediction_time": "Close of the public comment and protest period for the sale, before the auction date printed on the sale notice and results summary.",
+    "question": "At the moment a competitive federal onshore oil and gas lease sale's parcel list is final, will a given offered parcel receive at least one bid at that sale?",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "split_strategy": "Fixed chronological boundaries on sale date: train = sales before 2021-01-01; eval = sales from 2021-01-01 through 2022-12-31; holdout = sales on or after 2023-01-01. No prior-sale outcome, lag, or rolling bid-history features are used, so no embargo window is required; to prevent any later row from encoding an earlier row's target, a parcel offered in more than one sale is assigned to the split of its earliest sale and its later offers are removed.",
+    "status": "build",
+    "target": "1 if the parcel appears in that sale's BLM 'Sale Results' table (it received at least one bid at the competitive sale); 0 if the parcel appears in the sale notice's offered-parcel list but not in that sale's results table. Deferred or withdrawn parcels are dropped, not labelled 0.",
     "workflow": "modern"
    }
   ],
@@ -2891,17 +2890,17 @@
     "dataset": "sec-fsds-forward-net-loss",
     "domain": "Modern factory",
     "id": "source-000122",
-    "next_action": "Stage build: Worker running \u00b7 next attempt 2026-11-16T00:49:03.962819+00:00",
-    "next_run_at": "2026-11-16T00:49:03.962819+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T01:24:20.142833+00:00",
+    "next_run_at": "2026-11-16T01:24:20.142833+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The EDGAR acceptance timestamp (SUB field accepted) of the fiscal-year-t 10-K. Every feature value is rendered in that same submission: face-statement facts under the publisher period, unit and dimension codes, plus the EDGAR-derived sic and afs assignments in force at that filing date. No value from a later filing enters the row; the later annual report is used only to build the target.",
     "question": "Will a currently profitable, revenue-generating U.S. non-financial company that has just filed its annual 10-K report a net loss in its next fiscal year?",
-    "reason": "Worker running",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "Fixed chronological boundaries on the year-t balance-sheet date: train 2011-01-01 to 2014-12-31, eval 2016-01-01 to 2017-12-31, holdout 2019-01-01 to 2020-12-31. Fiscal years 2015 and 2018 are dropped as one-year embargoes so that no single 10-K serves as both a label source for one split and a feature source for the next (train labels come from filings with periods 2012\u20132015, eval features from 2016\u20132017, eval labels from 2017\u20132018, holdout features from 2019\u20132020). Within a split, each row's features come only from its own submission: no cross-row lags, rolling histories, or firm-level panel aggregates.",
-    "status": "build",
+    "status": "deferred",
     "target": "1 if the firm's next annual 10-K (same cik, balance-sheet date 330\u2013430 days after the year-t period) reports NetIncomeLoss < 0 (fallback ProfitLoss < 0); 0 if that value is >= 0. Firms with no qualifying next annual 10-K are excluded from the dataset, not labelled 0.",
     "workflow": "modern"
    },
@@ -2926,21 +2925,40 @@
    },
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "neiss-ed-admission",
     "domain": "Modern factory",
     "id": "source-000124",
-    "next_action": "Stage discover: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 530.018, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"hed.\\\",\\n    \\\"expected_size\\\": \\\"526.81 MB ZIP and a multi-gigabyte XML docum \u00b7 next attempt 2026-11-16T00:45:56.691944+00:00",
-    "next_run_at": "2026-11-16T00:45:56.691944+00:00",
+    "next_action": "Stage build: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 168.092, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"ote\\\":\\\"Title 17 U.S.C. Section 105 provides that there can be no copyright in \u00b7 next attempt 2026-11-16T01:49:54.425260+00:00",
+    "next_run_at": "2026-11-16T01:49:54.425260+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
-    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 530.018, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"hed.\\\",\\n    \\\"expected_size\\\": \\\"526.81 MB ZIP and a multi-gigabyte XML docum",
+    "prediction_time": "At the disposition decision during the treatment-date ED visit, after initial clinical evaluation and before the admit, transfer, observe or release decision. Inputs exclude Disposition, narrative text written from the completed record, sample-design variables Stratum, PSU and Weight, and any post-disposition information.",
+    "question": "Will this emergency-department visit for a consumer-product injury end in admission, transfer or observation rather than treat-and-release?",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 168.092, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"ote\\\":\\\"Title 17 U.S.C. Section 105 provides that there can be no copyright in",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "split_strategy": "Fixed chronological boundaries on Treatment_Date: train 2019-01-01 through 2022-12-31; eval 2023-01-01 through 2023-12-31; holdout 2024-01-01 through 2024-12-31. Whole calendar years only, no random row sampling, no re-shuffling, no cross-year mixing, and no tuning on holdout. No embargo is required: the label is contemporaneous with the row and no feature is drawn from any other row (cases are independent ED visits with no patient identifier). Treatment year 2025 is deliberately left unused because CPSC revises recent vintages.",
+    "status": "build",
+    "target": "1 if Disposition is 2 (treated and transferred to another hospital), 4 (treated and admitted for hospitalization within the same facility) or 5 (held for observation) - CPSC's own 'Admitted to Hospital' grouping (codes 2, 4 and 5); 0 if Disposition is 1 (treated and released, or examined and released without treatment). Disposition 6 (left without being seen / against medical advice), 8 (fatality) and 9 (not recorded) are dropped from every split.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "blm-onshore-oil-gas-lease-parcel-bid",
+    "domain": "Modern factory",
+    "id": "source-000125",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T01:50:17.068134+00:00",
+    "next_run_at": "2026-11-16T01:50:17.068134+00:00",
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "Close of the public comment and protest period for the sale, before the auction date printed on the sale notice and results summary.",
+    "question": "At the moment a competitive federal onshore oil and gas lease sale's parcel list is final, will a given offered parcel receive at least one bid at that sale?",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Fixed chronological boundaries on sale date: train = sales before 2021-01-01; eval = sales from 2021-01-01 through 2022-12-31; holdout = sales on or after 2023-01-01. No prior-sale outcome, lag, or rolling bid-history features are used, so no embargo window is required; to prevent any later row from encoding an earlier row's target, a parcel offered in more than one sale is assigned to the split of its earliest sale and its later offers are removed.",
+    "status": "build",
+    "target": "1 if the parcel appears in that sale's BLM 'Sale Results' table (it received at least one bid at the competitive sale); 0 if the parcel appears in the sale notice's offered-parcel list but not in that sale's results table. Deferred or withdrawn parcels are dropped, not labelled 0.",
     "workflow": "modern"
    },
    {
@@ -6411,7 +6429,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 221.5,
+    "age_hours": 222.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -7241,7 +7259,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 278.0,
+    "age_hours": 279.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -13523,7 +13541,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 418.6,
+    "age_hours": 419.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -17547,7 +17565,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 267.8,
+    "age_hours": 268.8,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -18003,10 +18021,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-16T00:50:01.419046+00:00",
+    "last_run_at": "2026-11-16T01:50:01.438746+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-16T01:00:00+00:00",
+    "next_run_at": "2026-11-16T02:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -18087,10 +18105,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-15T23:53:18.747398+00:00",
+    "last_run_at": "2026-11-16T00:53:47.901004+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-16T01:50:00+00:00",
+    "next_run_at": "2026-11-16T02:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -18099,10 +18117,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-15T23:55:01.167201+00:00",
+    "last_run_at": "2026-11-16T00:55:01.519861+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-16T00:55:00+00:00",
+    "next_run_at": "2026-11-16T01:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -18147,10 +18165,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-16T00:48:34.019943+00:00",
+    "last_run_at": "2026-11-16T01:49:17.122997+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-16T00:50:00+00:00",
+    "next_run_at": "2026-11-16T01:51:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -18203,9 +18221,9 @@
     "schedule": "once at 2026-11-16 07:00"
    }
   ],
-  "updated_at": "2026-11-16T00:52:00.949125+00:00"
+  "updated_at": "2026-11-16T01:52:01.502818+00:00"
  },
- "generated_at": "2026-11-16T00:52:19+00:00",
+ "generated_at": "2026-11-16T01:52:20+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -18213,10 +18231,10 @@
   },
   "ci": {
    "conclusion": "success",
-   "created_at": "2026-11-15T22:23:47Z",
-   "head_sha": "4e664b3",
+   "created_at": "2026-11-16T01:06:45Z",
+   "head_sha": "2157157",
    "status": "completed",
-   "url": "https://github.com/earino/dataset-factory/actions/runs/43769058920"
+   "url": "https://github.com/earino/dataset-factory/actions/runs/43784301294"
   },
   "coverage": {
    "ok": true,
@@ -18233,14 +18251,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-25T22:50:01+00:00",
-   "live": 14,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-25T23:50:01+00:00",
    "live": 14,
@@ -22438,6 +22448,16 @@
    "sessions_7d": 637,
    "tokens_7d": 60929059,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-16T01:52:20+00:00",
+   "live": 2,
+   "published": 34,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 647,
+   "tokens_7d": 62052785,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -24560,19 +24580,19 @@
    },
    {
     "attempt": {
-     "id": "rw-98906a0445f5-build-3",
-     "ordinal": 3,
+     "id": "rw-98906a0445f5-build-5",
+     "ordinal": 5,
      "stage": "build",
-     "status": "running"
+     "status": "retry"
     },
     "created_at": "2026-11-15T23:29:01.322316+00:00",
     "dataset": "sec-fsds-forward-net-loss",
     "id": "source-000122",
-    "next_run_at": "2026-11-16T00:49:03.962819+00:00",
+    "next_run_at": "2026-11-16T01:24:20.142833+00:00",
     "published_verified": false,
-    "running": true,
-    "stage": "build",
-    "updated_at": "2026-11-16T00:48:33.962819+00:00"
+    "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-16T01:23:20.142833+00:00"
    },
    {
     "attempt": {
@@ -24592,39 +24612,54 @@
    },
    {
     "attempt": {
-     "id": "rw-35d47d7b0db7-discover-3",
-     "ordinal": 3,
-     "stage": "discover",
+     "id": "rw-35d47d7b0db7-build-6",
+     "ordinal": 6,
+     "stage": "build",
      "status": "running"
     },
     "created_at": "2026-11-16T00:19:01.227451+00:00",
-    "dataset": null,
+    "dataset": "neiss-ed-admission",
     "id": "source-000124",
-    "next_run_at": "2026-11-16T00:45:56.691944+00:00",
+    "next_run_at": "2026-11-16T01:49:54.425260+00:00",
     "published_verified": false,
     "running": true,
-    "stage": "discover",
-    "updated_at": "2026-11-16T00:44:56.691944+00:00"
+    "stage": "build",
+    "updated_at": "2026-11-16T01:50:02.312392+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-457b06451214-build-1",
+     "ordinal": 1,
+     "stage": "build",
+     "status": "retry"
+    },
+    "created_at": "2026-11-16T01:24:02.099668+00:00",
+    "dataset": "blm-onshore-oil-gas-lease-parcel-bid",
+    "id": "source-000125",
+    "next_run_at": "2026-11-16T01:50:17.068134+00:00",
+    "published_verified": false,
+    "running": false,
+    "stage": "build",
+    "updated_at": "2026-11-16T01:49:17.068134+00:00"
    }
   ],
   "counts": {
-   "build": 1,
-   "deferred": 95,
-   "discover": 1,
+   "build": 2,
+   "deferred": 96,
    "published": 20,
    "rejected": 7
   },
-  "observed_at": "2026-11-16T00:52:19.865589+00:00",
+  "observed_at": "2026-11-16T01:52:20.980315+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
  "notices": [
-  "A research session is running: lock held for 195s by scout-research"
+  "A research session is running: lock held for 136s by scout-research"
  ],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-16T00:52:19+00:00",
+   "as_of": "2026-11-16T01:52:20+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -24634,7 +24669,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-16T00:52:19+00:00",
+   "as_of": "2026-11-16T01:52:20+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -24644,7 +24679,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-16T00:52:19+00:00",
+   "as_of": "2026-11-16T01:52:20+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -26175,19 +26210,19 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "35.24",
-   "completed_estimate_eur": "35.04",
-   "completed_jobs": 431,
-   "reserved_jobs": 2,
-   "retained_reservations_eur": "0.20"
+   "charged_eur": "35.64",
+   "completed_estimate_eur": "35.60",
+   "completed_jobs": 438,
+   "reserved_jobs": 1,
+   "retained_reservations_eur": "0.04"
   },
   "ceiling_eur": 50.0,
   "errors": [],
-  "eur_per_release": 1.04,
+  "eur_per_release": 1.05,
   "histogram": {
    "bins": [
     {
-     "count": 429,
+     "count": 436,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -26233,11 +26268,11 @@
     }
    ],
    "max": 2.2448,
-   "median": 0.0061,
-   "n": 592,
+   "median": 0.006,
+   "n": 599,
    "p90": 0.0263,
    "ref_rate": 0.05868,
-   "total": 10.04
+   "total": 10.07
   },
   "jobs": [
    {
@@ -29733,6 +29768,42 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-16T00:59:12.135823+00:00",
+    "deleted_at": "2026-11-16T01:01:17.008886+00:00",
+    "eur": 0.05868,
+    "hours": 0.035,
+    "id": "rw-35d47d7b0db7-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0021,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T01:12:26.275280+00:00",
+    "deleted_at": "2026-11-16T01:14:13.105360+00:00",
+    "eur": 0.05868,
+    "hours": 0.03,
+    "id": "rw-35d47d7b0db7-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.0018,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T01:34:02.429260+00:00",
+    "deleted_at": "2026-11-16T01:39:17.197785+00:00",
+    "eur": 0.05868,
+    "hours": 0.087,
+    "id": "rw-35d47d7b0db7-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.0051,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-13T19:49:02.258798+00:00",
     "deleted_at": "2026-11-13T20:00:16.883402+00:00",
     "eur": 0.05868,
@@ -29993,6 +30064,18 @@
     "location": "hel1",
     "normalised_eur": 0.006,
     "rate_eur": 0.06924,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T01:45:02.150681+00:00",
+    "deleted_at": "2026-11-16T01:49:14.450288+00:00",
+    "eur": 0.05868,
+    "hours": 0.07,
+    "id": "rw-457b06451214-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0041,
+    "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
    },
@@ -31018,15 +31101,39 @@
    },
    {
     "created_at": "2026-11-16T00:47:46.705338+00:00",
-    "deleted_at": null,
-    "eur": null,
-    "hours": null,
+    "deleted_at": "2026-11-16T00:55:16.909230+00:00",
+    "eur": 0.05868,
+    "hours": 0.125,
     "id": "rw-98906a0445f5-build-3",
     "location": "hel1",
-    "normalised_eur": null,
+    "normalised_eur": 0.0073,
     "rate_eur": 0.05868,
     "server_type": "cpx32",
-    "status": "running"
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T01:06:35.648215+00:00",
+    "deleted_at": "2026-11-16T01:09:13.751082+00:00",
+    "eur": 0.05868,
+    "hours": 0.044,
+    "id": "rw-98906a0445f5-build-4",
+    "location": "hel1",
+    "normalised_eur": 0.0026,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T01:17:38.972345+00:00",
+    "deleted_at": "2026-11-16T01:23:17.349947+00:00",
+    "eur": 0.05868,
+    "hours": 0.094,
+    "id": "rw-98906a0445f5-build-5",
+    "location": "hel1",
+    "normalised_eur": 0.0055,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
    },
    {
     "created_at": "2026-11-15T02:53:05.963697+00:00",
@@ -33357,19 +33464,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 430,
-  "jobs_total": 593,
-  "lifetime_eur": 35.35,
+  "jobs_this_month": 437,
+  "jobs_total": 599,
+  "lifetime_eur": 35.76,
   "live": {
-   "checked_at": "2026-11-16T00:53:34+00:00",
+   "checked_at": "2026-11-16T01:53:34+00:00",
    "error": null,
-   "primary_ips": 1,
-   "primary_ips_total": 1,
-   "servers": 1,
-   "servers_total": 1
+   "primary_ips": 0,
+   "primary_ips_total": 0,
+   "servers": 0,
+   "servers_total": 0
   },
-  "month_hours": 97.6,
-  "month_to_date": 27.14,
+  "month_hours": 98.1,
+  "month_to_date": 27.55,
   "months": [
    {
     "eur": 5.02,
@@ -33384,13 +33491,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 27.1373,
-    "hours": 97.59,
-    "jobs": 430,
+    "eur": 27.548,
+    "hours": 98.08,
+    "jobs": 437,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 50.88,
+  "projected_month_eur": 51.65,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -33419,13 +33526,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-16T00:50:01.235998+00:00",
+  "observed_at": "2026-11-16T01:50:01.587442+00:00",
   "releases": [
    {
     "bundle": "cefd3d3d41775a17aeee8fb4",
     "candidate": "source-000119",
     "dataset": "usgs-streamgage-record-survival",
-    "observed_at": "2026-11-16T00:50:01.348331+00:00",
+    "observed_at": "2026-11-16T01:50:01.684086+00:00",
     "plan_sha256": "dd4b7530f275e1cc4b9e81bf84ea4662e4090e551020f9a3992a9e6fe273dc88",
     "status": "pending",
     "version": "v-75d63061fc7d7395"
@@ -33434,7 +33541,7 @@
     "bundle": "d10e05f52d1eb74210a93b25",
     "candidate": "source-000107",
     "dataset": "sdwis-lcr-lead-action-level-next-period",
-    "observed_at": "2026-11-16T00:50:29.078774+00:00",
+    "observed_at": "2026-11-16T01:50:31.405781+00:00",
     "plan_sha256": "5c4e1d475d95b9909d6b850d653f8f23ac39566b3d28f4a007f8e0d92b686d64",
     "status": "complete",
     "version": "v-5917644e4c46057e"
@@ -33443,7 +33550,7 @@
     "bundle": "aa6a43f243713c68b0d35cb4",
     "candidate": "source-000099",
     "dataset": "fra-form54-hazmat-release",
-    "observed_at": "2026-11-16T00:50:35.023534+00:00",
+    "observed_at": "2026-11-16T01:50:37.507364+00:00",
     "plan_sha256": "20a77f8fbc5c6a21f9844d1befc0efcc15eb8a403fc82d8d16088b06356ac404",
     "status": "complete",
     "version": "v-c59d614ee9c4ce97"
@@ -33452,7 +33559,7 @@
     "bundle": "2e22aecc0868a441c362537c",
     "candidate": "source-000100",
     "dataset": "seattle-building-permit-completion",
-    "observed_at": "2026-11-16T00:50:40.577708+00:00",
+    "observed_at": "2026-11-16T01:50:43.197864+00:00",
     "plan_sha256": "091541b8ecd58e8e07653a2e15847f9108b77b26b3d15ffc1dc0cca082b1a101",
     "status": "complete",
     "version": "v-67a46c698fa813cc"
@@ -33461,7 +33568,7 @@
     "bundle": "ef18cc02f31026fc146f25a1",
     "candidate": "source-000096",
     "dataset": "faa-wildlife-strike-substantial-damage",
-    "observed_at": "2026-11-16T00:50:46.170595+00:00",
+    "observed_at": "2026-11-16T01:50:48.725781+00:00",
     "plan_sha256": "62f4c3450ae5c267889e21bccc409e4b8ad2f85327307c6281b9b46090b65939",
     "status": "complete",
     "version": "v-d654c9f4ddfcf60c"
@@ -33470,7 +33577,7 @@
     "bundle": "3ddd5f05944a2e3ef0e94845",
     "candidate": "source-000083",
     "dataset": "wser-effluent-exceedance",
-    "observed_at": "2026-11-16T00:50:52.152268+00:00",
+    "observed_at": "2026-11-16T01:50:54.638017+00:00",
     "plan_sha256": "edd78fa8ffe359c90aedb0d3b07c24a52da0967526cd80a80ea618101b09b9f1",
     "status": "complete",
     "version": "v-3ceae5479cda761c"
@@ -33479,7 +33586,7 @@
     "bundle": "b5fa95c50e2409546408cff8",
     "candidate": "source-000079",
     "dataset": "caa-fce-hpv-escalation",
-    "observed_at": "2026-11-16T00:50:58.066423+00:00",
+    "observed_at": "2026-11-16T01:51:00.105413+00:00",
     "plan_sha256": "f8e4e5f5e545adea1ba12a8ea1694e8d9ad6a77e4b1377f98ad59acd8b0339f3",
     "status": "complete",
     "version": "v-fd86cbb0bc96aaca"
@@ -33488,7 +33595,7 @@
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-16T00:51:04.040816+00:00",
+    "observed_at": "2026-11-16T01:51:05.913641+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -33497,7 +33604,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-16T00:51:09.686952+00:00",
+    "observed_at": "2026-11-16T01:51:11.788025+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -33506,7 +33613,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-16T00:51:15.358612+00:00",
+    "observed_at": "2026-11-16T01:51:17.635826+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -33515,7 +33622,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-16T00:51:20.825561+00:00",
+    "observed_at": "2026-11-16T01:51:23.606413+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -33524,7 +33631,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-16T00:51:26.554204+00:00",
+    "observed_at": "2026-11-16T01:51:29.152840+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -33533,7 +33640,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-16T00:51:32.090492+00:00",
+    "observed_at": "2026-11-16T01:51:34.778947+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -33542,7 +33649,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-16T00:51:37.679008+00:00",
+    "observed_at": "2026-11-16T01:51:40.285064+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -33551,7 +33658,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-16T00:51:43.319252+00:00",
+    "observed_at": "2026-11-16T01:51:45.791506+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -33560,7 +33667,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-16T00:51:49.719503+00:00",
+    "observed_at": "2026-11-16T01:51:51.537292+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -33569,7 +33676,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-16T00:51:55.702177+00:00",
+    "observed_at": "2026-11-16T01:51:57.198688+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -33578,7 +33685,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-16T00:52:01.230424+00:00",
+    "observed_at": "2026-11-16T01:52:03.075738+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -33587,7 +33694,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-16T00:52:07.103990+00:00",
+    "observed_at": "2026-11-16T01:52:08.946889+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -33596,7 +33703,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-16T00:52:13.282176+00:00",
+    "observed_at": "2026-11-16T01:52:14.599754+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
