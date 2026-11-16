@@ -22,18 +22,18 @@
    "development_runs_last_7_days": 16,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 1407350,
-   "moment": "2026-11-16T03:52:03.427389+00:00",
-   "normal_operation_runs_last_7_days": 650,
-   "normal_operation_runs_weighted_last_7_days": 650,
-   "normal_operation_tokens_last_7_days": 63928094,
+   "moment": "2026-11-16T04:51:59.611138+00:00",
+   "normal_operation_runs_last_7_days": 661,
+   "normal_operation_runs_weighted_last_7_days": 661,
+   "normal_operation_tokens_last_7_days": 64729651,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 65335444,
-   "runs_last_7_days": 666,
-   "runs_weighted_last_7_days": 666,
-   "session_admission_weighted": 509,
+   "research_tokens_last_7_days": 66137001,
+   "runs_last_7_days": 677,
+   "runs_weighted_last_7_days": 677,
+   "session_admission_weighted": 520,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -64,14 +64,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 11225,
+     "calls": 11280,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 78120347,
-     "output_tokens": 33908881,
+     "input_tokens": 78539026,
+     "output_tokens": 34291759,
      "pricing_available": false
     }
    },
@@ -105,15 +105,32 @@
     "dataset": "ca-beach-advisory-duration",
     "domain": "Modern factory",
     "id": "source-000127",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T03:39:19.637233+00:00",
-    "next_run_at": "2026-11-16T03:39:19.637233+00:00",
+    "next_action": "Stage build: The build is mechanically self-consistent but measures the wrong quantity. 'duration_days' is populated from EndofExtent, which the publisher records as a spatial extent location (EndOfExtentType='Lat/Long'; observed values include -119.48 ",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The advisory start date, day 0. Only the advisory class, start date, beach identity, county, station inventory and earlier posting starts are used for counts; for duration rates only earlier training labels whose end dates closed before this row are used. The row end date and duration are withheld.",
+    "prediction_time": "The advisory issue date, day 0, taken from DateofAdvisory. Only the advisory class, issue date, beach identity, county, station inventory and earlier posting issue dates are used. For duration rates only earlier training-split records whose recorded removal date closed before this row and before 2016-01-01 are used. DateOpened, DURATION CALCULATED, the spatial extent fields and the derived duration are withheld.",
     "question": "When a county health officer issues a new beach water-quality posting, will that posting remain in force for at least seven days?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
-    "release_baseline": {},
-    "release_splits": {},
-    "sources": [],
+    "reason": "The build is mechanically self-consistent but measures the wrong quantity. 'duration_days' is populated from EndofExtent, which the publisher records as a spatial extent location (EndOfExtentType='Lat/Long'; observed values include -119.48 ",
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 5435
+     },
+     "holdout": {
+      "rows": 5869
+     },
+     "train": {
+      "rows": 10403
+     }
+    },
+    "sources": [
+     {
+      "name": "California State Water Resources Control Board (Beach Monitoring Program, Division of Water Quality)",
+      "url": "https://publish.data.ca.gov/dataset/b9c8ce91-40ff-4ad3-8164-bc17c46afb44/resource/4744ce19-b2e6-48cc-9fe5-95f460bee7e0/download/beach-watch-data-dictionary.pdf"
+     }
+    ],
     "split_strategy": "Chronological by advisory start date, no random shuffling: train = 2005-01-01 through 2015-12-31; eval = 2016-01-01 through 2019-12-31; holdout = 2020-01-01 through 2023-12-31. Boundary embargo: any record whose start date falls in the 7 days before a split boundary is dropped, and any record whose end date crosses a boundary is retained only in the earlier split but excluded from feature/label computation for the later split. If the observed earliest year is later than 2005, the train window starts at the first complete calendar year instead, and the boundaries 2016/2020 are unchanged.",
     "status": "build",
     "target": "y = 1 if the advisory record is a posting (the bacteria-standard advisory class, not a sewage closure, not a pre-emptive rain advisory, not a permanent posting) and its recorded end date is at least 7 calendar days after its start date; y = 0 if it ends within 7 days. Records with no end date (still open at extraction) or with end date before start date are excluded.",
@@ -124,12 +141,12 @@
     "dataset": "ffiec-cra-outstanding-next",
     "domain": "Modern factory",
     "id": "source-000128",
-    "next_action": "Stage build: Source researched with access, terms and task evidence",
-    "next_run_at": null,
+    "next_action": "Stage build: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 251.542, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"000s).\\\"},{\\\"url\\\":\\\"[url] file and web site are updated four times a year by  \u00b7 next attempt 2026-11-16T04:49:17.911489+00:00",
+    "next_run_at": "2026-11-16T04:49:17.911489+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The date the anchor evaluation's rating first became public: recorded Exam Date plus 60 days for OCC/FRB records (whose recorded date is the examination start), or the recorded Exam Date itself for FDIC records (whose recorded date is already the monthly public release date). Only records with a public date on or before this instant are used.",
     "question": "Given a bank's CRA examination record as of its most recently published evaluation, will its next CRA performance evaluation be rated Outstanding rather than Satisfactory, Needs to Improve, or Substantial Noncompliance?",
-    "reason": "Source researched with access, terms and task evidence",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 251.542, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"000s).\\\"},{\\\"url\\\":\\\"[url] file and web site are updated four times a year by ",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -2982,15 +2999,32 @@
     "dataset": "ca-beach-advisory-duration",
     "domain": "Modern factory",
     "id": "source-000127",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T03:39:19.637233+00:00",
-    "next_run_at": "2026-11-16T03:39:19.637233+00:00",
+    "next_action": "Stage build: The build is mechanically self-consistent but measures the wrong quantity. 'duration_days' is populated from EndofExtent, which the publisher records as a spatial extent location (EndOfExtentType='Lat/Long'; observed values include -119.48 ",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The advisory start date, day 0. Only the advisory class, start date, beach identity, county, station inventory and earlier posting starts are used for counts; for duration rates only earlier training labels whose end dates closed before this row are used. The row end date and duration are withheld.",
+    "prediction_time": "The advisory issue date, day 0, taken from DateofAdvisory. Only the advisory class, issue date, beach identity, county, station inventory and earlier posting issue dates are used. For duration rates only earlier training-split records whose recorded removal date closed before this row and before 2016-01-01 are used. DateOpened, DURATION CALCULATED, the spatial extent fields and the derived duration are withheld.",
     "question": "When a county health officer issues a new beach water-quality posting, will that posting remain in force for at least seven days?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
-    "release_baseline": {},
-    "release_splits": {},
-    "sources": [],
+    "reason": "The build is mechanically self-consistent but measures the wrong quantity. 'duration_days' is populated from EndofExtent, which the publisher records as a spatial extent location (EndOfExtentType='Lat/Long'; observed values include -119.48 ",
+    "release_baseline": {
+     "display": "See versioned evaluation.json; public validation only"
+    },
+    "release_splits": {
+     "eval": {
+      "rows": 5435
+     },
+     "holdout": {
+      "rows": 5869
+     },
+     "train": {
+      "rows": 10403
+     }
+    },
+    "sources": [
+     {
+      "name": "California State Water Resources Control Board (Beach Monitoring Program, Division of Water Quality)",
+      "url": "https://publish.data.ca.gov/dataset/b9c8ce91-40ff-4ad3-8164-bc17c46afb44/resource/4744ce19-b2e6-48cc-9fe5-95f460bee7e0/download/beach-watch-data-dictionary.pdf"
+     }
+    ],
     "split_strategy": "Chronological by advisory start date, no random shuffling: train = 2005-01-01 through 2015-12-31; eval = 2016-01-01 through 2019-12-31; holdout = 2020-01-01 through 2023-12-31. Boundary embargo: any record whose start date falls in the 7 days before a split boundary is dropped, and any record whose end date crosses a boundary is retained only in the earlier split but excluded from feature/label computation for the later split. If the observed earliest year is later than 2005, the train window starts at the first complete calendar year instead, and the boundaries 2016/2020 are unchanged.",
     "status": "build",
     "target": "y = 1 if the advisory record is a posting (the bacteria-standard advisory class, not a sewage closure, not a pre-emptive rain advisory, not a permanent posting) and its recorded end date is at least 7 calendar days after its start date; y = 0 if it ends within 7 days. Records with no end date (still open at extraction) or with end date before start date are excluded.",
@@ -3001,12 +3035,12 @@
     "dataset": "ffiec-cra-outstanding-next",
     "domain": "Modern factory",
     "id": "source-000128",
-    "next_action": "Stage build: Source researched with access, terms and task evidence",
-    "next_run_at": null,
+    "next_action": "Stage build: Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 251.542, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"000s).\\\"},{\\\"url\\\":\\\"[url] file and web site are updated four times a year by  \u00b7 next attempt 2026-11-16T04:49:17.911489+00:00",
+    "next_run_at": "2026-11-16T04:49:17.911489+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The date the anchor evaluation's rating first became public: recorded Exam Date plus 60 days for OCC/FRB records (whose recorded date is the examination start), or the recorded Exam Date itself for FDIC records (whose recorded date is already the monthly public release date). Only records with a public date on or before this instant are used.",
     "question": "Given a bank's CRA examination record as of its most recently published evaluation, will its next CRA performance evaluation be rated Outstanding rather than Satisfactory, Needs to Improve, or Substantial Noncompliance?",
-    "reason": "Source researched with access, terms and task evidence",
+    "reason": "Model invocation failed: {\"exit_code\": 1, \"elapsed_seconds\": 251.542, \"parser_error\": [], \"diagnostic\": \"\\nsession_id: [opaque-value]\\n\", \"response_diagnostic\": \"000s).\\\"},{\\\"url\\\":\\\"[url] file and web site are updated four times a year by ",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -6483,7 +6517,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 224.5,
+    "age_hours": 225.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -7313,7 +7347,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 281.0,
+    "age_hours": 282.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -13595,7 +13629,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 421.6,
+    "age_hours": 422.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -17619,7 +17653,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 270.8,
+    "age_hours": 271.8,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -18075,10 +18109,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-16T03:50:02.460340+00:00",
+    "last_run_at": "2026-11-16T04:50:01.567175+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-16T04:00:00+00:00",
+    "next_run_at": "2026-11-16T05:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -18159,10 +18193,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-16T02:54:04.173859+00:00",
+    "last_run_at": "2026-11-16T03:53:28.609269+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-16T04:50:00+00:00",
+    "next_run_at": "2026-11-16T05:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -18171,10 +18205,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-16T02:55:01.419841+00:00",
+    "last_run_at": "2026-11-16T03:55:01.877013+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-16T03:55:00+00:00",
+    "next_run_at": "2026-11-16T04:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -18219,10 +18253,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-16T03:47:06.923418+00:00",
+    "last_run_at": "2026-11-16T04:48:17.966624+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-16T03:49:00+00:00",
+    "next_run_at": "2026-11-16T04:50:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -18275,9 +18309,9 @@
     "schedule": "once at 2026-11-16 07:00"
    }
   ],
-  "updated_at": "2026-11-16T03:52:01.595849+00:00"
+  "updated_at": "2026-11-16T04:51:01.524091+00:00"
  },
- "generated_at": "2026-11-16T03:52:02+00:00",
+ "generated_at": "2026-11-16T04:51:58+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -18305,14 +18339,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-26T01:50:01+00:00",
-   "live": 14,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-26T02:50:01+00:00",
    "live": 14,
@@ -22516,6 +22542,16 @@
    "sessions_7d": 666,
    "tokens_7d": 63928094,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-16T04:51:58+00:00",
+   "live": 2,
+   "published": 34,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 677,
+   "tokens_7d": 64729651,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -24718,35 +24754,35 @@
    },
    {
     "attempt": {
-     "id": "rw-7f160d7e5ea6-build-2",
-     "ordinal": 2,
+     "id": "rw-7f160d7e5ea6-build-8",
+     "ordinal": 8,
      "stage": "build",
      "status": "running"
     },
     "created_at": "2026-11-16T02:46:01.829555+00:00",
     "dataset": "ca-beach-advisory-duration",
     "id": "source-000127",
-    "next_run_at": "2026-11-16T03:39:19.637233+00:00",
+    "next_run_at": null,
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-16T03:52:00.468296+00:00"
+    "updated_at": "2026-11-16T04:51:33.885134+00:00"
    },
    {
     "attempt": {
-     "id": "rw-42c79977be8e-discover-2",
-     "ordinal": 2,
-     "stage": "discover",
-     "status": "done"
+     "id": "rw-42c79977be8e-build-5",
+     "ordinal": 5,
+     "stage": "build",
+     "status": "retry"
     },
     "created_at": "2026-11-16T03:04:01.548672+00:00",
     "dataset": "ffiec-cra-outstanding-next",
     "id": "source-000128",
-    "next_run_at": null,
+    "next_run_at": "2026-11-16T04:49:17.911489+00:00",
     "published_verified": false,
     "running": false,
     "stage": "build",
-    "updated_at": "2026-11-16T03:47:06.869389+00:00"
+    "updated_at": "2026-11-16T04:48:17.911489+00:00"
    }
   ],
   "counts": {
@@ -24755,7 +24791,7 @@
    "published": 20,
    "rejected": 7
   },
-  "observed_at": "2026-11-16T03:52:02.235774+00:00",
+  "observed_at": "2026-11-16T04:51:58.419708+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
@@ -24763,7 +24799,7 @@
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-16T03:52:02+00:00",
+   "as_of": "2026-11-16T04:51:58+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -24773,7 +24809,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-16T03:52:02+00:00",
+   "as_of": "2026-11-16T04:51:58+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -24783,7 +24819,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-16T03:52:02+00:00",
+   "as_of": "2026-11-16T04:51:58+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -26314,19 +26350,19 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "36.36",
-   "completed_estimate_eur": "36.16",
-   "completed_jobs": 445,
+   "charged_eur": "36.92",
+   "completed_estimate_eur": "36.72",
+   "completed_jobs": 452,
    "reserved_jobs": 2,
    "retained_reservations_eur": "0.20"
   },
   "ceiling_eur": 50.0,
   "errors": [],
-  "eur_per_release": 1.06,
+  "eur_per_release": 1.08,
   "histogram": {
    "bins": [
     {
-     "count": 443,
+     "count": 450,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -26373,10 +26409,10 @@
    ],
    "max": 2.2448,
    "median": 0.006,
-   "n": 606,
-   "p90": 0.0261,
+   "n": 613,
+   "p90": 0.025,
    "ref_rate": 0.05868,
-   "total": 10.1
+   "total": 10.12
   },
   "jobs": [
    {
@@ -30196,6 +30232,42 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-16T04:06:01.528103+00:00",
+    "deleted_at": "2026-11-16T04:08:17.241247+00:00",
+    "eur": 0.05868,
+    "hours": 0.038,
+    "id": "rw-42c79977be8e-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0022,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T04:18:28.209047+00:00",
+    "deleted_at": "2026-11-16T04:21:16.667870+00:00",
+    "eur": 0.05868,
+    "hours": 0.047,
+    "id": "rw-42c79977be8e-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.0028,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T04:33:14.358114+00:00",
+    "deleted_at": "2026-11-16T04:35:17.433457+00:00",
+    "eur": 0.05868,
+    "hours": 0.034,
+    "id": "rw-42c79977be8e-build-3",
+    "location": "hel1",
+    "normalised_eur": 0.002,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-16T01:45:02.150681+00:00",
     "deleted_at": "2026-11-16T01:49:14.450288+00:00",
     "eur": 0.05868,
@@ -30953,10 +31025,58 @@
    },
    {
     "created_at": "2026-11-16T03:52:00.473182+00:00",
+    "deleted_at": "2026-11-16T03:59:16.745291+00:00",
+    "eur": 0.05868,
+    "hours": 0.121,
+    "id": "rw-7f160d7e5ea6-build-2",
+    "location": "hel1",
+    "normalised_eur": 0.0071,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T04:13:24.844179+00:00",
+    "deleted_at": "2026-11-16T04:16:16.760079+00:00",
+    "eur": 0.05868,
+    "hours": 0.048,
+    "id": "rw-7f160d7e5ea6-build-5",
+    "location": "hel1",
+    "normalised_eur": 0.0028,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T04:25:42.673326+00:00",
+    "deleted_at": "2026-11-16T04:28:16.573612+00:00",
+    "eur": 0.05868,
+    "hours": 0.043,
+    "id": "rw-7f160d7e5ea6-build-6",
+    "location": "hel1",
+    "normalised_eur": 0.0025,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T04:36:56.058843+00:00",
+    "deleted_at": "2026-11-16T04:40:14.419810+00:00",
+    "eur": 0.05868,
+    "hours": 0.055,
+    "id": "rw-7f160d7e5ea6-build-7",
+    "location": "hel1",
+    "normalised_eur": 0.0032,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T04:51:33.891648+00:00",
     "deleted_at": null,
     "eur": null,
     "hours": null,
-    "id": "rw-7f160d7e5ea6-build-2",
+    "id": "rw-7f160d7e5ea6-build-8",
     "location": "hel1",
     "normalised_eur": null,
     "rate_eur": 0.05868,
@@ -33664,19 +33784,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 444,
-  "jobs_total": 607,
-  "lifetime_eur": 36.17,
+  "jobs_this_month": 451,
+  "jobs_total": 614,
+  "lifetime_eur": 36.58,
   "live": {
-   "checked_at": "2026-11-16T03:53:15+00:00",
+   "checked_at": "2026-11-16T04:53:11+00:00",
    "error": null,
    "primary_ips": 1,
    "primary_ips_total": 1,
    "servers": 1,
    "servers_total": 1
   },
-  "month_hours": 98.5,
-  "month_to_date": 27.96,
+  "month_hours": 98.9,
+  "month_to_date": 28.37,
   "months": [
    {
     "eur": 5.02,
@@ -33691,13 +33811,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 27.9588,
-    "hours": 98.55,
-    "jobs": 444,
+    "eur": 28.3696,
+    "hours": 98.93,
+    "jobs": 451,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 52.42,
+  "projected_month_eur": 53.19,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -33726,13 +33846,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-16T03:50:01.792853+00:00",
+  "observed_at": "2026-11-16T04:50:02.129703+00:00",
   "releases": [
    {
     "bundle": "cefd3d3d41775a17aeee8fb4",
     "candidate": "source-000119",
     "dataset": "usgs-streamgage-record-survival",
-    "observed_at": "2026-11-16T03:50:01.888383+00:00",
+    "observed_at": "2026-11-16T04:50:02.223313+00:00",
     "plan_sha256": "dd4b7530f275e1cc4b9e81bf84ea4662e4090e551020f9a3992a9e6fe273dc88",
     "status": "complete",
     "version": "v-75d63061fc7d7395"
@@ -33741,7 +33861,7 @@
     "bundle": "d10e05f52d1eb74210a93b25",
     "candidate": "source-000107",
     "dataset": "sdwis-lcr-lead-action-level-next-period",
-    "observed_at": "2026-11-16T03:50:08.663526+00:00",
+    "observed_at": "2026-11-16T04:50:08.796190+00:00",
     "plan_sha256": "5c4e1d475d95b9909d6b850d653f8f23ac39566b3d28f4a007f8e0d92b686d64",
     "status": "complete",
     "version": "v-5917644e4c46057e"
@@ -33750,7 +33870,7 @@
     "bundle": "aa6a43f243713c68b0d35cb4",
     "candidate": "source-000099",
     "dataset": "fra-form54-hazmat-release",
-    "observed_at": "2026-11-16T03:50:15.126858+00:00",
+    "observed_at": "2026-11-16T04:50:14.425018+00:00",
     "plan_sha256": "20a77f8fbc5c6a21f9844d1befc0efcc15eb8a403fc82d8d16088b06356ac404",
     "status": "complete",
     "version": "v-c59d614ee9c4ce97"
@@ -33759,7 +33879,7 @@
     "bundle": "2e22aecc0868a441c362537c",
     "candidate": "source-000100",
     "dataset": "seattle-building-permit-completion",
-    "observed_at": "2026-11-16T03:50:21.705093+00:00",
+    "observed_at": "2026-11-16T04:50:20.180188+00:00",
     "plan_sha256": "091541b8ecd58e8e07653a2e15847f9108b77b26b3d15ffc1dc0cca082b1a101",
     "status": "complete",
     "version": "v-67a46c698fa813cc"
@@ -33768,7 +33888,7 @@
     "bundle": "ef18cc02f31026fc146f25a1",
     "candidate": "source-000096",
     "dataset": "faa-wildlife-strike-substantial-damage",
-    "observed_at": "2026-11-16T03:50:27.310685+00:00",
+    "observed_at": "2026-11-16T04:50:26.266788+00:00",
     "plan_sha256": "62f4c3450ae5c267889e21bccc409e4b8ad2f85327307c6281b9b46090b65939",
     "status": "complete",
     "version": "v-d654c9f4ddfcf60c"
@@ -33777,7 +33897,7 @@
     "bundle": "3ddd5f05944a2e3ef0e94845",
     "candidate": "source-000083",
     "dataset": "wser-effluent-exceedance",
-    "observed_at": "2026-11-16T03:50:33.228554+00:00",
+    "observed_at": "2026-11-16T04:50:31.863016+00:00",
     "plan_sha256": "edd78fa8ffe359c90aedb0d3b07c24a52da0967526cd80a80ea618101b09b9f1",
     "status": "complete",
     "version": "v-3ceae5479cda761c"
@@ -33786,7 +33906,7 @@
     "bundle": "b5fa95c50e2409546408cff8",
     "candidate": "source-000079",
     "dataset": "caa-fce-hpv-escalation",
-    "observed_at": "2026-11-16T03:50:39.420425+00:00",
+    "observed_at": "2026-11-16T04:50:37.516476+00:00",
     "plan_sha256": "f8e4e5f5e545adea1ba12a8ea1694e8d9ad6a77e4b1377f98ad59acd8b0339f3",
     "status": "complete",
     "version": "v-fd86cbb0bc96aaca"
@@ -33795,7 +33915,7 @@
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-16T03:50:45.440888+00:00",
+    "observed_at": "2026-11-16T04:50:43.298672+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -33804,7 +33924,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-16T03:50:51.474992+00:00",
+    "observed_at": "2026-11-16T04:50:48.918362+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -33813,7 +33933,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-16T03:50:58.212779+00:00",
+    "observed_at": "2026-11-16T04:50:54.341980+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -33822,7 +33942,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-16T03:51:04.124617+00:00",
+    "observed_at": "2026-11-16T04:51:00.155046+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -33831,7 +33951,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-16T03:51:09.746501+00:00",
+    "observed_at": "2026-11-16T04:51:05.714610+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -33840,7 +33960,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-16T03:51:15.434379+00:00",
+    "observed_at": "2026-11-16T04:51:11.150201+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -33849,7 +33969,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-16T03:51:21.492137+00:00",
+    "observed_at": "2026-11-16T04:51:16.992598+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -33858,7 +33978,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-16T03:51:27.087527+00:00",
+    "observed_at": "2026-11-16T04:51:22.327284+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -33867,7 +33987,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-16T03:51:33.071459+00:00",
+    "observed_at": "2026-11-16T04:51:28.057544+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -33876,7 +33996,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-16T03:51:38.836894+00:00",
+    "observed_at": "2026-11-16T04:51:33.826326+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -33885,7 +34005,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-16T03:51:44.553971+00:00",
+    "observed_at": "2026-11-16T04:51:41.070349+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -33894,7 +34014,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-16T03:51:50.283961+00:00",
+    "observed_at": "2026-11-16T04:51:46.568244+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -33903,7 +34023,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-16T03:51:55.994463+00:00",
+    "observed_at": "2026-11-16T04:51:52.195134+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
