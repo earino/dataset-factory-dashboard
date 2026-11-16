@@ -18,24 +18,22 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 300.0,
-   "allowed": false,
+   "allowed": true,
    "development_runs_last_7_days": 16,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 1407350,
-   "moment": "2026-11-16T02:52:14.554407+00:00",
-   "normal_operation_runs_last_7_days": 643,
-   "normal_operation_runs_weighted_last_7_days": 643,
-   "normal_operation_tokens_last_7_days": 62968739,
+   "moment": "2026-11-16T03:52:03.427389+00:00",
+   "normal_operation_runs_last_7_days": 650,
+   "normal_operation_runs_weighted_last_7_days": 650,
+   "normal_operation_tokens_last_7_days": 63928094,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [
-    "lock held for 68s by scout-research"
-   ],
+   "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 64376089,
-   "runs_last_7_days": 659,
-   "runs_weighted_last_7_days": 659,
-   "session_admission_weighted": 502,
+   "research_tokens_last_7_days": 65335444,
+   "runs_last_7_days": 666,
+   "runs_weighted_last_7_days": 666,
+   "session_admission_weighted": 509,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -66,14 +64,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 11157,
+     "calls": 11225,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 77538012,
-     "output_tokens": 33531861,
+     "input_tokens": 78120347,
+     "output_tokens": 33908881,
      "pricing_available": false
     }
    },
@@ -87,9 +85,8 @@
  "candidates": {
   "countries": {},
   "counts": {
-   "build": 1,
-   "deferred": 98,
-   "discover": 1,
+   "build": 2,
+   "deferred": 99,
    "published": 20,
    "rejected": 7
   },
@@ -105,40 +102,40 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "blm-onshore-oil-gas-lease-parcel-bid",
+    "dataset": "ca-beach-advisory-duration",
     "domain": "Modern factory",
-    "id": "source-000125",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T02:51:19.947724+00:00",
-    "next_run_at": "2026-11-16T02:51:19.947724+00:00",
+    "id": "source-000127",
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T03:39:19.637233+00:00",
+    "next_run_at": "2026-11-16T03:39:19.637233+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The moment the sale's offered-parcel list is final, at the close of the public comment and protest period before the auction date printed on the sale notice. The machine-readable parcel layer records only the sale month and year, so the exact comment-close date is not observed for those rows.",
-    "question": "At the moment a competitive federal onshore oil and gas lease sale's parcel list is final, will a given offered parcel receive at least one bid at that sale?",
+    "prediction_time": "The advisory start date, day 0. Only the advisory class, start date, beach identity, county, station inventory and earlier posting starts are used for counts; for duration rates only earlier training labels whose end dates closed before this row are used. The row end date and duration are withheld.",
+    "question": "When a county health officer issues a new beach water-quality posting, will that posting remain in force for at least seven days?",
     "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Fixed chronological boundaries on sale date: train = sales before 2021-01-01; eval = sales from 2021-01-01 through 2022-12-31; holdout = sales on or after 2023-01-01. No prior-sale outcome, lag, or rolling bid-history features are used, so no embargo window is required; to prevent any later row from encoding an earlier row's target, a parcel offered in more than one sale is assigned to the split of its earliest sale and its later offers are removed.",
+    "split_strategy": "Chronological by advisory start date, no random shuffling: train = 2005-01-01 through 2015-12-31; eval = 2016-01-01 through 2019-12-31; holdout = 2020-01-01 through 2023-12-31. Boundary embargo: any record whose start date falls in the 7 days before a split boundary is dropped, and any record whose end date crosses a boundary is retained only in the earlier split but excluded from feature/label computation for the later split. If the observed earliest year is later than 2005, the train window starts at the first complete calendar year instead, and the boundaries 2016/2020 are unchanged.",
     "status": "build",
-    "target": "1 if the parcel appears in that sale's BLM 'Sale Results' table (it received at least one bid at the competitive sale); 0 if the parcel appears in the sale notice's offered-parcel list but not in that sale's results table. Deferred or withdrawn parcels are dropped, not labelled 0.",
+    "target": "y = 1 if the advisory record is a posting (the bacteria-standard advisory class, not a sewage closure, not a pre-emptive rain advisory, not a permanent posting) and its recorded end date is at least 7 calendar days after its start date; y = 0 if it ends within 7 days. Records with no end date (still open at extraction) or with end date before start date are excluded.",
     "workflow": "modern"
    },
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "ffiec-cra-outstanding-next",
     "domain": "Modern factory",
-    "id": "source-000127",
-    "next_action": "Stage discover",
+    "id": "source-000128",
+    "next_action": "Stage build: Source researched with access, terms and task evidence",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
-    "reason": "",
+    "prediction_time": "The date the anchor evaluation's rating first became public: recorded Exam Date plus 60 days for OCC/FRB records (whose recorded date is the examination start), or the recorded Exam Date itself for FDIC records (whose recorded date is already the monthly public release date). Only records with a public date on or before this instant are used.",
+    "question": "Given a bank's CRA examination record as of its most recently published evaluation, will its next CRA performance evaluation be rated Outstanding rather than Satisfactory, Needs to Improve, or Substantial Noncompliance?",
+    "reason": "Source researched with access, terms and task evidence",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "split_strategy": "Purged chronological split on the anchor public date, frozen before any measurement: train 1993-01-01 to 2010-12-31; 2011 dropped as an embargo year; eval 2012-01-01 to 2014-12-31; 2015 dropped as an embargo year; holdout 2016-01-01 to 2018-12-31. Public dates after 2018-12-31 are held back and not scored. Because every feature refers only to evaluations published on or before the anchor's public date, no additional label-window purge inside a split is needed; the single-year embargo exists only so adjacent splits do not share a common forward window.",
+    "status": "build",
+    "target": "y = 1 if the first evaluation for the same (Regulator, ID) with a public date strictly after the anchor's public date, and no more than 84 months later, carries Rating = 1 (Outstanding); y = 0 if that next evaluation carries Rating 2, 3 or 4. Anchors with no such later evaluation inside 84 months are dropped as unlabelled (censored) and are never coded 0.",
     "workflow": "modern"
    }
   ],
@@ -2947,17 +2944,17 @@
     "dataset": "blm-onshore-oil-gas-lease-parcel-bid",
     "domain": "Modern factory",
     "id": "source-000125",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T02:51:19.947724+00:00",
-    "next_run_at": "2026-11-16T02:51:19.947724+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T03:04:19.385577+00:00",
+    "next_run_at": "2026-11-16T03:04:19.385577+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The moment the sale's offered-parcel list is final, at the close of the public comment and protest period before the auction date printed on the sale notice. The machine-readable parcel layer records only the sale month and year, so the exact comment-close date is not observed for those rows.",
     "question": "At the moment a competitive federal onshore oil and gas lease sale's parcel list is final, will a given offered parcel receive at least one bid at that sale?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "Fixed chronological boundaries on sale date: train = sales before 2021-01-01; eval = sales from 2021-01-01 through 2022-12-31; holdout = sales on or after 2023-01-01. No prior-sale outcome, lag, or rolling bid-history features are used, so no embargo window is required; to prevent any later row from encoding an earlier row's target, a parcel offered in more than one sale is assigned to the split of its earliest sale and its later offers are removed.",
-    "status": "build",
+    "status": "deferred",
     "target": "1 if the parcel appears in that sale's BLM 'Sale Results' table (it received at least one bid at the competitive sale); 0 if the parcel appears in the sale notice's offered-parcel list but not in that sale's results table. Deferred or withdrawn parcels are dropped, not labelled 0.",
     "workflow": "modern"
    },
@@ -2982,21 +2979,40 @@
    },
    {
     "country": "unknown",
-    "dataset": null,
+    "dataset": "ca-beach-advisory-duration",
     "domain": "Modern factory",
     "id": "source-000127",
-    "next_action": "Stage discover",
-    "next_run_at": null,
+    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T03:39:19.637233+00:00",
+    "next_run_at": "2026-11-16T03:39:19.637233+00:00",
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "",
-    "question": "",
-    "reason": "",
+    "prediction_time": "The advisory start date, day 0. Only the advisory class, start date, beach identity, county, station inventory and earlier posting starts are used for counts; for duration rates only earlier training labels whose end dates closed before this row are used. The row end date and duration are withheld.",
+    "question": "When a county health officer issues a new beach water-quality posting, will that posting remain in force for at least seven days?",
+    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "",
-    "status": "discover",
-    "target": "",
+    "split_strategy": "Chronological by advisory start date, no random shuffling: train = 2005-01-01 through 2015-12-31; eval = 2016-01-01 through 2019-12-31; holdout = 2020-01-01 through 2023-12-31. Boundary embargo: any record whose start date falls in the 7 days before a split boundary is dropped, and any record whose end date crosses a boundary is retained only in the earlier split but excluded from feature/label computation for the later split. If the observed earliest year is later than 2005, the train window starts at the first complete calendar year instead, and the boundaries 2016/2020 are unchanged.",
+    "status": "build",
+    "target": "y = 1 if the advisory record is a posting (the bacteria-standard advisory class, not a sewage closure, not a pre-emptive rain advisory, not a permanent posting) and its recorded end date is at least 7 calendar days after its start date; y = 0 if it ends within 7 days. Records with no end date (still open at extraction) or with end date before start date are excluded.",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "ffiec-cra-outstanding-next",
+    "domain": "Modern factory",
+    "id": "source-000128",
+    "next_action": "Stage build: Source researched with access, terms and task evidence",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "The date the anchor evaluation's rating first became public: recorded Exam Date plus 60 days for OCC/FRB records (whose recorded date is the examination start), or the recorded Exam Date itself for FDIC records (whose recorded date is already the monthly public release date). Only records with a public date on or before this instant are used.",
+    "question": "Given a bank's CRA examination record as of its most recently published evaluation, will its next CRA performance evaluation be rated Outstanding rather than Satisfactory, Needs to Improve, or Substantial Noncompliance?",
+    "reason": "Source researched with access, terms and task evidence",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Purged chronological split on the anchor public date, frozen before any measurement: train 1993-01-01 to 2010-12-31; 2011 dropped as an embargo year; eval 2012-01-01 to 2014-12-31; 2015 dropped as an embargo year; holdout 2016-01-01 to 2018-12-31. Public dates after 2018-12-31 are held back and not scored. Because every feature refers only to evaluations published on or before the anchor's public date, no additional label-window purge inside a split is needed; the single-year embargo exists only so adjacent splits do not share a common forward window.",
+    "status": "build",
+    "target": "y = 1 if the first evaluation for the same (Regulator, ID) with a public date strictly after the anchor's public date, and no more than 84 months later, carries Rating = 1 (Outstanding); y = 0 if that next evaluation carries Rating 2, 3 or 4. Anchors with no such later evaluation inside 84 months are dropped as unlabelled (censored) and are never coded 0.",
     "workflow": "modern"
    },
    {
@@ -6467,7 +6483,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 223.5,
+    "age_hours": 224.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -7297,7 +7313,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 280.0,
+    "age_hours": 281.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -13579,7 +13595,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 420.6,
+    "age_hours": 421.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -17603,7 +17619,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 269.8,
+    "age_hours": 270.8,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -18059,10 +18075,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-16T02:50:02.627277+00:00",
+    "last_run_at": "2026-11-16T03:50:02.460340+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-16T03:00:00+00:00",
+    "next_run_at": "2026-11-16T04:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -18143,10 +18159,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-16T01:53:48.066974+00:00",
+    "last_run_at": "2026-11-16T02:54:04.173859+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-16T03:50:00+00:00",
+    "next_run_at": "2026-11-16T04:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -18155,10 +18171,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-16T01:55:01.702335+00:00",
+    "last_run_at": "2026-11-16T02:55:01.419841+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-16T02:55:00+00:00",
+    "next_run_at": "2026-11-16T03:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -18203,10 +18219,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-16T02:50:20.003890+00:00",
+    "last_run_at": "2026-11-16T03:47:06.923418+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-16T02:52:00+00:00",
+    "next_run_at": "2026-11-16T03:49:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -18259,9 +18275,9 @@
     "schedule": "once at 2026-11-16 07:00"
    }
   ],
-  "updated_at": "2026-11-16T02:52:01.099784+00:00"
+  "updated_at": "2026-11-16T03:52:01.595849+00:00"
  },
- "generated_at": "2026-11-16T02:52:13+00:00",
+ "generated_at": "2026-11-16T03:52:02+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -18289,14 +18305,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-26T00:50:01+00:00",
-   "live": 14,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17100439
-  },
   {
    "at": "2026-10-26T01:50:01+00:00",
    "live": 14,
@@ -22498,6 +22506,16 @@
    "sessions_7d": 659,
    "tokens_7d": 62968739,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-16T03:52:02+00:00",
+   "live": 2,
+   "published": 34,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 666,
+   "tokens_7d": 63928094,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -24668,19 +24686,19 @@
    },
    {
     "attempt": {
-     "id": "rw-457b06451214-build-5",
-     "ordinal": 5,
+     "id": "rw-457b06451214-build-6",
+     "ordinal": 6,
      "stage": "build",
      "status": "retry"
     },
     "created_at": "2026-11-16T01:24:02.099668+00:00",
     "dataset": "blm-onshore-oil-gas-lease-parcel-bid",
     "id": "source-000125",
-    "next_run_at": "2026-11-16T02:51:19.947724+00:00",
+    "next_run_at": "2026-11-16T03:04:19.385577+00:00",
     "published_verified": false,
     "running": false,
-    "stage": "build",
-    "updated_at": "2026-11-16T02:50:19.947724+00:00"
+    "stage": "deferred",
+    "updated_at": "2026-11-16T03:03:19.385577+00:00"
    },
    {
     "attempt": {
@@ -24700,39 +24718,52 @@
    },
    {
     "attempt": {
-     "id": "rw-7f160d7e5ea6-discover-1",
-     "ordinal": 1,
-     "stage": "discover",
+     "id": "rw-7f160d7e5ea6-build-2",
+     "ordinal": 2,
+     "stage": "build",
      "status": "running"
     },
     "created_at": "2026-11-16T02:46:01.829555+00:00",
-    "dataset": null,
+    "dataset": "ca-beach-advisory-duration",
     "id": "source-000127",
-    "next_run_at": null,
+    "next_run_at": "2026-11-16T03:39:19.637233+00:00",
     "published_verified": false,
     "running": true,
-    "stage": "discover",
-    "updated_at": "2026-11-16T02:46:01.829555+00:00"
+    "stage": "build",
+    "updated_at": "2026-11-16T03:52:00.468296+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-42c79977be8e-discover-2",
+     "ordinal": 2,
+     "stage": "discover",
+     "status": "done"
+    },
+    "created_at": "2026-11-16T03:04:01.548672+00:00",
+    "dataset": "ffiec-cra-outstanding-next",
+    "id": "source-000128",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": false,
+    "stage": "build",
+    "updated_at": "2026-11-16T03:47:06.869389+00:00"
    }
   ],
   "counts": {
-   "build": 1,
-   "deferred": 98,
-   "discover": 1,
+   "build": 2,
+   "deferred": 99,
    "published": 20,
    "rejected": 7
   },
-  "observed_at": "2026-11-16T02:52:13.125445+00:00",
+  "observed_at": "2026-11-16T03:52:02.235774+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
- "notices": [
-  "A research session is running: lock held for 68s by scout-research"
- ],
+ "notices": [],
  "panels": {
   "budget": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-16T02:52:13+00:00",
+   "as_of": "2026-11-16T03:52:02+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -24742,7 +24773,7 @@
   },
   "candidates": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-16T02:52:13+00:00",
+   "as_of": "2026-11-16T03:52:02+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -24752,7 +24783,7 @@
   },
   "releases": {
    "age_minutes": 1.2,
-   "as_of": "2026-11-16T02:52:13+00:00",
+   "as_of": "2026-11-16T03:52:02+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -26283,11 +26314,11 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "36.04",
-   "completed_estimate_eur": "36.00",
-   "completed_jobs": 443,
-   "reserved_jobs": 1,
-   "retained_reservations_eur": "0.04"
+   "charged_eur": "36.36",
+   "completed_estimate_eur": "36.16",
+   "completed_jobs": 445,
+   "reserved_jobs": 2,
+   "retained_reservations_eur": "0.20"
   },
   "ceiling_eur": 50.0,
   "errors": [],
@@ -26295,7 +26326,7 @@
   "histogram": {
    "bins": [
     {
-     "count": 441,
+     "count": 443,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -26342,10 +26373,10 @@
    ],
    "max": 2.2448,
    "median": 0.006,
-   "n": 604,
+   "n": 606,
    "p90": 0.0261,
    "ref_rate": 0.05868,
-   "total": 10.09
+   "total": 10.1
   },
   "jobs": [
    {
@@ -30213,6 +30244,18 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-16T03:00:34.326477+00:00",
+    "deleted_at": "2026-11-16T03:03:16.740106+00:00",
+    "eur": 0.05868,
+    "hours": 0.045,
+    "id": "rw-457b06451214-build-6",
+    "location": "hel1",
+    "normalised_eur": 0.0026,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-09T20:48:18.284101+00:00",
     "deleted_at": "2026-11-09T20:51:17.527025+00:00",
     "eur": 0.06924,
@@ -30895,6 +30938,30 @@
     "rate_eur": 0.05868,
     "server_type": "cpx32",
     "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T03:36:02.089766+00:00",
+    "deleted_at": "2026-11-16T03:38:16.960409+00:00",
+    "eur": 0.05868,
+    "hours": 0.037,
+    "id": "rw-7f160d7e5ea6-build-1",
+    "location": "hel1",
+    "normalised_eur": 0.0022,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T03:52:00.473182+00:00",
+    "deleted_at": null,
+    "eur": null,
+    "hours": null,
+    "id": "rw-7f160d7e5ea6-build-2",
+    "location": "hel1",
+    "normalised_eur": null,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "running"
    },
    {
     "created_at": "2026-11-15T21:42:51.210076+00:00",
@@ -33597,19 +33664,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 442,
-  "jobs_total": 604,
-  "lifetime_eur": 36.05,
+  "jobs_this_month": 444,
+  "jobs_total": 607,
+  "lifetime_eur": 36.17,
   "live": {
-   "checked_at": "2026-11-16T02:53:26+00:00",
+   "checked_at": "2026-11-16T03:53:15+00:00",
    "error": null,
-   "primary_ips": 0,
-   "primary_ips_total": 0,
-   "servers": 0,
-   "servers_total": 0
+   "primary_ips": 1,
+   "primary_ips_total": 1,
+   "servers": 1,
+   "servers_total": 1
   },
   "month_hours": 98.5,
-  "month_to_date": 27.84,
+  "month_to_date": 27.96,
   "months": [
    {
     "eur": 5.02,
@@ -33624,13 +33691,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 27.8414,
-    "hours": 98.46,
-    "jobs": 442,
+    "eur": 27.9588,
+    "hours": 98.55,
+    "jobs": 444,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 52.2,
+  "projected_month_eur": 52.42,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -33659,13 +33726,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-16T02:50:01.469162+00:00",
+  "observed_at": "2026-11-16T03:50:01.792853+00:00",
   "releases": [
    {
     "bundle": "cefd3d3d41775a17aeee8fb4",
     "candidate": "source-000119",
     "dataset": "usgs-streamgage-record-survival",
-    "observed_at": "2026-11-16T02:50:01.566381+00:00",
+    "observed_at": "2026-11-16T03:50:01.888383+00:00",
     "plan_sha256": "dd4b7530f275e1cc4b9e81bf84ea4662e4090e551020f9a3992a9e6fe273dc88",
     "status": "complete",
     "version": "v-75d63061fc7d7395"
@@ -33674,7 +33741,7 @@
     "bundle": "d10e05f52d1eb74210a93b25",
     "candidate": "source-000107",
     "dataset": "sdwis-lcr-lead-action-level-next-period",
-    "observed_at": "2026-11-16T02:50:23.775356+00:00",
+    "observed_at": "2026-11-16T03:50:08.663526+00:00",
     "plan_sha256": "5c4e1d475d95b9909d6b850d653f8f23ac39566b3d28f4a007f8e0d92b686d64",
     "status": "complete",
     "version": "v-5917644e4c46057e"
@@ -33683,7 +33750,7 @@
     "bundle": "aa6a43f243713c68b0d35cb4",
     "candidate": "source-000099",
     "dataset": "fra-form54-hazmat-release",
-    "observed_at": "2026-11-16T02:50:29.844389+00:00",
+    "observed_at": "2026-11-16T03:50:15.126858+00:00",
     "plan_sha256": "20a77f8fbc5c6a21f9844d1befc0efcc15eb8a403fc82d8d16088b06356ac404",
     "status": "complete",
     "version": "v-c59d614ee9c4ce97"
@@ -33692,7 +33759,7 @@
     "bundle": "2e22aecc0868a441c362537c",
     "candidate": "source-000100",
     "dataset": "seattle-building-permit-completion",
-    "observed_at": "2026-11-16T02:50:35.467179+00:00",
+    "observed_at": "2026-11-16T03:50:21.705093+00:00",
     "plan_sha256": "091541b8ecd58e8e07653a2e15847f9108b77b26b3d15ffc1dc0cca082b1a101",
     "status": "complete",
     "version": "v-67a46c698fa813cc"
@@ -33701,7 +33768,7 @@
     "bundle": "ef18cc02f31026fc146f25a1",
     "candidate": "source-000096",
     "dataset": "faa-wildlife-strike-substantial-damage",
-    "observed_at": "2026-11-16T02:50:41.536756+00:00",
+    "observed_at": "2026-11-16T03:50:27.310685+00:00",
     "plan_sha256": "62f4c3450ae5c267889e21bccc409e4b8ad2f85327307c6281b9b46090b65939",
     "status": "complete",
     "version": "v-d654c9f4ddfcf60c"
@@ -33710,7 +33777,7 @@
     "bundle": "3ddd5f05944a2e3ef0e94845",
     "candidate": "source-000083",
     "dataset": "wser-effluent-exceedance",
-    "observed_at": "2026-11-16T02:50:47.245780+00:00",
+    "observed_at": "2026-11-16T03:50:33.228554+00:00",
     "plan_sha256": "edd78fa8ffe359c90aedb0d3b07c24a52da0967526cd80a80ea618101b09b9f1",
     "status": "complete",
     "version": "v-3ceae5479cda761c"
@@ -33719,7 +33786,7 @@
     "bundle": "b5fa95c50e2409546408cff8",
     "candidate": "source-000079",
     "dataset": "caa-fce-hpv-escalation",
-    "observed_at": "2026-11-16T02:50:52.859309+00:00",
+    "observed_at": "2026-11-16T03:50:39.420425+00:00",
     "plan_sha256": "f8e4e5f5e545adea1ba12a8ea1694e8d9ad6a77e4b1377f98ad59acd8b0339f3",
     "status": "complete",
     "version": "v-fd86cbb0bc96aaca"
@@ -33728,7 +33795,7 @@
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-16T02:50:58.334329+00:00",
+    "observed_at": "2026-11-16T03:50:45.440888+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -33737,7 +33804,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-16T02:51:03.853956+00:00",
+    "observed_at": "2026-11-16T03:50:51.474992+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -33746,7 +33813,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-16T02:51:09.614419+00:00",
+    "observed_at": "2026-11-16T03:50:58.212779+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -33755,7 +33822,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-16T02:51:15.415750+00:00",
+    "observed_at": "2026-11-16T03:51:04.124617+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -33764,7 +33831,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-16T02:51:21.056493+00:00",
+    "observed_at": "2026-11-16T03:51:09.746501+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -33773,7 +33840,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-16T02:51:27.067818+00:00",
+    "observed_at": "2026-11-16T03:51:15.434379+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -33782,7 +33849,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-16T02:51:32.533872+00:00",
+    "observed_at": "2026-11-16T03:51:21.492137+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -33791,7 +33858,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-16T02:51:38.013210+00:00",
+    "observed_at": "2026-11-16T03:51:27.087527+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -33800,7 +33867,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-16T02:51:43.680381+00:00",
+    "observed_at": "2026-11-16T03:51:33.071459+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -33809,7 +33876,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-16T02:51:49.399519+00:00",
+    "observed_at": "2026-11-16T03:51:38.836894+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -33818,7 +33885,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-16T02:51:55.106193+00:00",
+    "observed_at": "2026-11-16T03:51:44.553971+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -33827,7 +33894,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-16T02:52:01.118776+00:00",
+    "observed_at": "2026-11-16T03:51:50.283961+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -33836,7 +33903,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-16T02:52:06.784906+00:00",
+    "observed_at": "2026-11-16T03:51:55.994463+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
