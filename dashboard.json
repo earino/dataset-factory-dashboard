@@ -18,22 +18,24 @@
   "decision": {
    "accounting_available": true,
    "allowance_usd": 300.0,
-   "allowed": true,
+   "allowed": false,
    "development_runs_last_7_days": 16,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 1407350,
-   "moment": "2026-11-16T10:52:19.752854+00:00",
-   "normal_operation_runs_last_7_days": 707,
-   "normal_operation_runs_weighted_last_7_days": 707,
-   "normal_operation_tokens_last_7_days": 68940643,
+   "moment": "2026-11-16T11:52:12.408190+00:00",
+   "normal_operation_runs_last_7_days": 716,
+   "normal_operation_runs_weighted_last_7_days": 716,
+   "normal_operation_tokens_last_7_days": 69711374,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
-   "reasons": [],
+   "reasons": [
+    "lock held for 126s by scout-research"
+   ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 70347993,
-   "runs_last_7_days": 723,
-   "runs_weighted_last_7_days": 723,
-   "session_admission_weighted": 566,
+   "research_tokens_last_7_days": 71118724,
+   "runs_last_7_days": 732,
+   "runs_weighted_last_7_days": 732,
+   "session_admission_weighted": 575,
    "session_cap_per_week": 2000,
    "session_count_reset_at": "2026-11-12T21:17:36.832062+00:00",
    "sessions_over_token_cap": 0,
@@ -64,14 +66,14 @@
      "pricing_available": false
     },
     "research": {
-     "calls": 11573,
+     "calls": 11647,
      "cost_status": [
       "estimated",
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 80810960,
-     "output_tokens": 36230817,
+     "input_tokens": 81307331,
+     "output_tokens": 36505177,
      "pricing_available": false
     }
    },
@@ -86,7 +88,7 @@
   "countries": {},
   "counts": {
    "build": 1,
-   "deferred": 109,
+   "deferred": 111,
    "discover": 1,
    "published": 21,
    "rejected": 7
@@ -103,28 +105,28 @@
   "live": [
    {
     "country": "unknown",
-    "dataset": "faa-oeaaa-airspace-hazard",
+    "dataset": "pins-s78-planning-appeal-allowed",
     "domain": "Modern factory",
-    "id": "source-000137",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T10:53:16.370153+00:00",
-    "next_run_at": "2026-11-16T10:53:16.370153+00:00",
+    "id": "source-000140",
+    "next_action": "Stage build: Source researched with access, terms and task evidence",
+    "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
-    "prediction_time": "The case receipt date recorded when the FAA Form 7460-1 notice is filed and the ASN is assigned, before any FAA analysis, circularization or determination.",
-    "question": "At the moment a sponsor files an FAA Form 7460-1 notice of proposed construction or alteration, will the resulting aeronautical study end in a Determination of Hazard to Air Navigation rather than a Determination of No Hazard?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "prediction_time": "The PINS Valid Date, the date PINS deems the appeal valid and the case record is fixed. Every input is recorded on the appeal submission or the appealed application at or before that date; no field created during or after the case is used.",
+    "question": "Will a section 78 planning appeal lodged against an English local planning authority's refusal be allowed by the Planning Inspectorate?",
+    "reason": "Source researched with access, terms and task evidence",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
-    "split_strategy": "Frozen before any measurement, keyed on case receipt date only. Train: filings 2008-01-01 through 2017-12-31. Eval: 2018-01-01 through 2019-06-30. Holdout: 2019-07-01 through 2022-06-30. No case may appear in more than one block, and cases filed after 2022-06-30 are excluded so every included case had at least 24 months to reach a determination before the extract. No random shuffling and no re-splitting after seeing results.",
+    "split_strategy": "Fixed chronological boundaries on PINS Valid Date against the pinned 22 October 2026 release: train 2022-01-01 to 2023-09-30; embargo 2023-10-01 to 2023-10-31 (rows dropped); eval 2023-11-01 to 2024-06-30; embargo 2024-07-01 to 2024-07-31 (rows dropped); holdout 2024-08-01 to 2025-06-30. Valid dates after 2025-06-30 are excluded so that every holdout case has had at least twelve months to reach a decision inside the release. No case appears in more than one split, no feature uses information after its own valid date, and any LPA-level allow-rate or persistence control is estimated on training-period rows only and then frozen before eval and holdout are scored. The rules are fixed before any performance measurement.",
     "status": "build",
-    "target": "1 if the determination letter recorded for the case states a Determination of Hazard to Air Navigation; 0 if it states a Determination of No Hazard to Air Navigation. Cases still Proposed/Interim/Circularized at the pull date, and cases closed as Terminated or Withdrawn without a determination, are excluded from both classes rather than labelled 0.",
+    "target": "1 if the Decision field equals 'Allowed', 0 if it equals 'Dismissed'. Rows whose Decision takes any other value (e.g. split or interim outcomes) are dropped as unlabelled. Restricted to Type of Appeal = 'Planning Appeal' (section 78).",
     "workflow": "modern"
    },
    {
     "country": "unknown",
     "dataset": null,
     "domain": "Modern factory",
-    "id": "source-000139",
+    "id": "source-000141",
     "next_action": "Stage discover",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
@@ -3190,17 +3192,17 @@
     "dataset": "faa-oeaaa-airspace-hazard",
     "domain": "Modern factory",
     "id": "source-000137",
-    "next_action": "Stage build: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T10:53:16.370153+00:00",
-    "next_run_at": "2026-11-16T10:53:16.370153+00:00",
+    "next_action": "Stage deferred: Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted \u00b7 next attempt 2026-11-16T11:42:22.950095+00:00",
+    "next_run_at": "2026-11-16T11:42:22.950095+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The case receipt date recorded when the FAA Form 7460-1 notice is filed and the ASN is assigned, before any FAA analysis, circularization or determination.",
     "question": "At the moment a sponsor files an FAA Form 7460-1 notice of proposed construction or alteration, will the resulting aeronautical study end in a Determination of Hazard to Air Navigation rather than a Determination of No Hazard?",
-    "reason": "Construction/qualification failed; artifacts preserved and worker deleted",
+    "reason": "Attempt limit reached: Construction/qualification failed; artifacts preserved and worker deleted",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
     "split_strategy": "Frozen before any measurement, keyed on case receipt date only. Train: filings 2008-01-01 through 2017-12-31. Eval: 2018-01-01 through 2019-06-30. Holdout: 2019-07-01 through 2022-06-30. No case may appear in more than one block, and cases filed after 2022-06-30 are excluded so every included case had at least 24 months to reach a determination before the extract. No random shuffling and no re-splitting after seeing results.",
-    "status": "build",
+    "status": "deferred",
     "target": "1 if the determination letter recorded for the case states a Determination of Hazard to Air Navigation; 0 if it states a Determination of No Hazard to Air Navigation. Cases still Proposed/Interim/Circularized at the pull date, and cases closed as Terminated or Withdrawn without a determination, are excluded from both classes rather than labelled 0.",
     "workflow": "modern"
    },
@@ -3228,6 +3230,44 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000139",
+    "next_action": "Stage deferred: The most promising unfamiliar source was USACE's National Levee Database: public segment summaries expose the latest routine and periodic inspection ratings, and USACE documents a three-level segment rating (Acceptable / Minimally Acceptabl",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "",
+    "question": "",
+    "reason": "The most promising unfamiliar source was USACE's National Levee Database: public segment summaries expose the latest routine and periodic inspection ratings, and USACE documents a three-level segment rating (Acceptable / Minimally Acceptabl",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "",
+    "status": "deferred",
+    "target": "",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": "pins-s78-planning-appeal-allowed",
+    "domain": "Modern factory",
+    "id": "source-000140",
+    "next_action": "Stage build: Source researched with access, terms and task evidence",
+    "next_run_at": null,
+    "path": ".factory/pipeline.sqlite3",
+    "prediction_time": "The PINS Valid Date, the date PINS deems the appeal valid and the case record is fixed. Every input is recorded on the appeal submission or the appealed application at or before that date; no field created during or after the case is used.",
+    "question": "Will a section 78 planning appeal lodged against an English local planning authority's refusal be allowed by the Planning Inspectorate?",
+    "reason": "Source researched with access, terms and task evidence",
+    "release_baseline": {},
+    "release_splits": {},
+    "sources": [],
+    "split_strategy": "Fixed chronological boundaries on PINS Valid Date against the pinned 22 October 2026 release: train 2022-01-01 to 2023-09-30; embargo 2023-10-01 to 2023-10-31 (rows dropped); eval 2023-11-01 to 2024-06-30; embargo 2024-07-01 to 2024-07-31 (rows dropped); holdout 2024-08-01 to 2025-06-30. Valid dates after 2025-06-30 are excluded so that every holdout case has had at least twelve months to reach a decision inside the release. No case appears in more than one split, no feature uses information after its own valid date, and any LPA-level allow-rate or persistence control is estimated on training-period rows only and then frozen before eval and holdout are scored. The rules are fixed before any performance measurement.",
+    "status": "build",
+    "target": "1 if the Decision field equals 'Allowed', 0 if it equals 'Dismissed'. Rows whose Decision takes any other value (e.g. split or interim outcomes) are dropped as unlabelled. Restricted to Type of Appeal = 'Planning Appeal' (section 78).",
+    "workflow": "modern"
+   },
+   {
+    "country": "unknown",
+    "dataset": null,
+    "domain": "Modern factory",
+    "id": "source-000141",
     "next_action": "Stage discover",
     "next_run_at": null,
     "path": ".factory/pipeline.sqlite3",
@@ -6710,7 +6750,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 231.5,
+    "age_hours": 232.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -7540,7 +7580,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 288.0,
+    "age_hours": 289.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -13822,7 +13862,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 428.6,
+    "age_hours": 429.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -17846,7 +17886,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 277.8,
+    "age_hours": 278.8,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -18302,10 +18342,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-16T10:50:02.340012+00:00",
+    "last_run_at": "2026-11-16T11:50:02.003201+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-16T11:00:00+00:00",
+    "next_run_at": "2026-11-16T12:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -18386,10 +18426,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-16T09:53:47.369229+00:00",
+    "last_run_at": "2026-11-16T10:53:49.168940+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-16T11:50:00+00:00",
+    "next_run_at": "2026-11-16T12:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -18398,10 +18438,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-16T09:55:01.386584+00:00",
+    "last_run_at": "2026-11-16T10:55:01.343959+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-16T10:55:00+00:00",
+    "next_run_at": "2026-11-16T11:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -18446,10 +18486,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-16T10:52:16.426243+00:00",
+    "last_run_at": "2026-11-16T11:49:09.803922+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-16T10:53:00+00:00",
+    "next_run_at": "2026-11-16T11:51:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -18502,9 +18542,9 @@
     "schedule": "once at 2026-11-16 07:00"
    }
   ],
-  "updated_at": "2026-11-16T10:52:16.427299+00:00"
+  "updated_at": "2026-11-16T11:52:01.233074+00:00"
  },
- "generated_at": "2026-11-16T10:52:18+00:00",
+ "generated_at": "2026-11-16T11:52:11+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -18532,14 +18572,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-26T08:50:01+00:00",
-   "live": 14,
-   "published": 9,
-   "qualified": 0,
-   "sessions_7d": 198,
-   "tokens_7d": 17042202
-  },
   {
    "at": "2026-10-26T09:50:01+00:00",
    "live": 14,
@@ -22757,6 +22789,16 @@
    "sessions_7d": 723,
    "tokens_7d": 68940643,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-16T11:52:11+00:00",
+   "live": 2,
+   "published": 35,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 732,
+   "tokens_7d": 69711374,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -25128,19 +25170,19 @@
    },
    {
     "attempt": {
-     "id": "rw-679e2615c9ab-build-6",
-     "ordinal": 6,
+     "id": "rw-679e2615c9ab-build-9",
+     "ordinal": 9,
      "stage": "build",
      "status": "retry"
     },
     "created_at": "2026-11-16T09:15:01.537636+00:00",
     "dataset": "faa-oeaaa-airspace-hazard",
     "id": "source-000137",
-    "next_run_at": "2026-11-16T10:53:16.370153+00:00",
+    "next_run_at": "2026-11-16T11:42:22.950095+00:00",
     "published_verified": false,
     "running": false,
-    "stage": "build",
-    "updated_at": "2026-11-16T10:52:16.370153+00:00"
+    "stage": "deferred",
+    "updated_at": "2026-11-16T11:41:22.950095+00:00"
    },
    {
     "attempt": {
@@ -25160,10 +25202,10 @@
    },
    {
     "attempt": {
-     "id": null,
-     "ordinal": null,
-     "stage": null,
-     "status": null
+     "id": "rw-3e299c19722a-discover-2",
+     "ordinal": 2,
+     "stage": "discover",
+     "status": "defer"
     },
     "created_at": "2026-11-16T10:44:02.309537+00:00",
     "dataset": null,
@@ -25171,26 +25213,60 @@
     "next_run_at": null,
     "published_verified": false,
     "running": false,
+    "stage": "deferred",
+    "updated_at": "2026-11-16T11:08:52.611754+00:00"
+   },
+   {
+    "attempt": {
+     "id": "rw-35f4e20861e2-build-1",
+     "ordinal": 1,
+     "stage": "build",
+     "status": "running"
+    },
+    "created_at": "2026-11-16T11:09:02.451866+00:00",
+    "dataset": "pins-s78-planning-appeal-allowed",
+    "id": "source-000140",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": true,
+    "stage": "build",
+    "updated_at": "2026-11-16T11:49:09.743328+00:00"
+   },
+   {
+    "attempt": {
+     "id": null,
+     "ordinal": null,
+     "stage": null,
+     "status": null
+    },
+    "created_at": "2026-11-16T11:42:01.498723+00:00",
+    "dataset": null,
+    "id": "source-000141",
+    "next_run_at": null,
+    "published_verified": false,
+    "running": false,
     "stage": "discover",
-    "updated_at": "2026-11-16T10:44:02.309537+00:00"
+    "updated_at": "2026-11-16T11:42:01.498723+00:00"
    }
   ],
   "counts": {
    "build": 1,
-   "deferred": 109,
+   "deferred": 111,
    "discover": 1,
    "published": 21,
    "rejected": 7
   },
-  "observed_at": "2026-11-16T10:52:18.500561+00:00",
+  "observed_at": "2026-11-16T11:52:11.000392+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
- "notices": [],
+ "notices": [
+  "A research session is running: lock held for 126s by scout-research"
+ ],
  "panels": {
   "budget": {
    "age_minutes": 1.3,
-   "as_of": "2026-11-16T10:52:18+00:00",
+   "as_of": "2026-11-16T11:52:11+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -25200,7 +25276,7 @@
   },
   "candidates": {
    "age_minutes": 1.3,
-   "as_of": "2026-11-16T10:52:18+00:00",
+   "as_of": "2026-11-16T11:52:11+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -25210,7 +25286,7 @@
   },
   "releases": {
    "age_minutes": 1.3,
-   "as_of": "2026-11-16T10:52:18+00:00",
+   "as_of": "2026-11-16T11:52:11+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -26774,9 +26850,9 @@
  },
  "resources": {
   "admission_accounting": {
-   "charged_eur": "38.76",
-   "completed_estimate_eur": "38.72",
-   "completed_jobs": 477,
+   "charged_eur": "38.92",
+   "completed_estimate_eur": "38.88",
+   "completed_jobs": 479,
    "reserved_jobs": 1,
    "retained_reservations_eur": "0.04"
   },
@@ -26786,7 +26862,7 @@
   "histogram": {
    "bins": [
     {
-     "count": 472,
+     "count": 474,
      "hi": 0.01,
      "lo": 0.001
     },
@@ -26833,10 +26909,10 @@
    ],
    "max": 2.2448,
    "median": 0.006,
-   "n": 638,
+   "n": 640,
    "p90": 0.0244,
    "ref_rate": 0.05868,
-   "total": 10.26
+   "total": 10.27
   },
   "jobs": [
    {
@@ -31400,6 +31476,30 @@
     "status": "deleted"
    },
    {
+    "created_at": "2026-11-16T11:16:00.493274+00:00",
+    "deleted_at": "2026-11-16T11:23:17.377714+00:00",
+    "eur": 0.05868,
+    "hours": 0.121,
+    "id": "rw-679e2615c9ab-build-8",
+    "location": "hel1",
+    "normalised_eur": 0.0071,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
+    "created_at": "2026-11-16T11:34:15.563729+00:00",
+    "deleted_at": "2026-11-16T11:41:19.979920+00:00",
+    "eur": 0.05868,
+    "hours": 0.118,
+    "id": "rw-679e2615c9ab-build-9",
+    "location": "hel1",
+    "normalised_eur": 0.0069,
+    "rate_eur": 0.05868,
+    "server_type": "cpx32",
+    "status": "deleted"
+   },
+   {
     "created_at": "2026-11-15T15:54:29.961018+00:00",
     "deleted_at": "2026-11-15T15:57:17.116266+00:00",
     "eur": 0.05868,
@@ -34496,19 +34596,19 @@
     "status": "deleted"
    }
   ],
-  "jobs_this_month": 476,
-  "jobs_total": 638,
-  "lifetime_eur": 38.05,
+  "jobs_this_month": 478,
+  "jobs_total": 640,
+  "lifetime_eur": 38.16,
   "live": {
-   "checked_at": "2026-11-16T10:53:35+00:00",
+   "checked_at": "2026-11-16T11:53:26+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
    "servers": 0,
    "servers_total": 0
   },
-  "month_hours": 101.3,
-  "month_to_date": 29.84,
+  "month_hours": 101.5,
+  "month_to_date": 29.95,
   "months": [
    {
     "eur": 5.02,
@@ -34523,13 +34623,13 @@
     "month": "2026-10"
    },
    {
-    "eur": 29.8366,
-    "hours": 101.26,
-    "jobs": 476,
+    "eur": 29.9539,
+    "hours": 101.5,
+    "jobs": 478,
     "month": "2026-11"
    }
   ],
-  "projected_month_eur": 55.94,
+  "projected_month_eur": 56.16,
   "release_reserve_eur": 5.0
  },
  "runtime": {
@@ -34558,13 +34658,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-16T10:50:01.185042+00:00",
+  "observed_at": "2026-11-16T11:50:01.829742+00:00",
   "releases": [
    {
     "bundle": "722a4c64c78b0e7e7b669ebb",
     "candidate": "source-000127",
     "dataset": "ca-beach-advisory-duration",
-    "observed_at": "2026-11-16T10:50:01.295207+00:00",
+    "observed_at": "2026-11-16T11:50:01.943515+00:00",
     "plan_sha256": "acf34a2536f92c8ccbab55f46cfdfa4355b27d990ad94c6091058c9e4e6b1aae",
     "status": "complete",
     "version": "v-2cdf2a6e0df3956f"
@@ -34573,7 +34673,7 @@
     "bundle": "cefd3d3d41775a17aeee8fb4",
     "candidate": "source-000119",
     "dataset": "usgs-streamgage-record-survival",
-    "observed_at": "2026-11-16T10:50:07.771681+00:00",
+    "observed_at": "2026-11-16T11:50:08.432113+00:00",
     "plan_sha256": "dd4b7530f275e1cc4b9e81bf84ea4662e4090e551020f9a3992a9e6fe273dc88",
     "status": "complete",
     "version": "v-75d63061fc7d7395"
@@ -34582,7 +34682,7 @@
     "bundle": "d10e05f52d1eb74210a93b25",
     "candidate": "source-000107",
     "dataset": "sdwis-lcr-lead-action-level-next-period",
-    "observed_at": "2026-11-16T10:50:14.135571+00:00",
+    "observed_at": "2026-11-16T11:50:14.740932+00:00",
     "plan_sha256": "5c4e1d475d95b9909d6b850d653f8f23ac39566b3d28f4a007f8e0d92b686d64",
     "status": "complete",
     "version": "v-5917644e4c46057e"
@@ -34591,7 +34691,7 @@
     "bundle": "aa6a43f243713c68b0d35cb4",
     "candidate": "source-000099",
     "dataset": "fra-form54-hazmat-release",
-    "observed_at": "2026-11-16T10:50:21.277536+00:00",
+    "observed_at": "2026-11-16T11:50:20.977832+00:00",
     "plan_sha256": "20a77f8fbc5c6a21f9844d1befc0efcc15eb8a403fc82d8d16088b06356ac404",
     "status": "complete",
     "version": "v-c59d614ee9c4ce97"
@@ -34600,7 +34700,7 @@
     "bundle": "2e22aecc0868a441c362537c",
     "candidate": "source-000100",
     "dataset": "seattle-building-permit-completion",
-    "observed_at": "2026-11-16T10:50:27.504974+00:00",
+    "observed_at": "2026-11-16T11:50:26.806019+00:00",
     "plan_sha256": "091541b8ecd58e8e07653a2e15847f9108b77b26b3d15ffc1dc0cca082b1a101",
     "status": "complete",
     "version": "v-67a46c698fa813cc"
@@ -34609,7 +34709,7 @@
     "bundle": "ef18cc02f31026fc146f25a1",
     "candidate": "source-000096",
     "dataset": "faa-wildlife-strike-substantial-damage",
-    "observed_at": "2026-11-16T10:50:33.710665+00:00",
+    "observed_at": "2026-11-16T11:50:32.995629+00:00",
     "plan_sha256": "62f4c3450ae5c267889e21bccc409e4b8ad2f85327307c6281b9b46090b65939",
     "status": "complete",
     "version": "v-d654c9f4ddfcf60c"
@@ -34618,7 +34718,7 @@
     "bundle": "3ddd5f05944a2e3ef0e94845",
     "candidate": "source-000083",
     "dataset": "wser-effluent-exceedance",
-    "observed_at": "2026-11-16T10:50:40.068487+00:00",
+    "observed_at": "2026-11-16T11:50:39.095599+00:00",
     "plan_sha256": "edd78fa8ffe359c90aedb0d3b07c24a52da0967526cd80a80ea618101b09b9f1",
     "status": "complete",
     "version": "v-3ceae5479cda761c"
@@ -34627,7 +34727,7 @@
     "bundle": "b5fa95c50e2409546408cff8",
     "candidate": "source-000079",
     "dataset": "caa-fce-hpv-escalation",
-    "observed_at": "2026-11-16T10:50:46.264762+00:00",
+    "observed_at": "2026-11-16T11:50:45.387920+00:00",
     "plan_sha256": "f8e4e5f5e545adea1ba12a8ea1694e8d9ad6a77e4b1377f98ad59acd8b0339f3",
     "status": "complete",
     "version": "v-fd86cbb0bc96aaca"
@@ -34636,7 +34736,7 @@
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-16T10:50:52.337017+00:00",
+    "observed_at": "2026-11-16T11:50:51.637651+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -34645,7 +34745,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-16T10:50:58.508838+00:00",
+    "observed_at": "2026-11-16T11:50:58.073901+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -34654,7 +34754,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-16T10:51:04.440924+00:00",
+    "observed_at": "2026-11-16T11:51:04.310363+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -34663,7 +34763,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-16T10:51:10.459527+00:00",
+    "observed_at": "2026-11-16T11:51:10.390981+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -34672,7 +34772,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-16T10:51:17.703139+00:00",
+    "observed_at": "2026-11-16T11:51:16.211674+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -34681,7 +34781,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-16T10:51:23.691205+00:00",
+    "observed_at": "2026-11-16T11:51:21.966643+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -34690,7 +34790,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-16T10:51:29.790298+00:00",
+    "observed_at": "2026-11-16T11:51:27.875862+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -34699,7 +34799,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-16T10:51:35.631569+00:00",
+    "observed_at": "2026-11-16T11:51:34.083441+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -34708,7 +34808,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-16T10:51:43.392131+00:00",
+    "observed_at": "2026-11-16T11:51:39.988267+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -34717,7 +34817,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-16T10:51:49.880380+00:00",
+    "observed_at": "2026-11-16T11:51:45.999002+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -34726,7 +34826,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-16T10:51:58.550371+00:00",
+    "observed_at": "2026-11-16T11:51:52.306514+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -34735,7 +34835,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-16T10:52:04.842361+00:00",
+    "observed_at": "2026-11-16T11:51:58.219284+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -34744,7 +34844,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-16T10:52:11.339768+00:00",
+    "observed_at": "2026-11-16T11:52:04.017375+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
