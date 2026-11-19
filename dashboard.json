@@ -1,7 +1,7 @@
 {
  "alarms": [
-  "Research gate refused the next session: normal-operation research used 65,880,976 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 641 normal-operation research session(s) already ran in the last 7 days (cap 200)",
-  "Token use at 165% of the weekly ceiling",
+  "Research gate refused the next session: normal-operation research used 65,710,680 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 640 normal-operation research session(s) already ran in the last 7 days (cap 200)",
+  "Token use at 164% of the weekly ceiling",
   "Local test suite failed on 04f26c0",
   "1 release(s) not fully verified"
  ],
@@ -24,21 +24,21 @@
    "development_runs_last_7_days": 0,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 0,
-   "moment": "2026-11-19T02:52:02.108307+00:00",
-   "normal_operation_runs_last_7_days": 641,
-   "normal_operation_runs_weighted_last_7_days": 641,
-   "normal_operation_tokens_last_7_days": 65880976,
+   "moment": "2026-11-19T03:52:06.682826+00:00",
+   "normal_operation_runs_last_7_days": 640,
+   "normal_operation_runs_weighted_last_7_days": 640,
+   "normal_operation_tokens_last_7_days": 65710680,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [
-    "normal-operation research used 65,880,976 tokens in the last 7 days, at or over the 40,000,000-token weekly budget",
-    "641 normal-operation research session(s) already ran in the last 7 days (cap 200)"
+    "normal-operation research used 65,710,680 tokens in the last 7 days, at or over the 40,000,000-token weekly budget",
+    "640 normal-operation research session(s) already ran in the last 7 days (cap 200)"
    ],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 65880976,
-   "runs_last_7_days": 641,
-   "runs_weighted_last_7_days": 641,
-   "session_admission_weighted": 641,
+   "research_tokens_last_7_days": 65710680,
+   "runs_last_7_days": 640,
+   "runs_weighted_last_7_days": 640,
+   "session_admission_weighted": 640,
    "session_cap_per_week": 200,
    "session_count_reset_at": null,
    "sessions_over_token_cap": 0,
@@ -110,12 +110,12 @@
     "dataset": "fmcsa-vehicle-inspection-oos",
     "domain": "Modern factory",
     "id": "source-000146",
-    "next_action": "Stage build: normal-operation research used 65,880,976 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 641 normal-operation research session(s) already ran in the last 7 days (cap 200) \u00b7 next attempt 2026-11-19T03:47:02.492898+00:00",
-    "next_run_at": "2026-11-19T03:47:02.492898+00:00",
+    "next_action": "Stage build: normal-operation research used 65,710,680 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 640 normal-operation research session(s) already ran in the last 7 days (cap 200) \u00b7 next attempt 2026-11-19T04:48:02.228414+00:00",
+    "next_run_at": "2026-11-19T04:48:02.228414+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The recorded inspection start on INSP_DATE at INSP_START_TIME, before the inspector completes the vehicle examination; the label is realized later in the same inspection. Field-level availability at that instant is assumed for administrative-record attributes.",
     "question": "Will a commercial motor vehicle stopped for a vehicle-level roadside inspection be placed out of service for a vehicle defect?",
-    "reason": "normal-operation research used 65,880,976 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 641 normal-operation research session(s) already ran in the last 7 days (cap 200)",
+    "reason": "normal-operation research used 65,710,680 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 640 normal-operation research session(s) already ran in the last 7 days (cap 200)",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -129,12 +129,12 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000149",
-    "next_action": "Stage discover: normal-operation research used 65,880,976 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 641 normal-operation research session(s) already ran in the last 7 days (cap 200) \u00b7 next attempt 2026-11-19T03:51:02.383921+00:00",
-    "next_run_at": "2026-11-19T03:51:02.383921+00:00",
+    "next_action": "Stage discover: normal-operation research used 65,710,680 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 640 normal-operation research session(s) already ran in the last 7 days (cap 200) \u00b7 next attempt 2026-11-19T04:52:02.806567+00:00",
+    "next_run_at": "2026-11-19T04:52:02.806567+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
-    "reason": "normal-operation research used 65,880,976 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 641 normal-operation research session(s) already ran in the last 7 days (cap 200)",
+    "reason": "normal-operation research used 65,710,680 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 640 normal-operation research session(s) already ran in the last 7 days (cap 200)",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -3382,12 +3382,12 @@
     "dataset": "fmcsa-vehicle-inspection-oos",
     "domain": "Modern factory",
     "id": "source-000146",
-    "next_action": "Stage build: normal-operation research used 65,880,976 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 641 normal-operation research session(s) already ran in the last 7 days (cap 200) \u00b7 next attempt 2026-11-19T03:47:02.492898+00:00",
-    "next_run_at": "2026-11-19T03:47:02.492898+00:00",
+    "next_action": "Stage build: normal-operation research used 65,710,680 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 640 normal-operation research session(s) already ran in the last 7 days (cap 200) \u00b7 next attempt 2026-11-19T04:48:02.228414+00:00",
+    "next_run_at": "2026-11-19T04:48:02.228414+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The recorded inspection start on INSP_DATE at INSP_START_TIME, before the inspector completes the vehicle examination; the label is realized later in the same inspection. Field-level availability at that instant is assumed for administrative-record attributes.",
     "question": "Will a commercial motor vehicle stopped for a vehicle-level roadside inspection be placed out of service for a vehicle defect?",
-    "reason": "normal-operation research used 65,880,976 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 641 normal-operation research session(s) already ran in the last 7 days (cap 200)",
+    "reason": "normal-operation research used 65,710,680 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 640 normal-operation research session(s) already ran in the last 7 days (cap 200)",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -3439,12 +3439,12 @@
     "dataset": null,
     "domain": "Modern factory",
     "id": "source-000149",
-    "next_action": "Stage discover: normal-operation research used 65,880,976 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 641 normal-operation research session(s) already ran in the last 7 days (cap 200) \u00b7 next attempt 2026-11-19T03:51:02.383921+00:00",
-    "next_run_at": "2026-11-19T03:51:02.383921+00:00",
+    "next_action": "Stage discover: normal-operation research used 65,710,680 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 640 normal-operation research session(s) already ran in the last 7 days (cap 200) \u00b7 next attempt 2026-11-19T04:52:02.806567+00:00",
+    "next_run_at": "2026-11-19T04:52:02.806567+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "",
     "question": "",
-    "reason": "normal-operation research used 65,880,976 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 641 normal-operation research session(s) already ran in the last 7 days (cap 200)",
+    "reason": "normal-operation research used 65,710,680 tokens in the last 7 days, at or over the 40,000,000-token weekly budget; 640 normal-operation research session(s) already ran in the last 7 days (cap 200)",
     "release_baseline": {},
     "release_splits": {},
     "sources": [],
@@ -6921,7 +6921,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 295.5,
+    "age_hours": 296.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -7751,7 +7751,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 352.0,
+    "age_hours": 353.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -14033,7 +14033,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 492.6,
+    "age_hours": 493.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -18057,7 +18057,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 341.8,
+    "age_hours": 342.8,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -18513,10 +18513,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-19T02:50:02.770572+00:00",
+    "last_run_at": "2026-11-19T03:50:02.317949+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-19T03:00:00+00:00",
+    "next_run_at": "2026-11-19T04:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -18597,10 +18597,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-19T01:53:34.292497+00:00",
+    "last_run_at": "2026-11-19T02:53:28.662452+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-19T03:50:00+00:00",
+    "next_run_at": "2026-11-19T04:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -18609,10 +18609,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-19T01:55:01.948027+00:00",
+    "last_run_at": "2026-11-19T02:55:01.231869+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-19T02:55:00+00:00",
+    "next_run_at": "2026-11-19T03:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -18657,10 +18657,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-19T02:52:01.709698+00:00",
+    "last_run_at": "2026-11-19T03:52:02.861762+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-19T02:53:00+00:00",
+    "next_run_at": "2026-11-19T03:53:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -18701,9 +18701,9 @@
     "schedule": "once at 2026-11-16 07:00"
    }
   ],
-  "updated_at": "2026-11-19T02:52:01.717647+00:00"
+  "updated_at": "2026-11-19T03:52:02.868904+00:00"
  },
- "generated_at": "2026-11-19T02:52:00+00:00",
+ "generated_at": "2026-11-19T03:52:05+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -18731,14 +18731,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-10-29T00:50:02+00:00",
-   "live": 18,
-   "published": 11,
-   "qualified": 1,
-   "sessions_7d": 192,
-   "tokens_7d": 28108644
-  },
   {
    "at": "2026-10-29T01:50:01+00:00",
    "live": 18,
@@ -23084,6 +23076,16 @@
    "sessions_7d": 641,
    "tokens_7d": 65880976,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-19T03:52:05+00:00",
+   "live": 2,
+   "published": 35,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 640,
+   "tokens_7d": 65710680,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -25607,11 +25609,11 @@
     "created_at": "2026-11-16T16:53:01.653956+00:00",
     "dataset": "fmcsa-vehicle-inspection-oos",
     "id": "source-000146",
-    "next_run_at": "2026-11-19T03:47:02.492898+00:00",
+    "next_run_at": "2026-11-19T04:48:02.228414+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-19T02:47:02.492898+00:00"
+    "updated_at": "2026-11-19T03:48:02.228414+00:00"
    },
    {
     "attempt": {
@@ -25655,11 +25657,11 @@
     "created_at": "2026-11-16T18:36:02.132377+00:00",
     "dataset": null,
     "id": "source-000149",
-    "next_run_at": "2026-11-19T03:51:02.383921+00:00",
+    "next_run_at": "2026-11-19T04:52:02.806567+00:00",
     "published_verified": false,
     "running": true,
     "stage": "discover",
-    "updated_at": "2026-11-19T02:51:02.383921+00:00"
+    "updated_at": "2026-11-19T03:52:02.806567+00:00"
    }
   ],
   "counts": {
@@ -25669,15 +25671,15 @@
    "published": 21,
    "rejected": 7
   },
-  "observed_at": "2026-11-19T02:52:00.842661+00:00",
+  "observed_at": "2026-11-19T03:52:05.227177+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 1.2,
-   "as_of": "2026-11-19T02:52:00+00:00",
+   "age_minutes": 1.3,
+   "as_of": "2026-11-19T03:52:05+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -25686,8 +25688,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 1.2,
-   "as_of": "2026-11-19T02:52:00+00:00",
+   "age_minutes": 1.3,
+   "as_of": "2026-11-19T03:52:05+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -25696,8 +25698,8 @@
    "value": 2
   },
   "releases": {
-   "age_minutes": 1.2,
-   "as_of": "2026-11-19T02:52:00+00:00",
+   "age_minutes": 1.3,
+   "as_of": "2026-11-19T03:52:05+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -35323,7 +35325,7 @@
   "jobs_total": 666,
   "lifetime_eur": 39.69,
   "live": {
-   "checked_at": "2026-11-19T02:53:14+00:00",
+   "checked_at": "2026-11-19T03:53:20+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -35381,13 +35383,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-19T02:50:00.946098+00:00",
+  "observed_at": "2026-11-19T03:50:01.699758+00:00",
   "releases": [
    {
     "bundle": "722a4c64c78b0e7e7b669ebb",
     "candidate": "source-000127",
     "dataset": "ca-beach-advisory-duration",
-    "observed_at": "2026-11-19T02:50:01.054184+00:00",
+    "observed_at": "2026-11-19T03:50:01.810700+00:00",
     "plan_sha256": "acf34a2536f92c8ccbab55f46cfdfa4355b27d990ad94c6091058c9e4e6b1aae",
     "status": "complete",
     "version": "v-2cdf2a6e0df3956f"
@@ -35396,7 +35398,7 @@
     "bundle": "cefd3d3d41775a17aeee8fb4",
     "candidate": "source-000119",
     "dataset": "usgs-streamgage-record-survival",
-    "observed_at": "2026-11-19T02:50:06.951973+00:00",
+    "observed_at": "2026-11-19T03:50:08.241517+00:00",
     "plan_sha256": "dd4b7530f275e1cc4b9e81bf84ea4662e4090e551020f9a3992a9e6fe273dc88",
     "status": "complete",
     "version": "v-75d63061fc7d7395"
@@ -35405,7 +35407,7 @@
     "bundle": "d10e05f52d1eb74210a93b25",
     "candidate": "source-000107",
     "dataset": "sdwis-lcr-lead-action-level-next-period",
-    "observed_at": "2026-11-19T02:50:12.996569+00:00",
+    "observed_at": "2026-11-19T03:50:14.179439+00:00",
     "plan_sha256": "5c4e1d475d95b9909d6b850d653f8f23ac39566b3d28f4a007f8e0d92b686d64",
     "status": "complete",
     "version": "v-5917644e4c46057e"
@@ -35414,7 +35416,7 @@
     "bundle": "aa6a43f243713c68b0d35cb4",
     "candidate": "source-000099",
     "dataset": "fra-form54-hazmat-release",
-    "observed_at": "2026-11-19T02:50:18.881852+00:00",
+    "observed_at": "2026-11-19T03:50:19.833257+00:00",
     "plan_sha256": "20a77f8fbc5c6a21f9844d1befc0efcc15eb8a403fc82d8d16088b06356ac404",
     "status": "complete",
     "version": "v-c59d614ee9c4ce97"
@@ -35423,7 +35425,7 @@
     "bundle": "2e22aecc0868a441c362537c",
     "candidate": "source-000100",
     "dataset": "seattle-building-permit-completion",
-    "observed_at": "2026-11-19T02:50:24.861651+00:00",
+    "observed_at": "2026-11-19T03:50:25.562254+00:00",
     "plan_sha256": "091541b8ecd58e8e07653a2e15847f9108b77b26b3d15ffc1dc0cca082b1a101",
     "status": "complete",
     "version": "v-67a46c698fa813cc"
@@ -35432,7 +35434,7 @@
     "bundle": "ef18cc02f31026fc146f25a1",
     "candidate": "source-000096",
     "dataset": "faa-wildlife-strike-substantial-damage",
-    "observed_at": "2026-11-19T02:50:30.436802+00:00",
+    "observed_at": "2026-11-19T03:50:31.194412+00:00",
     "plan_sha256": "62f4c3450ae5c267889e21bccc409e4b8ad2f85327307c6281b9b46090b65939",
     "status": "complete",
     "version": "v-d654c9f4ddfcf60c"
@@ -35441,7 +35443,7 @@
     "bundle": "3ddd5f05944a2e3ef0e94845",
     "candidate": "source-000083",
     "dataset": "wser-effluent-exceedance",
-    "observed_at": "2026-11-19T02:50:36.116351+00:00",
+    "observed_at": "2026-11-19T03:50:36.887367+00:00",
     "plan_sha256": "edd78fa8ffe359c90aedb0d3b07c24a52da0967526cd80a80ea618101b09b9f1",
     "status": "complete",
     "version": "v-3ceae5479cda761c"
@@ -35450,7 +35452,7 @@
     "bundle": "b5fa95c50e2409546408cff8",
     "candidate": "source-000079",
     "dataset": "caa-fce-hpv-escalation",
-    "observed_at": "2026-11-19T02:50:41.823805+00:00",
+    "observed_at": "2026-11-19T03:50:42.740837+00:00",
     "plan_sha256": "f8e4e5f5e545adea1ba12a8ea1694e8d9ad6a77e4b1377f98ad59acd8b0339f3",
     "status": "complete",
     "version": "v-fd86cbb0bc96aaca"
@@ -35459,7 +35461,7 @@
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-19T02:50:47.575694+00:00",
+    "observed_at": "2026-11-19T03:50:48.725994+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -35468,7 +35470,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-19T02:50:53.213279+00:00",
+    "observed_at": "2026-11-19T03:50:54.286382+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -35477,7 +35479,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-19T02:50:58.603783+00:00",
+    "observed_at": "2026-11-19T03:51:00.215538+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -35486,7 +35488,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-19T02:51:04.013865+00:00",
+    "observed_at": "2026-11-19T03:51:06.261293+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -35495,7 +35497,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-19T02:51:09.899163+00:00",
+    "observed_at": "2026-11-19T03:51:11.873474+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -35504,7 +35506,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-19T02:51:15.992833+00:00",
+    "observed_at": "2026-11-19T03:51:17.523011+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -35513,7 +35515,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-19T02:51:21.438016+00:00",
+    "observed_at": "2026-11-19T03:51:23.511566+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -35522,7 +35524,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-19T02:51:27.017620+00:00",
+    "observed_at": "2026-11-19T03:51:29.122747+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -35531,7 +35533,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-19T02:51:32.351968+00:00",
+    "observed_at": "2026-11-19T03:51:35.253709+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -35540,7 +35542,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-19T02:51:38.120891+00:00",
+    "observed_at": "2026-11-19T03:51:40.880976+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -35549,7 +35551,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-19T02:51:43.730251+00:00",
+    "observed_at": "2026-11-19T03:51:46.942018+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -35558,7 +35560,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-19T02:51:49.150789+00:00",
+    "observed_at": "2026-11-19T03:51:52.774622+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -35567,7 +35569,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-19T02:51:54.650485+00:00",
+    "observed_at": "2026-11-19T03:51:58.273116+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
