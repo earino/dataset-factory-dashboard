@@ -22,18 +22,18 @@
    "development_runs_last_7_days": 0,
    "development_token_exemption_active": false,
    "development_tokens_last_7_days": 0,
-   "moment": "2026-11-23T10:52:30.581078+00:00",
-   "normal_operation_runs_last_7_days": 59,
-   "normal_operation_runs_weighted_last_7_days": 59,
-   "normal_operation_tokens_last_7_days": 7555526,
+   "moment": "2026-11-23T11:52:11.484157+00:00",
+   "normal_operation_runs_last_7_days": 50,
+   "normal_operation_runs_weighted_last_7_days": 50,
+   "normal_operation_tokens_last_7_days": 6784795,
    "period_start": "2026-11-01T00:00:00+00:00",
    "pricing_available": false,
    "reasons": [],
    "research_cost_usd": null,
-   "research_tokens_last_7_days": 7555526,
-   "runs_last_7_days": 59,
-   "runs_weighted_last_7_days": 59,
-   "session_admission_weighted": 59,
+   "research_tokens_last_7_days": 6784795,
+   "runs_last_7_days": 50,
+   "runs_weighted_last_7_days": 50,
+   "session_admission_weighted": 50,
    "session_cap_per_week": 200,
    "session_count_reset_at": null,
    "sessions_over_token_cap": 0,
@@ -54,13 +54,13 @@
      "pricing_available": false
     },
     "interactive": {
-     "calls": 1402,
+     "calls": 1405,
      "cost_status": [
       "unknown"
      ],
      "cost_usd": null,
-     "input_tokens": 36350792,
-     "output_tokens": 1429677,
+     "input_tokens": 36352935,
+     "output_tokens": 1432603,
      "pricing_available": false
     },
     "research": {
@@ -104,8 +104,8 @@
     "dataset": "fmcsa-vehicle-inspection-oos",
     "domain": "Modern factory",
     "id": "source-000146",
-    "next_action": "Stage build: Conservative monthly worker charges would exceed the construction allowance (EUR 15 after the EUR 5 release reserve; charged EUR 41.00, proposed EUR 0.16) \u00b7 next attempt 2026-11-23T10:53:02.056304+00:00",
-    "next_run_at": "2026-11-23T10:53:02.056304+00:00",
+    "next_action": "Stage build: Conservative monthly worker charges would exceed the construction allowance (EUR 15 after the EUR 5 release reserve; charged EUR 41.00, proposed EUR 0.16) \u00b7 next attempt 2026-11-23T11:53:02.852372+00:00",
+    "next_run_at": "2026-11-23T11:53:02.852372+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The recorded inspection start on INSP_DATE at INSP_START_TIME, before the inspector completes the vehicle examination; the label is realized later in the same inspection. Field-level availability at that instant is assumed for administrative-record attributes.",
     "question": "Will a commercial motor vehicle stopped for a vehicle-level roadside inspection be placed out of service for a vehicle defect?",
@@ -123,8 +123,8 @@
     "dataset": "irish-company-five-year-survival",
     "domain": "Modern factory",
     "id": "source-000150",
-    "next_action": "Stage build: Conservative monthly worker charges would exceed the construction allowance (EUR 15 after the EUR 5 release reserve; charged EUR 41.00, proposed EUR 0.16) \u00b7 next attempt 2026-11-23T10:56:02.260332+00:00",
-    "next_run_at": "2026-11-23T10:56:02.260332+00:00",
+    "next_action": "Stage build: Conservative monthly worker charges would exceed the construction allowance (EUR 15 after the EUR 5 release reserve; charged EUR 41.00, proposed EUR 0.16) \u00b7 next attempt 2026-11-23T11:54:02.028133+00:00",
+    "next_run_at": "2026-11-23T11:54:02.028133+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "T0 is company_reg_date, the date the company is entered on the CRO register. Intended inputs are incorporation particulars only. Because the supplied source is a current-vintage snapshot, current company_type, address, NACE code and name may reflect post-registration changes; the build therefore treats historical T0 availability as unverified rather than proven.",
     "question": "Will a company incorporated in Ireland be dissolved from the register within five years of its incorporation date?",
@@ -3376,8 +3376,8 @@
     "dataset": "fmcsa-vehicle-inspection-oos",
     "domain": "Modern factory",
     "id": "source-000146",
-    "next_action": "Stage build: Conservative monthly worker charges would exceed the construction allowance (EUR 15 after the EUR 5 release reserve; charged EUR 41.00, proposed EUR 0.16) \u00b7 next attempt 2026-11-23T10:53:02.056304+00:00",
-    "next_run_at": "2026-11-23T10:53:02.056304+00:00",
+    "next_action": "Stage build: Conservative monthly worker charges would exceed the construction allowance (EUR 15 after the EUR 5 release reserve; charged EUR 41.00, proposed EUR 0.16) \u00b7 next attempt 2026-11-23T11:53:02.852372+00:00",
+    "next_run_at": "2026-11-23T11:53:02.852372+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "The recorded inspection start on INSP_DATE at INSP_START_TIME, before the inspector completes the vehicle examination; the label is realized later in the same inspection. Field-level availability at that instant is assumed for administrative-record attributes.",
     "question": "Will a commercial motor vehicle stopped for a vehicle-level roadside inspection be placed out of service for a vehicle defect?",
@@ -3452,8 +3452,8 @@
     "dataset": "irish-company-five-year-survival",
     "domain": "Modern factory",
     "id": "source-000150",
-    "next_action": "Stage build: Conservative monthly worker charges would exceed the construction allowance (EUR 15 after the EUR 5 release reserve; charged EUR 41.00, proposed EUR 0.16) \u00b7 next attempt 2026-11-23T10:56:02.260332+00:00",
-    "next_run_at": "2026-11-23T10:56:02.260332+00:00",
+    "next_action": "Stage build: Conservative monthly worker charges would exceed the construction allowance (EUR 15 after the EUR 5 release reserve; charged EUR 41.00, proposed EUR 0.16) \u00b7 next attempt 2026-11-23T11:54:02.028133+00:00",
+    "next_run_at": "2026-11-23T11:54:02.028133+00:00",
     "path": ".factory/pipeline.sqlite3",
     "prediction_time": "T0 is company_reg_date, the date the company is entered on the CRO register. Intended inputs are incorporation particulars only. Because the supplied source is a current-vintage snapshot, current company_type, address, NACE code and name may reflect post-registration changes; the build therefore treats historical T0 availability as unverified rather than proven.",
     "question": "Will a company incorporated in Ireland be dissolved from the register within five years of its incorporation date?",
@@ -6934,7 +6934,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 399.5,
+    "age_hours": 400.5,
     "awaiting_operator": false,
     "baseline": {},
     "country": "IN",
@@ -7764,7 +7764,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 456.0,
+    "age_hours": 457.0,
     "awaiting_operator": false,
     "baseline": {},
     "country": "GB",
@@ -14046,7 +14046,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 596.6,
+    "age_hours": 597.6,
     "awaiting_operator": false,
     "baseline": {},
     "country": "CA",
@@ -18070,7 +18070,7 @@
     "workflow": "legacy"
    },
    {
-    "age_hours": 445.8,
+    "age_hours": 446.8,
     "awaiting_operator": false,
     "baseline": {},
     "country": "ZA",
@@ -18526,10 +18526,10 @@
     "failure_streak": 0,
     "id": "e80975eddd4a",
     "last_error": "",
-    "last_run_at": "2026-11-23T10:50:02.486286+00:00",
+    "last_run_at": "2026-11-23T11:50:02.078588+00:00",
     "last_status": "ok",
     "name": "scout-secondary-cleanup-sweep",
-    "next_run_at": "2026-11-23T11:00:00+00:00",
+    "next_run_at": "2026-11-23T12:00:00+00:00",
     "no_agent": true,
     "schedule": "*/10 * * * *"
    },
@@ -18610,10 +18610,10 @@
     "failure_streak": 0,
     "id": "4d8053a69ed2",
     "last_error": "",
-    "last_run_at": "2026-11-23T09:53:39.395081+00:00",
+    "last_run_at": "2026-11-23T10:53:58.721244+00:00",
     "last_status": "ok",
     "name": "scout-dashboard-refresh",
-    "next_run_at": "2026-11-23T11:50:00+00:00",
+    "next_run_at": "2026-11-23T12:50:00+00:00",
     "no_agent": true,
     "schedule": "50 * * * *"
    },
@@ -18622,10 +18622,10 @@
     "failure_streak": 0,
     "id": "ba4c8610edf8",
     "last_error": "",
-    "last_run_at": "2026-11-23T09:55:01.917930+00:00",
+    "last_run_at": "2026-11-23T10:55:01.382914+00:00",
     "last_status": "ok",
     "name": "scout-release-notify",
-    "next_run_at": "2026-11-23T10:55:00+00:00",
+    "next_run_at": "2026-11-23T11:55:00+00:00",
     "no_agent": true,
     "schedule": "55 * * * *"
    },
@@ -18670,10 +18670,10 @@
     "failure_streak": 0,
     "id": "07d6f8be3783",
     "last_error": "",
-    "last_run_at": "2026-11-23T10:52:01.422318+00:00",
+    "last_run_at": "2026-11-23T11:52:01.822039+00:00",
     "last_status": "ok",
     "name": "scout-factory-tick",
-    "next_run_at": "2026-11-23T10:53:00+00:00",
+    "next_run_at": "2026-11-23T11:53:00+00:00",
     "no_agent": true,
     "schedule": "* * * * *"
    },
@@ -18714,9 +18714,9 @@
     "schedule": "once at 2026-11-16 07:00"
    }
   ],
-  "updated_at": "2026-11-23T10:52:01.429937+00:00"
+  "updated_at": "2026-11-23T11:52:01.829402+00:00"
  },
- "generated_at": "2026-11-23T10:52:29+00:00",
+ "generated_at": "2026-11-23T11:52:10+00:00",
  "health": {
   "checks": {
    "ok": true,
@@ -18744,14 +18744,6 @@
   }
  },
  "history": [
-  {
-   "at": "2026-11-02T08:50:01+00:00",
-   "live": 19,
-   "published": 13,
-   "qualified": 1,
-   "sessions_7d": 86,
-   "tokens_7d": 40054838
-  },
   {
    "at": "2026-11-02T09:50:01+00:00",
    "live": 19,
@@ -23305,6 +23297,16 @@
    "sessions_7d": 59,
    "tokens_7d": 7555526,
    "workflow": "modern"
+  },
+  {
+   "at": "2026-11-23T11:52:10+00:00",
+   "live": 2,
+   "published": 35,
+   "published_scope": "all_workflows",
+   "qualified": 0,
+   "sessions_7d": 50,
+   "tokens_7d": 6784795,
+   "workflow": "modern"
   }
  ],
  "modern": {
@@ -25828,11 +25830,11 @@
     "created_at": "2026-11-16T16:53:01.653956+00:00",
     "dataset": "fmcsa-vehicle-inspection-oos",
     "id": "source-000146",
-    "next_run_at": "2026-11-23T10:53:02.056304+00:00",
+    "next_run_at": "2026-11-23T11:53:02.852372+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-23T10:48:02.056304+00:00"
+    "updated_at": "2026-11-23T11:48:02.852372+00:00"
    },
    {
     "attempt": {
@@ -25892,11 +25894,11 @@
     "created_at": "2026-11-22T17:52:01.972898+00:00",
     "dataset": "irish-company-five-year-survival",
     "id": "source-000150",
-    "next_run_at": "2026-11-23T10:56:02.260332+00:00",
+    "next_run_at": "2026-11-23T11:54:02.028133+00:00",
     "published_verified": false,
     "running": true,
     "stage": "build",
-    "updated_at": "2026-11-23T10:51:02.260332+00:00"
+    "updated_at": "2026-11-23T11:49:02.028133+00:00"
    }
   ],
   "counts": {
@@ -25905,15 +25907,15 @@
    "published": 21,
    "rejected": 7
   },
-  "observed_at": "2026-11-23T10:52:29.314385+00:00",
+  "observed_at": "2026-11-23T11:52:10.167073+00:00",
   "source": ".factory/pipeline.sqlite3",
   "status": "ok"
  },
  "notices": [],
  "panels": {
   "budget": {
-   "age_minutes": 1.2,
-   "as_of": "2026-11-23T10:52:29+00:00",
+   "age_minutes": 1.3,
+   "as_of": "2026-11-23T11:52:10+00:00",
    "expected": null,
    "note": null,
    "source": "scripts/research-budget.py --json",
@@ -25922,8 +25924,8 @@
    "value": null
   },
   "candidates": {
-   "age_minutes": 1.2,
-   "as_of": "2026-11-23T10:52:29+00:00",
+   "age_minutes": 1.3,
+   "as_of": "2026-11-23T11:52:10+00:00",
    "expected": null,
    "note": null,
    "source": "Modern factory",
@@ -25932,8 +25934,8 @@
    "value": 2
   },
   "releases": {
-   "age_minutes": 1.2,
-   "as_of": "2026-11-23T10:52:29+00:00",
+   "age_minutes": 1.3,
+   "as_of": "2026-11-23T11:52:10+00:00",
    "expected": null,
    "note": null,
    "source": "publication receipts and legacy manifests",
@@ -35559,7 +35561,7 @@
   "jobs_total": 666,
   "lifetime_eur": 39.69,
   "live": {
-   "checked_at": "2026-11-23T10:53:44+00:00",
+   "checked_at": "2026-11-23T11:53:26+00:00",
    "error": null,
    "primary_ips": 0,
    "primary_ips_total": 0,
@@ -35617,13 +35619,13 @@
   "total": 1
  },
  "sites": {
-  "observed_at": "2026-11-23T10:50:01.156509+00:00",
+  "observed_at": "2026-11-23T11:50:00.983614+00:00",
   "releases": [
    {
     "bundle": "722a4c64c78b0e7e7b669ebb",
     "candidate": "source-000127",
     "dataset": "ca-beach-advisory-duration",
-    "observed_at": "2026-11-23T10:50:01.276766+00:00",
+    "observed_at": "2026-11-23T11:50:01.099780+00:00",
     "plan_sha256": "acf34a2536f92c8ccbab55f46cfdfa4355b27d990ad94c6091058c9e4e6b1aae",
     "status": "complete",
     "version": "v-2cdf2a6e0df3956f"
@@ -35632,7 +35634,7 @@
     "bundle": "cefd3d3d41775a17aeee8fb4",
     "candidate": "source-000119",
     "dataset": "usgs-streamgage-record-survival",
-    "observed_at": "2026-11-23T10:50:08.263949+00:00",
+    "observed_at": "2026-11-23T11:50:07.675023+00:00",
     "plan_sha256": "dd4b7530f275e1cc4b9e81bf84ea4662e4090e551020f9a3992a9e6fe273dc88",
     "status": "complete",
     "version": "v-75d63061fc7d7395"
@@ -35641,7 +35643,7 @@
     "bundle": "d10e05f52d1eb74210a93b25",
     "candidate": "source-000107",
     "dataset": "sdwis-lcr-lead-action-level-next-period",
-    "observed_at": "2026-11-23T10:50:31.172564+00:00",
+    "observed_at": "2026-11-23T11:50:13.842182+00:00",
     "plan_sha256": "5c4e1d475d95b9909d6b850d653f8f23ac39566b3d28f4a007f8e0d92b686d64",
     "status": "complete",
     "version": "v-5917644e4c46057e"
@@ -35650,7 +35652,7 @@
     "bundle": "aa6a43f243713c68b0d35cb4",
     "candidate": "source-000099",
     "dataset": "fra-form54-hazmat-release",
-    "observed_at": "2026-11-23T10:50:37.453987+00:00",
+    "observed_at": "2026-11-23T11:50:19.713208+00:00",
     "plan_sha256": "20a77f8fbc5c6a21f9844d1befc0efcc15eb8a403fc82d8d16088b06356ac404",
     "status": "complete",
     "version": "v-c59d614ee9c4ce97"
@@ -35659,7 +35661,7 @@
     "bundle": "2e22aecc0868a441c362537c",
     "candidate": "source-000100",
     "dataset": "seattle-building-permit-completion",
-    "observed_at": "2026-11-23T10:50:43.541616+00:00",
+    "observed_at": "2026-11-23T11:50:25.423417+00:00",
     "plan_sha256": "091541b8ecd58e8e07653a2e15847f9108b77b26b3d15ffc1dc0cca082b1a101",
     "status": "complete",
     "version": "v-67a46c698fa813cc"
@@ -35668,7 +35670,7 @@
     "bundle": "ef18cc02f31026fc146f25a1",
     "candidate": "source-000096",
     "dataset": "faa-wildlife-strike-substantial-damage",
-    "observed_at": "2026-11-23T10:50:49.937207+00:00",
+    "observed_at": "2026-11-23T11:50:31.707494+00:00",
     "plan_sha256": "62f4c3450ae5c267889e21bccc409e4b8ad2f85327307c6281b9b46090b65939",
     "status": "complete",
     "version": "v-d654c9f4ddfcf60c"
@@ -35677,7 +35679,7 @@
     "bundle": "3ddd5f05944a2e3ef0e94845",
     "candidate": "source-000083",
     "dataset": "wser-effluent-exceedance",
-    "observed_at": "2026-11-23T10:50:56.047854+00:00",
+    "observed_at": "2026-11-23T11:50:37.764366+00:00",
     "plan_sha256": "edd78fa8ffe359c90aedb0d3b07c24a52da0967526cd80a80ea618101b09b9f1",
     "status": "complete",
     "version": "v-3ceae5479cda761c"
@@ -35686,7 +35688,7 @@
     "bundle": "b5fa95c50e2409546408cff8",
     "candidate": "source-000079",
     "dataset": "caa-fce-hpv-escalation",
-    "observed_at": "2026-11-23T10:51:02.255085+00:00",
+    "observed_at": "2026-11-23T11:50:43.554204+00:00",
     "plan_sha256": "f8e4e5f5e545adea1ba12a8ea1694e8d9ad6a77e4b1377f98ad59acd8b0339f3",
     "status": "complete",
     "version": "v-fd86cbb0bc96aaca"
@@ -35695,7 +35697,7 @@
     "bundle": "65eea01262c0af87a0d3e3e5",
     "candidate": "source-000072",
     "dataset": "sbir-phase1-to-phase2-conversion",
-    "observed_at": "2026-11-23T10:51:08.561313+00:00",
+    "observed_at": "2026-11-23T11:50:49.414255+00:00",
     "plan_sha256": "2319b30597850cff16acde54798c0da78f2e745173811e50c38e6a19b1446581",
     "status": "complete",
     "version": "v-0d2e623e604ecf78"
@@ -35704,7 +35706,7 @@
     "bundle": "b7089854fc5f1a64ee2c193d",
     "candidate": "source-000068",
     "dataset": "t100-new-route-survival",
-    "observed_at": "2026-11-23T10:51:14.602272+00:00",
+    "observed_at": "2026-11-23T11:50:55.191433+00:00",
     "plan_sha256": "1322a94c19e3f0a4429bb5a62163a1b844a6293f3b75de1057f1daeea35b62ec",
     "status": "complete",
     "version": "v-d32decf32c315be4"
@@ -35713,7 +35715,7 @@
     "bundle": "f04b3ab5e15416612113d2b3",
     "candidate": "source-000064",
     "dataset": "fda-510k-five-year-recall",
-    "observed_at": "2026-11-23T10:51:20.719337+00:00",
+    "observed_at": "2026-11-23T11:51:01.299029+00:00",
     "plan_sha256": "9e8aa019f25b2ef22940a67264e2731f2a091f3df555b22eac452450f31f9179",
     "status": "complete",
     "version": "v-68e59a5ac91ad404"
@@ -35722,7 +35724,7 @@
     "bundle": "d048da314724175dbae591e1",
     "candidate": "source-000055",
     "dataset": "phmsa-pipeline-penalty-reduction",
-    "observed_at": "2026-11-23T10:51:27.078342+00:00",
+    "observed_at": "2026-11-23T11:51:07.525647+00:00",
     "plan_sha256": "45cb9be15360c140ea105ab5e37da7a19b69ff2eb452c2e383707e8c836bbc67",
     "status": "complete",
     "version": "v-bbc08f68dbbd24b5"
@@ -35731,7 +35733,7 @@
     "bundle": "f175afd3bd06f87831ea4b1f",
     "candidate": "source-000053",
     "dataset": "eia861-reliability-deterioration",
-    "observed_at": "2026-11-23T10:51:33.351369+00:00",
+    "observed_at": "2026-11-23T11:51:13.338482+00:00",
     "plan_sha256": "9e1c126c48a44cb7169cad510d1a25bef9f7c26587268e879d7bcdc0d2444a80",
     "status": "complete",
     "version": "v-498e55482c3ed94b"
@@ -35740,7 +35742,7 @@
     "bundle": "dd8c337603c2079724163025",
     "candidate": "source-000048",
     "dataset": "fjc-civil-trial-36m",
-    "observed_at": "2026-11-23T10:51:39.353768+00:00",
+    "observed_at": "2026-11-23T11:51:19.164794+00:00",
     "plan_sha256": "a417c495c8e0b446593efed71268d8d474b1e8e42ab379059f27b8e4e5b4e0f4",
     "status": "complete",
     "version": "v-86c6129e8102da78"
@@ -35749,7 +35751,7 @@
     "bundle": "a82045f66d0b4ac89b1d1a8f",
     "candidate": "source-000039",
     "dataset": "lust-release-longterm-status",
-    "observed_at": "2026-11-23T10:51:45.702925+00:00",
+    "observed_at": "2026-11-23T11:51:25.442051+00:00",
     "plan_sha256": "4dbb7ba48081b0c062e43bdaed53d3d225fa1241fbfaaf1c0986c4c5270e7caf",
     "status": "complete",
     "version": "v-ce3ea7150377f6a6"
@@ -35758,7 +35760,7 @@
     "bundle": "d33b55967abdaddb84894f91",
     "candidate": "source-000036",
     "dataset": "charity-register-five-year-exit",
-    "observed_at": "2026-11-23T10:51:51.574076+00:00",
+    "observed_at": "2026-11-23T11:51:31.246242+00:00",
     "plan_sha256": "1ad2ed28fdca8f1a1855c7a6ea8dfe8e1b16975ea25cbf9efeeffe477fb1c465",
     "status": "complete",
     "version": "v-6e90da65ff14dfeb"
@@ -35767,7 +35769,7 @@
     "bundle": "806f6700153989ee79a9f7e9",
     "candidate": "source-000013",
     "dataset": "ucmr5-first-sample-pfas",
-    "observed_at": "2026-11-23T10:51:58.113579+00:00",
+    "observed_at": "2026-11-23T11:51:39.234747+00:00",
     "plan_sha256": "bd5a8cec7ba05247d49a4cebcee7854e6df04d9cab0d10101df353c6edebd066",
     "status": "complete",
     "version": "v-4a630108a6e75a6b"
@@ -35776,7 +35778,7 @@
     "bundle": "deabe31adbe25e1077f7e265",
     "candidate": "source-000018",
     "dataset": "cfpb-bank-account-monetary-relief",
-    "observed_at": "2026-11-23T10:52:04.195535+00:00",
+    "observed_at": "2026-11-23T11:51:45.065226+00:00",
     "plan_sha256": "f98790f4e560a3434e1200df39f5bcde386f7f3b6eb73b77ac001f6831b5f0d5",
     "status": "complete",
     "version": "v-fa7df05b0fd096d9"
@@ -35785,7 +35787,7 @@
     "bundle": "09ed4ea2b976cb86b65434d2",
     "candidate": "source-000020",
     "dataset": "nhtsa-pe-recall",
-    "observed_at": "2026-11-23T10:52:10.513714+00:00",
+    "observed_at": "2026-11-23T11:51:51.164877+00:00",
     "plan_sha256": "54691a14461a2423c77ba27b4533227d1083d95872d24e578628c7347ceeb088",
     "status": "complete",
     "version": "v-76d064ad7e164c41"
@@ -35794,7 +35796,7 @@
     "bundle": "8c565caf3073c8f556b7e49b",
     "candidate": "source-000024",
     "dataset": "fdic-bank-branch-closure",
-    "observed_at": "2026-11-23T10:52:16.534327+00:00",
+    "observed_at": "2026-11-23T11:51:57.490036+00:00",
     "plan_sha256": "dbda01cbedd3e22d0ba725abae347a0ff7b4a422b5d6195cee2f1522a760c0e8",
     "status": "complete",
     "version": "v-94c52a9299cf0424"
@@ -35803,7 +35805,7 @@
     "bundle": "3adfb5e92ebc3912dc92da06",
     "candidate": "source-000028",
     "dataset": "nih-r01-competing-renewal",
-    "observed_at": "2026-11-23T10:52:22.491579+00:00",
+    "observed_at": "2026-11-23T11:52:03.586810+00:00",
     "plan_sha256": "12ba6ae878687c5728bcd8f337f3864677eeb5dc85ab64af3b9ad1c1adebd8e7",
     "status": "complete",
     "version": "v-a00c2ae77f5ae167"
